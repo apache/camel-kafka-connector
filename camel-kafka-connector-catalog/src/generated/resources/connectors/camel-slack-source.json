@@ -15,6 +15,12 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.source.endpoint.token": {
+			"name": "camel.source.endpoint.token",
+			"description": "The token to use",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -22,10 +28,30 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.conversationType": {
+			"name": "camel.source.endpoint.conversationType",
+			"description": "Type of conversation One of: [PUBLIC_CHANNEL] [PRIVATE_CHANNEL] [MPIM] [IM]",
+			"defaultValue": "\"PUBLIC_CHANNEL\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"PUBLIC_CHANNEL",
+				"PRIVATE_CHANNEL",
+				"MPIM",
+				"IM"
+			]
+		},
 		"camel.source.endpoint.maxResults": {
 			"name": "camel.source.endpoint.maxResults",
 			"description": "The Max Result for the poll",
 			"defaultValue": "\"10\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.naturalOrder": {
+			"name": "camel.source.endpoint.naturalOrder",
+			"description": "Create exchanges in natural order (oldest to newest) or not",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -40,12 +66,6 @@
 			"name": "camel.source.endpoint.serverUrl",
 			"description": "The Server URL of the Slack instance",
 			"defaultValue": "\"https:\/\/slack.com\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.token": {
-			"name": "camel.source.endpoint.token",
-			"description": "The token to use",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -193,6 +213,12 @@
 			"name": "camel.component.slack.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.slack.token": {
+			"name": "camel.component.slack.token",
+			"description": "The token to use",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.resteasy.CamelResteasySinkConnec
 ----
 
 
-The camel-resteasy sink connector supports 32 options, which are listed below.
+The camel-resteasy sink connector supports 44 options, which are listed below.
 
 
 
@@ -38,7 +38,7 @@ The camel-resteasy sink connector supports 32 options, which are listed below.
 | *camel.sink.endpoint.servletName* | Sets the servlet name | null | false | MEDIUM
 | *camel.sink.endpoint.transferException* | If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
 | *camel.sink.endpoint.bridgeEndpoint* | If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request. You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back. | false | false | MEDIUM
-| *camel.sink.endpoint.clearExpiredCookies* | Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. | true | false | MEDIUM
+| *camel.sink.endpoint.clearExpiredCookies* | Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too. | true | false | MEDIUM
 | *camel.sink.endpoint.connectionClose* | Specifies whether a Connection Close header must be added to HTTP Request. By default connectionClose is false. | false | false | MEDIUM
 | *camel.sink.endpoint.copyHeaders* | If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers). | true | false | MEDIUM
 | *camel.sink.endpoint.customHostHeader* | To use custom host header for producer. When not set in query will be ignored. When set will override host header derived from url. | null | false | MEDIUM
@@ -51,6 +51,8 @@ The camel-resteasy sink connector supports 32 options, which are listed below.
 | *camel.sink.endpoint.deleteWithBody* | Whether the HTTP DELETE should include the message body or not. By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the message body. | false | false | MEDIUM
 | *camel.sink.endpoint.getWithBody* | Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body. | false | false | MEDIUM
 | *camel.sink.endpoint.okStatusCodeRange* | The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included. | "200-299" | false | MEDIUM
+| *camel.sink.endpoint.skipRequestHeaders* | Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
+| *camel.sink.endpoint.skipResponseHeaders* | Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 | *camel.sink.endpoint.setHttpResponseDuring Processing* | Sets the flag to use the endpoint where you can either populate camel exchange from servlet response or use request itself which may be thought as if it is a proxy. | null | false | MEDIUM
 | *camel.sink.endpoint.skipServletProcessing* | Sets the flag to use skip servlet processing and let camel take over processing | null | false | MEDIUM
@@ -58,10 +60,20 @@ The camel-resteasy sink connector supports 32 options, which are listed below.
 | *camel.sink.endpoint.proxyClientClass* | Sets the resteasy proxyClientClass | null | false | MEDIUM
 | *camel.sink.endpoint.password* | Sets the password | null | false | MEDIUM
 | *camel.sink.endpoint.username* | Sets the username | null | false | MEDIUM
+| *camel.component.resteasy.copyHeaders* | If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers). | true | false | MEDIUM
 | *camel.component.resteasy.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.resteasy.responsePayloadStreaming Threshold* | This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode. | 8192 | false | MEDIUM
+| *camel.component.resteasy.skipRequestHeaders* | Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
+| *camel.component.resteasy.skipResponseHeaders* | Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
 | *camel.component.resteasy.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
+| *camel.component.resteasy.authCachingDisabled* | Disables authentication scheme caching | false | false | MEDIUM
+| *camel.component.resteasy.automaticRetriesDisabled* | Disables automatic request recovery and re-execution | false | false | MEDIUM
 | *camel.component.resteasy.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.resteasy.connectionStateDisabled* | Disables connection state tracking | false | false | MEDIUM
+| *camel.component.resteasy.contentCompression Disabled* | Disables automatic content decompression | false | false | MEDIUM
+| *camel.component.resteasy.cookieManagementDisabled* | Disables state (cookie) management | false | false | MEDIUM
+| *camel.component.resteasy.defaultUserAgentDisabled* | Disables the default user agent set by this builder if none has been provided by the user | false | false | MEDIUM
+| *camel.component.resteasy.redirectHandlingDisabled* | Disables automatic redirect handling | false | false | MEDIUM
 | *camel.component.resteasy.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 |===
 

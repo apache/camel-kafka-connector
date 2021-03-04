@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2sqs.CamelAws2sqsSinkConnecto
 ----
 
 
-The camel-aws2-sqs sink connector supports 56 options, which are listed below.
+The camel-aws2-sqs sink connector supports 60 options, which are listed below.
 
 
 
@@ -36,11 +36,13 @@ The camel-aws2-sqs sink connector supports 56 options, which are listed below.
 | *camel.sink.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
 | *camel.sink.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | false | MEDIUM
+| *camel.sink.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.sink.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.sink.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.sink.endpoint.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.sink.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.sink.endpoint.useDefaultCredentialsProvider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.sink.endpoint.batchSeparator* | Set the separator when passing a String to send batch message operation | "," | false | MEDIUM
 | *camel.sink.endpoint.delaySeconds* | Delay sending messages for a number of seconds. | null | false | MEDIUM
@@ -63,11 +65,13 @@ The camel-aws2-sqs sink connector supports 56 options, which are listed below.
 | *camel.component.aws2-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
 | *camel.component.aws2-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
 | *camel.component.aws2-sqs.configuration* | The AWS SQS default configuration | null | false | MEDIUM
+| *camel.component.aws2-sqs.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
 | *camel.component.aws2-sqs.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.component.aws2-sqs.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.component.aws2-sqs.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-sqs.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.component.aws2-sqs.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.component.aws2-sqs.useDefaultCredentials Provider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-sqs.batchSeparator* | Set the separator when passing a String to send batch message operation | "," | false | MEDIUM
 | *camel.component.aws2-sqs.delaySeconds* | Delay sending messages for a number of seconds. | null | false | MEDIUM

@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.resteasy.CamelResteasySourceConn
 ----
 
 
-The camel-resteasy source connector supports 32 options, which are listed below.
+The camel-resteasy source connector supports 39 options, which are listed below.
 
 
 
@@ -61,7 +61,14 @@ The camel-resteasy source connector supports 32 options, which are listed below.
 | *camel.component.resteasy.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.resteasy.proxyConsumersClasses* | Proxy classes for consumer endpoints. Multiple classes can be separated by comma. | null | false | MEDIUM
 | *camel.component.resteasy.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
+| *camel.component.resteasy.authCachingDisabled* | Disables authentication scheme caching | false | false | MEDIUM
+| *camel.component.resteasy.automaticRetriesDisabled* | Disables automatic request recovery and re-execution | false | false | MEDIUM
 | *camel.component.resteasy.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.resteasy.connectionStateDisabled* | Disables connection state tracking | false | false | MEDIUM
+| *camel.component.resteasy.contentCompression Disabled* | Disables automatic content decompression | false | false | MEDIUM
+| *camel.component.resteasy.cookieManagementDisabled* | Disables state (cookie) management | false | false | MEDIUM
+| *camel.component.resteasy.defaultUserAgentDisabled* | Disables the default user agent set by this builder if none has been provided by the user | false | false | MEDIUM
+| *camel.component.resteasy.redirectHandlingDisabled* | Disables automatic redirect handling | false | false | MEDIUM
 | *camel.component.resteasy.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 |===
 

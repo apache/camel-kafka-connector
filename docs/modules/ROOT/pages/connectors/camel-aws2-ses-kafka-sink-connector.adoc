@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2ses.CamelAws2sesSinkConnecto
 ----
 
 
-The camel-aws2-ses sink connector supports 29 options, which are listed below.
+The camel-aws2-ses sink connector supports 33 options, which are listed below.
 
 
 
@@ -34,6 +34,7 @@ The camel-aws2-ses sink connector supports 29 options, which are listed below.
 | *camel.sink.path.from* | The sender's email address. | null | true | HIGH
 | *camel.sink.endpoint.amazonSESClient* | To use the AmazonSimpleEmailService as the client | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the SES client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the SES client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SES client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
@@ -43,11 +44,13 @@ The camel-aws2-ses sink connector supports 29 options, which are listed below.
 | *camel.sink.endpoint.subject* | The subject which is used if the message header 'CamelAwsSesSubject' is not present. | null | false | MEDIUM
 | *camel.sink.endpoint.to* | List of destination email address. Can be overriden with 'CamelAwsSesTo' header. | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.sink.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-ses.amazonSESClient* | To use the AmazonSimpleEmailService as the client | null | false | MEDIUM
 | *camel.component.aws2-ses.configuration* | component configuration | null | false | MEDIUM
 | *camel.component.aws2-ses.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.aws2-ses.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-ses.proxyHost* | To define a proxy host when instantiating the SES client | null | false | MEDIUM
 | *camel.component.aws2-ses.proxyPort* | To define a proxy port when instantiating the SES client | null | false | MEDIUM
 | *camel.component.aws2-ses.proxyProtocol* | To define a proxy protocol when instantiating the SES client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
@@ -57,6 +60,7 @@ The camel-aws2-ses sink connector supports 29 options, which are listed below.
 | *camel.component.aws2-ses.subject* | The subject which is used if the message header 'CamelAwsSesSubject' is not present. | null | false | MEDIUM
 | *camel.component.aws2-ses.to* | List of destination email address. Can be overriden with 'CamelAwsSesTo' header. | null | false | MEDIUM
 | *camel.component.aws2-ses.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.component.aws2-ses.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.component.aws2-ses.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-ses.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws2-ses.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM

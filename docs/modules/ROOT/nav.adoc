@@ -70,9 +70,6 @@
 ** camel-avro-kafka-connector
 *** xref:connectors/camel-avro-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-avro-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-swf-kafka-connector
-*** xref:connectors/camel-aws-swf-kafka-source-connector.adoc[Source Docs]
-*** xref:connectors/camel-aws-swf-kafka-sink-connector.adoc[Sink Docs]
 ** camel-aws2-athena-kafka-connector
 *** xref:connectors/camel-aws2-athena-kafka-sink-connector.adoc[Sink Docs]
 ** camel-aws2-cw-kafka-connector

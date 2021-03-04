@@ -75,6 +75,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.overrideEndpoint": {
+			"name": "camel.sink.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.policy": {
 			"name": "camel.sink.endpoint.policy",
 			"description": "The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
@@ -140,6 +147,12 @@
 			"name": "camel.sink.endpoint.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.uriEndpointOverride": {
+			"name": "camel.sink.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -222,6 +235,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-sns.overrideEndpoint": {
+			"name": "camel.component.aws2-sns.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-sns.policy": {
 			"name": "camel.component.aws2-sns.policy",
 			"description": "The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
@@ -287,6 +307,12 @@
 			"name": "camel.component.aws2-sns.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sns.uriEndpointOverride": {
+			"name": "camel.component.aws2-sns.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

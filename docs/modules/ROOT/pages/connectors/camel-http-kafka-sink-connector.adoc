@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.http.CamelHttpSinkConnector
 ----
 
 
-The camel-http sink connector supports 76 options, which are listed below.
+The camel-http sink connector supports 88 options, which are listed below.
 
 
 
@@ -37,7 +37,7 @@ The camel-http sink connector supports 76 options, which are listed below.
 | *camel.sink.endpoint.httpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | false | MEDIUM
 | *camel.sink.endpoint.bridgeEndpoint* | If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request. You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back. | false | false | MEDIUM
 | *camel.sink.endpoint.chunked* | If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response | true | false | MEDIUM
-| *camel.sink.endpoint.clearExpiredCookies* | Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. | true | false | MEDIUM
+| *camel.sink.endpoint.clearExpiredCookies* | Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too. | true | false | MEDIUM
 | *camel.sink.endpoint.connectionClose* | Specifies whether a Connection Close header must be added to HTTP Request. By default connectionClose is false. | false | false | MEDIUM
 | *camel.sink.endpoint.copyHeaders* | If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers). | true | false | MEDIUM
 | *camel.sink.endpoint.customHostHeader* | To use custom host header for producer. When not set in query will be ignored. When set will override host header derived from url. | null | false | MEDIUM
@@ -52,6 +52,8 @@ The camel-http sink connector supports 76 options, which are listed below.
 | *camel.sink.endpoint.deleteWithBody* | Whether the HTTP DELETE should include the message body or not. By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the message body. | false | false | MEDIUM
 | *camel.sink.endpoint.getWithBody* | Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body. | false | false | MEDIUM
 | *camel.sink.endpoint.okStatusCodeRange* | The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included. | "200-299" | false | MEDIUM
+| *camel.sink.endpoint.skipRequestHeaders* | Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
+| *camel.sink.endpoint.skipResponseHeaders* | Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
 | *camel.sink.endpoint.clientBuilder* | Provide access to the http client request parameters used on new RequestConfig instances used by producers or consumers of this endpoint. | null | false | MEDIUM
 | *camel.sink.endpoint.clientConnectionManager* | To use a custom HttpClientConnectionManager to manage connections | null | false | MEDIUM
 | *camel.sink.endpoint.connectionsPerRoute* | The maximum number of connections per route. | 20 | false | MEDIUM
@@ -81,18 +83,28 @@ The camel-http sink connector supports 76 options, which are listed below.
 | *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters. Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent. If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need. | null | false | MEDIUM
 | *camel.sink.endpoint.x509HostnameVerifier* | To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier | null | false | MEDIUM
 | *camel.component.http.cookieStore* | To use a custom org.apache.http.client.CookieStore. By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy). | null | false | MEDIUM
+| *camel.component.http.copyHeaders* | If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers). | true | false | MEDIUM
 | *camel.component.http.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.http.responsePayloadStreaming Threshold* | This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode. | 8192 | false | MEDIUM
+| *camel.component.http.skipRequestHeaders* | Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
+| *camel.component.http.skipResponseHeaders* | Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector. | false | false | MEDIUM
 | *camel.component.http.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
+| *camel.component.http.authCachingDisabled* | Disables authentication scheme caching | false | false | MEDIUM
+| *camel.component.http.automaticRetriesDisabled* | Disables automatic request recovery and re-execution | false | false | MEDIUM
 | *camel.component.http.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.http.clientConnectionManager* | To use a custom and shared HttpClientConnectionManager to manage connections. If this has been configured then this is always used for all endpoints created by this component. | null | false | MEDIUM
 | *camel.component.http.connectionsPerRoute* | The maximum number of connections per route. | 20 | false | MEDIUM
+| *camel.component.http.connectionStateDisabled* | Disables connection state tracking | false | false | MEDIUM
 | *camel.component.http.connectionTimeToLive* | The time for connection to live, the time unit is millisecond, the default value is always keep alive. | null | false | MEDIUM
+| *camel.component.http.contentCompressionDisabled* | Disables automatic content decompression | false | false | MEDIUM
+| *camel.component.http.cookieManagementDisabled* | Disables state (cookie) management | false | false | MEDIUM
+| *camel.component.http.defaultUserAgentDisabled* | Disables the default user agent set by this builder if none has been provided by the user | false | false | MEDIUM
 | *camel.component.http.httpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | false | MEDIUM
 | *camel.component.http.httpClientConfigurer* | To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used. | null | false | MEDIUM
 | *camel.component.http.httpConfiguration* | To use the shared HttpConfiguration as base configuration. | null | false | MEDIUM
 | *camel.component.http.httpContext* | To use a custom org.apache.http.protocol.HttpContext when executing requests. | null | false | MEDIUM
 | *camel.component.http.maxTotalConnections* | The maximum number of connections. | 200 | false | MEDIUM
+| *camel.component.http.redirectHandlingDisabled* | Disables automatic redirect handling | false | false | MEDIUM
 | *camel.component.http.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 | *camel.component.http.proxyAuthDomain* | Proxy authentication domain to use | null | false | MEDIUM
 | *camel.component.http.proxyAuthHost* | Proxy authentication host | null | false | MEDIUM

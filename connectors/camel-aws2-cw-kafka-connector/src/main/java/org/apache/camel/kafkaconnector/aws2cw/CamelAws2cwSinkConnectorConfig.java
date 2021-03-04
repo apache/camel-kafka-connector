@@ -36,6 +36,9 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_NAME_CONF = "camel.sink.endpoint.name";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_NAME_DOC = "The metric name";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_NAME_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_OVERRIDE_ENDPOINT_CONF = "camel.sink.endpoint.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2CW_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_HOST_CONF = "camel.sink.endpoint.proxyHost";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the CW client";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -57,6 +60,9 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_CONF = "camel.sink.endpoint.unit";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_DOC = "The metric unit";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF = "camel.sink.endpoint.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_CONF = "camel.sink.endpoint.value";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DOC = "The metric value";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DEFAULT = null;
@@ -78,6 +84,9 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_NAME_CONF = "camel.component.aws2-cw.name";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_NAME_DOC = "The metric name";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_NAME_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_OVERRIDE_ENDPOINT_CONF = "camel.component.aws2-cw.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2CW_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_PROXY_HOST_CONF = "camel.component.aws2-cw.proxyHost";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the CW client";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_PROXY_HOST_DEFAULT = null;
@@ -99,6 +108,9 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_UNIT_CONF = "camel.component.aws2-cw.unit";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_UNIT_DOC = "The metric unit";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_UNIT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF = "camel.component.aws2-cw.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_VALUE_CONF = "camel.component.aws2-cw.value";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DOC = "The metric value";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DEFAULT = null;
@@ -128,6 +140,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_AMAZON_CW_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_AMAZON_CW_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_AMAZON_CW_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_NAME_DOC);
+        conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PROTOCOL_DOC);
@@ -135,6 +148,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_TIMESTAMP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_TIMESTAMP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_TIMESTAMP_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_DOC);
+        conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2CW_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2CW_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_SECRET_KEY_DOC);
@@ -142,6 +156,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_NAME_DOC);
+        conf.define(CAMEL_SINK_AWS2CW_COMPONENT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PROTOCOL_DOC);
@@ -149,6 +164,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_TIMESTAMP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_TIMESTAMP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_TIMESTAMP_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_UNIT_DOC);
+        conf.define(CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_VALUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2CW_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_ACCESS_KEY_DOC);

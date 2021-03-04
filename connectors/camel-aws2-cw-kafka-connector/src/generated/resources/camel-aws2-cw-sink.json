@@ -34,6 +34,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.overrideEndpoint": {
+			"name": "camel.sink.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the CW client",
@@ -82,6 +89,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.uriEndpointOverride": {
+			"name": "camel.sink.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
 			"description": "The metric value",
@@ -122,6 +135,13 @@
 		"camel.component.aws2-cw.name": {
 			"name": "camel.component.aws2-cw.name",
 			"description": "The metric name",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-cw.overrideEndpoint": {
+			"name": "camel.component.aws2-cw.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -170,6 +190,12 @@
 		"camel.component.aws2-cw.unit": {
 			"name": "camel.component.aws2-cw.unit",
 			"description": "The metric unit",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-cw.uriEndpointOverride": {
+			"name": "camel.component.aws2-cw.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

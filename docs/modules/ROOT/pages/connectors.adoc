@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 336 
+Number of Camel Kafka connectors: 335 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -27,7 +27,6 @@ Number of Camel Kafka connectors: 336
 | *camel-atomix-set-kafka-connector* | true | true | xref:connectors/camel-atomix-set-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-atomix-set-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-atomix-set-kafka-connector/0.7.2/camel-atomix-set-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-atomix-value-kafka-connector* | true | true | xref:connectors/camel-atomix-value-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-atomix-value-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-atomix-value-kafka-connector/0.7.2/camel-atomix-value-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-avro-kafka-connector* | true | true | xref:connectors/camel-avro-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-avro-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-avro-kafka-connector/0.7.2/camel-avro-kafka-connector-0.7.2-package.tar.gz[Download]
-| *camel-aws-swf-kafka-connector* | true | true | xref:connectors/camel-aws-swf-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-aws-swf-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-aws-swf-kafka-connector/0.7.2/camel-aws-swf-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-aws2-athena-kafka-connector* | true | false | xref:connectors/camel-aws2-athena-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-aws2-athena-kafka-connector/0.7.2/camel-aws2-athena-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-aws2-cw-kafka-connector* | true | false | xref:connectors/camel-aws2-cw-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-aws2-cw-kafka-connector/0.7.2/camel-aws2-cw-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-aws2-ddb-kafka-connector* | true | false | xref:connectors/camel-aws2-ddb-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-aws2-ddb-kafka-connector/0.7.2/camel-aws2-ddb-kafka-connector-0.7.2-package.tar.gz[Download]

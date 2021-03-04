@@ -41,6 +41,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.overrideEndpoint": {
+			"name": "camel.source.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.protocol": {
 			"name": "camel.source.endpoint.protocol",
 			"description": "The underlying protocol used to communicate with SQS",
@@ -75,6 +82,12 @@
 			"name": "camel.source.endpoint.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.uriEndpointOverride": {
+			"name": "camel.source.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -408,6 +421,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-sqs.overrideEndpoint": {
+			"name": "camel.component.aws2-sqs.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-sqs.protocol": {
 			"name": "camel.component.aws2-sqs.protocol",
 			"description": "The underlying protocol used to communicate with SQS",
@@ -442,6 +462,12 @@
 			"name": "camel.component.aws2-sqs.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sqs.uriEndpointOverride": {
+			"name": "camel.component.aws2-sqs.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

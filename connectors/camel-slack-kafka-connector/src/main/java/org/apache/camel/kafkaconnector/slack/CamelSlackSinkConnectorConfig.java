@@ -27,6 +27,9 @@ public class CamelSlackSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SLACK_PATH_CHANNEL_CONF = "camel.sink.path.channel";
     public static final String CAMEL_SINK_SLACK_PATH_CHANNEL_DOC = "The channel name (syntax #name) or slackuser (syntax userName) to send a message directly to an user.";
     public static final String CAMEL_SINK_SLACK_PATH_CHANNEL_DEFAULT = null;
+    public static final String CAMEL_SINK_SLACK_ENDPOINT_TOKEN_CONF = "camel.sink.endpoint.token";
+    public static final String CAMEL_SINK_SLACK_ENDPOINT_TOKEN_DOC = "The token to use";
+    public static final String CAMEL_SINK_SLACK_ENDPOINT_TOKEN_DEFAULT = null;
     public static final String CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_CONF = "camel.sink.endpoint.iconEmoji";
     public static final String CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_DOC = "Use a Slack emoji as an avatar";
     public static final String CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_DEFAULT = null;
@@ -48,6 +51,9 @@ public class CamelSlackSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SLACK_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.slack.autowiredEnabled";
     public static final String CAMEL_SINK_SLACK_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_SLACK_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SINK_SLACK_COMPONENT_TOKEN_CONF = "camel.component.slack.token";
+    public static final String CAMEL_SINK_SLACK_COMPONENT_TOKEN_DOC = "The token to use";
+    public static final String CAMEL_SINK_SLACK_COMPONENT_TOKEN_DEFAULT = null;
     public static final String CAMEL_SINK_SLACK_COMPONENT_WEBHOOK_URL_CONF = "camel.component.slack.webhookUrl";
     public static final String CAMEL_SINK_SLACK_COMPONENT_WEBHOOK_URL_DOC = "The incoming webhook URL";
     public static final String CAMEL_SINK_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT = null;
@@ -65,6 +71,7 @@ public class CamelSlackSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SLACK_PATH_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_PATH_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SLACK_PATH_CHANNEL_DOC);
+        conf.define(CAMEL_SINK_SLACK_ENDPOINT_TOKEN_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SLACK_ENDPOINT_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_ENDPOINT_TOKEN_DOC);
         conf.define(CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_DOC);
         conf.define(CAMEL_SINK_SLACK_ENDPOINT_ICON_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_ENDPOINT_ICON_URL_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SLACK_ENDPOINT_ICON_URL_DOC);
         conf.define(CAMEL_SINK_SLACK_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SLACK_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_ENDPOINT_LAZY_START_PRODUCER_DOC);
@@ -72,6 +79,7 @@ public class CamelSlackSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SLACK_ENDPOINT_WEBHOOK_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_ENDPOINT_WEBHOOK_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_ENDPOINT_WEBHOOK_URL_DOC);
         conf.define(CAMEL_SINK_SLACK_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SLACK_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_SLACK_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SLACK_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SINK_SLACK_COMPONENT_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_COMPONENT_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_COMPONENT_TOKEN_DOC);
         conf.define(CAMEL_SINK_SLACK_COMPONENT_WEBHOOK_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_COMPONENT_WEBHOOK_URL_DOC);
         return conf;
     }

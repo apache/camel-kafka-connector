@@ -29,21 +29,27 @@ public class CamelSlackSourceConnectorConfig
     public static final String CAMEL_SOURCE_SLACK_PATH_CHANNEL_CONF = "camel.source.path.channel";
     public static final String CAMEL_SOURCE_SLACK_PATH_CHANNEL_DOC = "The channel name (syntax #name) or slackuser (syntax userName) to send a message directly to an user.";
     public static final String CAMEL_SOURCE_SLACK_PATH_CHANNEL_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_CONF = "camel.source.endpoint.token";
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DOC = "The token to use";
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SLACK_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_CONVERSATION_TYPE_CONF = "camel.source.endpoint.conversationType";
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_CONVERSATION_TYPE_DOC = "Type of conversation One of: [PUBLIC_CHANNEL] [PRIVATE_CHANNEL] [MPIM] [IM]";
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_CONVERSATION_TYPE_DEFAULT = "PUBLIC_CHANNEL";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_MAX_RESULTS_CONF = "camel.source.endpoint.maxResults";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_MAX_RESULTS_DOC = "The Max Result for the poll";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_MAX_RESULTS_DEFAULT = "10";
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_NATURAL_ORDER_CONF = "camel.source.endpoint.naturalOrder";
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_NATURAL_ORDER_DOC = "Create exchanges in natural order (oldest to newest) or not";
+    public static final Boolean CAMEL_SOURCE_SLACK_ENDPOINT_NATURAL_ORDER_DEFAULT = false;
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF = "camel.source.endpoint.sendEmptyMessageWhenIdle";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC = "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.";
     public static final Boolean CAMEL_SOURCE_SLACK_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT = false;
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SERVER_URL_CONF = "camel.source.endpoint.serverUrl";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SERVER_URL_DOC = "The Server URL of the Slack instance";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SERVER_URL_DEFAULT = "https://slack.com";
-    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_CONF = "camel.source.endpoint.token";
-    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DOC = "The token to use";
-    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
@@ -101,6 +107,9 @@ public class CamelSlackSourceConnectorConfig
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.slack.autowiredEnabled";
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_SLACK_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_SLACK_COMPONENT_TOKEN_CONF = "camel.component.slack.token";
+    public static final String CAMEL_SOURCE_SLACK_COMPONENT_TOKEN_DOC = "The token to use";
+    public static final String CAMEL_SOURCE_SLACK_COMPONENT_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_CONF = "camel.component.slack.webhookUrl";
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DOC = "The incoming webhook URL";
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT = null;
@@ -118,11 +127,13 @@ public class CamelSlackSourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SLACK_PATH_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_PATH_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SLACK_PATH_CHANNEL_DOC);
+        conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
+        conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_CONVERSATION_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_ENDPOINT_CONVERSATION_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_CONVERSATION_TYPE_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_MAX_RESULTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_ENDPOINT_MAX_RESULTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_MAX_RESULTS_DOC);
+        conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_NATURAL_ORDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_ENDPOINT_NATURAL_ORDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_NATURAL_ORDER_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_SERVER_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_ENDPOINT_SERVER_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_SERVER_URL_DOC);
-        conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_POLL_STRATEGY_DOC);
@@ -142,6 +153,7 @@ public class CamelSlackSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SLACK_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_SLACK_COMPONENT_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_COMPONENT_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DOC);
         return conf;
     }
