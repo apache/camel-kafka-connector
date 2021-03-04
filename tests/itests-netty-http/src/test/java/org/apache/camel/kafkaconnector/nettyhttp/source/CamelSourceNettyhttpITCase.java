@@ -15,24 +15,30 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.netty.source;
+package org.apache.camel.kafkaconnector.nettyhttp.source;
 
-import java.io.PrintWriter;
-import java.net.Socket;
+import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class CamelSourceNettyITCase extends CamelSourceTestSupport {
+@Disabled("Convert NettyChannelBufferStreamCache from NettyHttpSource not converted to string #969")
+public class CamelSourceNettyhttpITCase extends CamelSourceTestSupport {
     private final String host = NetworkUtils.getHostname();
     private final int port = NetworkUtils.getFreePort();
 
@@ -41,7 +47,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-netty-kafka-connector"};
+        return new String[] {"camel-netty-http-kafka-connector"};
     }
 
     @BeforeEach
@@ -56,11 +62,15 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     }
 
     void sendMessage() {
-        try (Socket s = new Socket(NetworkUtils.getHostname(), port);
-             PrintWriter out = new PrintWriter(s.getOutputStream())) {
-            out.print("Hello CKC!");
-            out.flush();
-        } catch (Exception e) {
+        OkHttpClient client = new OkHttpClient();
+        RequestBody body = RequestBody.create(MediaType.get("text/plain; charset=utf-8"), "Hello CKC!");
+        Request request = new Request.Builder()
+                .url("http://" + host + ":" + port + "/test")
+                .post(body)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            assertEquals(200, response.code(), "Source endpoint didn't return 200");
+        } catch (IOException e) {
             fail(e.getMessage(), e);
         }
     }
@@ -68,7 +78,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     @Override
     protected void verifyMessages(TestMessageConsumer<?> consumer) {
         int received = consumer.consumedMessages().size();
-        Object receivedObject = consumer.consumedMessages().get(0).value();
+        String receivedObject = (String) consumer.consumedMessages().get(0).value();
         assertEquals(expect, received, "Did not receive as many messages as expected");
         assertEquals("Hello CKC!", receivedObject, "Received message content differed");
     }
@@ -76,30 +86,24 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     @Test
     @Timeout(30)
     public void testLaunchConnector() throws ExecutionException, InterruptedException {
-        CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
-                .basic()
+        CamelNettyhttpPropertyFactory connectorPropertyFactory = CamelNettyhttpPropertyFactory.basic()
                 .withKafkaTopic(topicName)
-                .withProtocol("tcp")
-                // TODO https://github.com/apache/camel-kafka-connector/issues/924
-                .withHost("//" + host)
+                .withProtocol("http")
+                .withHost(host)
                 .withPort(port)
-                // one-way as test client doesn't receive response
-                .withSync(false);
+                .withPath("test");
 
-        runTestBlocking(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
 
     @Test
     @Timeout(30)
     public void testLaunchConnectorUsingUrl() throws ExecutionException, InterruptedException {
-        CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
-                .basic()
+        CamelNettyhttpPropertyFactory connectorPropertyFactory = CamelNettyhttpPropertyFactory.basic()
                 .withKafkaTopic(topicName)
-                .withUrl("tcp", host, port)
-                // one-way as test client doesn't receive response
-                .append("sync", "false")
+                .withUrl("http", host, port, "test")
                 .buildUrl();
 
-        runTestBlocking(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
 }

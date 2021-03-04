@@ -64,6 +64,7 @@
         <module>itests-sql</module>
         <module>itests-cxf</module>
         <module>itests-netty</module>
+        <module>itests-netty-http</module>
     </modules>
 
 
