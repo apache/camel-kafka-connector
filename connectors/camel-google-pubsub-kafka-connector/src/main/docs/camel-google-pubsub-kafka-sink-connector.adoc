@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.googlepubsub.CamelGooglepubsubSi
 ----
 
 
-The camel-google-pubsub sink connector supports 17 options, which are listed below.
+The camel-google-pubsub sink connector supports 18 options, which are listed below.
 
 
 
@@ -37,6 +37,7 @@ The camel-google-pubsub sink connector supports 17 options, which are listed bel
 | *camel.sink.endpoint.concurrentConsumers* | The number of parallel streams consuming from the subscription | "1" | false | MEDIUM
 | *camel.sink.endpoint.loggerId* | Logger ID to use when a match to the parent route required | null | false | MEDIUM
 | *camel.sink.endpoint.maxMessagesPerPoll* | The max number of messages to receive from the server in a single API call | "1" | false | MEDIUM
+| *camel.sink.endpoint.serviceAccountKey* | The Service account key that can be used as credentials for the PubSub publisher/subscriber. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.sink.endpoint.synchronousPull* | Synchronously pull batches of messages | false | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.messageOrderingEnabled* | Should message ordering be enabled | false | false | MEDIUM

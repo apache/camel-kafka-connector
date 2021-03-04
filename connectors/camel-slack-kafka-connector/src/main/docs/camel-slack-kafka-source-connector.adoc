@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.slack.CamelSlackSourceConnector
 ----
 
 
-The camel-slack source connector supports 26 options, which are listed below.
+The camel-slack source connector supports 29 options, which are listed below.
 
 
 
@@ -32,11 +32,13 @@ The camel-slack source connector supports 26 options, which are listed below.
 |===
 | Name | Description | Default | Required | Priority
 | *camel.source.path.channel* | The channel name (syntax #name) or slackuser (syntax userName) to send a message directly to an user. | null | true | HIGH
+| *camel.source.endpoint.token* | The token to use | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.conversationType* | Type of conversation One of: [PUBLIC_CHANNEL] [PRIVATE_CHANNEL] [MPIM] [IM] | "PUBLIC_CHANNEL" | false | MEDIUM
 | *camel.source.endpoint.maxResults* | The Max Result for the poll | "10" | false | MEDIUM
+| *camel.source.endpoint.naturalOrder* | Create exchanges in natural order (oldest to newest) or not | false | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
 | *camel.source.endpoint.serverUrl* | The Server URL of the Slack instance | "https://slack.com" | false | MEDIUM
-| *camel.source.endpoint.token* | The token to use | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
@@ -56,6 +58,7 @@ The camel-slack source connector supports 26 options, which are listed below.
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
 | *camel.component.slack.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.slack.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.slack.token* | The token to use | null | false | MEDIUM
 | *camel.component.slack.webhookUrl* | The incoming webhook URL | null | false | MEDIUM
 |===
 

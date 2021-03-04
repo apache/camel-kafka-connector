@@ -211,10 +211,59 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.resteasy.authCachingDisabled": {
+			"name": "camel.component.resteasy.authCachingDisabled",
+			"description": "Disables authentication scheme caching",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.automaticRetriesDisabled": {
+			"name": "camel.component.resteasy.automaticRetriesDisabled",
+			"description": "Disables automatic request recovery and re-execution",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.resteasy.autowiredEnabled": {
 			"name": "camel.component.resteasy.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.connectionStateDisabled": {
+			"name": "camel.component.resteasy.connectionStateDisabled",
+			"description": "Disables connection state tracking",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.contentCompressionDisabled": {
+			"name": "camel.component.resteasy.contentCompressionDisabled",
+			"description": "Disables automatic content decompression",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.cookieManagementDisabled": {
+			"name": "camel.component.resteasy.cookieManagementDisabled",
+			"description": "Disables state (cookie) management",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.defaultUserAgentDisabled": {
+			"name": "camel.component.resteasy.defaultUserAgentDisabled",
+			"description": "Disables the default user agent set by this builder if none has been provided by the user",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.redirectHandlingDisabled": {
+			"name": "camel.component.resteasy.redirectHandlingDisabled",
+			"description": "Disables automatic redirect handling",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -33,7 +33,7 @@ The camel-google-storage sink connector supports 19 options, which are listed be
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.bucketName* | Bucket name or ARN | null | true | HIGH
 | *camel.sink.endpoint.autoCreateBucket* | Setting the autocreation of the bucket bucketName. | true | false | MEDIUM
-| *camel.sink.endpoint.serviceAccountKey* | Service account key to authenticate an application as a service account | null | false | MEDIUM
+| *camel.sink.endpoint.serviceAccountKey* | The Service account key that can be used as credentials for the Storage client. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.sink.endpoint.storageClass* | The Cloud Storage class to use when creating the new buckets | "STANDARD" | false | MEDIUM
 | *camel.sink.endpoint.storageClient* | The storage client | null | false | MEDIUM
 | *camel.sink.endpoint.storageLocation* | The Cloud Storage location to use when creating the new buckets | "US-EAST1" | false | MEDIUM
@@ -42,7 +42,7 @@ The camel-google-storage sink connector supports 19 options, which are listed be
 | *camel.sink.endpoint.operation* | Set the operation for the producer One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [createDownloadLink] | null | false | MEDIUM
 | *camel.component.google-storage.autoCreateBucket* | Setting the autocreation of the bucket bucketName. | true | false | MEDIUM
 | *camel.component.google-storage.configuration* | The component configuration | null | false | MEDIUM
-| *camel.component.google-storage.serviceAccountKey* | Service account key to authenticate an application as a service account | null | false | MEDIUM
+| *camel.component.google-storage.serviceAccountKey* | The Service account key that can be used as credentials for the Storage client. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.component.google-storage.storageClass* | The Cloud Storage class to use when creating the new buckets | "STANDARD" | false | MEDIUM
 | *camel.component.google-storage.storageClient* | The storage client | null | false | MEDIUM
 | *camel.component.google-storage.storageLocation* | The Cloud Storage location to use when creating the new buckets | "US-EAST1" | false | MEDIUM
@@ -67,8 +67,4 @@ The camel-google-storage sink connector has no transforms out of the box.
 
 
 The camel-google-storage sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

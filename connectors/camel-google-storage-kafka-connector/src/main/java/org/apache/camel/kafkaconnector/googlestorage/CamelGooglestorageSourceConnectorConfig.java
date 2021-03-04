@@ -33,7 +33,7 @@ public class CamelGooglestorageSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the bucket bucketName.";
     public static final Boolean CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_AUTO_CREATE_BUCKET_DEFAULT = true;
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_SERVICE_ACCOUNT_KEY_CONF = "camel.source.endpoint.serviceAccountKey";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_SERVICE_ACCOUNT_KEY_DOC = "Service account key to authenticate an application as a service account";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_SERVICE_ACCOUNT_KEY_DOC = "The Service account key that can be used as credentials for the Storage client. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_SERVICE_ACCOUNT_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_STORAGE_CLASS_CONF = "camel.source.endpoint.storageClass";
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_ENDPOINT_STORAGE_CLASS_DOC = "The Cloud Storage class to use when creating the new buckets";
@@ -123,7 +123,7 @@ public class CamelGooglestorageSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_SERVICE_ACCOUNT_KEY_CONF = "camel.component.google-storage.serviceAccountKey";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_SERVICE_ACCOUNT_KEY_DOC = "Service account key to authenticate an application as a service account";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_SERVICE_ACCOUNT_KEY_DOC = "The Service account key that can be used as credentials for the Storage client. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_SERVICE_ACCOUNT_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_STORAGE_CLASS_CONF = "camel.component.google-storage.storageClass";
     public static final String CAMEL_SOURCE_GOOGLESTORAGE_COMPONENT_STORAGE_CLASS_DOC = "The Cloud Storage class to use when creating the new buckets";

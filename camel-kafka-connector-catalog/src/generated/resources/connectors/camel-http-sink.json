@@ -50,7 +50,7 @@
 		},
 		"camel.sink.endpoint.clearExpiredCookies": {
 			"name": "camel.sink.endpoint.clearExpiredCookies",
-			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired.",
+			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -156,6 +156,20 @@
 			"name": "camel.sink.endpoint.okStatusCodeRange",
 			"description": "The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included.",
 			"defaultValue": "\"200-299\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.skipRequestHeaders": {
+			"name": "camel.sink.endpoint.skipRequestHeaders",
+			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.skipResponseHeaders": {
+			"name": "camel.sink.endpoint.skipResponseHeaders",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -351,6 +365,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.http.copyHeaders": {
+			"name": "camel.component.http.copyHeaders",
+			"description": "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.http.lazyStartProducer": {
 			"name": "camel.component.http.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
@@ -365,9 +386,37 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.http.skipRequestHeaders": {
+			"name": "camel.component.http.skipRequestHeaders",
+			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.http.skipResponseHeaders": {
+			"name": "camel.component.http.skipResponseHeaders",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.http.allowJavaSerializedObject": {
 			"name": "camel.component.http.allowJavaSerializedObject",
 			"description": "Whether to allow java serialization when a request uses context-type=application\/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.http.authCachingDisabled": {
+			"name": "camel.component.http.authCachingDisabled",
+			"description": "Disables authentication scheme caching",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.http.automaticRetriesDisabled": {
+			"name": "camel.component.http.automaticRetriesDisabled",
+			"description": "Disables automatic request recovery and re-execution",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -392,9 +441,37 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.http.connectionStateDisabled": {
+			"name": "camel.component.http.connectionStateDisabled",
+			"description": "Disables connection state tracking",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.http.connectionTimeToLive": {
 			"name": "camel.component.http.connectionTimeToLive",
 			"description": "The time for connection to live, the time unit is millisecond, the default value is always keep alive.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.http.contentCompressionDisabled": {
+			"name": "camel.component.http.contentCompressionDisabled",
+			"description": "Disables automatic content decompression",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.http.cookieManagementDisabled": {
+			"name": "camel.component.http.cookieManagementDisabled",
+			"description": "Disables state (cookie) management",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.http.defaultUserAgentDisabled": {
+			"name": "camel.component.http.defaultUserAgentDisabled",
+			"description": "Disables the default user agent set by this builder if none has been provided by the user",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -426,6 +503,13 @@
 			"name": "camel.component.http.maxTotalConnections",
 			"description": "The maximum number of connections.",
 			"defaultValue": "200",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.http.redirectHandlingDisabled": {
+			"name": "camel.component.http.redirectHandlingDisabled",
+			"description": "Disables automatic redirect handling",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

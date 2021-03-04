@@ -51,6 +51,9 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_CONF = "camel.sink.endpoint.messageStructure";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_DOC = "The message structure to use such as json";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_OVERRIDE_ENDPOINT_CONF = "camel.sink.endpoint.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_CONF = "camel.sink.endpoint.policy";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_DOC = "The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_DEFAULT = null;
@@ -81,6 +84,9 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF = "camel.sink.endpoint.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.sink.endpoint.useDefaultCredentialsProvider";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
     public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
@@ -114,6 +120,9 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_CONF = "camel.component.aws2-sns.messageStructure";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_DOC = "The message structure to use such as json";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_OVERRIDE_ENDPOINT_CONF = "camel.component.aws2-sns.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_CONF = "camel.component.aws2-sns.policy";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_DOC = "The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_DEFAULT = null;
@@ -144,6 +153,9 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-sns.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF = "camel.component.aws2-sns.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.component.aws2-sns.useDefaultCredentialsProvider";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
     public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
@@ -178,6 +190,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_GROUP_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_GROUP_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_GROUP_ID_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_DOC);
+        conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_PORT_DOC);
@@ -188,6 +201,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
+        conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2SNS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2SNS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_SECRET_KEY_DOC);
@@ -199,6 +213,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_GROUP_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_GROUP_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_GROUP_ID_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_DOC);
+        conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_PORT_DOC);
@@ -209,6 +224,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_SUBSCRIBE_SNSTO_SQSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
+        conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2SNS_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_ACCESS_KEY_DOC);

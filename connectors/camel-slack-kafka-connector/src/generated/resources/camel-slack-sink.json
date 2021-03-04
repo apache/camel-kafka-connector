@@ -15,6 +15,12 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.sink.endpoint.token": {
+			"name": "camel.sink.endpoint.token",
+			"description": "The token to use",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.iconEmoji": {
 			"name": "camel.sink.endpoint.iconEmoji",
 			"description": "Use a Slack emoji as an avatar",
@@ -57,6 +63,12 @@
 			"name": "camel.component.slack.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.slack.token": {
+			"name": "camel.component.slack.token",
+			"description": "The token to use",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
