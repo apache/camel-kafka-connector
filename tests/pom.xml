@@ -64,6 +64,7 @@
         <module>itests-couchbase</module>
         <module>itests-ssh</module>
         <module>itests-sql</module>
+        <module>itests-netty-http</module>
     </modules>
 
 

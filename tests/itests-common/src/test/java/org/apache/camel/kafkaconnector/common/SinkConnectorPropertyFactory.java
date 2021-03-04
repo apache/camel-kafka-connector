@@ -17,17 +17,15 @@
 
 package org.apache.camel.kafkaconnector.common;
 
-public abstract class SinkConnectorPropertyFactory<T extends SinkConnectorPropertyFactory<T>>  extends BasicConnectorPropertyFactory<T> {
+import static org.apache.camel.kafkaconnector.CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF;
+
+public abstract class SinkConnectorPropertyFactory<T extends SinkConnectorPropertyFactory<T>> extends BasicConnectorPropertyFactory<T> {
 
     public T withTopics(String topics) {
-        getProperties().put("topics", topics);
-
-        return (T) this;
+        return setProperty("topics", topics);
     }
 
     public T withSinkUrl(String sinkUrl) {
-        getProperties().put("camel.sink.url", sinkUrl);
-
-        return (T) this;
+        return setProperty(CAMEL_SINK_URL_CONF, sinkUrl);
     }
 }
