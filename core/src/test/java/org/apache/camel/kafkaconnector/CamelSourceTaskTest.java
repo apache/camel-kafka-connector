@@ -16,15 +16,19 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.awt.print.PrinterJob;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.kafkaconnector.utils.StringJoinerAggregator;
@@ -73,6 +77,24 @@ public class CamelSourceTaskTest {
         assertEquals(LoggingLevel.OFF.toString(), sourceTask.getCamelSourceConnectorConfig(props)
             .getString(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF));
 
+        sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingMaxNotCommittedRecords() {
+        final long size = 4;
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_NOT_COMMITTED_RECORDS_CONF, String.valueOf(size));
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+
+        sendBatchOfRecords(sourceTask, size + 1);
+        List<SourceRecord> poll = sourceTask.poll();
+
+        assertEquals(4, poll.size());
         sourceTask.stop();
     }
 
@@ -620,5 +642,33 @@ public class CamelSourceTaskTest {
         assertEquals(LoggingLevel.INFO, sourceTask.getLoggingLevel());
 
         sourceTask.stop();
+    }
+
+    @Test
+    public void testRequestReply() throws InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                final ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
+                String result = template.requestBody(DIRECT_URI, "test", String.class);
+                assertEquals("test", result);
+            }
+        });
+
+        List<SourceRecord> poll = sourceTask.poll();
+        assertEquals(1, poll.size());
+
+        sourceTask.commitRecord(poll.get(0), null);
+
+        sourceTask.stop();
+        executor.shutdown();
     }
 }
