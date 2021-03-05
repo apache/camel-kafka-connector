@@ -26,6 +26,7 @@ import java.util.Scanner;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.LocatedFileStatus;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.fs.RemoteIterator;
@@ -110,8 +111,7 @@ public class HDFSEasy {
         try {
             return countFiles(path) >= minFiles;
         } catch (Exception e) {
-            LOG.warn("I/O exception while checking if file {} exists", path.getName());
-
+            LOG.warn("I/O exception: {} due to {} while checking if file {} exists", e.getMessage(), e.getCause(), path.getName());
             return false;
         }
     }
@@ -132,5 +132,27 @@ public class HDFSEasy {
 
             return false;
         }
+    }
+
+    public boolean createFile(Path filePath, String content) {
+        FSDataOutputStream streamWriter = null;
+        try {
+            streamWriter = dfs.create(filePath);
+            streamWriter.writeBytes(content);
+            streamWriter.flush();
+        } catch (IOException e) {
+            LOG.debug("Error in file creation: " + e.getMessage());
+            return false;
+        } finally {
+            if (streamWriter != null) {
+                try {
+                    streamWriter.close();
+                } catch (IOException e) {
+                    LOG.debug("Error in file creation during stream close: " + e.getMessage());
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
