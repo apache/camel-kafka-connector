@@ -16,10 +16,14 @@
  */
 package org.apache.camel.kafkaconnector.transforms;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.netty.buffer.Unpooled;
+import org.apache.camel.component.netty.http.NettyChannelBufferStreamCache;
 import org.apache.kafka.common.config.ConfigException;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
@@ -60,6 +64,27 @@ public class CamelTypeConverterTransformTest {
 
         assertEquals(true, transformedValueSourceRecord.value());
         assertEquals(Schema.BOOLEAN_SCHEMA, transformedValueSourceRecord.valueSchema());
+    }
+
+    @Test
+    public void testIfItConvertsNettyCorrectly() {
+        final String testMessage = "testMessage";
+        NettyChannelBufferStreamCache nettyTestValue = new NettyChannelBufferStreamCache(Unpooled.wrappedBuffer(testMessage.getBytes(Charset.defaultCharset())));
+
+        final SourceRecord connectRecord = new SourceRecord(Collections.emptyMap(), Collections.emptyMap(), "topic", Schema.STRING_SCHEMA, "1234", Schema.BYTES_SCHEMA, nettyTestValue);
+
+        final Map<String, Object> propsForValueSmt = new HashMap<>();
+        propsForValueSmt.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, "java.lang.String");
+
+        final Transformation<SourceRecord> transformationValue = new CamelTypeConverterTransform.Value<>();
+
+        transformationValue.configure(propsForValueSmt);
+
+        final SourceRecord transformedValueSourceRecord = transformationValue.apply(connectRecord);
+
+        assertEquals(java.lang.String.class, transformedValueSourceRecord.value().getClass());
+        assertEquals(Schema.STRING_SCHEMA, transformedValueSourceRecord.valueSchema());
+        assertEquals(testMessage, transformedValueSourceRecord.value());
     }
 
     @Test
