@@ -33,6 +33,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.runners.model.InitializationError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,15 +59,23 @@ public class CamelSinkHDFSITCase extends AbstractKafkaTest {
 
 
     @BeforeEach
-    public void setUp() throws IOException, URISyntaxException {
+    public void setUp() throws IOException, URISyntaxException, InitializationError {
+        String topicName = TestUtils.getDefaultTestTopic(this.getClass());
         hdfsEasy = new HDFSEasy(hdfsService.getHDFSHost(), hdfsService.getPort());
 
         String currentPath = "/test" + TestUtils.randomWithRange(0, 256) + "/";
         currentBasePath = new Path(currentPath);
 
-        if (!hdfsEasy.delete(currentBasePath)) {
-            // This is OK: directory may not exist on the path
-            LOG.debug("The directory at {} was not removed {}", currentBasePath.getName());
+        boolean hdfsServiceCorrectlyStarted = TestUtils.waitFor(() -> hdfsEasy.createFile(new Path(currentBasePath, "initTest"), "test")
+                                                                        &&  hdfsEasy.delete(new Path(currentBasePath, "initTest")));
+
+        if (hdfsServiceCorrectlyStarted) {
+            if (!hdfsEasy.delete(currentBasePath)) {
+                // This is OK: directory may not exist on the path
+                LOG.debug("The directory at {} was not removed", currentBasePath.getName());
+            }
+        } else {
+            throw new InitializationError("HDFS Service didn't start properly.");
         }
     }
 
@@ -132,7 +141,7 @@ public class CamelSinkHDFSITCase extends AbstractKafkaTest {
 
             LOG.debug("Retrieved file {} with contents: {}", f.getPath(), contents);
             boolean contains = contents.contains(matchString);
-            assertTrue(contains, "Unexpected content for the remote file " + f.getPath().getName());
+            assertTrue(contains, "Unexpected content for the remote file " + f.getPath().getName() + " content: [" + contents + "] should contain [" + matchString + "]");
         } catch (IOException e) {
             LOG.debug("Reading returned file {} failed: {}", f.getPath(), e.getMessage());
             fail("I/O error: " + e.getMessage());
