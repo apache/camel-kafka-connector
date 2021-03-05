@@ -14,10 +14,12 @@
 - ITests don't work when a test class is specified with `-Dtest=...` [\#1062](https://github.com/apache/camel-kafka-connector/issues/1062)
 - The count of transforms, converter and aggregation strategy seems to be broken for docs [\#1057](https://github.com/apache/camel-kafka-connector/issues/1057)
 - Add SMT for GenericFile of Camel-file-kafka-connector [\#1047](https://github.com/apache/camel-kafka-connector/issues/1047)
+- Add itests for camel-kafka-netty\*-connectors [\#1036](https://github.com/apache/camel-kafka-connector/issues/1036)
 - Grab topics using regex and put in S3 by topic name [\#1020](https://github.com/apache/camel-kafka-connector/issues/1020)
 
 **Merged pull requests:**
 
+- Add netty-http itests \#1036 [\#1084](https://github.com/apache/camel-kafka-connector/pull/1084) ([tadayosi](https://github.com/tadayosi))
 - Added Camel-Kafka-connector 0.8.0 to compatibility matrix [\#1081](https://github.com/apache/camel-kafka-connector/pull/1081) ([oscerd](https://github.com/oscerd))
 - Fix Netty tests reliability [\#1079](https://github.com/apache/camel-kafka-connector/pull/1079) ([orpiske](https://github.com/orpiske))
 - Refresh to master fixes that were lying on camel-master \(pt 3\) [\#1076](https://github.com/apache/camel-kafka-connector/pull/1076) ([orpiske](https://github.com/orpiske))
@@ -324,6 +326,7 @@
 - Decouple the Azure clients from the service to simplify using the test infra from Camel [\#704](https://github.com/apache/camel-kafka-connector/pull/704) ([orpiske](https://github.com/orpiske))
 - Review Archetype generation after new dependencies added to core [\#699](https://github.com/apache/camel-kafka-connector/pull/699) ([oscerd](https://github.com/oscerd))
 - Avoid NPE on Windows for Catalog initialization \#697 [\#698](https://github.com/apache/camel-kafka-connector/pull/698) ([apupier](https://github.com/apupier))
+- Added Download page [\#691](https://github.com/apache/camel-kafka-connector/pull/691) ([oscerd](https://github.com/oscerd))
 - SFTP connector: add RemoteFileTransform [\#690](https://github.com/apache/camel-kafka-connector/pull/690) ([oscerd](https://github.com/oscerd))
 - Remove hacktoberfest from label list [\#689](https://github.com/apache/camel-kafka-connector/pull/689) ([oscerd](https://github.com/oscerd))
 - Added PojoToSchemaAndStructTransform to infer POJO kafka connec schem… [\#686](https://github.com/apache/camel-kafka-connector/pull/686) ([valdar](https://github.com/valdar))
@@ -934,6 +937,7 @@
 - Misc [\#133](https://github.com/apache/camel-kafka-connector/pull/133) ([valdar](https://github.com/valdar))
 - Packaging the connectors as zip and tar.gz [\#131](https://github.com/apache/camel-kafka-connector/pull/131) ([oscerd](https://github.com/oscerd))
 - Auto gen [\#129](https://github.com/apache/camel-kafka-connector/pull/129) ([valdar](https://github.com/valdar))
+- Upgrade Testcontainers to version 1.14.0 [\#126](https://github.com/apache/camel-kafka-connector/pull/126) ([oscerd](https://github.com/oscerd))
 - Upgrade Junit Jupiter to version 5.6.2 [\#125](https://github.com/apache/camel-kafka-connector/pull/125) ([oscerd](https://github.com/oscerd))
 - Replaces our own connect runtime implementation with the embedded one from Kafka [\#124](https://github.com/apache/camel-kafka-connector/pull/124) ([orpiske](https://github.com/orpiske))
 - Removed unused class HTTPEchoService [\#123](https://github.com/apache/camel-kafka-connector/pull/123) ([orpiske](https://github.com/orpiske))
