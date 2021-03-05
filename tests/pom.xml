@@ -55,6 +55,7 @@
         <module>itests-salesforce</module>
         <module>itests-hdfs</module>
         <module>itests-mongodb</module>
+        <module>itests-netty-http</module>
         <module>itests-jdbc</module>
         <module>itests-azure-common</module>
         <module>itests-azure-storage-blob</module>
@@ -63,7 +64,7 @@
         <module>itests-rabbitmq</module>
         <module>itests-couchbase</module>
         <module>itests-ssh</module>
-        <module>itests-sql</module>
+g        <module>itests-sql</module>
         <module>itests-netty-http</module>
     </modules>
 
