@@ -16,6 +16,29 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.ExtendedExchange;
+import org.apache.camel.LoggingLevel;
+import org.apache.camel.PollingConsumer;
+import org.apache.camel.StreamCache;
+import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
+import org.apache.camel.kafkaconnector.utils.SchemaHelper;
+import org.apache.camel.kafkaconnector.utils.TaskHelper;
+import org.apache.camel.support.UnitOfWorkHelper;
+import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.connect.data.Decimal;
+import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.errors.ConnectException;
+import org.apache.kafka.connect.source.SourceRecord;
+import org.apache.kafka.connect.source.SourceTask;
+import org.jctools.queues.MessagePassingQueue;
+import org.jctools.queues.SpscArrayQueue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -23,22 +46,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.LoggingLevel;
-import org.apache.camel.PollingConsumer;
-import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
-import org.apache.camel.kafkaconnector.utils.SchemaHelper;
-import org.apache.camel.kafkaconnector.utils.TaskHelper;
-import org.apache.kafka.connect.data.Decimal;
-import org.apache.kafka.connect.data.Schema;
-import org.apache.kafka.connect.errors.ConnectException;
-import org.apache.kafka.connect.source.SourceRecord;
-import org.apache.kafka.connect.source.SourceTask;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class CamelSourceTask extends SourceTask {
     public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
@@ -49,15 +56,21 @@ public class CamelSourceTask extends SourceTask {
     private static final String CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX = "camel.source.endpoint.";
     private static final String CAMEL_SOURCE_PATH_PROPERTIES_PREFIX = "camel.source.path.";
 
-    private static final String LOCAL_URL = "direct:end";
+    private static final String LOCAL_URL = "seda:end";
 
     private CamelKafkaConnectMain cms;
     private PollingConsumer consumer;
     private String[] topics;
     private Long maxBatchPollSize;
     private Long maxPollDuration;
+    private Integer maxNotCommittedRecords;
     private String camelMessageHeaderKey;
     private LoggingLevel loggingLevel = LoggingLevel.OFF;
+    private Exchange[] exchangesWaitingForAck;
+    //the assumption is that at most 1 thread is running poll() method and at most 1 thread is running commitRecord()
+    private SpscArrayQueue<Integer> freeSlots;
+    private boolean mapProperties;
+    private boolean mapHeaders;
 
     @Override
     public String version() {
@@ -80,6 +93,7 @@ public class CamelSourceTask extends SourceTask {
 
             maxBatchPollSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF);
             maxPollDuration = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_POLL_DURATION_CONF);
+            maxNotCommittedRecords = config.getInt(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_NOT_COMMITTED_RECORDS_CONF);
 
             camelMessageHeaderKey = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF);
 
@@ -101,10 +115,26 @@ public class CamelSourceTask extends SourceTask {
             final int idempotentRepositoryKafkaMaxCacheSize = config.getInt(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_MAX_CACHE_SIZE_CONF);
             final int idempotentRepositoryKafkaPollDuration = config.getInt(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_CONF);
             final String headersRemovePattern = config.getString(CamelSourceConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
-            
+            mapProperties = config.getBoolean(CamelSourceConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
+            mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
+
             topics = config.getString(CamelSourceConnectorConfig.TOPIC_CONF).split(",");
 
-            String localUrl = getLocalUrlWithPollingOptions(config);
+            long pollingConsumerQueueSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_CONF);
+            long pollingConsumerBlockTimeout = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_CONF);
+            boolean pollingConsumerBlockWhenFull = config.getBoolean(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_CONF);
+            String localUrl = getLocalUrlWithPollingOptions(pollingConsumerQueueSize, pollingConsumerBlockTimeout, pollingConsumerBlockWhenFull);
+
+            freeSlots = new SpscArrayQueue<>(maxNotCommittedRecords);
+            freeSlots.fill(new MessagePassingQueue.Supplier<Integer>() {
+                int i = 0;
+                @Override
+                public Integer get() {
+                    return i++;
+                }
+            });
+            //needs to be done like this because freeSlots capacity is rounded to the next power of 2 of maxNotCommittedRecords
+            exchangesWaitingForAck = new Exchange[freeSlots.capacity()];
 
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
@@ -152,13 +182,14 @@ public class CamelSourceTask extends SourceTask {
 
     @Override
     public synchronized List<SourceRecord> poll() {
+        LOG.debug("Number of records waiting an ack: {}", freeSlots.capacity() - freeSlots.size());
         final long startPollEpochMilli = Instant.now().toEpochMilli();
 
         long remaining = remaining(startPollEpochMilli, maxPollDuration);
         long collectedRecords = 0L;
 
         List<SourceRecord> records = new ArrayList<>();
-        while (collectedRecords < maxBatchPollSize && remaining > 0) {
+        while (collectedRecords < maxBatchPollSize && freeSlots.size() >= topics.length && remaining > 0) {
             Exchange exchange = consumer.receive(remaining);
             if (exchange == null) {
                 // Nothing received, abort and return what we received so far
@@ -174,32 +205,64 @@ public class CamelSourceTask extends SourceTask {
             Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
 
             final Object messageHeaderKey = camelMessageHeaderKey != null ? exchange.getMessage().getHeader(camelMessageHeaderKey) : null;
-            final Object messageBodyValue = exchange.getMessage().getBody();
+            Object messageBodyValue = exchange.getMessage().getBody();
 
             final Schema messageKeySchema = messageHeaderKey != null ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey) : null;
             final Schema messageBodySchema = messageBodyValue != null ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue) : null;
 
             final long timestamp = calculateTimestamp(exchange);
 
+            // take in account Cached camel streams
+            if (messageBodyValue instanceof StreamCache) {
+                StreamCache sc = (StreamCache) messageBodyValue;
+                // reset to be sure that the cache is ready to be used before sending it in the record (could be useful for SMTs)
+                sc.reset();
+                try {
+                    messageBodyValue = sc.copy(exchange);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             for (String singleTopic : topics) {
-                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, singleTopic, null, messageKeySchema,
+                CamelSourceRecord camelRecord = new CamelSourceRecord(sourcePartition, sourceOffset, singleTopic, null, messageKeySchema,
                         messageHeaderKey, messageBodySchema, messageBodyValue, timestamp);
 
-                if (exchange.getMessage().hasHeaders()) {
-                    setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
+                if (mapHeaders) {
+                    if (exchange.getMessage().hasHeaders()) {
+                        setAdditionalHeaders(camelRecord, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
+                    }
                 }
-                if (exchange.hasProperties()) {
-                    setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
+                
+                if (mapProperties) {
+                    if (exchange.hasProperties()) {
+                        setAdditionalHeaders(camelRecord, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
+                    }
                 }
 
-                TaskHelper.logRecordContent(LOG, loggingLevel, record);
-                records.add(record);
+                TaskHelper.logRecordContent(LOG, loggingLevel, camelRecord);
+                Integer claimCheck = freeSlots.remove();
+                camelRecord.setClaimCheck(claimCheck);
+                exchangesWaitingForAck[claimCheck] = exchange;
+                LOG.debug("Record: {}, containing data from exchange: {}, is associated with claim check number: {}", camelRecord, exchange, claimCheck);
+                records.add(camelRecord);
             }
             collectedRecords++;
             remaining = remaining(startPollEpochMilli, maxPollDuration);
         }
 
         return records.isEmpty() ? null : records;
+    }
+
+    @Override
+    public void commitRecord(SourceRecord record, RecordMetadata metadata) throws InterruptedException {
+        ///XXX: this should be a safe cast please see: https://issues.apache.org/jira/browse/KAFKA-12391
+        Integer claimCheck = ((CamelSourceRecord)record).getClaimCheck();
+        LOG.debug("Committing record with claim check number: {}", claimCheck);
+        Exchange correlatedExchange = exchangesWaitingForAck[claimCheck];
+        exchangesWaitingForAck[claimCheck] = null;
+        freeSlots.add(claimCheck);
+        UnitOfWorkHelper.doneSynchronizations(correlatedExchange, correlatedExchange.adapt(ExtendedExchange.class).handoverCompletions(), LOG);
+        LOG.debug("Record with claim check number: {} committed.", claimCheck);
     }
 
     @Override
@@ -293,10 +356,7 @@ public class CamelSourceTask extends SourceTask {
         }
     }
 
-    private String getLocalUrlWithPollingOptions(CamelSourceConnectorConfig config) {
-        long pollingConsumerQueueSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_CONF);
-        long pollingConsumerBlockTimeout = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_CONF);
-        boolean pollingConsumerBlockWhenFull = config.getBoolean(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_CONF);
+    private String getLocalUrlWithPollingOptions(long pollingConsumerQueueSize, long pollingConsumerBlockTimeout, boolean pollingConsumerBlockWhenFull) {
         return LOCAL_URL + "?pollingConsumerQueueSize=" + pollingConsumerQueueSize + "&pollingConsumerBlockTimeout=" + pollingConsumerBlockTimeout
                + "&pollingConsumerBlockWhenFull=" + pollingConsumerBlockWhenFull;
     }
