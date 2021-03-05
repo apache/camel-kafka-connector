@@ -14,8 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.apache.camel.kafkaconnector.nettyhttp.surce;
+package org.apache.camel.kafkaconnector.nettyhttp.source;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
@@ -115,6 +114,7 @@ public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
         }
     }
 
+    @Override
     protected void verifyMessages(TestMessageConsumer<?> consumer) {
         int received = consumer.consumedMessages().size();
         assertEquals(expect, received, "Didn't process the expected amount of messages");
