@@ -19,6 +19,7 @@
 
 **Merged pull requests:**
 
+- \(backport\) Added Google pub/sub sink integration test [\#1088](https://github.com/apache/camel-kafka-connector/pull/1088) ([orpiske](https://github.com/orpiske))
 - Add netty-http itests \#1036 [\#1084](https://github.com/apache/camel-kafka-connector/pull/1084) ([tadayosi](https://github.com/tadayosi))
 - Added Camel-Kafka-connector 0.8.0 to compatibility matrix [\#1081](https://github.com/apache/camel-kafka-connector/pull/1081) ([oscerd](https://github.com/oscerd))
 - Fix Netty tests reliability [\#1079](https://github.com/apache/camel-kafka-connector/pull/1079) ([orpiske](https://github.com/orpiske))
@@ -292,7 +293,6 @@
 - Camel master sync [\#791](https://github.com/apache/camel-kafka-connector/pull/791) ([oscerd](https://github.com/oscerd))
 - Camel-Master updated to 3.7.0 staging [\#789](https://github.com/apache/camel-kafka-connector/pull/789) ([oscerd](https://github.com/oscerd))
 - Couchbase timeout fixes on camel-master [\#787](https://github.com/apache/camel-kafka-connector/pull/787) ([orpiske](https://github.com/orpiske))
-- Rebase camel-master on master by hand [\#783](https://github.com/apache/camel-kafka-connector/pull/783) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#776](https://github.com/apache/camel-kafka-connector/pull/776) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Set the service version to the supported one from Azurite to prevent test failures [\#775](https://github.com/apache/camel-kafka-connector/pull/775) ([orpiske](https://github.com/orpiske))
 - Fix example CamelAmqpSourceConnector using sink instead of source pro… [\#768](https://github.com/apache/camel-kafka-connector/pull/768) ([apupier](https://github.com/apupier))
