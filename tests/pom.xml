@@ -63,7 +63,7 @@
         <module>itests-rabbitmq</module>
         <module>itests-couchbase</module>
         <module>itests-ssh</module>
-g        <module>itests-sql</module>
+        <module>itests-sql</module>
         <module>itests-netty-http</module>
     </modules>
 

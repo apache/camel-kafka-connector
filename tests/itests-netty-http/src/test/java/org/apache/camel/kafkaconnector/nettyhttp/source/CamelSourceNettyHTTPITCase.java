@@ -16,6 +16,9 @@
  */
 package org.apache.camel.kafkaconnector.nettyhttp.source;
 
+import java.io.IOException;
+import java.net.InetAddress;
+
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
@@ -25,16 +28,12 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.net.InetAddress;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -59,9 +58,6 @@ public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
         topicName = getTopicForTest(this);
     }
 
-    @AfterEach
-    public void tearDown() {}
-
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
@@ -81,7 +77,7 @@ public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
     protected void produceTestData() {
         int retriesLeft = 10;
         boolean success = false;
-        while(retriesLeft > 0 && !success) {
+        while (retriesLeft > 0 && !success) {
             try (final CloseableHttpClient httpclient = HttpClients.createDefault()) {
 
                 byte[] ipAddr = new byte[]{127, 0, 0, 1};
@@ -99,7 +95,7 @@ public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
                 success = true;
                 LOG.info("Request success at {} attempt.", retriesLeft);
             } catch (IOException e) {
-                if(retriesLeft == 1) {
+                if (retriesLeft == 1) {
                     e.printStackTrace();
                     fail("There should be no exceptions in sending the http test message.");
                 } else {
