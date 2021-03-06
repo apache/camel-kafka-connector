@@ -14,8 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.hdfs.sink;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
@@ -35,11 +39,6 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.runners.model.InitializationError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -85,7 +84,7 @@ public class CamelSinkHDFSITCase extends CamelSinkTestSupport {
         boolean hdfsServiceCorrectlyStarted = TestUtils.waitFor(() -> hdfsEasy.createFile(new Path(currentBasePath, "initTest"), "test")
                                                                         &&  hdfsEasy.delete(new Path(currentBasePath, "initTest")));
 
-        if(hdfsServiceCorrectlyStarted) {
+        if (hdfsServiceCorrectlyStarted) {
             if (!hdfsEasy.delete(currentBasePath)) {
                 // This is OK: directory may not exist on the path
                 LOG.debug("The directory at {} was not removed", currentBasePath.getName());

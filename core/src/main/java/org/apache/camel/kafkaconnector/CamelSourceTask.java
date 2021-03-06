@@ -16,6 +16,15 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedExchange;
@@ -38,14 +47,7 @@ import org.jctools.queues.SpscArrayQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+
 
 public class CamelSourceTask extends SourceTask {
     public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
@@ -128,7 +130,7 @@ public class CamelSourceTask extends SourceTask {
 
             freeSlots = new SpscArrayQueue<>(maxNotCommittedRecords);
             freeSlots.fill(new MessagePassingQueue.Supplier<Integer>() {
-                int i = 0;
+                int i;
                 @Override
                 public Integer get() {
                     return i++;
