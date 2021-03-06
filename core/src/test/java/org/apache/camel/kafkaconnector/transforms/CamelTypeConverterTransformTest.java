@@ -16,7 +16,6 @@
  */
 package org.apache.camel.kafkaconnector.transforms;
 
-import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.HashMap;
