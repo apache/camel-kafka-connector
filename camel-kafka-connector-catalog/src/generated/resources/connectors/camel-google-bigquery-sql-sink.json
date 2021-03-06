@@ -9,15 +9,15 @@
 		"description": "Access Google Cloud BigQuery service using SQL queries."
 	},
 	"properties": {
-		"camel.sink.path.query": {
-			"name": "camel.sink.path.query",
-			"description": "BigQuery standard SQL query",
-			"priority": "HIGH",
-			"required": "true"
-		},
 		"camel.sink.path.projectId": {
 			"name": "camel.sink.path.projectId",
 			"description": "Google Cloud Project Id",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.path.queryString": {
+			"name": "camel.sink.path.queryString",
+			"description": "BigQuery standard SQL query",
 			"priority": "HIGH",
 			"required": "true"
 		},

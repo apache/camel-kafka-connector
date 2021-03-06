@@ -161,6 +161,12 @@
 				"InOptionalOut"
 			]
 		},
+		"camel.source.endpoint.prefetchCount": {
+			"name": "camel.source.endpoint.prefetchCount",
+			"description": "Tell the broker how many messages to send in a single request. Often this can be set quite high to improve throughput.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.args": {
 			"name": "camel.source.endpoint.args",
 			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each element: arg.consumer. arg.exchange. arg.queue. arg.binding. arg.dlq.exchange. arg.dlq.queue. arg.dlq.binding. For example to declare a queue with message ttl argument: args=arg.queue.x-message-ttl=60000",

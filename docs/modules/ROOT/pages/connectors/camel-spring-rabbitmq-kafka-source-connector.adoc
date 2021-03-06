@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.springrabbitmq.CamelSpringrabbit
 ----
 
 
-The camel-spring-rabbitmq source connector supports 43 options, which are listed below.
+The camel-spring-rabbitmq source connector supports 44 options, which are listed below.
 
 
 
@@ -51,6 +51,7 @@ The camel-spring-rabbitmq source connector supports 43 options, which are listed
 | *camel.source.endpoint.queues* | The queue(s) to use for consuming messages. Multiple queue names can be separated by comma. If none has been configured then Camel will generate an unique id as the queue name for the consumer. | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.prefetchCount* | Tell the broker how many messages to send in a single request. Often this can be set quite high to improve throughput. | null | false | MEDIUM
 | *camel.source.endpoint.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each element: arg.consumer. arg.exchange. arg.queue. arg.binding. arg.dlq.exchange. arg.dlq.queue. arg.dlq.binding. For example to declare a queue with message ttl argument: args=arg.queue.x-message-ttl=60000 | null | false | MEDIUM
 | *camel.source.endpoint.messageConverter* | To use a custom MessageConverter so you can be in control how to map to/from a org.springframework.amqp.core.Message. | null | false | MEDIUM
 | *camel.source.endpoint.messagePropertiesConverter* | To use a custom MessagePropertiesConverter so you can be in control how to map to/from a org.springframework.amqp.core.MessageProperties. | null | false | MEDIUM
