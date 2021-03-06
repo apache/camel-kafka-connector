@@ -20,6 +20,7 @@ package org.apache.camel.kafkaconnector.nettyhttp.sink;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
@@ -94,7 +95,7 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
                 .withHost(mockServer.getHostName())
                 .withPort(mockServer.getPort())
                 .withPath("test");
-
+        mockServer.enqueue(new MockResponse().setResponseCode(200));
         runTest(connectorPropertyFactory, topicName, expect);
     }
 
@@ -105,7 +106,7 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withUrl("http", mockServer.getHostName(), mockServer.getPort(), "test")
                 .buildUrl();
-
+        mockServer.enqueue(new MockResponse().setResponseCode(200));
         runTest(connectorPropertyFactory, topicName, expect);
     }
 }

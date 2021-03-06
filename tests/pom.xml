@@ -55,7 +55,6 @@
         <module>itests-salesforce</module>
         <module>itests-hdfs</module>
         <module>itests-mongodb</module>
-        <module>itests-netty-http</module>
         <module>itests-jdbc</module>
         <module>itests-azure-common</module>
         <module>itests-azure-storage-blob</module>
