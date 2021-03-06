@@ -27,10 +27,10 @@ public class CamelGooglepubsubSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_PROJECT_ID_CONF = "camel.sink.path.projectId";
-    public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_PROJECT_ID_DOC = "Project Id";
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_PROJECT_ID_DOC = "The Google Cloud PubSub Project Id";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_PROJECT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_DESTINATION_NAME_CONF = "camel.sink.path.destinationName";
-    public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_DESTINATION_NAME_DOC = "Destination Name";
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_DESTINATION_NAME_DOC = "The Destination Name. For the consumer this will be the subscription name, while for the producer this will be the topic name.";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_PATH_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_ACK_MODE_CONF = "camel.sink.endpoint.ackMode";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_ACK_MODE_DOC = "AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream process has to ack/nack explicitly One of: [AUTO] [NONE]";
@@ -65,6 +65,9 @@ public class CamelGooglepubsubSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_CONF = "camel.component.google-pubsub.endpoint";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DOC = "Endpoint to use with local Pub/Sub emulator.";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_SERVICE_ACCOUNT_KEY_CONF = "camel.component.google-pubsub.serviceAccountKey";
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_SERVICE_ACCOUNT_KEY_DOC = "The Service account key that can be used as credentials for the PubSub publisher/subscriber. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_SERVICE_ACCOUNT_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.google-pubsub.lazyStartProducer";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -99,13 +102,14 @@ public class CamelGooglepubsubSinkConnectorConfig
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DOC);
-        conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERVICE_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERVICE_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERVICE_ACCOUNT_KEY_DOC);
+        conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERVICE_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERVICE_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERVICE_ACCOUNT_KEY_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DOC);
+        conf.define(CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_SERVICE_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_SERVICE_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_SERVICE_ACCOUNT_KEY_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_PUBLISHER_CACHE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_PUBLISHER_CACHE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_PUBLISHER_CACHE_SIZE_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_PUBLISHER_CACHE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_PUBLISHER_CACHE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_PUBLISHER_CACHE_TIMEOUT_DOC);

@@ -34,6 +34,13 @@
 				"getFederationToken"
 			]
 		},
+		"camel.sink.endpoint.overrideEndpoint": {
+			"name": "camel.sink.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
 			"description": "If we want to use a POJO request as body or not",
@@ -84,6 +91,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.uriEndpointOverride": {
+			"name": "camel.sink.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
@@ -120,6 +133,13 @@
 				"getSessionToken",
 				"getFederationToken"
 			]
+		},
+		"camel.component.aws2-sts.overrideEndpoint": {
+			"name": "camel.component.aws2-sts.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.pojoRequest": {
 			"name": "camel.component.aws2-sts.pojoRequest",
@@ -168,6 +188,12 @@
 			"name": "camel.component.aws2-sts.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sts.uriEndpointOverride": {
+			"name": "camel.component.aws2-sts.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

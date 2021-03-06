@@ -39,6 +39,13 @@
 				"translateText"
 			]
 		},
+		"camel.sink.endpoint.overrideEndpoint": {
+			"name": "camel.sink.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
 			"description": "If we want to use a POJO request as body or not",
@@ -100,6 +107,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.uriEndpointOverride": {
+			"name": "camel.sink.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
@@ -141,6 +154,13 @@
 			"enum": [
 				"translateText"
 			]
+		},
+		"camel.component.aws2-translate.overrideEndpoint": {
+			"name": "camel.component.aws2-translate.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-translate.pojoRequest": {
 			"name": "camel.component.aws2-translate.pojoRequest",
@@ -200,6 +220,12 @@
 			"name": "camel.component.aws2-translate.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-translate.uriEndpointOverride": {
+			"name": "camel.component.aws2-translate.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
