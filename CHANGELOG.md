@@ -52,7 +52,6 @@
 - Website: connectors' list formatting problems [\#1041](https://github.com/apache/camel-kafka-connector/issues/1041)
 - Generate just one connector package: .zip or .tar.gz [\#1030](https://github.com/apache/camel-kafka-connector/issues/1030)
 - Azure storage blob failing on camel-master [\#997](https://github.com/apache/camel-kafka-connector/issues/997)
-- Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
 - Release 0.7.2 once Camel 3.7.2 will be released [\#978](https://github.com/apache/camel-kafka-connector/issues/978)
 - Add removeHeaders documentation [\#903](https://github.com/apache/camel-kafka-connector/issues/903)
 - Add test for AWS 2 SNS [\#700](https://github.com/apache/camel-kafka-connector/issues/700)
@@ -179,6 +178,7 @@
 
 **Closed issues:**
 
+- Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
 - camel.source.contentLogLevel config not honored in source connectors [\#980](https://github.com/apache/camel-kafka-connector/issues/980)
 - Improve description of connector [\#979](https://github.com/apache/camel-kafka-connector/issues/979)
 - CamelKafkaConnectMain is showing sensitive information in summary [\#973](https://github.com/apache/camel-kafka-connector/issues/973)
@@ -293,6 +293,7 @@
 - Camel master sync [\#791](https://github.com/apache/camel-kafka-connector/pull/791) ([oscerd](https://github.com/oscerd))
 - Camel-Master updated to 3.7.0 staging [\#789](https://github.com/apache/camel-kafka-connector/pull/789) ([oscerd](https://github.com/oscerd))
 - Couchbase timeout fixes on camel-master [\#787](https://github.com/apache/camel-kafka-connector/pull/787) ([orpiske](https://github.com/orpiske))
+- Rebase camel-master on master by hand [\#783](https://github.com/apache/camel-kafka-connector/pull/783) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#776](https://github.com/apache/camel-kafka-connector/pull/776) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Set the service version to the supported one from Azurite to prevent test failures [\#775](https://github.com/apache/camel-kafka-connector/pull/775) ([orpiske](https://github.com/orpiske))
 - Fix example CamelAmqpSourceConnector using sink instead of source pro… [\#768](https://github.com/apache/camel-kafka-connector/pull/768) ([apupier](https://github.com/apupier))
