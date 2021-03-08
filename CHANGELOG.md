@@ -7,6 +7,7 @@
 **Fixed bugs:**
 
 - Prevent Kafka Connect from leaking passwords and sensitive data [\#1050](https://github.com/apache/camel-kafka-connector/issues/1050)
+- Convert NettyChannelBufferStreamCache from NettyHttpSource not converted to string [\#969](https://github.com/apache/camel-kafka-connector/issues/969)
 
 **Closed issues:**
 
@@ -19,6 +20,7 @@
 
 **Merged pull requests:**
 
+- Issue/969 [\#1091](https://github.com/apache/camel-kafka-connector/pull/1091) ([valdar](https://github.com/valdar))
 - \(backport\) Added Google pub/sub sink integration test [\#1088](https://github.com/apache/camel-kafka-connector/pull/1088) ([orpiske](https://github.com/orpiske))
 - Add netty-http itests \#1036 [\#1084](https://github.com/apache/camel-kafka-connector/pull/1084) ([tadayosi](https://github.com/tadayosi))
 - Added Camel-Kafka-connector 0.8.0 to compatibility matrix [\#1081](https://github.com/apache/camel-kafka-connector/pull/1081) ([oscerd](https://github.com/oscerd))
@@ -52,6 +54,7 @@
 - Website: connectors' list formatting problems [\#1041](https://github.com/apache/camel-kafka-connector/issues/1041)
 - Generate just one connector package: .zip or .tar.gz [\#1030](https://github.com/apache/camel-kafka-connector/issues/1030)
 - Azure storage blob failing on camel-master [\#997](https://github.com/apache/camel-kafka-connector/issues/997)
+- Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
 - Release 0.7.2 once Camel 3.7.2 will be released [\#978](https://github.com/apache/camel-kafka-connector/issues/978)
 - Add removeHeaders documentation [\#903](https://github.com/apache/camel-kafka-connector/issues/903)
 - Add test for AWS 2 SNS [\#700](https://github.com/apache/camel-kafka-connector/issues/700)
@@ -178,7 +181,6 @@
 
 **Closed issues:**
 
-- Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
 - camel.source.contentLogLevel config not honored in source connectors [\#980](https://github.com/apache/camel-kafka-connector/issues/980)
 - Improve description of connector [\#979](https://github.com/apache/camel-kafka-connector/issues/979)
 - CamelKafkaConnectMain is showing sensitive information in summary [\#973](https://github.com/apache/camel-kafka-connector/issues/973)
