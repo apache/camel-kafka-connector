@@ -28,9 +28,8 @@ import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
-import org.apache.camel.test.infra.dispatch.router.services.DispatchRouterContainer;
 import org.apache.camel.test.infra.messaging.services.MessagingService;
-import org.apache.camel.test.infra.messaging.services.MessagingServiceBuilder;
+import org.apache.camel.test.infra.messaging.services.MessagingServiceFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -44,9 +43,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceJMSWithAggregation extends CamelSourceTestSupport {
     @RegisterExtension
-    public static MessagingService jmsService = MessagingServiceBuilder
-            .newBuilder(DispatchRouterContainer::new)
-            .withEndpointProvider(DispatchRouterContainer::defaultEndpoint)
+    public static MessagingService jmsService = MessagingServiceFactory
+            .builder()
+            .addLocalMapping(SJMS2Common::createLocalService)
             .build();
 
     private final int sentSize = 10;
