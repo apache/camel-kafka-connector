@@ -144,6 +144,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.concurrentConsumers": {
+			"name": "camel.source.endpoint.concurrentConsumers",
+			"description": "The number of consumers",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -159,6 +165,23 @@
 				"InOnly",
 				"InOut",
 				"InOptionalOut"
+			]
+		},
+		"camel.source.endpoint.maxConcurrentConsumers": {
+			"name": "camel.source.endpoint.maxConcurrentConsumers",
+			"description": "The maximum number of consumers (available only with SMLC)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.messageListenerContainerType": {
+			"name": "camel.source.endpoint.messageListenerContainerType",
+			"description": "The type of the MessageListenerContainer One of: [DMLC] [SMLC]",
+			"defaultValue": "\"DMLC\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"DMLC",
+				"SMLC"
 			]
 		},
 		"camel.source.endpoint.prefetchCount": {
@@ -263,6 +286,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.spring-rabbitmq.concurrentConsumers": {
+			"name": "camel.component.spring-rabbitmq.concurrentConsumers",
+			"description": "The number of consumers",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.spring-rabbitmq.errorHandler": {
 			"name": "camel.component.spring-rabbitmq.errorHandler",
 			"description": "To use a custom ErrorHandler for handling exceptions from the message listener (consumer)",
@@ -274,6 +304,23 @@
 			"description": "To use a custom factory for creating and configuring ListenerContainer to be used by the consumer for receiving messages",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.maxConcurrentConsumers": {
+			"name": "camel.component.spring-rabbitmq.maxConcurrentConsumers",
+			"description": "The maximum number of consumers (available only with SMLC)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.messageListenerContainerType": {
+			"name": "camel.component.spring-rabbitmq.messageListenerContainerType",
+			"description": "The type of the MessageListenerContainer One of: [DMLC] [SMLC]",
+			"defaultValue": "\"DMLC\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"DMLC",
+				"SMLC"
+			]
 		},
 		"camel.component.spring-rabbitmq.prefetchCount": {
 			"name": "camel.component.spring-rabbitmq.prefetchCount",

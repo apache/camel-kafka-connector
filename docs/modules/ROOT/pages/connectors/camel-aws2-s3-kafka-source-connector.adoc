@@ -34,7 +34,7 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.source.path.bucketNameOrArn* | Bucket name or ARN | null | true | HIGH
 | *camel.source.endpoint.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | false | MEDIUM
 | *camel.source.endpoint.amazonS3Presigner* | An S3 Presigner for Request, used mainly in createDownloadLink operation | null | false | MEDIUM
-| *camel.source.endpoint.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | true | false | MEDIUM
+| *camel.source.endpoint.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | false | false | MEDIUM
 | *camel.source.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.source.endpoint.pojoRequest* | If we want to use a POJO request as body or not | false | false | MEDIUM
 | *camel.source.endpoint.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | false | MEDIUM
@@ -85,7 +85,7 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-s3.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | false | MEDIUM
 | *camel.component.aws2-s3.amazonS3Presigner* | An S3 Presigner for Request, used mainly in createDownloadLink operation | null | false | MEDIUM
-| *camel.component.aws2-s3.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | true | false | MEDIUM
+| *camel.component.aws2-s3.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | false | false | MEDIUM
 | *camel.component.aws2-s3.configuration* | The component configuration | null | false | MEDIUM
 | *camel.component.aws2-s3.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-s3.pojoRequest* | If we want to use a POJO request as body or not | false | false | MEDIUM

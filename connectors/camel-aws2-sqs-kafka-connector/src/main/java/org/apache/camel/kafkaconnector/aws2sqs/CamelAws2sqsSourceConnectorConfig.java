@@ -37,7 +37,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_AMAZON_SQSCLIENT_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_CONF = "camel.source.endpoint.autoCreateQueue";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
-    public static final Boolean CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final Boolean CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.source.endpoint.headerFilterStrategy";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to map headers to/from Camel.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -202,7 +202,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_AMAZON_SQSCLIENT_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_CONF = "camel.component.aws2-sqs.autoCreateQueue";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
-    public static final Boolean CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final Boolean CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-sqs.configuration";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_DOC = "The AWS SQS default configuration";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_DEFAULT = null;

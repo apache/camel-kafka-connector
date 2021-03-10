@@ -33,7 +33,7 @@ The camel-aws2-sns sink connector supports 48 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.topicNameOrArn* | Topic name or ARN | null | true | HIGH
 | *camel.sink.endpoint.amazonSNSClient* | To use the AmazonSNS as the client | null | false | MEDIUM
-| *camel.sink.endpoint.autoCreateTopic* | Setting the autocreation of the topic | true | false | MEDIUM
+| *camel.sink.endpoint.autoCreateTopic* | Setting the autocreation of the topic | false | false | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | false | MEDIUM
 | *camel.sink.endpoint.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
@@ -56,7 +56,7 @@ The camel-aws2-sns sink connector supports 48 options, which are listed below.
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-sns.amazonSNSClient* | To use the AmazonSNS as the client | null | false | MEDIUM
-| *camel.component.aws2-sns.autoCreateTopic* | Setting the autocreation of the topic | true | false | MEDIUM
+| *camel.component.aws2-sns.autoCreateTopic* | Setting the autocreation of the topic | false | false | MEDIUM
 | *camel.component.aws2-sns.configuration* | Component configuration | null | false | MEDIUM
 | *camel.component.aws2-sns.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | false | MEDIUM
 | *camel.component.aws2-sns.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
