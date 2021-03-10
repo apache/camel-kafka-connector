@@ -34,7 +34,7 @@ The camel-aws2-sqs sink connector supports 60 options, which are listed below.
 | *camel.sink.path.queueNameOrArn* | Queue name or ARN | null | true | HIGH
 | *camel.sink.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
 | *camel.sink.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
-| *camel.sink.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
+| *camel.sink.endpoint.autoCreateQueue* | Setting the autocreation of the queue | false | false | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | false | MEDIUM
 | *camel.sink.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.sink.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
@@ -63,7 +63,7 @@ The camel-aws2-sqs sink connector supports 60 options, which are listed below.
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-sqs.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
 | *camel.component.aws2-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
-| *camel.component.aws2-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
+| *camel.component.aws2-sqs.autoCreateQueue* | Setting the autocreation of the queue | false | false | MEDIUM
 | *camel.component.aws2-sqs.configuration* | The AWS SQS default configuration | null | false | MEDIUM
 | *camel.component.aws2-sqs.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM

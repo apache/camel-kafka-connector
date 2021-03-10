@@ -221,6 +221,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.hostnameVerification": {
+			"name": "camel.source.endpoint.hostnameVerification",
+			"description": "To enable\/disable hostname verification on SSLEngine",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.allowSerializedHeaders": {
 			"name": "camel.source.endpoint.allowSerializedHeaders",
 			"description": "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.",
@@ -627,6 +634,13 @@
 			"name": "camel.component.netty.usingExecutorService",
 			"description": "Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.netty.hostnameVerification": {
+			"name": "camel.component.netty.hostnameVerification",
+			"description": "To enable\/disable hostname verification on SSLEngine",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

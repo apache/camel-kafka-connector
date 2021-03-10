@@ -31,7 +31,7 @@
 		"camel.source.endpoint.autoCreateQueue": {
 			"name": "camel.source.endpoint.autoCreateQueue",
 			"description": "Setting the autocreation of the queue",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -411,7 +411,7 @@
 		"camel.component.aws2-sqs.autoCreateQueue": {
 			"name": "camel.component.aws2-sqs.autoCreateQueue",
 			"description": "Setting the autocreation of the queue",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

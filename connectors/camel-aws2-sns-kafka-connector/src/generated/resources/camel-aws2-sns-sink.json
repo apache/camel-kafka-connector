@@ -24,7 +24,7 @@
 		"camel.sink.endpoint.autoCreateTopic": {
 			"name": "camel.sink.endpoint.autoCreateTopic",
 			"description": "Setting the autocreation of the topic",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -184,7 +184,7 @@
 		"camel.component.aws2-sns.autoCreateTopic": {
 			"name": "camel.component.aws2-sns.autoCreateTopic",
 			"description": "Setting the autocreation of the topic",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

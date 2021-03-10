@@ -32,7 +32,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_AMAZON_SNSCLIENT_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_AUTO_CREATE_TOPIC_CONF = "camel.sink.endpoint.autoCreateTopic";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_AUTO_CREATE_TOPIC_DOC = "Setting the autocreation of the topic";
-    public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_AUTO_CREATE_TOPIC_DEFAULT = true;
+    public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_AUTO_CREATE_TOPIC_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.sink.endpoint.headerFilterStrategy";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to map headers to/from Camel.";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -101,7 +101,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_AMAZON_SNSCLIENT_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_AUTO_CREATE_TOPIC_CONF = "camel.component.aws2-sns.autoCreateTopic";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_AUTO_CREATE_TOPIC_DOC = "Setting the autocreation of the topic";
-    public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_AUTO_CREATE_TOPIC_DEFAULT = true;
+    public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_AUTO_CREATE_TOPIC_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-sns.configuration";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_CONFIGURATION_DOC = "Component configuration";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_CONFIGURATION_DEFAULT = null;
