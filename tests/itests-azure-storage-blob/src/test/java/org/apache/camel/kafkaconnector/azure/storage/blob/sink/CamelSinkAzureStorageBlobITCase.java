@@ -51,7 +51,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static AzureService service = AzureStorageBlobServiceFactory.createAzureService();
+    public static AzureService service = AzureStorageBlobServiceFactory.createService();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAzureStorageBlobITCase.class);
 
     private BlobServiceClient client;

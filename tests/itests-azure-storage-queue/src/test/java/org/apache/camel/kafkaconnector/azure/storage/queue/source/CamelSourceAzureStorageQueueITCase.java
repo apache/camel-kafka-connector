@@ -45,7 +45,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceAzureStorageQueueITCase extends CamelSourceTestSupport {
     @RegisterExtension
-    public static AzureService service = AzureStorageQueueServiceFactory.createAzureService();
+    public static AzureService service = AzureStorageQueueServiceFactory.createService();
 
     private QueueServiceClient client;
     private QueueClient queueClient;
