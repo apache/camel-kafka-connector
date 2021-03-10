@@ -17,6 +17,9 @@
 
 package org.apache.camel.kafkaconnector.sjms2.common;
 
+import org.apache.camel.test.infra.dispatch.router.services.DispatchRouterContainer;
+import org.apache.camel.test.infra.messaging.services.MessagingLocalContainerService;
+
 public final class SJMS2Common {
     /**
      * The default JMS queue name used during the tests
@@ -25,5 +28,11 @@ public final class SJMS2Common {
 
     private SJMS2Common() {
 
+    }
+
+    public static MessagingLocalContainerService<DispatchRouterContainer> createLocalService() {
+        DispatchRouterContainer container = new DispatchRouterContainer();
+
+        return new MessagingLocalContainerService<>(container, c -> container.defaultEndpoint());
     }
 }
