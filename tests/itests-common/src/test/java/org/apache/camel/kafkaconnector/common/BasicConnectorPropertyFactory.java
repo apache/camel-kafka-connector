@@ -100,6 +100,10 @@ public abstract class BasicConnectorPropertyFactory<T extends BasicConnectorProp
         return "#class:" + className;
     }
 
+    public static String classRef(Class<?> clazz) {
+        return "#class:" + clazz.getName();
+    }
+
     public T merge(Properties properties) {
         Set<Map.Entry<Object, Object>> set = properties.entrySet();
         connectorProps.putAll(set.stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b)->b)));

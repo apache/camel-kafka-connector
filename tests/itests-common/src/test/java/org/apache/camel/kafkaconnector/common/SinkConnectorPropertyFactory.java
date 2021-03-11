@@ -17,7 +17,10 @@
 
 package org.apache.camel.kafkaconnector.common;
 
+import org.apache.camel.LoggingLevel;
+
 import static org.apache.camel.kafkaconnector.CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF;
+import static org.apache.camel.kafkaconnector.CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF;
 
 public abstract class SinkConnectorPropertyFactory<T extends SinkConnectorPropertyFactory<T>> extends BasicConnectorPropertyFactory<T> {
 
@@ -27,5 +30,9 @@ public abstract class SinkConnectorPropertyFactory<T extends SinkConnectorProper
 
     public T withSinkUrl(String sinkUrl) {
         return setProperty(CAMEL_SINK_URL_CONF, sinkUrl);
+    }
+
+    public T withSinkContentLogginglevel(LoggingLevel level) {
+        return setProperty(CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF, level.toString());
     }
 }
