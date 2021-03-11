@@ -41,6 +41,6 @@ public interface ConnectorPropertyFactory {
         Logger log = LoggerFactory.getLogger(ConnectorPropertyFactory.class);
 
         log.info("Using the following properties for the test: ");
-        properties.entrySet().forEach(entry -> log.info("{}={}", entry.getKey(), entry.getValue()));
+        properties.forEach((key, value) -> log.info("{}={}", key, value));
     }
 }
