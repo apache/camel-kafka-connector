@@ -32,6 +32,10 @@ final class CamelHTTPSPropertyFactory extends SinkConnectorPropertyFactory<Camel
         return setProperty("camel.sink.path.httpUri", uri);
     }
 
+    public CamelHTTPSPropertyFactory withHttpMethod(String method) {
+        return setProperty("camel.sink.endpoint.httpMethod", method);
+    }
+
     public CamelHTTPSPropertyFactory withSslContextParameters(String bean, String keyStore, String password) {
         withBeans("ksp", classRef(KeyStoreParameters.class));
         withBeans("ksp.resource", keyStore);
