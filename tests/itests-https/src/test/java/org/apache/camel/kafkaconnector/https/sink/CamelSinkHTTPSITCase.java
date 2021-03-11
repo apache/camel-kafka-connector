@@ -41,6 +41,7 @@ import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
@@ -147,6 +148,24 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
                 .withTopics(topicName)
                 .withHttpUri(uri)
+                .withSslContextParameters("scp", toPath("client-truststore.jks"), "secret")
+                // let's skip host verification as hostname may vary depending on test env
+                .withX509HostnameVerifier("x509HostnameVerifier", NoopHostnameVerifier.class);
+
+        runTest(connectorPropertyFactory, topicName, expect);
+    }
+
+    @Test
+    @Timeout(60)
+    @Disabled("HTTPS-sink-connector duplicates protocol #1077")
+    public void testBasicSendReceiveHttpUriWithQueryString() throws Exception {
+        startMockServer();
+
+        String uri = mockServer.getHostName() + ":" + mockServer.getPort() + "/ckc?aaa=xxx&bbb=yyy&ccc=zzz";
+        ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
+                .withTopics(topicName)
+                .withHttpUri(uri)
+                .withHttpMethod("POST")
                 .withSslContextParameters("scp", toPath("client-truststore.jks"), "secret")
                 // let's skip host verification as hostname may vary depending on test env
                 .withX509HostnameVerifier("x509HostnameVerifier", NoopHostnameVerifier.class);
