@@ -17,10 +17,7 @@
 
 package org.apache.camel.kafkaconnector.https.sink;
 
-import java.io.IOException;
-import java.net.InetAddress;
 import java.net.URL;
-import java.security.KeyStore;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -29,21 +26,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-
-import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.services.mockweb.MockWebService;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,9 +47,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkHTTPSITCase.class);
 
-    private final String host = NetworkUtils.getHostname();
-    private final int port = NetworkUtils.getFreePort(host);
-
+    @RegisterExtension
+    public final MockWebService mockWebService = MockWebService.builder()
+            .useHttps()
+            .withKeystore("/server-keystore.jks", "secret")
+            .build();
     private MockWebServer mockServer;
 
     private String topicName;
@@ -73,33 +68,8 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
     public void setUp() throws Exception {
         topicName = getTopicForTest(this);
 
-        setupHttpsMockServer();
+        mockServer = mockWebService.getServer();
         received = Collections.emptyList();
-    }
-
-    private void setupHttpsMockServer() throws Exception {
-        KeyStore keyStore = KeyStore.getInstance("JKS");
-        keyStore.load(getClass().getResourceAsStream("/server-keystore.jks"), "secret".toCharArray());
-        KeyManagerFactory kmFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-        kmFactory.init(keyStore, "secret".toCharArray());
-        SSLContext sslContext = SSLContext.getInstance("TLS");
-        sslContext.init(kmFactory.getKeyManagers(), null, null);
-        mockServer = new MockWebServer();
-        mockServer.useHttps(sslContext.getSocketFactory(), false);
-    }
-
-    private void startMockServer() throws IOException {
-        IntStream.range(0, expect).forEach(i -> {
-            mockServer.enqueue(new MockResponse().setResponseCode(200));
-        });
-        mockServer.start(InetAddress.getByName(host), port);
-    }
-
-    @AfterEach
-    public void tearDown() throws Exception {
-        if (mockServer != null) {
-            mockServer.shutdown();
-        }
     }
 
     @Override
@@ -142,7 +112,7 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
     @Test
     @Timeout(60)
     public void testBasicSendReceive() throws Exception {
-        startMockServer();
+        mockWebService.enqueueResponses(expect);
 
         String uri = mockServer.getHostName() + ":" + mockServer.getPort() + "/ckc";
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
@@ -159,7 +129,7 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
     @Timeout(60)
     @Disabled("HTTPS-sink-connector duplicates protocol #1077")
     public void testBasicSendReceiveHttpUriWithQueryString() throws Exception {
-        startMockServer();
+        mockWebService.enqueueResponses(expect);
 
         String uri = mockServer.getHostName() + ":" + mockServer.getPort() + "/ckc?aaa=xxx&bbb=yyy&ccc=zzz";
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
@@ -176,7 +146,7 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
     @Test
     @Timeout(60)
     public void testBasicSendReceiveUsingUrl() throws Exception {
-        startMockServer();
+        mockWebService.enqueueResponses(expect);
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
                 .withTopics(topicName)

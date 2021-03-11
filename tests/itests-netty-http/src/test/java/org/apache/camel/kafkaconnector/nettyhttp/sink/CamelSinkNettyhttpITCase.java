@@ -20,15 +20,15 @@ package org.apache.camel.kafkaconnector.nettyhttp.sink;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.services.mockweb.MockWebService;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +38,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkNettyhttpITCase.class);
 
+    @RegisterExtension
+    public final MockWebService mockWebService = MockWebService.builder().build();
     private MockWebServer mockServer;
 
     private String topicName;
@@ -53,15 +55,8 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
     @BeforeEach
     public void setUp() {
         topicName = getTopicForTest(this);
-        mockServer = new MockWebServer();
+        mockServer = mockWebService.getServer();
         received = null;
-    }
-
-    @AfterEach
-    public void tearDown() throws Exception {
-        if (mockServer != null) {
-            mockServer.shutdown();
-        }
     }
 
     @Override
@@ -89,24 +84,24 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
     @Test
     @Timeout(30)
     public void testBasicSendReceive() throws Exception {
+        mockWebService.enqueueResponses(expect);
         ConnectorPropertyFactory connectorPropertyFactory = CamelNettyhttpPropertyFactory.basic()
                 .withTopics(topicName)
                 .withProtocol("http")
                 .withHost(mockServer.getHostName())
                 .withPort(mockServer.getPort())
                 .withPath("test");
-        mockServer.enqueue(new MockResponse().setResponseCode(200));
         runTest(connectorPropertyFactory, topicName, expect);
     }
 
     @Test
     @Timeout(30)
     public void testBasicSendReceiveUsingUrl() throws Exception {
+        mockWebService.enqueueResponses(expect);
         ConnectorPropertyFactory connectorPropertyFactory = CamelNettyhttpPropertyFactory.basic()
                 .withTopics(topicName)
                 .withUrl("http", mockServer.getHostName(), mockServer.getPort(), "test")
                 .buildUrl();
-        mockServer.enqueue(new MockResponse().setResponseCode(200));
         runTest(connectorPropertyFactory, topicName, expect);
     }
 }
