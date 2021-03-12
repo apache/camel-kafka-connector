@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>0.7.3</version>
+    <version>0.7.4-SNAPSHOT</version>
   </parent>
   <artifactId>camel-azure-blob-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: azure-blob</name>

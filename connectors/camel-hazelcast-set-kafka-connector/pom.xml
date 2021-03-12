@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>0.7.3</version>
+    <version>0.7.4-SNAPSHOT</version>
   </parent>
   <artifactId>camel-hazelcast-set-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: hazelcast-set</name>
