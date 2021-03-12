@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>0.7.3-SNAPSHOT</version>
+    <version>0.7.3</version>
   </parent>
   <artifactId>camel-aws2-mq-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws2-mq</name>
