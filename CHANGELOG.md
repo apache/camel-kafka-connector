@@ -21,6 +21,7 @@
 
 **Merged pull requests:**
 
+- Add https itests [\#1096](https://github.com/apache/camel-kafka-connector/pull/1096) ([tadayosi](https://github.com/tadayosi))
 - Some folowup improvements fro \#969 and \#202. [\#1093](https://github.com/apache/camel-kafka-connector/pull/1093) ([valdar](https://github.com/valdar))
 - Issue/969 [\#1091](https://github.com/apache/camel-kafka-connector/pull/1091) ([valdar](https://github.com/valdar))
 - \(backport\) Added Google pub/sub sink integration test [\#1088](https://github.com/apache/camel-kafka-connector/pull/1088) ([orpiske](https://github.com/orpiske))
@@ -640,7 +641,6 @@
 - Update try-it-out-on-openshift-with-strimzi.adoc with latest AWS S3 connector config [\#433](https://github.com/apache/camel-kafka-connector/pull/433) ([smccarthy-ie](https://github.com/smccarthy-ie))
 - Pr Build and push build needs to point to master [\#432](https://github.com/apache/camel-kafka-connector/pull/432) ([oscerd](https://github.com/oscerd))
 - adding a key transformer to the AWS2-SQS connector so that the CamelH… [\#431](https://github.com/apache/camel-kafka-connector/pull/431) ([codexetreme](https://github.com/codexetreme))
-- Proposed fix for issue \#414 [\#428](https://github.com/apache/camel-kafka-connector/pull/428) ([orpiske](https://github.com/orpiske))
 - Camel 3.5.0 [\#427](https://github.com/apache/camel-kafka-connector/pull/427) ([oscerd](https://github.com/oscerd))
 - Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
 - Archetype: Add a parameter to the archetype generator to be able to s… [\#421](https://github.com/apache/camel-kafka-connector/pull/421) ([oscerd](https://github.com/oscerd))
@@ -823,7 +823,6 @@
 - Fixed con cong autogen [\#222](https://github.com/apache/camel-kafka-connector/pull/222) ([valdar](https://github.com/valdar))
 - Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
-- Improved CamelSourceTaskTest [\#205](https://github.com/apache/camel-kafka-connector/pull/205) ([fvaleri](https://github.com/fvaleri))
 - Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 
 ## [camel-kafka-connector-0.2.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0) (2020-05-17)
@@ -865,6 +864,7 @@
 - chore: rename poorly named variable in test code [\#208](https://github.com/apache/camel-kafka-connector/pull/208) ([orpiske](https://github.com/orpiske))
 - Re-enable Cassandra test using properties [\#207](https://github.com/apache/camel-kafka-connector/pull/207) ([orpiske](https://github.com/orpiske))
 - Bump to Camel 3.2.0 [\#206](https://github.com/apache/camel-kafka-connector/pull/206) ([oscerd](https://github.com/oscerd))
+- Improved CamelSourceTaskTest [\#205](https://github.com/apache/camel-kafka-connector/pull/205) ([fvaleri](https://github.com/fvaleri))
 - Removed Thread.seep\(...\) in unit tests in order to avoid possible sou… [\#204](https://github.com/apache/camel-kafka-connector/pull/204) ([valdar](https://github.com/valdar))
 - Flakey tests [\#200](https://github.com/apache/camel-kafka-connector/pull/200) ([valdar](https://github.com/valdar))
 - Generate a table with supported connectors [\#198](https://github.com/apache/camel-kafka-connector/pull/198) ([oscerd](https://github.com/oscerd))
