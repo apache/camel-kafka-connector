@@ -18,16 +18,19 @@ package org.apache.camel.kafkaconnector.nettyhttp.source;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.concurrent.ExecutionException;
 
+import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
-import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
+import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -39,14 +42,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
+public class CamelSourceNettyHTTPITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceNettyHTTPITCase.class);
-    private static final int HTTP_PORT = NetworkUtils.getFreePort("localhost", 30000, 40000);
+    private static final int HTTP_PORT = NetworkUtils.getFreePort("localhost", 20000, 29000);
     private static final String TEST_MESSAGE = "testMessage";
 
     private String topicName;
 
     private final int expect = 1;
+    private int received;
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -54,26 +58,28 @@ public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
     }
 
     @BeforeEach
-    public void setUp() throws IOException {
-        topicName = getTopicForTest(this);
+    public void setUp() {
+        topicName = TestUtils.getDefaultTestTopic(this.getClass());
     }
 
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceive() throws Exception {
+    protected void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
 
-        ConnectorPropertyFactory connectorPropertyFactory = CamelNettyHTTPPropertyFactory.basic()
-                .withKafkaTopic(topicName)
-                .withReceiveBufferSize(10)
-                .withHost("0.0.0.0")
-                .withPort(HTTP_PORT)
-                .withProtocol("http")
-                .withCamelTypeConverterTransformTo("java.lang.String");
+        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 
-        runTestBlocking(connectorPropertyFactory, topicName, expect);
+        LOG.debug("Sending http request");
+        produceTestData();
+        LOG.debug("Http request sent");
+
+        LOG.debug("Creating the consumer ...");
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        LOG.debug("Consuming messages ...");
+        kafkaClient.consume(topicName, this::checkRecord);
+        LOG.debug("Messages consumed.");
+
+        assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 
-    @Override
     protected void produceTestData() {
         int retriesLeft = 10;
         boolean success = false;
@@ -110,10 +116,26 @@ public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
         }
     }
 
-    @Override
-    protected void verifyMessages(TestMessageConsumer<?> consumer) {
-        int received = consumer.consumedMessages().size();
-        assertEquals(expect, received, "Didn't process the expected amount of messages");
-        assertEquals(TEST_MESSAGE, consumer.consumedMessages().get(0).value().toString());
+    protected <T> boolean checkRecord(ConsumerRecord<String, T> record) {
+        LOG.debug("Received: {}", record.value());
+        received++;
+        assertEquals(TEST_MESSAGE, record.value().toString());
+
+        return false;
+    }
+
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceive() throws Exception {
+
+        ConnectorPropertyFactory connectorPropertyFactory = CamelNettyHTTPPropertyFactory.basic()
+                .withKafkaTopic(topicName)
+                .withReceiveBufferSize(10)
+                .withHost("0.0.0.0")
+                .withPort(HTTP_PORT)
+                .withProtocol("http")
+                .withCamelTypeConverterTransformTo("java.lang.String");
+
+        runTest(connectorPropertyFactory);
     }
 }

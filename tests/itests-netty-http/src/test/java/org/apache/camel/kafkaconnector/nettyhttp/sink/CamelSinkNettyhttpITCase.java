@@ -17,14 +17,18 @@
 
 package org.apache.camel.kafkaconnector.nettyhttp.sink;
 
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
+import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,7 +39,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
+public class CamelSinkNettyhttpITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkNettyhttpITCase.class);
 
     private MockWebServer mockServer;
@@ -52,7 +56,7 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
 
     @BeforeEach
     public void setUp() {
-        topicName = getTopicForTest(this);
+        topicName = TestUtils.getDefaultTestTopic(this.getClass());
         mockServer = new MockWebServer();
         received = null;
     }
@@ -64,26 +68,41 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
         }
     }
 
-    @Override
-    protected void consumeMessages(CountDownLatch latch) {
+    protected void verifyMessages() throws InterruptedException {
+        String expected = "test 0";
         try {
-            received = mockServer.takeRequest();
+            received = mockServer.takeRequest(30, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
-            LOG.error("Unable to receive messages: {}", e.getMessage(), e);
-        } finally {
-            latch.countDown();
+            LOG.error("Unable to receive http requests: {}", e.getMessage(), e);
+            fail("Failed to receive the messages within the specified time");
+        }
+        assertEquals("/test", received.getPath(), "Received path differed");
+        assertEquals(expected, received.getBody().readUtf8(), "Received message content differed");
+    }
+
+    private void putRecords() {
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+
+        for (int i = 0; i < expect; i++) {
+            try {
+                kafkaClient.produce(topicName, "test " + i);
+            } catch (ExecutionException e) {
+                LOG.error("Unable to produce messages: {}", e.getMessage(), e);
+            } catch (InterruptedException e) {
+                break;
+            }
         }
     }
 
-    @Override
-    protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
-        String expected = "Sink test message 0";
-        if (latch.await(30, TimeUnit.SECONDS)) {
-            assertEquals("/test", received.getPath(), "Received path differed");
-            assertEquals(expected, received.getBody().readUtf8(), "Received message content differed");
-        } else {
-            fail("Failed to receive the messages within the specified time");
-        }
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
+
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+
+        ExecutorService service = Executors.newCachedThreadPool();
+        service.submit(() -> putRecords());
+
+        verifyMessages();
     }
 
     @Test
@@ -96,7 +115,7 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
                 .withPort(mockServer.getPort())
                 .withPath("test");
         mockServer.enqueue(new MockResponse().setResponseCode(200));
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory);
     }
 
     @Test
@@ -107,6 +126,6 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
                 .withUrl("http", mockServer.getHostName(), mockServer.getPort(), "test")
                 .buildUrl();
         mockServer.enqueue(new MockResponse().setResponseCode(200));
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory);
     }
 }
