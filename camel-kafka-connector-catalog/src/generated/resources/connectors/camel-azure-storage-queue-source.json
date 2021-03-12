@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-queue-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "The azure-storage-queue component is used for storing and retrieving the messages to\/from Azure Storage Queue using Azure SDK v12."
 	},
 	"properties": {
