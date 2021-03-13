@@ -2,25 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.8.0...HEAD)
-
-**Fixed bugs:**
-
-- Prevent Kafka Connect from leaking passwords and sensitive data [\#1050](https://github.com/apache/camel-kafka-connector/issues/1050)
-- Convert NettyChannelBufferStreamCache from NettyHttpSource not converted to string [\#969](https://github.com/apache/camel-kafka-connector/issues/969)
-
-**Closed issues:**
-
-- `camel.source.endpoint.sync` issue in CamelInfinispanSourceConnector in 0.8.0 [\#1068](https://github.com/apache/camel-kafka-connector/issues/1068)
-- ITests don't work when a test class is specified with `-Dtest=...` [\#1062](https://github.com/apache/camel-kafka-connector/issues/1062)
-- The count of transforms, converter and aggregation strategy seems to be broken for docs [\#1057](https://github.com/apache/camel-kafka-connector/issues/1057)
-- Add SMT for GenericFile of Camel-file-kafka-connector [\#1047](https://github.com/apache/camel-kafka-connector/issues/1047)
-- Add itests for camel-kafka-netty\*-connectors [\#1036](https://github.com/apache/camel-kafka-connector/issues/1036)
-- Grab topics using regex and put in S3 by topic name [\#1020](https://github.com/apache/camel-kafka-connector/issues/1020)
-- How to set Map property via the kafka connector configuration [\#323](https://github.com/apache/camel-kafka-connector/issues/323)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.3...HEAD)
 
 **Merged pull requests:**
 
+- Introduce MockWebServer extension for testing \#1085 [\#1097](https://github.com/apache/camel-kafka-connector/pull/1097) ([tadayosi](https://github.com/tadayosi))
 - Add https itests [\#1096](https://github.com/apache/camel-kafka-connector/pull/1096) ([tadayosi](https://github.com/tadayosi))
 - Some folowup improvements fro \#969 and \#202. [\#1093](https://github.com/apache/camel-kafka-connector/pull/1093) ([valdar](https://github.com/valdar))
 - Issue/969 [\#1091](https://github.com/apache/camel-kafka-connector/pull/1091) ([valdar](https://github.com/valdar))
@@ -37,6 +23,30 @@
 - The count of transforms, converter and aggregation strategy seems to be broken for docs  [\#1059](https://github.com/apache/camel-kafka-connector/pull/1059) ([oscerd](https://github.com/oscerd))
 - Add SMT for GenericFile of Camel-file-kafka-connector [\#1055](https://github.com/apache/camel-kafka-connector/pull/1055) ([oscerd](https://github.com/oscerd))
 - Added 0.7.1 and 0.7.2 release to camel compatibility matrix [\#1054](https://github.com/apache/camel-kafka-connector/pull/1054) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.7.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.3) (2021-03-13)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.8.0...camel-kafka-connector-0.7.3)
+
+**Fixed bugs:**
+
+- Prevent Kafka Connect from leaking passwords and sensitive data [\#1050](https://github.com/apache/camel-kafka-connector/issues/1050)
+- Convert NettyChannelBufferStreamCache from NettyHttpSource not converted to string [\#969](https://github.com/apache/camel-kafka-connector/issues/969)
+
+**Closed issues:**
+
+- netty-http sink itests - mock web server out of test code into JUnit 5 extension [\#1085](https://github.com/apache/camel-kafka-connector/issues/1085)
+- `camel.source.endpoint.sync` issue in CamelInfinispanSourceConnector in 0.8.0 [\#1068](https://github.com/apache/camel-kafka-connector/issues/1068)
+- ITests don't work when a test class is specified with `-Dtest=...` [\#1062](https://github.com/apache/camel-kafka-connector/issues/1062)
+- The count of transforms, converter and aggregation strategy seems to be broken for docs [\#1057](https://github.com/apache/camel-kafka-connector/issues/1057)
+- Add SMT for GenericFile of Camel-file-kafka-connector [\#1047](https://github.com/apache/camel-kafka-connector/issues/1047)
+- Add itests for camel-kafka-netty\*-connectors [\#1036](https://github.com/apache/camel-kafka-connector/issues/1036)
+- Grab topics using regex and put in S3 by topic name [\#1020](https://github.com/apache/camel-kafka-connector/issues/1020)
+- How to set Map property via the kafka connector configuration [\#323](https://github.com/apache/camel-kafka-connector/issues/323)
+
+**Merged pull requests:**
+
+- Backport 1050 fix to 0.7.x [\#1053](https://github.com/apache/camel-kafka-connector/pull/1053) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.8.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.8.0) (2021-02-22)
 
@@ -641,6 +651,7 @@
 - Update try-it-out-on-openshift-with-strimzi.adoc with latest AWS S3 connector config [\#433](https://github.com/apache/camel-kafka-connector/pull/433) ([smccarthy-ie](https://github.com/smccarthy-ie))
 - Pr Build and push build needs to point to master [\#432](https://github.com/apache/camel-kafka-connector/pull/432) ([oscerd](https://github.com/oscerd))
 - adding a key transformer to the AWS2-SQS connector so that the CamelH… [\#431](https://github.com/apache/camel-kafka-connector/pull/431) ([codexetreme](https://github.com/codexetreme))
+- Proposed fix for issue \#414 [\#428](https://github.com/apache/camel-kafka-connector/pull/428) ([orpiske](https://github.com/orpiske))
 - Camel 3.5.0 [\#427](https://github.com/apache/camel-kafka-connector/pull/427) ([oscerd](https://github.com/oscerd))
 - Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
 - Archetype: Add a parameter to the archetype generator to be able to s… [\#421](https://github.com/apache/camel-kafka-connector/pull/421) ([oscerd](https://github.com/oscerd))
