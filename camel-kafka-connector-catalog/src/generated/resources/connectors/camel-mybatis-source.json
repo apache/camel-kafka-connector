@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mybatis-source",
 		"type": "source",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Performs a query, poll, insert, update or delete in a relational database using MyBatis."
 	},
 	"properties": {

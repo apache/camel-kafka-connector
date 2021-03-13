@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mongodb-gridfs-sink",
 		"type": "sink",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Interact with MongoDB GridFS."
 	},
 	"properties": {

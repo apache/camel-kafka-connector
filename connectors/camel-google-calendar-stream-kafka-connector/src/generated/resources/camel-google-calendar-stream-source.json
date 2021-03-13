@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-calendar-stream-source",
 		"type": "source",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Poll for changes in a Google Calendar."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mina-source",
 		"type": "source",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Socket level networking using TCP or UDP with Apache Mina 2.x."
 	},
 	"properties": {

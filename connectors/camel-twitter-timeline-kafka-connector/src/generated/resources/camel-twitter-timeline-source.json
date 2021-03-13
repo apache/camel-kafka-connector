@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-twitter-timeline-source",
 		"type": "source",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Send tweets and receive tweets from user's timeline."
 	},
 	"properties": {

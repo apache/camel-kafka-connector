@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ignite-queue-sink",
 		"type": "sink",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Interact with Ignite Queue data structures."
 	},
 	"properties": {

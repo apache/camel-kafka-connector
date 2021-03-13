@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jcache-sink",
 		"type": "sink",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Perform caching operations against JSR107\/JCache."
 	},
 	"properties": {

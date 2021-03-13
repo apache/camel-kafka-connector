@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-source",
 		"type": "source",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Sent and receive messages to\/from an Apache Kafka broker."
 	},
 	"properties": {

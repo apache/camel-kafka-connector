@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-smpp-sink",
 		"type": "sink",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Send and receive SMS messages using a SMSC (Short Message Service Center)."
 	},
 	"properties": {

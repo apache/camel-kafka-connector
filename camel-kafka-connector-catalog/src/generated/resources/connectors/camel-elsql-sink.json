@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-elsql-sink",
 		"type": "sink",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Use ElSql to define SQL queries. Extends the SQL Component."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ironmq-source",
 		"type": "source",
-		"version": "0.7.3-SNAPSHOT",
+		"version": "0.7.3",
 		"description": "Send and receive messages to\/from IronMQ an elastic and durable hosted message queue as a service."
 	},
 	"properties": {
