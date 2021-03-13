@@ -43,7 +43,7 @@
 		"camel.source.endpoint.markAsRead": {
 			"name": "camel.source.endpoint.markAsRead",
 			"description": "Mark the message as read once it has been consumed",
-			"defaultValue": "false",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -247,7 +247,7 @@
 		"camel.component.google-mail-stream.markAsRead": {
 			"name": "camel.component.google-mail-stream.markAsRead",
 			"description": "Mark the message as read once it has been consumed",
-			"defaultValue": "false",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
