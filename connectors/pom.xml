@@ -213,6 +213,7 @@
         <module>camel-atomix-set-kafka-connector</module>
         <module>camel-atomix-value-kafka-connector</module>
         <module>camel-avro-kafka-connector</module>
+        <module>camel-aws-secrets-manager-kafka-connector</module>
         <module>camel-aws2-athena-kafka-connector</module>
         <module>camel-aws2-cw-kafka-connector</module>
         <module>camel-aws2-ddb-kafka-connector</module>

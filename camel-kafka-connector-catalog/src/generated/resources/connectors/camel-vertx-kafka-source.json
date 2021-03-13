@@ -172,6 +172,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.allowManualCommit": {
+			"name": "camel.source.endpoint.allowManualCommit",
+			"description": "Whether to allow doing manual commits via org.apache.camel.component.vertx.kafka.offset.VertxKafkaManualCommit. If this option is enabled then an instance of org.apache.camel.component.vertx.kafka.offset.VertxKafkaManualCommit is stored on the Exchange message header, which allows end users to access this API and perform manual offset commits via the Kafka consumer. Note: To take full control of the offset committing, you may need to disable the Kafka Consumer default auto commit behavior by setting 'enableAutoCommit' to 'false'.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.autoCommitIntervalMs": {
 			"name": "camel.source.endpoint.autoCommitIntervalMs",
 			"description": "The frequency in milliseconds that the consumer offsets are auto-committed to Kafka if enable.auto.commit is set to true.",
@@ -755,6 +762,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.vertx-kafka.allowManualCommit": {
+			"name": "camel.component.vertx-kafka.allowManualCommit",
+			"description": "Whether to allow doing manual commits via org.apache.camel.component.vertx.kafka.offset.VertxKafkaManualCommit. If this option is enabled then an instance of org.apache.camel.component.vertx.kafka.offset.VertxKafkaManualCommit is stored on the Exchange message header, which allows end users to access this API and perform manual offset commits via the Kafka consumer. Note: To take full control of the offset committing, you may need to disable the Kafka Consumer default auto commit behavior by setting 'enableAutoCommit' to 'false'.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.vertx-kafka.autoCommitIntervalMs": {
 			"name": "camel.component.vertx-kafka.autoCommitIntervalMs",
 			"description": "The frequency in milliseconds that the consumer offsets are auto-committed to Kafka if enable.auto.commit is set to true.",
@@ -928,6 +942,12 @@
 			"name": "camel.component.vertx-kafka.valueDeserializer",
 			"description": "Deserializer class for value that implements the org.apache.kafka.common.serialization.Deserializer interface.",
 			"defaultValue": "\"org.apache.kafka.common.serialization.StringDeserializer\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.kafkaManualCommitFactory": {
+			"name": "camel.component.vertx-kafka.kafkaManualCommitFactory",
+			"description": "Factory to use for creating org.apache.camel.component.vertx.kafka.offset.VertxKafkaManualCommit instances. This allows to plugin a custom factory to create custom org.apache.camel.component.vertx.kafka.offset.VertxKafkaManualCommit instances in case special logic is needed when doing manual commits that deviates from the default implementation that comes out of the box.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
