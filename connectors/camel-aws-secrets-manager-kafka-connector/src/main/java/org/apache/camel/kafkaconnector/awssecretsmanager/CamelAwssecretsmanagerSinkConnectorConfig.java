@@ -29,11 +29,14 @@ public class CamelAwssecretsmanagerSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_PATH_LABEL_CONF = "camel.sink.path.label";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_PATH_LABEL_DOC = "Logical name";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_PATH_LABEL_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_BINARY_PAYLOAD_CONF = "camel.sink.endpoint.binaryPayload";
+    public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_BINARY_PAYLOAD_DOC = "Set if the secret is binary or not";
+    public static final Boolean CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_BINARY_PAYLOAD_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
-    public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OPERATION_DOC = "The operation to perform One of: [listSecrets]";
+    public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OPERATION_DOC = "The operation to perform One of: [listSecrets] [createSecret] [getSecret] [describeSecret]";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OVERRIDE_ENDPOINT_CONF = "camel.sink.endpoint.overrideEndpoint";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
@@ -68,6 +71,9 @@ public class CamelAwssecretsmanagerSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_SECRET_KEY_CONF = "camel.sink.endpoint.secretKey";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_SECRET_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_BINARY_PAYLOAD_CONF = "camel.component.aws-secrets-manager.binaryPayload";
+    public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_BINARY_PAYLOAD_DOC = "Set if the secret is binary or not";
+    public static final Boolean CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_BINARY_PAYLOAD_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-secrets-manager.configuration";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_CONFIGURATION_DOC = "Component configuration";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -75,7 +81,7 @@ public class CamelAwssecretsmanagerSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OPERATION_CONF = "camel.component.aws-secrets-manager.operation";
-    public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OPERATION_DOC = "The operation to perform One of: [listSecrets]";
+    public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OPERATION_DOC = "The operation to perform One of: [listSecrets] [createSecret] [getSecret] [describeSecret]";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OVERRIDE_ENDPOINT_CONF = "camel.component.aws-secrets-manager.overrideEndpoint";
     public static final String CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
@@ -128,6 +134,7 @@ public class CamelAwssecretsmanagerSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_PATH_LABEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSECRETSMANAGER_PATH_LABEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSECRETSMANAGER_PATH_LABEL_DOC);
+        conf.define(CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_BINARY_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_BINARY_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_BINARY_PAYLOAD_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_OVERRIDE_ENDPOINT_DOC);
@@ -141,6 +148,7 @@ public class CamelAwssecretsmanagerSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_ENDPOINT_SECRET_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_BINARY_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_BINARY_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_BINARY_PAYLOAD_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSECRETSMANAGER_COMPONENT_OPERATION_DOC);
