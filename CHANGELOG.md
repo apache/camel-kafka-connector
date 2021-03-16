@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.3...HEAD)
 
+**Closed issues:**
+
+- Release 0.7.3 [\#1095](https://github.com/apache/camel-kafka-connector/issues/1095)
+
 **Merged pull requests:**
 
 - Introduce MockWebServer extension for testing \#1085 [\#1097](https://github.com/apache/camel-kafka-connector/pull/1097) ([tadayosi](https://github.com/tadayosi))
