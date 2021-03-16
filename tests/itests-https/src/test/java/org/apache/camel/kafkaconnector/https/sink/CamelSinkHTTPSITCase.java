@@ -99,7 +99,7 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
                 String actual = request.getBody().readUtf8();
                 LOG.debug("Received: {} ", actual);
 
-                assertEquals("/ckc", request.getPath(), "Received path differed");
+                assertEquals("/ckc", request.getRequestUrl().encodedPath(), "Received path differed");
                 assertTrue(actual.startsWith(expected), "Received message content differed");
             }
 
