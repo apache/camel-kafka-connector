@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.springrabbitmq.CamelSpringrabbit
 ----
 
 
-The camel-spring-rabbitmq source connector supports 50 options, which are listed below.
+The camel-spring-rabbitmq source connector supports 58 options, which are listed below.
 
 
 
@@ -47,14 +47,18 @@ The camel-spring-rabbitmq source connector supports 50 options, which are listed
 | *camel.source.endpoint.deadLetterRoutingKey* | The routing key for the dead letter exchange | null | false | MEDIUM
 | *camel.source.endpoint.exchangeType* | The type of the exchange One of: [direct] [fanout] [headers] [topic] | "direct" | false | MEDIUM
 | *camel.source.endpoint.exclusive* | Set to true for an exclusive consumer | false | false | MEDIUM
+| *camel.source.endpoint.maximumRetryAttempts* | How many times a Rabbitmq consumer will retry the same message if Camel failed to process the message | 5 | false | MEDIUM
 | *camel.source.endpoint.noLocal* | Set to true for an no-local consumer | false | false | MEDIUM
 | *camel.source.endpoint.queues* | The queue(s) to use for consuming messages. Multiple queue names can be separated by comma. If none has been configured then Camel will generate an unique id as the queue name for the consumer. | null | false | MEDIUM
+| *camel.source.endpoint.rejectAndDontRequeue* | Whether a Rabbitmq consumer should reject the message without requeuing. This enables failed messages to be sent to a Dead Letter Exchange/Queue, if the broker is so configured. | true | false | MEDIUM
+| *camel.source.endpoint.retryDelay* | Delay in msec a Rabbitmq consumer will wait before redelivering a message that Camel failed to process | 1000 | false | MEDIUM
 | *camel.source.endpoint.concurrentConsumers* | The number of consumers | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.maxConcurrentConsumers* | The maximum number of consumers (available only with SMLC) | null | false | MEDIUM
 | *camel.source.endpoint.messageListenerContainerType* | The type of the MessageListenerContainer One of: [DMLC] [SMLC] | "DMLC" | false | MEDIUM
 | *camel.source.endpoint.prefetchCount* | Tell the broker how many messages to send in a single request. Often this can be set quite high to improve throughput. | null | false | MEDIUM
+| *camel.source.endpoint.retry* | Custom retry configuration to use. If this is configured then the other settings such as maximumRetryAttempts for retry are not in use. | null | false | MEDIUM
 | *camel.source.endpoint.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each element: arg.consumer. arg.exchange. arg.queue. arg.binding. arg.dlq.exchange. arg.dlq.queue. arg.dlq.binding. For example to declare a queue with message ttl argument: args=arg.queue.x-message-ttl=60000 | null | false | MEDIUM
 | *camel.source.endpoint.messageConverter* | To use a custom MessageConverter so you can be in control how to map to/from a org.springframework.amqp.core.Message. | null | false | MEDIUM
 | *camel.source.endpoint.messagePropertiesConverter* | To use a custom MessagePropertiesConverter so you can be in control how to map to/from a org.springframework.amqp.core.MessageProperties. | null | false | MEDIUM
@@ -69,12 +73,16 @@ The camel-spring-rabbitmq source connector supports 50 options, which are listed
 | *camel.component.spring-rabbitmq.deadLetterExchange Type* | The type of the dead letter exchange One of: [direct] [fanout] [headers] [topic] | "direct" | false | MEDIUM
 | *camel.component.spring-rabbitmq.deadLetterQueue* | The name of the dead letter queue | null | false | MEDIUM
 | *camel.component.spring-rabbitmq.deadLetterRouting Key* | The routing key for the dead letter exchange | null | false | MEDIUM
+| *camel.component.spring-rabbitmq.maximumRetry Attempts* | How many times a Rabbitmq consumer will retry the same message if Camel failed to process the message | 5 | false | MEDIUM
+| *camel.component.spring-rabbitmq.rejectAndDont Requeue* | Whether a Rabbitmq consumer should reject the message without requeuing. This enables failed messages to be sent to a Dead Letter Exchange/Queue, if the broker is so configured. | true | false | MEDIUM
+| *camel.component.spring-rabbitmq.retryDelay* | Delay in msec a Rabbitmq consumer will wait before redelivering a message that Camel failed to process | 1000 | false | MEDIUM
 | *camel.component.spring-rabbitmq.concurrent Consumers* | The number of consumers | 1 | false | MEDIUM
 | *camel.component.spring-rabbitmq.errorHandler* | To use a custom ErrorHandler for handling exceptions from the message listener (consumer) | null | false | MEDIUM
 | *camel.component.spring-rabbitmq.listenerContainer Factory* | To use a custom factory for creating and configuring ListenerContainer to be used by the consumer for receiving messages | null | false | MEDIUM
 | *camel.component.spring-rabbitmq.maxConcurrent Consumers* | The maximum number of consumers (available only with SMLC) | null | false | MEDIUM
 | *camel.component.spring-rabbitmq.messageListener ContainerType* | The type of the MessageListenerContainer One of: [DMLC] [SMLC] | "DMLC" | false | MEDIUM
 | *camel.component.spring-rabbitmq.prefetchCount* | Tell the broker how many messages to send to each consumer in a single request. Often this can be set quite high to improve throughput. | 250 | false | MEDIUM
+| *camel.component.spring-rabbitmq.retry* | Custom retry configuration to use. If this is configured then the other settings such as maximumRetryAttempts for retry are not in use. | null | false | MEDIUM
 | *camel.component.spring-rabbitmq.shutdownTimeout* | The time to wait for workers in milliseconds after the container is stopped. If any workers are active when the shutdown signal comes they will be allowed to finish processing as long as they can finish within this timeout. | 5000L | false | MEDIUM
 | *camel.component.spring-rabbitmq.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.spring-rabbitmq.ignoreDeclaration Exceptions* | Switch on ignore exceptions such as mismatched properties when declaring | false | false | MEDIUM
