@@ -31,6 +31,8 @@ import org.apache.camel.component.cxf.common.message.CxfConstants;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
+import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.cxfrs.Customer;
@@ -49,13 +51,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
-import static org.junit.Assert.assertTrue;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -63,11 +65,12 @@ import static org.junit.jupiter.api.Assertions.fail;
  * A simple test case that checks whether the CXF RS Consumer Endpoint produces the expected number of
  * messages
  */
-public class CamelSourceCXFRSITCase extends AbstractKafkaTest {
+public class CamelSourceCXFRSITCase extends CamelSourceTestSupport {
     
-    protected static final int PORT = NetworkUtils.getFreePort("localhost");
+    protected static final String LOCALHOST = NetworkUtils.getHostname();
+    protected static final int PORT = NetworkUtils.getFreePort(LOCALHOST);
     protected static final String CXT = PORT + "/CxfRsConsumerTest";
-    protected static final String CXF_RS_ENDPOINT_ADDRESS = "http://localhost:" + CXT + "/rest";
+    protected static final String CXF_RS_ENDPOINT_ADDRESS = "http://" + LOCALHOST + ":" + CXT + "/rest";
     protected static final String CXF_RS_ENDPOINT_URI =  CXF_RS_ENDPOINT_ADDRESS
         + "?resourceClasses=org.apache.camel.kafkaconnector.cxfrs.CustomerServiceResource";
 
@@ -94,88 +97,63 @@ public class CamelSourceCXFRSITCase extends AbstractKafkaTest {
         
     }
 
-    private <T> boolean checkRecord(ConsumerRecord<String, Object> record) {
-        LOG.debug("Received: {}", record.value());
-        assertEquals(receivedValue[received], record.value());
-        received++;
+    
 
-        if (received == expect) {
-            return false;
+    @Override
+    protected void produceTestData() {
+        TestUtils.waitFor(() -> NetworkUtils.portIsOpen(LOCALHOST, PORT));
+
+        try {
+            Bus bus = BusFactory.newInstance().createBus();
+            
+            bus.getInInterceptors().add(new LoggingInInterceptor());
+            bus.getOutInterceptors().add(new LoggingOutInterceptor());
+            try {
+                doTestGetCustomer("rest");
+            } catch (Exception e) {
+                LOG.info("Test Invocation Failure", e);
+            }
+            
+
+        } catch (Exception e) {
+            LOG.info("Unable to invoke service: {}", e.getMessage(), e);
+            fail("Unable to invoke service");
         }
-
-        return true;
     }
 
-    
-    private <T> boolean checkRecordWithProcessor(ConsumerRecord<String, Object> record) {
-        LOG.debug("Received: {}", record.value());
+    @Override
+    protected void verifyMessages(TestMessageConsumer<?> consumer) {
+        LOG.info("Consumed messages: {}", consumer.consumedMessages());
         
-        switch (received) {
-            case 0:
-                assertTrue(((String)record.value()).startsWith("org.apache.camel.kafkaconnector.cxfrs.Customer"));
-                break;
-            case 1:
-            case 2:    
-                assertTrue(((String)record.value()).startsWith("org.apache.cxf.jaxrs.impl.ResponseImpl"));
-                break;
+        for (ConsumerRecord<String, ?> record : consumer.consumedMessages()) {
+            Object receivedObject = consumer.consumedMessages().get(received).value();
+            if (!(receivedObject instanceof String)) {
+                fail("Unexpected message type");
+            }
+
+            String result = (String) receivedObject;
+            assertEquals(receivedValue[received++], result);
+            
             
         }
-        received++;
-
-        if (received == expect) {
-            return false;
-        }
-
-        return true;
     }
 
-
-
-    public void runBasicStringTest(ConnectorPropertyFactory connectorPropertyFactory, boolean withProcessor) throws ExecutionException, InterruptedException {
-        connectorPropertyFactory.log();
-Bus bus = BusFactory.newInstance().createBus();
         
-        bus.getInInterceptors().add(new LoggingInInterceptor());
-        bus.getOutInterceptors().add(new LoggingOutInterceptor());
-        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
-        
-        
-        Thread.sleep(5000);
-        try {
-            doTestGetCustomer("rest", withProcessor);
-        } catch (Exception e) {
-            LOG.info("Test Invocation Failure", e);
-        }
-        
-        
-        LOG.debug("Creating the consumer ...");
-        KafkaClient<String, Object> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-        if (!withProcessor) {
-            kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
-        } else {
-            kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecordWithProcessor);
-        }
-        LOG.debug("Created the consumer ...");
-
-        assertEquals(received, expect, "Didn't process the expected amount of messages");
-    }
-
-    
 
     @Test
-    @Timeout(2000)
+    @Timeout(20)
     public void testBasicSendReceive() {
         try {
+            String topicName = getTopicForTest(this);
             ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFRSPropertyFactory
                     .basic()
-                    .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                    .withKafkaTopic(topicName)
                     .withAddress(CXF_RS_ENDPOINT_ADDRESS)
                     .withResourceClass("org.apache.camel.kafkaconnector.cxfrs.CustomerServiceResource");
                   
                                         
 
-            runBasicStringTest(connectorPropertyFactory, false);
+            runTestBlocking(connectorPropertyFactory, topicName, expect);
         } catch (Exception e) {
             LOG.error("CXF test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
@@ -183,18 +161,20 @@ Bus bus = BusFactory.newInstance().createBus();
     }
     
     @Test
-    @Timeout(2000)
+    @Timeout(20)
     public void testBasicSendReceiveWithoutProcessor() {
         try {
+            
+            String topicName = getTopicForTest(this);
             ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFRSPropertyFactory
                     .basic()
-                    .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                    .withKafkaTopic(topicName)
                     .withAddress(CXF_RS_ENDPOINT_ADDRESS)
                     .withResourceClass("org.apache.camel.kafkaconnector.cxfrs.CustomerServiceResource");
                     
                                         
 
-            runBasicStringTest(connectorPropertyFactory, false);
+            runTestBlocking(connectorPropertyFactory, topicName, expect);
         } catch (Exception e) {
             LOG.error("CXF test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
@@ -205,14 +185,15 @@ Bus bus = BusFactory.newInstance().createBus();
     @Timeout(20)
     public void testBasicSendReceiveUsingUrl() {
         try {
+            String topicName = getTopicForTest(this);
             ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFRSPropertyFactory
                     .basic()
-                    .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                    .withKafkaTopic(topicName)
                     .withUrl(CXF_RS_ENDPOINT_URI).buildUrl();
                     
                     
 
-            runBasicStringTest(connectorPropertyFactory, false);
+            runTestBlocking(connectorPropertyFactory, topicName, expect);
         } catch (Exception e) {
             LOG.error("CXF test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
@@ -221,110 +202,26 @@ Bus bus = BusFactory.newInstance().createBus();
 
     
     
-    private void invokeGetCustomer(String uri, String expect, boolean withProcessor) throws Exception {
+    private void invokeGetCustomer(String uri, String expect) throws Exception {
         HttpGet get = new HttpGet(uri);
         get.addHeader("Accept", "application/json");
         CloseableHttpClient httpclient = HttpClientBuilder.create().build();
 
         try {
             HttpResponse response = httpclient.execute(get);
-            if (withProcessor) {
-                assertEquals(200, response.getStatusLine().getStatusCode());
-                assertEquals(expect,
-                         EntityUtils.toString(response.getEntity()));
-            }
+            
         } finally {
             httpclient.close();
         }
     }
 
-    private void doTestGetCustomer(String contextUri, boolean withProcessor) throws Exception {
-        invokeGetCustomer("http://localhost:" + CXT + "/" + contextUri + "/customerservice/customers/126",
-                          "{\"Customer\":{\"id\":126,\"name\":\"CKC\"}}",
-                          withProcessor);
-        invokeGetCustomer("http://localhost:" + CXT + "/" + contextUri + "/customerservice/customers/123",
-                          "customer response back!",
-                          withProcessor);
-        invokeGetCustomer("http://localhost:" + CXT + "/" + contextUri + "/customerservice/customers/400",
-            "The remoteAddress is 127.0.0.1",
-            withProcessor);
-
-    }
-
-
-    public abstract static class AbstractTestProcessor implements Processor {
-        public void processGetCustomer(Exchange exchange) throws Exception {
-            Message inMessage = exchange.getIn();
-            String httpMethod = inMessage.getHeader(Exchange.HTTP_METHOD, String.class);
-            assertEquals("GET", httpMethod, "Get a wrong http method");
-            String path = inMessage.getHeader(Exchange.HTTP_PATH, String.class);
-            // The parameter of the invocation is stored in the body of in message
-            String id = inMessage.getBody(String.class);
-            if ("/customerservice/customers/126".equals(path)) {
-                Customer customer = new Customer();
-                customer.setId(Long.parseLong(id));
-                customer.setName("CKC");
-                // We just put the response Object into the out message body
-                exchange.getMessage().setBody(customer);
-            } else {
-                if ("/customerservice/customers/400".equals(path)) {
-                    // We return the remote client IP address this time
-                    org.apache.cxf.message.Message cxfMessage
-                            = inMessage.getHeader(CxfConstants.CAMEL_CXF_MESSAGE, org.apache.cxf.message.Message.class);
-                    ServletRequest request = (ServletRequest) cxfMessage.get("HTTP.REQUEST");
-                    // Just make sure the request object is not null
-                    assertNotNull(request, "The request object should not be null");
-                    Response r = Response.status(200).entity("The remoteAddress is 127.0.0.1").build();
-                    exchange.getMessage().setBody(r);
-                    return;
-                }
-                if ("/customerservice/customers/123".equals(path)) {
-                    // send a customer response back
-                    Response r = Response.status(200).entity("customer response back!").build();
-                    exchange.getMessage().setBody(r);
-                    return;
-                }
-                if ("/customerservice/customers/456".equals(path)) {
-                    Response r = Response.status(404).entity("Can't found the customer with uri " + path)
-                            .header("Content-Type", "text/plain").build();
-                    throw new WebApplicationException(r);
-                } else if ("/customerservice/customers/234".equals(path)) {
-                    Response r = Response.status(404).entity("Can't found the customer with uri " + path)
-                            .header("Content-Type", "text/plain").build();
-                    exchange.getMessage().setBody(r);
-                } else if ("/customerservice/customers/789".equals(path)) {
-                    exchange.getMessage().setBody("Can't found the customer with uri " + path);
-                    exchange.getMessage().setHeader(Exchange.CONTENT_TYPE, "text/plain");
-                    exchange.getMessage().setHeader(Exchange.HTTP_RESPONSE_CODE, "404");
-                } else {
-                    throw new RuntimeCamelException("Can't found the customer with uri " + path);
-                }
-            }
-        }
-
-    }
-
-    public static class TestProcessor extends AbstractTestProcessor {
-        @Override
-        public void process(Exchange exchange) throws Exception {
-            Message inMessage = exchange.getIn();
-            // Get the operation name from in message
-            String operationName = inMessage.getHeader(CxfConstants.OPERATION_NAME, String.class);
-            if ("getCustomer".equals(operationName)) {
-                processGetCustomer(exchange);
-            } else if ("updateCustomer".equals(operationName)) {
-                assertEquals("header1;header2", inMessage.getHeader("test"), "Get a wrong customer message header");
-                String httpMethod = inMessage.getHeader(Exchange.HTTP_METHOD, String.class);
-                assertEquals("PUT", httpMethod, "Get a wrong http method");
-                Customer customer = inMessage.getBody(Customer.class);
-                assertNotNull(customer, "The customer should not be null.");
-                // Now you can do what you want on the customer object
-                assertEquals("Mary", customer.getName(), "Get a wrong customer name.");
-                // set the response back
-                exchange.getMessage().setBody(Response.ok().build());
-            }
-
-        }
+    private void doTestGetCustomer(String contextUri) throws Exception {
+        invokeGetCustomer("http://" + LOCALHOST + ":" + CXT + "/" + contextUri + "/customerservice/customers/126",
+                          "{\"Customer\":{\"id\":126,\"name\":\"CKC\"}}");
+        invokeGetCustomer("http://" + LOCALHOST + ":" + CXT + "/" + contextUri + "/customerservice/customers/123",
+                          "customer response back!");
+        invokeGetCustomer("http://" + LOCALHOST + ":" + CXT + "/" + contextUri + "/customerservice/customers/400",
+            "The remoteAddress is 127.0.0.1");
 
     }
     
