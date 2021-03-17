@@ -174,7 +174,6 @@
 - Fixed version in compatibility matrix for 0.6.1 [\#898](https://github.com/apache/camel-kafka-connector/pull/898) ([oscerd](https://github.com/oscerd))
 - Add a column to compatibility matrix about Kafka version [\#897](https://github.com/apache/camel-kafka-connector/pull/897) ([oscerd](https://github.com/oscerd))
 - Bump Strimzi to version 0.21.1 [\#895](https://github.com/apache/camel-kafka-connector/pull/895) ([oscerd](https://github.com/oscerd))
-- Fix HDFS tests incompatibilities [\#893](https://github.com/apache/camel-kafka-connector/pull/893) ([orpiske](https://github.com/orpiske))
 - Compatibility matrix: added ckc 0.7.0 [\#891](https://github.com/apache/camel-kafka-connector/pull/891) ([oscerd](https://github.com/oscerd))
 - Bump Apicurio Registry to version 1.3.2.Final [\#890](https://github.com/apache/camel-kafka-connector/pull/890) ([oscerd](https://github.com/oscerd))
 - Fix using an incorrect format for the continuity check logic [\#888](https://github.com/apache/camel-kafka-connector/pull/888) ([orpiske](https://github.com/orpiske))
