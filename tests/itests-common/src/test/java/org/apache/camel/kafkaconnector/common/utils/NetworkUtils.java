@@ -29,10 +29,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class NetworkUtils {
-    public static final int  DEFAULT_STARTING_PORT = 49152;
+    
     public static final int  DEFAULT_ENDING_PORT = 65535;
     private static String hostname;
 
+    public static int  DEFAULT_STARTING_PORT = 49152;
     private static final Logger LOG = LoggerFactory.getLogger(NetworkUtils.class);
 
     private NetworkUtils() {
@@ -55,7 +56,7 @@ public final class NetworkUtils {
         return getFreePort(host, startingPort, endingPort, Protocol.TCP);
     }
 
-    public static int getFreePort(String host, int startingPort, int endingPort, Protocol protocol) {
+    public static synchronized int getFreePort(String host, int startingPort, int endingPort, Protocol protocol) {
         int freePort = 0;
         for (int i = startingPort; i <= endingPort; i++) {
             boolean found = checkPort(host, i, protocol);
@@ -75,6 +76,7 @@ public final class NetworkUtils {
                         ss.setReuseAddress(true);
                         ss.bind(new InetSocketAddress(host, port), 1);
                         ss.getLocalPort();
+                        DEFAULT_STARTING_PORT++;
                         return true;
                     } catch (IOException e) {
                         return false;
