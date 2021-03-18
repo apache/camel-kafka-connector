@@ -29,10 +29,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class NetworkUtils {
-    public static final int  DEFAULT_STARTING_PORT = 49152;
+    
     public static final int  DEFAULT_ENDING_PORT = 65535;
+    public static final int  DEFAULT_STARTING_PORT = 49152;
+    public static int freeStartingPort = DEFAULT_STARTING_PORT;
     private static String hostname;
-
     private static final Logger LOG = LoggerFactory.getLogger(NetworkUtils.class);
 
     private NetworkUtils() {
@@ -44,18 +45,18 @@ public final class NetworkUtils {
     }
 
     public static int getFreePort(String host) {
-        return getFreePort(host, DEFAULT_STARTING_PORT, DEFAULT_ENDING_PORT);
+        return getFreePort(host, freeStartingPort, DEFAULT_ENDING_PORT);
     }
 
     public static int getFreePort(String host, Protocol protocol) {
-        return getFreePort(host, DEFAULT_STARTING_PORT, DEFAULT_ENDING_PORT, protocol);
+        return getFreePort(host, freeStartingPort, DEFAULT_ENDING_PORT, protocol);
     }
 
     public static int getFreePort(String host, int startingPort, int endingPort) {
         return getFreePort(host, startingPort, endingPort, Protocol.TCP);
     }
 
-    public static int getFreePort(String host, int startingPort, int endingPort, Protocol protocol) {
+    public static synchronized int getFreePort(String host, int startingPort, int endingPort, Protocol protocol) {
         int freePort = 0;
         for (int i = startingPort; i <= endingPort; i++) {
             boolean found = checkPort(host, i, protocol);
@@ -75,12 +76,18 @@ public final class NetworkUtils {
                         ss.setReuseAddress(true);
                         ss.bind(new InetSocketAddress(host, port), 1);
                         ss.getLocalPort();
+                        if (port == freeStartingPort) {
+                            freeStartingPort++;
+                        }
                         return true;
                     } catch (IOException e) {
                         return false;
                     }
                 case UDP:
                     (new DatagramSocket(new InetSocketAddress(host, port))).close();
+                    if (port == freeStartingPort) {
+                        freeStartingPort++;
+                    }
                     return true;
                 default:
                     return false;
