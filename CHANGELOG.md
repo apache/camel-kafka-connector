@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- Upgrade Strimzi to version 0.22.0 [\#1106](https://github.com/apache/camel-kafka-connector/pull/1106) ([oscerd](https://github.com/oscerd))
 - Introduce MockWebServer extension for testing \#1085 [\#1097](https://github.com/apache/camel-kafka-connector/pull/1097) ([tadayosi](https://github.com/tadayosi))
 - Add https itests [\#1096](https://github.com/apache/camel-kafka-connector/pull/1096) ([tadayosi](https://github.com/tadayosi))
 - Some folowup improvements fro \#969 and \#202. [\#1093](https://github.com/apache/camel-kafka-connector/pull/1093) ([valdar](https://github.com/valdar))
@@ -174,6 +175,7 @@
 - Fixed version in compatibility matrix for 0.6.1 [\#898](https://github.com/apache/camel-kafka-connector/pull/898) ([oscerd](https://github.com/oscerd))
 - Add a column to compatibility matrix about Kafka version [\#897](https://github.com/apache/camel-kafka-connector/pull/897) ([oscerd](https://github.com/oscerd))
 - Bump Strimzi to version 0.21.1 [\#895](https://github.com/apache/camel-kafka-connector/pull/895) ([oscerd](https://github.com/oscerd))
+- Fix HDFS tests incompatibilities [\#893](https://github.com/apache/camel-kafka-connector/pull/893) ([orpiske](https://github.com/orpiske))
 - Compatibility matrix: added ckc 0.7.0 [\#891](https://github.com/apache/camel-kafka-connector/pull/891) ([oscerd](https://github.com/oscerd))
 - Bump Apicurio Registry to version 1.3.2.Final [\#890](https://github.com/apache/camel-kafka-connector/pull/890) ([oscerd](https://github.com/oscerd))
 - Fix using an incorrect format for the continuity check logic [\#888](https://github.com/apache/camel-kafka-connector/pull/888) ([orpiske](https://github.com/orpiske))
@@ -653,7 +655,6 @@
 - Run the changelog automatic updated every hour [\#434](https://github.com/apache/camel-kafka-connector/pull/434) ([oscerd](https://github.com/oscerd))
 - Update try-it-out-on-openshift-with-strimzi.adoc with latest AWS S3 connector config [\#433](https://github.com/apache/camel-kafka-connector/pull/433) ([smccarthy-ie](https://github.com/smccarthy-ie))
 - Pr Build and push build needs to point to master [\#432](https://github.com/apache/camel-kafka-connector/pull/432) ([oscerd](https://github.com/oscerd))
-- adding a key transformer to the AWS2-SQS connector so that the CamelH… [\#431](https://github.com/apache/camel-kafka-connector/pull/431) ([codexetreme](https://github.com/codexetreme))
 - Proposed fix for issue \#414 [\#428](https://github.com/apache/camel-kafka-connector/pull/428) ([orpiske](https://github.com/orpiske))
 - Camel 3.5.0 [\#427](https://github.com/apache/camel-kafka-connector/pull/427) ([oscerd](https://github.com/oscerd))
 - Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
