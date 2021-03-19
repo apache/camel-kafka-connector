@@ -6,11 +6,14 @@
 
 **Closed issues:**
 
+- aws2 s3 source connector ClassCastException for value.conver [\#1107](https://github.com/apache/camel-kafka-connector/issues/1107)
 - Release 0.7.3 [\#1095](https://github.com/apache/camel-kafka-connector/issues/1095)
 
 **Merged pull requests:**
 
+- NetworkUtils should be able to hold a free port for later usage \#1109 [\#1111](https://github.com/apache/camel-kafka-connector/pull/1111) ([ffang](https://github.com/ffang))
 - Upgrade Strimzi to version 0.22.0 [\#1106](https://github.com/apache/camel-kafka-connector/pull/1106) ([oscerd](https://github.com/oscerd))
+- add itests for camel-cxfrs-kafka-connector \#996 [\#1099](https://github.com/apache/camel-kafka-connector/pull/1099) ([ffang](https://github.com/ffang))
 - Introduce MockWebServer extension for testing \#1085 [\#1097](https://github.com/apache/camel-kafka-connector/pull/1097) ([tadayosi](https://github.com/tadayosi))
 - Add https itests [\#1096](https://github.com/apache/camel-kafka-connector/pull/1096) ([tadayosi](https://github.com/tadayosi))
 - Some folowup improvements fro \#969 and \#202. [\#1093](https://github.com/apache/camel-kafka-connector/pull/1093) ([valdar](https://github.com/valdar))
@@ -655,6 +658,7 @@
 - Run the changelog automatic updated every hour [\#434](https://github.com/apache/camel-kafka-connector/pull/434) ([oscerd](https://github.com/oscerd))
 - Update try-it-out-on-openshift-with-strimzi.adoc with latest AWS S3 connector config [\#433](https://github.com/apache/camel-kafka-connector/pull/433) ([smccarthy-ie](https://github.com/smccarthy-ie))
 - Pr Build and push build needs to point to master [\#432](https://github.com/apache/camel-kafka-connector/pull/432) ([oscerd](https://github.com/oscerd))
+- adding a key transformer to the AWS2-SQS connector so that the CamelH… [\#431](https://github.com/apache/camel-kafka-connector/pull/431) ([codexetreme](https://github.com/codexetreme))
 - Proposed fix for issue \#414 [\#428](https://github.com/apache/camel-kafka-connector/pull/428) ([orpiske](https://github.com/orpiske))
 - Camel 3.5.0 [\#427](https://github.com/apache/camel-kafka-connector/pull/427) ([oscerd](https://github.com/oscerd))
 - Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
