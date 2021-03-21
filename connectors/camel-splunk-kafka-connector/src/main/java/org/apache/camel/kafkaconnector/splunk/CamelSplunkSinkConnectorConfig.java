@@ -63,6 +63,9 @@ public class CamelSplunkSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_CONF = "camel.sink.endpoint.sourceType";
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_DOC = "Splunk sourcetype argument";
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_LOCAL_PORT_CONF = "camel.sink.endpoint.tcpReceiverLocalPort";
+    public static final String CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_LOCAL_PORT_DOC = "Splunk tcp receiver port defined locally on splunk server. (For example if splunk port 9997 is mapped to 12345, tcpReceiverLocalPort has to be 9997)";
+    public static final String CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_LOCAL_PORT_DEFAULT = null;
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_CONF = "camel.sink.endpoint.tcpReceiverPort";
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DOC = "Splunk tcp receiver port";
     public static final Integer CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DEFAULT = null;
@@ -113,6 +116,7 @@ public class CamelSplunkSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_RAW_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPLUNK_ENDPOINT_RAW_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_RAW_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_DOC);
+        conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_LOCAL_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_LOCAL_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_LOCAL_PORT_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_SSL_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_SSL_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_SSL_PROTOCOL_DOC);

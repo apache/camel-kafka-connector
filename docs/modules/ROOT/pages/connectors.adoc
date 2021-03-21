@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 336 
+Number of Camel Kafka connectors: 337 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -118,6 +118,7 @@ Number of Camel Kafka connectors: 336
 | *camel-google-calendar-kafka-connector* | true | true | xref:connectors/camel-google-calendar-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-google-calendar-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-calendar-kafka-connector/0.7.2/camel-google-calendar-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-google-calendar-stream-kafka-connector* | false | true |  | xref:connectors/camel-google-calendar-stream-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-calendar-stream-kafka-connector/0.7.2/camel-google-calendar-stream-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-google-drive-kafka-connector* | true | true | xref:connectors/camel-google-drive-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-google-drive-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-drive-kafka-connector/0.7.2/camel-google-drive-kafka-connector-0.7.2-package.tar.gz[Download]
+| *camel-google-functions-kafka-connector* | true | false | xref:connectors/camel-google-functions-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-functions-kafka-connector/0.7.2/camel-google-functions-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-google-mail-kafka-connector* | true | true | xref:connectors/camel-google-mail-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-google-mail-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-mail-kafka-connector/0.7.2/camel-google-mail-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-google-mail-stream-kafka-connector* | false | true |  | xref:connectors/camel-google-mail-stream-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-mail-stream-kafka-connector/0.7.2/camel-google-mail-stream-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-google-pubsub-kafka-connector* | true | true | xref:connectors/camel-google-pubsub-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-google-pubsub-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-pubsub-kafka-connector/0.7.2/camel-google-pubsub-kafka-connector-0.7.2-package.tar.gz[Download]

@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.splunk.CamelSplunkSinkConnector
 ----
 
 
-The camel-splunk sink connector supports 21 options, which are listed below.
+The camel-splunk sink connector supports 22 options, which are listed below.
 
 
 
@@ -44,6 +44,7 @@ The camel-splunk sink connector supports 21 options, which are listed below.
 | *camel.sink.endpoint.raw* | Should the payload be inserted raw | false | false | MEDIUM
 | *camel.sink.endpoint.source* | Splunk source argument | null | false | MEDIUM
 | *camel.sink.endpoint.sourceType* | Splunk sourcetype argument | null | false | MEDIUM
+| *camel.sink.endpoint.tcpReceiverLocalPort* | Splunk tcp receiver port defined locally on splunk server. (For example if splunk port 9997 is mapped to 12345, tcpReceiverLocalPort has to be 9997) | null | false | MEDIUM
 | *camel.sink.endpoint.tcpReceiverPort* | Splunk tcp receiver port | null | false | MEDIUM
 | *camel.sink.endpoint.password* | Password for Splunk | null | false | MEDIUM
 | *camel.sink.endpoint.sslProtocol* | Set the ssl protocol to use One of: [TLSv1.2] [TLSv1.1] [TLSv1] [SSLv3] | "TLSv1.2" | false | MEDIUM
