@@ -304,6 +304,7 @@
         <module>camel-google-calendar-kafka-connector</module>
         <module>camel-google-calendar-stream-kafka-connector</module>
         <module>camel-google-drive-kafka-connector</module>
+        <module>camel-google-functions-kafka-connector</module>
         <module>camel-google-mail-kafka-connector</module>
         <module>camel-google-mail-stream-kafka-connector</module>
         <module>camel-google-pubsub-kafka-connector</module>

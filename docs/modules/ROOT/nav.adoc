@@ -296,6 +296,8 @@
 ** camel-google-drive-kafka-connector
 *** xref:connectors/camel-google-drive-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-google-drive-kafka-sink-connector.adoc[Sink Docs]
+** camel-google-functions-kafka-connector
+*** xref:connectors/camel-google-functions-kafka-sink-connector.adoc[Sink Docs]
 ** camel-google-mail-kafka-connector
 *** xref:connectors/camel-google-mail-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-google-mail-kafka-sink-connector.adoc[Sink Docs]
