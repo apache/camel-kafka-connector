@@ -30,6 +30,7 @@
 - Add Netty source itest \#1036 [\#1066](https://github.com/apache/camel-kafka-connector/pull/1066) ([tadayosi](https://github.com/tadayosi))
 - chore: update latestReleasedVersion to 0.8.0 and regen. [\#1063](https://github.com/apache/camel-kafka-connector/pull/1063) ([valdar](https://github.com/valdar))
 - The count of transforms, converter and aggregation strategy seems to be broken for docs  [\#1059](https://github.com/apache/camel-kafka-connector/pull/1059) ([oscerd](https://github.com/oscerd))
+- Add SMT for GenericFile of Camel-file-kafka-connector [\#1055](https://github.com/apache/camel-kafka-connector/pull/1055) ([oscerd](https://github.com/oscerd))
 - Added 0.7.1 and 0.7.2 release to camel compatibility matrix [\#1054](https://github.com/apache/camel-kafka-connector/pull/1054) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.3) (2021-03-13)
@@ -153,7 +154,6 @@
 - \#873 initial cxf Source/Sink connectors test [\#940](https://github.com/apache/camel-kafka-connector/pull/940) ([ffang](https://github.com/ffang))
 - Added Azure Storage Queue source test case [\#938](https://github.com/apache/camel-kafka-connector/pull/938) ([orpiske](https://github.com/orpiske))
 - Add a map Camel Headers to Kafka headers option to make the behavior … [\#937](https://github.com/apache/camel-kafka-connector/pull/937) ([oscerd](https://github.com/oscerd))
-- Provide option to delete camel kafka submodule if they are not in camel catalog [\#936](https://github.com/apache/camel-kafka-connector/pull/936) ([claudio4j](https://github.com/claudio4j))
 - create a toHeader SMT \#902 [\#935](https://github.com/apache/camel-kafka-connector/pull/935) ([luigidemasi](https://github.com/luigidemasi))
 - Upgrade archetype instructions to version 0.8.0 [\#934](https://github.com/apache/camel-kafka-connector/pull/934) ([oscerd](https://github.com/oscerd))
 - Bump docs to 0.7.1 [\#932](https://github.com/apache/camel-kafka-connector/pull/932) ([oscerd](https://github.com/oscerd))
@@ -218,6 +218,7 @@
 
 **Merged pull requests:**
 
+- Provide option to delete camel kafka submodule if they are not in camel catalog [\#936](https://github.com/apache/camel-kafka-connector/pull/936) ([claudio4j](https://github.com/claudio4j))
 - Update docs to 0.7.1 [\#933](https://github.com/apache/camel-kafka-connector/pull/933) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.1) (2021-01-24)
