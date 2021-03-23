@@ -8,6 +8,7 @@
 
 - camel-mongodb-kafka-connector produce message format error [\#1113](https://github.com/apache/camel-kafka-connector/issues/1113)
 - aws2 s3 source connector ClassCastException for value.conver [\#1107](https://github.com/apache/camel-kafka-connector/issues/1107)
+- Upgrade Strimzi to version 0.22.0 [\#1105](https://github.com/apache/camel-kafka-connector/issues/1105)
 - Release 0.7.3 [\#1095](https://github.com/apache/camel-kafka-connector/issues/1095)
 
 **Merged pull requests:**
@@ -154,6 +155,7 @@
 - \#873 initial cxf Source/Sink connectors test [\#940](https://github.com/apache/camel-kafka-connector/pull/940) ([ffang](https://github.com/ffang))
 - Added Azure Storage Queue source test case [\#938](https://github.com/apache/camel-kafka-connector/pull/938) ([orpiske](https://github.com/orpiske))
 - Add a map Camel Headers to Kafka headers option to make the behavior … [\#937](https://github.com/apache/camel-kafka-connector/pull/937) ([oscerd](https://github.com/oscerd))
+- Provide option to delete camel kafka submodule if they are not in camel catalog [\#936](https://github.com/apache/camel-kafka-connector/pull/936) ([claudio4j](https://github.com/claudio4j))
 - create a toHeader SMT \#902 [\#935](https://github.com/apache/camel-kafka-connector/pull/935) ([luigidemasi](https://github.com/luigidemasi))
 - Upgrade archetype instructions to version 0.8.0 [\#934](https://github.com/apache/camel-kafka-connector/pull/934) ([oscerd](https://github.com/oscerd))
 - Bump docs to 0.7.1 [\#932](https://github.com/apache/camel-kafka-connector/pull/932) ([oscerd](https://github.com/oscerd))
@@ -218,7 +220,6 @@
 
 **Merged pull requests:**
 
-- Provide option to delete camel kafka submodule if they are not in camel catalog [\#936](https://github.com/apache/camel-kafka-connector/pull/936) ([claudio4j](https://github.com/claudio4j))
 - Update docs to 0.7.1 [\#933](https://github.com/apache/camel-kafka-connector/pull/933) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.1) (2021-01-24)
