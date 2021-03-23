@@ -17,8 +17,6 @@
 
 package org.apache.camel.kafkaconnector.cxfrs.source;
 
-
-import org.apache.camel.kafkaconnector.CamelConnectorConfig;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 
