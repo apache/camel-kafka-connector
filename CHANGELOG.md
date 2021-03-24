@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Upgrade Strimzi to version 0.22.1 [\#1117](https://github.com/apache/camel-kafka-connector/issues/1117)
 - camel-mongodb-kafka-connector produce message format error [\#1113](https://github.com/apache/camel-kafka-connector/issues/1113)
 - aws2 s3 source connector ClassCastException for value.conver [\#1107](https://github.com/apache/camel-kafka-connector/issues/1107)
 - Upgrade Strimzi to version 0.22.0 [\#1105](https://github.com/apache/camel-kafka-connector/issues/1105)
@@ -13,6 +14,9 @@
 
 **Merged pull requests:**
 
+- Add Camel 3.7.3 and ckc 0.7.3 to compatibility matrix [\#1122](https://github.com/apache/camel-kafka-connector/pull/1122) ([oscerd](https://github.com/oscerd))
+- Fixed CS in cxfrs itest [\#1120](https://github.com/apache/camel-kafka-connector/pull/1120) ([oscerd](https://github.com/oscerd))
+- Upgrade Strimzi to version 0.22.1 [\#1118](https://github.com/apache/camel-kafka-connector/pull/1118) ([oscerd](https://github.com/oscerd))
 - NetworkUtils should be able to hold a free port for later usage \#1109 [\#1111](https://github.com/apache/camel-kafka-connector/pull/1111) ([ffang](https://github.com/ffang))
 - Upgrade Strimzi to version 0.22.0 [\#1106](https://github.com/apache/camel-kafka-connector/pull/1106) ([oscerd](https://github.com/oscerd))
 - add itests for camel-cxfrs-kafka-connector \#996 [\#1099](https://github.com/apache/camel-kafka-connector/pull/1099) ([ffang](https://github.com/ffang))
@@ -301,6 +305,7 @@
 
 **Merged pull requests:**
 
+- Added src distribution to sha512 generation list includes. [\#818](https://github.com/apache/camel-kafka-connector/pull/818) ([valdar](https://github.com/valdar))
 - Fix pre release [\#810](https://github.com/apache/camel-kafka-connector/pull/810) ([valdar](https://github.com/valdar))
 - Added Kafka idempotent repository cache size and poll timeout docs in… [\#809](https://github.com/apache/camel-kafka-connector/pull/809) ([oscerd](https://github.com/oscerd))
 - Salesforce fixes [\#808](https://github.com/apache/camel-kafka-connector/pull/808) ([orpiske](https://github.com/orpiske))
@@ -842,7 +847,6 @@
 - Connectors doc generation shuld be moved from `core` to `connectors` … [\#229](https://github.com/apache/camel-kafka-connector/pull/229) ([oscerd](https://github.com/oscerd))
 - Syslog docs [\#227](https://github.com/apache/camel-kafka-connector/pull/227) ([oscerd](https://github.com/oscerd))
 - Fixed con cong autogen [\#222](https://github.com/apache/camel-kafka-connector/pull/222) ([valdar](https://github.com/valdar))
-- Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
 - Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 
@@ -878,6 +882,7 @@
 
 **Merged pull requests:**
 
+- Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Syslog connector [\#214](https://github.com/apache/camel-kafka-connector/pull/214) ([valdar](https://github.com/valdar))
 - Bump Testcontainers to version 1.14.2 [\#213](https://github.com/apache/camel-kafka-connector/pull/213) ([oscerd](https://github.com/oscerd))
 - Removes usage of fixed hostnames in integration tests [\#210](https://github.com/apache/camel-kafka-connector/pull/210) ([orpiske](https://github.com/orpiske))
