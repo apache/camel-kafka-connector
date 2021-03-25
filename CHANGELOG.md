@@ -305,7 +305,6 @@
 
 **Merged pull requests:**
 
-- Added src distribution to sha512 generation list includes. [\#818](https://github.com/apache/camel-kafka-connector/pull/818) ([valdar](https://github.com/valdar))
 - Fix pre release [\#810](https://github.com/apache/camel-kafka-connector/pull/810) ([valdar](https://github.com/valdar))
 - Added Kafka idempotent repository cache size and poll timeout docs in… [\#809](https://github.com/apache/camel-kafka-connector/pull/809) ([oscerd](https://github.com/oscerd))
 - Salesforce fixes [\#808](https://github.com/apache/camel-kafka-connector/pull/808) ([orpiske](https://github.com/orpiske))
@@ -847,6 +846,7 @@
 - Connectors doc generation shuld be moved from `core` to `connectors` … [\#229](https://github.com/apache/camel-kafka-connector/pull/229) ([oscerd](https://github.com/oscerd))
 - Syslog docs [\#227](https://github.com/apache/camel-kafka-connector/pull/227) ([oscerd](https://github.com/oscerd))
 - Fixed con cong autogen [\#222](https://github.com/apache/camel-kafka-connector/pull/222) ([valdar](https://github.com/valdar))
+- Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
 - Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 
@@ -882,7 +882,6 @@
 
 **Merged pull requests:**
 
-- Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Syslog connector [\#214](https://github.com/apache/camel-kafka-connector/pull/214) ([valdar](https://github.com/valdar))
 - Bump Testcontainers to version 1.14.2 [\#213](https://github.com/apache/camel-kafka-connector/pull/213) ([oscerd](https://github.com/oscerd))
 - Removes usage of fixed hostnames in integration tests [\#210](https://github.com/apache/camel-kafka-connector/pull/210) ([orpiske](https://github.com/orpiske))
