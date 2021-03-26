@@ -680,7 +680,6 @@
 - Added connector class on each connector documentation page [\#405](https://github.com/apache/camel-kafka-connector/pull/405) ([oscerd](https://github.com/oscerd))
 - Added a pipeline for deploying on daily basis [\#404](https://github.com/apache/camel-kafka-connector/pull/404) ([oscerd](https://github.com/oscerd))
 - \#389 - Fix doc- Kubernetes command [\#401](https://github.com/apache/camel-kafka-connector/pull/401) ([rogeriob2br](https://github.com/rogeriob2br))
-- Fix mongodb test [\#396](https://github.com/apache/camel-kafka-connector/pull/396) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
 - Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
