@@ -383,7 +383,6 @@
 - Added 0.6.0 to camel compatibility matrix [\#648](https://github.com/apache/camel-kafka-connector/pull/648) ([oscerd](https://github.com/oscerd))
 - Aligned docs and link to 0.6.0 [\#647](https://github.com/apache/camel-kafka-connector/pull/647) ([oscerd](https://github.com/oscerd))
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
-- Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.6.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.1) (2020-11-27)
@@ -470,6 +469,7 @@
 
 **Merged pull requests:**
 
+- Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Switches the AWS v2 test infra-structure [\#635](https://github.com/apache/camel-kafka-connector/pull/635) ([orpiske](https://github.com/orpiske))
 - Decouple the Cassandra client from the service to simplify moving the services to Camel core [\#634](https://github.com/apache/camel-kafka-connector/pull/634) ([orpiske](https://github.com/orpiske))
 - Switches the AWS v1 test infra-structure [\#633](https://github.com/apache/camel-kafka-connector/pull/633) ([orpiske](https://github.com/orpiske))
@@ -680,6 +680,7 @@
 - Added connector class on each connector documentation page [\#405](https://github.com/apache/camel-kafka-connector/pull/405) ([oscerd](https://github.com/oscerd))
 - Added a pipeline for deploying on daily basis [\#404](https://github.com/apache/camel-kafka-connector/pull/404) ([oscerd](https://github.com/oscerd))
 - \#389 - Fix doc- Kubernetes command [\#401](https://github.com/apache/camel-kafka-connector/pull/401) ([rogeriob2br](https://github.com/rogeriob2br))
+- Fix mongodb test [\#396](https://github.com/apache/camel-kafka-connector/pull/396) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
 - Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
