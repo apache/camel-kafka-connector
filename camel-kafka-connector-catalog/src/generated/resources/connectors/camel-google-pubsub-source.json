@@ -11,13 +11,13 @@
 	"properties": {
 		"camel.source.path.projectId": {
 			"name": "camel.source.path.projectId",
-			"description": "Project Id",
+			"description": "The Google Cloud PubSub Project Id",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.source.path.destinationName": {
 			"name": "camel.source.path.destinationName",
-			"description": "Destination Name",
+			"description": "The Destination Name. For the consumer this will be the subscription name, while for the producer this will be the topic name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -51,6 +51,12 @@
 			"defaultValue": "\"1\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.source.endpoint.serviceAccountKey": {
+			"name": "camel.source.endpoint.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the PubSub publisher\/subscriber. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.synchronousPull": {
 			"name": "camel.source.endpoint.synchronousPull",
@@ -88,6 +94,12 @@
 			"description": "Endpoint to use with local Pub\/Sub emulator.",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.component.google-pubsub.serviceAccountKey": {
+			"name": "camel.component.google-pubsub.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the PubSub publisher\/subscriber. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.component.google-pubsub.bridgeErrorHandler": {
 			"name": "camel.component.google-pubsub.bridgeErrorHandler",

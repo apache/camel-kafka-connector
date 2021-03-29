@@ -1,0 +1,320 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlestorage.CamelGooglestorageSourceConnector",
+		"artifactId": "camel-google-storage-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-storage-source",
+		"type": "source",
+		"version": "0.9.0-SNAPSHOT",
+		"description": "Store and retrieve objects from Google Cloud Storage Service using the google-cloud-storage library."
+	},
+	"properties": {
+		"camel.source.path.bucketName": {
+			"name": "camel.source.path.bucketName",
+			"description": "Bucket name or ARN",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.source.endpoint.autoCreateBucket": {
+			"name": "camel.source.endpoint.autoCreateBucket",
+			"description": "Setting the autocreation of the bucket bucketName.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.serviceAccountKey": {
+			"name": "camel.source.endpoint.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the Storage client. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.storageClass": {
+			"name": "camel.source.endpoint.storageClass",
+			"description": "The Cloud Storage class to use when creating the new buckets",
+			"defaultValue": "\"STANDARD\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.storageClient": {
+			"name": "camel.source.endpoint.storageClient",
+			"description": "The storage client",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.storageLocation": {
+			"name": "camel.source.endpoint.storageLocation",
+			"description": "The Cloud Storage location to use when creating the new buckets",
+			"defaultValue": "\"US-EAST1\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.deleteAfterRead": {
+			"name": "camel.source.endpoint.deleteAfterRead",
+			"description": "Delete objects from the bucket after they have been retrieved. The delete is only performed if the Exchange is committed. If a rollback occurs, the object is not deleted. If this option is false, then the same objects will be retrieve over and over again on the polls.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.destinationBucket": {
+			"name": "camel.source.endpoint.destinationBucket",
+			"description": "Define the destination bucket where an object must be moved when moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.includeBody": {
+			"name": "camel.source.endpoint.includeBody",
+			"description": "If it is true, the Object exchange will be consumed and put into the body. If false the Object stream will be put raw into the body and the headers will be set with the object metadata.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.includeFolders": {
+			"name": "camel.source.endpoint.includeFolders",
+			"description": "If it is true, the folders\/directories will be consumed. If it is false, they will be ignored, and Exchanges will not be created for those",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.moveAfterRead": {
+			"name": "camel.source.endpoint.moveAfterRead",
+			"description": "Move objects from the origin bucket to a different bucket after they have been retrieved. To accomplish the operation the destinationBucket option must be set. The copy bucket operation is only performed if the Exchange is committed. If a rollback occurs, the object is not moved.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Milliseconds before the next poll.",
+			"defaultValue": "500L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.autoCreateBucket": {
+			"name": "camel.component.google-storage.autoCreateBucket",
+			"description": "Setting the autocreation of the bucket bucketName.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.configuration": {
+			"name": "camel.component.google-storage.configuration",
+			"description": "The component configuration",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.serviceAccountKey": {
+			"name": "camel.component.google-storage.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the Storage client. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.storageClass": {
+			"name": "camel.component.google-storage.storageClass",
+			"description": "The Cloud Storage class to use when creating the new buckets",
+			"defaultValue": "\"STANDARD\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.storageClient": {
+			"name": "camel.component.google-storage.storageClient",
+			"description": "The storage client",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.storageLocation": {
+			"name": "camel.component.google-storage.storageLocation",
+			"description": "The Cloud Storage location to use when creating the new buckets",
+			"defaultValue": "\"US-EAST1\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.bridgeErrorHandler": {
+			"name": "camel.component.google-storage.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.deleteAfterRead": {
+			"name": "camel.component.google-storage.deleteAfterRead",
+			"description": "Delete objects from the bucket after they have been retrieved. The delete is only performed if the Exchange is committed. If a rollback occurs, the object is not deleted. If this option is false, then the same objects will be retrieve over and over again on the polls.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.destinationBucket": {
+			"name": "camel.component.google-storage.destinationBucket",
+			"description": "Define the destination bucket where an object must be moved when moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.includeBody": {
+			"name": "camel.component.google-storage.includeBody",
+			"description": "If it is true, the Object exchange will be consumed and put into the body. If false the Object stream will be put raw into the body and the headers will be set with the object metadata.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.includeFolders": {
+			"name": "camel.component.google-storage.includeFolders",
+			"description": "If it is true, the folders\/directories will be consumed. If it is false, they will be ignored, and Exchanges will not be created for those",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.moveAfterRead": {
+			"name": "camel.component.google-storage.moveAfterRead",
+			"description": "Move objects from the origin bucket to a different bucket after they have been retrieved. To accomplish the operation the destinationBucket option must be set. The copy bucket operation is only performed if the Exchange is committed. If a rollback occurs, the object is not moved.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-storage.autowiredEnabled": {
+			"name": "camel.component.google-storage.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

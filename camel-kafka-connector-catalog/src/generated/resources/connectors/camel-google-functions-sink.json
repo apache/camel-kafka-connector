@@ -1,0 +1,87 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlefunctions.CamelGooglefunctionsSinkConnector",
+		"artifactId": "camel-google-functions-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-functions-sink",
+		"type": "sink",
+		"version": "0.9.0-SNAPSHOT",
+		"description": "Store and retrieve objects from Google Cloud Functions Service using the google-cloud-storage library."
+	},
+	"properties": {
+		"camel.sink.path.functionName": {
+			"name": "camel.sink.path.functionName",
+			"description": "The user-defined name of the function",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.serviceAccountKey": {
+			"name": "camel.sink.endpoint.serviceAccountKey",
+			"description": "Service account key to authenticate an application as a service account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.location": {
+			"name": "camel.sink.endpoint.location",
+			"description": "The Google Cloud Location (Region) where the Function is located",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "The operation to perform on the producer. One of: [listFunctions] [getFunction] [callFunction] [generateDownloadUrl] [generateUploadUrl] [createFunction] [updateFunction] [deleteFunction]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"listFunctions",
+				"getFunction",
+				"callFunction",
+				"generateDownloadUrl",
+				"generateUploadUrl",
+				"createFunction",
+				"updateFunction",
+				"deleteFunction"
+			]
+		},
+		"camel.sink.endpoint.pojoRequest": {
+			"name": "camel.sink.endpoint.pojoRequest",
+			"description": "Specifies if the request is a pojo request",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.project": {
+			"name": "camel.sink.endpoint.project",
+			"description": "The Google Cloud Project name where the Function is located",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.client": {
+			"name": "camel.sink.endpoint.client",
+			"description": "The client to use during service invocation.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-functions.lazyStartProducer": {
+			"name": "camel.component.google-functions.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-functions.autowiredEnabled": {
+			"name": "camel.component.google-functions.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
