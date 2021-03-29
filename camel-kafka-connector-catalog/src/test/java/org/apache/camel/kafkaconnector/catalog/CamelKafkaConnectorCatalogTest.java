@@ -77,7 +77,7 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("camel.sink.path.topicNameOrArn", model.getOptions().get(0).getName());
         assertEquals("camel.sink.endpoint.amazonSNSClient", model.getOptions().get(1).getName());
         assertEquals("camel.sink.endpoint.autoCreateTopic", model.getOptions().get(2).getName());
-        assertEquals("true", model.getOptions().get(2).getDefaultValue());
+        assertEquals("false", model.getOptions().get(2).getDefaultValue());
         assertNull(model.getOptions().get(1).getDefaultValue());
         assertNull(model.getConverters());
         assertNull(model.getTransforms());
