@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2sns.CamelAws2snsSinkConnecto
 ----
 
 
-The camel-aws2-sns sink connector supports 44 options, which are listed below.
+The camel-aws2-sns sink connector supports 48 options, which are listed below.
 
 
 
@@ -33,13 +33,14 @@ The camel-aws2-sns sink connector supports 44 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.topicNameOrArn* | Topic name or ARN | null | true | HIGH
 | *camel.sink.endpoint.amazonSNSClient* | To use the AmazonSNS as the client | null | false | MEDIUM
-| *camel.sink.endpoint.autoCreateTopic* | Setting the autocreation of the topic | true | false | MEDIUM
+| *camel.sink.endpoint.autoCreateTopic* | Setting the autocreation of the topic | false | false | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | false | MEDIUM
 | *camel.sink.endpoint.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.messageDeduplicationIdStrategy* | Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | false | MEDIUM
 | *camel.sink.endpoint.messageGroupIdStrategy* | Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue] | null | false | MEDIUM
 | *camel.sink.endpoint.messageStructure* | The message structure to use such as json | null | false | MEDIUM
+| *camel.sink.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.sink.endpoint.policy* | The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the SNS client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the SNS client | null | false | MEDIUM
@@ -50,17 +51,19 @@ The camel-aws2-sns sink connector supports 44 options, which are listed below.
 | *camel.sink.endpoint.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | false | MEDIUM
 | *camel.sink.endpoint.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.sink.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.sink.endpoint.useDefaultCredentialsProvider* | Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-sns.amazonSNSClient* | To use the AmazonSNS as the client | null | false | MEDIUM
-| *camel.component.aws2-sns.autoCreateTopic* | Setting the autocreation of the topic | true | false | MEDIUM
+| *camel.component.aws2-sns.autoCreateTopic* | Setting the autocreation of the topic | false | false | MEDIUM
 | *camel.component.aws2-sns.configuration* | Component configuration | null | false | MEDIUM
 | *camel.component.aws2-sns.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | false | MEDIUM
 | *camel.component.aws2-sns.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.aws2-sns.messageDeduplicationId Strategy* | Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | false | MEDIUM
 | *camel.component.aws2-sns.messageGroupIdStrategy* | Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue] | null | false | MEDIUM
 | *camel.component.aws2-sns.messageStructure* | The message structure to use such as json | null | false | MEDIUM
+| *camel.component.aws2-sns.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-sns.policy* | The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.component.aws2-sns.proxyHost* | To define a proxy host when instantiating the SNS client | null | false | MEDIUM
 | *camel.component.aws2-sns.proxyPort* | To define a proxy port when instantiating the SNS client | null | false | MEDIUM
@@ -71,6 +74,7 @@ The camel-aws2-sns sink connector supports 44 options, which are listed below.
 | *camel.component.aws2-sns.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | false | MEDIUM
 | *camel.component.aws2-sns.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | false | MEDIUM
 | *camel.component.aws2-sns.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.component.aws2-sns.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.component.aws2-sns.useDefaultCredentials Provider* | Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-sns.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-sns.accessKey* | Amazon AWS Access Key | null | false | MEDIUM

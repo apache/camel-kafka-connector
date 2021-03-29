@@ -36,7 +36,7 @@ The camel-google-mail-stream source connector supports 42 options, which are lis
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.clientId* | Client ID of the mail application | null | false | MEDIUM
 | *camel.source.endpoint.labels* | Comma separated list of labels to take into account | null | false | MEDIUM
-| *camel.source.endpoint.markAsRead* | Mark the message as read once it has been consumed | false | false | MEDIUM
+| *camel.source.endpoint.markAsRead* | Mark the message as read once it has been consumed | true | false | MEDIUM
 | *camel.source.endpoint.maxResults* | Max results to be returned | 10L | false | MEDIUM
 | *camel.source.endpoint.query* | The query to execute on gmail box | "is:unread" | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
@@ -64,7 +64,7 @@ The camel-google-mail-stream source connector supports 42 options, which are lis
 | *camel.component.google-mail-stream.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.google-mail-stream.clientId* | Client ID of the mail application | null | false | MEDIUM
 | *camel.component.google-mail-stream.labels* | Comma separated list of labels to take into account | null | false | MEDIUM
-| *camel.component.google-mail-stream.markAsRead* | Mark the message as read once it has been consumed | false | false | MEDIUM
+| *camel.component.google-mail-stream.markAsRead* | Mark the message as read once it has been consumed | true | false | MEDIUM
 | *camel.component.google-mail-stream.maxResults* | Max results to be returned | 10L | false | MEDIUM
 | *camel.component.google-mail-stream.query* | The query to execute on gmail box | "is:unread" | false | MEDIUM
 | *camel.component.google-mail-stream.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM

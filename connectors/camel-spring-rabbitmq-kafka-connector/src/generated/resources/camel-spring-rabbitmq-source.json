@@ -131,6 +131,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.maximumRetryAttempts": {
+			"name": "camel.source.endpoint.maximumRetryAttempts",
+			"description": "How many times a Rabbitmq consumer will retry the same message if Camel failed to process the message",
+			"defaultValue": "5",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.noLocal": {
 			"name": "camel.source.endpoint.noLocal",
 			"description": "Set to true for an no-local consumer",
@@ -141,6 +148,26 @@
 		"camel.source.endpoint.queues": {
 			"name": "camel.source.endpoint.queues",
 			"description": "The queue(s) to use for consuming messages. Multiple queue names can be separated by comma. If none has been configured then Camel will generate an unique id as the queue name for the consumer.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.rejectAndDontRequeue": {
+			"name": "camel.source.endpoint.rejectAndDontRequeue",
+			"description": "Whether a Rabbitmq consumer should reject the message without requeuing. This enables failed messages to be sent to a Dead Letter Exchange\/Queue, if the broker is so configured.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.retryDelay": {
+			"name": "camel.source.endpoint.retryDelay",
+			"description": "Delay in msec a Rabbitmq consumer will wait before redelivering a message that Camel failed to process",
+			"defaultValue": "1000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.concurrentConsumers": {
+			"name": "camel.source.endpoint.concurrentConsumers",
+			"description": "The number of consumers",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -160,6 +187,35 @@
 				"InOut",
 				"InOptionalOut"
 			]
+		},
+		"camel.source.endpoint.maxConcurrentConsumers": {
+			"name": "camel.source.endpoint.maxConcurrentConsumers",
+			"description": "The maximum number of consumers (available only with SMLC)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.messageListenerContainerType": {
+			"name": "camel.source.endpoint.messageListenerContainerType",
+			"description": "The type of the MessageListenerContainer One of: [DMLC] [SMLC]",
+			"defaultValue": "\"DMLC\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"DMLC",
+				"SMLC"
+			]
+		},
+		"camel.source.endpoint.prefetchCount": {
+			"name": "camel.source.endpoint.prefetchCount",
+			"description": "Tell the broker how many messages to send in a single request. Often this can be set quite high to improve throughput.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.retry": {
+			"name": "camel.source.endpoint.retry",
+			"description": "Custom retry configuration to use. If this is configured then the other settings such as maximumRetryAttempts for retry are not in use.",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.args": {
 			"name": "camel.source.endpoint.args",
@@ -257,6 +313,34 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.spring-rabbitmq.maximumRetryAttempts": {
+			"name": "camel.component.spring-rabbitmq.maximumRetryAttempts",
+			"description": "How many times a Rabbitmq consumer will retry the same message if Camel failed to process the message",
+			"defaultValue": "5",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.rejectAndDontRequeue": {
+			"name": "camel.component.spring-rabbitmq.rejectAndDontRequeue",
+			"description": "Whether a Rabbitmq consumer should reject the message without requeuing. This enables failed messages to be sent to a Dead Letter Exchange\/Queue, if the broker is so configured.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.retryDelay": {
+			"name": "camel.component.spring-rabbitmq.retryDelay",
+			"description": "Delay in msec a Rabbitmq consumer will wait before redelivering a message that Camel failed to process",
+			"defaultValue": "1000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.concurrentConsumers": {
+			"name": "camel.component.spring-rabbitmq.concurrentConsumers",
+			"description": "The number of consumers",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.spring-rabbitmq.errorHandler": {
 			"name": "camel.component.spring-rabbitmq.errorHandler",
 			"description": "To use a custom ErrorHandler for handling exceptions from the message listener (consumer)",
@@ -269,10 +353,33 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.spring-rabbitmq.maxConcurrentConsumers": {
+			"name": "camel.component.spring-rabbitmq.maxConcurrentConsumers",
+			"description": "The maximum number of consumers (available only with SMLC)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.messageListenerContainerType": {
+			"name": "camel.component.spring-rabbitmq.messageListenerContainerType",
+			"description": "The type of the MessageListenerContainer One of: [DMLC] [SMLC]",
+			"defaultValue": "\"DMLC\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"DMLC",
+				"SMLC"
+			]
+		},
 		"camel.component.spring-rabbitmq.prefetchCount": {
 			"name": "camel.component.spring-rabbitmq.prefetchCount",
 			"description": "Tell the broker how many messages to send to each consumer in a single request. Often this can be set quite high to improve throughput.",
 			"defaultValue": "250",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.retry": {
+			"name": "camel.component.spring-rabbitmq.retry",
+			"description": "Custom retry configuration to use. If this is configured then the other settings such as maximumRetryAttempts for retry are not in use.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.nettyhttp.CamelNettyhttpSourceCo
 ----
 
 
-The camel-netty-http source connector supports 131 options, which are listed below.
+The camel-netty-http source connector supports 133 options, which are listed below.
 
 
 
@@ -67,6 +67,7 @@ The camel-netty-http source connector supports 131 options, which are listed bel
 | *camel.source.endpoint.traceEnabled* | Specifies whether to enable HTTP TRACE for this Netty HTTP consumer. By default TRACE is turned off. | false | false | MEDIUM
 | *camel.source.endpoint.urlDecodeHeaders* | If this option is enabled, then during binding from Netty to Camel Message then the header values will be URL decoded (eg %20 will be a space character. Notice this option is used by the default org.apache.camel.component.netty.http.NettyHttpBinding and therefore if you implement a custom org.apache.camel.component.netty.http.NettyHttpBinding then you would need to decode the headers accordingly to this option. | false | false | MEDIUM
 | *camel.source.endpoint.usingExecutorService* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM
+| *camel.source.endpoint.hostnameVerification* | To enable/disable hostname verification on SSLEngine | false | false | MEDIUM
 | *camel.source.endpoint.allowSerializedHeaders* | Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level. | false | false | MEDIUM
 | *camel.source.endpoint.channelGroup* | To use a explicit ChannelGroup. | null | false | MEDIUM
 | *camel.source.endpoint.configuration* | To use a custom configured NettyHttpConfiguration for configuring this endpoint. | null | false | MEDIUM
@@ -125,6 +126,7 @@ The camel-netty-http source connector supports 131 options, which are listed bel
 | *camel.component.netty-http.serverExceptionCaught LogLevel* | If the server (NettyConsumer) catches an exception then its logged using this logging level. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "WARN" | false | MEDIUM
 | *camel.component.netty-http.serverInitializer Factory* | To use a custom ServerInitializerFactory | null | false | MEDIUM
 | *camel.component.netty-http.usingExecutorService* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM
+| *camel.component.netty-http.hostnameVerification* | To enable/disable hostname verification on SSLEngine | false | false | MEDIUM
 | *camel.component.netty-http.allowSerializedHeaders* | Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level. | false | false | MEDIUM
 | *camel.component.netty-http.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.netty-http.channelGroup* | To use a explicit ChannelGroup. | null | false | MEDIUM

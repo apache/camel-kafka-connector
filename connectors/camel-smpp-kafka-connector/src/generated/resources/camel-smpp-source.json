@@ -95,7 +95,7 @@
 		"camel.source.endpoint.enquireLinkTimer": {
 			"name": "camel.source.endpoint.enquireLinkTimer",
 			"description": "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.",
-			"defaultValue": "\"5000\"",
+			"defaultValue": "\"60000\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -255,7 +255,7 @@
 		"camel.component.smpp.enquireLinkTimer": {
 			"name": "camel.component.smpp.enquireLinkTimer",
 			"description": "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.",
-			"defaultValue": "\"5000\"",
+			"defaultValue": "\"60000\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

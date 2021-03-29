@@ -220,6 +220,19 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.pollOnError": {
+			"name": "camel.source.endpoint.pollOnError",
+			"description": "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started\/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"DISCARD",
+				"ERROR_HANDLER",
+				"RECONNECT",
+				"RETRY",
+				"STOP"
+			]
+		},
 		"camel.source.endpoint.pollTimeoutMs": {
 			"name": "camel.source.endpoint.pollTimeoutMs",
 			"description": "The timeout used when polling the KafkaConsumer.",
@@ -638,6 +651,19 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.kafka.pollOnError": {
+			"name": "camel.component.kafka.pollOnError",
+			"description": "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started\/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"DISCARD",
+				"ERROR_HANDLER",
+				"RECONNECT",
+				"RETRY",
+				"STOP"
+			]
+		},
 		"camel.component.kafka.pollTimeoutMs": {
 			"name": "camel.component.kafka.pollTimeoutMs",
 			"description": "The timeout used when polling the KafkaConsumer.",
@@ -686,6 +712,12 @@
 		"camel.component.kafka.kafkaManualCommitFactory": {
 			"name": "camel.component.kafka.kafkaManualCommitFactory",
 			"description": "Factory to use for creating KafkaManualCommit instances. This allows to plugin a custom factory to create custom KafkaManualCommit instances in case special logic is needed when doing manual commits that deviates from the default implementation that comes out of the box.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.kafka.pollExceptionStrategy": {
+			"name": "camel.component.kafka.pollExceptionStrategy",
+			"description": "To use a custom strategy with the consumer to control how to handle exceptions thrown from the Kafka broker while pooling messages.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

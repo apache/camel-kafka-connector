@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.vertxhttp.CamelVertxhttpSinkConn
 ----
 
 
-The camel-vertx-http sink connector supports 40 options, which are listed below.
+The camel-vertx-http sink connector supports 42 options, which are listed below.
 
 
 
@@ -38,6 +38,7 @@ The camel-vertx-http sink connector supports 40 options, which are listed below.
 | *camel.sink.endpoint.httpMethod* | The HTTP method to use. The HttpMethod header cannot override this option if set One of: [OPTIONS] [GET] [HEAD] [POST] [PUT] [DELETE] [TRACE] [CONNECT] [PATCH] [OTHER] | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.okStatusCodeRange* | The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included | "200-299" | false | MEDIUM
+| *camel.sink.endpoint.responsePayloadAsByteArray* | Whether the response body should be byte or as io.vertx.core.buffer.Buffer | true | false | MEDIUM
 | *camel.sink.endpoint.sessionManagement* | Enables session management via WebClientSession. By default the client is configured to use an in-memory CookieStore. The cookieStore option can be used to override this | false | false | MEDIUM
 | *camel.sink.endpoint.throwExceptionOnFailure* | Disable throwing HttpOperationFailedException in case of failed responses from the remote server | true | false | MEDIUM
 | *camel.sink.endpoint.timeout* | The amount of time in milliseconds after which if the request does not return any data within the timeout period a TimeoutException fails the request. Setting zero or a negative value disables the timeout. | -1L | false | MEDIUM
@@ -55,6 +56,7 @@ The camel-vertx-http sink connector supports 40 options, which are listed below.
 | *camel.sink.endpoint.bearerToken* | The bearer token to use for bearer token authentication | null | false | MEDIUM
 | *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
 | *camel.component.vertx-http.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.vertx-http.responsePayloadAsByte Array* | Whether the response body should be byte or as io.vertx.core.buffer.Buffer | true | false | MEDIUM
 | *camel.component.vertx-http.allowJavaSerialized Object* | Whether to allow java serialization when a request has the Content-Type application/x-java-serialized-object This is disabled by default. If you enable this, be aware that Java will deserialize the incoming data from the request. This can be a potential security risk. | false | false | MEDIUM
 | *camel.component.vertx-http.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.vertx-http.vertx* | To use an existing vertx instead of creating a new instance | null | false | MEDIUM

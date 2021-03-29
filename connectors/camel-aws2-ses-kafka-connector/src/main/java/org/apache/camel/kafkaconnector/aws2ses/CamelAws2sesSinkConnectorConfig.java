@@ -33,6 +33,9 @@ public class CamelAws2sesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWS2SES_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SES_ENDPOINT_OVERRIDE_ENDPOINT_CONF = "camel.sink.endpoint.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2SES_ENDPOINT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2SES_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_HOST_CONF = "camel.sink.endpoint.proxyHost";
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SES client";
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -60,6 +63,9 @@ public class CamelAws2sesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2SES_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SES_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF = "camel.sink.endpoint.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2SES_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2SES_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2SES_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -75,6 +81,9 @@ public class CamelAws2sesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.aws2-ses.lazyStartProducer";
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWS2SES_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SES_COMPONENT_OVERRIDE_ENDPOINT_CONF = "camel.component.aws2-ses.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2SES_COMPONENT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2SES_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_PROXY_HOST_CONF = "camel.component.aws2-ses.proxyHost";
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SES client";
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_PROXY_HOST_DEFAULT = null;
@@ -102,6 +111,9 @@ public class CamelAws2sesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-ses.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2SES_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SES_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF = "camel.component.aws2-ses.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2SES_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2SES_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-ses.autowiredEnabled";
     public static final String CAMEL_SINK_AWS2SES_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_AWS2SES_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
@@ -127,6 +139,7 @@ public class CamelAws2sesSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SES_PATH_FROM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_PATH_FROM_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2SES_PATH_FROM_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_AMAZON_SESCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_ENDPOINT_AMAZON_SESCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_AMAZON_SESCLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SES_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SES_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_PROXY_PROTOCOL_DOC);
@@ -136,11 +149,13 @@ public class CamelAws2sesSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_ENDPOINT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_ENDPOINT_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_TO_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SES_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
+        conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2SES_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2SES_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2SES_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_AMAZON_SESCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_AMAZON_SESCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_AMAZON_SESCLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SES_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_AWS2SES_COMPONENT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SES_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_PROXY_PROTOCOL_DOC);
@@ -150,6 +165,7 @@ public class CamelAws2sesSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_TO_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SES_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
+        conf.define(CAMEL_SINK_AWS2SES_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SES_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SES_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2SES_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2SES_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2SES_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SES_COMPONENT_SECRET_KEY_DOC);

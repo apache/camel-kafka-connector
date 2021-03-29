@@ -39,6 +39,9 @@ public class CamelAws2ec2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
     public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_OPERATION_DOC = "The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances, describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, createTags or deleteTags One of: [createAndRunInstances] [startInstances] [stopInstances] [terminateInstances] [describeInstances] [describeInstancesStatus] [rebootInstances] [monitorInstances] [unmonitorInstances] [createTags] [deleteTags]";
     public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_OPERATION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_OVERRIDE_ENDPOINT_CONF = "camel.sink.endpoint.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2EC2_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_POJO_REQUEST_CONF = "camel.sink.endpoint.pojoRequest";
     public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
     public static final Boolean CAMEL_SINK_AWS2EC2_ENDPOINT_POJO_REQUEST_DEFAULT = false;
@@ -60,6 +63,9 @@ public class CamelAws2ec2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2EC2_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF = "camel.sink.endpoint.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2EC2_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws2-ec2.accessKey";
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -75,6 +81,9 @@ public class CamelAws2ec2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_OPERATION_CONF = "camel.component.aws2-ec2.operation";
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_OPERATION_DOC = "The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances, describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, createTags or deleteTags One of: [createAndRunInstances] [startInstances] [stopInstances] [terminateInstances] [describeInstances] [describeInstancesStatus] [rebootInstances] [monitorInstances] [unmonitorInstances] [createTags] [deleteTags]";
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_OPERATION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2EC2_COMPONENT_OVERRIDE_ENDPOINT_CONF = "camel.component.aws2-ec2.overrideEndpoint";
+    public static final String CAMEL_SINK_AWS2EC2_COMPONENT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
+    public static final Boolean CAMEL_SINK_AWS2EC2_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_POJO_REQUEST_CONF = "camel.component.aws2-ec2.pojoRequest";
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
     public static final Boolean CAMEL_SINK_AWS2EC2_COMPONENT_POJO_REQUEST_DEFAULT = false;
@@ -96,6 +105,9 @@ public class CamelAws2ec2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-ec2.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2EC2_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2EC2_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF = "camel.component.aws2-ec2.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWS2EC2_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
+    public static final String CAMEL_SINK_AWS2EC2_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-ec2.autowiredEnabled";
     public static final String CAMEL_SINK_AWS2EC2_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_AWS2EC2_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
@@ -117,6 +129,7 @@ public class CamelAws2ec2SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_AMAZON_EC_2CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_ENDPOINT_AMAZON_EC_2CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_AMAZON_EC_2CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2EC2_ENDPOINT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_ENDPOINT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_PROXY_PORT_DOC);
@@ -124,11 +137,13 @@ public class CamelAws2ec2SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2EC2_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
+        conf.define(CAMEL_SINK_AWS2EC2_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2EC2_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_AMAZON_EC_2CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_COMPONENT_AMAZON_EC_2CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_AMAZON_EC_2CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2EC2_COMPONENT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_COMPONENT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_PROXY_PORT_DOC);
@@ -136,6 +151,7 @@ public class CamelAws2ec2SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2EC2_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
+        conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2EC2_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWS2EC2_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2EC2_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2EC2_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }

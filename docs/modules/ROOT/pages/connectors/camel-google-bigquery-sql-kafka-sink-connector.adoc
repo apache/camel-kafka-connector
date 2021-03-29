@@ -31,8 +31,8 @@ The camel-google-bigquery-sql sink connector supports 8 options, which are liste
 [width="100%",cols="2,5,^1,1,1",options="header"]
 |===
 | Name | Description | Default | Required | Priority
-| *camel.sink.path.query* | BigQuery standard SQL query | null | true | HIGH
 | *camel.sink.path.projectId* | Google Cloud Project Id | null | true | HIGH
+| *camel.sink.path.queryString* | BigQuery standard SQL query | null | true | HIGH
 | *camel.sink.endpoint.connectionFactory* | ConnectionFactory to obtain connection to Bigquery Service. If not provided the default one will be used | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.google-bigquery-sql.connection Factory* | ConnectionFactory to obtain connection to Bigquery Service. If not provided the default one will be used | null | false | MEDIUM

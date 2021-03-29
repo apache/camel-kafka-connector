@@ -35,7 +35,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_AMAZON_S3PRESIGNER_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_CONF = "camel.sink.endpoint.autoCreateBucket";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.";
-    public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_DEFAULT = true;
+    public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_CONF = "camel.sink.endpoint.overrideEndpoint";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
     public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT = false;
@@ -119,7 +119,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_AMAZON_S3PRESIGNER_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_CONF = "camel.component.aws2-s3.autoCreateBucket";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.";
-    public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_DEFAULT = true;
+    public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-s3.configuration";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_DEFAULT = null;
