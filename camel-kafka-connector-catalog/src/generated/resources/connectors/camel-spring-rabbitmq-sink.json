@@ -106,10 +106,24 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.spring-rabbitmq.allowNullBody": {
+			"name": "camel.component.spring-rabbitmq.allowNullBody",
+			"description": "Whether to allow sending messages with no body. If this option is false and the message body is null, then an MessageConversionException is thrown.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.spring-rabbitmq.lazyStartProducer": {
 			"name": "camel.component.spring-rabbitmq.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.replyTimeout": {
+			"name": "camel.component.spring-rabbitmq.replyTimeout",
+			"description": "Specify the timeout in milliseconds to be used when waiting for a reply message when doing request\/reply messaging. The default value is 5 seconds. A negative value indicates an indefinite timeout.",
+			"defaultValue": "5000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

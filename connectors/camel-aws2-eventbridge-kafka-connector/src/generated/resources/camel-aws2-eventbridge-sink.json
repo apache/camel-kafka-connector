@@ -53,6 +53,13 @@
 				"listRuleNamesByTarget"
 			]
 		},
+		"camel.sink.endpoint.overrideEndpoint": {
+			"name": "camel.sink.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
 			"description": "If we want to use a POJO request as body or not",
@@ -93,6 +100,12 @@
 			"name": "camel.sink.endpoint.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.uriEndpointOverride": {
+			"name": "camel.sink.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -152,6 +165,13 @@
 				"listRuleNamesByTarget"
 			]
 		},
+		"camel.component.aws2-eventbridge.overrideEndpoint": {
+			"name": "camel.component.aws2-eventbridge.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-eventbridge.pojoRequest": {
 			"name": "camel.component.aws2-eventbridge.pojoRequest",
 			"description": "If we want to use a POJO request as body or not",
@@ -192,6 +212,12 @@
 			"name": "camel.component.aws2-eventbridge.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-eventbridge.uriEndpointOverride": {
+			"name": "camel.component.aws2-eventbridge.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

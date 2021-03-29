@@ -116,6 +116,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_PARTITION_ASSIGNOR_CONF = "camel.source.endpoint.partitionAssignor";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_PARTITION_ASSIGNOR_DOC = "The class name of the partition assignment strategy that the client will use to distribute partition ownership amongst consumer instances when group management is used";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_PARTITION_ASSIGNOR_DEFAULT = "org.apache.kafka.clients.consumer.RangeAssignor";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_CONF = "camel.source.endpoint.pollOnError";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_DOC = "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_CONF = "camel.source.endpoint.pollTimeoutMs";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_DOC = "The timeout used when polling the KafkaConsumer.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_DEFAULT = "5000";
@@ -296,6 +299,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_PARTITION_ASSIGNOR_CONF = "camel.component.kafka.partitionAssignor";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_PARTITION_ASSIGNOR_DOC = "The class name of the partition assignment strategy that the client will use to distribute partition ownership amongst consumer instances when group management is used";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_PARTITION_ASSIGNOR_DEFAULT = "org.apache.kafka.clients.consumer.RangeAssignor";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_CONF = "camel.component.kafka.pollOnError";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_DOC = "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_CONF = "camel.component.kafka.pollTimeoutMs";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_DOC = "The timeout used when polling the KafkaConsumer.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_DEFAULT = "5000";
@@ -317,6 +323,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_CONF = "camel.component.kafka.kafkaManualCommitFactory";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_DOC = "Factory to use for creating KafkaManualCommit instances. This allows to plugin a custom factory to create custom KafkaManualCommit instances in case special logic is needed when doing manual commits that deviates from the default implementation that comes out of the box.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_EXCEPTION_STRATEGY_CONF = "camel.component.kafka.pollExceptionStrategy";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_EXCEPTION_STRATEGY_DOC = "To use a custom strategy with the consumer to control how to handle exceptions thrown from the Kafka broker while pooling messages.";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_EXCEPTION_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.kafka.autowiredEnabled";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
@@ -435,6 +444,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_MAX_POLL_RECORDS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_MAX_POLL_RECORDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_MAX_POLL_RECORDS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_OFFSET_REPOSITORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_OFFSET_REPOSITORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_OFFSET_REPOSITORY_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_PARTITION_ASSIGNOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_PARTITION_ASSIGNOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_PARTITION_ASSIGNOR_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_SEEK_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_SEEK_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_SEEK_TO_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_SESSION_TIMEOUT_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_SESSION_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_SESSION_TIMEOUT_MS_DOC);
@@ -495,6 +505,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_MAX_POLL_RECORDS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_MAX_POLL_RECORDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_MAX_POLL_RECORDS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_OFFSET_REPOSITORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_OFFSET_REPOSITORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_OFFSET_REPOSITORY_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_PARTITION_ASSIGNOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_PARTITION_ASSIGNOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_PARTITION_ASSIGNOR_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_SEEK_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_SEEK_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_SEEK_TO_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_SESSION_TIMEOUT_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_SESSION_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_SESSION_TIMEOUT_MS_DOC);
@@ -502,6 +513,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_TOPIC_IS_PATTERN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKA_COMPONENT_TOPIC_IS_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_TOPIC_IS_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_VALUE_DESERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_VALUE_DESERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_VALUE_DESERIALIZER_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_POLL_EXCEPTION_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_POLL_EXCEPTION_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_POLL_EXCEPTION_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_DOC);

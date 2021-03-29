@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2sqs.CamelAws2sqsSourceConnec
 ----
 
 
-The camel-aws2-sqs source connector supports 89 options, which are listed below.
+The camel-aws2-sqs source connector supports 93 options, which are listed below.
 
 
 
@@ -34,20 +34,22 @@ The camel-aws2-sqs source connector supports 89 options, which are listed below.
 | *camel.source.path.queueNameOrArn* | Queue name or ARN | null | true | HIGH
 | *camel.source.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
 | *camel.source.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
-| *camel.source.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
+| *camel.source.endpoint.autoCreateQueue* | Setting the autocreation of the queue | false | false | MEDIUM
 | *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | false | MEDIUM
+| *camel.source.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.source.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.source.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.source.endpoint.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.source.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.source.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.source.endpoint.useDefaultCredentials Provider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.source.endpoint.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | false | MEDIUM
 | *camel.source.endpoint.defaultVisibilityTimeout* | The default visibility timeout (in seconds) | null | false | MEDIUM
 | *camel.source.endpoint.deleteAfterRead* | Delete message from SQS after it has been read | true | false | MEDIUM
-| *camel.source.endpoint.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter. If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage. | true | false | MEDIUM
+| *camel.source.endpoint.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if the exchange has property with key Sqs2Constants#SQS_DELETE_FILTERED (CamelAwsSqsDeleteFiltered) set to true. | true | false | MEDIUM
 | *camel.source.endpoint.extendMessageVisibility* | If enabled then a scheduled background task will keep extending the message visibility on SQS. This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set. See details at Amazon docs. | false | false | MEDIUM
 | *camel.source.endpoint.kmsDataKeyReusePeriodSeconds* | The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). | null | false | MEDIUM
 | *camel.source.endpoint.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. | null | false | MEDIUM
@@ -87,20 +89,22 @@ The camel-aws2-sqs source connector supports 89 options, which are listed below.
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-sqs.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
 | *camel.component.aws2-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
-| *camel.component.aws2-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
+| *camel.component.aws2-sqs.autoCreateQueue* | Setting the autocreation of the queue | false | false | MEDIUM
 | *camel.component.aws2-sqs.configuration* | The AWS SQS default configuration | null | false | MEDIUM
+| *camel.component.aws2-sqs.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
 | *camel.component.aws2-sqs.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.component.aws2-sqs.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.component.aws2-sqs.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-sqs.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.component.aws2-sqs.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.component.aws2-sqs.useDefaultCredentials Provider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-sqs.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
 | *camel.component.aws2-sqs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.aws2-sqs.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | false | MEDIUM
 | *camel.component.aws2-sqs.defaultVisibilityTimeout* | The default visibility timeout (in seconds) | null | false | MEDIUM
 | *camel.component.aws2-sqs.deleteAfterRead* | Delete message from SQS after it has been read | true | false | MEDIUM
-| *camel.component.aws2-sqs.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter. If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage. | true | false | MEDIUM
+| *camel.component.aws2-sqs.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if the exchange has property with key Sqs2Constants#SQS_DELETE_FILTERED (CamelAwsSqsDeleteFiltered) set to true. | true | false | MEDIUM
 | *camel.component.aws2-sqs.extendMessageVisibility* | If enabled then a scheduled background task will keep extending the message visibility on SQS. This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set. See details at Amazon docs. | false | false | MEDIUM
 | *camel.component.aws2-sqs.kmsDataKeyReusePeriod Seconds* | The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). | null | false | MEDIUM
 | *camel.component.aws2-sqs.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. | null | false | MEDIUM

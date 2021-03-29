@@ -43,7 +43,7 @@ public class CamelGooglemailstreamSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_LABELS_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_MARK_AS_READ_CONF = "camel.source.endpoint.markAsRead";
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_MARK_AS_READ_DOC = "Mark the message as read once it has been consumed";
-    public static final Boolean CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_MARK_AS_READ_DEFAULT = false;
+    public static final Boolean CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_MARK_AS_READ_DEFAULT = true;
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_MAX_RESULTS_CONF = "camel.source.endpoint.maxResults";
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_MAX_RESULTS_DOC = "Max results to be returned";
     public static final Long CAMEL_SOURCE_GOOGLEMAILSTREAM_ENDPOINT_MAX_RESULTS_DEFAULT = 10L;
@@ -127,7 +127,7 @@ public class CamelGooglemailstreamSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_LABELS_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_MARK_AS_READ_CONF = "camel.component.google-mail-stream.markAsRead";
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_MARK_AS_READ_DOC = "Mark the message as read once it has been consumed";
-    public static final Boolean CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_MARK_AS_READ_DEFAULT = false;
+    public static final Boolean CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_MARK_AS_READ_DEFAULT = true;
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_MAX_RESULTS_CONF = "camel.component.google-mail-stream.maxResults";
     public static final String CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_MAX_RESULTS_DOC = "Max results to be returned";
     public static final Long CAMEL_SOURCE_GOOGLEMAILSTREAM_COMPONENT_MAX_RESULTS_DEFAULT = 10L;

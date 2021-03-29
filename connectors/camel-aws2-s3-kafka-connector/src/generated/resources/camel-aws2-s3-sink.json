@@ -30,7 +30,7 @@
 		"camel.sink.endpoint.autoCreateBucket": {
 			"name": "camel.sink.endpoint.autoCreateBucket",
 			"description": "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -223,7 +223,7 @@
 		"camel.component.aws2-s3.autoCreateBucket": {
 			"name": "camel.component.aws2-s3.autoCreateBucket",
 			"description": "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

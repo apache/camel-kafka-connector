@@ -58,7 +58,7 @@
 		},
 		"camel.sink.endpoint.clearExpiredCookies": {
 			"name": "camel.sink.endpoint.clearExpiredCookies",
-			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired.",
+			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -154,30 +154,23 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.skipRequestHeaders": {
+			"name": "camel.sink.endpoint.skipRequestHeaders",
+			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.skipResponseHeaders": {
+			"name": "camel.sink.endpoint.skipResponseHeaders",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.mapHttpMessageBody": {
-			"name": "camel.sink.endpoint.mapHttpMessageBody",
-			"description": "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody": {
-			"name": "camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody",
-			"description": "If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.mapHttpMessageHeaders": {
-			"name": "camel.sink.endpoint.mapHttpMessageHeaders",
-			"description": "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.",
-			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -218,9 +211,37 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.resteasy.copyHeaders": {
+			"name": "camel.component.resteasy.copyHeaders",
+			"description": "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.resteasy.lazyStartProducer": {
 			"name": "camel.component.resteasy.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.responsePayloadStreamingThreshold": {
+			"name": "camel.component.resteasy.responsePayloadStreamingThreshold",
+			"description": "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.",
+			"defaultValue": "8192",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.skipRequestHeaders": {
+			"name": "camel.component.resteasy.skipRequestHeaders",
+			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.skipResponseHeaders": {
+			"name": "camel.component.resteasy.skipResponseHeaders",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -232,10 +253,59 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.resteasy.authCachingDisabled": {
+			"name": "camel.component.resteasy.authCachingDisabled",
+			"description": "Disables authentication scheme caching",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.automaticRetriesDisabled": {
+			"name": "camel.component.resteasy.automaticRetriesDisabled",
+			"description": "Disables automatic request recovery and re-execution",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.resteasy.autowiredEnabled": {
 			"name": "camel.component.resteasy.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.connectionStateDisabled": {
+			"name": "camel.component.resteasy.connectionStateDisabled",
+			"description": "Disables connection state tracking",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.contentCompressionDisabled": {
+			"name": "camel.component.resteasy.contentCompressionDisabled",
+			"description": "Disables automatic content decompression",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.cookieManagementDisabled": {
+			"name": "camel.component.resteasy.cookieManagementDisabled",
+			"description": "Disables state (cookie) management",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.defaultUserAgentDisabled": {
+			"name": "camel.component.resteasy.defaultUserAgentDisabled",
+			"description": "Disables the default user agent set by this builder if none has been provided by the user",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.redirectHandlingDisabled": {
+			"name": "camel.component.resteasy.redirectHandlingDisabled",
+			"description": "Disables automatic redirect handling",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

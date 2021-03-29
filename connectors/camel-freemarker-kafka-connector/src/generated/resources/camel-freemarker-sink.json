@@ -82,6 +82,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.freemarker.localizedLookup": {
+			"name": "camel.component.freemarker.localizedLookup",
+			"description": "Enables\/disables localized template lookup. Disabled by default.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.freemarker.autowiredEnabled": {
 			"name": "camel.component.freemarker.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",

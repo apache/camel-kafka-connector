@@ -93,6 +93,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.tcpReceiverLocalPort": {
+			"name": "camel.sink.endpoint.tcpReceiverLocalPort",
+			"description": "Splunk tcp receiver port defined locally on splunk server. (For example if splunk port 9997 is mapped to 12345, tcpReceiverLocalPort has to be 9997)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.tcpReceiverPort": {
 			"name": "camel.sink.endpoint.tcpReceiverPort",
 			"description": "Splunk tcp receiver port",

@@ -132,20 +132,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.optionsEnabled": {
-			"name": "camel.source.endpoint.optionsEnabled",
-			"description": "Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.traceEnabled": {
-			"name": "camel.source.endpoint.traceEnabled",
-			"description": "Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.mapHttpMessageBody": {
 			"name": "camel.source.endpoint.mapHttpMessageBody",
 			"description": "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.",
@@ -164,6 +150,20 @@
 			"name": "camel.source.endpoint.mapHttpMessageHeaders",
 			"description": "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.optionsEnabled": {
+			"name": "camel.source.endpoint.optionsEnabled",
+			"description": "Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.traceEnabled": {
+			"name": "camel.source.endpoint.traceEnabled",
+			"description": "Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

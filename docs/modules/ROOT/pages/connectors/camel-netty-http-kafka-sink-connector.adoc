@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.nettyhttp.CamelNettyhttpSinkConn
 ----
 
 
-The camel-netty-http sink connector supports 111 options, which are listed below.
+The camel-netty-http sink connector supports 113 options, which are listed below.
 
 
 
@@ -56,6 +56,7 @@ The camel-netty-http sink connector supports 111 options, which are listed below
 | *camel.sink.endpoint.producerPoolMinEvictableIdle* | Sets the minimum amount of time (value in millis) an object may sit idle in the pool before it is eligible for eviction by the idle object evictor. | 300000L | false | MEDIUM
 | *camel.sink.endpoint.producerPoolMinIdle* | Sets the minimum number of instances allowed in the producer pool before the evictor thread (if active) spawns new objects. | null | false | MEDIUM
 | *camel.sink.endpoint.useRelativePath* | Sets whether to use a relative path in HTTP requests. | true | false | MEDIUM
+| *camel.sink.endpoint.hostnameVerification* | To enable/disable hostname verification on SSLEngine | false | false | MEDIUM
 | *camel.sink.endpoint.allowSerializedHeaders* | Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level. | false | false | MEDIUM
 | *camel.sink.endpoint.channelGroup* | To use a explicit ChannelGroup. | null | false | MEDIUM
 | *camel.sink.endpoint.configuration* | To use a custom configured NettyHttpConfiguration for configuring this endpoint. | null | false | MEDIUM
@@ -106,6 +107,7 @@ The camel-netty-http sink connector supports 111 options, which are listed below
 | *camel.component.netty-http.producerPoolMinIdle* | Sets the minimum number of instances allowed in the producer pool before the evictor thread (if active) spawns new objects. | null | false | MEDIUM
 | *camel.component.netty-http.udpConnectionless Sending* | This option supports connection less udp sending which is a real fire and forget. A connected udp send receive the PortUnreachableException if no one is listen on the receiving port. | false | false | MEDIUM
 | *camel.component.netty-http.useByteBuf* | If the useByteBuf is true, netty producer will turn the message body into ByteBuf before sending it out. | false | false | MEDIUM
+| *camel.component.netty-http.hostnameVerification* | To enable/disable hostname verification on SSLEngine | false | false | MEDIUM
 | *camel.component.netty-http.allowSerializedHeaders* | Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level. | false | false | MEDIUM
 | *camel.component.netty-http.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.netty-http.channelGroup* | To use a explicit ChannelGroup. | null | false | MEDIUM
