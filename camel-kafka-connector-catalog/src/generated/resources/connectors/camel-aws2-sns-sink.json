@@ -24,7 +24,7 @@
 		"camel.sink.endpoint.autoCreateTopic": {
 			"name": "camel.sink.endpoint.autoCreateTopic",
 			"description": "Setting the autocreation of the topic",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -72,6 +72,13 @@
 		"camel.sink.endpoint.messageStructure": {
 			"name": "camel.sink.endpoint.messageStructure",
 			"description": "The message structure to use such as json",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.overrideEndpoint": {
+			"name": "camel.sink.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -143,6 +150,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.uriEndpointOverride": {
+			"name": "camel.sink.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.useDefaultCredentialsProvider": {
 			"name": "camel.sink.endpoint.useDefaultCredentialsProvider",
 			"description": "Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
@@ -171,7 +184,7 @@
 		"camel.component.aws2-sns.autoCreateTopic": {
 			"name": "camel.component.aws2-sns.autoCreateTopic",
 			"description": "Setting the autocreation of the topic",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -219,6 +232,13 @@
 		"camel.component.aws2-sns.messageStructure": {
 			"name": "camel.component.aws2-sns.messageStructure",
 			"description": "The message structure to use such as json",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sns.overrideEndpoint": {
+			"name": "camel.component.aws2-sns.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -287,6 +307,12 @@
 			"name": "camel.component.aws2-sns.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sns.uriEndpointOverride": {
+			"name": "camel.component.aws2-sns.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

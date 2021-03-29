@@ -31,13 +31,20 @@
 		"camel.sink.endpoint.autoCreateQueue": {
 			"name": "camel.sink.endpoint.autoCreateQueue",
 			"description": "Setting the autocreation of the queue",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to map headers to\/from Camel.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.overrideEndpoint": {
+			"name": "camel.sink.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -78,10 +85,23 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.uriEndpointOverride": {
+			"name": "camel.sink.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.useDefaultCredentialsProvider": {
 			"name": "camel.sink.endpoint.useDefaultCredentialsProvider",
 			"description": "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.batchSeparator": {
+			"name": "camel.sink.endpoint.batchSeparator",
+			"description": "Set the separator when passing a String to send batch message operation",
+			"defaultValue": "\",\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -215,13 +235,20 @@
 		"camel.component.aws2-sqs.autoCreateQueue": {
 			"name": "camel.component.aws2-sqs.autoCreateQueue",
 			"description": "Setting the autocreation of the queue",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-sqs.configuration": {
 			"name": "camel.component.aws2-sqs.configuration",
 			"description": "The AWS SQS default configuration",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sqs.overrideEndpoint": {
+			"name": "camel.component.aws2-sqs.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -262,10 +289,23 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-sqs.uriEndpointOverride": {
+			"name": "camel.component.aws2-sqs.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-sqs.useDefaultCredentialsProvider": {
 			"name": "camel.component.aws2-sqs.useDefaultCredentialsProvider",
 			"description": "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sqs.batchSeparator": {
+			"name": "camel.component.aws2-sqs.batchSeparator",
+			"description": "Set the separator when passing a String to send batch message operation",
+			"defaultValue": "\",\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
