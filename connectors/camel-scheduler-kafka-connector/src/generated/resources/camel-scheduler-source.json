@@ -77,6 +77,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.concurrentTasks": {
+			"name": "camel.source.endpoint.concurrentTasks",
+			"description": "Number of threads used by the scheduling thread pool. Is by default using a single thread",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.delay": {
 			"name": "camel.source.endpoint.delay",
 			"description": "Milliseconds before the next poll.",
@@ -95,13 +102,6 @@
 			"name": "camel.source.endpoint.initialDelay",
 			"description": "Milliseconds before the first poll starts.",
 			"defaultValue": "1000L",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.poolSize": {
-			"name": "camel.source.endpoint.poolSize",
-			"description": "Number of core threads in the thread pool used by the scheduling thread pool. Is by default using a single thread",
-			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -190,9 +190,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.scheduler.poolSize": {
-			"name": "camel.component.scheduler.poolSize",
-			"description": "Number of core threads in the thread pool used by the scheduling thread pool. Is by default using a single thread",
+		"camel.component.scheduler.concurrentTasks": {
+			"name": "camel.component.scheduler.concurrentTasks",
+			"description": "Number of threads used by the scheduling thread pool. Is by default using a single thread",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
