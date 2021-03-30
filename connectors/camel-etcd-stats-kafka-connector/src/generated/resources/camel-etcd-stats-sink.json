@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-etcd-stats-sink",
 		"type": "sink",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.9.0",
 		"description": "Access etcd cluster statistcs."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-bigquery-sink",
 		"type": "sink",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.9.0",
 		"description": "Google BigQuery data warehouse for analytics."
 	},
 	"properties": {

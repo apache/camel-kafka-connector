@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-smtps-source",
 		"type": "source",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.9.0",
 		"description": "Send and receive emails using imap, pop3 and smtp protocols."
 	},
 	"properties": {

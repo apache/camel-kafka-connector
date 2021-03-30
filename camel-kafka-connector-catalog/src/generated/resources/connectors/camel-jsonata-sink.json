@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jsonata-sink",
 		"type": "sink",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.9.0",
 		"description": "Transforms JSON payload using JSONata transformation."
 	},
 	"properties": {
