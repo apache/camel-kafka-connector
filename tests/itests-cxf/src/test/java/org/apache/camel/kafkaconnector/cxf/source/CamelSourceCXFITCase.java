@@ -91,7 +91,7 @@ public class CamelSourceCXFITCase extends CamelSourceTestSupport {
 
 
     @Test
-    @Timeout(20)
+    @Timeout(30)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
         String topicName = getTopicForTest(this);
 
@@ -105,7 +105,7 @@ public class CamelSourceCXFITCase extends CamelSourceTestSupport {
     }
 
     @Test
-    @Timeout(20)
+    @Timeout(30)
     public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
         String topicName = getTopicForTest(this);
 
@@ -119,7 +119,7 @@ public class CamelSourceCXFITCase extends CamelSourceTestSupport {
     }
 
     @Test
-    @Timeout(20)
+    @Timeout(30)
     public void testBasicSendReceiveUsingDataFormat() throws ExecutionException, InterruptedException {
         String topicName = getTopicForTest(this);
 

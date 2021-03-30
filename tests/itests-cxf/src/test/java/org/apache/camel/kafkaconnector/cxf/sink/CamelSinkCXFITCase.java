@@ -100,6 +100,7 @@ public class CamelSinkCXFITCase extends CamelSinkTestSupport {
     }
 
     @Test
+    @Timeout(90)
     public void testBasicSendReceiveUsingUrl() throws Exception {
         InputStream stream = this.getClass().getResource("/hello-service-test.xml").openStream();
         String testMessage = IOUtils.toString(stream, Charset.defaultCharset());
