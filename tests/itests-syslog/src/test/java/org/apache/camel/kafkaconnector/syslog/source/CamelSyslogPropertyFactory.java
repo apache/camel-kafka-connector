@@ -29,7 +29,7 @@ final class CamelSyslogPropertyFactory extends SourceConnectorPropertyFactory<Ca
     }
 
     public CamelSyslogPropertyFactory withHost(String host) {
-        return setProperty("camel.source.path.host", "//" + host);
+        return setProperty("camel.source.path.host", host);
     }
 
     public CamelSyslogPropertyFactory withPort(int port) {
