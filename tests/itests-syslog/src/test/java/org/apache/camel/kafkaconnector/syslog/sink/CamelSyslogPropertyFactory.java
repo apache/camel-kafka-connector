@@ -29,7 +29,7 @@ final class CamelSyslogPropertyFactory extends SinkConnectorPropertyFactory<Came
     }
 
     public CamelSyslogPropertyFactory withHost(String host) {
-        return setProperty("camel.sink.path.host", "//" + host);
+        return setProperty("camel.sink.path.host", host);
     }
 
     public CamelSyslogPropertyFactory withPort(int port) {
