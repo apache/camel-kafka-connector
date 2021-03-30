@@ -14,6 +14,7 @@
 
 **Merged pull requests:**
 
+- Camel 3.9.0 alignment [\#1126](https://github.com/apache/camel-kafka-connector/pull/1126) ([oscerd](https://github.com/oscerd))
 - Add Camel 3.7.3 and ckc 0.7.3 to compatibility matrix [\#1122](https://github.com/apache/camel-kafka-connector/pull/1122) ([oscerd](https://github.com/oscerd))
 - Fixed CS in cxfrs itest [\#1120](https://github.com/apache/camel-kafka-connector/pull/1120) ([oscerd](https://github.com/oscerd))
 - Upgrade Strimzi to version 0.22.1 [\#1118](https://github.com/apache/camel-kafka-connector/pull/1118) ([oscerd](https://github.com/oscerd))
