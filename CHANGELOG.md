@@ -1,8 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+## [camel-kafka-connector-0.9.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.9.0) (2021-03-30)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.3...HEAD)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.3...camel-kafka-connector-0.9.0)
+
+**Fixed bugs:**
+
+- Camel-Netty-\* connectors are not working [\#924](https://github.com/apache/camel-kafka-connector/issues/924)
 
 **Closed issues:**
 
@@ -14,6 +18,7 @@
 
 **Merged pull requests:**
 
+- Updated tests after camel 3.9.0 fixed \#924. [\#1129](https://github.com/apache/camel-kafka-connector/pull/1129) ([valdar](https://github.com/valdar))
 - Camel 3.9.0 alignment [\#1126](https://github.com/apache/camel-kafka-connector/pull/1126) ([oscerd](https://github.com/oscerd))
 - Add Camel 3.7.3 and ckc 0.7.3 to compatibility matrix [\#1122](https://github.com/apache/camel-kafka-connector/pull/1122) ([oscerd](https://github.com/oscerd))
 - Fixed CS in cxfrs itest [\#1120](https://github.com/apache/camel-kafka-connector/pull/1120) ([oscerd](https://github.com/oscerd))
@@ -327,7 +332,6 @@
 - \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#776](https://github.com/apache/camel-kafka-connector/pull/776) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Set the service version to the supported one from Azurite to prevent test failures [\#775](https://github.com/apache/camel-kafka-connector/pull/775) ([orpiske](https://github.com/orpiske))
 - Fix example CamelAmqpSourceConnector using sink instead of source pro… [\#768](https://github.com/apache/camel-kafka-connector/pull/768) ([apupier](https://github.com/apupier))
-- Binary distribution created [\#765](https://github.com/apache/camel-kafka-connector/pull/765) ([valdar](https://github.com/valdar))
 - Remove headers fix [\#764](https://github.com/apache/camel-kafka-connector/pull/764) ([oscerd](https://github.com/oscerd))
 - chore: documentation regen for 0.6.1 [\#761](https://github.com/apache/camel-kafka-connector/pull/761) ([valdar](https://github.com/valdar))
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#760](https://github.com/apache/camel-kafka-connector/pull/760) ([oscerd](https://github.com/oscerd))
