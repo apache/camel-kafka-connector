@@ -33,7 +33,6 @@ import org.apache.camel.kafkaconnector.common.services.mockweb.MockWebService;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -127,7 +126,6 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
 
     @Test
     @Timeout(60)
-    @Disabled("HTTPS-sink-connector duplicates protocol #1077")
     public void testBasicSendReceiveHttpUriWithQueryString() throws Exception {
         mockWebService.enqueueResponses(expect);
 
