@@ -1,5 +1,21 @@
 # Changelog
 
+## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.9.0...HEAD)
+
+**Fixed bugs:**
+
+- HTTPS-sink-connector duplicates protocol  [\#1077](https://github.com/apache/camel-kafka-connector/issues/1077)
+
+**Closed issues:**
+
+- NetworkUtils should be able to hold a free port for later usage [\#1109](https://github.com/apache/camel-kafka-connector/issues/1109)
+
+**Merged pull requests:**
+
+- Fix HTTPS-sink-connector duplicates protocol \#1077 [\#1130](https://github.com/apache/camel-kafka-connector/pull/1130) ([tadayosi](https://github.com/tadayosi))
+
 ## [camel-kafka-connector-0.9.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.9.0) (2021-03-30)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.3...camel-kafka-connector-0.9.0)
@@ -671,6 +687,7 @@
 - Update try-it-out-on-openshift-with-strimzi.adoc with latest AWS S3 connector config [\#433](https://github.com/apache/camel-kafka-connector/pull/433) ([smccarthy-ie](https://github.com/smccarthy-ie))
 - Pr Build and push build needs to point to master [\#432](https://github.com/apache/camel-kafka-connector/pull/432) ([oscerd](https://github.com/oscerd))
 - adding a key transformer to the AWS2-SQS connector so that the CamelH… [\#431](https://github.com/apache/camel-kafka-connector/pull/431) ([codexetreme](https://github.com/codexetreme))
+- Proposed fix for issue \#414 [\#428](https://github.com/apache/camel-kafka-connector/pull/428) ([orpiske](https://github.com/orpiske))
 - Camel 3.5.0 [\#427](https://github.com/apache/camel-kafka-connector/pull/427) ([oscerd](https://github.com/oscerd))
 - Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
 - Archetype: Add a parameter to the archetype generator to be able to s… [\#421](https://github.com/apache/camel-kafka-connector/pull/421) ([oscerd](https://github.com/oscerd))
