@@ -30,7 +30,6 @@ import org.apache.camel.test.infra.google.pubsub.services.GooglePubSubService;
 import org.apache.camel.test.infra.google.pubsub.services.GooglePubSubServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -48,6 +47,7 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
     private GooglePubEasy easyClient;
 
     private String googlePubSubTopic;
+    private String testSubscription;
 
     private final int expected = 10;
 
@@ -60,13 +60,14 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
     @BeforeEach
     public void setUp() {
         googlePubSubTopic = "ckctopic" + TestUtils.randomWithRange(0, 100);
+        testSubscription = "test-subscription" + TestUtils.randomWithRange(0, 100);
         LOG.info("Requesting topic {} for the pub/sub client", googlePubSubTopic);
 
         easyClient = new GooglePubEasy(service.getServiceAddress(), project);
 
         try {
             easyClient.createTopic(googlePubSubTopic);
-            easyClient.createSubscription("test-subscription", googlePubSubTopic);
+            easyClient.createSubscription(testSubscription, googlePubSubTopic);
         } catch (InterruptedException | IOException e) {
             fail(e.getMessage());
         }
@@ -112,7 +113,6 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
         runTest(connectorPropertyFactory, topicName, expected);
     }
 
-    @Disabled("Disabled due to #1086")
     @Test
     public void testBasicSendReceiveUrl() throws Exception {
         String topicName = getTopicForTest(this);
@@ -120,8 +120,8 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
         ConnectorPropertyFactory connectorPropertyFactory = CamelGooglePubSubPropertyFactory
                 .basic()
                 .withTopics(topicName)
+                .withEndpoint(service.getServiceAddress())
                 .withUrl(project, googlePubSubTopic)
-                .append("endpoint", service.getServiceAddress())
                 .buildUrl();
 
         runTest(connectorPropertyFactory, topicName, expected);
