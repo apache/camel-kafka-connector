@@ -4,17 +4,29 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.9.0...HEAD)
 
+**Implemented enhancements:**
+
+- Verify that sha512 files are correctly published during next release [\#162](https://github.com/apache/camel-kafka-connector/issues/162)
+
 **Fixed bugs:**
 
 - HTTPS-sink-connector duplicates protocol  [\#1077](https://github.com/apache/camel-kafka-connector/issues/1077)
+- MongoDB tests failing with Camel master [\#974](https://github.com/apache/camel-kafka-connector/issues/974)
 
 **Closed issues:**
 
+- Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
+- Release 0.9.0 [\#1127](https://github.com/apache/camel-kafka-connector/issues/1127)
 - NetworkUtils should be able to hold a free port for later usage [\#1109](https://github.com/apache/camel-kafka-connector/issues/1109)
+- Google pub/sub: endpoint option cannot be set [\#1086](https://github.com/apache/camel-kafka-connector/issues/1086)
+- Question: S3 source connector pulls duplicate data when task.max \> 1 [\#959](https://github.com/apache/camel-kafka-connector/issues/959)
+- add itests for camel-cxf-kafka-connector [\#873](https://github.com/apache/camel-kafka-connector/issues/873)
+- SJMS2 connector fails with qpid JmsConnectionFactory [\#751](https://github.com/apache/camel-kafka-connector/issues/751)
 
 **Merged pull requests:**
 
-- Fix HTTPS-sink-connector duplicates protocol \#1077 [\#1130](https://github.com/apache/camel-kafka-connector/pull/1130) ([tadayosi](https://github.com/tadayosi))
+- Re-enabled Google pub/sub test [\#1132](https://github.com/apache/camel-kafka-connector/pull/1132) ([orpiske](https://github.com/orpiske))
+- Re-enabled MongoDB source test after moving to Camel 3.9.0 \(issue \#974\) [\#1131](https://github.com/apache/camel-kafka-connector/pull/1131) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.9.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.9.0) (2021-03-30)
 
@@ -296,10 +308,10 @@
 - Camel-Cron connector: We need to add at least camel-quartz as dependency [\#911](https://github.com/apache/camel-kafka-connector/pull/911) ([oscerd](https://github.com/oscerd))
 - Ensures that Couchbase client dependencies are packed with the connector \(GH issue \#878\) [\#892](https://github.com/apache/camel-kafka-connector/pull/892) ([orpiske](https://github.com/orpiske))
 - Idempotency docs 0.7.x [\#852](https://github.com/apache/camel-kafka-connector/pull/852) ([oscerd](https://github.com/oscerd))
+- Avoid slashes in sjms2 URLs [\#845](https://github.com/apache/camel-kafka-connector/pull/845) ([orpiske](https://github.com/orpiske))
 - \(backport\) Ensure the DLQ configuration from Kafka Connect is correctly handled \(issue \#835\) [\#837](https://github.com/apache/camel-kafka-connector/pull/837) ([orpiske](https://github.com/orpiske))
 - \(backport\) Bump camel dependency to use camel 3.7.1-SNAPSHOT [\#832](https://github.com/apache/camel-kafka-connector/pull/832) ([orpiske](https://github.com/orpiske))
 - Set version to 0.7.1-SNAPSHOT [\#831](https://github.com/apache/camel-kafka-connector/pull/831) ([orpiske](https://github.com/orpiske))
-- \(backport 0.7.x\) Fix issue \#159: camel components secret options are showed in logs [\#830](https://github.com/apache/camel-kafka-connector/pull/830) ([orpiske](https://github.com/orpiske))
 - Fix docs links 0.7.x [\#820](https://github.com/apache/camel-kafka-connector/pull/820) ([oscerd](https://github.com/oscerd))
 - 0.7.x docs align [\#815](https://github.com/apache/camel-kafka-connector/pull/815) ([oscerd](https://github.com/oscerd))
 
