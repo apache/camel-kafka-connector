@@ -43,30 +43,32 @@ public abstract class FieldsToHeadersTransform<R extends ConnectRecord<R>> imple
     private static final String HEADERS_CONFIG = "headers";
 
     public static final ConfigDef CONFIG_DEF = new ConfigDef()
-            .define(FIELDS_CONFIG, ConfigDef.Type.LIST, ConfigDef.NO_DEFAULT_VALUE, ConfigDef.Importance.MEDIUM, "Fields names to extract and set to headers")
+            .define(FIELDS_CONFIG, ConfigDef.Type.LIST, new ArrayList<>(), ConfigDef.Importance.MEDIUM, "Fields names to extract and set to headers")
             .define(HEADERS_CONFIG, ConfigDef.Type.LIST, ConfigDef.NO_DEFAULT_VALUE, ConfigDef.Importance.MEDIUM, "Headers names to set with extracted fields");
-
 
     private List<String> fields;
 
     private List<String> headers;
 
-
-
     protected abstract Schema operatingSchema(R record);
 
     protected abstract Object operatingValue(R record);
-
 
     @Override
     public R apply(R r) {
         RecordValue value = createRecordValue(r);
         Schema currentSchema;
         Object currentValue;
-        for (int i = 0; i < fields.size(); i++) {
-            currentSchema = value.getFieldSchema(fields.get(i));
-            currentValue = value.getFieldValue(fields.get(i));
-            r.headers().add(headers.get(i), currentValue, currentSchema);
+        if (fields.isEmpty()) {
+            currentSchema = value.getFieldSchema("");
+            currentValue = value.getFieldValue("");
+            r.headers().add(headers.get(0), currentValue, currentSchema);
+        } else {
+            for (int i = 0; i < fields.size(); i++) {
+                currentSchema = value.getFieldSchema(fields.get(i));
+                currentValue = value.getFieldValue(fields.get(i));
+                r.headers().add(headers.get(i), currentValue, currentSchema);
+            }
         }
         return r;
     }
@@ -90,26 +92,30 @@ public abstract class FieldsToHeadersTransform<R extends ConnectRecord<R>> imple
 
     private void validateConfig() {
 
-        boolean validFields  = fields.stream().allMatch(nef -> nef != null && !nef.trim().isEmpty());
+        boolean validFields  = fields.stream().allMatch(nef -> nef != null);
         boolean validHeaders = headers.stream().allMatch(nef -> nef != null && !nef.trim().isEmpty());
 
         if (!(validFields && validHeaders)) {
-            throw new IllegalArgumentException("headers and fields configuration properties cannot be null or contain empty elements.");
+            throw new IllegalArgumentException("fields configuration property cannot be null (can be an empty string if you want the whole value/key), headers configuration property cannot be null or contain empty elements.");
         }
-        if (fields.size() > headers.size()) {
+        if (fields.size() != 0 && fields.size() > headers.size()) {
             String fieldsWithoutCorrespondingHeaders = fields.subList(headers.size(), fields.size()).stream().collect(Collectors.joining(","));
             throw new IllegalArgumentException("There is no corresponding header(s) configured for the following field(s): " + fieldsWithoutCorrespondingHeaders);
         }
-        if (headers.size() > fields.size()) {
+        if (fields.size() != 0 && headers.size() > fields.size()) {
             String headersWithoutCorrespondingFields = headers.subList(fields.size(), headers.size()).stream().collect(Collectors.joining(","));
             LOG.warn("There is no corresponding header(s) for the following field(s): {} ", headersWithoutCorrespondingFields);
         }
-
+        if (fields.size() == 0 && headers.size() > 1) {
+            LOG.warn("Fields are empty and there are more than 1 header it means whole value/key will put in the first header of this list: {} ", headers.stream().collect(Collectors.joining(",")));
+        }
     }
-
 
     private RecordValue createRecordValue(R r) {
         final Schema schema = operatingSchema(r);
+        if (fields.isEmpty()) {
+            return new WholeRecordValue(operatingValue(r), schema);
+        }
         if (schema == null) {
             return new MapRecordValue(requireMapOrNull(operatingValue(r), PURPOSE));
         }
@@ -147,6 +153,24 @@ public abstract class FieldsToHeadersTransform<R extends ConnectRecord<R>> imple
         Object getFieldValue(String fieldName);
 
         Schema getFieldSchema(String fieldName);
+    }
+
+    public class WholeRecordValue implements RecordValue {
+        private Object value;
+        private Schema schema;
+
+        public WholeRecordValue(Object value, Schema schema) {
+            this.value = value;
+            this.schema = schema;
+        }
+
+        public Object getFieldValue(String fieldName) {
+            return value;
+        }
+
+        public Schema getFieldSchema(String fieldName) {
+            return schema;
+        }
     }
 
     public class MapRecordValue implements RecordValue {
