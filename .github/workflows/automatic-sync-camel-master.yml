@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-name: Sync Camel Kafka Connector camel-master Branch
+name: Sync Camel Kafka Connector master Branch with latest Camel master
 
 env:
   MAVEN_ARGS: -V -ntp
