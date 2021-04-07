@@ -17,6 +17,8 @@ field 'a' goes to header 'X', field 'b' goes to header 'Y' etc...
 
 Any null values are passed through unmodified.
 
+If `transforms.fieldsToHeadersTransform.fields` is empty or omitted the whole value will be copied in the first `transforms.fieldsToHeadersTransform.headers`.
+
 Use the concrete transformation type designed for the record key
 (`org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Key`) or value
 (`org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Value`).
@@ -25,6 +27,8 @@ Use the concrete transformation type designed for the record key
 
 The following examples show how to use FieldsToHeaders.
 
+=== Given the following configuration:
+
 [source,java-properties]
 ----
 transforms=FieldsToHeadersTransform
@@ -32,7 +36,7 @@ transforms.fieldsToHeadersTransform.type=org.apache.camel.kafkaconnector.transfo
 transforms.fieldsToHeadersTransform.fields=FROM,TO,CC,SUBJECT
 transforms.fieldsToHeadersTransform.headers=from,to,cc,subject
 ----
-Given the following message:
+and the following message:
 
 [source,json]
 ----
@@ -56,6 +60,29 @@ the following headers will be added to the Kafka ConnectRecord object:
      cc: "managers@enterprise.com"
 subject: "Needs Attention!"
    body: "Tere is an issue that needs your attention!"
+----
+
+=== Given the following configuration:
+
+[source,java-properties]
+----
+transforms=FieldsToHeadersTransform
+transforms.fieldsToHeadersTransform.type=org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Key
+transforms.fieldsToHeadersTransform.headers=camel.kafka.KEY
+----
+and the following message:
+
+[source]
+----
+kafka record with:
+    value: "my message"
+    key: 100
+----
+the following headers will be added to the Kafka ConnectRecord object:
+
+[source]
+----
+   camel.kafka.KEY: 100
 ----
 
 == Properties

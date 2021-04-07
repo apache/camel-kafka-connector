@@ -62,6 +62,36 @@ public class FieldsToHeadersTransformTest {
     }
 
     @Test
+    public void testWholeKey() {
+        FieldsToHeadersTransform.Key fieldsToHeadersTransform = new FieldsToHeadersTransform.Key();
+        Map<String, String> conf = new HashMap<>();
+        conf.put("headers", "camel.kafka.KEY");
+        fieldsToHeadersTransform.configure(conf);
+        ConnectRecord transformedCr =  fieldsToHeadersTransform.apply(new SourceRecord(null, null, "testTopic", null, 100, null, null));
+        assertEquals(100, transformedCr.headers().lastWithName("camel.kafka.KEY").value());
+    }
+
+    @Test
+    public void testWholeKeyWithSchema() {
+        FieldsToHeadersTransform.Key fieldsToHeadersTransform = new FieldsToHeadersTransform.Key();
+        Map<String, String> conf = new HashMap<>();
+        conf.put("headers", "camel.kafka.KEY");
+        fieldsToHeadersTransform.configure(conf);
+        ConnectRecord transformedCr =  fieldsToHeadersTransform.apply(new SourceRecord(null, null, "testTopic", INT32_SCHEMA, 100, null, null));
+        assertEquals(100, transformedCr.headers().lastWithName("camel.kafka.KEY").value());
+    }
+
+    @Test
+    public void testWholeKeyMultipleHeaders() {
+        FieldsToHeadersTransform.Key fieldsToHeadersTransform = new FieldsToHeadersTransform.Key();
+        Map<String, String> conf = new HashMap<>();
+        conf.put("headers", "camel.kafka.KEY,should.not.be.set");
+        fieldsToHeadersTransform.configure(conf);
+        ConnectRecord transformedCr =  fieldsToHeadersTransform.apply(new SourceRecord(null, null, "testTopic", null, 100, null, null));
+        assertEquals(100, transformedCr.headers().lastWithName("camel.kafka.KEY").value());
+    }
+
+    @Test
     public void testValueWithSchema() {
         FieldsToHeadersTransform.Value fieldsToHeadersTransform = new FieldsToHeadersTransform.Value();
         ConnectRecord transformedCr = testWithSchema(fieldsToHeadersTransform, (schema, value) -> new SourceRecord(null, null, "testTopic", schema, value));
@@ -112,6 +142,36 @@ public class FieldsToHeadersTransformTest {
     }
 
     @Test
+    public void testWholeValue() {
+        FieldsToHeadersTransform.Value fieldsToHeadersTransform = new FieldsToHeadersTransform.Value();
+        Map<String, String> conf = new HashMap<>();
+        conf.put("headers", "camel.kafka.KEY");
+        fieldsToHeadersTransform.configure(conf);
+        ConnectRecord transformedCr =  fieldsToHeadersTransform.apply(new SourceRecord(null, null, "testTopic", null, null, null, 100));
+        assertEquals(100, transformedCr.headers().lastWithName("camel.kafka.KEY").value());
+    }
+
+    @Test
+    public void testWholeValueMultipleHeaders() {
+        FieldsToHeadersTransform.Value fieldsToHeadersTransform = new FieldsToHeadersTransform.Value();
+        Map<String, String> conf = new HashMap<>();
+        conf.put("headers", "camel.kafka.KEY,should.not.be.set");
+        fieldsToHeadersTransform.configure(conf);
+        ConnectRecord transformedCr =  fieldsToHeadersTransform.apply(new SourceRecord(null, null, "testTopic", null, null, null, 100));
+        assertEquals(100, transformedCr.headers().lastWithName("camel.kafka.KEY").value());
+    }
+
+    @Test
+    public void testWholeValueWithSchema() {
+        FieldsToHeadersTransform.Value fieldsToHeadersTransform = new FieldsToHeadersTransform.Value();
+        Map<String, String> conf = new HashMap<>();
+        conf.put("headers", "camel.kafka.KEY");
+        fieldsToHeadersTransform.configure(conf);
+        ConnectRecord transformedCr =  fieldsToHeadersTransform.apply(new SourceRecord(null, null, "testTopic", null, null, INT32_SCHEMA, 100));
+        assertEquals(100, transformedCr.headers().lastWithName("camel.kafka.KEY").value());
+    }
+
+    @Test
     public void fieldsWithoutCorrespondingHeadersTest() {
         Map<String, String> conf = new HashMap<>();
         conf.put("fields", "FROM,TO,CC,SUBJECT,BODY");
@@ -130,7 +190,7 @@ public class FieldsToHeadersTransformTest {
     }
 
     @Test
-    public void headersWithoutCorrespondingFieldssTest() {
+    public void headersWithoutCorrespondingFieldsTest() {
         Map<String, String> conf = new HashMap<>();
         conf.put("fields", "FROM");
         conf.put("headers", "from,to,cc,subject,body");
