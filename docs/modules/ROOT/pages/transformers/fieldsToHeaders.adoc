@@ -1,0 +1,73 @@
+[[ToHeader-ToHeader]]
+= FieldsToHeaders
+The following provides usage information for the SMT `org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform`
+
+== Description
+
+FieldsToHeaders pull field(s) out of a complex (non-primitive, Map or Struct) key or value
+and puts the extracted field(s) in headers. Fields and headers are matched by index,
+for example:
+
+[source,java-properties]
+----
+transforms.fieldsToHeadersTransform.fields=a,b,c,d
+transforms.fieldsToHeadersTransform.headers=X,Y,Z,P
+----
+field 'a' goes to header 'X', field 'b' goes to header 'Y' etc...
+
+Any null values are passed through unmodified.
+
+Use the concrete transformation type designed for the record key
+(`org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Key`) or value
+(`org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Value`).
+
+== Examples
+
+The following examples show how to use FieldsToHeaders.
+
+[source,java-properties]
+----
+transforms=FieldsToHeadersTransform
+transforms.fieldsToHeadersTransform.type=org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Value
+transforms.fieldsToHeadersTransform.fields=FROM,TO,CC,SUBJECT
+transforms.fieldsToHeadersTransform.headers=from,to,cc,subject
+----
+Given the following message:
+
+[source,json]
+----
+{
+            "FROM": "bob@example.com",
+              "TO": "alice@mail.com",
+              "CC": "managers@enterprise.com",
+         "SUBJECT": "Needs Attention!",
+            "BODY": "Tere is an issue that needs your attention!",
+  "APP_SETTING_ID": 9,
+"APP_SETTING_NAME": "my_name",
+     "SETTING_KEY":"my_setting_key"
+}
+----
+the following headers will be added to the Kafka ConnectRecord object:
+
+[source]
+----
+   from: "bob@example.com"
+     to: "alice@mail.com"
+     cc: "managers@enterprise.com"
+subject: "Needs Attention!"
+   body: "Tere is an issue that needs your attention!"
+----
+
+== Properties
+
+[cols="^,^ ", options="header"]
+|===
+|Transform | Description
+
+|fields
+|Field names to extract.
+
+|headers
+|The target header names
+|===
+
