@@ -104,7 +104,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: automatic-periodic-sync
-          title: '[Github Actions] Periodic Sync Camel-kafka-connector camel-master Branch'
+          title: '[Github Actions] Periodic Sync Camel-kafka-connector master Branch'
           body: |
-            Periodic Sync of Camel Kafka connector camel-master Branch with main Camel Master.
+            Periodic Sync of Camel Kafka connector master Branch with main Camel Master.
             see https://github.com/apache/camel-kafka-connector/blob/master/.github/workflows/automatic-sync-camel-master.yml
