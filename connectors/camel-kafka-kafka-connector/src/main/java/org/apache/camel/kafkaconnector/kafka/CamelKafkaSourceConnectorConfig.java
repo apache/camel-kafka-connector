@@ -118,7 +118,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_PARTITION_ASSIGNOR_DEFAULT = "org.apache.kafka.clients.consumer.RangeAssignor";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_CONF = "camel.source.endpoint.pollOnError";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_DOC = "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]";
-    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_ON_ERROR_DEFAULT = "ERROR_HANDLER";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_CONF = "camel.source.endpoint.pollTimeoutMs";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_DOC = "The timeout used when polling the KafkaConsumer.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_POLL_TIMEOUT_MS_DEFAULT = "5000";
@@ -301,7 +301,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_PARTITION_ASSIGNOR_DEFAULT = "org.apache.kafka.clients.consumer.RangeAssignor";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_CONF = "camel.component.kafka.pollOnError";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_DOC = "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]";
-    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_ON_ERROR_DEFAULT = "ERROR_HANDLER";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_CONF = "camel.component.kafka.pollTimeoutMs";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_DOC = "The timeout used when polling the KafkaConsumer.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_POLL_TIMEOUT_MS_DEFAULT = "5000";

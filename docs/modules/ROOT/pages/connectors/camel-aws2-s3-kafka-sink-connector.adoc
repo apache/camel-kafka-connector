@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SinkConnector
 ----
 
 
-The camel-aws2-s3 sink connector supports 59 options, which are listed below.
+The camel-aws2-s3 sink connector supports 69 options, which are listed below.
 
 
 
@@ -48,13 +48,18 @@ The camel-aws2-s3 sink connector supports 59 options, which are listed below.
 | *camel.sink.endpoint.customerAlgorithm* | Define the customer algorithm to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.sink.endpoint.customerKeyId* | Define the id of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.sink.endpoint.customerKeyMD5* | Define the MD5 of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM
+| *camel.sink.endpoint.batchMessageNumber* | The number of messages composing a batch in stream mode | 10 | false | MEDIUM
+| *camel.sink.endpoint.batchSize* | The batch size (in bytes) in stream mode | 1000000 | false | MEDIUM
 | *camel.sink.endpoint.deleteAfterWrite* | Delete file object after the S3 file has been uploaded | false | false | MEDIUM
 | *camel.sink.endpoint.keyName* | Setting the key name for an element in the bucket through endpoint parameter | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.multiPartUpload* | If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize | false | false | MEDIUM
+| *camel.sink.endpoint.namingStrategy* | The naming strategy to use in stream mode One of: [progressive] [random] | "progressive" | false | MEDIUM
 | *camel.sink.endpoint.operation* | The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] | null | false | MEDIUM
 | *camel.sink.endpoint.partSize* | Setup the partSize which is used in multi part upload, the default size is 25M. | 26214400L | false | MEDIUM
 | *camel.sink.endpoint.storageClass* | The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request. | null | false | MEDIUM
+| *camel.sink.endpoint.streamingUploadMode* | When stream mode is true the upload to bucket will be done in streaming | false | false | MEDIUM
+| *camel.sink.endpoint.streamingUploadTimeout* | While streaming upload mode is true, this option set the timeout to complete upload | null | false | MEDIUM
 | *camel.sink.endpoint.awsKMSKeyId* | Define the id of KMS key to use in case KMS is enabled | null | false | MEDIUM
 | *camel.sink.endpoint.useAwsKMS* | Define if KMS must be used or not | false | false | MEDIUM
 | *camel.sink.endpoint.useCustomerKey* | Define if Customer Key must be used or not | false | false | MEDIUM
@@ -77,13 +82,18 @@ The camel-aws2-s3 sink connector supports 59 options, which are listed below.
 | *camel.component.aws2-s3.customerAlgorithm* | Define the customer algorithm to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.component.aws2-s3.customerKeyId* | Define the id of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.component.aws2-s3.customerKeyMD5* | Define the MD5 of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM
+| *camel.component.aws2-s3.batchMessageNumber* | The number of messages composing a batch in stream mode | 10 | false | MEDIUM
+| *camel.component.aws2-s3.batchSize* | The batch size (in bytes) in stream mode | 1000000 | false | MEDIUM
 | *camel.component.aws2-s3.deleteAfterWrite* | Delete file object after the S3 file has been uploaded | false | false | MEDIUM
 | *camel.component.aws2-s3.keyName* | Setting the key name for an element in the bucket through endpoint parameter | null | false | MEDIUM
 | *camel.component.aws2-s3.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.aws2-s3.multiPartUpload* | If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize | false | false | MEDIUM
+| *camel.component.aws2-s3.namingStrategy* | The naming strategy to use in stream mode One of: [progressive] [random] | "progressive" | false | MEDIUM
 | *camel.component.aws2-s3.operation* | The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] | null | false | MEDIUM
 | *camel.component.aws2-s3.partSize* | Setup the partSize which is used in multi part upload, the default size is 25M. | 26214400L | false | MEDIUM
 | *camel.component.aws2-s3.storageClass* | The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request. | null | false | MEDIUM
+| *camel.component.aws2-s3.streamingUploadMode* | When stream mode is true the upload to bucket will be done in streaming | false | false | MEDIUM
+| *camel.component.aws2-s3.streamingUploadTimeout* | While streaming upload mode is true, this option set the timeout to complete upload | null | false | MEDIUM
 | *camel.component.aws2-s3.awsKMSKeyId* | Define the id of KMS key to use in case KMS is enabled | null | false | MEDIUM
 | *camel.component.aws2-s3.useAwsKMS* | Define if KMS must be used or not | false | false | MEDIUM
 | *camel.component.aws2-s3.useCustomerKey* | Define if Customer Key must be used or not | false | false | MEDIUM

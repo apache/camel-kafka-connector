@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-functions-sink",
 		"type": "sink",
-		"version": "0.9.0-SNAPSHOT",
-		"description": "Store and retrieve objects from Google Cloud Functions Service using the google-cloud-storage library."
+		"version": "0.10.0-SNAPSHOT",
+		"description": "Manage and invoke Google Cloud Functions"
 	},
 	"properties": {
 		"camel.sink.path.functionName": {

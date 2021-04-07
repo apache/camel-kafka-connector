@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws2-kinesis-firehose-sink",
 		"type": "sink",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.10.0-SNAPSHOT",
 		"description": "Produce data to AWS Kinesis Firehose streams using AWS SDK version 2.x."
 	},
 	"properties": {

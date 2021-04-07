@@ -5,13 +5,13 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-sink",
 		"type": "sink",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.10.0-SNAPSHOT",
 		"description": "Communicate with Salesforce using Java DTOs."
 	},
 	"properties": {
 		"camel.sink.path.operationName": {
 			"name": "camel.sink.path.operationName",
-			"description": "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob]",
+			"description": "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [compositeRetrieveSObjectCollections] [compositeCreateSObjectCollections] [compositeUpdateSObjectCollections] [compositeUpsertSObjectCollections] [compositeDeleteSObjectCollections] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -58,6 +58,11 @@
 				"composite-tree",
 				"composite-batch",
 				"composite",
+				"compositeRetrieveSObjectCollections",
+				"compositeCreateSObjectCollections",
+				"compositeUpdateSObjectCollections",
+				"compositeUpsertSObjectCollections",
+				"compositeDeleteSObjectCollections",
 				"bulk2GetAllJobs",
 				"bulk2CreateJob",
 				"bulk2GetJob",
@@ -359,6 +364,13 @@
 		"camel.sink.endpoint.updateTopic": {
 			"name": "camel.sink.endpoint.updateTopic",
 			"description": "Whether to update an existing Push Topic when using the Streaming API, defaults to false",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.allOrNone": {
+			"name": "camel.sink.endpoint.allOrNone",
+			"description": "Composite API option to indicate to rollback all records if any are not successful.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -717,6 +729,13 @@
 		"camel.component.salesforce.longPollingTransportProperties": {
 			"name": "camel.component.salesforce.longPollingTransportProperties",
 			"description": "Used to set any properties that can be configured on the LongPollingTransport used by the BayeuxClient (CometD) used by the streaming api",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.allOrNone": {
+			"name": "camel.component.salesforce.allOrNone",
+			"description": "Composite API option to indicate to rollback all records if any are not successful.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

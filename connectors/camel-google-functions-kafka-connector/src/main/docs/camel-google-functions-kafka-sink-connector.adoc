@@ -2,7 +2,7 @@
 [[camel-google-functions-kafka-connector-sink]]
 = camel-google-functions-kafka-connector sink configuration
 
-Connector Description: Store and retrieve objects from Google Cloud Functions Service using the google-cloud-storage library.
+Connector Description: Manage and invoke Google Cloud Functions
 
 When using camel-google-functions-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -58,8 +58,4 @@ The camel-google-functions sink connector has no transforms out of the box.
 
 
 The camel-google-functions sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END
