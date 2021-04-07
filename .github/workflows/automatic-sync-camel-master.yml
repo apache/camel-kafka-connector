@@ -27,7 +27,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Sync Camel Kafka Connector camel-master Branch
+    name: Sync Camel Kafka Connector master Branch with latest Camel master
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -59,7 +59,7 @@ jobs:
       - name: Checkout camel-kafka-connector project
         uses: actions/checkout@v2
         with:
-          ref: camel-master
+          ref: master
           fetch-depth: 0
       # first command builds the source check module,
       - name: build tools
