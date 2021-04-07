@@ -24,14 +24,14 @@ connector.class=org.apache.camel.kafkaconnector.salesforce.CamelSalesforceSinkCo
 ----
 
 
-The camel-salesforce sink connector supports 124 options, which are listed below.
+The camel-salesforce sink connector supports 126 options, which are listed below.
 
 
 
 [width="100%",cols="2,5,^1,1,1",options="header"]
 |===
 | Name | Description | Default | Required | Priority
-| *camel.sink.path.operationName* | The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob] | null | false | MEDIUM
+| *camel.sink.path.operationName* | The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [compositeRetrieveSObjectCollections] [compositeCreateSObjectCollections] [compositeUpdateSObjectCollections] [compositeUpsertSObjectCollections] [compositeDeleteSObjectCollections] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob] | null | false | MEDIUM
 | *camel.sink.endpoint.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.sink.endpoint.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
 | *camel.sink.endpoint.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
@@ -74,6 +74,7 @@ The camel-salesforce sink connector supports 124 options, which are listed below
 | *camel.sink.endpoint.sObjectQuery* | Salesforce SOQL query string | null | false | MEDIUM
 | *camel.sink.endpoint.sObjectSearch* | Salesforce SOSL search string | null | false | MEDIUM
 | *camel.sink.endpoint.updateTopic* | Whether to update an existing Push Topic when using the Streaming API, defaults to false | false | false | MEDIUM
+| *camel.sink.endpoint.allOrNone* | Composite API option to indicate to rollback all records if any are not successful. | false | false | MEDIUM
 | *camel.sink.endpoint.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.sink.endpoint.compositeMethod* | Composite (raw) method. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
@@ -127,6 +128,7 @@ The camel-salesforce sink connector supports 124 options, which are listed below
 | *camel.component.salesforce.config* | Global endpoint configuration - use to set values that are common to all endpoints | null | false | MEDIUM
 | *camel.component.salesforce.httpClientProperties* | Used to set any properties that can be configured on the underlying HTTP client. Have a look at properties of SalesforceHttpClient and the Jetty HttpClient for all available options. | null | false | MEDIUM
 | *camel.component.salesforce.longPollingTransport Properties* | Used to set any properties that can be configured on the LongPollingTransport used by the BayeuxClient (CometD) used by the streaming api | null | false | MEDIUM
+| *camel.component.salesforce.allOrNone* | Composite API option to indicate to rollback all records if any are not successful. | false | false | MEDIUM
 | *camel.component.salesforce.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.component.salesforce.compositeMethod* | Composite (raw) method. | null | false | MEDIUM
 | *camel.component.salesforce.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM

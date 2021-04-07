@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-source",
 		"type": "source",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.10.0-SNAPSHOT",
 		"description": "Sent and receive messages to\/from an Apache Kafka broker."
 	},
 	"properties": {
@@ -223,6 +223,7 @@
 		"camel.source.endpoint.pollOnError": {
 			"name": "camel.source.endpoint.pollOnError",
 			"description": "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started\/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]",
+			"defaultValue": "\"ERROR_HANDLER\"",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -654,6 +655,7 @@
 		"camel.component.kafka.pollOnError": {
 			"name": "camel.component.kafka.pollOnError",
 			"description": "What to do if kafka threw an exception while polling for new messages. Will by default use the value from the component configuration unless an explicit value has been configured on the endpoint level. DISCARD will discard the message and continue to poll next message. ERROR_HANDLER will use Camel's error handler to process the exception, and afterwards continue to poll next message. RECONNECT will re-connect the consumer and try poll the message again RETRY will let the consumer retry polling the same message again STOP will stop the consumer (have to be manually started\/restarted if the consumer should be able to consume messages again) One of: [DISCARD] [ERROR_HANDLER] [RECONNECT] [RETRY] [STOP]",
+			"defaultValue": "\"ERROR_HANDLER\"",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [

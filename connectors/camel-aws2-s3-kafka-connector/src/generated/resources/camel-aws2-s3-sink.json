@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws2-s3-sink",
 		"type": "sink",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.10.0-SNAPSHOT",
 		"description": "Store and retrieve objects from AWS S3 Storage Service using AWS SDK version 2.x."
 	},
 	"properties": {
@@ -121,6 +121,20 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.batchMessageNumber": {
+			"name": "camel.sink.endpoint.batchMessageNumber",
+			"description": "The number of messages composing a batch in stream mode",
+			"defaultValue": "10",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.batchSize": {
+			"name": "camel.sink.endpoint.batchSize",
+			"description": "The batch size (in bytes) in stream mode",
+			"defaultValue": "1000000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.deleteAfterWrite": {
 			"name": "camel.sink.endpoint.deleteAfterWrite",
 			"description": "Delete file object after the S3 file has been uploaded",
@@ -148,6 +162,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.namingStrategy": {
+			"name": "camel.sink.endpoint.namingStrategy",
+			"description": "The naming strategy to use in stream mode One of: [progressive] [random]",
+			"defaultValue": "\"progressive\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"progressive",
+				"random"
+			]
+		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]",
@@ -173,6 +198,19 @@
 		"camel.sink.endpoint.storageClass": {
 			"name": "camel.sink.endpoint.storageClass",
 			"description": "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.streamingUploadMode": {
+			"name": "camel.sink.endpoint.streamingUploadMode",
+			"description": "When stream mode is true the upload to bucket will be done in streaming",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.streamingUploadTimeout": {
+			"name": "camel.sink.endpoint.streamingUploadTimeout",
+			"description": "While streaming upload mode is true, this option set the timeout to complete upload",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -320,6 +358,20 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-s3.batchMessageNumber": {
+			"name": "camel.component.aws2-s3.batchMessageNumber",
+			"description": "The number of messages composing a batch in stream mode",
+			"defaultValue": "10",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-s3.batchSize": {
+			"name": "camel.component.aws2-s3.batchSize",
+			"description": "The batch size (in bytes) in stream mode",
+			"defaultValue": "1000000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-s3.deleteAfterWrite": {
 			"name": "camel.component.aws2-s3.deleteAfterWrite",
 			"description": "Delete file object after the S3 file has been uploaded",
@@ -347,6 +399,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-s3.namingStrategy": {
+			"name": "camel.component.aws2-s3.namingStrategy",
+			"description": "The naming strategy to use in stream mode One of: [progressive] [random]",
+			"defaultValue": "\"progressive\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"progressive",
+				"random"
+			]
+		},
 		"camel.component.aws2-s3.operation": {
 			"name": "camel.component.aws2-s3.operation",
 			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]",
@@ -372,6 +435,19 @@
 		"camel.component.aws2-s3.storageClass": {
 			"name": "camel.component.aws2-s3.storageClass",
 			"description": "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-s3.streamingUploadMode": {
+			"name": "camel.component.aws2-s3.streamingUploadMode",
+			"description": "When stream mode is true the upload to bucket will be done in streaming",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-s3.streamingUploadTimeout": {
+			"name": "camel.component.aws2-s3.streamingUploadTimeout",
+			"description": "While streaming upload mode is true, this option set the timeout to complete upload",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

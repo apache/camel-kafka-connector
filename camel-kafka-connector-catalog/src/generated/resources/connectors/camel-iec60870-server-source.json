@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-iec60870-server-source",
 		"type": "source",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.10.0-SNAPSHOT",
 		"description": "IEC 60870 supervisory control and data acquisition (SCADA) server using NeoSCADA implementation."
 	},
 	"properties": {

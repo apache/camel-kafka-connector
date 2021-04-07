@@ -56,9 +56,6 @@ public class CamelSchedulerSourceConnectorConfig
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_MULTIPLIER_CONF = "camel.source.endpoint.backoffMultiplier";
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_MULTIPLIER_DOC = "To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured.";
     public static final Integer CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_CONCURRENT_TASKS_CONF = "camel.source.endpoint.concurrentTasks";
-    public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_CONCURRENT_TASKS_DOC = "Number of threads used by the scheduling thread pool. Is by default using a single thread";
-    public static final Integer CAMEL_SOURCE_SCHEDULER_ENDPOINT_CONCURRENT_TASKS_DEFAULT = 1;
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_DELAY_CONF = "camel.source.endpoint.delay";
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll.";
     public static final Long CAMEL_SOURCE_SCHEDULER_ENDPOINT_DELAY_DEFAULT = 500L;
@@ -68,6 +65,9 @@ public class CamelSchedulerSourceConnectorConfig
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_INITIAL_DELAY_CONF = "camel.source.endpoint.initialDelay";
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts.";
     public static final Long CAMEL_SOURCE_SCHEDULER_ENDPOINT_INITIAL_DELAY_DEFAULT = 1000L;
+    public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_POOL_SIZE_CONF = "camel.source.endpoint.poolSize";
+    public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_POOL_SIZE_DOC = "Number of core threads in the thread pool used by the scheduling thread pool. Is by default using a single thread";
+    public static final Integer CAMEL_SOURCE_SCHEDULER_ENDPOINT_POOL_SIZE_DEFAULT = 1;
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_REPEAT_COUNT_CONF = "camel.source.endpoint.repeatCount";
     public static final String CAMEL_SOURCE_SCHEDULER_ENDPOINT_REPEAT_COUNT_DOC = "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.";
     public static final Long CAMEL_SOURCE_SCHEDULER_ENDPOINT_REPEAT_COUNT_DEFAULT = 0L;
@@ -98,9 +98,9 @@ public class CamelSchedulerSourceConnectorConfig
     public static final String CAMEL_SOURCE_SCHEDULER_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.scheduler.autowiredEnabled";
     public static final String CAMEL_SOURCE_SCHEDULER_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_SCHEDULER_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
-    public static final String CAMEL_SOURCE_SCHEDULER_COMPONENT_CONCURRENT_TASKS_CONF = "camel.component.scheduler.concurrentTasks";
-    public static final String CAMEL_SOURCE_SCHEDULER_COMPONENT_CONCURRENT_TASKS_DOC = "Number of threads used by the scheduling thread pool. Is by default using a single thread";
-    public static final Integer CAMEL_SOURCE_SCHEDULER_COMPONENT_CONCURRENT_TASKS_DEFAULT = 1;
+    public static final String CAMEL_SOURCE_SCHEDULER_COMPONENT_POOL_SIZE_CONF = "camel.component.scheduler.poolSize";
+    public static final String CAMEL_SOURCE_SCHEDULER_COMPONENT_POOL_SIZE_DOC = "Number of core threads in the thread pool used by the scheduling thread pool. Is by default using a single thread";
+    public static final Integer CAMEL_SOURCE_SCHEDULER_COMPONENT_POOL_SIZE_DEFAULT = 1;
 
     public CamelSchedulerSourceConnectorConfig(
             ConfigDef config,
@@ -124,10 +124,10 @@ public class CamelSchedulerSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_MULTIPLIER_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_BACKOFF_MULTIPLIER_DOC);
-        conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_CONCURRENT_TASKS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SCHEDULER_ENDPOINT_CONCURRENT_TASKS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_CONCURRENT_TASKS_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SCHEDULER_ENDPOINT_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_DELAY_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_GREEDY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SCHEDULER_ENDPOINT_GREEDY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_GREEDY_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_INITIAL_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SCHEDULER_ENDPOINT_INITIAL_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_INITIAL_DELAY_DOC);
+        conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SCHEDULER_ENDPOINT_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_POOL_SIZE_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_REPEAT_COUNT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SCHEDULER_ENDPOINT_REPEAT_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_REPEAT_COUNT_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_RUN_LOGGING_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SCHEDULER_ENDPOINT_RUN_LOGGING_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_RUN_LOGGING_LEVEL_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SCHEDULER_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC);
@@ -138,7 +138,7 @@ public class CamelSchedulerSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SCHEDULER_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SCHEDULER_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SCHEDULER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SCHEDULER_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SCHEDULER_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_COMPONENT_AUTOWIRED_ENABLED_DOC);
-        conf.define(CAMEL_SOURCE_SCHEDULER_COMPONENT_CONCURRENT_TASKS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SCHEDULER_COMPONENT_CONCURRENT_TASKS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_COMPONENT_CONCURRENT_TASKS_DOC);
+        conf.define(CAMEL_SOURCE_SCHEDULER_COMPONENT_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SCHEDULER_COMPONENT_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SCHEDULER_COMPONENT_POOL_SIZE_DOC);
         return conf;
     }
 }

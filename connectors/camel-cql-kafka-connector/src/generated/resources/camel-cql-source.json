@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cql-source",
 		"type": "source",
-		"version": "0.9.0-SNAPSHOT",
+		"version": "0.10.0-SNAPSHOT",
 		"description": "Integrate with Cassandra 2.0 using the CQL3 API (not the Thrift API). Based on Cassandra Java Driver provided by DataStax."
 	},
 	"properties": {
