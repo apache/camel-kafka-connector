@@ -24,11 +24,9 @@ on:
   push:
     branches:
       - master
-      - camel-master
   pull_request:
     branches:
       - master
-      - camel-master
 jobs:
   build:
     runs-on: ubuntu-latest
