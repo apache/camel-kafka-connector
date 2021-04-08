@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2kinesisfirehose.CamelAws2kin
 ----
 
 
-The camel-aws2-kinesis-firehose sink connector supports 29 options, which are listed below.
+The camel-aws2-kinesis-firehose sink connector supports 31 options, which are listed below.
 
 
 
@@ -43,6 +43,7 @@ The camel-aws2-kinesis-firehose sink connector supports 29 options, which are li
 | *camel.sink.endpoint.region* | The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
+| *camel.sink.endpoint.useDefaultCredentialsProvider* | Set whether the Kinesis Firehose client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-kinesis-firehose.amazon KinesisFirehoseClient* | Amazon Kinesis Firehose client to use for all requests for this endpoint | null | false | MEDIUM
@@ -57,6 +58,7 @@ The camel-aws2-kinesis-firehose sink connector supports 29 options, which are li
 | *camel.component.aws2-kinesis-firehose.region* | The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-kinesis-firehose.trustAll Certificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.component.aws2-kinesis-firehose.uriEndpoint Override* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
+| *camel.component.aws2-kinesis-firehose.useDefault CredentialsProvider* | Set whether the Kinesis Firehose client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-kinesis-firehose.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-kinesis-firehose.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws2-kinesis-firehose.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
