@@ -15,6 +15,7 @@
 
 **Closed issues:**
 
+- Align master to latest camel snapshot [\#1133](https://github.com/apache/camel-kafka-connector/issues/1133)
 - Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
 - Release 0.9.0 [\#1127](https://github.com/apache/camel-kafka-connector/issues/1127)
 - NetworkUtils should be able to hold a free port for later usage [\#1109](https://github.com/apache/camel-kafka-connector/issues/1109)
@@ -25,6 +26,9 @@
 
 **Merged pull requests:**
 
+- Build the sync PR on master and not on camel-master [\#1137](https://github.com/apache/camel-kafka-connector/pull/1137) ([oscerd](https://github.com/oscerd))
+- Go to 3.10.0-SNAPSHOT [\#1136](https://github.com/apache/camel-kafka-connector/pull/1136) ([oscerd](https://github.com/oscerd))
+-  SMT FieldsToHeaders Documentation  \#902 [\#1134](https://github.com/apache/camel-kafka-connector/pull/1134) ([luigidemasi](https://github.com/luigidemasi))
 - Re-enabled Google pub/sub test [\#1132](https://github.com/apache/camel-kafka-connector/pull/1132) ([orpiske](https://github.com/orpiske))
 - Re-enabled MongoDB source test after moving to Camel 3.9.0 \(issue \#974\) [\#1131](https://github.com/apache/camel-kafka-connector/pull/1131) ([orpiske](https://github.com/orpiske))
 
@@ -62,6 +66,7 @@
 - Add netty-http itests \#1036 [\#1084](https://github.com/apache/camel-kafka-connector/pull/1084) ([tadayosi](https://github.com/tadayosi))
 - Added Camel-Kafka-connector 0.8.0 to compatibility matrix [\#1081](https://github.com/apache/camel-kafka-connector/pull/1081) ([oscerd](https://github.com/oscerd))
 - Fix Netty tests reliability [\#1079](https://github.com/apache/camel-kafka-connector/pull/1079) ([orpiske](https://github.com/orpiske))
+- Refresh to master fixes that were lying on camel-master \(pt 3\) [\#1076](https://github.com/apache/camel-kafka-connector/pull/1076) ([orpiske](https://github.com/orpiske))
 - Refresh to master fixes that were lying on camel-master \(pt 2\) [\#1075](https://github.com/apache/camel-kafka-connector/pull/1075) ([orpiske](https://github.com/orpiske))
 - Refresh to master fixes that were lying on camel-master [\#1074](https://github.com/apache/camel-kafka-connector/pull/1074) ([orpiske](https://github.com/orpiske))
 - Add netty sink itest \#1036 [\#1071](https://github.com/apache/camel-kafka-connector/pull/1071) ([tadayosi](https://github.com/tadayosi))
@@ -557,7 +562,6 @@
 - core: cast from Byte\[\] to byte\[\] fails because of incompatible types [\#543](https://github.com/apache/camel-kafka-connector/pull/543) ([lburgazzoli](https://github.com/lburgazzoli))
 - core: add support for aggreation on source sinks [\#541](https://github.com/apache/camel-kafka-connector/pull/541) ([lburgazzoli](https://github.com/lburgazzoli))
 - Improve Catalog and cleanup [\#540](https://github.com/apache/camel-kafka-connector/pull/540) ([oscerd](https://github.com/oscerd))
-- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#539](https://github.com/apache/camel-kafka-connector/pull/539) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[core\] use Endpoint instead of URI string to send exchnages using the producer template [\#538](https://github.com/apache/camel-kafka-connector/pull/538) ([lburgazzoli](https://github.com/lburgazzoli))
 - Catalog: Rename the json file to reflect the id and connectors.properties content [\#536](https://github.com/apache/camel-kafka-connector/pull/536) ([oscerd](https://github.com/oscerd))
 - Improve core [\#535](https://github.com/apache/camel-kafka-connector/pull/535) ([lburgazzoli](https://github.com/lburgazzoli))
@@ -803,7 +807,6 @@
 - Upgrade Kafka to version 2.5.0 [\#306](https://github.com/apache/camel-kafka-connector/pull/306) ([oscerd](https://github.com/oscerd))
 - Fix Typo in CamelTypeConverterTransform [\#304](https://github.com/apache/camel-kafka-connector/pull/304) ([oscerd](https://github.com/oscerd))
 - Added Aggregation timeout [\#301](https://github.com/apache/camel-kafka-connector/pull/301) ([oscerd](https://github.com/oscerd))
-- Antora: Set the version to 0.3.x for branch 0.3.x [\#300](https://github.com/apache/camel-kafka-connector/pull/300) ([oscerd](https://github.com/oscerd))
 - Fixes camel-dependencies to point to 3.4.0 [\#298](https://github.com/apache/camel-kafka-connector/pull/298) ([oscerd](https://github.com/oscerd))
 - ToD support [\#296](https://github.com/apache/camel-kafka-connector/pull/296) ([oscerd](https://github.com/oscerd))
 - Add tests for MongoDB [\#295](https://github.com/apache/camel-kafka-connector/pull/295) ([orpiske](https://github.com/orpiske))
