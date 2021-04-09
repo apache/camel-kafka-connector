@@ -26,6 +26,8 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector master Branch [\#1139](https://github.com/apache/camel-kafka-connector/pull/1139) ([github-actions[bot]](https://github.com/apps/github-actions))
+- FieldsToHeadersTransform: added option to copy whole value/key relate… [\#1138](https://github.com/apache/camel-kafka-connector/pull/1138) ([valdar](https://github.com/valdar))
 - Build the sync PR on master and not on camel-master [\#1137](https://github.com/apache/camel-kafka-connector/pull/1137) ([oscerd](https://github.com/oscerd))
 - Go to 3.10.0-SNAPSHOT [\#1136](https://github.com/apache/camel-kafka-connector/pull/1136) ([oscerd](https://github.com/oscerd))
 -  SMT FieldsToHeaders Documentation  \#902 [\#1134](https://github.com/apache/camel-kafka-connector/pull/1134) ([luigidemasi](https://github.com/luigidemasi))
