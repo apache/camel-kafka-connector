@@ -76,10 +76,10 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_CUSTOMER_KEY_MD5DOC = "Define the MD5 of Customer key to use in case CustomerKey is enabled";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_CUSTOMER_KEY_MD5DEFAULT = null;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_MESSAGE_NUMBER_CONF = "camel.sink.endpoint.batchMessageNumber";
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_MESSAGE_NUMBER_DOC = "The number of messages composing a batch in stream mode";
+    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_MESSAGE_NUMBER_DOC = "The number of messages composing a batch in streaming upload mode";
     public static final Integer CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_MESSAGE_NUMBER_DEFAULT = 10;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_SIZE_CONF = "camel.sink.endpoint.batchSize";
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_SIZE_DOC = "The batch size (in bytes) in stream mode";
+    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_SIZE_DOC = "The batch size (in bytes) in streaming upload mode";
     public static final Integer CAMEL_SINK_AWS2S3_ENDPOINT_BATCH_SIZE_DEFAULT = 1000000;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_DELETE_AFTER_WRITE_CONF = "camel.sink.endpoint.deleteAfterWrite";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_DELETE_AFTER_WRITE_DOC = "Delete file object after the S3 file has been uploaded";
@@ -94,7 +94,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_MULTI_PART_UPLOAD_DOC = "If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize";
     public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_MULTI_PART_UPLOAD_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_CONF = "camel.sink.endpoint.namingStrategy";
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_DOC = "The naming strategy to use in stream mode One of: [progressive] [random]";
+    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_DOC = "The naming strategy to use in streaming upload mode One of: [progressive] [random]";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_DEFAULT = "progressive";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_DOC = "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]";
@@ -102,6 +102,9 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_CONF = "camel.sink.endpoint.partSize";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_DOC = "Setup the partSize which is used in multi part upload, the default size is 25M.";
     public static final Long CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_DEFAULT = 26214400L;
+    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_RESTARTING_POLICY_CONF = "camel.sink.endpoint.restartingPolicy";
+    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_RESTARTING_POLICY_DOC = "The restarting policy to use in streaming upload mode One of: [override] [lastPart]";
+    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_RESTARTING_POLICY_DEFAULT = "override";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_STORAGE_CLASS_CONF = "camel.sink.endpoint.storageClass";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_STORAGE_CLASS_DOC = "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_STORAGE_CLASS_DEFAULT = null;
@@ -178,10 +181,10 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CUSTOMER_KEY_MD5DOC = "Define the MD5 of Customer key to use in case CustomerKey is enabled";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CUSTOMER_KEY_MD5DEFAULT = null;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_BATCH_MESSAGE_NUMBER_CONF = "camel.component.aws2-s3.batchMessageNumber";
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_BATCH_MESSAGE_NUMBER_DOC = "The number of messages composing a batch in stream mode";
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_BATCH_MESSAGE_NUMBER_DOC = "The number of messages composing a batch in streaming upload mode";
     public static final Integer CAMEL_SINK_AWS2S3_COMPONENT_BATCH_MESSAGE_NUMBER_DEFAULT = 10;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_BATCH_SIZE_CONF = "camel.component.aws2-s3.batchSize";
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_BATCH_SIZE_DOC = "The batch size (in bytes) in stream mode";
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_BATCH_SIZE_DOC = "The batch size (in bytes) in streaming upload mode";
     public static final Integer CAMEL_SINK_AWS2S3_COMPONENT_BATCH_SIZE_DEFAULT = 1000000;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_DELETE_AFTER_WRITE_CONF = "camel.component.aws2-s3.deleteAfterWrite";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_DELETE_AFTER_WRITE_DOC = "Delete file object after the S3 file has been uploaded";
@@ -196,7 +199,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_MULTI_PART_UPLOAD_DOC = "If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize";
     public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_MULTI_PART_UPLOAD_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_CONF = "camel.component.aws2-s3.namingStrategy";
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_DOC = "The naming strategy to use in stream mode One of: [progressive] [random]";
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_DOC = "The naming strategy to use in streaming upload mode One of: [progressive] [random]";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_DEFAULT = "progressive";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_CONF = "camel.component.aws2-s3.operation";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_DOC = "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]";
@@ -204,6 +207,9 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_CONF = "camel.component.aws2-s3.partSize";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_DOC = "Setup the partSize which is used in multi part upload, the default size is 25M.";
     public static final Long CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_DEFAULT = 26214400L;
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_RESTARTING_POLICY_CONF = "camel.component.aws2-s3.restartingPolicy";
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_RESTARTING_POLICY_DOC = "The restarting policy to use in streaming upload mode One of: [override] [lastPart]";
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_RESTARTING_POLICY_DEFAULT = "override";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_STORAGE_CLASS_CONF = "camel.component.aws2-s3.storageClass";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_STORAGE_CLASS_DOC = "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_STORAGE_CLASS_DEFAULT = null;
@@ -270,6 +276,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_DOC);
+        conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_RESTARTING_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_RESTARTING_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_RESTARTING_POLICY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_STORAGE_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_STORAGE_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_STORAGE_CLASS_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_STREAMING_UPLOAD_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_STREAMING_UPLOAD_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_STREAMING_UPLOAD_MODE_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_STREAMING_UPLOAD_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2S3_ENDPOINT_STREAMING_UPLOAD_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_STREAMING_UPLOAD_TIMEOUT_DOC);
@@ -304,6 +311,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_DOC);
+        conf.define(CAMEL_SINK_AWS2S3_COMPONENT_RESTARTING_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_RESTARTING_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_RESTARTING_POLICY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_STORAGE_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_STORAGE_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_STORAGE_CLASS_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_STREAMING_UPLOAD_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_STREAMING_UPLOAD_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_STREAMING_UPLOAD_MODE_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_STREAMING_UPLOAD_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2S3_COMPONENT_STREAMING_UPLOAD_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_STREAMING_UPLOAD_TIMEOUT_DOC);
