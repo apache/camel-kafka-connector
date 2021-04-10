@@ -26,6 +26,7 @@
 
 **Merged pull requests:**
 
+- Suffling itest order around a bit to investigate origin of some rando… [\#1140](https://github.com/apache/camel-kafka-connector/pull/1140) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector master Branch [\#1139](https://github.com/apache/camel-kafka-connector/pull/1139) ([github-actions[bot]](https://github.com/apps/github-actions))
 - FieldsToHeadersTransform: added option to copy whole value/key relate… [\#1138](https://github.com/apache/camel-kafka-connector/pull/1138) ([valdar](https://github.com/valdar))
 - Build the sync PR on master and not on camel-master [\#1137](https://github.com/apache/camel-kafka-connector/pull/1137) ([oscerd](https://github.com/oscerd))
@@ -60,9 +61,11 @@
 - NetworkUtils should be able to hold a free port for later usage \#1109 [\#1111](https://github.com/apache/camel-kafka-connector/pull/1111) ([ffang](https://github.com/ffang))
 - Upgrade Strimzi to version 0.22.0 [\#1106](https://github.com/apache/camel-kafka-connector/pull/1106) ([oscerd](https://github.com/oscerd))
 - add itests for camel-cxfrs-kafka-connector \#996 [\#1099](https://github.com/apache/camel-kafka-connector/pull/1099) ([ffang](https://github.com/ffang))
+- Adjusted the code to CAMEL-16299 [\#1098](https://github.com/apache/camel-kafka-connector/pull/1098) ([orpiske](https://github.com/orpiske))
 - Introduce MockWebServer extension for testing \#1085 [\#1097](https://github.com/apache/camel-kafka-connector/pull/1097) ([tadayosi](https://github.com/tadayosi))
 - Add https itests [\#1096](https://github.com/apache/camel-kafka-connector/pull/1096) ([tadayosi](https://github.com/tadayosi))
 - Some folowup improvements fro \#969 and \#202. [\#1093](https://github.com/apache/camel-kafka-connector/pull/1093) ([valdar](https://github.com/valdar))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#1092](https://github.com/apache/camel-kafka-connector/pull/1092) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Issue/969 [\#1091](https://github.com/apache/camel-kafka-connector/pull/1091) ([valdar](https://github.com/valdar))
 - \(backport\) Added Google pub/sub sink integration test [\#1088](https://github.com/apache/camel-kafka-connector/pull/1088) ([orpiske](https://github.com/orpiske))
 - Add netty-http itests \#1036 [\#1084](https://github.com/apache/camel-kafka-connector/pull/1084) ([tadayosi](https://github.com/tadayosi))
@@ -354,7 +357,6 @@
 - Align MongoDB tests with test infra from Camel 3.7 [\#802](https://github.com/apache/camel-kafka-connector/pull/802) ([orpiske](https://github.com/orpiske))
 - Align JDBC tests with test infra from Camel 3.7 [\#801](https://github.com/apache/camel-kafka-connector/pull/801) ([orpiske](https://github.com/orpiske))
 - Align HDFS tests with test infra from Camel 3.7 [\#800](https://github.com/apache/camel-kafka-connector/pull/800) ([orpiske](https://github.com/orpiske))
-- Align ElasticSearch tests with test infra from Camel 3.7 [\#799](https://github.com/apache/camel-kafka-connector/pull/799) ([orpiske](https://github.com/orpiske))
 - Align Cassandra tests with test infra from Camel 3.7 [\#798](https://github.com/apache/camel-kafka-connector/pull/798) ([orpiske](https://github.com/orpiske))
 - Add SJMS2 patches to master [\#797](https://github.com/apache/camel-kafka-connector/pull/797) ([orpiske](https://github.com/orpiske))
 - Upgrade Strimzi to 0.20.1 [\#796](https://github.com/apache/camel-kafka-connector/pull/796) ([oscerd](https://github.com/oscerd))
