@@ -123,14 +123,14 @@
 		},
 		"camel.sink.endpoint.batchMessageNumber": {
 			"name": "camel.sink.endpoint.batchMessageNumber",
-			"description": "The number of messages composing a batch in stream mode",
+			"description": "The number of messages composing a batch in streaming upload mode",
 			"defaultValue": "10",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.batchSize": {
 			"name": "camel.sink.endpoint.batchSize",
-			"description": "The batch size (in bytes) in stream mode",
+			"description": "The batch size (in bytes) in streaming upload mode",
 			"defaultValue": "1000000",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -164,7 +164,7 @@
 		},
 		"camel.sink.endpoint.namingStrategy": {
 			"name": "camel.sink.endpoint.namingStrategy",
-			"description": "The naming strategy to use in stream mode One of: [progressive] [random]",
+			"description": "The naming strategy to use in streaming upload mode One of: [progressive] [random]",
 			"defaultValue": "\"progressive\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -194,6 +194,17 @@
 			"defaultValue": "26214400L",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.sink.endpoint.restartingPolicy": {
+			"name": "camel.sink.endpoint.restartingPolicy",
+			"description": "The restarting policy to use in streaming upload mode One of: [override] [lastPart]",
+			"defaultValue": "\"override\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"override",
+				"lastPart"
+			]
 		},
 		"camel.sink.endpoint.storageClass": {
 			"name": "camel.sink.endpoint.storageClass",
@@ -360,14 +371,14 @@
 		},
 		"camel.component.aws2-s3.batchMessageNumber": {
 			"name": "camel.component.aws2-s3.batchMessageNumber",
-			"description": "The number of messages composing a batch in stream mode",
+			"description": "The number of messages composing a batch in streaming upload mode",
 			"defaultValue": "10",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-s3.batchSize": {
 			"name": "camel.component.aws2-s3.batchSize",
-			"description": "The batch size (in bytes) in stream mode",
+			"description": "The batch size (in bytes) in streaming upload mode",
 			"defaultValue": "1000000",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -401,7 +412,7 @@
 		},
 		"camel.component.aws2-s3.namingStrategy": {
 			"name": "camel.component.aws2-s3.namingStrategy",
-			"description": "The naming strategy to use in stream mode One of: [progressive] [random]",
+			"description": "The naming strategy to use in streaming upload mode One of: [progressive] [random]",
 			"defaultValue": "\"progressive\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -431,6 +442,17 @@
 			"defaultValue": "26214400L",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.component.aws2-s3.restartingPolicy": {
+			"name": "camel.component.aws2-s3.restartingPolicy",
+			"description": "The restarting policy to use in streaming upload mode One of: [override] [lastPart]",
+			"defaultValue": "\"override\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"override",
+				"lastPart"
+			]
 		},
 		"camel.component.aws2-s3.storageClass": {
 			"name": "camel.component.aws2-s3.storageClass",

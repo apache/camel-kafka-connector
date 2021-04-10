@@ -62,6 +62,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.templateOptions": {
+			"name": "camel.sink.endpoint.templateOptions",
+			"description": "Configures the Spring JdbcTemplate with the key\/values from the Map",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.sql-stored.dataSource": {
 			"name": "camel.component.sql-stored.dataSource",
 			"description": "Sets the DataSource to use to communicate with the database.",

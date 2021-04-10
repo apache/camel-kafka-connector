@@ -39,6 +39,9 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_CONF = "camel.sink.endpoint.keyAttributeType";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DOC = "Attribute type when creating table";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_SCALAR_TYPE_CONF = "camel.sink.endpoint.keyScalarType";
+    public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_SCALAR_TYPE_DOC = "The key scalar type, it can be S (String), N (Number) and B (Bytes)";
+    public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_SCALAR_TYPE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWS2DDB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -93,6 +96,9 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_TYPE_CONF = "camel.component.aws2-ddb.keyAttributeType";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_TYPE_DOC = "Attribute type when creating table";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_KEY_SCALAR_TYPE_CONF = "camel.component.aws2-ddb.keyScalarType";
+    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_KEY_SCALAR_TYPE_DOC = "The key scalar type, it can be S (String), N (Number) and B (Bytes)";
+    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_KEY_SCALAR_TYPE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.aws2-ddb.lazyStartProducer";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWS2DDB_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -153,6 +159,7 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_NAME_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DOC);
+        conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_SCALAR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_SCALAR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_SCALAR_TYPE_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_OVERRIDE_ENDPOINT_DOC);
@@ -171,6 +178,7 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_CONSISTENT_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_CONSISTENT_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_CONSISTENT_READ_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_NAME_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_TYPE_DOC);
+        conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_KEY_SCALAR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_SCALAR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_SCALAR_TYPE_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_OVERRIDE_ENDPOINT_DOC);
