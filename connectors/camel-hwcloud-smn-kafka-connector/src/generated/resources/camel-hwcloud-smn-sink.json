@@ -21,6 +21,12 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.sink.endpoint.endpoint": {
+			"name": "camel.sink.endpoint.endpoint",
+			"description": "Fully qualified smn service url. Carries higher precedence than region parameter based client initialization",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.ignoreSslVerification": {
 			"name": "camel.sink.endpoint.ignoreSslVerification",
 			"description": "Ignore SSL verification",
@@ -80,7 +86,7 @@
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
-			"description": "SMN service region",
+			"description": "SMN service region. This is lower precedence than endpoint based configuration",
 			"priority": "HIGH",
 			"required": "true"
 		},

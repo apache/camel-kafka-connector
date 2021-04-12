@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.hwcloudsmn.CamelHwcloudsmnSinkCo
 ----
 
 
-The camel-hwcloud-smn sink connector supports 16 options, which are listed below.
+The camel-hwcloud-smn sink connector supports 17 options, which are listed below.
 
 
 
@@ -33,6 +33,7 @@ The camel-hwcloud-smn sink connector supports 16 options, which are listed below
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.smnService* | Name of SMN service to invoke | null | true | HIGH
 | *camel.sink.endpoint.authKey* | Authentication key for the cloud user | null | true | HIGH
+| *camel.sink.endpoint.endpoint* | Fully qualified smn service url. Carries higher precedence than region parameter based client initialization | null | false | MEDIUM
 | *camel.sink.endpoint.ignoreSslVerification* | Ignore SSL verification | false | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.messageTtl* | TTL for published message | 3600 | false | MEDIUM
@@ -42,7 +43,7 @@ The camel-hwcloud-smn sink connector supports 16 options, which are listed below
 | *camel.sink.endpoint.proxyPassword* | Proxy authentication password | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | Proxy server port | null | false | MEDIUM
 | *camel.sink.endpoint.proxyUser* | Proxy authentication user | null | false | MEDIUM
-| *camel.sink.endpoint.region* | SMN service region | null | true | HIGH
+| *camel.sink.endpoint.region* | SMN service region. This is lower precedence than endpoint based configuration | null | true | HIGH
 | *camel.sink.endpoint.secretKey* | Secret key for the cloud user | null | true | HIGH
 | *camel.sink.endpoint.serviceKeys* | Configuration object for cloud service authentication | null | false | MEDIUM
 | *camel.component.hwcloud-smn.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
