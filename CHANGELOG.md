@@ -65,6 +65,7 @@
 - add itests for camel-cxfrs-kafka-connector \#996 [\#1099](https://github.com/apache/camel-kafka-connector/pull/1099) ([ffang](https://github.com/ffang))
 - Introduce MockWebServer extension for testing \#1085 [\#1097](https://github.com/apache/camel-kafka-connector/pull/1097) ([tadayosi](https://github.com/tadayosi))
 - Add https itests [\#1096](https://github.com/apache/camel-kafka-connector/pull/1096) ([tadayosi](https://github.com/tadayosi))
+- Backport/camel master [\#1094](https://github.com/apache/camel-kafka-connector/pull/1094) ([valdar](https://github.com/valdar))
 - Some folowup improvements fro \#969 and \#202. [\#1093](https://github.com/apache/camel-kafka-connector/pull/1093) ([valdar](https://github.com/valdar))
 - Issue/969 [\#1091](https://github.com/apache/camel-kafka-connector/pull/1091) ([valdar](https://github.com/valdar))
 - \(backport\) Added Google pub/sub sink integration test [\#1088](https://github.com/apache/camel-kafka-connector/pull/1088) ([orpiske](https://github.com/orpiske))
