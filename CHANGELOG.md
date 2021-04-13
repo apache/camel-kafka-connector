@@ -27,6 +27,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector master Branch [\#1142](https://github.com/apache/camel-kafka-connector/pull/1142) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector master Branch [\#1141](https://github.com/apache/camel-kafka-connector/pull/1141) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Suffling itest order around a bit to investigate origin of some rando… [\#1140](https://github.com/apache/camel-kafka-connector/pull/1140) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector master Branch [\#1139](https://github.com/apache/camel-kafka-connector/pull/1139) ([github-actions[bot]](https://github.com/apps/github-actions))
@@ -65,7 +66,6 @@
 - add itests for camel-cxfrs-kafka-connector \#996 [\#1099](https://github.com/apache/camel-kafka-connector/pull/1099) ([ffang](https://github.com/ffang))
 - Introduce MockWebServer extension for testing \#1085 [\#1097](https://github.com/apache/camel-kafka-connector/pull/1097) ([tadayosi](https://github.com/tadayosi))
 - Add https itests [\#1096](https://github.com/apache/camel-kafka-connector/pull/1096) ([tadayosi](https://github.com/tadayosi))
-- Backport/camel master [\#1094](https://github.com/apache/camel-kafka-connector/pull/1094) ([valdar](https://github.com/valdar))
 - Some folowup improvements fro \#969 and \#202. [\#1093](https://github.com/apache/camel-kafka-connector/pull/1093) ([valdar](https://github.com/valdar))
 - Issue/969 [\#1091](https://github.com/apache/camel-kafka-connector/pull/1091) ([valdar](https://github.com/valdar))
 - \(backport\) Added Google pub/sub sink integration test [\#1088](https://github.com/apache/camel-kafka-connector/pull/1088) ([orpiske](https://github.com/orpiske))
