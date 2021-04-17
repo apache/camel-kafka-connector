@@ -15,6 +15,7 @@
 
 **Closed issues:**
 
+- example of a sql source connector url pattern [\#1144](https://github.com/apache/camel-kafka-connector/issues/1144)
 - Align master to latest camel snapshot [\#1133](https://github.com/apache/camel-kafka-connector/issues/1133)
 - Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
 - Release 0.9.0 [\#1127](https://github.com/apache/camel-kafka-connector/issues/1127)
@@ -318,8 +319,6 @@
 - Camel-Cron connector: We need to add at least camel-quartz as dependency [\#911](https://github.com/apache/camel-kafka-connector/pull/911) ([oscerd](https://github.com/oscerd))
 - Ensures that Couchbase client dependencies are packed with the connector \(GH issue \#878\) [\#892](https://github.com/apache/camel-kafka-connector/pull/892) ([orpiske](https://github.com/orpiske))
 - Idempotency docs 0.7.x [\#852](https://github.com/apache/camel-kafka-connector/pull/852) ([oscerd](https://github.com/oscerd))
-- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#850](https://github.com/apache/camel-kafka-connector/pull/850) ([github-actions[bot]](https://github.com/apps/github-actions))
-- Idempotency [\#849](https://github.com/apache/camel-kafka-connector/pull/849) ([oscerd](https://github.com/oscerd))
 - \(backport\) Ensure the DLQ configuration from Kafka Connect is correctly handled \(issue \#835\) [\#837](https://github.com/apache/camel-kafka-connector/pull/837) ([orpiske](https://github.com/orpiske))
 - \(backport\) Bump camel dependency to use camel 3.7.1-SNAPSHOT [\#832](https://github.com/apache/camel-kafka-connector/pull/832) ([orpiske](https://github.com/orpiske))
 - Set version to 0.7.1-SNAPSHOT [\#831](https://github.com/apache/camel-kafka-connector/pull/831) ([orpiske](https://github.com/orpiske))
@@ -956,7 +955,6 @@
 - Regen docs pages by adding title, so Antora will be happy [\#171](https://github.com/apache/camel-kafka-connector/pull/171) ([oscerd](https://github.com/oscerd))
 - Add an index for docs [\#170](https://github.com/apache/camel-kafka-connector/pull/170) ([oscerd](https://github.com/oscerd))
 - Docs sink source [\#168](https://github.com/apache/camel-kafka-connector/pull/168) ([oscerd](https://github.com/oscerd))
-- Pom fixes [\#161](https://github.com/apache/camel-kafka-connector/pull/161) ([valdar](https://github.com/valdar))
 - Added a building section in the docs [\#160](https://github.com/apache/camel-kafka-connector/pull/160) ([oscerd](https://github.com/oscerd))
 - Fixes a couple of style violations and warnings on test code [\#157](https://github.com/apache/camel-kafka-connector/pull/157) ([orpiske](https://github.com/orpiske))
 - Additional tests for different configuration styles [\#155](https://github.com/apache/camel-kafka-connector/pull/155) ([orpiske](https://github.com/orpiske))
@@ -1007,6 +1005,7 @@
 
 **Merged pull requests:**
 
+- Pom fixes [\#161](https://github.com/apache/camel-kafka-connector/pull/161) ([valdar](https://github.com/valdar))
 - Moved from camel-core to camel-core-engine as a dependecnies. [\#140](https://github.com/apache/camel-kafka-connector/pull/140) ([valdar](https://github.com/valdar))
 - Added gpg key for valdar. [\#139](https://github.com/apache/camel-kafka-connector/pull/139) ([valdar](https://github.com/valdar))
 - Test code fixes for the auto-generated connectors [\#138](https://github.com/apache/camel-kafka-connector/pull/138) ([orpiske](https://github.com/orpiske))
