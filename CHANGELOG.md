@@ -141,6 +141,7 @@
 - Last released version is 0.7.2 [\#1033](https://github.com/apache/camel-kafka-connector/pull/1033) ([oscerd](https://github.com/oscerd))
 - Add gh action for daily maven plugins IT [\#1032](https://github.com/apache/camel-kafka-connector/pull/1032) ([tadayosi](https://github.com/tadayosi))
 - Remove headers docs [\#1029](https://github.com/apache/camel-kafka-connector/pull/1029) ([oscerd](https://github.com/oscerd))
+- Refactor the CXF servers into a service for simpler reuse [\#1028](https://github.com/apache/camel-kafka-connector/pull/1028) ([orpiske](https://github.com/orpiske))
 - Temporarily disable the syslog source tests on Github [\#1025](https://github.com/apache/camel-kafka-connector/pull/1025) ([orpiske](https://github.com/orpiske))
 - Fixed checkstyle issues with the CXF integration tests [\#1023](https://github.com/apache/camel-kafka-connector/pull/1023) ([orpiske](https://github.com/orpiske))
 - Make sure CXF tests are included in the test run [\#1021](https://github.com/apache/camel-kafka-connector/pull/1021) ([orpiske](https://github.com/orpiske))
@@ -368,6 +369,7 @@
 - Camel-Master updated to 3.7.0 staging [\#789](https://github.com/apache/camel-kafka-connector/pull/789) ([oscerd](https://github.com/oscerd))
 - Couchbase timeout fixes on camel-master [\#787](https://github.com/apache/camel-kafka-connector/pull/787) ([orpiske](https://github.com/orpiske))
 - Rebase camel-master on master by hand [\#783](https://github.com/apache/camel-kafka-connector/pull/783) ([oscerd](https://github.com/oscerd))
+- NPE prevention and log cleanup on the SSH transformation code [\#781](https://github.com/apache/camel-kafka-connector/pull/781) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#776](https://github.com/apache/camel-kafka-connector/pull/776) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Set the service version to the supported one from Azurite to prevent test failures [\#775](https://github.com/apache/camel-kafka-connector/pull/775) ([orpiske](https://github.com/orpiske))
 - Fix example CamelAmqpSourceConnector using sink instead of source pro… [\#768](https://github.com/apache/camel-kafka-connector/pull/768) ([apupier](https://github.com/apupier))
@@ -955,6 +957,7 @@
 - Regen docs pages by adding title, so Antora will be happy [\#171](https://github.com/apache/camel-kafka-connector/pull/171) ([oscerd](https://github.com/oscerd))
 - Add an index for docs [\#170](https://github.com/apache/camel-kafka-connector/pull/170) ([oscerd](https://github.com/oscerd))
 - Docs sink source [\#168](https://github.com/apache/camel-kafka-connector/pull/168) ([oscerd](https://github.com/oscerd))
+- Pom fixes [\#161](https://github.com/apache/camel-kafka-connector/pull/161) ([valdar](https://github.com/valdar))
 - Added a building section in the docs [\#160](https://github.com/apache/camel-kafka-connector/pull/160) ([oscerd](https://github.com/oscerd))
 - Fixes a couple of style violations and warnings on test code [\#157](https://github.com/apache/camel-kafka-connector/pull/157) ([orpiske](https://github.com/orpiske))
 - Additional tests for different configuration styles [\#155](https://github.com/apache/camel-kafka-connector/pull/155) ([orpiske](https://github.com/orpiske))
@@ -1005,7 +1008,6 @@
 
 **Merged pull requests:**
 
-- Pom fixes [\#161](https://github.com/apache/camel-kafka-connector/pull/161) ([valdar](https://github.com/valdar))
 - Moved from camel-core to camel-core-engine as a dependecnies. [\#140](https://github.com/apache/camel-kafka-connector/pull/140) ([valdar](https://github.com/valdar))
 - Added gpg key for valdar. [\#139](https://github.com/apache/camel-kafka-connector/pull/139) ([valdar](https://github.com/valdar))
 - Test code fixes for the auto-generated connectors [\#138](https://github.com/apache/camel-kafka-connector/pull/138) ([orpiske](https://github.com/orpiske))
