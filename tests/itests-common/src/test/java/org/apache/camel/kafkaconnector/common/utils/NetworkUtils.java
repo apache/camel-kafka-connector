@@ -122,7 +122,7 @@ public final class NetworkUtils {
     public static String getHostname() {
         if (hostname == null) {
             try {
-                hostname = InetAddress.getLocalHost().getCanonicalHostName();
+                hostname = InetAddress.getLocalHost().getHostName();
             } catch (UnknownHostException e) {
                 LOG.warn("Will default to 'localhost' because the code could not get the local hostname: {}",
                         e.getMessage(), e);
