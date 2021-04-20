@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector.common.utils;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -33,7 +32,6 @@ public final class NetworkUtils {
     public static final int  DEFAULT_ENDING_PORT = 65535;
     public static final int  DEFAULT_STARTING_PORT = 49152;
     public static int freeStartingPort = DEFAULT_STARTING_PORT;
-    private static String hostname;
     private static final Logger LOG = LoggerFactory.getLogger(NetworkUtils.class);
 
     private NetworkUtils() {
@@ -120,18 +118,7 @@ public final class NetworkUtils {
     }
 
     public static String getHostname() {
-        if (hostname == null) {
-            try {
-                hostname = InetAddress.getLocalHost().getCanonicalHostName();
-            } catch (UnknownHostException e) {
-                LOG.warn("Will default to 'localhost' because the code could not get the local hostname: {}",
-                        e.getMessage(), e);
-
-                hostname = "localhost";
-            }
-        }
-
-        return hostname;
+        return "localhost";
     }
 
     public static String getAddress(String protocol) {
