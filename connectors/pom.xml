@@ -262,7 +262,6 @@
         <module>camel-couchdb-kafka-connector</module>
         <module>camel-cql-kafka-connector</module>
         <module>camel-cron-kafka-connector</module>
-        <module>camel-crypto-cms-kafka-connector</module>
         <module>camel-crypto-kafka-connector</module>
         <module>camel-cxf-kafka-connector</module>
         <module>camel-cxfrs-kafka-connector</module>
