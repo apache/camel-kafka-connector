@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-name: Sync Camel Kafka Connector master Branch with latest Camel master
+name: Sync Camel Kafka Connector main Branch with latest Camel main
 
 env:
   MAVEN_ARGS: -V -ntp
@@ -27,7 +27,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Sync Camel Kafka Connector master Branch with latest Camel master
+    name: Sync Camel Kafka Connector main Branch with latest Camel main
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: apache/camel
-          ref: master
+          ref: main
           path: camel
       - name: Set up JDK ${{ matrix.java }}
         uses: AdoptOpenJDK/install-jdk@v1
@@ -59,7 +59,7 @@ jobs:
       - name: Checkout camel-kafka-connector project
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: main
           fetch-depth: 0
       # first command builds the source check module,
       - name: build tools
@@ -104,7 +104,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: automatic-periodic-sync
-          title: '[Github Actions] Periodic Sync Camel-kafka-connector master Branch'
+          title: '[Github Actions] Periodic Sync Camel-kafka-connector main Branch'
           body: |
-            Periodic Sync of Camel Kafka connector master Branch with main Camel Master.
-            see https://github.com/apache/camel-kafka-connector/blob/master/.github/workflows/automatic-sync-camel-master.yml
+            Periodic Sync of Camel Kafka connector main Branch with main Camel Main.
+            see https://github.com/apache/camel-kafka-connector/blob/main/.github/workflows/automatic-sync-camel-main.yml
