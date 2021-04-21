@@ -44,7 +44,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkHTTPITCase.class);
-    private static final int HTTP_PORT = NetworkUtils.getFreePort();
 
     private HttpServer localServer;
 
@@ -68,7 +67,7 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
         InetAddress localhost = InetAddress.getByAddress(ipAddr);
         localServer = ServerBootstrap.bootstrap()
                 .setLocalAddress(localhost)
-                .setListenerPort(HTTP_PORT)
+                .setListenerPort(NetworkUtils.getFreePort())
                 .registerHandler("/ckc", validationHandler)
                 .create();
 
@@ -119,7 +118,7 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
-        String url = localServer.getInetAddress().getHostName() + ":" + HTTP_PORT + "/ckc";
+        String url = localServer.getInetAddress().getHostName() + ":" + localServer.getLocalPort() + "/ckc";
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
                 .withTopics(topicName)
@@ -131,7 +130,7 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
     @Test
     @Timeout(90)
     public void testBasicSendReceiveUsingUrl() throws Exception {
-        String hostName = localServer.getInetAddress().getHostName() + ":" + HTTP_PORT + "/ckc";
+        String hostName = localServer.getInetAddress().getHostName() + ":" + localServer.getLocalPort() + "/ckc";
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
                 .withTopics(topicName)
