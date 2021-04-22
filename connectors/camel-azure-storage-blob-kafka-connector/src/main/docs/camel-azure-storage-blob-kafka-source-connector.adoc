@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestora
 ----
 
 
-The camel-azure-storage-blob source connector supports 55 options, which are listed below.
+The camel-azure-storage-blob source connector supports 53 options, which are listed below.
 
 
 
@@ -33,7 +33,6 @@ The camel-azure-storage-blob source connector supports 55 options, which are lis
 | Name | Description | Default | Required | Priority
 | *camel.source.path.accountName* | Azure account name to be used for authentication with azure blob services | null | false | MEDIUM
 | *camel.source.path.containerName* | The blob container name | null | false | MEDIUM
-| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.source.endpoint.blobName* | The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level | null | false | MEDIUM
 | *camel.source.endpoint.blobOffset* | Set the blob offset for the upload or download operations, default is 0 | 0L | false | MEDIUM
 | *camel.source.endpoint.blobServiceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String). | null | false | MEDIUM
@@ -68,7 +67,6 @@ The camel-azure-storage-blob source connector supports 55 options, which are lis
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | false | MEDIUM
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
 | *camel.source.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | false | MEDIUM
-| *camel.component.azure-storage-blob.autoDiscover Client* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.azure-storage-blob.blobName* | The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level | null | false | MEDIUM
 | *camel.component.azure-storage-blob.blobOffset* | Set the blob offset for the upload or download operations, default is 0 | 0L | false | MEDIUM
 | *camel.component.azure-storage-blob.blobType* | The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob] | "blockblob" | false | MEDIUM

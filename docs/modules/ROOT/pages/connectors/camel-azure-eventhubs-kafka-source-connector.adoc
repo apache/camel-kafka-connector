@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.azureeventhubs.CamelAzureeventhu
 ----
 
 
-The camel-azure-eventhubs source connector supports 36 options, which are listed below.
+The camel-azure-eventhubs source connector supports 34 options, which are listed below.
 
 
 
@@ -35,7 +35,6 @@ The camel-azure-eventhubs source connector supports 36 options, which are listed
 | *camel.source.path.eventHubName* | EventHubs name under a specific namcespace | null | false | MEDIUM
 | *camel.source.endpoint.amqpRetryOptions* | Sets the retry policy for EventHubAsyncClient. If not specified, the default retry options are used. | null | false | MEDIUM
 | *camel.source.endpoint.amqpTransportType* | Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets] | "AMQP" | false | MEDIUM
-| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.source.endpoint.blobAccessKey* | In case you chose the default BlobCheckpointStore, this sets access key for the associated azure account name to be used for authentication with azure blob services | null | false | MEDIUM
 | *camel.source.endpoint.blobAccountName* | In case you chose the default BlobCheckpointStore, this sets Azure account name to be used for authentication with azure blob services. | null | false | MEDIUM
 | *camel.source.endpoint.blobContainerName* | In case you chose the default BlobCheckpointStore, this sets the blob container that shall be used by the BlobCheckpointStore to store the checkpoint offsets | null | false | MEDIUM
@@ -52,7 +51,6 @@ The camel-azure-eventhubs source connector supports 36 options, which are listed
 | *camel.source.endpoint.sharedAccessName* | The name you chose for your EventHubs SAS keys | null | false | MEDIUM
 | *camel.component.azure-eventhubs.amqpRetryOptions* | Sets the retry policy for EventHubAsyncClient. If not specified, the default retry options are used. | null | false | MEDIUM
 | *camel.component.azure-eventhubs.amqpTransportType* | Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets] | "AMQP" | false | MEDIUM
-| *camel.component.azure-eventhubs.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.azure-eventhubs.configuration* | The component configurations | null | false | MEDIUM
 | *camel.component.azure-eventhubs.blobAccessKey* | In case you chose the default BlobCheckpointStore, this sets access key for the associated azure account name to be used for authentication with azure blob services | null | false | MEDIUM
 | *camel.component.azure-eventhubs.blobAccountName* | In case you chose the default BlobCheckpointStore, this sets Azure account name to be used for authentication with azure blob services. | null | false | MEDIUM

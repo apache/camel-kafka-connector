@@ -38,9 +38,6 @@ public class CamelAzureeventhubsSinkConnectorConfig
     public static final String CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_TRANSPORT_TYPE_CONF = "camel.sink.endpoint.amqpTransportType";
     public static final String CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_TRANSPORT_TYPE_DOC = "Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets]";
     public static final String CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_TRANSPORT_TYPE_DEFAULT = "AMQP";
-    public static final String CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
-    public static final String CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -68,9 +65,6 @@ public class CamelAzureeventhubsSinkConnectorConfig
     public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_TRANSPORT_TYPE_CONF = "camel.component.azure-eventhubs.amqpTransportType";
     public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_TRANSPORT_TYPE_DOC = "Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets]";
     public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_TRANSPORT_TYPE_DEFAULT = "AMQP";
-    public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.azure-eventhubs.autoDiscoverClient";
-    public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_CONFIGURATION_CONF = "camel.component.azure-eventhubs.configuration";
     public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_CONFIGURATION_DOC = "The component configurations";
     public static final String CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -116,7 +110,6 @@ public class CamelAzureeventhubsSinkConnectorConfig
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_PATH_EVENT_HUB_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_PATH_EVENT_HUB_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_PATH_EVENT_HUB_NAME_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_RETRY_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_RETRY_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_RETRY_OPTIONS_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_TRANSPORT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_TRANSPORT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AMQP_TRANSPORT_TYPE_DOC);
-        conf.define(CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_PARTITION_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_PARTITION_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_PARTITION_ID_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_PARTITION_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_PARTITION_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_PARTITION_KEY_DOC);
@@ -126,7 +119,6 @@ public class CamelAzureeventhubsSinkConnectorConfig
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_NAME_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_RETRY_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_RETRY_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_RETRY_OPTIONS_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_TRANSPORT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_TRANSPORT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AMQP_TRANSPORT_TYPE_DOC);
-        conf.define(CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_PARTITION_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_PARTITION_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREEVENTHUBS_COMPONENT_PARTITION_ID_DOC);

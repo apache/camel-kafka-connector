@@ -190,8 +190,6 @@
 *** xref:connectors/camel-cql-kafka-sink-connector.adoc[Sink Docs]
 ** camel-cron-kafka-connector
 *** xref:connectors/camel-cron-kafka-source-connector.adoc[Source Docs]
-** camel-crypto-cms-kafka-connector
-*** xref:connectors/camel-crypto-cms-kafka-sink-connector.adoc[Sink Docs]
 ** camel-crypto-kafka-connector
 *** xref:connectors/camel-crypto-kafka-sink-connector.adoc[Sink Docs]
 ** camel-cxf-kafka-connector

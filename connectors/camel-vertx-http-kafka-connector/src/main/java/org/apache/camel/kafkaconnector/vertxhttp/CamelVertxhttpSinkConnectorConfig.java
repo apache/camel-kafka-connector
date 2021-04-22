@@ -39,7 +39,7 @@ public class CamelVertxhttpSinkConnectorConfig
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "A custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = "VertxHttpHeaderFilterStrategy";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_HTTP_METHOD_CONF = "camel.sink.endpoint.httpMethod";
-    public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_HTTP_METHOD_DOC = "The HTTP method to use. The HttpMethod header cannot override this option if set One of: [OPTIONS] [GET] [HEAD] [POST] [PUT] [DELETE] [TRACE] [CONNECT] [PATCH] [OTHER]";
+    public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_HTTP_METHOD_DOC = "The HTTP method to use. The HttpMethod header cannot override this option if set";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_HTTP_METHOD_DEFAULT = null;
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";

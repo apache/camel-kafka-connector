@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.github.CamelGithubSourceConnecto
 ----
 
 
-The camel-github source connector supports 28 options, which are listed below.
+The camel-github source connector supports 29 options, which are listed below.
 
 
 
@@ -33,6 +33,7 @@ The camel-github source connector supports 28 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.source.path.type* | What git operation to execute One of: [CLOSEPULLREQUEST] [PULLREQUESTCOMMENT] [COMMIT] [PULLREQUEST] [TAG] [PULLREQUESTSTATE] [PULLREQUESTFILES] [GETCOMMITFILE] [CREATEISSUE] [EVENT] | null | true | HIGH
 | *camel.source.path.branchName* | Name of branch | null | false | MEDIUM
+| *camel.source.path.startingSha* | The starting sha to use for polling commits with the commit consumer. The value can either be a sha for the sha to start from, or use beginning to start from the beginning, or last to start from the last commit. | "last" | false | MEDIUM
 | *camel.source.endpoint.repoName* | GitHub repository name | null | true | HIGH
 | *camel.source.endpoint.repoOwner* | GitHub repository owner (organization) | null | true | HIGH
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM

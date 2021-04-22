@@ -21,13 +21,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.blobName": {
 			"name": "camel.sink.endpoint.blobName",
 			"description": "The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level",
@@ -219,13 +212,6 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Access key for the associated azure account name to be used for authentication with azure blob services",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.azure-storage-blob.autoDiscoverClient": {
-			"name": "camel.component.azure-storage-blob.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
