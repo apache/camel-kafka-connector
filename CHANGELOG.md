@@ -28,6 +28,10 @@
 
 **Merged pull requests:**
 
+- Fix address already in use error in HTTP integration tests [\#1151](https://github.com/apache/camel-kafka-connector/pull/1151) ([orpiske](https://github.com/orpiske))
+- Avoid using canonical host due to multiple address/port allocation issues on GH actions [\#1150](https://github.com/apache/camel-kafka-connector/pull/1150) ([orpiske](https://github.com/orpiske))
+- Work around Jackson conflicts for the azure-storage-blob tests [\#1148](https://github.com/apache/camel-kafka-connector/pull/1148) ([orpiske](https://github.com/orpiske))
+- CAMEL-16524: the camel-crypto-cms component was removed from Camel Core [\#1146](https://github.com/apache/camel-kafka-connector/pull/1146) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector master Branch [\#1142](https://github.com/apache/camel-kafka-connector/pull/1142) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector master Branch [\#1141](https://github.com/apache/camel-kafka-connector/pull/1141) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Suffling itest order around a bit to investigate origin of some rando… [\#1140](https://github.com/apache/camel-kafka-connector/pull/1140) ([valdar](https://github.com/valdar))
