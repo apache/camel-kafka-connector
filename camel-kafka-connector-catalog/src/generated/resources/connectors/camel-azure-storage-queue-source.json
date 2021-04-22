@@ -21,13 +21,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.autoDiscoverClient": {
-			"name": "camel.source.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.serviceClient": {
 			"name": "camel.source.endpoint.serviceClient",
 			"description": "Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account.",
@@ -227,13 +220,6 @@
 		"camel.source.endpoint.credentials": {
 			"name": "camel.source.endpoint.credentials",
 			"description": "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.azure-storage-queue.autoDiscoverClient": {
-			"name": "camel.component.azure-storage-queue.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

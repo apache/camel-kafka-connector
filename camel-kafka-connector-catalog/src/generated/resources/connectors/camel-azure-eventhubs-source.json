@@ -38,13 +38,6 @@
 				"AmqpWebSockets"
 			]
 		},
-		"camel.source.endpoint.autoDiscoverClient": {
-			"name": "camel.source.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.blobAccessKey": {
 			"name": "camel.source.endpoint.blobAccessKey",
 			"description": "In case you chose the default BlobCheckpointStore, this sets access key for the associated azure account name to be used for authentication with azure blob services",
@@ -154,13 +147,6 @@
 				"Amqp",
 				"AmqpWebSockets"
 			]
-		},
-		"camel.component.azure-eventhubs.autoDiscoverClient": {
-			"name": "camel.component.azure-eventhubs.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.component.azure-eventhubs.configuration": {
 			"name": "camel.component.azure-eventhubs.configuration",

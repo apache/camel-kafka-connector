@@ -32,15 +32,12 @@ public class CamelAzurestoragequeueSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_PATH_QUEUE_NAME_CONF = "camel.sink.path.queueName";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_PATH_QUEUE_NAME_DOC = "The queue resource name";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_PATH_QUEUE_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
-    public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SERVICE_CLIENT_CONF = "camel.sink.endpoint.serviceClient";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SERVICE_CLIENT_DOC = "Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account.";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SERVICE_CLIENT_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_CONF = "camel.sink.endpoint.createQueue";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_DOC = "When is set to true, the queue will be automatically created when sending messages to the queue.";
-    public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_DEFAULT = true;
+    public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_DEFAULT = false;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -71,9 +68,6 @@ public class CamelAzurestoragequeueSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREDENTIALS_CONF = "camel.sink.endpoint.credentials";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREDENTIALS_DOC = "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREDENTIALS_DEFAULT = null;
-    public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.azure-storage-queue.autoDiscoverClient";
-    public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CONFIGURATION_CONF = "camel.component.azure-storage-queue.configuration";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CONFIGURATION_DOC = "The component configurations";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -82,7 +76,7 @@ public class CamelAzurestoragequeueSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_SERVICE_CLIENT_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CREATE_QUEUE_CONF = "camel.component.azure-storage-queue.createQueue";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CREATE_QUEUE_DOC = "When is set to true, the queue will be automatically created when sending messages to the queue.";
-    public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CREATE_QUEUE_DEFAULT = true;
+    public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CREATE_QUEUE_DEFAULT = false;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.azure-storage-queue.lazyStartProducer";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -132,7 +126,6 @@ public class CamelAzurestoragequeueSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_PATH_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_PATH_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_PATH_ACCOUNT_NAME_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_PATH_QUEUE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_PATH_QUEUE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_PATH_QUEUE_NAME_DOC);
-        conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SERVICE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SERVICE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SERVICE_CLIENT_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_DOC);
@@ -145,7 +138,6 @@ public class CamelAzurestoragequeueSinkConnectorConfig
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_VISIBILITY_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_VISIBILITY_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_VISIBILITY_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREDENTIALS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREDENTIALS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREDENTIALS_DOC);
-        conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_SERVICE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_SERVICE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_SERVICE_CLIENT_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_COMPONENT_CREATE_QUEUE_DOC);

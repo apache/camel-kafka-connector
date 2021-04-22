@@ -38,13 +38,6 @@
 				"AmqpWebSockets"
 			]
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
@@ -104,13 +97,6 @@
 				"Amqp",
 				"AmqpWebSockets"
 			]
-		},
-		"camel.component.azure-eventhubs.autoDiscoverClient": {
-			"name": "camel.component.azure-eventhubs.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.component.azure-eventhubs.configuration": {
 			"name": "camel.component.azure-eventhubs.configuration",

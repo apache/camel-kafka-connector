@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.azurestoragequeue.CamelAzurestor
 ----
 
 
-The camel-azure-storage-queue source connector supports 44 options, which are listed below.
+The camel-azure-storage-queue source connector supports 42 options, which are listed below.
 
 
 
@@ -33,7 +33,6 @@ The camel-azure-storage-queue source connector supports 44 options, which are li
 | Name | Description | Default | Required | Priority
 | *camel.source.path.accountName* | Azure account name to be used for authentication with azure queue services | null | false | MEDIUM
 | *camel.source.path.queueName* | The queue resource name | null | false | MEDIUM
-| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.source.endpoint.serviceClient* | Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account. | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
@@ -62,7 +61,6 @@ The camel-azure-storage-queue source connector supports 44 options, which are li
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
 | *camel.source.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure queue services | null | false | MEDIUM
 | *camel.source.endpoint.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | false | MEDIUM
-| *camel.component.azure-storage-queue.autoDiscover Client* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.azure-storage-queue.configuration* | The component configurations | null | false | MEDIUM
 | *camel.component.azure-storage-queue.serviceClient* | Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account. | null | false | MEDIUM
 | *camel.component.azure-storage-queue.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM

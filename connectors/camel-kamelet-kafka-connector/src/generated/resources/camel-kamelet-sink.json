@@ -6,7 +6,7 @@
 		"id": "camel-kamelet-sink",
 		"type": "sink",
 		"version": "0.10.0-SNAPSHOT",
-		"description": "The Kamelet Component provides support for interacting with the Camel Route Template engine"
+		"description": "To call Kamelets"
 	},
 	"properties": {
 		"camel.sink.path.templateId": {

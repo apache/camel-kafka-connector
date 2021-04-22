@@ -2,7 +2,7 @@
 [[camel-kamelet-kafka-connector-sink]]
 = camel-kamelet-kafka-connector sink configuration
 
-Connector Description: The Kamelet Component provides support for interacting with the Camel Route Template engine
+Connector Description: To call Kamelets
 
 When using camel-kamelet-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

@@ -2,7 +2,7 @@
 [[camel-kamelet-kafka-connector-source]]
 = camel-kamelet-kafka-connector source configuration
 
-Connector description: The Kamelet Component provides support for interacting with the Camel Route Template engine
+Connector description: To call Kamelets
 
 When using camel-kamelet-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

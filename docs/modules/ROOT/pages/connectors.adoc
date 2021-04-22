@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 337 
+Number of Camel Kafka connectors: 336 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -76,7 +76,6 @@ Number of Camel Kafka connectors: 337
 | *camel-couchdb-kafka-connector* | true | true | xref:connectors/camel-couchdb-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-couchdb-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-couchdb-kafka-connector/0.9.0/camel-couchdb-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-cql-kafka-connector* | true | true | xref:connectors/camel-cql-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cql-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-cql-kafka-connector/0.9.0/camel-cql-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-cron-kafka-connector* | false | true |  | xref:connectors/camel-cron-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-cron-kafka-connector/0.9.0/camel-cron-kafka-connector-0.9.0-package.tar.gz[Download]
-| *camel-crypto-cms-kafka-connector* | true | false | xref:connectors/camel-crypto-cms-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-crypto-cms-kafka-connector/0.9.0/camel-crypto-cms-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-crypto-kafka-connector* | true | false | xref:connectors/camel-crypto-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-crypto-kafka-connector/0.9.0/camel-crypto-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-cxf-kafka-connector* | true | true | xref:connectors/camel-cxf-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cxf-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-cxf-kafka-connector/0.9.0/camel-cxf-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-cxfrs-kafka-connector* | true | true | xref:connectors/camel-cxfrs-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cxfrs-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-cxfrs-kafka-connector/0.9.0/camel-cxfrs-kafka-connector-0.9.0-package.tar.gz[Download]

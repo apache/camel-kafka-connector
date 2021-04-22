@@ -21,13 +21,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.serviceClient": {
 			"name": "camel.sink.endpoint.serviceClient",
 			"description": "Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account.",
@@ -37,7 +30,7 @@
 		"camel.sink.endpoint.createQueue": {
 			"name": "camel.sink.endpoint.createQueue",
 			"description": "When is set to true, the queue will be automatically created when sending messages to the queue.",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -114,13 +107,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.azure-storage-queue.autoDiscoverClient": {
-			"name": "camel.component.azure-storage-queue.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.azure-storage-queue.configuration": {
 			"name": "camel.component.azure-storage-queue.configuration",
 			"description": "The component configurations",
@@ -136,7 +122,7 @@
 		"camel.component.azure-storage-queue.createQueue": {
 			"name": "camel.component.azure-storage-queue.createQueue",
 			"description": "When is set to true, the queue will be automatically created when sending messages to the queue.",
-			"defaultValue": "true",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
