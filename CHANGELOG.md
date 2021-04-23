@@ -28,6 +28,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1152](https://github.com/apache/camel-kafka-connector/pull/1152) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix address already in use error in HTTP integration tests [\#1151](https://github.com/apache/camel-kafka-connector/pull/1151) ([orpiske](https://github.com/orpiske))
 - Avoid using canonical host due to multiple address/port allocation issues on GH actions [\#1150](https://github.com/apache/camel-kafka-connector/pull/1150) ([orpiske](https://github.com/orpiske))
 - Work around Jackson conflicts for the azure-storage-blob tests [\#1148](https://github.com/apache/camel-kafka-connector/pull/1148) ([orpiske](https://github.com/orpiske))
@@ -121,7 +122,6 @@
 
 **Fixed bugs:**
 
-- Azure storage queue failing on Camel Master [\#976](https://github.com/apache/camel-kafka-connector/issues/976)
 - SJMS2 Startup test failing on Camel Master [\#975](https://github.com/apache/camel-kafka-connector/issues/975)
 - Add tests to camel-kafka-connector-generator-maven-plugin [\#166](https://github.com/apache/camel-kafka-connector/issues/166)
 
@@ -253,6 +253,7 @@
 
 **Fixed bugs:**
 
+- Azure storage queue failing on Camel Master [\#976](https://github.com/apache/camel-kafka-connector/issues/976)
 - Java 14 support: gmavenplus-plugin likely not compatible [\#910](https://github.com/apache/camel-kafka-connector/issues/910)
 
 **Closed issues:**
