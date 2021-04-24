@@ -122,6 +122,7 @@
 
 **Fixed bugs:**
 
+- Azure storage queue failing on Camel Master [\#976](https://github.com/apache/camel-kafka-connector/issues/976)
 - SJMS2 Startup test failing on Camel Master [\#975](https://github.com/apache/camel-kafka-connector/issues/975)
 - Add tests to camel-kafka-connector-generator-maven-plugin [\#166](https://github.com/apache/camel-kafka-connector/issues/166)
 
@@ -253,7 +254,6 @@
 
 **Fixed bugs:**
 
-- Azure storage queue failing on Camel Master [\#976](https://github.com/apache/camel-kafka-connector/issues/976)
 - Java 14 support: gmavenplus-plugin likely not compatible [\#910](https://github.com/apache/camel-kafka-connector/issues/910)
 
 **Closed issues:**
