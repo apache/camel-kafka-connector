@@ -16,7 +16,9 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.component.hl7.HL7DataFormat;
@@ -24,6 +26,7 @@ import org.apache.camel.component.syslog.SyslogDataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
 import org.apache.kafka.connect.errors.ConnectException;
+import org.apache.kafka.connect.sink.SinkRecord;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -66,8 +69,13 @@ public class DataFormatTest {
         props.put("camel.sink.marshal", "missingDataformat");
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
-        assertThrows(ConnectException.class, () -> camelsinkTask.start(props));
+        camelsinkTask.start(props);
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        SinkRecord record = new SinkRecord("mytopic", 1, null, "test", null, "camel", 42);
+        records.add(record);
+        assertThrows(ConnectException.class, () -> camelsinkTask.put(records));
         // No need to check the stop method. The error is already thrown/caught during startup.
+        camelsinkTask.stop();
     }
 
     @Test

@@ -42,6 +42,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CamelSinkTask extends SinkTask {
+    public static final String KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcSink.";
+
     public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
     public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
     public static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
@@ -119,8 +121,9 @@ public class CamelSinkTask extends SinkTask {
                                                 CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX,
                                                 CAMEL_SINK_PATH_PROPERTIES_PREFIX);
             }
+            actualProps.put(KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "toUrl", remoteUrl);
 
-            cms = CamelKafkaConnectMain.builder(LOCAL_URL, remoteUrl)
+            cms = CamelKafkaConnectMain.builder(LOCAL_URL, "kamelet:ckcSink")
                 .withProperties(actualProps)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
