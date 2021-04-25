@@ -26,10 +26,16 @@ import org.apache.camel.AggregationStrategy;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.builder.DefaultErrorHandlerBuilder;
+import org.apache.camel.builder.ErrorHandlerBuilderRef;
+import org.apache.camel.builder.NoErrorHandlerBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
+import org.apache.camel.kafkaconnector.CamelSinkTask;
+import org.apache.camel.kafkaconnector.CamelSourceTask;
 import org.apache.camel.main.SimpleMain;
-import org.apache.camel.model.RouteDefinition;
+import org.apache.camel.model.ProcessorDefinition;
+import org.apache.camel.model.RouteTemplateDefinition;
 import org.apache.camel.processor.idempotent.kafka.KafkaIdempotentRepository;
 import org.apache.camel.spi.IdempotentRepository;
 import org.apache.camel.support.processor.idempotent.MemoryIdempotentRepository;
@@ -40,7 +46,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CamelKafkaConnectMain extends SimpleMain {
-    public static final String CAMEL_DATAFORMAT_PROPERTIES_PREFIX = "camel.dataformat.";
     private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectMain.class);
 
     protected volatile ConsumerTemplate consumerTemplate;
@@ -140,67 +145,67 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.aggregationTimeout = aggregationTimeout;
             return this;
         }
-        
+
         public Builder withErrorHandler(String errorHandler) {
             this.errorHandler = errorHandler;
             return this;
         }
-        
+
         public Builder withMaxRedeliveries(int maxRedeliveries) {
             this.maxRedeliveries = maxRedeliveries;
             return this;
         }
-        
+
         public Builder withRedeliveryDelay(long redeliveryDelay) {
             this.redeliveryDelay = redeliveryDelay;
             return this;
         }
-        
+
         public Builder withIdempotencyEnabled(boolean idempotencyEnabled) {
             this.idempotencyEnabled = idempotencyEnabled;
             return this;
         }
-        
+
         public Builder withExpressionType(String expressionType) {
             this.expressionType = expressionType;
             return this;
         }
-        
+
         public Builder withExpressionHeader(String expressionHeader) {
             this.expressionHeader = expressionHeader;
             return this;
         }
-        
+
         public Builder withMemoryDimension(int memoryDimension) {
             this.memoryDimension = memoryDimension;
             return this;
         }
-        
+
         public Builder withIdempotentRepositoryType(String idempotentRepositoryType) {
             this.idempotentRepositoryType = idempotentRepositoryType;
             return this;
         }
-        
+
         public Builder withIdempotentRepositoryTopicName(String idempotentRepositoryTopicName) {
             this.idempotentRepositoryTopicName = idempotentRepositoryTopicName;
             return this;
         }
-        
+
         public Builder withIdempotentRepositoryKafkaServers(String idempotentRepositoryKafkaServers) {
             this.idempotentRepositoryKafkaServers = idempotentRepositoryKafkaServers;
             return this;
         }
-        
+
         public Builder withIdempotentRepositoryKafkaMaxCacheSize(int idempotentRepositoryKafkaMaxCacheSize) {
             this.idempotentRepositoryKafkaMaxCacheSize = idempotentRepositoryKafkaMaxCacheSize;
             return this;
         }
-        
+
         public Builder withIdempotentRepositoryKafkaPollDuration(int idempotentRepositoryKafkaPollDuration) {
             this.idempotentRepositoryKafkaPollDuration = idempotentRepositoryKafkaPollDuration;
             return this;
         }
-        
+
         public Builder withHeadersExcludePattern(String headersExcludePattern) {
             this.headersExcludePattern = headersExcludePattern;
             return this;
@@ -214,21 +219,51 @@ public class CamelKafkaConnectMain extends SimpleMain {
             return entry.getKey() + "=" + entry.getValue();
         }
 
-
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
             camelMain.configure().setAutoConfigurationLogSummary(false);
+            //TODO: make it configurable
+            camelMain.configure().setDumpRoutes(true);
 
             Properties camelProperties = new Properties();
             camelProperties.putAll(props);
 
-            List<String> filteredProps = camelProperties.entrySet().stream().map(this::filterSensitive).collect(Collectors.toList());
+            //TODO: enable or delete these parameters once https://issues.apache.org/jira/browse/CAMEL-16551 is resolved
+//            //dataformats
+//            if (!ObjectHelper.isEmpty(marshallDataFormat)) {
+//                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLETE_PARAMETERS_PREFIX + "marshall", marshallDataFormat);
+//                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "marshall", marshallDataFormat);
+//            }
+//            if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
+//                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLETE_PARAMETERS_PREFIX + "unmarshall", unmarshallDataFormat);
+//                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "unmarshall", unmarshallDataFormat);
+//            }
 
-            LOG.info("Setting initial properties in Camel context: [{}]", filteredProps);
-            camelMain.setInitialProperties(camelProperties);
-            
-            // Instantianting the idempotent Repository here and inject it in registry to be referenced
+            //aggregator
+            if (!ObjectHelper.isEmpty(aggregationSize)) {
+                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "aggregationSize", String.valueOf(aggregationSize));
+                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "aggregationSize", String.valueOf(aggregationSize));
+            }
+            if (!ObjectHelper.isEmpty(aggregationTimeout)) {
+                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "aggregationTimeout", String.valueOf(aggregationTimeout));
+                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "aggregationTimeout", String.valueOf(aggregationTimeout));
+            }
+
+            //idempotency
             if (idempotencyEnabled) {
+                switch (expressionType) {
+                    case "body":
+                        camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "idempotentExpression", "${body}");
+                        camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "idempotentExpression", "${body}");
+                        break;
+                    case "header":
+                        camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "idempotentExpression", "${headers." + expressionHeader + "}");
+                        camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "idempotentExpression", "${headers." + expressionHeader + "}");
+                        break;
+                    default:
+                        break;
+                }
+                // Instantiating the idempotent Repository here and inject it in registry to be referenced
                 IdempotentRepository idempotentRepo = null;
                 switch (idempotentRepositoryType) {
                     case "memory":
@@ -240,110 +275,123 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     default:
                         break;
                 }
-                camelMain.getCamelContext().getRegistry().bind("idempotentRepository", idempotentRepo);
+                camelMain.getCamelContext().getRegistry().bind("ckcIdempotentRepository", idempotentRepo);
             }
 
-            //creating the actual route
+            //remove headers
+            if (!ObjectHelper.isEmpty(headersExcludePattern)) {
+                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "headersExcludePattern", headersExcludePattern);
+                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "headersExcludePattern", headersExcludePattern);
+            }
+
+            List<String> filteredProps = camelProperties.entrySet().stream().map(this::filterSensitive).collect(Collectors.toList());
+            LOG.info("Setting initial properties in Camel context: [{}]", filteredProps);
+            camelMain.setInitialProperties(camelProperties);
+
+            //error handler
+            camelMain.getCamelContext().getRegistry().bind("ckcErrorHandler", new DefaultErrorHandlerBuilder());
+            if (errorHandler != null) {
+                switch (errorHandler) {
+                    case "no":
+                        camelMain.getCamelContext().getRegistry().bind("ckcErrorHandler", new NoErrorHandlerBuilder());
+                        break;
+                    case "default":
+                        camelMain.getCamelContext().getRegistry().bind("ckcErrorHandler", new DefaultErrorHandlerBuilder().maximumRedeliveries(maxRedeliveries).redeliveryDelay(redeliveryDelay));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             camelMain.configure().addRoutesBuilder(new RouteBuilder() {
                 public void configure() {
-                    //from
-                    RouteDefinition rd = from(from);
-                    LOG.info("Creating Camel route from({})", from);
-                    
-                    if (!ObjectHelper.isEmpty(errorHandler)) {
-                        switch (errorHandler) {
-                            case "no":
-                                rd.errorHandler(noErrorHandler());
-                                break;
-                            case "default":
-                                rd.errorHandler(defaultErrorHandler().maximumRedeliveries(maxRedeliveries).redeliveryDelay(redeliveryDelay));
-                                break;
-                            default:
-                                break;
-                        }
-                    }
 
-                    //dataformats
+                    //creating source template
+                    RouteTemplateDefinition rtdSource = routeTemplate("ckcSource")
+                            .templateParameter("fromUrl")
+                            .templateParameter("errorHandler", "ckcErrorHandler")
+                            //TODO: enable or delete these parameters once https://issues.apache.org/jira/browse/CAMEL-16551 is resolved
+//                            .templateParameter("marshall", "dummyDataformat")
+//                            .templateParameter("unmarshall", "dummyDataformat")
+
+                            //TODO: change CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NA to ckcAggregationStrategy?
+                            .templateParameter("aggregationStrategy", CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME)
+                            .templateParameter("aggregationSize", "1")
+                            .templateParameter("aggregationTimeout", String.valueOf(Long.MAX_VALUE))
+
+                            .templateParameter("idempotentExpression", "dummyExpression")
+                            .templateParameter("idempotentRepository", "ckcIdempotentRepository")
+                            .templateParameter("headersExcludePattern", "(?!)");
+
+
+                    ProcessorDefinition<?> rdInTemplateSource = rtdSource.from("{{fromUrl}}")
+                            .errorHandler(new ErrorHandlerBuilderRef("{{errorHandler}}"));
                     if (!ObjectHelper.isEmpty(marshallDataFormat)) {
-                        LOG.info(".marshal({})", marshallDataFormat);
-                        rd.marshal(marshallDataFormat);
+                        rdInTemplateSource = rdInTemplateSource.marshal(marshallDataFormat);
                     }
                     if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
-                        LOG.info(".unmarshal({})", unmarshallDataFormat);
-                        rd.unmarshal(unmarshallDataFormat);
+                        rdInTemplateSource = rdInTemplateSource.unmarshal(unmarshallDataFormat);
                     }
+
                     if (getContext().getRegistry().lookupByName("aggregate") != null) {
-                        //aggregation
                         AggregationStrategy s = getContext().getRegistry().lookupByNameAndType(CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME, AggregationStrategy.class);
-                        if (idempotencyEnabled) {
-                            switch (expressionType) {
-                                case "body":
-                                    LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({}).idempotentConsumer(body(), + "
-                                           + "MemoryIdempotentRepository.memoryIdempotentRepository({}))", s, aggregationSize, aggregationTimeout, memoryDimension);
-                                    LOG.info(".to({})", to);
-                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
-                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
-                                    } else {
-                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
-                                            .idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
-                                    }
-                                    break;
-                                case "header":
-                                    LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({}).idempotentConsumer(header(expressionHeader), + "
-                                           + "MemoryIdempotentRepository.memoryIdempotentRepository({}))", s, aggregationSize, aggregationTimeout, memoryDimension);
-                                    LOG.info(".to({})", to);
-                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
-                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
-                                            .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
-                                    } else {
-                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
-                                            .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
-                                    }
-                                    break;
-                                default:
-                                    break;
-                            }
-                        } else {
-                            LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({})", s, aggregationSize, aggregationTimeout);
-                            LOG.info(".to({})", to);
-                            if (ObjectHelper.isEmpty(headersExcludePattern)) {
-                                rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(to);
-                            } else {
-                                rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).removeHeaders(headersExcludePattern).toD(to);
-                            }
-                        }
-                    } else {
-                        if (idempotencyEnabled) {
-                            switch (expressionType) {
-                                case "body":
-                                    LOG.info("idempotentConsumer(body(), MemoryIdempotentRepository.memoryIdempotentRepository({})).to({})", memoryDimension, to);
-                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
-                                        rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
-                                    } else {
-                                        rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
-                                    }
-                                    break;
-                                case "header":
-                                    LOG.info("idempotentConsumer(header(expressionHeader), MemoryIdempotentRepository.memoryIdempotentRepository({})).to({})", memoryDimension, to);
-                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
-                                        rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
-                                    } else {
-                                        rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
-                                    }
-                                    break;
-                                default:
-                                    break;
-                            }
-                        } else {
-                            //to
-                            LOG.info(".to({})", to);
-                            if (ObjectHelper.isEmpty(headersExcludePattern)) {
-                                rd.toD(to);
-                            } else {
-                                rd.removeHeaders(headersExcludePattern).toD(to);
-                            }
-                        }
+                        rdInTemplateSource = rdInTemplateSource.aggregate(s)
+                                .constant(true)
+                                .completionSize("{{aggregationSize}}")
+                                .completionTimeout("{{aggregationTimeout}}");
                     }
+
+                    if (idempotencyEnabled) {
+                        rdInTemplateSource = rdInTemplateSource.idempotentConsumer(simple("{{idempotentExpression}}")).messageIdRepositoryRef("{{idempotentRepository}}");
+                    }
+
+                    rdInTemplateSource.removeHeaders("{{headersExcludePattern}}")
+                            .to("kamelet:sink");
+
+                    //creating sink template
+                    RouteTemplateDefinition rtdSink = routeTemplate("ckcSink")
+                            .templateParameter("toUrl")
+                            .templateParameter("errorHandler", "ckcErrorHandler")
+                            //TODO: enable or delete these parameters once https://issues.apache.org/jira/browse/CAMEL-16551 is resolved
+//                            .templateParameter("marshall", "dummyDataformat")
+//                            .templateParameter("unmarshall", "dummyDataformat")
+
+                            //TODO: change CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NA to ckcAggregationStrategy?
+                            .templateParameter("aggregationStrategy", CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME)
+                            .templateParameter("aggregationSize", "1")
+                            .templateParameter("aggregationTimeout", String.valueOf(Long.MAX_VALUE))
+
+                            .templateParameter("idempotentExpression", "dummyExpression")
+                            .templateParameter("idempotentRepository", "ckcIdempotentRepository")
+                            .templateParameter("headersExcludePattern", "(?!)");
+
+
+                    ProcessorDefinition<?> rdInTemplateSink = rtdSink.from("kamelet:source")
+                            .errorHandler(new ErrorHandlerBuilderRef("{{errorHandler}}"));
+                    if (!ObjectHelper.isEmpty(marshallDataFormat)) {
+                        rdInTemplateSink = rdInTemplateSink.marshal(marshallDataFormat);
+                    }
+                    if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
+                        rdInTemplateSink = rdInTemplateSink.unmarshal(unmarshallDataFormat);
+                    }
+
+                    if (getContext().getRegistry().lookupByName("aggregate") != null) {
+                        AggregationStrategy s = getContext().getRegistry().lookupByNameAndType(CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME, AggregationStrategy.class);
+                        rdInTemplateSink = rdInTemplateSink.aggregate(s)
+                                .constant(true)
+                                .completionSize("{{aggregationSize}}")
+                                .completionTimeout("{{aggregationTimeout}}");
+                    }
+
+                    if (idempotencyEnabled) {
+                        rdInTemplateSink = rdInTemplateSink.idempotentConsumer(simple("{{idempotentExpression}}")).messageIdRepositoryRef("{{idempotentRepository}}");
+                    }
+
+                    rdInTemplateSink.removeHeaders("{{headersExcludePattern}}")
+                            .to("{{toUrl}}");
+
+                    //creating the actual route
+                    from(from).toD(to);
                 }
             });
 
