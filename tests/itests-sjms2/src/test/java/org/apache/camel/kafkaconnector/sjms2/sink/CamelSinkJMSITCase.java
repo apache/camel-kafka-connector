@@ -99,6 +99,7 @@ public class CamelSinkJMSITCase extends CamelSinkTestSupport {
                 received++;
 
                 if (received == expect) {
+                    LOG.debug("All messages were received");
                     return false;
                 }
 
@@ -121,9 +122,7 @@ public class CamelSinkJMSITCase extends CamelSinkTestSupport {
 
             jmsClient.start();
             try (MessageConsumer consumer = jmsClient.createConsumer(SJMS2Common.DEFAULT_JMS_QUEUE)) {
-                for (int i = 0; i < expect; i++) {
-                    jmsClient.receive(consumer, this::checkRecord);
-                }
+                jmsClient.receive(consumer, this::checkRecord);
             }
 
         } catch (Exception e) {
