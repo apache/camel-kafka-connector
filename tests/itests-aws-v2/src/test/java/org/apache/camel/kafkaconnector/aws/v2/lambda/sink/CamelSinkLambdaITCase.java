@@ -43,6 +43,7 @@ import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.apache.kafka.common.utils.Bytes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -55,6 +56,7 @@ import software.amazon.awssdk.services.lambda.model.ListFunctionsResponse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkLambdaITCase extends CamelSinkTestSupport {
     @RegisterExtension
