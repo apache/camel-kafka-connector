@@ -15,6 +15,7 @@
 
 **Closed issues:**
 
+- Jackson conflicts causing Azure Storage Blob tests to fail [\#1147](https://github.com/apache/camel-kafka-connector/issues/1147)
 - example of a sql source connector url pattern [\#1144](https://github.com/apache/camel-kafka-connector/issues/1144)
 - Align master to latest camel snapshot [\#1133](https://github.com/apache/camel-kafka-connector/issues/1133)
 - Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
@@ -28,6 +29,8 @@
 
 **Merged pull requests:**
 
+- Removes outdated AWS v1 log configuration [\#1155](https://github.com/apache/camel-kafka-connector/pull/1155) ([orpiske](https://github.com/orpiske))
+- Return ealier from SJMS test to avoid locking the test [\#1154](https://github.com/apache/camel-kafka-connector/pull/1154) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1152](https://github.com/apache/camel-kafka-connector/pull/1152) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix address already in use error in HTTP integration tests [\#1151](https://github.com/apache/camel-kafka-connector/pull/1151) ([orpiske](https://github.com/orpiske))
 - Avoid using canonical host due to multiple address/port allocation issues on GH actions [\#1150](https://github.com/apache/camel-kafka-connector/pull/1150) ([orpiske](https://github.com/orpiske))
