@@ -27,8 +27,11 @@ public class CamelTwittertimelineSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_TWITTERTIMELINE_PATH_TIMELINE_TYPE_CONF = "camel.sink.path.timelineType";
-    public static final String CAMEL_SINK_TWITTERTIMELINE_PATH_TIMELINE_TYPE_DOC = "The timeline type to produce/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [UNKNOWN]";
+    public static final String CAMEL_SINK_TWITTERTIMELINE_PATH_TIMELINE_TYPE_DOC = "The timeline type to produce/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [LIST] [UNKNOWN]";
     public static final String CAMEL_SINK_TWITTERTIMELINE_PATH_TIMELINE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LIST_CONF = "camel.sink.endpoint.list";
+    public static final String CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LIST_DOC = "The list name when using timelineType=list";
+    public static final String CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LIST_DEFAULT = null;
     public static final String CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_USER_CONF = "camel.sink.endpoint.user";
     public static final String CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_USER_DOC = "The username when using timelineType=user";
     public static final String CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_USER_DEFAULT = null;
@@ -104,6 +107,7 @@ public class CamelTwittertimelineSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_TWITTERTIMELINE_PATH_TIMELINE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TWITTERTIMELINE_PATH_TIMELINE_TYPE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_TWITTERTIMELINE_PATH_TIMELINE_TYPE_DOC);
+        conf.define(CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LIST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LIST_DOC);
         conf.define(CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_USER_DOC);
         conf.define(CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_HTTP_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_HTTP_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TWITTERTIMELINE_ENDPOINT_HTTP_PROXY_HOST_DOC);

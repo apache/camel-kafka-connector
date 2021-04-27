@@ -30,6 +30,9 @@ public class CamelSolrsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SOLRS_ENDPOINT_ALLOW_COMPRESSION_CONF = "camel.sink.endpoint.allowCompression";
     public static final String CAMEL_SINK_SOLRS_ENDPOINT_ALLOW_COMPRESSION_DOC = "Server side must support gzip or deflate for this to have any effect";
     public static final String CAMEL_SINK_SOLRS_ENDPOINT_ALLOW_COMPRESSION_DEFAULT = null;
+    public static final String CAMEL_SINK_SOLRS_ENDPOINT_AUTO_COMMIT_CONF = "camel.sink.endpoint.autoCommit";
+    public static final String CAMEL_SINK_SOLRS_ENDPOINT_AUTO_COMMIT_DOC = "If true, each producer operation will be committed automatically";
+    public static final Boolean CAMEL_SINK_SOLRS_ENDPOINT_AUTO_COMMIT_DEFAULT = false;
     public static final String CAMEL_SINK_SOLRS_ENDPOINT_CONNECTION_TIMEOUT_CONF = "camel.sink.endpoint.connectionTimeout";
     public static final String CAMEL_SINK_SOLRS_ENDPOINT_CONNECTION_TIMEOUT_DOC = "connectionTimeout on the underlying HttpConnectionManager";
     public static final String CAMEL_SINK_SOLRS_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT = null;
@@ -93,6 +96,7 @@ public class CamelSolrsSinkConnectorConfig extends CamelSinkConnectorConfig {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SOLRS_PATH_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SOLRS_PATH_URL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SOLRS_PATH_URL_DOC);
         conf.define(CAMEL_SINK_SOLRS_ENDPOINT_ALLOW_COMPRESSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SOLRS_ENDPOINT_ALLOW_COMPRESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SOLRS_ENDPOINT_ALLOW_COMPRESSION_DOC);
+        conf.define(CAMEL_SINK_SOLRS_ENDPOINT_AUTO_COMMIT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SOLRS_ENDPOINT_AUTO_COMMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SOLRS_ENDPOINT_AUTO_COMMIT_DOC);
         conf.define(CAMEL_SINK_SOLRS_ENDPOINT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SOLRS_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SOLRS_ENDPOINT_CONNECTION_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SOLRS_ENDPOINT_DEFAULT_MAX_CONNECTIONS_PER_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SOLRS_ENDPOINT_DEFAULT_MAX_CONNECTIONS_PER_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SOLRS_ENDPOINT_DEFAULT_MAX_CONNECTIONS_PER_HOST_DOC);
         conf.define(CAMEL_SINK_SOLRS_ENDPOINT_FOLLOW_REDIRECTS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SOLRS_ENDPOINT_FOLLOW_REDIRECTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SOLRS_ENDPOINT_FOLLOW_REDIRECTS_DOC);

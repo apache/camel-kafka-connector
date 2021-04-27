@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.solr.CamelSolrSinkConnector
 ----
 
 
-The camel-solr sink connector supports 18 options, which are listed below.
+The camel-solr sink connector supports 19 options, which are listed below.
 
 
 
@@ -33,6 +33,7 @@ The camel-solr sink connector supports 18 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.url* | Hostname and port for the solr server | null | true | HIGH
 | *camel.sink.endpoint.allowCompression* | Server side must support gzip or deflate for this to have any effect | null | false | MEDIUM
+| *camel.sink.endpoint.autoCommit* | If true, each producer operation will be committed automatically | false | false | MEDIUM
 | *camel.sink.endpoint.connectionTimeout* | connectionTimeout on the underlying HttpConnectionManager | null | false | MEDIUM
 | *camel.sink.endpoint.defaultMaxConnectionsPerHost* | maxConnectionsPerHost on the underlying HttpConnectionManager | null | false | MEDIUM
 | *camel.sink.endpoint.followRedirects* | indicates whether redirects are used to get to the Solr server | null | false | MEDIUM

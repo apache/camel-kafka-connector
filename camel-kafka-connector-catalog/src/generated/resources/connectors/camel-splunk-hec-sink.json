@@ -21,6 +21,20 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.sink.endpoint.bodyOnly": {
+			"name": "camel.sink.endpoint.bodyOnly",
+			"description": "Send only the message body",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.headersOnly": {
+			"name": "camel.sink.endpoint.headersOnly",
+			"description": "Send only message headers",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.host": {
 			"name": "camel.sink.endpoint.host",
 			"description": "Splunk host.",

@@ -32,8 +32,8 @@ The camel-cql sink connector supports 17 options, which are listed below.
 |===
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.beanRef* | beanRef is defined using bean:id | null | false | MEDIUM
-| *camel.sink.path.hosts* | Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma. | null | false | MEDIUM
-| *camel.sink.path.port* | Port number of cassansdra server(s) | null | false | MEDIUM
+| *camel.sink.path.hosts* | Hostname(s) Cassandra server(s). Multiple hosts can be separated by comma. | null | false | MEDIUM
+| *camel.sink.path.port* | Port number of Cassandra server(s) | null | false | MEDIUM
 | *camel.sink.path.keyspace* | Keyspace to use | null | false | MEDIUM
 | *camel.sink.endpoint.clusterName* | Cluster name | null | false | MEDIUM
 | *camel.sink.endpoint.consistencyLevel* | Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_ONE] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL] | null | false | MEDIUM

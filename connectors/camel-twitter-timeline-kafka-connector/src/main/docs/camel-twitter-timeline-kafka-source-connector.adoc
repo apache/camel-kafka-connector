@@ -24,14 +24,15 @@ connector.class=org.apache.camel.kafkaconnector.twittertimeline.CamelTwittertime
 ----
 
 
-The camel-twitter-timeline source connector supports 53 options, which are listed below.
+The camel-twitter-timeline source connector supports 54 options, which are listed below.
 
 
 
 [width="100%",cols="2,5,^1,1,1",options="header"]
 |===
 | Name | Description | Default | Required | Priority
-| *camel.source.path.timelineType* | The timeline type to produce/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [UNKNOWN] | null | true | HIGH
+| *camel.source.path.timelineType* | The timeline type to produce/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [LIST] [UNKNOWN] | null | true | HIGH
+| *camel.source.endpoint.list* | The list name when using timelineType=list | null | false | MEDIUM
 | *camel.source.endpoint.user* | The username when using timelineType=user | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM

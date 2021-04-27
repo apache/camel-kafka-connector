@@ -28,10 +28,10 @@ public class CamelCqlSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CQL_PATH_BEAN_REF_DOC = "beanRef is defined using bean:id";
     public static final String CAMEL_SINK_CQL_PATH_BEAN_REF_DEFAULT = null;
     public static final String CAMEL_SINK_CQL_PATH_HOSTS_CONF = "camel.sink.path.hosts";
-    public static final String CAMEL_SINK_CQL_PATH_HOSTS_DOC = "Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma.";
+    public static final String CAMEL_SINK_CQL_PATH_HOSTS_DOC = "Hostname(s) Cassandra server(s). Multiple hosts can be separated by comma.";
     public static final String CAMEL_SINK_CQL_PATH_HOSTS_DEFAULT = null;
     public static final String CAMEL_SINK_CQL_PATH_PORT_CONF = "camel.sink.path.port";
-    public static final String CAMEL_SINK_CQL_PATH_PORT_DOC = "Port number of cassansdra server(s)";
+    public static final String CAMEL_SINK_CQL_PATH_PORT_DOC = "Port number of Cassandra server(s)";
     public static final String CAMEL_SINK_CQL_PATH_PORT_DEFAULT = null;
     public static final String CAMEL_SINK_CQL_PATH_KEYSPACE_CONF = "camel.sink.path.keyspace";
     public static final String CAMEL_SINK_CQL_PATH_KEYSPACE_DOC = "Keyspace to use";
