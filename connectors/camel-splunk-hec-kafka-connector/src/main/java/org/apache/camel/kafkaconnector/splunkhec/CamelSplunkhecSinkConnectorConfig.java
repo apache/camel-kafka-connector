@@ -32,6 +32,12 @@ public class CamelSplunkhecSinkConnectorConfig
     public static final String CAMEL_SINK_SPLUNKHEC_PATH_TOKEN_CONF = "camel.sink.path.token";
     public static final String CAMEL_SINK_SPLUNKHEC_PATH_TOKEN_DOC = "Splunk authorization token";
     public static final String CAMEL_SINK_SPLUNKHEC_PATH_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SINK_SPLUNKHEC_ENDPOINT_BODY_ONLY_CONF = "camel.sink.endpoint.bodyOnly";
+    public static final String CAMEL_SINK_SPLUNKHEC_ENDPOINT_BODY_ONLY_DOC = "Send only the message body";
+    public static final Boolean CAMEL_SINK_SPLUNKHEC_ENDPOINT_BODY_ONLY_DEFAULT = false;
+    public static final String CAMEL_SINK_SPLUNKHEC_ENDPOINT_HEADERS_ONLY_CONF = "camel.sink.endpoint.headersOnly";
+    public static final String CAMEL_SINK_SPLUNKHEC_ENDPOINT_HEADERS_ONLY_DOC = "Send only message headers";
+    public static final Boolean CAMEL_SINK_SPLUNKHEC_ENDPOINT_HEADERS_ONLY_DEFAULT = false;
     public static final String CAMEL_SINK_SPLUNKHEC_ENDPOINT_HOST_CONF = "camel.sink.endpoint.host";
     public static final String CAMEL_SINK_SPLUNKHEC_ENDPOINT_HOST_DOC = "Splunk host.";
     public static final String CAMEL_SINK_SPLUNKHEC_ENDPOINT_HOST_DEFAULT = null;
@@ -74,6 +80,8 @@ public class CamelSplunkhecSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SPLUNKHEC_PATH_SPLUNK_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNKHEC_PATH_SPLUNK_URLDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SPLUNKHEC_PATH_SPLUNK_URLDOC);
         conf.define(CAMEL_SINK_SPLUNKHEC_PATH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNKHEC_PATH_TOKEN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SPLUNKHEC_PATH_TOKEN_DOC);
+        conf.define(CAMEL_SINK_SPLUNKHEC_ENDPOINT_BODY_ONLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPLUNKHEC_ENDPOINT_BODY_ONLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNKHEC_ENDPOINT_BODY_ONLY_DOC);
+        conf.define(CAMEL_SINK_SPLUNKHEC_ENDPOINT_HEADERS_ONLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPLUNKHEC_ENDPOINT_HEADERS_ONLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNKHEC_ENDPOINT_HEADERS_ONLY_DOC);
         conf.define(CAMEL_SINK_SPLUNKHEC_ENDPOINT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNKHEC_ENDPOINT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNKHEC_ENDPOINT_HOST_DOC);
         conf.define(CAMEL_SINK_SPLUNKHEC_ENDPOINT_INDEX_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNKHEC_ENDPOINT_INDEX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNKHEC_ENDPOINT_INDEX_DOC);
         conf.define(CAMEL_SINK_SPLUNKHEC_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPLUNKHEC_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNKHEC_ENDPOINT_LAZY_START_PRODUCER_DOC);

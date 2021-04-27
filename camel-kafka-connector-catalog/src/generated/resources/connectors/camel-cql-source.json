@@ -17,13 +17,13 @@
 		},
 		"camel.source.path.hosts": {
 			"name": "camel.source.path.hosts",
-			"description": "Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma.",
+			"description": "Hostname(s) Cassandra server(s). Multiple hosts can be separated by comma.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
-			"description": "Port number of cassansdra server(s)",
+			"description": "Port number of Cassandra server(s)",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

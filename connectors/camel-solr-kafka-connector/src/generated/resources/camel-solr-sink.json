@@ -21,6 +21,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.autoCommit": {
+			"name": "camel.sink.endpoint.autoCommit",
+			"description": "If true, each producer operation will be committed automatically",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.connectionTimeout": {
 			"name": "camel.sink.endpoint.connectionTimeout",
 			"description": "connectionTimeout on the underlying HttpConnectionManager",

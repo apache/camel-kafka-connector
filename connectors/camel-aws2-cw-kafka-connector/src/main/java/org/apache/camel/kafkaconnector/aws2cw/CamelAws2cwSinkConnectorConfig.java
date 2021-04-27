@@ -63,6 +63,9 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF = "camel.sink.endpoint.uriEndpointOverride";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.sink.endpoint.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2CW_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_CONF = "camel.sink.endpoint.value";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DOC = "The metric value";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DEFAULT = null;
@@ -111,6 +114,9 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF = "camel.component.aws2-cw.uriEndpointOverride";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.component.aws2-cw.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2CW_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_VALUE_CONF = "camel.component.aws2-cw.value";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DOC = "The metric value";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DEFAULT = null;
@@ -149,6 +155,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_UNIT_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_VALUE_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2CW_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2CW_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2CW_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_ENDPOINT_SECRET_KEY_DOC);
@@ -165,6 +172,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_UNIT_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWS2CW_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_VALUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_VALUE_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2CW_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2CW_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2CW_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2CW_COMPONENT_ACCESS_KEY_DOC);

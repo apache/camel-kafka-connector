@@ -11,7 +11,7 @@
 	"properties": {
 		"camel.source.path.timelineType": {
 			"name": "camel.source.path.timelineType",
-			"description": "The timeline type to produce\/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [UNKNOWN]",
+			"description": "The timeline type to produce\/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [LIST] [UNKNOWN]",
 			"priority": "HIGH",
 			"required": "true",
 			"enum": [
@@ -20,8 +20,15 @@
 				"USER",
 				"MENTIONS",
 				"RETWEETSOFME",
+				"LIST",
 				"UNKNOWN"
 			]
+		},
+		"camel.source.endpoint.list": {
+			"name": "camel.source.endpoint.list",
+			"description": "The list name when using timelineType=list",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.user": {
 			"name": "camel.source.endpoint.user",

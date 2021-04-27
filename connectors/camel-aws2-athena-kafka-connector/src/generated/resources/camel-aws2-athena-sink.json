@@ -197,6 +197,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.useDefaultCredentialsProvider": {
+			"name": "camel.sink.endpoint.useDefaultCredentialsProvider",
+			"description": "Set whether the Athena client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.waitTimeout": {
 			"name": "camel.sink.endpoint.waitTimeout",
 			"description": "Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more.",
@@ -401,6 +408,13 @@
 		"camel.component.aws2-athena.secretKey": {
 			"name": "camel.component.aws2-athena.secretKey",
 			"description": "Amazon AWS Secret Key.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-athena.useDefaultCredentialsProvider": {
+			"name": "camel.component.aws2-athena.useDefaultCredentialsProvider",
+			"description": "Set whether the Athena client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
