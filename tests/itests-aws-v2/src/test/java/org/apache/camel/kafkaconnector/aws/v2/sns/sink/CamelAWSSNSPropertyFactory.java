@@ -65,6 +65,10 @@ final class CamelAWSSNSPropertyFactory extends SinkConnectorPropertyFactory<Came
         return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
     }
 
+    public CamelAWSSNSPropertyFactory withAutoCreateTopic(boolean value) {
+        return setProperty("camel.sink.endpoint.autoCreateTopic", value);
+    }
+
     public CamelAWSSNSPropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
         String accessKeyKey = style.get(AWSConfigs.ACCESS_KEY);
         String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);

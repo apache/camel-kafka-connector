@@ -125,6 +125,7 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withTopicOrArn(queueName)
                 .withSubscribeSNStoSQS(sqsQueueUrl)
+                .withAutoCreateTopic(true)
                 .withConfiguration(TestSnsConfiguration.class.getName())
                 .withAmazonConfig(amazonProperties);
 
@@ -143,6 +144,7 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withTopicOrArn(queueName)
                 .withSubscribeSNStoSQS(sqsQueueUrl)
+                .withAutoCreateTopic(true)
                 .withConfiguration(TestSnsConfiguration.class.getName())
                 .withAmazonConfig(amazonProperties, CamelAWSSNSPropertyFactory.KAFKA_STYLE);
 
@@ -164,6 +166,7 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
                     .append("subscribeSNStoSQS", "true")
                     .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Region.US_EAST_1.id()))
                     .append("configuration", classRef(TestSnsConfiguration.class.getName()))
+                    .append("autoCreateTopic", "true")
                     .buildUrl();
 
         runTest(connectorPropertyFactory, topicName, expect);
