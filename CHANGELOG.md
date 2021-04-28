@@ -29,8 +29,12 @@
 
 **Merged pull requests:**
 
+- Fixed AWS test errors w/ Strimzi due to incorrect test lifecycle [\#1159](https://github.com/apache/camel-kafka-connector/pull/1159) ([orpiske](https://github.com/orpiske))
+- Avoid using a fixed port for the REST service of Kafka Connect [\#1158](https://github.com/apache/camel-kafka-connector/pull/1158) ([orpiske](https://github.com/orpiske))
+- Add autoCreateTopic to fix AWS v2 SNS tests [\#1157](https://github.com/apache/camel-kafka-connector/pull/1157) ([orpiske](https://github.com/orpiske))
 - Removes outdated AWS v1 log configuration [\#1155](https://github.com/apache/camel-kafka-connector/pull/1155) ([orpiske](https://github.com/orpiske))
 - Return ealier from SJMS test to avoid locking the test [\#1154](https://github.com/apache/camel-kafka-connector/pull/1154) ([orpiske](https://github.com/orpiske))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1153](https://github.com/apache/camel-kafka-connector/pull/1153) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1152](https://github.com/apache/camel-kafka-connector/pull/1152) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix address already in use error in HTTP integration tests [\#1151](https://github.com/apache/camel-kafka-connector/pull/1151) ([orpiske](https://github.com/orpiske))
 - Avoid using canonical host due to multiple address/port allocation issues on GH actions [\#1150](https://github.com/apache/camel-kafka-connector/pull/1150) ([orpiske](https://github.com/orpiske))
