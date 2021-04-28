@@ -72,6 +72,10 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
         return setProperty("camel.sink.path.queueNameOrArn", queueNameOrArn);
     }
 
+    public CamelAWSSQSPropertyFactory withAutoCreateQueue(boolean value) {
+        return setProperty("camel.sink.endpoint.autoCreateQueue", value);
+    }
+
     public static CamelAWSSQSPropertyFactory basic() {
         return new CamelAWSSQSPropertyFactory()
                 .withName("CamelAws2sqsSinkConnector")
