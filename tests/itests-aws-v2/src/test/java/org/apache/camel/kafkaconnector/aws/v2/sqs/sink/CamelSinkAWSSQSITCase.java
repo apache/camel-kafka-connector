@@ -135,6 +135,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
                     .withName("CamelAwssqsSinkConnectorSpringBootStyle")
                     .withTopics(topicName)
                     .withAmazonConfig(amazonProperties)
+                    .withAutoCreateQueue(true)
                     .withQueueNameOrArn(queueName);
 
             runTest(testProperties, topicName, expect);
@@ -144,7 +145,8 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
         }
     }
 
-    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
+    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote",
+            disabledReason = "Runs repeatedly, so it's disabled to avoid abusing the free tier")
     @Timeout(value = 120)
     @RepeatedTest(3)
     public void testBasicSendReceiveUsingKafkaStyle() {
@@ -157,6 +159,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
                     .withName("CamelAwssqsSinkConnectorKafkaStyle")
                     .withTopics(topicName)
                     .withAmazonConfig(amazonProperties, CamelAWSSQSPropertyFactory.KAFKA_STYLE)
+                    .withAutoCreateQueue(true)
                     .withQueueNameOrArn(queueName);
 
             runTest(testProperties, topicName, expect);
@@ -167,7 +170,8 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
         }
     }
 
-    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
+    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote",
+            disabledReason = "Uses arguments that may require additional setup on AWS or are not available in remote mode")
     @Timeout(value = 120)
     @RepeatedTest(3)
     public void testBasicSendReceiveUsingUrl() {
