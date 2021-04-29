@@ -130,6 +130,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.sendingReply": {
+			"name": "camel.source.endpoint.sendingReply",
+			"description": "If true, the consumer endpoint will set the Jt400Constants.MESSAGE_REPLYTO_KEY header of the camel message for any IBM i inquiry messages received. If that message is then routed to a producer endpoint, the action will not be processed as sending a message to the queue, but rather a reply to the specific inquiry message.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",

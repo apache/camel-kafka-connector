@@ -71,6 +71,9 @@ public class CamelJt400SourceConnectorConfig
     public static final String CAMEL_SOURCE_JT400_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF = "camel.source.endpoint.sendEmptyMessageWhenIdle";
     public static final String CAMEL_SOURCE_JT400_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC = "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.";
     public static final Boolean CAMEL_SOURCE_JT400_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT = false;
+    public static final String CAMEL_SOURCE_JT400_ENDPOINT_SENDING_REPLY_CONF = "camel.source.endpoint.sendingReply";
+    public static final String CAMEL_SOURCE_JT400_ENDPOINT_SENDING_REPLY_DOC = "If true, the consumer endpoint will set the Jt400Constants.MESSAGE_REPLYTO_KEY header of the camel message for any IBM i inquiry messages received. If that message is then routed to a producer endpoint, the action will not be processed as sending a message to the queue, but rather a reply to the specific inquiry message.";
+    public static final Boolean CAMEL_SOURCE_JT400_ENDPOINT_SENDING_REPLY_DEFAULT = true;
     public static final String CAMEL_SOURCE_JT400_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_JT400_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_JT400_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
@@ -162,6 +165,7 @@ public class CamelJt400SourceConnectorConfig
         conf.define(CAMEL_SOURCE_JT400_ENDPOINT_READ_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_JT400_ENDPOINT_READ_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JT400_ENDPOINT_READ_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_JT400_ENDPOINT_SEARCH_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JT400_ENDPOINT_SEARCH_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JT400_ENDPOINT_SEARCH_TYPE_DOC);
         conf.define(CAMEL_SOURCE_JT400_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JT400_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JT400_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC);
+        conf.define(CAMEL_SOURCE_JT400_ENDPOINT_SENDING_REPLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JT400_ENDPOINT_SENDING_REPLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JT400_ENDPOINT_SENDING_REPLY_DOC);
         conf.define(CAMEL_SOURCE_JT400_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JT400_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JT400_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JT400_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JT400_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JT400_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_JT400_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JT400_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JT400_ENDPOINT_POLL_STRATEGY_DOC);

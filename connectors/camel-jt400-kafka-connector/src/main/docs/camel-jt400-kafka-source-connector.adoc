@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.jt400.CamelJt400SourceConnector
 ----
 
 
-The camel-jt400 source connector supports 36 options, which are listed below.
+The camel-jt400 source connector supports 37 options, which are listed below.
 
 
 
@@ -46,6 +46,7 @@ The camel-jt400 source connector supports 36 options, which are listed below.
 | *camel.source.endpoint.readTimeout* | Timeout in millis the consumer will wait while trying to read a new message of the data queue. | 30000 | false | MEDIUM
 | *camel.source.endpoint.searchType* | Search type such as EQ for equal etc. One of: [EQ] [NE] [LT] [LE] [GT] [GE] | "EQ" | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
+| *camel.source.endpoint.sendingReply* | If true, the consumer endpoint will set the Jt400Constants.MESSAGE_REPLYTO_KEY header of the camel message for any IBM i inquiry messages received. If that message is then routed to a producer endpoint, the action will not be processed as sending a message to the queue, but rather a reply to the specific inquiry message. | true | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
