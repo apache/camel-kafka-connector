@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2ddb.CamelAws2ddbSinkConnecto
 ----
 
 
-The camel-aws2-ddb sink connector supports 39 options, which are listed below.
+The camel-aws2-ddb sink connector supports 41 options, which are listed below.
 
 
 
@@ -47,6 +47,7 @@ The camel-aws2-ddb sink connector supports 39 options, which are listed below.
 | *camel.sink.endpoint.region* | The region in which DDB client needs to work | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
+| *camel.sink.endpoint.useDefaultCredentialsProvider* | Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.sink.endpoint.writeCapacity* | The provisioned throughput to reserved for writing resources to your table | null | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
@@ -66,6 +67,7 @@ The camel-aws2-ddb sink connector supports 39 options, which are listed below.
 | *camel.component.aws2-ddb.region* | The region in which DDB client needs to work | null | false | MEDIUM
 | *camel.component.aws2-ddb.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.component.aws2-ddb.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
+| *camel.component.aws2-ddb.useDefaultCredentials Provider* | Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-ddb.writeCapacity* | The provisioned throughput to reserved for writing resources to your table | null | false | MEDIUM
 | *camel.component.aws2-ddb.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-ddb.accessKey* | Amazon AWS Access Key | null | false | MEDIUM

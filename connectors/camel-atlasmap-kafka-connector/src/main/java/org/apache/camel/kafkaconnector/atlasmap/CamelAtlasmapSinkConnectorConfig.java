@@ -47,9 +47,6 @@ public class CamelAtlasmapSinkConnectorConfig
     public static final String CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_NAME_CONF = "camel.sink.endpoint.targetMapName";
     public static final String CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_NAME_DOC = "The Exchange property name for a target document map which hold java.util.Map&lt;String, Object&gt; where the key is AtlasMap Document ID. AtlasMap populates multiple target documents into this map.";
     public static final String CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_ATLASMAP_ENDPOINT_PROPERTIES_FILE_CONF = "camel.sink.endpoint.propertiesFile";
-    public static final String CAMEL_SINK_ATLASMAP_ENDPOINT_PROPERTIES_FILE_DOC = "The URI of the properties file which is used for AtlasContextFactory initialization.";
-    public static final String CAMEL_SINK_ATLASMAP_ENDPOINT_PROPERTIES_FILE_DEFAULT = null;
     public static final String CAMEL_SINK_ATLASMAP_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.atlasmap.lazyStartProducer";
     public static final String CAMEL_SINK_ATLASMAP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_ATLASMAP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -59,6 +56,9 @@ public class CamelAtlasmapSinkConnectorConfig
     public static final String CAMEL_SINK_ATLASMAP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.atlasmap.autowiredEnabled";
     public static final String CAMEL_SINK_ATLASMAP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_ATLASMAP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SINK_ATLASMAP_COMPONENT_PROPERTIES_FILE_CONF = "camel.component.atlasmap.propertiesFile";
+    public static final String CAMEL_SINK_ATLASMAP_COMPONENT_PROPERTIES_FILE_DOC = "The URI of the properties file which is used for AtlasContextFactory initialization.";
+    public static final String CAMEL_SINK_ATLASMAP_COMPONENT_PROPERTIES_FILE_DEFAULT = null;
 
     public CamelAtlasmapSinkConnectorConfig(
             ConfigDef config,
@@ -79,10 +79,10 @@ public class CamelAtlasmapSinkConnectorConfig
         conf.define(CAMEL_SINK_ATLASMAP_ENDPOINT_SOURCE_MAP_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATLASMAP_ENDPOINT_SOURCE_MAP_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_ENDPOINT_SOURCE_MAP_NAME_DOC);
         conf.define(CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_MODE_DOC);
         conf.define(CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_ENDPOINT_TARGET_MAP_NAME_DOC);
-        conf.define(CAMEL_SINK_ATLASMAP_ENDPOINT_PROPERTIES_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATLASMAP_ENDPOINT_PROPERTIES_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_ENDPOINT_PROPERTIES_FILE_DOC);
         conf.define(CAMEL_SINK_ATLASMAP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ATLASMAP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_ATLASMAP_COMPONENT_ATLAS_CONTEXT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATLASMAP_COMPONENT_ATLAS_CONTEXT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_COMPONENT_ATLAS_CONTEXT_FACTORY_DOC);
         conf.define(CAMEL_SINK_ATLASMAP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ATLASMAP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SINK_ATLASMAP_COMPONENT_PROPERTIES_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATLASMAP_COMPONENT_PROPERTIES_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATLASMAP_COMPONENT_PROPERTIES_FILE_DOC);
         return conf;
     }
 }
