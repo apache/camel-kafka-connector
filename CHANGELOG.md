@@ -29,6 +29,7 @@
 
 **Merged pull requests:**
 
+- Minor fixes for AWS SQS tests when running against actual AWS [\#1160](https://github.com/apache/camel-kafka-connector/pull/1160) ([orpiske](https://github.com/orpiske))
 - Fixed AWS test errors w/ Strimzi due to incorrect test lifecycle [\#1159](https://github.com/apache/camel-kafka-connector/pull/1159) ([orpiske](https://github.com/orpiske))
 - Avoid using a fixed port for the REST service of Kafka Connect [\#1158](https://github.com/apache/camel-kafka-connector/pull/1158) ([orpiske](https://github.com/orpiske))
 - Add autoCreateTopic to fix AWS v2 SNS tests [\#1157](https://github.com/apache/camel-kafka-connector/pull/1157) ([orpiske](https://github.com/orpiske))
