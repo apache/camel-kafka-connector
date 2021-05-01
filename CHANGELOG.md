@@ -1110,8 +1110,8 @@
 - Mark camel components as provided dependencies [\#10](https://github.com/apache/camel-kafka-connector/pull/10) ([jerrinot](https://github.com/jerrinot))
 - Added release profile for the beginning [\#8](https://github.com/apache/camel-kafka-connector/pull/8) ([oscerd](https://github.com/oscerd))
 - Fix Sink File test [\#6](https://github.com/apache/camel-kafka-connector/pull/6) ([orpiske](https://github.com/orpiske))
+- chore: update maven to v3.6.3 [\#5](https://github.com/apache/camel-kafka-connector/pull/5) ([lburgazzoli](https://github.com/lburgazzoli))
 - chore\(build\): set up github actions [\#4](https://github.com/apache/camel-kafka-connector/pull/4) ([lburgazzoli](https://github.com/lburgazzoli))
-- First commit [\#1](https://github.com/apache/camel-kafka-connector/pull/1) ([oscerd](https://github.com/oscerd))
 
 
 
