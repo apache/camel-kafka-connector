@@ -110,6 +110,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.useDefaultCredentialsProvider": {
+			"name": "camel.source.endpoint.useDefaultCredentialsProvider",
+			"description": "Set whether the DynamoDB Streams client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -346,6 +353,13 @@
 		"camel.component.aws2-ddbstream.uriEndpointOverride": {
 			"name": "camel.component.aws2-ddbstream.uriEndpointOverride",
 			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-ddbstream.useDefaultCredentialsProvider": {
+			"name": "camel.component.aws2-ddbstream.useDefaultCredentialsProvider",
+			"description": "Set whether the DynamoDB Streams client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
