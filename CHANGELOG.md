@@ -29,6 +29,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1162](https://github.com/apache/camel-kafka-connector/pull/1162) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1161](https://github.com/apache/camel-kafka-connector/pull/1161) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Minor fixes for AWS SQS tests when running against actual AWS [\#1160](https://github.com/apache/camel-kafka-connector/pull/1160) ([orpiske](https://github.com/orpiske))
 - Fixed AWS test errors w/ Strimzi due to incorrect test lifecycle [\#1159](https://github.com/apache/camel-kafka-connector/pull/1159) ([orpiske](https://github.com/orpiske))
