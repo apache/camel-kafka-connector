@@ -214,6 +214,12 @@
 				"SimpleAsync"
 			]
 		},
+		"camel.source.endpoint.destinationOptions": {
+			"name": "camel.source.endpoint.destinationOptions",
+			"description": "Destination Options are a way to provide extended configuration options to a JMS consumer without having to extend the JMS API. The options are encoded using URL query syntax in the destination name that the consumer is created on. See more details at https:\/\/activemq.apache.org\/destination-options.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.eagerLoadingOfProperties": {
 			"name": "camel.source.endpoint.eagerLoadingOfProperties",
 			"description": "Enables eager loading of JMS properties and payload as soon as a message is loaded which generally is inefficient as the JMS properties may not be required but sometimes can catch early any issues with the underlying JMS provider and the use of JMS properties. See also the option eagerPoisonBody.",
