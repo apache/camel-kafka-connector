@@ -741,6 +741,8 @@
 ** camel-spring-integration-kafka-connector
 *** xref:connectors/camel-spring-integration-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-spring-integration-kafka-sink-connector.adoc[Sink Docs]
+** camel-spring-jdbc-kafka-connector
+*** xref:connectors/camel-spring-jdbc-kafka-sink-connector.adoc[Sink Docs]
 ** camel-spring-ldap-kafka-connector
 *** xref:connectors/camel-spring-ldap-kafka-sink-connector.adoc[Sink Docs]
 ** camel-spring-rabbitmq-kafka-connector

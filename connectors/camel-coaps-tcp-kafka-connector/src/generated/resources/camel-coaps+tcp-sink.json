@@ -15,11 +15,23 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.alias": {
-			"name": "camel.sink.endpoint.alias",
-			"description": "Sets the alias used to query the KeyStore for the private key and certificate. This parameter is used when we are enabling TLS with certificates on the service side, and similarly on the client side when TLS is used with certificates and client authentication. If the parameter is not specified then the default behavior is to use the first alias in the keystore that contains a key entry. This configuration parameter does not apply to configuring TLS via a Raw Public Key or a Pre-Shared Key.",
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.sink.endpoint.alias": {
+			"name": "camel.sink.endpoint.alias",
+			"description": "Sets the alias used to query the KeyStore for the private key and certificate. This parameter is used when we are enabling TLS with certificates on the service side, and similarly on the client side when TLS is used with certificates and client authentication. If the parameter is not specified then the default behavior is to use the first alias in the keystore that contains a key entry. This configuration parameter does not apply to configuring TLS via a Raw Public Key or a Pre-Shared Key. One of: [NONE] [WANT] [REQUIRE]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"NONE",
+				"WANT",
+				"REQUIRE"
+			]
 		},
 		"camel.sink.endpoint.cipherSuites": {
 			"name": "camel.sink.endpoint.cipherSuites",
@@ -67,13 +79,6 @@
 		"camel.sink.endpoint.trustedRpkStore": {
 			"name": "camel.sink.endpoint.trustedRpkStore",
 			"description": "Set the TrustedRpkStore to use to determine trust in raw public keys.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.lazyStartProducer": {
-			"name": "camel.sink.endpoint.lazyStartProducer",
-			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 336 
+Number of Camel Kafka connectors: 337 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -293,6 +293,7 @@ Number of Camel Kafka connectors: 336
 | *camel-spring-batch-kafka-connector* | true | false | xref:connectors/camel-spring-batch-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-spring-batch-kafka-connector/0.9.0/camel-spring-batch-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-spring-event-kafka-connector* | true | true | xref:connectors/camel-spring-event-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-event-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-spring-event-kafka-connector/0.9.0/camel-spring-event-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-spring-integration-kafka-connector* | true | true | xref:connectors/camel-spring-integration-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-integration-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-spring-integration-kafka-connector/0.9.0/camel-spring-integration-kafka-connector-0.9.0-package.tar.gz[Download]
+| *camel-spring-jdbc-kafka-connector* | true | false | xref:connectors/camel-spring-jdbc-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-spring-jdbc-kafka-connector/0.9.0/camel-spring-jdbc-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-spring-ldap-kafka-connector* | true | false | xref:connectors/camel-spring-ldap-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-spring-ldap-kafka-connector/0.9.0/camel-spring-ldap-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-spring-rabbitmq-kafka-connector* | true | true | xref:connectors/camel-spring-rabbitmq-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-rabbitmq-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-spring-rabbitmq-kafka-connector/0.9.0/camel-spring-rabbitmq-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-spring-redis-kafka-connector* | true | true | xref:connectors/camel-spring-redis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-redis-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-spring-redis-kafka-connector/0.9.0/camel-spring-redis-kafka-connector-0.9.0-package.tar.gz[Download]

@@ -100,6 +100,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.connectionStrategy": {
+			"name": "camel.sink.endpoint.connectionStrategy",
+			"description": "To use a custom strategy for working with connections. Do not use a custom strategy when using the spring-jdbc component because a special Spring ConnectionStrategy is used by default to support Spring Transactions.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.prepareStatementStrategy": {
 			"name": "camel.sink.endpoint.prepareStatementStrategy",
 			"description": "Allows the plugin to use a custom org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to control preparation of the query and prepared statement.",
@@ -123,6 +129,12 @@
 			"name": "camel.component.jdbc.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.jdbc.connectionStrategy": {
+			"name": "camel.component.jdbc.connectionStrategy",
+			"description": "To use a custom strategy for working with connections. Do not use a custom strategy when using the spring-jdbc component because a special Spring ConnectionStrategy is used by default to support Spring Transactions.",
 			"priority": "MEDIUM",
 			"required": "false"
 		}
