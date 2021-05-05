@@ -479,6 +479,7 @@
         <module>camel-spring-batch-kafka-connector</module>
         <module>camel-spring-event-kafka-connector</module>
         <module>camel-spring-integration-kafka-connector</module>
+        <module>camel-spring-jdbc-kafka-connector</module>
         <module>camel-spring-ldap-kafka-connector</module>
         <module>camel-spring-rabbitmq-kafka-connector</module>
         <module>camel-spring-redis-kafka-connector</module>

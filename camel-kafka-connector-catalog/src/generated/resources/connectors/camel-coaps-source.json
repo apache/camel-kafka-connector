@@ -15,11 +15,52 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.alias": {
-			"name": "camel.source.endpoint.alias",
-			"description": "Sets the alias used to query the KeyStore for the private key and certificate. This parameter is used when we are enabling TLS with certificates on the service side, and similarly on the client side when TLS is used with certificates and client authentication. If the parameter is not specified then the default behavior is to use the first alias in the keystore that contains a key entry. This configuration parameter does not apply to configuring TLS via a Raw Public Key or a Pre-Shared Key.",
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.source.endpoint.coapMethodRestrict": {
+			"name": "camel.source.endpoint.coapMethodRestrict",
+			"description": "Comma separated list of methods that the CoAP consumer will bind to. The default is to bind to all methods (DELETE, GET, POST, PUT). One of: [DELETE] [GET] [POST] [PUT]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"DELETE",
+				"GET",
+				"POST",
+				"PUT"
+			]
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
+		},
+		"camel.source.endpoint.alias": {
+			"name": "camel.source.endpoint.alias",
+			"description": "Sets the alias used to query the KeyStore for the private key and certificate. This parameter is used when we are enabling TLS with certificates on the service side, and similarly on the client side when TLS is used with certificates and client authentication. If the parameter is not specified then the default behavior is to use the first alias in the keystore that contains a key entry. This configuration parameter does not apply to configuring TLS via a Raw Public Key or a Pre-Shared Key. One of: [NONE] [WANT] [REQUIRE]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"NONE",
+				"WANT",
+				"REQUIRE"
+			]
 		},
 		"camel.source.endpoint.cipherSuites": {
 			"name": "camel.source.endpoint.cipherSuites",
@@ -69,36 +110,6 @@
 			"description": "Set the TrustedRpkStore to use to determine trust in raw public keys.",
 			"priority": "MEDIUM",
 			"required": "false"
-		},
-		"camel.source.endpoint.bridgeErrorHandler": {
-			"name": "camel.source.endpoint.bridgeErrorHandler",
-			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.coapMethodRestrict": {
-			"name": "camel.source.endpoint.coapMethodRestrict",
-			"description": "Comma separated list of methods that the CoAP consumer will bind to. The default is to bind to all methods (DELETE, GET, POST, PUT).",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.exceptionHandler": {
-			"name": "camel.source.endpoint.exceptionHandler",
-			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.exchangePattern": {
-			"name": "camel.source.endpoint.exchangePattern",
-			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM",
-			"required": "false",
-			"enum": [
-				"InOnly",
-				"InOut",
-				"InOptionalOut"
-			]
 		},
 		"camel.component.coaps.bridgeErrorHandler": {
 			"name": "camel.component.coaps.bridgeErrorHandler",

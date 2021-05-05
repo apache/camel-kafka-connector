@@ -311,6 +311,9 @@ public class CamelSftpSourceConnectorConfig
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_CIPHERS_CONF = "camel.source.endpoint.ciphers";
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_CIPHERS_DOC = "Set a comma separated list of ciphers that will be used in order of preference. Possible cipher names are defined by JCraft JSCH. Some examples include: aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc. If not specified the default list from JSCH will be used.";
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_CIPHERS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SFTP_ENDPOINT_KEY_EXCHANGE_PROTOCOLS_CONF = "camel.source.endpoint.keyExchangeProtocols";
+    public static final String CAMEL_SOURCE_SFTP_ENDPOINT_KEY_EXCHANGE_PROTOCOLS_DOC = "Set a comma separated list of key exchange protocols that will be used in order of preference. Possible cipher names are defined by JCraft JSCH. Some examples include: diffie-hellman-group-exchange-sha1,diffie-hellman-group1-sha1,diffie-hellman-group14-sha1, diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521. If not specified the default list from JSCH will be used.";
+    public static final String CAMEL_SOURCE_SFTP_ENDPOINT_KEY_EXCHANGE_PROTOCOLS_DEFAULT = null;
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_KEY_PAIR_CONF = "camel.source.endpoint.keyPair";
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_KEY_PAIR_DOC = "Sets a key pair of the public and private key so to that the SFTP endpoint can do public/private key verification.";
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_KEY_PAIR_DEFAULT = null;
@@ -473,6 +476,7 @@ public class CamelSftpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SFTP_ENDPOINT_TIME_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SFTP_ENDPOINT_TIME_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTP_ENDPOINT_TIME_UNIT_DOC);
         conf.define(CAMEL_SOURCE_SFTP_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTP_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTP_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_SFTP_ENDPOINT_CIPHERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SFTP_ENDPOINT_CIPHERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTP_ENDPOINT_CIPHERS_DOC);
+        conf.define(CAMEL_SOURCE_SFTP_ENDPOINT_KEY_EXCHANGE_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SFTP_ENDPOINT_KEY_EXCHANGE_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTP_ENDPOINT_KEY_EXCHANGE_PROTOCOLS_DOC);
         conf.define(CAMEL_SOURCE_SFTP_ENDPOINT_KEY_PAIR_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_SFTP_ENDPOINT_KEY_PAIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTP_ENDPOINT_KEY_PAIR_DOC);
         conf.define(CAMEL_SOURCE_SFTP_ENDPOINT_KNOWN_HOSTS_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_SFTP_ENDPOINT_KNOWN_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTP_ENDPOINT_KNOWN_HOSTS_DOC);
         conf.define(CAMEL_SOURCE_SFTP_ENDPOINT_KNOWN_HOSTS_FILE_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_SFTP_ENDPOINT_KNOWN_HOSTS_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTP_ENDPOINT_KNOWN_HOSTS_FILE_DOC);
