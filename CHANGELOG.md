@@ -338,6 +338,7 @@
 - Idempotency docs 0.7.x [\#852](https://github.com/apache/camel-kafka-connector/pull/852) ([oscerd](https://github.com/oscerd))
 - \(backport\) Ensure the DLQ configuration from Kafka Connect is correctly handled \(issue \#835\) [\#837](https://github.com/apache/camel-kafka-connector/pull/837) ([orpiske](https://github.com/orpiske))
 - \(backport\) Bump camel dependency to use camel 3.7.1-SNAPSHOT [\#832](https://github.com/apache/camel-kafka-connector/pull/832) ([orpiske](https://github.com/orpiske))
+- Set version to 0.7.1-SNAPSHOT [\#831](https://github.com/apache/camel-kafka-connector/pull/831) ([orpiske](https://github.com/orpiske))
 - \(backport 0.7.x\) Fix issue \#159: camel components secret options are showed in logs [\#830](https://github.com/apache/camel-kafka-connector/pull/830) ([orpiske](https://github.com/orpiske))
 - Fix docs links 0.7.x [\#820](https://github.com/apache/camel-kafka-connector/pull/820) ([oscerd](https://github.com/oscerd))
 - 0.7.x docs align [\#815](https://github.com/apache/camel-kafka-connector/pull/815) ([oscerd](https://github.com/oscerd))
