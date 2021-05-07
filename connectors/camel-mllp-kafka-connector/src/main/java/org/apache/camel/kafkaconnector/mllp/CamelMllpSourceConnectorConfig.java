@@ -35,9 +35,6 @@ public class CamelMllpSourceConnectorConfig
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_AUTO_ACK_CONF = "camel.source.endpoint.autoAck";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_AUTO_ACK_DOC = "Enable/Disable the automatic generation of a MLLP Acknowledgement MLLP Consumers only";
     public static final Boolean CAMEL_SOURCE_MLLP_ENDPOINT_AUTO_ACK_DEFAULT = true;
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_BUFFER_WRITES_CONF = "camel.source.endpoint.bufferWrites";
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_BUFFER_WRITES_DOC = "Enable/Disable the buffering of HL7 payloads before writing to the socket.";
-    public static final Boolean CAMEL_SOURCE_MLLP_ENDPOINT_BUFFER_WRITES_DEFAULT = false;
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_HL_7HEADERS_CONF = "camel.source.endpoint.hl7Headers";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_HL_7HEADERS_DOC = "Enable/Disable the automatic generation of message headers from the HL7 Message MLLP Consumers only";
     public static final Boolean CAMEL_SOURCE_MLLP_ENDPOINT_HL_7HEADERS_DEFAULT = true;
@@ -92,9 +89,6 @@ public class CamelMllpSourceConnectorConfig
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_IDLE_TIMEOUT_CONF = "camel.source.endpoint.idleTimeout";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_IDLE_TIMEOUT_DOC = "The approximate idle time allowed before the Client TCP Connection will be reset. A null value or a value less than or equal to zero will disable the idle timeout.";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_IDLE_TIMEOUT_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_MAX_RECEIVE_TIMEOUTS_CONF = "camel.source.endpoint.maxReceiveTimeouts";
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_MAX_RECEIVE_TIMEOUTS_DOC = "The maximum number of timeouts (specified by receiveTimeout) allowed before the TCP Connection will be reset.";
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_MAX_RECEIVE_TIMEOUTS_DEFAULT = null;
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_CONF = "camel.source.endpoint.readTimeout";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_DOC = "The SO_TIMEOUT value (in milliseconds) used after the start of an MLLP frame has been received";
     public static final Integer CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_DEFAULT = 5000;
@@ -132,7 +126,6 @@ public class CamelMllpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MLLP_PATH_HOSTNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_PATH_HOSTNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MLLP_PATH_HOSTNAME_DOC);
         conf.define(CAMEL_SOURCE_MLLP_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MLLP_PATH_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MLLP_PATH_PORT_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_AUTO_ACK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_AUTO_ACK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_AUTO_ACK_DOC);
-        conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BUFFER_WRITES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_BUFFER_WRITES_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_MLLP_ENDPOINT_BUFFER_WRITES_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_HL_7HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_HL_7HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_HL_7HEADERS_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_REQUIRE_END_OF_DATA_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_REQUIRE_END_OF_DATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_REQUIRE_END_OF_DATA_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_STRING_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_STRING_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_STRING_PAYLOAD_DOC);
@@ -151,7 +144,6 @@ public class CamelMllpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BIND_RETRY_INTERVAL_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MLLP_ENDPOINT_BIND_RETRY_INTERVAL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_BIND_RETRY_INTERVAL_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BIND_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MLLP_ENDPOINT_BIND_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_BIND_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_IDLE_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_IDLE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_IDLE_TIMEOUT_DOC);
-        conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_MAX_RECEIVE_TIMEOUTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_MAX_RECEIVE_TIMEOUTS_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_MLLP_ENDPOINT_MAX_RECEIVE_TIMEOUTS_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_RECEIVE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MLLP_ENDPOINT_RECEIVE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_RECEIVE_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);

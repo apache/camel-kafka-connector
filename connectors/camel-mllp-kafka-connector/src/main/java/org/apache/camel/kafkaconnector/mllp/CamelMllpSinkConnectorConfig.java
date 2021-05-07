@@ -33,9 +33,6 @@ public class CamelMllpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MLLP_ENDPOINT_AUTO_ACK_CONF = "camel.sink.endpoint.autoAck";
     public static final String CAMEL_SINK_MLLP_ENDPOINT_AUTO_ACK_DOC = "Enable/Disable the automatic generation of a MLLP Acknowledgement MLLP Consumers only";
     public static final Boolean CAMEL_SINK_MLLP_ENDPOINT_AUTO_ACK_DEFAULT = true;
-    public static final String CAMEL_SINK_MLLP_ENDPOINT_BUFFER_WRITES_CONF = "camel.sink.endpoint.bufferWrites";
-    public static final String CAMEL_SINK_MLLP_ENDPOINT_BUFFER_WRITES_DOC = "Enable/Disable the buffering of HL7 payloads before writing to the socket.";
-    public static final Boolean CAMEL_SINK_MLLP_ENDPOINT_BUFFER_WRITES_DEFAULT = false;
     public static final String CAMEL_SINK_MLLP_ENDPOINT_HL_7HEADERS_CONF = "camel.sink.endpoint.hl7Headers";
     public static final String CAMEL_SINK_MLLP_ENDPOINT_HL_7HEADERS_DOC = "Enable/Disable the automatic generation of message headers from the HL7 Message MLLP Consumers only";
     public static final Boolean CAMEL_SINK_MLLP_ENDPOINT_HL_7HEADERS_DEFAULT = true;
@@ -109,7 +106,6 @@ public class CamelMllpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MLLP_PATH_HOSTNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MLLP_PATH_HOSTNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MLLP_PATH_HOSTNAME_DOC);
         conf.define(CAMEL_SINK_MLLP_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_MLLP_PATH_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MLLP_PATH_PORT_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_AUTO_ACK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_AUTO_ACK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_AUTO_ACK_DOC);
-        conf.define(CAMEL_SINK_MLLP_ENDPOINT_BUFFER_WRITES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_BUFFER_WRITES_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_MLLP_ENDPOINT_BUFFER_WRITES_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_HL_7HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_HL_7HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_HL_7HEADERS_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_REQUIRE_END_OF_DATA_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_REQUIRE_END_OF_DATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_REQUIRE_END_OF_DATA_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_STRING_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_STRING_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_STRING_PAYLOAD_DOC);

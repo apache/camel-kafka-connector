@@ -28,13 +28,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.bufferWrites": {
-			"name": "camel.sink.endpoint.bufferWrites",
-			"description": "Enable\/Disable the buffering of HL7 payloads before writing to the socket.",
-			"defaultValue": "false",
-			"priority": "LOW",
-			"required": "false"
-		},
 		"camel.sink.endpoint.hl7Headers": {
 			"name": "camel.sink.endpoint.hl7Headers",
 			"description": "Enable\/Disable the automatic generation of message headers from the HL7 Message MLLP Consumers only",

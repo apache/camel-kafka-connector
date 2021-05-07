@@ -28,13 +28,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.bufferWrites": {
-			"name": "camel.source.endpoint.bufferWrites",
-			"description": "Enable\/Disable the buffering of HL7 payloads before writing to the socket.",
-			"defaultValue": "false",
-			"priority": "LOW",
-			"required": "false"
-		},
 		"camel.source.endpoint.hl7Headers": {
 			"name": "camel.source.endpoint.hl7Headers",
 			"description": "Enable\/Disable the automatic generation of message headers from the HL7 Message MLLP Consumers only",
@@ -161,12 +154,6 @@
 			"name": "camel.source.endpoint.idleTimeout",
 			"description": "The approximate idle time allowed before the Client TCP Connection will be reset. A null value or a value less than or equal to zero will disable the idle timeout.",
 			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.maxReceiveTimeouts": {
-			"name": "camel.source.endpoint.maxReceiveTimeouts",
-			"description": "The maximum number of timeouts (specified by receiveTimeout) allowed before the TCP Connection will be reset.",
-			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.source.endpoint.readTimeout": {
