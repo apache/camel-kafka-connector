@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 337 
+Number of Camel Kafka connectors: 338 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -49,6 +49,7 @@ Number of Camel Kafka connectors: 337
 | *camel-aws2-sqs-kafka-connector* | true | true | xref:connectors/camel-aws2-sqs-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-aws2-sqs-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-aws2-sqs-kafka-connector/0.9.0/camel-aws2-sqs-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-aws2-sts-kafka-connector* | true | false | xref:connectors/camel-aws2-sts-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-aws2-sts-kafka-connector/0.9.0/camel-aws2-sts-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-aws2-translate-kafka-connector* | true | false | xref:connectors/camel-aws2-translate-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-aws2-translate-kafka-connector/0.9.0/camel-aws2-translate-kafka-connector-0.9.0-package.tar.gz[Download]
+| *camel-azure-cosmosdb-kafka-connector* | true | true | xref:connectors/camel-azure-cosmosdb-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-cosmosdb-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-azure-cosmosdb-kafka-connector/0.9.0/camel-azure-cosmosdb-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-azure-eventhubs-kafka-connector* | true | true | xref:connectors/camel-azure-eventhubs-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-eventhubs-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-azure-eventhubs-kafka-connector/0.9.0/camel-azure-eventhubs-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-azure-storage-blob-kafka-connector* | true | true | xref:connectors/camel-azure-storage-blob-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-storage-blob-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-azure-storage-blob-kafka-connector/0.9.0/camel-azure-storage-blob-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-azure-storage-datalake-kafka-connector* | true | true | xref:connectors/camel-azure-storage-datalake-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-storage-datalake-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-azure-storage-datalake-kafka-connector/0.9.0/camel-azure-storage-datalake-kafka-connector-0.9.0-package.tar.gz[Download]

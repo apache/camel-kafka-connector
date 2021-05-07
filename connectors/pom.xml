@@ -235,6 +235,7 @@
         <module>camel-aws2-sqs-kafka-connector</module>
         <module>camel-aws2-sts-kafka-connector</module>
         <module>camel-aws2-translate-kafka-connector</module>
+        <module>camel-azure-cosmosdb-kafka-connector</module>
         <module>camel-azure-eventhubs-kafka-connector</module>
         <module>camel-azure-storage-blob-kafka-connector</module>
         <module>camel-azure-storage-datalake-kafka-connector</module>

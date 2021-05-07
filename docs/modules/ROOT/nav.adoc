@@ -117,6 +117,9 @@
 *** xref:connectors/camel-aws2-sts-kafka-sink-connector.adoc[Sink Docs]
 ** camel-aws2-translate-kafka-connector
 *** xref:connectors/camel-aws2-translate-kafka-sink-connector.adoc[Sink Docs]
+** camel-azure-cosmosdb-kafka-connector
+*** xref:connectors/camel-azure-cosmosdb-kafka-source-connector.adoc[Source Docs]
+*** xref:connectors/camel-azure-cosmosdb-kafka-sink-connector.adoc[Sink Docs]
 ** camel-azure-eventhubs-kafka-connector
 *** xref:connectors/camel-azure-eventhubs-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-azure-eventhubs-kafka-sink-connector.adoc[Sink Docs]
