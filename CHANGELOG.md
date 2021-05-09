@@ -422,6 +422,7 @@
 - Added Download page [\#691](https://github.com/apache/camel-kafka-connector/pull/691) ([oscerd](https://github.com/oscerd))
 - SFTP connector: add RemoteFileTransform [\#690](https://github.com/apache/camel-kafka-connector/pull/690) ([oscerd](https://github.com/oscerd))
 - Remove hacktoberfest from label list [\#689](https://github.com/apache/camel-kafka-connector/pull/689) ([oscerd](https://github.com/oscerd))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#688](https://github.com/apache/camel-kafka-connector/pull/688) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Added PojoToSchemaAndStructTransform to infer POJO kafka connec schem… [\#686](https://github.com/apache/camel-kafka-connector/pull/686) ([valdar](https://github.com/valdar))
 - AWS v2 tests tweaks [\#684](https://github.com/apache/camel-kafka-connector/pull/684) ([orpiske](https://github.com/orpiske))
 - Provide API to retrieve Basic configuration \#679 [\#683](https://github.com/apache/camel-kafka-connector/pull/683) ([apupier](https://github.com/apupier))
