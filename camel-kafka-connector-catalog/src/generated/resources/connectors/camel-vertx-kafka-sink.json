@@ -154,7 +154,7 @@
 		"camel.sink.endpoint.socketConnectionSetupTimeoutMaxMs": {
 			"name": "camel.sink.endpoint.socketConnectionSetupTimeoutMaxMs",
 			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
-			"defaultValue": "127000L",
+			"defaultValue": "30000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -304,7 +304,7 @@
 		},
 		"camel.sink.endpoint.saslJaasConfig": {
 			"name": "camel.sink.endpoint.saslJaasConfig",
-			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: 'loginModuleClass controlFlag (optionName=optionValue);'. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
+			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: loginModuleClass controlFlag (optionName=optionValue);. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -668,7 +668,7 @@
 		"camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs": {
 			"name": "camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs",
 			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
-			"defaultValue": "127000L",
+			"defaultValue": "30000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -843,7 +843,7 @@
 		},
 		"camel.component.vertx-kafka.saslJaasConfig": {
 			"name": "camel.component.vertx-kafka.saslJaasConfig",
-			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: 'loginModuleClass controlFlag (optionName=optionValue);'. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
+			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: loginModuleClass controlFlag (optionName=optionValue);. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

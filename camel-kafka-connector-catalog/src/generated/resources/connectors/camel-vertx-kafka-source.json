@@ -154,7 +154,7 @@
 		"camel.source.endpoint.socketConnectionSetupTimeoutMaxMs": {
 			"name": "camel.source.endpoint.socketConnectionSetupTimeoutMaxMs",
 			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
-			"defaultValue": "127000L",
+			"defaultValue": "30000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -281,7 +281,7 @@
 		},
 		"camel.source.endpoint.isolationLevel": {
 			"name": "camel.source.endpoint.isolationLevel",
-			"description": "Controls how to read messages written transactionally. If set to read_committed, consumer.poll() will only return transactional messages which have been committed. If set to read_uncommitted' (the default), consumer.poll() will return all messages, even transactional messages which have been aborted. Non-transactional messages will be returned unconditionally in either mode. Messages will always be returned in offset order. Hence, in read_committed mode, consumer.poll() will only return messages up to the last stable offset (LSO), which is the one less than the offset of the first open transaction. In particular any messages appearing after messages belonging to ongoing transactions will be withheld until the relevant transaction has been completed. As a result, read_committed consumers will not be able to read up to the high watermark when there are in flight transactions. Further, when in read_committed the seekToEnd method will return the LSO One of: [read_committed] [read_uncommitted]",
+			"description": "Controls how to read messages written transactionally. If set to read_committed, consumer.poll() will only return transactional messages which have been committed. If set to read_uncommitted (the default), consumer.poll() will return all messages, even transactional messages which have been aborted. Non-transactional messages will be returned unconditionally in either mode. Messages will always be returned in offset order. Hence, in read_committed mode, consumer.poll() will only return messages up to the last stable offset (LSO), which is the one less than the offset of the first open transaction. In particular any messages appearing after messages belonging to ongoing transactions will be withheld until the relevant transaction has been completed. As a result, read_committed consumers will not be able to read up to the high watermark when there are in flight transactions. Further, when in read_committed the seekToEnd method will return the LSO One of: [read_committed] [read_uncommitted]",
 			"defaultValue": "\"read_uncommitted\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -313,14 +313,14 @@
 		},
 		"camel.source.endpoint.maxPollRecords": {
 			"name": "camel.source.endpoint.maxPollRecords",
-			"description": "The maximum number of records returned in a single call to poll().",
+			"description": "The maximum number of records returned in a single call to poll(). Note, that max.poll.records does not impact the underlying fetching behavior. The consumer will cache the records from each fetch request and returns them incrementally from each poll.",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.source.endpoint.partitionAssignmentStrategy": {
 			"name": "camel.source.endpoint.partitionAssignmentStrategy",
-			"description": "A list of class names or class types, ordered by preference, of supported partition assignment strategies that the client will use to distribute partition ownership amongst consumer instances when group management is used.In addition to the default class specified below, you can use the org.apache.kafka.clients.consumer.RoundRobinAssignorclass for round robin assignments of partitions to consumers. Implementing the org.apache.kafka.clients.consumer.ConsumerPartitionAssignor interface allows you to plug in a custom assignmentstrategy.",
+			"description": "A list of class names or class types, ordered by preference, of supported partition assignment strategies that the client will use to distribute partition ownership amongst consumer instances when group management is used. Available options are:org.apache.kafka.clients.consumer.RangeAssignor: The default assignor, which works on a per-topic basis.org.apache.kafka.clients.consumer.RoundRobinAssignor: Assigns partitions to consumers in a round-robin fashion.org.apache.kafka.clients.consumer.StickyAssignor: Guarantees an assignment that is maximally balanced while preserving as many existing partition assignments as possible.org.apache.kafka.clients.consumer.CooperativeStickyAssignor: Follows the same StickyAssignor logic, but allows for cooperative rebalancing.Implementing the org.apache.kafka.clients.consumer.ConsumerPartitionAssignor interface allows you to plug in a custom assignment strategy.",
 			"defaultValue": "\"org.apache.kafka.clients.consumer.RangeAssignor\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -380,7 +380,7 @@
 		},
 		"camel.source.endpoint.saslJaasConfig": {
 			"name": "camel.source.endpoint.saslJaasConfig",
-			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: 'loginModuleClass controlFlag (optionName=optionValue);'. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
+			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: loginModuleClass controlFlag (optionName=optionValue);. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -744,7 +744,7 @@
 		"camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs": {
 			"name": "camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs",
 			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
-			"defaultValue": "127000L",
+			"defaultValue": "30000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -871,7 +871,7 @@
 		},
 		"camel.component.vertx-kafka.isolationLevel": {
 			"name": "camel.component.vertx-kafka.isolationLevel",
-			"description": "Controls how to read messages written transactionally. If set to read_committed, consumer.poll() will only return transactional messages which have been committed. If set to read_uncommitted' (the default), consumer.poll() will return all messages, even transactional messages which have been aborted. Non-transactional messages will be returned unconditionally in either mode. Messages will always be returned in offset order. Hence, in read_committed mode, consumer.poll() will only return messages up to the last stable offset (LSO), which is the one less than the offset of the first open transaction. In particular any messages appearing after messages belonging to ongoing transactions will be withheld until the relevant transaction has been completed. As a result, read_committed consumers will not be able to read up to the high watermark when there are in flight transactions. Further, when in read_committed the seekToEnd method will return the LSO One of: [read_committed] [read_uncommitted]",
+			"description": "Controls how to read messages written transactionally. If set to read_committed, consumer.poll() will only return transactional messages which have been committed. If set to read_uncommitted (the default), consumer.poll() will return all messages, even transactional messages which have been aborted. Non-transactional messages will be returned unconditionally in either mode. Messages will always be returned in offset order. Hence, in read_committed mode, consumer.poll() will only return messages up to the last stable offset (LSO), which is the one less than the offset of the first open transaction. In particular any messages appearing after messages belonging to ongoing transactions will be withheld until the relevant transaction has been completed. As a result, read_committed consumers will not be able to read up to the high watermark when there are in flight transactions. Further, when in read_committed the seekToEnd method will return the LSO One of: [read_committed] [read_uncommitted]",
 			"defaultValue": "\"read_uncommitted\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -903,14 +903,14 @@
 		},
 		"camel.component.vertx-kafka.maxPollRecords": {
 			"name": "camel.component.vertx-kafka.maxPollRecords",
-			"description": "The maximum number of records returned in a single call to poll().",
+			"description": "The maximum number of records returned in a single call to poll(). Note, that max.poll.records does not impact the underlying fetching behavior. The consumer will cache the records from each fetch request and returns them incrementally from each poll.",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.vertx-kafka.partitionAssignmentStrategy": {
 			"name": "camel.component.vertx-kafka.partitionAssignmentStrategy",
-			"description": "A list of class names or class types, ordered by preference, of supported partition assignment strategies that the client will use to distribute partition ownership amongst consumer instances when group management is used.In addition to the default class specified below, you can use the org.apache.kafka.clients.consumer.RoundRobinAssignorclass for round robin assignments of partitions to consumers. Implementing the org.apache.kafka.clients.consumer.ConsumerPartitionAssignor interface allows you to plug in a custom assignmentstrategy.",
+			"description": "A list of class names or class types, ordered by preference, of supported partition assignment strategies that the client will use to distribute partition ownership amongst consumer instances when group management is used. Available options are:org.apache.kafka.clients.consumer.RangeAssignor: The default assignor, which works on a per-topic basis.org.apache.kafka.clients.consumer.RoundRobinAssignor: Assigns partitions to consumers in a round-robin fashion.org.apache.kafka.clients.consumer.StickyAssignor: Guarantees an assignment that is maximally balanced while preserving as many existing partition assignments as possible.org.apache.kafka.clients.consumer.CooperativeStickyAssignor: Follows the same StickyAssignor logic, but allows for cooperative rebalancing.Implementing the org.apache.kafka.clients.consumer.ConsumerPartitionAssignor interface allows you to plug in a custom assignment strategy.",
 			"defaultValue": "\"org.apache.kafka.clients.consumer.RangeAssignor\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -984,7 +984,7 @@
 		},
 		"camel.component.vertx-kafka.saslJaasConfig": {
 			"name": "camel.component.vertx-kafka.saslJaasConfig",
-			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: 'loginModuleClass controlFlag (optionName=optionValue);'. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
+			"description": "JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: loginModuleClass controlFlag (optionName=optionValue);. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required;",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
