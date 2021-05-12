@@ -1,25 +1,19 @@
 {
 	"connector": {
-		"class": "org.apache.camel.kafkaconnector.kamelet.CamelKameletSourceConnector",
-		"artifactId": "camel-kamelet-kafka-connector",
+		"class": "org.apache.camel.kafkaconnector.kameletreify.CamelKameletreifySourceConnector",
+		"artifactId": "camel-kamelet-reify-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"id": "camel-kamelet-source",
+		"id": "camel-kamelet-reify-source",
 		"type": "source",
 		"version": "0.10.0-SNAPSHOT",
-		"description": "To call Kamelets"
+		"description": "To call Kamelets (indirectly)"
 	},
 	"properties": {
-		"camel.source.path.templateId": {
-			"name": "camel.source.path.templateId",
-			"description": "The Route Template ID",
+		"camel.source.path.delegateUri": {
+			"name": "camel.source.path.delegateUri",
+			"description": "The delegated uri",
 			"priority": "HIGH",
 			"required": "true"
-		},
-		"camel.source.path.routeId": {
-			"name": "camel.source.path.routeId",
-			"description": "The Route ID. Default value notice: The ID will be auto-generated if not provided",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -45,34 +39,15 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.component.kamelet.location": {
-			"name": "camel.component.kamelet.location",
-			"description": "The location of the Kamelets on the file system.",
-			"defaultValue": "\"classpath:\/kamelets\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.kamelet.routeProperties": {
-			"name": "camel.component.kamelet.routeProperties",
-			"description": "Set route local parameters.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.kamelet.templateProperties": {
-			"name": "camel.component.kamelet.templateProperties",
-			"description": "Set template local parameters.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.kamelet.bridgeErrorHandler": {
-			"name": "camel.component.kamelet.bridgeErrorHandler",
+		"camel.component.kamelet-reify.bridgeErrorHandler": {
+			"name": "camel.component.kamelet-reify.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kamelet.autowiredEnabled": {
-			"name": "camel.component.kamelet.autowiredEnabled",
+		"camel.component.kamelet-reify.autowiredEnabled": {
+			"name": "camel.component.kamelet-reify.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",

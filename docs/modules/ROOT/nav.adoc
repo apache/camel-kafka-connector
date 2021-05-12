@@ -471,6 +471,9 @@
 ** camel-kamelet-kafka-connector
 *** xref:connectors/camel-kamelet-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-kamelet-kafka-sink-connector.adoc[Sink Docs]
+** camel-kamelet-reify-kafka-connector
+*** xref:connectors/camel-kamelet-reify-kafka-source-connector.adoc[Source Docs]
+*** xref:connectors/camel-kamelet-reify-kafka-sink-connector.adoc[Sink Docs]
 ** camel-kubernetes-config-maps-kafka-connector
 *** xref:connectors/camel-kubernetes-config-maps-kafka-sink-connector.adoc[Sink Docs]
 ** camel-kubernetes-custom-resources-kafka-connector

@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 338 
+Number of Camel Kafka connectors: 339 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -185,6 +185,7 @@ Number of Camel Kafka connectors: 338
 | *camel-jt400-kafka-connector* | true | true | xref:connectors/camel-jt400-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-jt400-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jt400-kafka-connector/0.9.0/camel-jt400-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-kafka-kafka-connector* | true | true | xref:connectors/camel-kafka-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kafka-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-kafka-kafka-connector/0.9.0/camel-kafka-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-kamelet-kafka-connector* | true | true | xref:connectors/camel-kamelet-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kamelet-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-kamelet-kafka-connector/0.9.0/camel-kamelet-kafka-connector-0.9.0-package.tar.gz[Download]
+| *camel-kamelet-reify-kafka-connector* | true | true | xref:connectors/camel-kamelet-reify-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kamelet-reify-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-kamelet-reify-kafka-connector/0.9.0/camel-kamelet-reify-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-kubernetes-config-maps-kafka-connector* | true | false | xref:connectors/camel-kubernetes-config-maps-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-kubernetes-config-maps-kafka-connector/0.9.0/camel-kubernetes-config-maps-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-kubernetes-custom-resources-kafka-connector* | true | true | xref:connectors/camel-kubernetes-custom-resources-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kubernetes-custom-resources-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-kubernetes-custom-resources-kafka-connector/0.9.0/camel-kubernetes-custom-resources-kafka-connector-0.9.0-package.tar.gz[Download]
 | *camel-kubernetes-deployments-kafka-connector* | true | true | xref:connectors/camel-kubernetes-deployments-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kubernetes-deployments-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-kubernetes-deployments-kafka-connector/0.9.0/camel-kubernetes-deployments-kafka-connector-0.9.0-package.tar.gz[Download]
