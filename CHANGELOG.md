@@ -831,6 +831,7 @@
 - Fixes AWS test cases when running with remote AWS services [\#308](https://github.com/apache/camel-kafka-connector/pull/308) ([orpiske](https://github.com/orpiske))
 - Avoid logging the autoconfiguration summary from CamelMain [\#307](https://github.com/apache/camel-kafka-connector/pull/307) ([oscerd](https://github.com/oscerd))
 - Upgrade Kafka to version 2.5.0 [\#306](https://github.com/apache/camel-kafka-connector/pull/306) ([oscerd](https://github.com/oscerd))
+- \[Backport camel-kafka-connector-0.3.x\] Fix Typo in CamelTypeConverterTransform [\#305](https://github.com/apache/camel-kafka-connector/pull/305) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix Typo in CamelTypeConverterTransform [\#304](https://github.com/apache/camel-kafka-connector/pull/304) ([oscerd](https://github.com/oscerd))
 - Added Aggregation timeout [\#301](https://github.com/apache/camel-kafka-connector/pull/301) ([oscerd](https://github.com/oscerd))
 - Fixes camel-dependencies to point to 3.4.0 [\#298](https://github.com/apache/camel-kafka-connector/pull/298) ([oscerd](https://github.com/oscerd))
