@@ -45,6 +45,13 @@
 				"InOptionalOut"
 			]
 		},
+		"camel.component.kamelet.location": {
+			"name": "camel.component.kamelet.location",
+			"description": "The location of the Kamelets on the file system.",
+			"defaultValue": "\"classpath:\/kamelets\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.kamelet.routeProperties": {
 			"name": "camel.component.kamelet.routeProperties",
 			"description": "Set route local parameters.",

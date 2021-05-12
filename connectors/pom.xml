@@ -371,6 +371,7 @@
         <module>camel-jt400-kafka-connector</module>
         <module>camel-kafka-kafka-connector</module>
         <module>camel-kamelet-kafka-connector</module>
+        <module>camel-kamelet-reify-kafka-connector</module>
         <module>camel-kubernetes-config-maps-kafka-connector</module>
         <module>camel-kubernetes-custom-resources-kafka-connector</module>
         <module>camel-kubernetes-deployments-kafka-connector</module>

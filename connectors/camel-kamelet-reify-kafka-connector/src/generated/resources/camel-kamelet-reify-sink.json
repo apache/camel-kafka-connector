@@ -1,0 +1,40 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kameletreify.CamelKameletreifySinkConnector",
+		"artifactId": "camel-kamelet-reify-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kamelet-reify-sink",
+		"type": "sink",
+		"version": "0.10.0-SNAPSHOT",
+		"description": "To call Kamelets (indirectly)"
+	},
+	"properties": {
+		"camel.sink.path.delegateUri": {
+			"name": "camel.sink.path.delegateUri",
+			"description": "The delegated uri",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.kamelet-reify.lazyStartProducer": {
+			"name": "camel.component.kamelet-reify.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.kamelet-reify.autowiredEnabled": {
+			"name": "camel.component.kamelet-reify.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
