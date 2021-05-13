@@ -16,6 +16,7 @@
 **Closed issues:**
 
 - Jackson conflicts causing Azure Storage Blob tests to fail [\#1147](https://github.com/apache/camel-kafka-connector/issues/1147)
+- Upgrade to Kafka 2.8.0 [\#1145](https://github.com/apache/camel-kafka-connector/issues/1145)
 - example of a sql source connector url pattern [\#1144](https://github.com/apache/camel-kafka-connector/issues/1144)
 - Align master to latest camel snapshot [\#1133](https://github.com/apache/camel-kafka-connector/issues/1133)
 - Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
@@ -29,6 +30,8 @@
 
 **Merged pull requests:**
 
+- Kafka 2.8.0 and Strimzi [\#1169](https://github.com/apache/camel-kafka-connector/pull/1169) ([oscerd](https://github.com/oscerd))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1168](https://github.com/apache/camel-kafka-connector/pull/1168) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1167](https://github.com/apache/camel-kafka-connector/pull/1167) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1165](https://github.com/apache/camel-kafka-connector/pull/1165) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1164](https://github.com/apache/camel-kafka-connector/pull/1164) ([github-actions[bot]](https://github.com/apps/github-actions))
@@ -831,7 +834,6 @@
 - Fixes AWS test cases when running with remote AWS services [\#308](https://github.com/apache/camel-kafka-connector/pull/308) ([orpiske](https://github.com/orpiske))
 - Avoid logging the autoconfiguration summary from CamelMain [\#307](https://github.com/apache/camel-kafka-connector/pull/307) ([oscerd](https://github.com/oscerd))
 - Upgrade Kafka to version 2.5.0 [\#306](https://github.com/apache/camel-kafka-connector/pull/306) ([oscerd](https://github.com/oscerd))
-- \[Backport camel-kafka-connector-0.3.x\] Fix Typo in CamelTypeConverterTransform [\#305](https://github.com/apache/camel-kafka-connector/pull/305) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix Typo in CamelTypeConverterTransform [\#304](https://github.com/apache/camel-kafka-connector/pull/304) ([oscerd](https://github.com/oscerd))
 - Added Aggregation timeout [\#301](https://github.com/apache/camel-kafka-connector/pull/301) ([oscerd](https://github.com/oscerd))
 - Fixes camel-dependencies to point to 3.4.0 [\#298](https://github.com/apache/camel-kafka-connector/pull/298) ([oscerd](https://github.com/oscerd))
