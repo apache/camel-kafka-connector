@@ -106,6 +106,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.useDefaultCredentialsProvider": {
+			"name": "camel.sink.endpoint.useDefaultCredentialsProvider",
+			"description": "Set whether the IAM client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
@@ -212,6 +219,13 @@
 		"camel.component.aws2-iam.uriEndpointOverride": {
 			"name": "camel.component.aws2-iam.uriEndpointOverride",
 			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-iam.useDefaultCredentialsProvider": {
+			"name": "camel.component.aws2-iam.useDefaultCredentialsProvider",
+			"description": "Set whether the IAM client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
