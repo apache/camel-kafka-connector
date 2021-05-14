@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.awscore.exception.AwsServiceException;
@@ -191,18 +192,31 @@ public final class KinesisUtils {
         } while (retries > 0);
     }
 
+    private static boolean hasShards(KinesisClient kinesisClient, DescribeStreamRequest describeStreamRequest) {
+        DescribeStreamResponse streamRes = kinesisClient.describeStream(describeStreamRequest);
+
+        return streamRes.streamDescription().shards().isEmpty();
+    }
+
+    private static List<Shard> getAllShards(KinesisClient kinesisClient, DescribeStreamRequest describeStreamRequest) {
+        List<Shard> shards = new ArrayList<>();
+        DescribeStreamResponse streamRes;
+        do {
+            streamRes = kinesisClient.describeStream(describeStreamRequest);
+
+            shards.addAll(streamRes.streamDescription().shards());
+        } while (streamRes.streamDescription().hasMoreShards());
+
+        return shards;
+    }
+
     public static GetRecordsRequest getGetRecordsRequest(KinesisClient kinesisClient, String streamName) {
         DescribeStreamRequest describeStreamRequest = DescribeStreamRequest.builder()
                 .streamName(streamName)
                 .build();
-        List<Shard> shards = new ArrayList<>();
 
-        DescribeStreamResponse streamRes;
-        do {
-            streamRes = kinesisClient.describeStream(describeStreamRequest);
-            shards.addAll(streamRes.streamDescription().shards());
-        } while (streamRes.streamDescription().hasMoreShards());
-
+        TestUtils.waitFor(() -> hasShards(kinesisClient, describeStreamRequest));
+        List<Shard> shards = getAllShards(kinesisClient, describeStreamRequest);
 
         GetShardIteratorRequest iteratorRequest = GetShardIteratorRequest.builder()
                 .streamName(streamName)
