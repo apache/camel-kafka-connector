@@ -15,6 +15,8 @@
 
 **Closed issues:**
 
+- Upgrade to Strimzi 0.23.0 [\#1173](https://github.com/apache/camel-kafka-connector/issues/1173)
+- AWS SNS seems to be broken with Camel 3.9 and above [\#1156](https://github.com/apache/camel-kafka-connector/issues/1156)
 - Jackson conflicts causing Azure Storage Blob tests to fail [\#1147](https://github.com/apache/camel-kafka-connector/issues/1147)
 - Upgrade to Kafka 2.8.0 [\#1145](https://github.com/apache/camel-kafka-connector/issues/1145)
 - example of a sql source connector url pattern [\#1144](https://github.com/apache/camel-kafka-connector/issues/1144)
@@ -30,6 +32,10 @@
 
 **Merged pull requests:**
 
+- Fix AWS2 Cloud Watch test issues due to LocalStack bug [\#1176](https://github.com/apache/camel-kafka-connector/pull/1176) ([orpiske](https://github.com/orpiske))
+- Fix AWS2 Kinesis Sink issues [\#1175](https://github.com/apache/camel-kafka-connector/pull/1175) ([orpiske](https://github.com/orpiske))
+- Upgrade to Strimzi 0.23.0 [\#1174](https://github.com/apache/camel-kafka-connector/pull/1174) ([oscerd](https://github.com/oscerd))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1172](https://github.com/apache/camel-kafka-connector/pull/1172) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Moving Changelog action to version 1.4 [\#1170](https://github.com/apache/camel-kafka-connector/pull/1170) ([oscerd](https://github.com/oscerd))
 - Kafka 2.8.0 and Strimzi [\#1169](https://github.com/apache/camel-kafka-connector/pull/1169) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1168](https://github.com/apache/camel-kafka-connector/pull/1168) ([github-actions[bot]](https://github.com/apps/github-actions))
