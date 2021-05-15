@@ -195,7 +195,7 @@ public final class KinesisUtils {
     private static boolean hasShards(KinesisClient kinesisClient, DescribeStreamRequest describeStreamRequest) {
         DescribeStreamResponse streamRes = kinesisClient.describeStream(describeStreamRequest);
 
-        return streamRes.streamDescription().shards().isEmpty();
+        return !streamRes.streamDescription().shards().isEmpty();
     }
 
     private static List<Shard> getAllShards(KinesisClient kinesisClient, DescribeStreamRequest describeStreamRequest) {
