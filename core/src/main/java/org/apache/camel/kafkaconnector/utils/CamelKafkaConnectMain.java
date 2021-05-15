@@ -228,16 +228,15 @@ public class CamelKafkaConnectMain extends SimpleMain {
             Properties camelProperties = new Properties();
             camelProperties.putAll(props);
 
-            //TODO: enable or delete these parameters once https://issues.apache.org/jira/browse/CAMEL-16551 is resolved
-//            //dataformats
-//            if (!ObjectHelper.isEmpty(marshallDataFormat)) {
-//                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLETE_PARAMETERS_PREFIX + "marshall", marshallDataFormat);
-//                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "marshall", marshallDataFormat);
-//            }
-//            if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
-//                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLETE_PARAMETERS_PREFIX + "unmarshall", unmarshallDataFormat);
-//                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "unmarshall", unmarshallDataFormat);
-//            }
+            //dataformats
+            if (!ObjectHelper.isEmpty(marshallDataFormat)) {
+                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "marshall", marshallDataFormat);
+                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "marshall", marshallDataFormat);
+            }
+            if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
+                camelProperties.put(CamelSourceTask.KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "unmarshall", unmarshallDataFormat);
+                camelProperties.put(CamelSinkTask.KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "unmarshall", unmarshallDataFormat);
+            }
 
             //aggregator
             if (!ObjectHelper.isEmpty(aggregationSize)) {
@@ -310,9 +309,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     RouteTemplateDefinition rtdSource = routeTemplate("ckcSource")
                             .templateParameter("fromUrl")
                             .templateParameter("errorHandler", "ckcErrorHandler")
-                            //TODO: enable or delete these parameters once https://issues.apache.org/jira/browse/CAMEL-16551 is resolved
-//                            .templateParameter("marshall", "dummyDataformat")
-//                            .templateParameter("unmarshall", "dummyDataformat")
+
+                            .templateParameter("marshall", "dummyDataformat")
+                            .templateParameter("unmarshall", "dummyDataformat")
 
                             //TODO: change CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NA to ckcAggregationStrategy?
                             .templateParameter("aggregationStrategy", CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME)
@@ -327,10 +326,10 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     ProcessorDefinition<?> rdInTemplateSource = rtdSource.from("{{fromUrl}}")
                             .errorHandler(new ErrorHandlerBuilderRef("{{errorHandler}}"));
                     if (!ObjectHelper.isEmpty(marshallDataFormat)) {
-                        rdInTemplateSource = rdInTemplateSource.marshal(marshallDataFormat);
+                        rdInTemplateSource = rdInTemplateSource.marshal("{{marshall}}");
                     }
                     if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
-                        rdInTemplateSource = rdInTemplateSource.unmarshal(unmarshallDataFormat);
+                        rdInTemplateSource = rdInTemplateSource.unmarshal("{{unmarshall}}");
                     }
 
                     if (getContext().getRegistry().lookupByName("aggregate") != null) {
