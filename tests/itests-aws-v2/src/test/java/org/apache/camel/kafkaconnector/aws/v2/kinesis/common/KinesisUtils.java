@@ -34,12 +34,14 @@ import software.amazon.awssdk.services.kinesis.model.DeleteStreamResponse;
 import software.amazon.awssdk.services.kinesis.model.DescribeStreamRequest;
 import software.amazon.awssdk.services.kinesis.model.DescribeStreamResponse;
 import software.amazon.awssdk.services.kinesis.model.GetRecordsRequest;
+import software.amazon.awssdk.services.kinesis.model.GetRecordsResponse;
 import software.amazon.awssdk.services.kinesis.model.GetShardIteratorRequest;
 import software.amazon.awssdk.services.kinesis.model.GetShardIteratorResponse;
 import software.amazon.awssdk.services.kinesis.model.KinesisException;
 import software.amazon.awssdk.services.kinesis.model.PutRecordsRequest;
 import software.amazon.awssdk.services.kinesis.model.PutRecordsRequestEntry;
 import software.amazon.awssdk.services.kinesis.model.PutRecordsResponse;
+import software.amazon.awssdk.services.kinesis.model.Record;
 import software.amazon.awssdk.services.kinesis.model.ResourceInUseException;
 import software.amazon.awssdk.services.kinesis.model.ResourceNotFoundException;
 import software.amazon.awssdk.services.kinesis.model.Shard;
@@ -76,13 +78,7 @@ public final class KinesisUtils {
     public static void createStream(KinesisClient kinesisClient, String streamName) {
         try {
             LOG.info("Checking whether the stream exists already");
-            DescribeStreamRequest request = DescribeStreamRequest.builder()
-                    .streamName(streamName)
-                    .build();
-
-            DescribeStreamResponse response = kinesisClient.describeStream(request);
-
-            int status = response.sdkHttpResponse().statusCode();
+            int status = getStreamStatus(kinesisClient, streamName);
             LOG.info("Kinesis stream check result: {}", status);
         } catch (KinesisException e) {
             if (LOG.isTraceEnabled()) {
@@ -92,7 +88,29 @@ public final class KinesisUtils {
             }
 
             doCreateStream(kinesisClient, streamName);
+            TestUtils.waitFor(() -> {
+                try {
+                    GetRecordsRequest getRecordsRequest = KinesisUtils.getGetRecordsRequest(kinesisClient, streamName);
+                    GetRecordsResponse response = kinesisClient.getRecords(getRecordsRequest);
+                    List<Record> recordList = response.records();
+                    LOG.debug("Checking for stream creation by reading {} records: SUCCESS!", recordList.size());
+                    return true;
+                } catch (Exception exc) {
+                    LOG.debug("Checking for stream creation by reading records: FAILURE, retrying..");
+                    return false;
+                }
+            });
         }
+    }
+
+    private static int getStreamStatus(KinesisClient kinesisClient, String streamName) {
+        DescribeStreamRequest request = DescribeStreamRequest.builder()
+                .streamName(streamName)
+                .build();
+
+        DescribeStreamResponse response = kinesisClient.describeStream(request);
+
+        return response.sdkHttpResponse().statusCode();
     }
 
     public static void doDeleteStream(KinesisClient kinesisClient, String streamName) {
