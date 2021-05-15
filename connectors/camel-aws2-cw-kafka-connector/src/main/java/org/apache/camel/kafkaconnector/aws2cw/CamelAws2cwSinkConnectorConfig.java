@@ -49,7 +49,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PROTOCOL_DOC = "To define a proxy protocol when instantiating the CW client One of: [HTTP] [HTTPS]";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_PROXY_PROTOCOL_DEFAULT = "HTTPS";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_REGION_CONF = "camel.sink.endpoint.region";
-    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_REGION_DOC = "The region in which EKS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SINK_AWS2CW_ENDPOINT_REGION_DOC = "The region in which CW client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_TIMESTAMP_CONF = "camel.sink.endpoint.timestamp";
     public static final String CAMEL_SINK_AWS2CW_ENDPOINT_TIMESTAMP_DOC = "The metric timestamp";
@@ -100,7 +100,7 @@ public class CamelAws2cwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PROTOCOL_DOC = "To define a proxy protocol when instantiating the CW client One of: [HTTP] [HTTPS]";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_PROXY_PROTOCOL_DEFAULT = "HTTPS";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_REGION_CONF = "camel.component.aws2-cw.region";
-    public static final String CAMEL_SINK_AWS2CW_COMPONENT_REGION_DOC = "The region in which EKS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SINK_AWS2CW_COMPONENT_REGION_DOC = "The region in which CW client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_TIMESTAMP_CONF = "camel.component.aws2-cw.timestamp";
     public static final String CAMEL_SINK_AWS2CW_COMPONENT_TIMESTAMP_DOC = "The metric timestamp";

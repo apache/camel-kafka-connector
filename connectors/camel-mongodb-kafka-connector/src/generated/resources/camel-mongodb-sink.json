@@ -40,6 +40,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.hosts": {
+			"name": "camel.sink.endpoint.hosts",
+			"description": "Host address of mongodb server in host:port format. It's possible also use more than one address, as comma separated list of hosts: host1:port1,host2:port2. If hosts parameter is specified, provided connectionBean is ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.mongoConnection": {
 			"name": "camel.sink.endpoint.mongoConnection",
 			"description": "Sets the connection bean used as a client for connecting to a database.",
@@ -140,6 +146,18 @@
 		"camel.sink.endpoint.streamFilter": {
 			"name": "camel.sink.endpoint.streamFilter",
 			"description": "Filter condition for change streams consumer.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "User password for mongodb connection",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "Username for mongodb connection",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

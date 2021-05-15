@@ -42,7 +42,7 @@ public class CamelAws2lambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
     public static final Boolean CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_CONF = "camel.sink.endpoint.region";
-    public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DOC = "The region in which Lambda client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
@@ -50,6 +50,9 @@ public class CamelAws2lambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF = "camel.sink.endpoint.uriEndpointOverride";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.sink.endpoint.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the Lambda client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2LAMBDA_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_CONF = "camel.sink.endpoint.awsLambdaClient";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DOC = "To use a existing configured AwsLambdaClient as client";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DEFAULT = null;
@@ -84,7 +87,7 @@ public class CamelAws2lambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
     public static final Boolean CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_CONF = "camel.component.aws2-lambda.region";
-    public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DOC = "The region in which Lambda client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-lambda.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
@@ -92,6 +95,9 @@ public class CamelAws2lambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF = "camel.component.aws2-lambda.uriEndpointOverride";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.component.aws2-lambda.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the Lambda client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2LAMBDA_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-lambda.autowiredEnabled";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_AWS2LAMBDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
@@ -134,6 +140,7 @@ public class CamelAws2lambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_PROXY_PORT_DOC);
@@ -148,6 +155,7 @@ public class CamelAws2lambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_PROXY_HOST_DOC);

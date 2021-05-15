@@ -39,7 +39,7 @@ The camel-aws2-cw sink connector supports 35 options, which are listed below.
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the CW client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the CW client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the CW client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
-| *camel.sink.endpoint.region* | The region in which EKS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
+| *camel.sink.endpoint.region* | The region in which CW client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.sink.endpoint.timestamp* | The metric timestamp | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.unit* | The metric unit | null | false | MEDIUM
@@ -56,7 +56,7 @@ The camel-aws2-cw sink connector supports 35 options, which are listed below.
 | *camel.component.aws2-cw.proxyHost* | To define a proxy host when instantiating the CW client | null | false | MEDIUM
 | *camel.component.aws2-cw.proxyPort* | To define a proxy port when instantiating the CW client | null | false | MEDIUM
 | *camel.component.aws2-cw.proxyProtocol* | To define a proxy protocol when instantiating the CW client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
-| *camel.component.aws2-cw.region* | The region in which EKS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
+| *camel.component.aws2-cw.region* | The region in which CW client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-cw.timestamp* | The metric timestamp | null | false | MEDIUM
 | *camel.component.aws2-cw.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.component.aws2-cw.unit* | The metric unit | null | false | MEDIUM
