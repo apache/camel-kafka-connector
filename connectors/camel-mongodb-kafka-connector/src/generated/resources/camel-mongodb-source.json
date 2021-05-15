@@ -40,6 +40,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.hosts": {
+			"name": "camel.source.endpoint.hosts",
+			"description": "Host address of mongodb server in host:port format. It's possible also use more than one address, as comma separated list of hosts: host1:port1,host2:port2. If hosts parameter is specified, provided connectionBean is ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.mongoConnection": {
 			"name": "camel.source.endpoint.mongoConnection",
 			"description": "Sets the connection bean used as a client for connecting to a database.",
@@ -163,6 +169,18 @@
 		"camel.source.endpoint.streamFilter": {
 			"name": "camel.source.endpoint.streamFilter",
 			"description": "Filter condition for change streams consumer.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "User password for mongodb connection",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "Username for mongodb connection",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

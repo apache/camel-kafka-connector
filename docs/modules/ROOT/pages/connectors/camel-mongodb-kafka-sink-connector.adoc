@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.mongodb.CamelMongodbSinkConnecto
 ----
 
 
-The camel-mongodb sink connector supports 24 options, which are listed below.
+The camel-mongodb sink connector supports 27 options, which are listed below.
 
 
 
@@ -36,6 +36,7 @@ The camel-mongodb sink connector supports 24 options, which are listed below.
 | *camel.sink.endpoint.collectionIndex* | Sets the collection index (JSON FORMAT : { field1 : order1, field2 : order2}) | null | false | MEDIUM
 | *camel.sink.endpoint.createCollection* | Create collection during initialisation if it doesn't exist. Default is true. | true | false | MEDIUM
 | *camel.sink.endpoint.database* | Sets the name of the MongoDB database to target | null | false | MEDIUM
+| *camel.sink.endpoint.hosts* | Host address of mongodb server in host:port format. It's possible also use more than one address, as comma separated list of hosts: host1:port1,host2:port2. If hosts parameter is specified, provided connectionBean is ignored. | null | false | MEDIUM
 | *camel.sink.endpoint.mongoConnection* | Sets the connection bean used as a client for connecting to a database. | null | false | MEDIUM
 | *camel.sink.endpoint.operation* | Sets the operation this endpoint will execute against MongoDB. One of: [findById] [findOneByQuery] [findAll] [findDistinct] [insert] [save] [update] [remove] [bulkWrite] [aggregate] [getDbStats] [getColStats] [count] [command] | null | false | MEDIUM
 | *camel.sink.endpoint.outputType* | Convert the output of the producer to the selected type : DocumentList Document or MongoIterable. DocumentList or MongoIterable applies to findAll and aggregate. Document applies to all other operations. One of: [DocumentList] [Document] [MongoIterable] | null | false | MEDIUM
@@ -46,6 +47,8 @@ The camel-mongodb sink connector supports 24 options, which are listed below.
 | *camel.sink.endpoint.writeConcern* | Configure the connection bean with the level of acknowledgment requested from MongoDB for write operations to a standalone mongod, replicaset or cluster. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED or MAJORITY. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY] | "ACKNOWLEDGED" | false | MEDIUM
 | *camel.sink.endpoint.writeResultAsHeader* | In write operations, it determines whether instead of returning WriteResult as the body of the OUT message, we transfer the IN message to the OUT and attach the WriteResult as a header. | false | false | MEDIUM
 | *camel.sink.endpoint.streamFilter* | Filter condition for change streams consumer. | null | false | MEDIUM
+| *camel.sink.endpoint.password* | User password for mongodb connection | null | false | MEDIUM
+| *camel.sink.endpoint.username* | Username for mongodb connection | null | false | MEDIUM
 | *camel.sink.endpoint.persistentId* | One tail tracking collection can host many trackers for several tailable consumers. To keep them separate, each tracker should have its own unique persistentId. | null | false | MEDIUM
 | *camel.sink.endpoint.persistentTailTracking* | Enable persistent tail tracking, which is a mechanism to keep track of the last consumed message across system restarts. The next time the system is up, the endpoint will recover the cursor from the point where it last stopped slurping records. | false | false | MEDIUM
 | *camel.sink.endpoint.tailTrackCollection* | Collection where tail tracking information will be persisted. If not specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used by default. | null | false | MEDIUM
