@@ -69,6 +69,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.time": {
+			"name": "camel.sink.endpoint.time",
+			"description": "Time this even occurred. By default, the time will be when this event hits the splunk server.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.https": {
 			"name": "camel.sink.endpoint.https",
 			"description": "Contact HEC over https.",
