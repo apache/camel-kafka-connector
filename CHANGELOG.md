@@ -32,6 +32,8 @@
 
 **Merged pull requests:**
 
+- Fixed Kinesis shards failing tests. [\#1178](https://github.com/apache/camel-kafka-connector/pull/1178) ([valdar](https://github.com/valdar))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1177](https://github.com/apache/camel-kafka-connector/pull/1177) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix AWS2 Cloud Watch test issues due to LocalStack bug [\#1176](https://github.com/apache/camel-kafka-connector/pull/1176) ([orpiske](https://github.com/orpiske))
 - Fix AWS2 Kinesis Sink issues [\#1175](https://github.com/apache/camel-kafka-connector/pull/1175) ([orpiske](https://github.com/orpiske))
 - Upgrade to Strimzi 0.23.0 [\#1174](https://github.com/apache/camel-kafka-connector/pull/1174) ([oscerd](https://github.com/oscerd))
