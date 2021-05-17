@@ -20,6 +20,7 @@
 - Jackson conflicts causing Azure Storage Blob tests to fail [\#1147](https://github.com/apache/camel-kafka-connector/issues/1147)
 - Upgrade to Kafka 2.8.0 [\#1145](https://github.com/apache/camel-kafka-connector/issues/1145)
 - example of a sql source connector url pattern [\#1144](https://github.com/apache/camel-kafka-connector/issues/1144)
+- Upstream CI failures [\#1143](https://github.com/apache/camel-kafka-connector/issues/1143)
 - Align master to latest camel snapshot [\#1133](https://github.com/apache/camel-kafka-connector/issues/1133)
 - Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
 - Release 0.9.0 [\#1127](https://github.com/apache/camel-kafka-connector/issues/1127)
@@ -32,6 +33,8 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1180](https://github.com/apache/camel-kafka-connector/pull/1180) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Made Kinesis tests hopefully more robust. [\#1179](https://github.com/apache/camel-kafka-connector/pull/1179) ([valdar](https://github.com/valdar))
 - Fixed Kinesis shards failing tests. [\#1178](https://github.com/apache/camel-kafka-connector/pull/1178) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1177](https://github.com/apache/camel-kafka-connector/pull/1177) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix AWS2 Cloud Watch test issues due to LocalStack bug [\#1176](https://github.com/apache/camel-kafka-connector/pull/1176) ([orpiske](https://github.com/orpiske))
