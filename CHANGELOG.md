@@ -16,6 +16,7 @@
 **Closed issues:**
 
 - Upgrade to Strimzi 0.23.0 [\#1173](https://github.com/apache/camel-kafka-connector/issues/1173)
+- Camel Rest Kafka Connector - Issue with Kubernetes Rest connector. [\#1171](https://github.com/apache/camel-kafka-connector/issues/1171)
 - AWS SNS seems to be broken with Camel 3.9 and above [\#1156](https://github.com/apache/camel-kafka-connector/issues/1156)
 - Jackson conflicts causing Azure Storage Blob tests to fail [\#1147](https://github.com/apache/camel-kafka-connector/issues/1147)
 - Upgrade to Kafka 2.8.0 [\#1145](https://github.com/apache/camel-kafka-connector/issues/1145)
