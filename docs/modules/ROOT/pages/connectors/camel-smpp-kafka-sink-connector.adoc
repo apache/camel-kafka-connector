@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.smpp.CamelSmppSinkConnector
 ----
 
 
-The camel-smpp sink connector supports 72 options, which are listed below.
+The camel-smpp sink connector supports 76 options, which are listed below.
 
 
 
@@ -54,6 +54,8 @@ The camel-smpp sink connector supports 72 options, which are listed below.
 | *camel.sink.endpoint.sourceAddrTon* | Defines the type of number (TON) to be used in the SME originator address parameters. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6] | null | false | MEDIUM
 | *camel.sink.endpoint.typeOfNumber* | Defines the type of number (TON) to be used in the SME. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6] | null | false | MEDIUM
 | *camel.sink.endpoint.enquireLinkTimer* | Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC. | "60000" | false | MEDIUM
+| *camel.sink.endpoint.pduProcessorDegree* | Sets the number of threads which can read PDU and process them in parallel. | "3" | false | MEDIUM
+| *camel.sink.endpoint.pduProcessorQueueCapacity* | Sets the capacity of the working queue for PDU processing. | "100" | false | MEDIUM
 | *camel.sink.endpoint.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM
 | *camel.sink.endpoint.transactionTimer* | Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME). | "10000" | false | MEDIUM
 | *camel.sink.endpoint.alphabet* | Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8] | null | false | MEDIUM
@@ -90,6 +92,8 @@ The camel-smpp sink connector supports 72 options, which are listed below.
 | *camel.component.smpp.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.smpp.configuration* | To use the shared SmppConfiguration as configuration. | null | false | MEDIUM
 | *camel.component.smpp.enquireLinkTimer* | Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC. | "60000" | false | MEDIUM
+| *camel.component.smpp.pduProcessorDegree* | Sets the number of threads which can read PDU and process them in parallel. | "3" | false | MEDIUM
+| *camel.component.smpp.pduProcessorQueueCapacity* | Sets the capacity of the working queue for PDU processing. | "100" | false | MEDIUM
 | *camel.component.smpp.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM
 | *camel.component.smpp.transactionTimer* | Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME). | "10000" | false | MEDIUM
 | *camel.component.smpp.alphabet* | Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8] | null | false | MEDIUM

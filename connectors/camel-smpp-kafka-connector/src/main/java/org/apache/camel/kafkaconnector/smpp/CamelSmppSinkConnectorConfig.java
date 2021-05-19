@@ -93,6 +93,12 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_CONF = "camel.sink.endpoint.enquireLinkTimer";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DOC = "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DEFAULT = "60000";
+    public static final String CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_CONF = "camel.sink.endpoint.pduProcessorDegree";
+    public static final String CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_DOC = "Sets the number of threads which can read PDU and process them in parallel.";
+    public static final String CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_DEFAULT = "3";
+    public static final String CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_CONF = "camel.sink.endpoint.pduProcessorQueueCapacity";
+    public static final String CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_DOC = "Sets the capacity of the working queue for PDU processing.";
+    public static final String CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_DEFAULT = "100";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF = "camel.sink.endpoint.sessionStateListener";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC = "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT = null;
@@ -201,6 +207,12 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_CONF = "camel.component.smpp.enquireLinkTimer";
     public static final String CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DOC = "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.";
     public static final String CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DEFAULT = "60000";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_CONF = "camel.component.smpp.pduProcessorDegree";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_DOC = "Sets the number of threads which can read PDU and process them in parallel.";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_DEFAULT = "3";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_CONF = "camel.component.smpp.pduProcessorQueueCapacity";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_DOC = "Sets the capacity of the working queue for PDU processing.";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_DEFAULT = "100";
     public static final String CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_CONF = "camel.component.smpp.sessionStateListener";
     public static final String CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DOC = "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.";
     public static final String CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DEFAULT = null;
@@ -276,6 +288,8 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_TON_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_TON_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_TON_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DOC);
+        conf.define(CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_DOC);
+        conf.define(CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_TRANSACTION_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_TRANSACTION_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_TRANSACTION_TIMER_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_ALPHABET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_ALPHABET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_ALPHABET_DOC);
@@ -312,6 +326,8 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DOC);
+        conf.define(CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_DOC);
+        conf.define(CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_TRANSACTION_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_TRANSACTION_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_TRANSACTION_TIMER_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_ALPHABET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_ALPHABET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_ALPHABET_DOC);
