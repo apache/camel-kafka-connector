@@ -34,6 +34,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1182](https://github.com/apache/camel-kafka-connector/pull/1182) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1180](https://github.com/apache/camel-kafka-connector/pull/1180) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Made Kinesis tests hopefully more robust. [\#1179](https://github.com/apache/camel-kafka-connector/pull/1179) ([valdar](https://github.com/valdar))
 - Fixed Kinesis shards failing tests. [\#1178](https://github.com/apache/camel-kafka-connector/pull/1178) ([valdar](https://github.com/valdar))
