@@ -15,6 +15,7 @@
 
 **Closed issues:**
 
+- Salesforce Sink Connector does not honour `offset.flush.interval.ms` [\#1181](https://github.com/apache/camel-kafka-connector/issues/1181)
 - Upgrade to Strimzi 0.23.0 [\#1173](https://github.com/apache/camel-kafka-connector/issues/1173)
 - Camel Rest Kafka Connector - Issue with Kubernetes Rest connector. [\#1171](https://github.com/apache/camel-kafka-connector/issues/1171)
 - AWS SNS seems to be broken with Camel 3.9 and above [\#1156](https://github.com/apache/camel-kafka-connector/issues/1156)
