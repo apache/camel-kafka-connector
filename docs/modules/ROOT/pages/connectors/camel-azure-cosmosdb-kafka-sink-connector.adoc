@@ -2,7 +2,7 @@
 [[camel-azure-cosmosdb-kafka-connector-sink]]
 = camel-azure-cosmosdb-kafka-connector sink configuration
 
-Connector Description: To read and write records to the CosmosDB database on Azure cloud platform.
+Connector Description: Azure Cosmos DB is Microsofts globally distributed, multi-model database service for operational and analytics workloads. It offers multi-mastering feature by automatically scaling throughput, compute, and storage. This component interacts with Azure CosmosDB through Azure SQL API
 
 When using camel-azure-cosmosdb-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

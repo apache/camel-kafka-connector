@@ -99,20 +99,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.pduProcessorDegree": {
-			"name": "camel.source.endpoint.pduProcessorDegree",
-			"description": "Sets the number of threads which can read PDU and process them in parallel.",
-			"defaultValue": "\"3\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.pduProcessorQueueCapacity": {
-			"name": "camel.source.endpoint.pduProcessorQueueCapacity",
-			"description": "Sets the capacity of the working queue for PDU processing.",
-			"defaultValue": "\"100\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.sessionStateListener": {
 			"name": "camel.source.endpoint.sessionStateListener",
 			"description": "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.",
@@ -270,20 +256,6 @@
 			"name": "camel.component.smpp.enquireLinkTimer",
 			"description": "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.",
 			"defaultValue": "\"60000\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.smpp.pduProcessorDegree": {
-			"name": "camel.component.smpp.pduProcessorDegree",
-			"description": "Sets the number of threads which can read PDU and process them in parallel.",
-			"defaultValue": "\"3\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.smpp.pduProcessorQueueCapacity": {
-			"name": "camel.component.smpp.pduProcessorQueueCapacity",
-			"description": "Sets the capacity of the working queue for PDU processing.",
-			"defaultValue": "\"100\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

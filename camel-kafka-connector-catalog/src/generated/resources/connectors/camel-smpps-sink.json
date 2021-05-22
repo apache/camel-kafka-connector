@@ -249,20 +249,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.pduProcessorDegree": {
-			"name": "camel.sink.endpoint.pduProcessorDegree",
-			"description": "Sets the number of threads which can read PDU and process them in parallel.",
-			"defaultValue": "\"3\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.pduProcessorQueueCapacity": {
-			"name": "camel.sink.endpoint.pduProcessorQueueCapacity",
-			"description": "Sets the capacity of the working queue for PDU processing.",
-			"defaultValue": "\"100\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.sessionStateListener": {
 			"name": "camel.sink.endpoint.sessionStateListener",
 			"description": "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.",
@@ -587,20 +573,6 @@
 			"name": "camel.component.smpps.enquireLinkTimer",
 			"description": "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.",
 			"defaultValue": "\"60000\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.smpps.pduProcessorDegree": {
-			"name": "camel.component.smpps.pduProcessorDegree",
-			"description": "Sets the number of threads which can read PDU and process them in parallel.",
-			"defaultValue": "\"3\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.smpps.pduProcessorQueueCapacity": {
-			"name": "camel.component.smpps.pduProcessorQueueCapacity",
-			"description": "Sets the capacity of the working queue for PDU processing.",
-			"defaultValue": "\"100\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

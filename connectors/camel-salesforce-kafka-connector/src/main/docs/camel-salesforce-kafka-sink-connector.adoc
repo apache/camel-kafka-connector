@@ -24,14 +24,14 @@ connector.class=org.apache.camel.kafkaconnector.salesforce.CamelSalesforceSinkCo
 ----
 
 
-The camel-salesforce sink connector supports 134 options, which are listed below.
+The camel-salesforce sink connector supports 126 options, which are listed below.
 
 
 
 [width="100%",cols="2,5,^1,1,1",options="header"]
 |===
 | Name | Description | Default | Required | Priority
-| *camel.sink.path.operationName* | The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [compositeRetrieveSObjectCollections] [compositeCreateSObjectCollections] [compositeUpdateSObjectCollections] [compositeUpsertSObjectCollections] [compositeDeleteSObjectCollections] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob] [raw] | null | false | MEDIUM
+| *camel.sink.path.operationName* | The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [compositeRetrieveSObjectCollections] [compositeCreateSObjectCollections] [compositeUpdateSObjectCollections] [compositeUpsertSObjectCollections] [compositeDeleteSObjectCollections] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob] | null | false | MEDIUM
 | *camel.sink.endpoint.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.sink.endpoint.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
 | *camel.sink.endpoint.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
@@ -78,10 +78,6 @@ The camel-salesforce sink connector supports 134 options, which are listed below
 | *camel.sink.endpoint.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.sink.endpoint.compositeMethod* | Composite (raw) method. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.rawHttpHeaders* | Comma separated list of message headers to include as HTTP parameters for Raw operation. | null | false | MEDIUM
-| *camel.sink.endpoint.rawMethod* | HTTP method to use for the Raw operation | null | false | MEDIUM
-| *camel.sink.endpoint.rawPath* | The portion of the endpoint URL after the domain name. E.g., '/services/data/v52.0/sobjects/Account/' | null | false | MEDIUM
-| *camel.sink.endpoint.rawQueryParameters* | Comma separated list of message headers to include as query parameters for Raw operation. Do not url-encode values as this will be done automatically. | null | false | MEDIUM
 | *camel.component.salesforce.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.component.salesforce.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
 | *camel.component.salesforce.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
@@ -136,10 +132,6 @@ The camel-salesforce sink connector supports 134 options, which are listed below
 | *camel.component.salesforce.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.component.salesforce.compositeMethod* | Composite (raw) method. | null | false | MEDIUM
 | *camel.component.salesforce.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.salesforce.rawHttpHeaders* | Comma separated list of message headers to include as HTTP parameters for Raw operation. | null | false | MEDIUM
-| *camel.component.salesforce.rawMethod* | HTTP method to use for the Raw operation | null | false | MEDIUM
-| *camel.component.salesforce.rawPath* | The portion of the endpoint URL after the domain name. E.g., '/services/data/v52.0/sobjects/Account/' | null | false | MEDIUM
-| *camel.component.salesforce.rawQueryParameters* | Comma separated list of message headers to include as query parameters for Raw operation. Do not url-encode values as this will be done automatically. | null | false | MEDIUM
 | *camel.component.salesforce.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.salesforce.httpProxyExcluded Addresses* | A list of addresses for which HTTP proxy server should not be used. | null | false | MEDIUM
 | *camel.component.salesforce.httpProxyHost* | Hostname of the HTTP proxy server to use. | null | false | MEDIUM
