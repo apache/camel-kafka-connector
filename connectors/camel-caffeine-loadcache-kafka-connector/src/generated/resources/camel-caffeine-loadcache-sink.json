@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-caffeine-loadcache-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.10.0",
 		"description": "Perform caching operations using Caffeine Cache with an attached CacheLoader."
 	},
 	"properties": {

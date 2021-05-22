@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-openstack-cinder-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.10.0",
 		"description": "Access data in OpenStack Cinder block storage."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-quickfix-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.10.0",
 		"description": "Open a Financial Interchange (FIX) session using an embedded QuickFix\/J engine."
 	},
 	"properties": {

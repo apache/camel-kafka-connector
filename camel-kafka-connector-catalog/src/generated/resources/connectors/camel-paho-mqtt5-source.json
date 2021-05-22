@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-paho-mqtt5-source",
 		"type": "source",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.10.0",
 		"description": "Communicate with MQTT message brokers using Eclipse Paho MQTT v5 Client."
 	},
 	"properties": {

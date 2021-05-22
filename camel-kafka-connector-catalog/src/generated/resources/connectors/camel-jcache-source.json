@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jcache-source",
 		"type": "source",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.10.0",
 		"description": "Perform caching operations against JSR107\/JCache."
 	},
 	"properties": {

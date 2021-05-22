@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-language-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.10.0",
 		"description": "Execute scripts in any of the languages supported by Camel."
 	},
 	"properties": {
