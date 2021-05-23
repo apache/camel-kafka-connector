@@ -2,37 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.9.0...HEAD)
-
-**Implemented enhancements:**
-
-- Verify that sha512 files are correctly published during next release [\#162](https://github.com/apache/camel-kafka-connector/issues/162)
-
-**Fixed bugs:**
-
-- HTTPS-sink-connector duplicates protocol  [\#1077](https://github.com/apache/camel-kafka-connector/issues/1077)
-- MongoDB tests failing with Camel master [\#974](https://github.com/apache/camel-kafka-connector/issues/974)
-
-**Closed issues:**
-
-- Salesforce Sink Connector does not honour `offset.flush.interval.ms` [\#1181](https://github.com/apache/camel-kafka-connector/issues/1181)
-- Upgrade to Strimzi 0.23.0 [\#1173](https://github.com/apache/camel-kafka-connector/issues/1173)
-- Camel Rest Kafka Connector - Issue with Kubernetes Rest connector. [\#1171](https://github.com/apache/camel-kafka-connector/issues/1171)
-- Upgrade to Strimzi 0.23.0 RC [\#1166](https://github.com/apache/camel-kafka-connector/issues/1166)
-- AWS SNS seems to be broken with Camel 3.9 and above [\#1156](https://github.com/apache/camel-kafka-connector/issues/1156)
-- Jackson conflicts causing Azure Storage Blob tests to fail [\#1147](https://github.com/apache/camel-kafka-connector/issues/1147)
-- Upgrade to Kafka 2.8.0 [\#1145](https://github.com/apache/camel-kafka-connector/issues/1145)
-- example of a sql source connector url pattern [\#1144](https://github.com/apache/camel-kafka-connector/issues/1144)
-- Upstream CI failures [\#1143](https://github.com/apache/camel-kafka-connector/issues/1143)
-- Align master to latest camel snapshot [\#1133](https://github.com/apache/camel-kafka-connector/issues/1133)
-- Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
-- Release 0.9.0 [\#1127](https://github.com/apache/camel-kafka-connector/issues/1127)
-- NetworkUtils should be able to hold a free port for later usage [\#1109](https://github.com/apache/camel-kafka-connector/issues/1109)
-- Google pub/sub: endpoint option cannot be set [\#1086](https://github.com/apache/camel-kafka-connector/issues/1086)
-- Missing message key on outbound using Camel Kafka KafkaConnector [\#988](https://github.com/apache/camel-kafka-connector/issues/988)
-- Question: S3 source connector pulls duplicate data when task.max \> 1 [\#959](https://github.com/apache/camel-kafka-connector/issues/959)
-- add itests for camel-cxf-kafka-connector [\#873](https://github.com/apache/camel-kafka-connector/issues/873)
-- SJMS2 connector fails with qpid JmsConnectionFactory [\#751](https://github.com/apache/camel-kafka-connector/issues/751)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.0...HEAD)
 
 **Merged pull requests:**
 
@@ -309,6 +279,40 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.10.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.10.0) (2021-05-22)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.9.0...camel-kafka-connector-0.10.0)
+
+**Implemented enhancements:**
+
+- Verify that sha512 files are correctly published during next release [\#162](https://github.com/apache/camel-kafka-connector/issues/162)
+
+**Fixed bugs:**
+
+- HTTPS-sink-connector duplicates protocol  [\#1077](https://github.com/apache/camel-kafka-connector/issues/1077)
+- MongoDB tests failing with Camel master [\#974](https://github.com/apache/camel-kafka-connector/issues/974)
+
+**Closed issues:**
+
+- Salesforce Sink Connector does not honour `offset.flush.interval.ms` [\#1181](https://github.com/apache/camel-kafka-connector/issues/1181)
+- Upgrade to Strimzi 0.23.0 [\#1173](https://github.com/apache/camel-kafka-connector/issues/1173)
+- Camel Rest Kafka Connector - Issue with Kubernetes Rest connector. [\#1171](https://github.com/apache/camel-kafka-connector/issues/1171)
+- Upgrade to Strimzi 0.23.0 RC [\#1166](https://github.com/apache/camel-kafka-connector/issues/1166)
+- AWS SNS seems to be broken with Camel 3.9 and above [\#1156](https://github.com/apache/camel-kafka-connector/issues/1156)
+- Jackson conflicts causing Azure Storage Blob tests to fail [\#1147](https://github.com/apache/camel-kafka-connector/issues/1147)
+- Upgrade to Kafka 2.8.0 [\#1145](https://github.com/apache/camel-kafka-connector/issues/1145)
+- example of a sql source connector url pattern [\#1144](https://github.com/apache/camel-kafka-connector/issues/1144)
+- Upstream CI failures [\#1143](https://github.com/apache/camel-kafka-connector/issues/1143)
+- Align master to latest camel snapshot [\#1133](https://github.com/apache/camel-kafka-connector/issues/1133)
+- Connector Kafka Idempotency Crash Resilience [\#1128](https://github.com/apache/camel-kafka-connector/issues/1128)
+- Release 0.9.0 [\#1127](https://github.com/apache/camel-kafka-connector/issues/1127)
+- NetworkUtils should be able to hold a free port for later usage [\#1109](https://github.com/apache/camel-kafka-connector/issues/1109)
+- Google pub/sub: endpoint option cannot be set [\#1086](https://github.com/apache/camel-kafka-connector/issues/1086)
+- Missing message key on outbound using Camel Kafka KafkaConnector [\#988](https://github.com/apache/camel-kafka-connector/issues/988)
+- Question: S3 source connector pulls duplicate data when task.max \> 1 [\#959](https://github.com/apache/camel-kafka-connector/issues/959)
+- add itests for camel-cxf-kafka-connector [\#873](https://github.com/apache/camel-kafka-connector/issues/873)
+- SJMS2 connector fails with qpid JmsConnectionFactory [\#751](https://github.com/apache/camel-kafka-connector/issues/751)
 
 ## [camel-kafka-connector-0.9.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.9.0) (2021-03-30)
 
