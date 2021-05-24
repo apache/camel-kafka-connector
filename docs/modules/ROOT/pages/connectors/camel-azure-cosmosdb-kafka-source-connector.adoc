@@ -2,7 +2,7 @@
 [[camel-azure-cosmosdb-kafka-connector-source]]
 = camel-azure-cosmosdb-kafka-connector source configuration
 
-Connector description: Azure Cosmos DB is Microsofts globally distributed, multi-model database service for operational and analytics workloads. It offers multi-mastering feature by automatically scaling throughput, compute, and storage. This component interacts with Azure CosmosDB through Azure SQL API
+Connector description: To read and write records to the CosmosDB database on Azure cloud platform.
 
 When using camel-azure-cosmosdb-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

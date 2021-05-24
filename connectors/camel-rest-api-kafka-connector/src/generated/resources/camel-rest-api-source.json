@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-rest-api-source",
 		"type": "source",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.11.0-SNAPSHOT",
 		"description": "Expose OpenAPI Specification of the REST services defined using Camel REST DSL."
 	},
 	"properties": {

@@ -5,13 +5,13 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.11.0-SNAPSHOT",
 		"description": "Communicate with Salesforce using Java DTOs."
 	},
 	"properties": {
 		"camel.sink.path.operationName": {
 			"name": "camel.sink.path.operationName",
-			"description": "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [compositeRetrieveSObjectCollections] [compositeCreateSObjectCollections] [compositeUpdateSObjectCollections] [compositeUpsertSObjectCollections] [compositeDeleteSObjectCollections] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob]",
+			"description": "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [compositeRetrieveSObjectCollections] [compositeCreateSObjectCollections] [compositeUpdateSObjectCollections] [compositeUpsertSObjectCollections] [compositeDeleteSObjectCollections] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob] [raw]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -78,7 +78,8 @@
 				"bulk2GetAllQueryJobs",
 				"bulk2GetQueryJobResults",
 				"bulk2AbortQueryJob",
-				"bulk2DeleteQueryJob"
+				"bulk2DeleteQueryJob",
+				"raw"
 			]
 		},
 		"camel.sink.endpoint.apexMethod": {
@@ -391,6 +392,30 @@
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.rawHttpHeaders": {
+			"name": "camel.sink.endpoint.rawHttpHeaders",
+			"description": "Comma separated list of message headers to include as HTTP parameters for Raw operation.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.rawMethod": {
+			"name": "camel.sink.endpoint.rawMethod",
+			"description": "HTTP method to use for the Raw operation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.rawPath": {
+			"name": "camel.sink.endpoint.rawPath",
+			"description": "The portion of the endpoint URL after the domain name. E.g., '\/services\/data\/v52.0\/sobjects\/Account\/'",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.rawQueryParameters": {
+			"name": "camel.sink.endpoint.rawQueryParameters",
+			"description": "Comma separated list of message headers to include as query parameters for Raw operation. Do not url-encode values as this will be done automatically.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -755,6 +780,30 @@
 			"name": "camel.component.salesforce.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.rawHttpHeaders": {
+			"name": "camel.component.salesforce.rawHttpHeaders",
+			"description": "Comma separated list of message headers to include as HTTP parameters for Raw operation.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.rawMethod": {
+			"name": "camel.component.salesforce.rawMethod",
+			"description": "HTTP method to use for the Raw operation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.rawPath": {
+			"name": "camel.component.salesforce.rawPath",
+			"description": "The portion of the endpoint URL after the domain name. E.g., '\/services\/data\/v52.0\/sobjects\/Account\/'",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.rawQueryParameters": {
+			"name": "camel.component.salesforce.rawQueryParameters",
+			"description": "Comma separated list of message headers to include as query parameters for Raw operation. Do not url-encode values as this will be done automatically.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -42,7 +42,7 @@ public class CamelKameletSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAMELET_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_KAMELET_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAMELET_COMPONENT_LOCATION_CONF = "camel.component.kamelet.location";
-    public static final String CAMEL_SOURCE_KAMELET_COMPONENT_LOCATION_DOC = "The location of the Kamelets on the file system.";
+    public static final String CAMEL_SOURCE_KAMELET_COMPONENT_LOCATION_DOC = "The location(s) of the Kamelets on the file system. Multiple locations can be set separated by comma.";
     public static final String CAMEL_SOURCE_KAMELET_COMPONENT_LOCATION_DEFAULT = "classpath:/kamelets";
     public static final String CAMEL_SOURCE_KAMELET_COMPONENT_ROUTE_PROPERTIES_CONF = "camel.component.kamelet.routeProperties";
     public static final String CAMEL_SOURCE_KAMELET_COMPONENT_ROUTE_PROPERTIES_DOC = "Set route local parameters.";
