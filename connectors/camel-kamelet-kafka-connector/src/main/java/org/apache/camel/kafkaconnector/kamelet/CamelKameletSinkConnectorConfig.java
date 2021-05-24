@@ -43,7 +43,7 @@ public class CamelKameletSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAMELET_ENDPOINT_TIMEOUT_DOC = "The timeout value to use if block is enabled.";
     public static final Long CAMEL_SINK_KAMELET_ENDPOINT_TIMEOUT_DEFAULT = 30000L;
     public static final String CAMEL_SINK_KAMELET_COMPONENT_LOCATION_CONF = "camel.component.kamelet.location";
-    public static final String CAMEL_SINK_KAMELET_COMPONENT_LOCATION_DOC = "The location of the Kamelets on the file system.";
+    public static final String CAMEL_SINK_KAMELET_COMPONENT_LOCATION_DOC = "The location(s) of the Kamelets on the file system. Multiple locations can be set separated by comma.";
     public static final String CAMEL_SINK_KAMELET_COMPONENT_LOCATION_DEFAULT = "classpath:/kamelets";
     public static final String CAMEL_SINK_KAMELET_COMPONENT_ROUTE_PROPERTIES_CONF = "camel.component.kamelet.routeProperties";
     public static final String CAMEL_SINK_KAMELET_COMPONENT_ROUTE_PROPERTIES_DOC = "Set route local parameters.";

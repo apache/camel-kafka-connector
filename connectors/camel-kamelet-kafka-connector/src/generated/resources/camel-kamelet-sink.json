@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kamelet-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.11.0-SNAPSHOT",
 		"description": "To call Kamelets"
 	},
 	"properties": {
@@ -51,7 +51,7 @@
 		},
 		"camel.component.kamelet.location": {
 			"name": "camel.component.kamelet.location",
-			"description": "The location of the Kamelets on the file system.",
+			"description": "The location(s) of the Kamelets on the file system. Multiple locations can be set separated by comma.",
 			"defaultValue": "\"classpath:\/kamelets\"",
 			"priority": "MEDIUM",
 			"required": "false"

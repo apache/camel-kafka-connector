@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-smpp-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.11.0-SNAPSHOT",
 		"description": "Send and receive SMS messages using a SMSC (Short Message Service Center)."
 	},
 	"properties": {
@@ -246,6 +246,20 @@
 			"name": "camel.sink.endpoint.enquireLinkTimer",
 			"description": "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.",
 			"defaultValue": "\"60000\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.pduProcessorDegree": {
+			"name": "camel.sink.endpoint.pduProcessorDegree",
+			"description": "Sets the number of threads which can read PDU and process them in parallel.",
+			"defaultValue": "\"3\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.pduProcessorQueueCapacity": {
+			"name": "camel.sink.endpoint.pduProcessorQueueCapacity",
+			"description": "Sets the capacity of the working queue for PDU processing.",
+			"defaultValue": "\"100\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -573,6 +587,20 @@
 			"name": "camel.component.smpp.enquireLinkTimer",
 			"description": "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.",
 			"defaultValue": "\"60000\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.smpp.pduProcessorDegree": {
+			"name": "camel.component.smpp.pduProcessorDegree",
+			"description": "Sets the number of threads which can read PDU and process them in parallel.",
+			"defaultValue": "\"3\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.smpp.pduProcessorQueueCapacity": {
+			"name": "camel.component.smpp.pduProcessorQueueCapacity",
+			"description": "Sets the capacity of the working queue for PDU processing.",
+			"defaultValue": "\"100\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
