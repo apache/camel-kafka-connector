@@ -66,7 +66,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -DskipIntegrationTests=false -Denable.slow.tests=true -Dmaven.test.failure.ignore=true clean install"
+                sh "./mvnw $MAVEN_PARAMS -DskipIntegrationTests=false -Denable.slow.tests=true -Dmaven.test.failure.ignore=true clean verify"
             }
             post {
                 always {
