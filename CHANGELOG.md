@@ -4,8 +4,14 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.0...HEAD)
 
+**Closed issues:**
+
+- Release 0.10.0 [\#1184](https://github.com/apache/camel-kafka-connector/issues/1184)
+- Bump to Camel 3.10.0 [\#1183](https://github.com/apache/camel-kafka-connector/issues/1183)
+
 **Merged pull requests:**
 
+- Update to Camel 3.11.0-SNAPSHOT [\#1185](https://github.com/apache/camel-kafka-connector/pull/1185) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1182](https://github.com/apache/camel-kafka-connector/pull/1182) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1180](https://github.com/apache/camel-kafka-connector/pull/1180) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Made Kinesis tests hopefully more robust. [\#1179](https://github.com/apache/camel-kafka-connector/pull/1179) ([valdar](https://github.com/valdar))
