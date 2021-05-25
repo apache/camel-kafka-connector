@@ -63,6 +63,9 @@ public class CamelKameletSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.kamelet.autowiredEnabled";
     public static final String CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_CONF = "camel.component.kamelet.kameletResourceLoaderListener";
+    public static final String CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DOC = "To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources.";
+    public static final String CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DEFAULT = null;
 
     public CamelKameletSinkConnectorConfig(
             ConfigDef config,
@@ -89,6 +92,7 @@ public class CamelKameletSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_KAMELET_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAMELET_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_KAMELET_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_KAMELET_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DOC);
         return conf;
     }
 }

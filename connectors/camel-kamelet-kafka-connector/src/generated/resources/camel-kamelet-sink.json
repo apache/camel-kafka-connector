@@ -95,6 +95,12 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.component.kamelet.kameletResourceLoaderListener": {
+			"name": "camel.component.kamelet.kameletResourceLoaderListener",
+			"description": "To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources.",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }
