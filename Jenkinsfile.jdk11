@@ -58,13 +58,7 @@ pipeline {
            }
         }
 
-        stage('Build & Deploy') {
-            steps {
-                sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true clean install"
-            }
-        }
-
-        stage('Test') {
+        stage('Build & iTest') {
             steps {
                 sh "./mvnw $MAVEN_PARAMS -DskipIntegrationTests=false -Denable.slow.tests=true -Dmaven.test.failure.ignore=true -Dfailsafe.rerunFailingTestsCount=2 clean verify"
             }
