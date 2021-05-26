@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-djl-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.11.0-SNAPSHOT",
 		"description": "Infer Deep Learning models from message exchanges data using Deep Java Library (DJL)."
 	},
 	"properties": {
