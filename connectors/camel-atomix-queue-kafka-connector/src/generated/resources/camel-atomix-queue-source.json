@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-atomix-queue-source",
 		"type": "source",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.11.0-SNAPSHOT",
 		"description": "Access Atomix's distributed queue."
 	},
 	"properties": {

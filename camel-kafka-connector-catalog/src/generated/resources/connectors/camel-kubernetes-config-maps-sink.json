@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kubernetes-config-maps-sink",
 		"type": "sink",
-		"version": "0.10.0-SNAPSHOT",
+		"version": "0.11.0-SNAPSHOT",
 		"description": "Perform operations on Kubernetes ConfigMaps and get notified on ConfigMaps changes."
 	},
 	"properties": {
