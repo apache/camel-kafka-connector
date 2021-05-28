@@ -60,6 +60,9 @@ public class CamelAws2stsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF = "camel.sink.endpoint.uriEndpointOverride";
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2STS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.sink.endpoint.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2STS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the STS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2STS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -102,6 +105,9 @@ public class CamelAws2stsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2STS_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF = "camel.component.aws2-sts.uriEndpointOverride";
     public static final String CAMEL_SINK_AWS2STS_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option";
     public static final String CAMEL_SINK_AWS2STS_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2STS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.component.aws2-sts.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2STS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the STS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2STS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2STS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-sts.autowiredEnabled";
     public static final String CAMEL_SINK_AWS2STS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_AWS2STS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
@@ -136,6 +142,7 @@ public class CamelAws2stsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_STS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_ENDPOINT_STS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_STS_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2STS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2STS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_CONFIGURATION_DOC);
@@ -150,6 +157,7 @@ public class CamelAws2stsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_STS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_COMPONENT_STS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_STS_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2STS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_COMPONENT_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWS2STS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2STS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2STS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2STS_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWS2STS_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_SECRET_KEY_DOC);
