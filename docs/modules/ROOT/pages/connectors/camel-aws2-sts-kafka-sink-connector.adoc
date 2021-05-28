@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2sts.CamelAws2stsSinkConnecto
 ----
 
 
-The camel-aws2-sts sink connector supports 29 options, which are listed below.
+The camel-aws2-sts sink connector supports 31 options, which are listed below.
 
 
 
@@ -43,6 +43,7 @@ The camel-aws2-sts sink connector supports 29 options, which are listed below.
 | *camel.sink.endpoint.stsClient* | To use a existing configured AWS STS as client | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
+| *camel.sink.endpoint.useDefaultCredentialsProvider* | Set whether the STS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-sts.configuration* | Component configuration | null | false | MEDIUM
@@ -57,6 +58,7 @@ The camel-aws2-sts sink connector supports 29 options, which are listed below.
 | *camel.component.aws2-sts.stsClient* | To use a existing configured AWS STS as client | null | false | MEDIUM
 | *camel.component.aws2-sts.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.component.aws2-sts.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
+| *camel.component.aws2-sts.useDefaultCredentials Provider* | Set whether the STS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-sts.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-sts.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws2-sts.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
