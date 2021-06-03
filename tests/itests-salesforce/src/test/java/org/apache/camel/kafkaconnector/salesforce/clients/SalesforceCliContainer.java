@@ -30,7 +30,7 @@ public class SalesforceCliContainer extends GenericContainer<SalesforceCliContai
 
 
     public SalesforceCliContainer() {
-        super("salesforce/salesforcedx");
+        super("salesforce/salesforcedx:latest-full");
 
         withFileSystemBind(HOST_PATH, "/root/.sfdx");
         withPrivilegedMode(true);

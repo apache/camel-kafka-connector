@@ -109,6 +109,7 @@ public class CamelSinkSalesforceITCase extends AbstractKafkaTest {
     @AfterEach
     public void tearDown() throws IOException, InterruptedException {
         SfdxCommand sfdxCommand = SfdxCommand.forceDataRecordDelete()
+                .withArgument("-u", userName)
                 .withArgument("--sobjecttype", "Account")
                 .withArgument("--where", String.format("Name=%s", accountName));
 
@@ -124,6 +125,7 @@ public class CamelSinkSalesforceITCase extends AbstractKafkaTest {
 
     private boolean waitForRecordCreation() {
         SfdxCommand sfdxCommand = SfdxCommand.forceDataRecordGet()
+                .withArgument("-u", userName)
                 .withArgument("--sobjecttype", "Account")
                 .withArgument("--where", String.format("Name=%s", accountName));
 

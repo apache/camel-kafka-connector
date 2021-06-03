@@ -111,6 +111,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
         account = "TestAccount" + TestUtils.randomWithRange(1, 100);
 
         SfdxCommand sfdxCommand = SfdxCommand.forceDataRecordCreate()
+                .withArgument("-u", userName)
                 .withArgument("--sobjecttype", "Account")
                 .withArgument("--values", String.format("Name=%s", account));
 
@@ -124,6 +125,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
     @AfterEach
     public void tearDown() throws IOException, InterruptedException {
         SfdxCommand sfdxCommand = SfdxCommand.forceDataRecordDelete()
+                .withArgument("-u", userName)
                 .withArgument("--sobjecttype", "Account")
                 .withArgument("--where", String.format("Name=%s", account));
 
@@ -165,6 +167,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
 
             try {
                 SfdxCommand sfdxCommand = SfdxCommand.forceDataRecordUpdate()
+                        .withArgument("-u", userName)
                         .withArgument("--sobjecttype", "Account")
                         .withArgument("--where", String.format("Name=%s", account))
                         .withArgument("--values", String.format("Description=desc%d", count));
