@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-mybatis-kafka-connector-sink]]
+= camel-mybatis-kafka-connector sink configuration
+
+Connector Description: Performs a query, poll, insert, update or delete in a relational database using MyBatis.
+
+When using camel-mybatis-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mybatis-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mybatis.CamelMybatisSinkConnector
+----
+
+
+The camel-mybatis sink connector supports 10 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.statement* | The statement name in the MyBatis XML mapping file which maps to the query, insert, update or delete operation you wish to evaluate. | null | true | HIGH
+| *camel.sink.endpoint.executorType* | The executor type to be used while executing statements. simple - executor does nothing special. reuse - executor reuses prepared statements. batch - executor reuses statements and batches updates. One of: [SIMPLE] [REUSE] [BATCH] | "SIMPLE" | false | MEDIUM
+| *camel.sink.endpoint.inputHeader* | User the header value for input parameters instead of the message body. By default, inputHeader == null and the input parameters are taken from the message body. If outputHeader is set, the value is used and query parameters will be taken from the header instead of the body. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.outputHeader* | Store the query result in a header instead of the message body. By default, outputHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If outputHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. Setting outputHeader will also omit populating the default CamelMyBatisResult header since it would be the same as outputHeader all the time. | null | false | MEDIUM
+| *camel.sink.endpoint.statementType* | Mandatory to specify for the producer to control which kind of operation to invoke. One of: [SelectOne] [SelectList] [Insert] [InsertList] [Update] [UpdateList] [Delete] [DeleteList] | null | false | MEDIUM
+| *camel.component.mybatis.configurationUri* | Location of MyBatis xml configuration file. The default value is: SqlMapConfig.xml loaded from the classpath | "SqlMapConfig.xml" | false | MEDIUM
+| *camel.component.mybatis.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.mybatis.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.mybatis.sqlSessionFactory* | To use the SqlSessionFactory | null | false | MEDIUM
+|===
+
+
+
+The camel-mybatis sink connector has no converters out of the box.
+
+
+
+
+
+The camel-mybatis sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-mybatis sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

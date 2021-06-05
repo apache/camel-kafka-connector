@@ -1,0 +1,68 @@
+// kafka-connector options: START
+[[camel-couchdb-kafka-connector-source]]
+= camel-couchdb-kafka-connector source configuration
+
+Connector description: Consume changesets for inserts, updates and deletes in a CouchDB database, as well as get, save, update and delete documents from a CouchDB database.
+
+When using camel-couchdb-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-couchdb-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.couchdb.CamelCouchdbSourceConnector
+----
+
+
+The camel-couchdb source connector supports 17 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.protocol* | The protocol to use for communicating with the database. One of: [http] [https] | null | true | HIGH
+| *camel.source.path.hostname* | Hostname of the running couchdb instance | null | true | HIGH
+| *camel.source.path.port* | Port number for the running couchdb instance | 5984 | false | MEDIUM
+| *camel.source.path.database* | Name of the database to use | null | true | HIGH
+| *camel.source.endpoint.createDatabase* | Creates the database if it does not already exist | false | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.deletes* | Document deletes are published as events | true | false | MEDIUM
+| *camel.source.endpoint.heartbeat* | How often to send an empty message to keep socket alive in millis | 30000L | false | MEDIUM
+| *camel.source.endpoint.since* | Start tracking changes immediately after the given update sequence. The default, null, will start monitoring from the latest sequence. | null | false | MEDIUM
+| *camel.source.endpoint.style* | Specifies how many revisions are returned in the changes array. The default, main_only, will only return the current winning revision; all_docs will return all leaf revisions (including conflicts and deleted former conflicts.) One of: [all_docs] [main_only] | "main_only" | false | MEDIUM
+| *camel.source.endpoint.updates* | Document inserts/updates are published as events | true | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.password* | Password for authenticated databases | null | false | MEDIUM
+| *camel.source.endpoint.username* | Username in case of authenticated databases | null | false | MEDIUM
+| *camel.component.couchdb.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.couchdb.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-couchdb source connector has no converters out of the box.
+
+
+
+
+
+The camel-couchdb source connector has no transforms out of the box.
+
+
+
+
+
+The camel-couchdb source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

@@ -156,4 +156,6 @@ The camel-aws2-s3 source connector supports 1 aggregation strategies out of the 
 org.apache.camel.kafkaconnector.aws2s3.aggregation.NewlineAggregationStrategy
 
 ----
+
+
 // kafka-connector options: END

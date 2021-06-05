@@ -1,0 +1,78 @@
+// kafka-connector options: START
+[[camel-xslt-saxon-kafka-connector-sink]]
+= camel-xslt-saxon-kafka-connector sink configuration
+
+Connector Description: Transform XML payloads using an XSLT template using Saxon.
+
+When using camel-xslt-saxon-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-xslt-saxon-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.xsltsaxon.CamelXsltsaxonSinkConnector
+----
+
+
+The camel-xslt-saxon sink connector supports 27 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.resourceUri* | Path to the template. The following is supported by the default URIResolver. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod | null | true | HIGH
+| *camel.sink.endpoint.allowStAX* | Whether to allow using StAX as the javax.xml.transform.Source. You can enable this if the XSLT library supports StAX such as the Saxon library (camel-saxon). The Xalan library (default in JVM) does not support StAXSource. | true | false | MEDIUM
+| *camel.sink.endpoint.contentCache* | Cache for the resource content (the stylesheet file) when it is loaded. If set to false Camel will reload the stylesheet file on each message processing. This is good for development. A cached stylesheet can be forced to reload at runtime via JMX using the clearCachedStylesheet operation. | true | false | MEDIUM
+| *camel.sink.endpoint.deleteOutputFile* | If you have output=file then this option dictates whether or not the output file should be deleted when the Exchange is done processing. For example suppose the output file is a temporary file, then it can be a good idea to delete it after use. | false | false | MEDIUM
+| *camel.sink.endpoint.failOnNullBody* | Whether or not to throw an exception if the input body is null. | true | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.output* | Option to specify which output type to use. Possible values are: string, bytes, DOM, file. The first three options are all in memory based, where as file is streamed directly to a java.io.File. For file you must specify the filename in the IN header with the key Exchange.XSLT_FILE_NAME which is also CamelXsltFileName. Also any paths leading to the filename must be created beforehand, otherwise an exception is thrown at runtime. One of: [string] [bytes] [DOM] [file] | "string" | false | MEDIUM
+| *camel.sink.endpoint.transformerCacheSize* | The number of javax.xml.transform.Transformer object that are cached for reuse to avoid calls to Template.newTransformer(). | 0 | false | MEDIUM
+| *camel.sink.endpoint.entityResolver* | To use a custom org.xml.sax.EntityResolver with javax.xml.transform.sax.SAXSource. | null | false | MEDIUM
+| *camel.sink.endpoint.errorListener* | Allows to configure to use a custom javax.xml.transform.ErrorListener. Beware when doing this then the default error listener which captures any errors or fatal errors and store information on the Exchange as properties is not in use. So only use this option for special use-cases. | null | false | MEDIUM
+| *camel.sink.endpoint.resultHandlerFactory* | Allows you to use a custom org.apache.camel.builder.xml.ResultHandlerFactory which is capable of using custom org.apache.camel.builder.xml.ResultHandler types. | null | false | MEDIUM
+| *camel.sink.endpoint.saxonConfiguration* | To use a custom Saxon configuration | null | false | MEDIUM
+| *camel.sink.endpoint.saxonExtensionFunctions* | Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add camel-saxon to the classpath. The function is looked up in the registry, where you can comma to separate multiple values to lookup. | null | false | MEDIUM
+| *camel.sink.endpoint.transformerFactory* | To use a custom XSLT transformer factory | null | false | MEDIUM
+| *camel.sink.endpoint.transformerFactoryClass* | To use a custom XSLT transformer factory, specified as a FQN class name | null | false | MEDIUM
+| *camel.sink.endpoint.transformerFactory ConfigurationStrategy* | A configuration strategy to apply on freshly created instances of TransformerFactory. | null | false | MEDIUM
+| *camel.sink.endpoint.uriResolver* | To use a custom javax.xml.transform.URIResolver | null | false | MEDIUM
+| *camel.component.xslt-saxon.contentCache* | Cache for the resource content (the stylesheet file) when it is loaded. If set to false Camel will reload the stylesheet file on each message processing. This is good for development. A cached stylesheet can be forced to reload at runtime via JMX using the clearCachedStylesheet operation. | true | false | MEDIUM
+| *camel.component.xslt-saxon.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.xslt-saxon.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.xslt-saxon.saxonConfiguration* | To use a custom Saxon configuration | null | false | MEDIUM
+| *camel.component.xslt-saxon.saxonConfiguration Properties* | To set custom Saxon configuration properties | null | false | MEDIUM
+| *camel.component.xslt-saxon.saxonExtensionFunctions* | Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add camel-saxon to the classpath. The function is looked up in the registry, where you can comma to separate multiple values to lookup. | null | false | MEDIUM
+| *camel.component.xslt-saxon.transformerFactoryClass* | To use a custom XSLT transformer factory, specified as a FQN class name | null | false | MEDIUM
+| *camel.component.xslt-saxon.transformerFactory ConfigurationStrategy* | A configuration strategy to apply on freshly created instances of TransformerFactory. | null | false | MEDIUM
+| *camel.component.xslt-saxon.uriResolver* | To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'. | null | false | MEDIUM
+| *camel.component.xslt-saxon.uriResolverFactory* | To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'. | null | false | MEDIUM
+|===
+
+
+
+The camel-xslt-saxon sink connector has no converters out of the box.
+
+
+
+
+
+The camel-xslt-saxon sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-xslt-saxon sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

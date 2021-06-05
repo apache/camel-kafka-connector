@@ -102,4 +102,8 @@ The camel-google-calendar-stream source connector has no transforms out of the b
 
 
 The camel-google-calendar-stream source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

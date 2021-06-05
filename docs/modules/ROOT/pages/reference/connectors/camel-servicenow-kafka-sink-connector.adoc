@@ -1,0 +1,144 @@
+// kafka-connector options: START
+[[camel-servicenow-kafka-connector-sink]]
+= camel-servicenow-kafka-connector sink configuration
+
+Connector Description: Interact with ServiceNow via its REST API.
+
+When using camel-servicenow-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-servicenow-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.servicenow.CamelServicenowSinkConnector
+----
+
+
+The camel-servicenow sink connector supports 93 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.instanceName* | The ServiceNow instance name | null | true | HIGH
+| *camel.sink.endpoint.display* | Set this parameter to true to return only scorecards where the indicator Display field is selected. Set this parameter to all to return scorecards with any Display field value. This parameter is true by default. One of: [false] [true] [all] | "true" | false | MEDIUM
+| *camel.sink.endpoint.displayValue* | Return the display value (true), actual value (false), or both (all) for reference fields (default: false) One of: [false] [true] [all] | "false" | false | MEDIUM
+| *camel.sink.endpoint.excludeReferenceLink* | True to exclude Table API links for reference fields (default: false) | null | false | MEDIUM
+| *camel.sink.endpoint.favorites* | Set this parameter to true to return only scorecards that are favorites of the querying user. | null | false | MEDIUM
+| *camel.sink.endpoint.includeAggregates* | Set this parameter to true to always return all available aggregates for an indicator, including when an aggregate has already been applied. If a value is not specified, this parameter defaults to false and returns no aggregates. | null | false | MEDIUM
+| *camel.sink.endpoint.includeAvailableAggregates* | Set this parameter to true to return all available aggregates for an indicator when no aggregate has been applied. If a value is not specified, this parameter defaults to false and returns no aggregates. | null | false | MEDIUM
+| *camel.sink.endpoint.includeAvailableBreakdowns* | Set this parameter to true to return all available breakdowns for an indicator. If a value is not specified, this parameter defaults to false and returns no breakdowns. | null | false | MEDIUM
+| *camel.sink.endpoint.includeScoreNotes* | Set this parameter to true to return all notes associated with the score. The note element contains the note text as well as the author and timestamp when the note was added. | null | false | MEDIUM
+| *camel.sink.endpoint.includeScores* | Set this parameter to true to return all scores for a scorecard. If a value is not specified, this parameter defaults to false and returns only the most recent score value. | null | false | MEDIUM
+| *camel.sink.endpoint.inputDisplayValue* | True to set raw value of input fields (default: false) | null | false | MEDIUM
+| *camel.sink.endpoint.key* | Set this parameter to true to return only scorecards for key indicators. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.models* | Defines both request and response models | null | false | MEDIUM
+| *camel.sink.endpoint.perPage* | Enter the maximum number of scorecards each query can return. By default this value is 10, and the maximum is 100. | "10" | false | MEDIUM
+| *camel.sink.endpoint.release* | The ServiceNow release to target, default to Helsinki See \https://docs.servicenow.com One of: [FUJI] [GENEVA] [HELSINKI] | "HELSINKI" | false | MEDIUM
+| *camel.sink.endpoint.requestModels* | Defines the request model | null | false | MEDIUM
+| *camel.sink.endpoint.resource* | The default resource, can be overridden by header CamelServiceNowResource | null | false | MEDIUM
+| *camel.sink.endpoint.responseModels* | Defines the response model | null | false | MEDIUM
+| *camel.sink.endpoint.sortBy* | Specify the value to use when sorting results. By default, queries sort records by value. One of: [value] [change] [changeperc] [gap] [gapperc] [duedate] [name] [order] [default] [group] [indicator_group] [frequency] [target] [date] [trend] [bullet] [direction] | null | false | MEDIUM
+| *camel.sink.endpoint.sortDir* | Specify the sort direction, ascending or descending. By default, queries sort records in descending order. Use sysparm_sortdir=asc to sort in ascending order. One of: [asc] [desc] | null | false | MEDIUM
+| *camel.sink.endpoint.suppressAutoSysField* | True to suppress auto generation of system fields (default: false) | null | false | MEDIUM
+| *camel.sink.endpoint.suppressPaginationHeader* | Set this value to true to remove the Link header from the response. The Link header allows you to request additional pages of data when the number of records matching your query exceeds the query limit | null | false | MEDIUM
+| *camel.sink.endpoint.table* | The default table, can be overridden by header CamelServiceNowTable | null | false | MEDIUM
+| *camel.sink.endpoint.target* | Set this parameter to true to return only scorecards that have a target. | null | false | MEDIUM
+| *camel.sink.endpoint.topLevelOnly* | Gets only those categories whose parent is a catalog. | null | false | MEDIUM
+| *camel.sink.endpoint.apiVersion* | The ServiceNow REST API version, default latest | null | false | MEDIUM
+| *camel.sink.endpoint.dateFormat* | The date format used for Json serialization/deserialization | "yyyy-MM-dd" | false | MEDIUM
+| *camel.sink.endpoint.dateTimeFormat* | The date-time format used for Json serialization/deserialization | "yyyy-MM-dd HH:mm:ss" | false | MEDIUM
+| *camel.sink.endpoint.httpClientPolicy* | To configure http-client | null | false | MEDIUM
+| *camel.sink.endpoint.mapper* | Sets Jackson's ObjectMapper to use for request/reply | null | false | MEDIUM
+| *camel.sink.endpoint.proxyAuthorizationPolicy* | To configure proxy authentication | null | false | MEDIUM
+| *camel.sink.endpoint.retrieveTargetRecordOnImport* | Set this parameter to true to retrieve the target record when using import set api. The import set result is then replaced by the target record | "false" | false | MEDIUM
+| *camel.sink.endpoint.timeFormat* | The time format used for Json serialization/deserialization | "HH:mm:ss" | false | MEDIUM
+| *camel.sink.endpoint.proxyHost* | The proxy host name | null | false | MEDIUM
+| *camel.sink.endpoint.proxyPort* | The proxy port number | null | false | MEDIUM
+| *camel.sink.endpoint.apiUrl* | The ServiceNow REST API url | null | false | MEDIUM
+| *camel.sink.endpoint.oauthClientId* | OAuth2 ClientID | null | false | MEDIUM
+| *camel.sink.endpoint.oauthClientSecret* | OAuth2 ClientSecret | null | false | MEDIUM
+| *camel.sink.endpoint.oauthTokenUrl* | OAuth token Url | null | false | MEDIUM
+| *camel.sink.endpoint.password* | ServiceNow account password, MUST be provided | null | true | HIGH
+| *camel.sink.endpoint.proxyPassword* | Password for proxy authentication | null | false | MEDIUM
+| *camel.sink.endpoint.proxyUserName* | Username for proxy authentication | null | false | MEDIUM
+| *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters. See \http://camel.apache.org/camel-configuration-utilities.html | null | false | MEDIUM
+| *camel.sink.endpoint.userName* | ServiceNow user account name, MUST be provided | null | true | HIGH
+| *camel.component.servicenow.configuration* | Component configuration | null | false | MEDIUM
+| *camel.component.servicenow.display* | Set this parameter to true to return only scorecards where the indicator Display field is selected. Set this parameter to all to return scorecards with any Display field value. This parameter is true by default. One of: [false] [true] [all] | "true" | false | MEDIUM
+| *camel.component.servicenow.displayValue* | Return the display value (true), actual value (false), or both (all) for reference fields (default: false) One of: [false] [true] [all] | "false" | false | MEDIUM
+| *camel.component.servicenow.excludeReferenceLink* | True to exclude Table API links for reference fields (default: false) | null | false | MEDIUM
+| *camel.component.servicenow.favorites* | Set this parameter to true to return only scorecards that are favorites of the querying user. | null | false | MEDIUM
+| *camel.component.servicenow.includeAggregates* | Set this parameter to true to always return all available aggregates for an indicator, including when an aggregate has already been applied. If a value is not specified, this parameter defaults to false and returns no aggregates. | null | false | MEDIUM
+| *camel.component.servicenow.includeAvailable Aggregates* | Set this parameter to true to return all available aggregates for an indicator when no aggregate has been applied. If a value is not specified, this parameter defaults to false and returns no aggregates. | null | false | MEDIUM
+| *camel.component.servicenow.includeAvailable Breakdowns* | Set this parameter to true to return all available breakdowns for an indicator. If a value is not specified, this parameter defaults to false and returns no breakdowns. | null | false | MEDIUM
+| *camel.component.servicenow.includeScoreNotes* | Set this parameter to true to return all notes associated with the score. The note element contains the note text as well as the author and timestamp when the note was added. | null | false | MEDIUM
+| *camel.component.servicenow.includeScores* | Set this parameter to true to return all scores for a scorecard. If a value is not specified, this parameter defaults to false and returns only the most recent score value. | null | false | MEDIUM
+| *camel.component.servicenow.inputDisplayValue* | True to set raw value of input fields (default: false) | null | false | MEDIUM
+| *camel.component.servicenow.key* | Set this parameter to true to return only scorecards for key indicators. | null | false | MEDIUM
+| *camel.component.servicenow.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.servicenow.models* | Defines both request and response models | null | false | MEDIUM
+| *camel.component.servicenow.perPage* | Enter the maximum number of scorecards each query can return. By default this value is 10, and the maximum is 100. | "10" | false | MEDIUM
+| *camel.component.servicenow.release* | The ServiceNow release to target, default to Helsinki See \https://docs.servicenow.com One of: [FUJI] [GENEVA] [HELSINKI] | "HELSINKI" | false | MEDIUM
+| *camel.component.servicenow.requestModels* | Defines the request model | null | false | MEDIUM
+| *camel.component.servicenow.resource* | The default resource, can be overridden by header CamelServiceNowResource | null | false | MEDIUM
+| *camel.component.servicenow.responseModels* | Defines the response model | null | false | MEDIUM
+| *camel.component.servicenow.sortBy* | Specify the value to use when sorting results. By default, queries sort records by value. One of: [value] [change] [changeperc] [gap] [gapperc] [duedate] [name] [order] [default] [group] [indicator_group] [frequency] [target] [date] [trend] [bullet] [direction] | null | false | MEDIUM
+| *camel.component.servicenow.sortDir* | Specify the sort direction, ascending or descending. By default, queries sort records in descending order. Use sysparm_sortdir=asc to sort in ascending order. One of: [asc] [desc] | null | false | MEDIUM
+| *camel.component.servicenow.suppressAutoSysField* | True to suppress auto generation of system fields (default: false) | null | false | MEDIUM
+| *camel.component.servicenow.suppressPagination Header* | Set this value to true to remove the Link header from the response. The Link header allows you to request additional pages of data when the number of records matching your query exceeds the query limit | null | false | MEDIUM
+| *camel.component.servicenow.table* | The default table, can be overridden by header CamelServiceNowTable | null | false | MEDIUM
+| *camel.component.servicenow.target* | Set this parameter to true to return only scorecards that have a target. | null | false | MEDIUM
+| *camel.component.servicenow.topLevelOnly* | Gets only those categories whose parent is a catalog. | null | false | MEDIUM
+| *camel.component.servicenow.apiVersion* | The ServiceNow REST API version, default latest | null | false | MEDIUM
+| *camel.component.servicenow.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.servicenow.dateFormat* | The date format used for Json serialization/deserialization | "yyyy-MM-dd" | false | MEDIUM
+| *camel.component.servicenow.dateTimeFormat* | The date-time format used for Json serialization/deserialization | "yyyy-MM-dd HH:mm:ss" | false | MEDIUM
+| *camel.component.servicenow.httpClientPolicy* | To configure http-client | null | false | MEDIUM
+| *camel.component.servicenow.instanceName* | The ServiceNow instance name | null | false | MEDIUM
+| *camel.component.servicenow.mapper* | Sets Jackson's ObjectMapper to use for request/reply | null | false | MEDIUM
+| *camel.component.servicenow.proxyAuthorization Policy* | To configure proxy authentication | null | false | MEDIUM
+| *camel.component.servicenow.retrieveTargetRecordOn Import* | Set this parameter to true to retrieve the target record when using import set api. The import set result is then replaced by the target record | "false" | false | MEDIUM
+| *camel.component.servicenow.timeFormat* | The time format used for Json serialization/deserialization | "HH:mm:ss" | false | MEDIUM
+| *camel.component.servicenow.proxyHost* | The proxy host name | null | false | MEDIUM
+| *camel.component.servicenow.proxyPort* | The proxy port number | null | false | MEDIUM
+| *camel.component.servicenow.apiUrl* | The ServiceNow REST API url | null | false | MEDIUM
+| *camel.component.servicenow.oauthClientId* | OAuth2 ClientID | null | false | MEDIUM
+| *camel.component.servicenow.oauthClientSecret* | OAuth2 ClientSecret | null | false | MEDIUM
+| *camel.component.servicenow.oauthTokenUrl* | OAuth token Url | null | false | MEDIUM
+| *camel.component.servicenow.password* | ServiceNow account password, MUST be provided | null | true | HIGH
+| *camel.component.servicenow.proxyPassword* | Password for proxy authentication | null | false | MEDIUM
+| *camel.component.servicenow.proxyUserName* | Username for proxy authentication | null | false | MEDIUM
+| *camel.component.servicenow.sslContextParameters* | To configure security using SSLContextParameters. See \http://camel.apache.org/camel-configuration-utilities.html | null | false | MEDIUM
+| *camel.component.servicenow.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
+| *camel.component.servicenow.userName* | ServiceNow user account name, MUST be provided | null | true | HIGH
+|===
+
+
+
+The camel-servicenow sink connector has no converters out of the box.
+
+
+
+
+
+The camel-servicenow sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-servicenow sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

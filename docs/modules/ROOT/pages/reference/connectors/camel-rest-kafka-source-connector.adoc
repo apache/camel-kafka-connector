@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-rest-kafka-connector-source]]
+= camel-rest-kafka-connector source configuration
+
+Connector description: Expose REST services or call external REST services.
+
+When using camel-rest-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-rest-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.rest.CamelRestSourceConnector
+----
+
+
+The camel-rest source connector supports 16 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.method* | HTTP method to use. One of: [get] [post] [put] [delete] [patch] [head] [trace] [connect] [options] | null | true | HIGH
+| *camel.source.path.path* | The base path | null | true | HIGH
+| *camel.source.path.uriTemplate* | The uri template | null | false | MEDIUM
+| *camel.source.endpoint.consumes* | Media type such as: 'text/xml', or 'application/json' this REST service accepts. By default we accept all kinds of types. | null | false | MEDIUM
+| *camel.source.endpoint.inType* | To declare the incoming POJO binding type as a FQN class name | null | false | MEDIUM
+| *camel.source.endpoint.outType* | To declare the outgoing POJO binding type as a FQN class name | null | false | MEDIUM
+| *camel.source.endpoint.produces* | Media type such as: 'text/xml', or 'application/json' this REST service returns. | null | false | MEDIUM
+| *camel.source.endpoint.routeId* | Name of the route this REST services creates | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.consumerComponentName* | The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry. If either one is found, then that is being used. | null | false | MEDIUM
+| *camel.source.endpoint.description* | Human description to document this REST service | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.rest.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.rest.consumerComponentName* | The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry. If either one is found, then that is being used. | null | false | MEDIUM
+| *camel.component.rest.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-rest source connector has no converters out of the box.
+
+
+
+
+
+The camel-rest source connector has no transforms out of the box.
+
+
+
+
+
+The camel-rest source connector has no aggregation strategies out of the box.
+// kafka-connector options: END
