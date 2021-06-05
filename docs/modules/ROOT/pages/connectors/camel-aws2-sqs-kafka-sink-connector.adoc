@@ -115,4 +115,8 @@ org.apache.camel.kafkaconnector.aws2sqs.transformers.SQSKeySetterTransforms
 
 
 The camel-aws2-sqs sink connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

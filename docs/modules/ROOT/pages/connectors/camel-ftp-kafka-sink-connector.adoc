@@ -104,4 +104,8 @@ org.apache.camel.kafkaconnector.ftp.transformers.FtpRemoteFileTransforms
 
 
 The camel-ftp sink connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

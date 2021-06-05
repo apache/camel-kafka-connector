@@ -71,4 +71,8 @@ The camel-iec60870-client source connector has no transforms out of the box.
 
 
 The camel-iec60870-client source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

@@ -1,0 +1,64 @@
+// kafka-connector options: START
+[[camel-vertx-kafka-connector-source]]
+= camel-vertx-kafka-connector source configuration
+
+Connector description: Send and receive messages to/from Vert.x Event Bus.
+
+When using camel-vertx-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-vertx-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.vertx.CamelVertxSourceConnector
+----
+
+
+The camel-vertx source connector supports 13 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.address* | Sets the event bus address used to communicate | null | true | HIGH
+| *camel.source.endpoint.pubSub* | Whether to use publish/subscribe instead of point to point when sending to a vertx endpoint. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.vertx.host* | Hostname for creating an embedded clustered EventBus | null | false | MEDIUM
+| *camel.component.vertx.port* | Port for creating an embedded clustered EventBus | null | false | MEDIUM
+| *camel.component.vertx.timeout* | Timeout in seconds to wait for clustered Vertx EventBus to be ready. The default value is 60. | 60 | false | MEDIUM
+| *camel.component.vertx.vertx* | To use the given vertx EventBus instead of creating a new embedded EventBus | null | false | MEDIUM
+| *camel.component.vertx.vertxOptions* | Options to use for creating vertx | null | false | MEDIUM
+| *camel.component.vertx.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.vertx.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.vertx.vertxFactory* | To use a custom VertxFactory implementation | null | false | MEDIUM
+|===
+
+
+
+The camel-vertx source connector has no converters out of the box.
+
+
+
+
+
+The camel-vertx source connector has no transforms out of the box.
+
+
+
+
+
+The camel-vertx source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

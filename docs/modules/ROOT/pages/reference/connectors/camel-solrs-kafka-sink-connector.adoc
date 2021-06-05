@@ -1,0 +1,70 @@
+// kafka-connector options: START
+[[camel-solrs-kafka-connector-sink]]
+= camel-solrs-kafka-connector sink configuration
+
+Connector Description: Perform operations against Apache Lucene Solr.
+
+When using camel-solrs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-solrs-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.solrs.CamelSolrsSinkConnector
+----
+
+
+The camel-solrs sink connector supports 19 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.url* | Hostname and port for the solr server | null | true | HIGH
+| *camel.sink.endpoint.allowCompression* | Server side must support gzip or deflate for this to have any effect | null | false | MEDIUM
+| *camel.sink.endpoint.autoCommit* | If true, each producer operation will be committed automatically | false | false | MEDIUM
+| *camel.sink.endpoint.connectionTimeout* | connectionTimeout on the underlying HttpConnectionManager | null | false | MEDIUM
+| *camel.sink.endpoint.defaultMaxConnectionsPerHost* | maxConnectionsPerHost on the underlying HttpConnectionManager | null | false | MEDIUM
+| *camel.sink.endpoint.followRedirects* | indicates whether redirects are used to get to the Solr server | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.maxRetries* | Maximum number of retries to attempt in the event of transient errors | null | false | MEDIUM
+| *camel.sink.endpoint.maxTotalConnections* | maxTotalConnection on the underlying HttpConnectionManager | null | false | MEDIUM
+| *camel.sink.endpoint.requestHandler* | Set the request handler to be used | null | false | MEDIUM
+| *camel.sink.endpoint.soTimeout* | Read timeout on the underlying HttpConnectionManager. This is desirable for queries, but probably not for indexing | null | false | MEDIUM
+| *camel.sink.endpoint.streamingQueueSize* | Set the queue size for the StreamingUpdateSolrServer | 10 | false | MEDIUM
+| *camel.sink.endpoint.streamingThreadCount* | Set the number of threads for the StreamingUpdateSolrServer | 2 | false | MEDIUM
+| *camel.sink.endpoint.password* | Sets password for basic auth plugin enabled servers | null | false | MEDIUM
+| *camel.sink.endpoint.username* | Sets username for basic auth plugin enabled servers | null | false | MEDIUM
+| *camel.sink.endpoint.collection* | Set the collection name which the solrCloud server could use | null | false | MEDIUM
+| *camel.sink.endpoint.zkHost* | Set the ZooKeeper host information which the solrCloud could use, such as zkhost=localhost:8123. | null | false | MEDIUM
+| *camel.component.solrs.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.solrs.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-solrs sink connector has no converters out of the box.
+
+
+
+
+
+The camel-solrs sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-solrs sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

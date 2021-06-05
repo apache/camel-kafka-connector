@@ -1,0 +1,68 @@
+// kafka-connector options: START
+[[camel-thrift-kafka-connector-source]]
+= camel-thrift-kafka-connector source configuration
+
+Connector description: Call and expose remote procedures (RPC) with Apache Thrift data format and serialization mechanism.
+
+When using camel-thrift-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-thrift-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.thrift.CamelThriftSourceConnector
+----
+
+
+The camel-thrift source connector supports 17 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.host* | The Thrift server host name. This is localhost or 0.0.0.0 (if not defined) when being a consumer or remote server host name when using producer. | null | false | MEDIUM
+| *camel.source.path.port* | The Thrift server port | null | true | HIGH
+| *camel.source.path.service* | Fully qualified service name from the thrift descriptor file (package dot service definition name) | null | true | HIGH
+| *camel.source.endpoint.compressionType* | Protocol compression mechanism type One of: [NONE] [ZLIB] | "NONE" | false | MEDIUM
+| *camel.source.endpoint.exchangeProtocol* | Exchange protocol serialization type One of: [BINARY] [JSON] [SJSON] [COMPACT] | "BINARY" | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.clientTimeout* | Client timeout for consumers | null | false | MEDIUM
+| *camel.source.endpoint.maxPoolSize* | The Thrift server consumer max thread pool size | 10 | false | MEDIUM
+| *camel.source.endpoint.poolSize* | The Thrift server consumer initial thread pool size | 1 | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
+| *camel.source.endpoint.negotiationType* | Security negotiation type One of: [PLAINTEXT] [SSL] [SASL] | "PLAINTEXT" | false | MEDIUM
+| *camel.source.endpoint.sslParameters* | Configuration parameters for SSL/TLS security negotiation | null | false | MEDIUM
+| *camel.component.thrift.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.thrift.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.thrift.useGlobalSslContext Parameters* | Determine if the thrift component is using global SSL context parameters | false | false | MEDIUM
+|===
+
+
+
+The camel-thrift source connector has no converters out of the box.
+
+
+
+
+
+The camel-thrift source connector has no transforms out of the box.
+
+
+
+
+
+The camel-thrift source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

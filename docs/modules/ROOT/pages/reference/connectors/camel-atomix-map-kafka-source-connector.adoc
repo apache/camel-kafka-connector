@@ -1,0 +1,86 @@
+// kafka-connector options: START
+[[camel-atomix-map-kafka-connector-source]]
+= camel-atomix-map-kafka-connector source configuration
+
+Connector description: Access Atomix's distributed map.
+
+When using camel-atomix-map-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-atomix-map-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.atomixmap.CamelAtomixmapSourceConnector
+----
+
+
+The camel-atomix-map source connector supports 35 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.resourceName* | The distributed resource name | null | true | HIGH
+| *camel.source.endpoint.atomix* | The Atomix instance to use | null | false | MEDIUM
+| *camel.source.endpoint.configurationUri* | The Atomix configuration uri. | null | false | MEDIUM
+| *camel.source.endpoint.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | false | MEDIUM
+| *camel.source.endpoint.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | false | MEDIUM
+| *camel.source.endpoint.nodes* | The address of the nodes composing the cluster. | null | false | MEDIUM
+| *camel.source.endpoint.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
+| *camel.source.endpoint.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
+| *camel.source.endpoint.ttl* | The resource ttl. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.defaultResourceConfig* | The cluster wide default resource configuration. | null | false | MEDIUM
+| *camel.source.endpoint.defaultResourceOptions* | The local default resource options. | null | false | MEDIUM
+| *camel.source.endpoint.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM
+| *camel.source.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
+| *camel.source.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
+| *camel.source.endpoint.resourceOptions* | Local resources configurations | null | false | MEDIUM
+| *camel.component.atomix-map.atomix* | The Atomix instance to use | null | false | MEDIUM
+| *camel.component.atomix-map.configuration* | The shared component configuration | null | false | MEDIUM
+| *camel.component.atomix-map.configurationUri* | The path to the AtomixClient configuration | null | false | MEDIUM
+| *camel.component.atomix-map.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | false | MEDIUM
+| *camel.component.atomix-map.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | false | MEDIUM
+| *camel.component.atomix-map.nodes* | The nodes the AtomixClient should connect to | null | false | MEDIUM
+| *camel.component.atomix-map.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
+| *camel.component.atomix-map.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
+| *camel.component.atomix-map.ttl* | The resource ttl. | null | false | MEDIUM
+| *camel.component.atomix-map.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.atomix-map.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.atomix-map.defaultResourceConfig* | The cluster wide default resource configuration. | null | false | MEDIUM
+| *camel.component.atomix-map.defaultResourceOptions* | The local default resource options. | null | false | MEDIUM
+| *camel.component.atomix-map.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM
+| *camel.component.atomix-map.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
+| *camel.component.atomix-map.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
+| *camel.component.atomix-map.resourceOptions* | Local resources configurations | null | false | MEDIUM
+|===
+
+
+
+The camel-atomix-map source connector has no converters out of the box.
+
+
+
+
+
+The camel-atomix-map source connector has no transforms out of the box.
+
+
+
+
+
+The camel-atomix-map source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

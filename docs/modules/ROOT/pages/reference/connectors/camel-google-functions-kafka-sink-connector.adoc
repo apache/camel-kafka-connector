@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-google-functions-kafka-connector-sink]]
+= camel-google-functions-kafka-connector sink configuration
+
+Connector Description: Manage and invoke Google Cloud Functions
+
+When using camel-google-functions-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-google-functions-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.googlefunctions.CamelGooglefunctionsSinkConnector
+----
+
+
+The camel-google-functions sink connector supports 10 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.functionName* | The user-defined name of the function | null | true | HIGH
+| *camel.sink.endpoint.serviceAccountKey* | Service account key to authenticate an application as a service account | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.location* | The Google Cloud Location (Region) where the Function is located | null | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to perform on the producer. One of: [listFunctions] [getFunction] [callFunction] [generateDownloadUrl] [generateUploadUrl] [createFunction] [updateFunction] [deleteFunction] | null | false | MEDIUM
+| *camel.sink.endpoint.pojoRequest* | Specifies if the request is a pojo request | false | false | MEDIUM
+| *camel.sink.endpoint.project* | The Google Cloud Project name where the Function is located | null | false | MEDIUM
+| *camel.sink.endpoint.client* | The client to use during service invocation. | null | false | MEDIUM
+| *camel.component.google-functions.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.google-functions.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-google-functions sink connector has no converters out of the box.
+
+
+
+
+
+The camel-google-functions sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-functions sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

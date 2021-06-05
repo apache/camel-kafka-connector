@@ -1,0 +1,77 @@
+// kafka-connector options: START
+[[camel-cometd-kafka-connector-source]]
+= camel-cometd-kafka-connector source configuration
+
+Connector description: Offers publish/subscribe, peer-to-peer (via a server), and RPC style messaging using the CometD/Bayeux protocol.
+
+When using camel-cometd-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-cometd-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.cometd.CamelCometdSourceConnector
+----
+
+
+The camel-cometd source connector supports 26 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.host* | Hostname | null | true | HIGH
+| *camel.source.path.port* | Host port number | null | true | HIGH
+| *camel.source.path.channelName* | The channelName represents a topic that can be subscribed to by the Camel endpoints. | null | true | HIGH
+| *camel.source.endpoint.allowedOrigins* | The origins domain that support to cross, if the crosssOriginFilterOn is true | "*" | false | MEDIUM
+| *camel.source.endpoint.baseResource* | The root directory for the web resources or classpath. Use the protocol file: or classpath: depending if you want that the component loads the resource from file system or classpath. Classpath is required for OSGI deployment where the resources are packaged in the jar | null | false | MEDIUM
+| *camel.source.endpoint.crossOriginFilterOn* | If true, the server will support for cross-domain filtering | false | false | MEDIUM
+| *camel.source.endpoint.filterPath* | The filterPath will be used by the CrossOriginFilter, if the crosssOriginFilterOn is true | null | false | MEDIUM
+| *camel.source.endpoint.interval* | The client side poll timeout in milliseconds. How long a client will wait between reconnects | null | false | MEDIUM
+| *camel.source.endpoint.jsonCommented* | If true, the server will accept JSON wrapped in a comment and will generate JSON wrapped in a comment. This is a defence against Ajax Hijacking. | true | false | MEDIUM
+| *camel.source.endpoint.logLevel* | Logging level. 0=none, 1=info, 2=debug. One of: [0] [1] [2] | 1 | false | MEDIUM
+| *camel.source.endpoint.maxInterval* | The max client side poll timeout in milliseconds. A client will be removed if a connection is not received in this time. | 30000 | false | MEDIUM
+| *camel.source.endpoint.multiFrameInterval* | The client side poll timeout, if multiple connections are detected from the same browser. | 1500 | false | MEDIUM
+| *camel.source.endpoint.timeout* | The server side poll timeout in milliseconds. This is how long the server will hold a reconnect request before responding. | 240000 | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.sessionHeadersEnabled* | Whether to include the server session headers in the Camel message when creating a Camel Message for incoming requests. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.cometd.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.cometd.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.cometd.extensions* | To use a list of custom BayeuxServer.Extension that allows modifying incoming and outgoing requests. | null | false | MEDIUM
+| *camel.component.cometd.securityPolicy* | To use a custom configured SecurityPolicy to control authorization | null | false | MEDIUM
+| *camel.component.cometd.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.cometd.sslKeyPassword* | The password for the keystore when using SSL. | null | false | MEDIUM
+| *camel.component.cometd.sslKeystore* | The path to the keystore. | null | false | MEDIUM
+| *camel.component.cometd.sslPassword* | The password when using SSL. | null | false | MEDIUM
+| *camel.component.cometd.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
+|===
+
+
+
+The camel-cometd source connector has no converters out of the box.
+
+
+
+
+
+The camel-cometd source connector has no transforms out of the box.
+
+
+
+
+
+The camel-cometd source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

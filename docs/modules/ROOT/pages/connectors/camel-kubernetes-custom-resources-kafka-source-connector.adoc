@@ -82,4 +82,8 @@ The camel-kubernetes-custom-resources source connector has no transforms out of 
 
 
 The camel-kubernetes-custom-resources source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

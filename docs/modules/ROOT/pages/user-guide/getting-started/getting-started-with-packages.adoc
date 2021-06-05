@@ -1,0 +1,8 @@
+[[GettingStartedwithpackages-GettingStartedwithpackages]]
+= Getting started with packages
+
+The Camel-Kafka-connector connectors can be used also as packages to unpack in your Kafka-connect Plugin path.
+
+If you already set up Zookeeper, Kafka, and Kafka Connect, using camel-kafka-connector's connector is pretty fast: you can download one or more archives (we provide zip and tar.gz formats) and extract their content into the Kafka Connect environment, specifically in Kafka Connect’s plugin path. Doing this will require to specify the plugin path in your worker configuration (e.g. connect-distributed.properties or connect-standalone.properties) using the plugin.path configuration property. 
+
+You can download the connectors packages from the xref:reference/index.adoc[Connectors List]

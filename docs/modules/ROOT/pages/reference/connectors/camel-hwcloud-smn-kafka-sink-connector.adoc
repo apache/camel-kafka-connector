@@ -1,0 +1,68 @@
+// kafka-connector options: START
+[[camel-hwcloud-smn-kafka-connector-sink]]
+= camel-hwcloud-smn-kafka-connector sink configuration
+
+Connector Description: Huawei Cloud component to integrate with SimpleNotification services
+
+When using camel-hwcloud-smn-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-hwcloud-smn-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.hwcloudsmn.CamelHwcloudsmnSinkConnector
+----
+
+
+The camel-hwcloud-smn sink connector supports 17 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.smnService* | Name of SMN service to invoke | null | true | HIGH
+| *camel.sink.endpoint.authKey* | Authentication key for the cloud user | null | true | HIGH
+| *camel.sink.endpoint.endpoint* | Fully qualified smn service url. Carries higher precedence than region parameter based client initialization | null | false | MEDIUM
+| *camel.sink.endpoint.ignoreSslVerification* | Ignore SSL verification | false | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.messageTtl* | TTL for published message | 3600 | false | MEDIUM
+| *camel.sink.endpoint.operation* | Name of operation to perform | null | true | HIGH
+| *camel.sink.endpoint.projectId* | Cloud project ID | null | true | HIGH
+| *camel.sink.endpoint.proxyHost* | Proxy server ip/hostname | null | false | MEDIUM
+| *camel.sink.endpoint.proxyPassword* | Proxy authentication password | null | false | MEDIUM
+| *camel.sink.endpoint.proxyPort* | Proxy server port | null | false | MEDIUM
+| *camel.sink.endpoint.proxyUser* | Proxy authentication user | null | false | MEDIUM
+| *camel.sink.endpoint.region* | SMN service region. This is lower precedence than endpoint based configuration | null | true | HIGH
+| *camel.sink.endpoint.secretKey* | Secret key for the cloud user | null | true | HIGH
+| *camel.sink.endpoint.serviceKeys* | Configuration object for cloud service authentication | null | false | MEDIUM
+| *camel.component.hwcloud-smn.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.hwcloud-smn.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-hwcloud-smn sink connector has no converters out of the box.
+
+
+
+
+
+The camel-hwcloud-smn sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-hwcloud-smn sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

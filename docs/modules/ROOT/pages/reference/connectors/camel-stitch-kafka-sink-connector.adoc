@@ -1,0 +1,70 @@
+// kafka-connector options: START
+[[camel-stitch-kafka-connector-sink]]
+= camel-stitch-kafka-connector sink configuration
+
+Connector Description: Stitch is a cloud ETL service that integrates various data sources into a central data warehouse through various integrations.
+
+When using camel-stitch-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-stitch-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.stitch.CamelStitchSinkConnector
+----
+
+
+The camel-stitch sink connector supports 19 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.tableName* | The name of the destination table the data is being pushed to. Table names must be unique in each destination schema, or loading issues will occur. Note: The number of characters in the table name should be within the destinations allowed limits or data will rejected. | null | false | MEDIUM
+| *camel.sink.endpoint.keyNames* | A collection of comma separated strings representing the Primary Key fields in the source table. Stitch use these Primary Keys to de-dupe data during loading If not provided, the table will be loaded in an append-only manner. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.region* | Stitch account region, e.g: europe One of: [NORTH_AMERICA] [EUROPE] | "EUROPE" | false | MEDIUM
+| *camel.sink.endpoint.stitchSchema* | A schema that describes the record(s) | null | false | MEDIUM
+| *camel.sink.endpoint.connectionProvider* | ConnectionProvider contain configuration for the HttpClient like Maximum connection limit .. etc, you can inject this ConnectionProvider and the StitchClient will initialize HttpClient with this ConnectionProvider | null | false | MEDIUM
+| *camel.sink.endpoint.httpClient* | Reactor Netty HttpClient, you can injected it if you want to have custom HttpClient | null | false | MEDIUM
+| *camel.sink.endpoint.stitchClient* | Set a custom StitchClient that implements org.apache.camel.component.stitch.client.StitchClient interface | null | false | MEDIUM
+| *camel.sink.endpoint.token* | Stitch access token for the Stitch Import API | null | true | HIGH
+| *camel.component.stitch.configuration* | The component configurations | null | false | MEDIUM
+| *camel.component.stitch.keyNames* | A collection of comma separated strings representing the Primary Key fields in the source table. Stitch use these Primary Keys to de-dupe data during loading If not provided, the table will be loaded in an append-only manner. | null | false | MEDIUM
+| *camel.component.stitch.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.stitch.region* | Stitch account region, e.g: europe One of: [NORTH_AMERICA] [EUROPE] | "EUROPE" | false | MEDIUM
+| *camel.component.stitch.stitchSchema* | A schema that describes the record(s) | null | false | MEDIUM
+| *camel.component.stitch.connectionProvider* | ConnectionProvider contain configuration for the HttpClient like Maximum connection limit .. etc, you can inject this ConnectionProvider and the StitchClient will initialize HttpClient with this ConnectionProvider | null | false | MEDIUM
+| *camel.component.stitch.httpClient* | Reactor Netty HttpClient, you can injected it if you want to have custom HttpClient | null | false | MEDIUM
+| *camel.component.stitch.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.stitch.stitchClient* | Set a custom StitchClient that implements org.apache.camel.component.stitch.client.StitchClient interface | null | false | MEDIUM
+| *camel.component.stitch.token* | Stitch access token for the Stitch Import API | null | true | HIGH
+|===
+
+
+
+The camel-stitch sink connector has no converters out of the box.
+
+
+
+
+
+The camel-stitch sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-stitch sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END
