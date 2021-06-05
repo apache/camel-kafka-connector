@@ -1,0 +1,116 @@
+// kafka-connector options: START
+[[camel-jetty-kafka-connector-source]]
+= camel-jetty-kafka-connector source configuration
+
+Connector description: Expose HTTP endpoints using Jetty 9.
+
+When using camel-jetty-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-jetty-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.jetty.CamelJettySourceConnector
+----
+
+
+The camel-jetty source connector supports 65 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.httpUri* | The url of the HTTP endpoint to call. | null | true | HIGH
+| *camel.source.endpoint.chunked* | If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response | true | false | MEDIUM
+| *camel.source.endpoint.disableStreamCache* | Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body. | false | false | MEDIUM
+| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
+| *camel.source.endpoint.httpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | false | MEDIUM
+| *camel.source.endpoint.async* | Configure the consumer to work in async mode | false | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.continuationTimeout* | Allows to set a timeout in millis when using Jetty as consumer (server). By default Jetty uses 30000. You can use a value of = 0 to never expire. If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client. This option is only in use when using Jetty with the Asynchronous Routing Engine. | "30000" | false | MEDIUM
+| *camel.source.endpoint.enableCORS* | If the option is true, Jetty server will setup the CrossOriginFilter which supports the CORS out of box. | false | false | MEDIUM
+| *camel.source.endpoint.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | false | MEDIUM
+| *camel.source.endpoint.enableMultipartFilter* | Whether org.apache.camel.component.jetty.MultiPartFilter is enabled or not. You should set this value to false when bridging endpoints, to ensure multipart requests is proxied/bridged as well. | false | false | MEDIUM
+| *camel.source.endpoint.httpMethodRestrict* | Used to only allow consuming if the HttpMethod matches, such as GET/POST/PUT etc. Multiple methods can be specified separated by comma. | null | false | MEDIUM
+| *camel.source.endpoint.matchOnUriPrefix* | Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found. | false | false | MEDIUM
+| *camel.source.endpoint.muteException* | If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace. | false | false | MEDIUM
+| *camel.source.endpoint.responseBufferSize* | To use a custom buffer size on the javax.servlet.ServletResponse. | null | false | MEDIUM
+| *camel.source.endpoint.sendDateHeader* | If the option is true, jetty server will send the date header to the client which sends the request. NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected. | false | false | MEDIUM
+| *camel.source.endpoint.sendServerVersion* | If the option is true, jetty will send the server header with the jetty version information to the client which sends the request. NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected. | true | false | MEDIUM
+| *camel.source.endpoint.sessionSupport* | Specifies whether to enable the session manager on the server side of Jetty. | false | false | MEDIUM
+| *camel.source.endpoint.transferException* | If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
+| *camel.source.endpoint.useContinuation* | Whether or not to use Jetty continuations for the Jetty Server. | null | false | MEDIUM
+| *camel.source.endpoint.eagerCheckContentAvailable* | Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present. This can be turned on in case HTTP clients do not send streamed data. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.filterInitParameters* | Configuration of the filter init parameters. These parameters will be applied to the filter list before starting the jetty server. | null | false | MEDIUM
+| *camel.source.endpoint.filters* | Allows using a custom filters which is putted into a list and can be find in the Registry. Multiple values can be separated by comma. | null | false | MEDIUM
+| *camel.source.endpoint.handlers* | Specifies a comma-delimited set of Handler instances to lookup in your Registry. These handlers are added to the Jetty servlet context (for example, to add security). Important: You can not use different handlers with different Jetty endpoints using the same port number. The handlers is associated to the port number. If you need different handlers, then use different port numbers. | null | false | MEDIUM
+| *camel.source.endpoint.mapHttpMessageBody* | If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping. | true | false | MEDIUM
+| *camel.source.endpoint.mapHttpMessageFormUrlEncoded Body* | If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping. | true | false | MEDIUM
+| *camel.source.endpoint.mapHttpMessageHeaders* | If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping. | true | false | MEDIUM
+| *camel.source.endpoint.multipartFilter* | Allows using a custom multipart filter. Note: setting multipartFilterRef forces the value of enableMultipartFilter to true. | null | false | MEDIUM
+| *camel.source.endpoint.optionsEnabled* | Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off. | false | false | MEDIUM
+| *camel.source.endpoint.traceEnabled* | Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off. | false | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.jetty.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.jetty.continuationTimeout* | Allows to set a timeout in millis when using Jetty as consumer (server). By default Jetty uses 30000. You can use a value of = 0 to never expire. If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client. This option is only in use when using Jetty with the Asynchronous Routing Engine. | "30000" | false | MEDIUM
+| *camel.component.jetty.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. | false | false | MEDIUM
+| *camel.component.jetty.maxThreads* | To set a value for maximum number of threads in server thread pool. Notice that both a min and max size must be configured. | null | false | MEDIUM
+| *camel.component.jetty.minThreads* | To set a value for minimum number of threads in server thread pool. Notice that both a min and max size must be configured. | null | false | MEDIUM
+| *camel.component.jetty.requestBufferSize* | Allows to configure a custom value of the request buffer size on the Jetty connectors. | null | false | MEDIUM
+| *camel.component.jetty.requestHeaderSize* | Allows to configure a custom value of the request header size on the Jetty connectors. | null | false | MEDIUM
+| *camel.component.jetty.responseBufferSize* | Allows to configure a custom value of the response buffer size on the Jetty connectors. | null | false | MEDIUM
+| *camel.component.jetty.responseHeaderSize* | Allows to configure a custom value of the response header size on the Jetty connectors. | null | false | MEDIUM
+| *camel.component.jetty.sendServerVersion* | If the option is true, jetty will send the server header with the jetty version information to the client which sends the request. NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected. | true | false | MEDIUM
+| *camel.component.jetty.useContinuation* | Whether or not to use Jetty continuations for the Jetty Server. | true | false | MEDIUM
+| *camel.component.jetty.useXForwardedForHeader* | To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr. | false | false | MEDIUM
+| *camel.component.jetty.threadPool* | To use a custom thread pool for the server. This option should only be used in special circumstances. | null | false | MEDIUM
+| *camel.component.jetty.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
+| *camel.component.jetty.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.jetty.errorHandler* | This option is used to set the ErrorHandler that Jetty server uses. | null | false | MEDIUM
+| *camel.component.jetty.httpBinding* | Not to be used - use JettyHttpBinding instead. | null | false | MEDIUM
+| *camel.component.jetty.httpConfiguration* | Jetty component does not use HttpConfiguration. | null | false | MEDIUM
+| *camel.component.jetty.jettyHttpBinding* | To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which are used to customize how a response should be written for the producer. | null | false | MEDIUM
+| *camel.component.jetty.mbContainer* | To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX is enabled that Jetty uses for registering mbeans. | null | false | MEDIUM
+| *camel.component.jetty.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
+| *camel.component.jetty.proxyHost* | To use a http proxy to configure the hostname. | null | false | MEDIUM
+| *camel.component.jetty.proxyPort* | To use a http proxy to configure the port number. | null | false | MEDIUM
+| *camel.component.jetty.keystore* | Specifies the location of the Java keystore file, which contains the Jetty server's own X.509 certificate in a key entry. | null | false | MEDIUM
+| *camel.component.jetty.socketConnectorProperties* | A map which contains general HTTP connector properties. Uses the same principle as sslSocketConnectorProperties. | null | false | MEDIUM
+| *camel.component.jetty.socketConnectors* | A map which contains per port number specific HTTP connectors. Uses the same principle as sslSocketConnectors. | null | false | MEDIUM
+| *camel.component.jetty.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.jetty.sslKeyPassword* | The key password, which is used to access the certificate's key entry in the keystore (this is the same password that is supplied to the keystore command's -keypass option). | null | false | MEDIUM
+| *camel.component.jetty.sslPassword* | The ssl password, which is required to access the keystore file (this is the same password that is supplied to the keystore command's -storepass option). | null | false | MEDIUM
+| *camel.component.jetty.sslSocketConnectorProperties* | A map which contains general SSL connector properties. | null | false | MEDIUM
+| *camel.component.jetty.sslSocketConnectors* | A map which contains per port number specific SSL connectors. | null | false | MEDIUM
+| *camel.component.jetty.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters | false | false | MEDIUM
+|===
+
+
+
+The camel-jetty source connector has no converters out of the box.
+
+
+
+
+
+The camel-jetty source connector has no transforms out of the box.
+
+
+
+
+
+The camel-jetty source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

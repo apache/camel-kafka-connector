@@ -1,0 +1,65 @@
+// kafka-connector options: START
+[[camel-hazelcast-seda-kafka-connector-sink]]
+= camel-hazelcast-seda-kafka-connector sink configuration
+
+Connector Description: Asynchronously send/receive Exchanges between Camel routes running on potentially distinct JVMs/hosts backed by Hazelcast BlockingQueue.
+
+When using camel-hazelcast-seda-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-hazelcast-seda-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.hazelcastseda.CamelHazelcastsedaSinkConnector
+----
+
+
+The camel-hazelcast-seda sink connector supports 14 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.cacheName* | The name of the cache | null | true | HIGH
+| *camel.sink.endpoint.defaultOperation* | To specify a default operation to use, if no operation header has been provided. One of: [put] [delete] [get] [update] [query] [getAll] [clear] [putIfAbsent] [allAll] [removeAll] [retainAll] [evict] [evictAll] [valueCount] [containsKey] [containsValue] [keySet] [removevalue] [increment] [decrement] [setvalue] [destroy] [compareAndSet] [getAndAdd] [add] [offer] [peek] [poll] [remainingCapacity] [drainTo] [removeIf] [take] [publish] [readOnceHeal] [readOnceTail] [capacity] | null | false | MEDIUM
+| *camel.sink.endpoint.hazelcastInstance* | The hazelcast instance reference which can be used for hazelcast endpoint. | null | false | MEDIUM
+| *camel.sink.endpoint.hazelcastInstanceName* | The hazelcast instance reference name which can be used for hazelcast endpoint. If you don't specify the instance reference, camel use the default hazelcast instance from the camel-hazelcast instance. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.concurrentConsumers* | To use concurrent consumers polling from the SEDA queue. | 1 | false | MEDIUM
+| *camel.sink.endpoint.onErrorDelay* | Milliseconds before consumer continues polling after an error has occurred. | 1000 | false | MEDIUM
+| *camel.sink.endpoint.pollTimeout* | The timeout used when consuming from the SEDA queue. When a timeout occurs, the consumer can check whether it is allowed to continue running. Setting a lower value allows the consumer to react more quickly upon shutdown. | 1000 | false | MEDIUM
+| *camel.sink.endpoint.transacted* | If set to true then the consumer runs in transaction mode, where the messages in the seda queue will only be removed if the transaction commits, which happens when the processing is complete. | false | false | MEDIUM
+| *camel.sink.endpoint.transferExchange* | If set to true the whole Exchange will be transfered. If header or body contains not serializable objects, they will be skipped. | false | false | MEDIUM
+| *camel.component.hazelcast-seda.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.hazelcast-seda.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.hazelcast-seda.hazelcastInstance* | The hazelcast instance reference which can be used for hazelcast endpoint. If you don't specify the instance reference, camel use the default hazelcast instance from the camel-hazelcast instance. | null | false | MEDIUM
+| *camel.component.hazelcast-seda.hazelcastMode* | The hazelcast mode reference which kind of instance should be used. If you don't specify the mode, then the node mode will be the default. | "node" | false | MEDIUM
+|===
+
+
+
+The camel-hazelcast-seda sink connector has no converters out of the box.
+
+
+
+
+
+The camel-hazelcast-seda sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-hazelcast-seda sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

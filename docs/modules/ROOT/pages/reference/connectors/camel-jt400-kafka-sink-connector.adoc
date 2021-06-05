@@ -1,0 +1,69 @@
+// kafka-connector options: START
+[[camel-jt400-kafka-connector-sink]]
+= camel-jt400-kafka-connector sink configuration
+
+Connector Description: Exchanges messages with an IBM i system using data queues, message queues, or program call. IBM i is the replacement for AS/400 and iSeries servers.
+
+When using camel-jt400-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-jt400-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.jt400.CamelJt400SinkConnector
+----
+
+
+The camel-jt400 sink connector supports 18 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.userID* | Returns the ID of the IBM i user. | null | true | HIGH
+| *camel.sink.path.password* | Returns the password of the IBM i user. | null | true | HIGH
+| *camel.sink.path.systemName* | Returns the name of the IBM i system. | null | true | HIGH
+| *camel.sink.path.objectPath* | Returns the fully qualified integrated file system path name of the target object of this endpoint. | null | true | HIGH
+| *camel.sink.path.type* | Whether to work with data queues or remote program call One of: [DTAQ] [PGM] [SRVPGM] [MSGQ] | null | true | HIGH
+| *camel.sink.endpoint.ccsid* | Sets the CCSID to use for the connection with the IBM i system. | null | false | MEDIUM
+| *camel.sink.endpoint.format* | Sets the data format for sending messages. One of: [text] [binary] | "text" | false | MEDIUM
+| *camel.sink.endpoint.guiAvailable* | Sets whether IBM i prompting is enabled in the environment running Camel. | false | false | MEDIUM
+| *camel.sink.endpoint.keyed* | Whether to use keyed or non-keyed data queues. | false | false | MEDIUM
+| *camel.sink.endpoint.searchKey* | Search key for keyed data queues. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.outputFieldsIdxArray* | Specifies which fields (program parameters) are output parameters. | null | false | MEDIUM
+| *camel.sink.endpoint.outputFieldsLengthArray* | Specifies the fields (program parameters) length as in the IBM i program definition. | null | false | MEDIUM
+| *camel.sink.endpoint.procedureName* | Procedure name from a service program to call | null | false | MEDIUM
+| *camel.sink.endpoint.secured* | Whether connections to IBM i are secured with SSL. | false | false | MEDIUM
+| *camel.component.jt400.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.jt400.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.jt400.connectionPool* | Default connection pool used by the component. Note that this pool is lazily initialized. This is because in a scenario where the user always provides a pool, it would be wasteful for Camel to initialize and keep an idle pool. | null | false | MEDIUM
+|===
+
+
+
+The camel-jt400 sink connector has no converters out of the box.
+
+
+
+
+
+The camel-jt400 sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-jt400 sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

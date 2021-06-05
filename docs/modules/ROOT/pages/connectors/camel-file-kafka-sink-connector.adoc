@@ -81,4 +81,8 @@ org.apache.camel.kafkaconnector.file.transformers.FileTransforms
 
 
 The camel-file sink connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

@@ -105,4 +105,8 @@ org.apache.camel.kafkaconnector.ssh.transformers.SshTransforms
 
 
 The camel-ssh source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

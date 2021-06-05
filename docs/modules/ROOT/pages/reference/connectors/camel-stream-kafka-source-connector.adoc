@@ -1,0 +1,69 @@
+// kafka-connector options: START
+[[camel-stream-kafka-connector-source]]
+= camel-stream-kafka-connector source configuration
+
+Connector description: Read from system-in and write to system-out and system-err streams.
+
+When using camel-stream-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-stream-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.stream.CamelStreamSourceConnector
+----
+
+
+The camel-stream source connector supports 18 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.kind* | Kind of stream to use such as System.in or System.out. One of: [in] [out] [err] [header] [file] | null | true | HIGH
+| *camel.source.endpoint.encoding* | You can configure the encoding (is a charset name) to use text-based streams (for example, message body is a String object). If not provided, Camel uses the JVM default Charset. | null | false | MEDIUM
+| *camel.source.endpoint.fileName* | When using the stream:file URI format, this option specifies the filename to stream to/from. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.fileWatcher* | To use JVM file watcher to listen for file change events to support re-loading files that may be overwritten, somewhat like tail --retry | false | false | MEDIUM
+| *camel.source.endpoint.groupLines* | To group X number of lines in the consumer. For example to group 10 lines and therefore only spit out an Exchange with 10 lines, instead of 1 Exchange per line. | null | false | MEDIUM
+| *camel.source.endpoint.groupStrategy* | Allows to use a custom GroupStrategy to control how to group lines. | null | false | MEDIUM
+| *camel.source.endpoint.initialPromptDelay* | Initial delay in milliseconds before showing the message prompt. This delay occurs only once. Can be used during system startup to avoid message prompts being written while other logging is done to the system out. | 2000L | false | MEDIUM
+| *camel.source.endpoint.promptDelay* | Optional delay in milliseconds before showing the message prompt. | null | false | MEDIUM
+| *camel.source.endpoint.promptMessage* | Message prompt to use when reading from stream:in; for example, you could set this to Enter a command: | null | false | MEDIUM
+| *camel.source.endpoint.retry* | Will retry opening the stream if it's overwritten, somewhat like tail --retry If reading from files then you should also enable the fileWatcher option, to make it work reliable. | false | false | MEDIUM
+| *camel.source.endpoint.scanStream* | To be used for continuously reading a stream such as the unix tail command. | false | false | MEDIUM
+| *camel.source.endpoint.scanStreamDelay* | Delay in milliseconds between read attempts when using scanStream. | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.readTimeout* | Sets the read timeout to a specified timeout, in milliseconds. A non-zero value specifies the timeout when reading from Input stream when a connection is established to a resource. If the timeout expires before there is data available for read, a java.net.SocketTimeoutException is raised. A timeout of zero is interpreted as an infinite timeout. | null | false | MEDIUM
+| *camel.component.stream.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.stream.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-stream source connector has no converters out of the box.
+
+
+
+
+
+The camel-stream source connector has no transforms out of the box.
+
+
+
+
+
+The camel-stream source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

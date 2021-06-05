@@ -112,4 +112,8 @@ org.apache.camel.kafkaconnector.aws2kinesis.transformers.KinesisRecordDataTransf
 
 
 The camel-aws2-kinesis source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

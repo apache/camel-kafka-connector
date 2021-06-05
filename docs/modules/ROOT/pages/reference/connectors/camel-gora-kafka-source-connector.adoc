@@ -1,0 +1,73 @@
+// kafka-connector options: START
+[[camel-gora-kafka-connector-source]]
+= camel-gora-kafka-connector source configuration
+
+Connector description: Access NoSQL databases using the Apache Gora framework.
+
+When using camel-gora-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-gora-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.gora.CamelGoraSourceConnector
+----
+
+
+The camel-gora source connector supports 22 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.name* | Instance name | null | true | HIGH
+| *camel.source.endpoint.dataStoreClass* | The type of the dataStore | null | false | MEDIUM
+| *camel.source.endpoint.keyClass* | The type class of the key | null | false | MEDIUM
+| *camel.source.endpoint.valueClass* | The type of the value | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.concurrentConsumers* | Number of concurrent consumers | 1 | false | MEDIUM
+| *camel.source.endpoint.endKey* | The End Key | null | false | MEDIUM
+| *camel.source.endpoint.endTime* | The End Time | null | false | MEDIUM
+| *camel.source.endpoint.fields* | The Fields | null | false | MEDIUM
+| *camel.source.endpoint.keyRangeFrom* | The Key Range From | null | false | MEDIUM
+| *camel.source.endpoint.keyRangeTo* | The Key Range To | null | false | MEDIUM
+| *camel.source.endpoint.limit* | The Limit | null | false | MEDIUM
+| *camel.source.endpoint.startKey* | The Start Key | null | false | MEDIUM
+| *camel.source.endpoint.startTime* | The Start Time | null | false | MEDIUM
+| *camel.source.endpoint.timeRangeFrom* | The Time Range From | null | false | MEDIUM
+| *camel.source.endpoint.timeRangeTo* | The Time Range To | null | false | MEDIUM
+| *camel.source.endpoint.timestamp* | The Timestamp | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.hadoopConfiguration* | Hadoop Configuration | null | false | MEDIUM
+| *camel.component.gora.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.gora.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-gora source connector has no converters out of the box.
+
+
+
+
+
+The camel-gora source connector has no transforms out of the box.
+
+
+
+
+
+The camel-gora source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

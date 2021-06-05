@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-lpr-kafka-connector-sink]]
+= camel-lpr-kafka-connector sink configuration
+
+Connector Description: Send print jobs to printers.
+
+When using camel-lpr-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-lpr-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.lpr.CamelLprSinkConnector
+----
+
+
+The camel-lpr sink connector supports 16 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.hostname* | Hostname of the printer | null | true | HIGH
+| *camel.sink.path.port* | Port number of the printer | null | false | MEDIUM
+| *camel.sink.path.printername* | Name of the printer | null | false | MEDIUM
+| *camel.sink.endpoint.copies* | Number of copies to print | 1 | false | MEDIUM
+| *camel.sink.endpoint.docFlavor* | Sets DocFlavor to use. | null | false | MEDIUM
+| *camel.sink.endpoint.flavor* | Sets DocFlavor to use. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.mediaSize* | Sets the stationary as defined by enumeration names in the javax.print.attribute.standard.MediaSizeName API. The default setting is to use North American Letter sized stationary. The value's case is ignored, e.g. values of iso_a4 and ISO_A4 may be used. | "na-letter" | false | MEDIUM
+| *camel.sink.endpoint.mediaTray* | Sets MediaTray supported by the javax.print.DocFlavor API, for example upper,middle etc. | null | false | MEDIUM
+| *camel.sink.endpoint.mimeType* | Sets mimeTypes supported by the javax.print.DocFlavor API | null | false | MEDIUM
+| *camel.sink.endpoint.orientation* | Sets the page orientation. One of: [portrait] [landscape] [reverse-portrait] [reverse-landscape] | "portrait" | false | MEDIUM
+| *camel.sink.endpoint.printerPrefix* | Sets the prefix name of the printer, it is useful when the printer name does not start with //hostname/printer | null | false | MEDIUM
+| *camel.sink.endpoint.sendToPrinter* | etting this option to false prevents sending of the print data to the printer | true | false | MEDIUM
+| *camel.sink.endpoint.sides* | Sets one sided or two sided printing based on the javax.print.attribute.standard.Sides API One of: [one-sided] [duplex] [tumble] [two-sided-short-edge] [two-sided-long-edge] | "one-sided" | false | MEDIUM
+| *camel.component.lpr.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.lpr.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-lpr sink connector has no converters out of the box.
+
+
+
+
+
+The camel-lpr sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-lpr sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

@@ -1,0 +1,69 @@
+// kafka-connector options: START
+[[camel-ignite-cache-kafka-connector-source]]
+= camel-ignite-cache-kafka-connector source configuration
+
+Connector description: Perform cache operations on an Ignite cache or consume changes from a continuous query.
+
+When using camel-ignite-cache-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ignite-cache-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.ignitecache.CamelIgnitecacheSourceConnector
+----
+
+
+The camel-ignite-cache source connector supports 18 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.cacheName* | The cache name. | null | true | HIGH
+| *camel.source.endpoint.propagateIncomingBodyIfNo ReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | false | MEDIUM
+| *camel.source.endpoint.treatCollectionsAsCache Objects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | false | MEDIUM
+| *camel.source.endpoint.autoUnsubscribe* | Whether auto unsubscribe is enabled in the Continuous Query Consumer. Default value notice: ContinuousQuery.DFLT_AUTO_UNSUBSCRIBE | true | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.fireExistingQueryResults* | Whether to process existing results that match the query. Used on initialization of the Continuous Query Consumer. | false | false | MEDIUM
+| *camel.source.endpoint.oneExchangePerUpdate* | Whether to pack each update in an individual Exchange, even if multiple updates are received in one batch. Only used by the Continuous Query Consumer. | true | false | MEDIUM
+| *camel.source.endpoint.pageSize* | The page size. Only used by the Continuous Query Consumer. Default value notice: ContinuousQuery.DFLT_PAGE_SIZE | 1 | false | MEDIUM
+| *camel.source.endpoint.query* | The Query to execute, only needed for operations that require it, and for the Continuous Query Consumer. | null | false | MEDIUM
+| *camel.source.endpoint.remoteFilter* | The remote filter, only used by the Continuous Query Consumer. | null | false | MEDIUM
+| *camel.source.endpoint.timeInterval* | The time interval for the Continuous Query Consumer. Default value notice: ContinuousQuery.DFLT_TIME_INTERVAL | 0L | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.ignite-cache.configurationResource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | false | MEDIUM
+| *camel.component.ignite-cache.ignite* | To use an existing Ignite instance. | null | false | MEDIUM
+| *camel.component.ignite-cache.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | false | MEDIUM
+| *camel.component.ignite-cache.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.ignite-cache.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-ignite-cache source connector has no converters out of the box.
+
+
+
+
+
+The camel-ignite-cache source connector has no transforms out of the box.
+
+
+
+
+
+The camel-ignite-cache source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

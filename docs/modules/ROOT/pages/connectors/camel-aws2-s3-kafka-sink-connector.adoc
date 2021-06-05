@@ -142,4 +142,6 @@ The camel-aws2-s3 sink connector supports 1 aggregation strategies out of the bo
 org.apache.camel.kafkaconnector.aws2s3.aggregation.NewlineAggregationStrategy
 
 ----
+
+
 // kafka-connector options: END

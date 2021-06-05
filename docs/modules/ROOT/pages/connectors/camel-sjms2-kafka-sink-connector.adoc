@@ -91,10 +91,8 @@ The camel-sjms2 sink connector has no transforms out of the box.
 
 
 The camel-sjms2 sink connector has no aggregation strategies out of the box.
-// kafka-connector options: END
 
-[NOTE]
-====
-Do not use activemq-all 5.16.0 or older with the SJMS2 connector. 
-The activemq-all jar contains packages older versions of Camel that cause conflict when trying to run the SJMS2 connector. You may find very interesting errors such as java.lang.NoSuchMethodError: org.apache.camel.main.Main.configure()Lorg/apache/camel/main/MainConfigurationProperties when trying to do so.
-====
+
+
+
+// kafka-connector options: END

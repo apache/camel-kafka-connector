@@ -48,9 +48,10 @@ import static org.apache.camel.tooling.util.PackageHelper.writeText;
  */
 @Mojo(name = "update-doc-connectors-list", threadSafe = true)
 public class UpdateDocComponentsListMojo extends AbstractMojo {
+    //TODO: make these configurable:
     private static final String SINK_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-sink-connector.adoc[Sink Docs]";
     private static final String SOURCE_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-source-connector.adoc[Source Docs]";
-    private static final String XREF_CONNECTOR_LINK_PREFIX = "xref:connectors/";
+    private static final String XREF_CONNECTOR_LINK_PREFIX = "xref:reference/connectors/";
 
     /**
      * The maven project.
@@ -130,11 +131,11 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                 singleConnector.setSink(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
-                                    singleConnector.setDocsSink("xref:connectors/camel-coap+tcp-kafka-sink-connector.adoc[Sink Docs]");
+                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-coap+tcp-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
-                                    singleConnector.setDocsSink("xref:connectors/camel-coaps+tcp-kafka-sink-connector.adoc[Sink Docs]");
+                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-coaps+tcp-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
-                                    singleConnector.setDocsSink("xref:connectors/camel-solrCloud-kafka-sink-connector.adoc[Sink Docs]");
+                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-solrCloud-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
                                 } else {
                                     singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
                                 }
@@ -143,11 +144,11 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                 singleConnector.setSource(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
-                                    singleConnector.setDocsSource("xref:connectors/camel-coap+tcp-kafka-source-connector.adoc[Source Docs]");
+                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-coap+tcp-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
-                                    singleConnector.setDocsSource("xref:connectors/camel-coaps+tcp-kafka-source-connector.adoc[Source Docs]");
+                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-coaps+tcp-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
-                                    singleConnector.setDocsSource("xref:connectors/camel-solrCloud-kafka-source-connector.adoc[Source Docs]");
+                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-solrCloud-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
                                 } else {
                                     singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
                                 }
@@ -167,8 +168,9 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                 tableModel.setOptions(options);
             }
         }
+        //TODO: make these configurable:
         File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/");
-        File docFileWebsite = new File(docFolderWebsite, "pages/connectors.adoc");
+        File docFileWebsite = new File(docFolderWebsite, "pages/reference/index.adoc");
         String changed = templateConnnectorsTable(tableModel);
         boolean updated = updateConnectorsTable(docFileWebsite, changed);
         if (updated) {

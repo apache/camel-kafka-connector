@@ -169,4 +169,8 @@ org.apache.camel.kafkaconnector.sftp.transformers.SftpRemoteFileTransforms
 
 
 The camel-sftp source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

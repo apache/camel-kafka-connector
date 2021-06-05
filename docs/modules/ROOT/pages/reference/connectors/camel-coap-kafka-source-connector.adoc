@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-coap-kafka-connector-source]]
+= camel-coap-kafka-connector source configuration
+
+Connector description: Send and receive messages to/from COAP capable devices.
+
+When using camel-coap-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-coap-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.coap.CamelCoapSourceConnector
+----
+
+
+The camel-coap source connector supports 16 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.uri* | The URI for the CoAP endpoint | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.coapMethodRestrict* | Comma separated list of methods that the CoAP consumer will bind to. The default is to bind to all methods (DELETE, GET, POST, PUT). One of: [DELETE] [GET] [POST] [PUT] | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.alias* | Sets the alias used to query the KeyStore for the private key and certificate. This parameter is used when we are enabling TLS with certificates on the service side, and similarly on the client side when TLS is used with certificates and client authentication. If the parameter is not specified then the default behavior is to use the first alias in the keystore that contains a key entry. This configuration parameter does not apply to configuring TLS via a Raw Public Key or a Pre-Shared Key. One of: [NONE] [WANT] [REQUIRE] | null | false | MEDIUM
+| *camel.source.endpoint.cipherSuites* | Sets the cipherSuites String. This is a comma separated String of ciphersuites to configure. If it is not specified, then it falls back to getting the ciphersuites from the sslContextParameters object. | null | false | MEDIUM
+| *camel.source.endpoint.clientAuthentication* | Sets the configuration options for server-side client-authentication requirements. The value must be one of NONE, WANT, REQUIRE. If this value is not specified, then it falls back to checking the sslContextParameters.getServerParameters().getClientAuthentication() value. | null | false | MEDIUM
+| *camel.source.endpoint.privateKey* | Set the configured private key for use with Raw Public Key. | null | false | MEDIUM
+| *camel.source.endpoint.pskStore* | Set the PskStore to use for pre-shared key. | null | false | MEDIUM
+| *camel.source.endpoint.publicKey* | Set the configured public key for use with Raw Public Key. | null | false | MEDIUM
+| *camel.source.endpoint.recommendedCipherSuitesOnly* | The CBC cipher suites are not recommended. If you want to use them, you first need to set the recommendedCipherSuitesOnly option to false. | true | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | Set the SSLContextParameters object for setting up TLS. This is required for coapstcp, and for coaps when we are using certificates for TLS (as opposed to RPK or PKS). | null | false | MEDIUM
+| *camel.source.endpoint.trustedRpkStore* | Set the TrustedRpkStore to use to determine trust in raw public keys. | null | false | MEDIUM
+| *camel.component.coap.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.coap.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-coap source connector has no converters out of the box.
+
+
+
+
+
+The camel-coap source connector has no transforms out of the box.
+
+
+
+
+
+The camel-coap source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

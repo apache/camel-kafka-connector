@@ -1,0 +1,74 @@
+// kafka-connector options: START
+[[camel-xmpp-kafka-connector-source]]
+= camel-xmpp-kafka-connector source configuration
+
+Connector description: Send and receive messages to/from an XMPP chat server.
+
+When using camel-xmpp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-xmpp-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.xmpp.CamelXmppSourceConnector
+----
+
+
+The camel-xmpp source connector supports 23 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.host* | Hostname for the chat server | null | true | HIGH
+| *camel.source.path.port* | Port number for the chat server | null | true | HIGH
+| *camel.source.path.participant* | JID (Jabber ID) of person to receive messages. room parameter has precedence over participant. | null | false | MEDIUM
+| *camel.source.endpoint.login* | Whether to login the user. | true | false | MEDIUM
+| *camel.source.endpoint.nickname* | Use nickname when joining room. If room is specified and nickname is not, user will be used for the nickname. | null | false | MEDIUM
+| *camel.source.endpoint.pubsub* | Accept pubsub packets on input, default is false | false | false | MEDIUM
+| *camel.source.endpoint.room* | If this option is specified, the component will connect to MUC (Multi User Chat). Usually, the domain name for MUC is different from the login domain. For example, if you are supermanjabber.org and want to join the krypton room, then the room URL is kryptonconference.jabber.org. Note the conference part. It is not a requirement to provide the full room JID. If the room parameter does not contain the symbol, the domain part will be discovered and added by Camel | null | false | MEDIUM
+| *camel.source.endpoint.serviceName* | The name of the service you are connecting to. For Google Talk, this would be gmail.com. | null | false | MEDIUM
+| *camel.source.endpoint.testConnectionOnStartup* | Specifies whether to test the connection on startup. This is used to ensure that the XMPP client has a valid connection to the XMPP server when the route starts. Camel throws an exception on startup if a connection cannot be established. When this option is set to false, Camel will attempt to establish a lazy connection when needed by a producer, and will poll for a consumer connection until the connection is established. Default is true. | true | false | MEDIUM
+| *camel.source.endpoint.createAccount* | If true, an attempt to create an account will be made. Default is false. | false | false | MEDIUM
+| *camel.source.endpoint.resource* | XMPP resource. The default is Camel. | "Camel" | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.connectionPollDelay* | The amount of time in seconds between polls (in seconds) to verify the health of the XMPP connection, or between attempts to establish an initial consumer connection. Camel will try to re-establish a connection if it has become inactive. Default is 10 seconds. | 10 | false | MEDIUM
+| *camel.source.endpoint.doc* | Set a doc header on the IN message containing a Document form of the incoming packet; default is true if presence or pubsub are true, otherwise false | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.connectionConfig* | To use an existing connection configuration. Currently org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only supported (XMPP over TCP). | null | false | MEDIUM
+| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
+| *camel.source.endpoint.password* | Password for login | null | false | MEDIUM
+| *camel.source.endpoint.roomPassword* | Password for room | null | false | MEDIUM
+| *camel.source.endpoint.user* | User name (without server name). If not specified, anonymous login will be attempted. | null | false | MEDIUM
+| *camel.component.xmpp.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.xmpp.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-xmpp source connector has no converters out of the box.
+
+
+
+
+
+The camel-xmpp source connector has no transforms out of the box.
+
+
+
+
+
+The camel-xmpp source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

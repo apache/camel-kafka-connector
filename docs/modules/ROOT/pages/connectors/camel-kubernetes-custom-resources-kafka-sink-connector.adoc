@@ -71,4 +71,8 @@ The camel-kubernetes-custom-resources sink connector has no transforms out of th
 
 
 The camel-kubernetes-custom-resources sink connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

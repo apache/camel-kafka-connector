@@ -57,4 +57,8 @@ The camel-hazelcast-replicatedmap sink connector has no transforms out of the bo
 
 
 The camel-hazelcast-replicatedmap sink connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

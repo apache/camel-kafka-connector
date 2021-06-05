@@ -71,4 +71,8 @@ The camel-kubernetes-replication-controllers sink connector has no transforms ou
 
 
 The camel-kubernetes-replication-controllers sink connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

@@ -1,0 +1,92 @@
+// kafka-connector options: START
+[[camel-docker-kafka-connector-source]]
+= camel-docker-kafka-connector source configuration
+
+Connector description: Manage Docker containers.
+
+When using camel-docker-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-docker-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.docker.CamelDockerSourceConnector
+----
+
+
+The camel-docker source connector supports 41 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.operation* | Which operation to use One of: [events] [stats] [auth] [info] [ping] [version] [imagebuild] [imagecreate] [imageinspect] [imagelist] [imagepull] [imagepushimageremove] [imagesearch] [imagetag] [containerattach] [containercommit] [containercopyfile] [containercreate] [containerdiffinspectcontainer] [containerkill] [containerlist] [containerlog] [containerpause] [containerrestart] [containerremove] [containerstartcontainerstop] [containertop] [containerunpause] [containerwait] [execcreate] [execstart] | null | true | HIGH
+| *camel.source.endpoint.email* | Email address associated with the user | null | false | MEDIUM
+| *camel.source.endpoint.host* | Docker host | "localhost" | true | HIGH
+| *camel.source.endpoint.port* | Docker port | "2375" | false | MEDIUM
+| *camel.source.endpoint.requestTimeout* | Request timeout for response (in seconds) | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.cmdExecFactory* | The fully qualified class name of the DockerCmdExecFactory implementation to use | "com.github.dockerjava.netty.NettyDockerCmdExecFactory" | false | MEDIUM
+| *camel.source.endpoint.followRedirectFilter* | Whether to follow redirect filter | false | false | MEDIUM
+| *camel.source.endpoint.loggingFilter* | Whether to use logging filter | false | false | MEDIUM
+| *camel.source.endpoint.maxPerRouteConnections* | Maximum route connections | "100" | false | MEDIUM
+| *camel.source.endpoint.maxTotalConnections* | Maximum total connections | "100" | false | MEDIUM
+| *camel.source.endpoint.parameters* | Additional configuration parameters as key/value pairs | null | false | MEDIUM
+| *camel.source.endpoint.serverAddress* | Server address for docker registry. | "https://index.docker.io/v1/" | false | MEDIUM
+| *camel.source.endpoint.socket* | Socket connection mode | true | false | MEDIUM
+| *camel.source.endpoint.certPath* | Location containing the SSL certificate chain | null | false | MEDIUM
+| *camel.source.endpoint.password* | Password to authenticate with | null | false | MEDIUM
+| *camel.source.endpoint.secure* | Use HTTPS communication | false | false | MEDIUM
+| *camel.source.endpoint.tlsVerify* | Check TLS | false | false | MEDIUM
+| *camel.source.endpoint.username* | User name to authenticate with | null | false | MEDIUM
+| *camel.component.docker.configuration* | To use the shared docker configuration | null | false | MEDIUM
+| *camel.component.docker.email* | Email address associated with the user | null | false | MEDIUM
+| *camel.component.docker.host* | Docker host | "localhost" | true | HIGH
+| *camel.component.docker.port* | Docker port | "2375" | false | MEDIUM
+| *camel.component.docker.requestTimeout* | Request timeout for response (in seconds) | null | false | MEDIUM
+| *camel.component.docker.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.docker.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.docker.cmdExecFactory* | The fully qualified class name of the DockerCmdExecFactory implementation to use | "com.github.dockerjava.netty.NettyDockerCmdExecFactory" | false | MEDIUM
+| *camel.component.docker.followRedirectFilter* | Whether to follow redirect filter | false | false | MEDIUM
+| *camel.component.docker.loggingFilter* | Whether to use logging filter | false | false | MEDIUM
+| *camel.component.docker.maxPerRouteConnections* | Maximum route connections | "100" | false | MEDIUM
+| *camel.component.docker.maxTotalConnections* | Maximum total connections | "100" | false | MEDIUM
+| *camel.component.docker.parameters* | Additional configuration parameters as key/value pairs | null | false | MEDIUM
+| *camel.component.docker.serverAddress* | Server address for docker registry. | "https://index.docker.io/v1/" | false | MEDIUM
+| *camel.component.docker.socket* | Socket connection mode | true | false | MEDIUM
+| *camel.component.docker.certPath* | Location containing the SSL certificate chain | null | false | MEDIUM
+| *camel.component.docker.password* | Password to authenticate with | null | false | MEDIUM
+| *camel.component.docker.secure* | Use HTTPS communication | false | false | MEDIUM
+| *camel.component.docker.tlsVerify* | Check TLS | false | false | MEDIUM
+| *camel.component.docker.username* | User name to authenticate with | null | false | MEDIUM
+|===
+
+
+
+The camel-docker source connector has no converters out of the box.
+
+
+
+
+
+The camel-docker source connector has no transforms out of the box.
+
+
+
+
+
+The camel-docker source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

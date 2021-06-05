@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-quickfix-kafka-connector-sink]]
+= camel-quickfix-kafka-connector sink configuration
+
+Connector Description: Open a Financial Interchange (FIX) session using an embedded QuickFix/J engine.
+
+When using camel-quickfix-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-quickfix-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.quickfix.CamelQuickfixSinkConnector
+----
+
+
+The camel-quickfix sink connector supports 10 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.configurationName* | Path to the quickfix configuration file. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the configuration file using these protocols (classpath is default). ref will lookup the configuration file in the registry. bean will call a method on a bean to be used as the configuration. For bean you can specify the method name after dot, eg bean:myBean.myMethod | null | true | HIGH
+| *camel.sink.endpoint.lazyCreateEngine* | This option allows to create QuickFIX/J engine on demand. Value true means the engine is started when first message is send or there's consumer configured in route definition. When false value is used, the engine is started at the endpoint creation. When this parameter is missing, the value of component's property lazyCreateEngines is being used. | false | false | MEDIUM
+| *camel.sink.endpoint.sessionID* | The optional sessionID identifies a specific FIX session. The format of the sessionID is: (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID) | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.quickfix.lazyCreateEngines* | If set to true, the engines will be created and started when needed (when first message is send) | false | false | MEDIUM
+| *camel.component.quickfix.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.quickfix.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.quickfix.logFactory* | To use the given LogFactory | null | false | MEDIUM
+| *camel.component.quickfix.messageFactory* | To use the given MessageFactory | null | false | MEDIUM
+| *camel.component.quickfix.messageStoreFactory* | To use the given MessageStoreFactory | null | false | MEDIUM
+|===
+
+
+
+The camel-quickfix sink connector has no converters out of the box.
+
+
+
+
+
+The camel-quickfix sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-quickfix sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

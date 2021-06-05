@@ -1,0 +1,76 @@
+// kafka-connector options: START
+[[camel-corda-kafka-connector-source]]
+= camel-corda-kafka-connector source configuration
+
+Connector description: Perform operations against Corda blockchain platform using corda-rpc library.
+
+When using camel-corda-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-corda-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.corda.CamelCordaSourceConnector
+----
+
+
+The camel-corda source connector supports 25 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.node* | The url for the corda node | null | true | HIGH
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.pageSpecification* | PageSpecification allows specification of a page number (starting from 1) and page size (defaulting to 200 with a maximum page size of (Integer.MAX_INT) Note: we default the page number to 200 to enable queries without requiring a page specification but enabling detection of large results sets that fall out of the 200 requirement. Max page size should be used with extreme caution as results may exceed your JVM memory footprint. | "200" | false | MEDIUM
+| *camel.source.endpoint.processSnapshot* | Whether to process snapshots or not | true | false | MEDIUM
+| *camel.source.endpoint.sort* | Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC] | null | false | MEDIUM
+| *camel.source.endpoint.contractStateClass* | A contract state (or just state) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions. States are immutable: once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is responsible for ensuring there is no double spending by only signing a transaction if the input states are all free. | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.flowLogicArguments* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | false | MEDIUM
+| *camel.source.endpoint.flowLogicClass* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | false | MEDIUM
+| *camel.source.endpoint.queryCriteria* | QueryCriteria assumes underlying schema tables are correctly indexed for performance. | null | false | MEDIUM
+| *camel.source.endpoint.password* | Password for login | null | false | MEDIUM
+| *camel.source.endpoint.username* | Username for login | null | false | MEDIUM
+| *camel.component.corda.configuration* | To use a shared configuration. | null | false | MEDIUM
+| *camel.component.corda.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.corda.pageSpecification* | PageSpecification allows specification of a page number (starting from 1) and page size (defaulting to 200 with a maximum page size of (Integer.MAX_INT) Note: we default the page number to 200 to enable queries without requiring a page specification but enabling detection of large results sets that fall out of the 200 requirement. Max page size should be used with extreme caution as results may exceed your JVM memory footprint. | "200" | false | MEDIUM
+| *camel.component.corda.processSnapshot* | Whether to process snapshots or not | true | false | MEDIUM
+| *camel.component.corda.sort* | Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC] | null | false | MEDIUM
+| *camel.component.corda.contractStateClass* | A contract state (or just state) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions. States are immutable: once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is responsible for ensuring there is no double spending by only signing a transaction if the input states are all free. | null | false | MEDIUM
+| *camel.component.corda.flowLogicArguments* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | false | MEDIUM
+| *camel.component.corda.flowLogicClass* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | false | MEDIUM
+| *camel.component.corda.queryCriteria* | QueryCriteria assumes underlying schema tables are correctly indexed for performance. | null | false | MEDIUM
+| *camel.component.corda.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.corda.password* | Password for login | null | false | MEDIUM
+| *camel.component.corda.username* | Username for login | null | false | MEDIUM
+|===
+
+
+
+The camel-corda source connector has no converters out of the box.
+
+
+
+
+
+The camel-corda source connector has no transforms out of the box.
+
+
+
+
+
+The camel-corda source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

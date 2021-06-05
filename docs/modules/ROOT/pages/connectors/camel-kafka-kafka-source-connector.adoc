@@ -173,4 +173,8 @@ The camel-kafka source connector has no transforms out of the box.
 
 
 The camel-kafka source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END

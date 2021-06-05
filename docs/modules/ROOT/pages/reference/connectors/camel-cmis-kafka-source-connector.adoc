@@ -1,0 +1,66 @@
+// kafka-connector options: START
+[[camel-cmis-kafka-connector-source]]
+= camel-cmis-kafka-connector source configuration
+
+Connector description: Read and write data from to/from a CMIS compliant content repositories.
+
+When using camel-cmis-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-cmis-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.cmis.CamelCmisSourceConnector
+----
+
+
+The camel-cmis source connector supports 15 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.cmsUrl* | URL to the cmis repository | null | true | HIGH
+| *camel.source.endpoint.pageSize* | Number of nodes to retrieve per page | 100 | false | MEDIUM
+| *camel.source.endpoint.readContent* | If set to true, the content of document node will be retrieved in addition to the properties | false | false | MEDIUM
+| *camel.source.endpoint.readCount* | Max number of nodes to read | null | false | MEDIUM
+| *camel.source.endpoint.repositoryId* | The Id of the repository to use. If not specified the first available repository is used | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.query* | The cmis query to execute against the repository. If not specified, the consumer will retrieve every node from the content repository by iterating the content tree recursively | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.sessionFacadeFactory* | To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade instances | null | false | MEDIUM
+| *camel.source.endpoint.password* | Password for the cmis repository | null | false | MEDIUM
+| *camel.source.endpoint.username* | Username for the cmis repository | null | false | MEDIUM
+| *camel.component.cmis.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.cmis.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.cmis.sessionFacadeFactory* | To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade instances | null | false | MEDIUM
+|===
+
+
+
+The camel-cmis source connector has no converters out of the box.
+
+
+
+
+
+The camel-cmis source connector has no transforms out of the box.
+
+
+
+
+
+The camel-cmis source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

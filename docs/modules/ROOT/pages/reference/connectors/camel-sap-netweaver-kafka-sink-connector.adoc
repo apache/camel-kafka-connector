@@ -1,0 +1,60 @@
+// kafka-connector options: START
+[[camel-sap-netweaver-kafka-connector-sink]]
+= camel-sap-netweaver-kafka-connector sink configuration
+
+Connector Description: Send requests to SAP NetWeaver Gateway using HTTP.
+
+When using camel-sap-netweaver-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-sap-netweaver-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.sapnetweaver.CamelSapnetweaverSinkConnector
+----
+
+
+The camel-sap-netweaver sink connector supports 9 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.url* | Url to the SAP net-weaver gateway server. | null | true | HIGH
+| *camel.sink.endpoint.flatternMap* | If the JSON Map contains only a single entry, then flattern by storing that single entry value as the message body. | true | false | MEDIUM
+| *camel.sink.endpoint.json* | Whether to return data in JSON format. If this option is false, then XML is returned in Atom format. | true | false | MEDIUM
+| *camel.sink.endpoint.jsonAsMap* | To transform the JSON from a String to a Map in the message body. | true | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.password* | Password for account. | null | true | HIGH
+| *camel.sink.endpoint.username* | Username for account. | null | true | HIGH
+| *camel.component.sap-netweaver.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.sap-netweaver.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-sap-netweaver sink connector has no converters out of the box.
+
+
+
+
+
+The camel-sap-netweaver sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-sap-netweaver sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

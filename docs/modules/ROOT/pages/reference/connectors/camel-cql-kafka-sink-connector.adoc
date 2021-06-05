@@ -1,0 +1,68 @@
+// kafka-connector options: START
+[[camel-cql-kafka-connector-sink]]
+= camel-cql-kafka-connector sink configuration
+
+Connector Description: Integrate with Cassandra 2.0 using the CQL3 API (not the Thrift API). Based on Cassandra Java Driver provided by DataStax.
+
+When using camel-cql-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-cql-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.cql.CamelCqlSinkConnector
+----
+
+
+The camel-cql sink connector supports 17 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.beanRef* | beanRef is defined using bean:id | null | false | MEDIUM
+| *camel.sink.path.hosts* | Hostname(s) Cassandra server(s). Multiple hosts can be separated by comma. | null | false | MEDIUM
+| *camel.sink.path.port* | Port number of Cassandra server(s) | null | false | MEDIUM
+| *camel.sink.path.keyspace* | Keyspace to use | null | false | MEDIUM
+| *camel.sink.endpoint.clusterName* | Cluster name | null | false | MEDIUM
+| *camel.sink.endpoint.consistencyLevel* | Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_ONE] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL] | null | false | MEDIUM
+| *camel.sink.endpoint.cql* | CQL query to perform. Can be overridden with the message header with key CamelCqlQuery. | null | false | MEDIUM
+| *camel.sink.endpoint.datacenter* | Datacenter to use | "datacenter1" | false | MEDIUM
+| *camel.sink.endpoint.loadBalancingPolicyClass* | To use a specific LoadBalancingPolicyClass | null | false | MEDIUM
+| *camel.sink.endpoint.password* | Password for session authentication | null | false | MEDIUM
+| *camel.sink.endpoint.prepareStatements* | Whether to use PreparedStatements or regular Statements | true | false | MEDIUM
+| *camel.sink.endpoint.resultSetConversionStrategy* | To use a custom class that implements logic for converting ResultSet into message body ALL, ONE, LIMIT_10, LIMIT_100... | null | false | MEDIUM
+| *camel.sink.endpoint.session* | To use the Session instance (you would normally not use this option) | null | false | MEDIUM
+| *camel.sink.endpoint.username* | Username for session authentication | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.cql.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.cql.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-cql sink connector has no converters out of the box.
+
+
+
+
+
+The camel-cql sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-cql sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END
