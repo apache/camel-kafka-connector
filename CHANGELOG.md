@@ -9,9 +9,12 @@
 - CAMEL-AWS-KINESIS-KAFKA-CONNECTOR SOURCE CONFIGURATION [\#1186](https://github.com/apache/camel-kafka-connector/issues/1186)
 - Release 0.10.0 [\#1184](https://github.com/apache/camel-kafka-connector/issues/1184)
 - Bump to Camel 3.10.0 [\#1183](https://github.com/apache/camel-kafka-connector/issues/1183)
+- camel-salesforce-kafka-connector missing dependency library [\#1114](https://github.com/apache/camel-kafka-connector/issues/1114)
+- Improve documentation TOC [\#389](https://github.com/apache/camel-kafka-connector/issues/389)
 
 **Merged pull requests:**
 
+- Salesforce issue [\#1193](https://github.com/apache/camel-kafka-connector/pull/1193) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1191](https://github.com/apache/camel-kafka-connector/pull/1191) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1189](https://github.com/apache/camel-kafka-connector/pull/1189) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1187](https://github.com/apache/camel-kafka-connector/pull/1187) ([github-actions[bot]](https://github.com/apps/github-actions))
