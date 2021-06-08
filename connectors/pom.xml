@@ -198,7 +198,6 @@
         <module>camel-ahc-ws-kafka-connector</module>
         <module>camel-ahc-wss-kafka-connector</module>
         <module>camel-amqp-kafka-connector</module>
-        <module>camel-apns-kafka-connector</module>
         <module>camel-arangodb-kafka-connector</module>
         <module>camel-as2-kafka-connector</module>
         <module>camel-asterisk-kafka-connector</module>
