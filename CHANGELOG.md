@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- camel-elasticsearch-rest-kafka-connector indexId [\#1192](https://github.com/apache/camel-kafka-connector/issues/1192)
 - CAMEL-AWS-KINESIS-KAFKA-CONNECTOR SOURCE CONFIGURATION [\#1186](https://github.com/apache/camel-kafka-connector/issues/1186)
 - Release 0.10.0 [\#1184](https://github.com/apache/camel-kafka-connector/issues/1184)
 - Bump to Camel 3.10.0 [\#1183](https://github.com/apache/camel-kafka-connector/issues/1183)
@@ -14,6 +15,8 @@
 
 **Merged pull requests:**
 
+- Added Release Documentation. [\#1197](https://github.com/apache/camel-kafka-connector/pull/1197) ([valdar](https://github.com/valdar))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1194](https://github.com/apache/camel-kafka-connector/pull/1194) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Salesforce issue [\#1193](https://github.com/apache/camel-kafka-connector/pull/1193) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1191](https://github.com/apache/camel-kafka-connector/pull/1191) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1189](https://github.com/apache/camel-kafka-connector/pull/1189) ([github-actions[bot]](https://github.com/apps/github-actions))
