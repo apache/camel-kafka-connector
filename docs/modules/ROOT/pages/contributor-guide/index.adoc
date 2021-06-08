@@ -8,7 +8,7 @@ The Apache Camel community is a great group of contributors and Camel-Kafka-conn
 There are multiple areas in which camel-kafka-connector could be improved. Here are some examples:
 
 * Surfing the basic documentation - if something is not clear, let us know or fix it yourself.
-* Try the xref:user-guide/getting-started/index.adoc[Getting started] guides
+* Try the xref:user-guide/index.adoc[Getting started] guides
 * Digging in the codebase and tune some operations or add new features.
 * Take a look at the https://github.com/apache/camel-kafka-connector/issues[open issues] and leave a comment on the issue to let us know you are working on it.
 

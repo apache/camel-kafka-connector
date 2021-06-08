@@ -1,6 +1,6 @@
 * xref:user-guide/index.adoc[User guide]
 ** xref:user-guide/basic-concepts.adoc[Basic concepts]
-** xref:user-guide/getting-started/index.adoc[Getting started]
+** xref:user-guide/index.adoc[Getting started]
 *** xref:user-guide/getting-started/try-it-out-locally.adoc[Try it locally]
 *** xref:user-guide/getting-started/try-it-out-on-kubernetes.adoc[Try it on Kubernetes]
 *** xref:user-guide/getting-started/try-it-out-on-openshift-with-strimzi.adoc[Try it on OpenShift cluster]

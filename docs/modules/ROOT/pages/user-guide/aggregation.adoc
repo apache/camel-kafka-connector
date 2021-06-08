@@ -65,4 +65,4 @@ This process will go ahead until the batch size has been completed or the timeou
 [[ExtendingAConnector-ExtendingAConnector]]
 == How Can I extend an existing connector for adding an aggregator?
 
-Take a look at xref:archetypes.adoc[Archetype Documentation]
+Take a look at xref:user-guide/extending-connector/index.adoc[Extending Connectors Documentation]
