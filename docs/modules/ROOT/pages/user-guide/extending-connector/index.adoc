@@ -5,6 +5,6 @@ There are scenarios in Camel-Kafka-connector and in the Kafka Connect world in g
 
 In camel-kafka-connector we provide multiple archetypes for this purpose.
 
-xref:user-guide/extending-connector/archetype-connector.adoc[Extensible connector archetype]
-
-
+ * xref:user-guide/extending-connector/archetype-connector.adoc[Extensible connector archetype]
+ * xref:user-guide/extending-connector/archetype-dataformat-connector.adoc[Extensible connector dataformat archetype]
+ * xref:user-guide/extending-connector/archetype-apicurio-connector.adoc[Extensible connector apicurio archetype]
