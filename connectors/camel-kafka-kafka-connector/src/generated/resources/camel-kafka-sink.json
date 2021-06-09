@@ -80,13 +80,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.deliveryTimeoutMs": {
-			"name": "camel.sink.endpoint.deliveryTimeoutMs",
-			"description": "An upper bound on the time to report success or failure after a call to send() returns. This limits the total time that a record will be delayed prior to sending, the time to await acknowledgement from the broker (if expected), and the time allowed for retriable send failures.",
-			"defaultValue": "\"120000\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.enableIdempotence": {
 			"name": "camel.sink.endpoint.enableIdempotence",
 			"description": "If set to 'true' the producer will ensure that exactly one copy of each message is written in the stream. If 'false', producer retries may write duplicates of the retried message in the stream. If set to true this option will require max.in.flight.requests.per.connection to be set to 1 and retries cannot be zero and additionally acks must be set to 'all'.",
@@ -534,13 +527,6 @@
 			"name": "camel.component.kafka.connectionMaxIdleMs",
 			"description": "Close idle connections after the number of milliseconds specified by this config.",
 			"defaultValue": "\"540000\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.kafka.deliveryTimeoutMs": {
-			"name": "camel.component.kafka.deliveryTimeoutMs",
-			"description": "An upper bound on the time to report success or failure after a call to send() returns. This limits the total time that a record will be delayed prior to sending, the time to await acknowledgement from the broker (if expected), and the time allowed for retriable send failures.",
-			"defaultValue": "\"120000\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

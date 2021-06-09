@@ -54,9 +54,6 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_CONF = "camel.sink.endpoint.connectionMaxIdleMs";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_DOC = "Close idle connections after the number of milliseconds specified by this config.";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_DEFAULT = "540000";
-    public static final String CAMEL_SINK_KAFKA_ENDPOINT_DELIVERY_TIMEOUT_MS_CONF = "camel.sink.endpoint.deliveryTimeoutMs";
-    public static final String CAMEL_SINK_KAFKA_ENDPOINT_DELIVERY_TIMEOUT_MS_DOC = "An upper bound on the time to report success or failure after a call to send() returns. This limits the total time that a record will be delayed prior to sending, the time to await acknowledgement from the broker (if expected), and the time allowed for retriable send failures.";
-    public static final String CAMEL_SINK_KAFKA_ENDPOINT_DELIVERY_TIMEOUT_MS_DEFAULT = "120000";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_ENABLE_IDEMPOTENCE_CONF = "camel.sink.endpoint.enableIdempotence";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_ENABLE_IDEMPOTENCE_DOC = "If set to 'true' the producer will ensure that exactly one copy of each message is written in the stream. If 'false', producer retries may write duplicates of the retried message in the stream. If set to true this option will require max.in.flight.requests.per.connection to be set to 1 and retries cannot be zero and additionally acks must be set to 'all'.";
     public static final Boolean CAMEL_SINK_KAFKA_ENDPOINT_ENABLE_IDEMPOTENCE_DEFAULT = false;
@@ -255,9 +252,6 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_CONF = "camel.component.kafka.connectionMaxIdleMs";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_DOC = "Close idle connections after the number of milliseconds specified by this config.";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_DEFAULT = "540000";
-    public static final String CAMEL_SINK_KAFKA_COMPONENT_DELIVERY_TIMEOUT_MS_CONF = "camel.component.kafka.deliveryTimeoutMs";
-    public static final String CAMEL_SINK_KAFKA_COMPONENT_DELIVERY_TIMEOUT_MS_DOC = "An upper bound on the time to report success or failure after a call to send() returns. This limits the total time that a record will be delayed prior to sending, the time to await acknowledgement from the broker (if expected), and the time allowed for retriable send failures.";
-    public static final String CAMEL_SINK_KAFKA_COMPONENT_DELIVERY_TIMEOUT_MS_DEFAULT = "120000";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_ENABLE_IDEMPOTENCE_CONF = "camel.component.kafka.enableIdempotence";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_ENABLE_IDEMPOTENCE_DOC = "If set to 'true' the producer will ensure that exactly one copy of each message is written in the stream. If 'false', producer retries may write duplicates of the retried message in the stream. If set to true this option will require max.in.flight.requests.per.connection to be set to 1 and retries cannot be zero and additionally acks must be set to 'all'.";
     public static final Boolean CAMEL_SINK_KAFKA_COMPONENT_ENABLE_IDEMPOTENCE_DEFAULT = false;
@@ -458,7 +452,6 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_COMPRESSION_CODEC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_COMPRESSION_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_COMPRESSION_CODEC_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_DOC);
-        conf.define(CAMEL_SINK_KAFKA_ENDPOINT_DELIVERY_TIMEOUT_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_DELIVERY_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_DELIVERY_TIMEOUT_MS_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_ENABLE_IDEMPOTENCE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAFKA_ENDPOINT_ENABLE_IDEMPOTENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_ENABLE_IDEMPOTENCE_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_HEADER_SERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_HEADER_SERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_HEADER_SERIALIZER_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_KEY_DOC);
@@ -525,7 +518,6 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_COMPRESSION_CODEC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_COMPRESSION_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_COMPRESSION_CODEC_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_DOC);
-        conf.define(CAMEL_SINK_KAFKA_COMPONENT_DELIVERY_TIMEOUT_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_DELIVERY_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_DELIVERY_TIMEOUT_MS_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_ENABLE_IDEMPOTENCE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAFKA_COMPONENT_ENABLE_IDEMPOTENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_ENABLE_IDEMPOTENCE_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_HEADER_SERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_HEADER_SERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_HEADER_SERIALIZER_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_KEY_DOC);
