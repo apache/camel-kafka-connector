@@ -15,7 +15,7 @@ When using camel-syslog-kafka-connector as source make sure to use the following
 ----
 
 
-The camel-syslog source connector supports is based on camel-netty source connector and supports all its options (see: xref:connectors/camel-netty-kafka-source-connector.adoc[Netty Source Docs]);
+The camel-syslog source connector supports is based on camel-netty source connector and supports all its options (see: xref:reference/connectors/camel-netty-kafka-source-connector.adoc[Netty Source Docs]);
 however has been already preconfigured and should be sufficient to provide the following properties:
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
