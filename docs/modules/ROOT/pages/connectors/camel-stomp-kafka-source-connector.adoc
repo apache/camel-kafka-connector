@@ -1,0 +1,79 @@
+// kafka-connector options: START
+[[camel-stomp-kafka-connector-source]]
+= camel-stomp-kafka-connector source configuration
+
+Connector description: Send and rececive messages to/from STOMP (Simple Text Oriented Messaging Protocol) compliant message brokers.
+
+When using camel-stomp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-stomp-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.stomp.CamelStompSourceConnector
+----
+
+
+The camel-stomp source connector supports 24 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.destination* | Name of the queue | null | true | HIGH
+| *camel.source.endpoint.brokerURL* | The URI of the Stomp broker to connect to | "tcp://localhost:61613" | true | HIGH
+| *camel.source.endpoint.customHeaders* | To set custom headers | null | false | MEDIUM
+| *camel.source.endpoint.host* | The virtual host name | null | false | MEDIUM
+| *camel.source.endpoint.version* | The stomp version (1.1, or 1.2) | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
+| *camel.source.endpoint.login* | The username | null | false | MEDIUM
+| *camel.source.endpoint.passcode* | The password | null | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.stomp.brokerURL* | The URI of the Stomp broker to connect to | "tcp://localhost:61613" | true | HIGH
+| *camel.component.stomp.customHeaders* | To set custom headers | null | false | MEDIUM
+| *camel.component.stomp.host* | The virtual host name | null | false | MEDIUM
+| *camel.component.stomp.version* | The stomp version (1.1, or 1.2) | null | false | MEDIUM
+| *camel.component.stomp.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.stomp.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.stomp.configuration* | Component configuration. | null | false | MEDIUM
+| *camel.component.stomp.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
+| *camel.component.stomp.login* | The username | null | false | MEDIUM
+| *camel.component.stomp.passcode* | The password | null | false | MEDIUM
+| *camel.component.stomp.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.stomp.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
+|===
+
+
+
+The camel-stomp source connector has no converters out of the box.
+
+
+
+
+
+The camel-stomp source connector has no transforms out of the box.
+
+
+
+
+
+The camel-stomp source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

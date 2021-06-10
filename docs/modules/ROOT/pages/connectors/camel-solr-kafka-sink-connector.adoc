@@ -1,0 +1,77 @@
+// kafka-connector options: START
+[[camel-solr-kafka-connector-sink]]
+= camel-solr-kafka-connector sink configuration
+
+Connector Description: Perform operations against Apache Lucene Solr.
+
+When using camel-solr-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-solr-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.solr.CamelSolrSinkConnector
+----
+
+
+The camel-solr sink connector supports 22 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.url* | Hostname and port for the Solr server(s). Multiple hosts can be specified, separated with a comma. See the solrClient parameter for more information on the SolrClient used to connect to Solr. | null | true | HIGH
+| *camel.sink.endpoint.autoCommit* | If true, each producer operation will be automatically followed by a commit | false | false | MEDIUM
+| *camel.sink.endpoint.connectionTimeout* | Sets the connection timeout on the SolrClient | null | false | MEDIUM
+| *camel.sink.endpoint.defaultMaxConnectionsPerHost* | maxConnectionsPerHost on the underlying HttpConnectionManager | null | false | LOW
+| *camel.sink.endpoint.httpClient* | Sets the http client to be used by the solrClient | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.maxRetries* | Maximum number of retries to attempt in the event of transient errors | null | false | LOW
+| *camel.sink.endpoint.maxTotalConnections* | maxTotalConnection on the underlying HttpConnectionManager | null | false | LOW
+| *camel.sink.endpoint.requestHandler* | Set the request handler to be used | null | false | MEDIUM
+| *camel.sink.endpoint.solrClient* | Uses the provided solr client to connect to solr. When this parameter is not specified, camel applies the following rules to determine the SolrClient. A CloudSolrClient should point to a zookeeper endpoint. Other clients point to a Solr endpoint. 1) when zkHost or zkChroot (=zookeeper root) parameter is set, then the CloudSolrClient is used. 2) when multiple hosts are specified in the uri (separated with a comma), then the CloudSolrClient (uri scheme is 'solrCloud') or the LBHttpSolrClient (uri scheme is not 'solrCloud') is used. 3) when the solr operation is INSERT_STREAMING, then the ConcurrentUpdateSolrClient is used. 4) otherwise, the HttpSolrClient is used. | null | false | MEDIUM
+| *camel.sink.endpoint.soTimeout* | Sets the socket timeout on the SolrClient | null | false | MEDIUM
+| *camel.sink.endpoint.streamingQueueSize* | Sets the queue size for the ConcurrentUpdateSolrClient | 10 | false | MEDIUM
+| *camel.sink.endpoint.streamingThreadCount* | Sets the number of threads for the ConcurrentUpdateSolrClient | 2 | false | MEDIUM
+| *camel.sink.endpoint.collection* | Set the default collection for SolrCloud | null | false | MEDIUM
+| *camel.sink.endpoint.zkChroot* | Set the chroot of the zookeeper connection (include the leading slash; e.g. '/mychroot') | null | false | MEDIUM
+| *camel.sink.endpoint.zkHost* | Set the ZooKeeper host(s) urls which the CloudSolrClient uses, e.g. zkHost=localhost:8123,localhost:8124. Optionally add the chroot, e.g. zkHost=localhost:8123,localhost:8124/rootformysolr. In case the first part of the chroot path in the zkHost parameter is set to 'solr' (e.g. 'localhost:8123/solr' or 'localhost:8123/solr/..'), then that path is not considered as zookeeper chroot for backward compatibility reasons (this behaviour can be overridden via zkChroot parameter). | null | false | MEDIUM
+| *camel.sink.endpoint.allowCompression* | Server side must support gzip or deflate for this to have any effect | null | false | MEDIUM
+| *camel.sink.endpoint.followRedirects* | Indicates whether redirects are used to get to the Solr server | null | false | MEDIUM
+| *camel.sink.endpoint.password* | Sets password for basic auth plugin enabled servers | null | false | MEDIUM
+| *camel.sink.endpoint.username* | Sets username for basic auth plugin enabled servers | null | false | MEDIUM
+| *camel.component.solr.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.solr.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-solr sink connector has no converters out of the box.
+
+
+
+
+
+The camel-solr sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-solr sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

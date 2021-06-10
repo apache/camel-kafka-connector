@@ -1,0 +1,120 @@
+// kafka-connector options: START
+[[camel-azure-storage-datalake-kafka-connector-sink]]
+= camel-azure-storage-datalake-kafka-connector sink configuration
+
+Connector Description: Camel Azure Datalake Gen2 Component
+
+When using camel-azure-storage-datalake-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-storage-datalake-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azurestoragedatalake.CamelAzurestoragedatalakeSinkConnector
+----
+
+
+The camel-azure-storage-datalake sink connector supports 65 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.accountName* | name of the azure account | null | false | MEDIUM
+| *camel.sink.path.fileSystemName* | name of filesystem to be used | null | false | MEDIUM
+| *camel.sink.endpoint.accountKey* | account key for authentication | null | false | MEDIUM
+| *camel.sink.endpoint.clientId* | client id for azure account | null | false | MEDIUM
+| *camel.sink.endpoint.clientSecret* | client secret for azure account | null | false | MEDIUM
+| *camel.sink.endpoint.clientSecretCredential* | client secret credential for authentication | null | false | MEDIUM
+| *camel.sink.endpoint.close* | Whether or not a file changed event raised indicates completion (true) or modification (false) | null | false | MEDIUM
+| *camel.sink.endpoint.closeStreamAfterRead* | check for closing stream after read | null | false | MEDIUM
+| *camel.sink.endpoint.dataCount* | count number of bytes to download | null | false | MEDIUM
+| *camel.sink.endpoint.dataLakeServiceClient* | service client of datalake | null | false | MEDIUM
+| *camel.sink.endpoint.directoryName* | directory of the file to be handled in component | null | false | MEDIUM
+| *camel.sink.endpoint.downloadLinkExpiration* | download link expiration time | null | false | MEDIUM
+| *camel.sink.endpoint.expression* | expression for queryInputStream | null | false | MEDIUM
+| *camel.sink.endpoint.fileDir* | directory of file to do operations in the local system | null | false | MEDIUM
+| *camel.sink.endpoint.fileName* | name of file to be handled in component | null | false | MEDIUM
+| *camel.sink.endpoint.fileOffset* | offset position in file for different operations | null | false | MEDIUM
+| *camel.sink.endpoint.maxResults* | maximum number of results to show at a time | null | false | MEDIUM
+| *camel.sink.endpoint.maxRetryRequests* | no of retries to a given request | null | false | MEDIUM
+| *camel.sink.endpoint.openOptions* | set open options for creating file | null | false | MEDIUM
+| *camel.sink.endpoint.path* | path in azure datalake for operations | null | false | MEDIUM
+| *camel.sink.endpoint.permission* | permission string for the file | null | false | MEDIUM
+| *camel.sink.endpoint.position* | This parameter allows the caller to upload data in parallel and control the order in which it is appended to the file. | null | false | MEDIUM
+| *camel.sink.endpoint.recursive* | recursively include all paths | null | false | MEDIUM
+| *camel.sink.endpoint.regex* | regular expression for matching file names | null | false | MEDIUM
+| *camel.sink.endpoint.retainUncommitedData* | Whether or not uncommitted data is to be retained after the operation | null | false | MEDIUM
+| *camel.sink.endpoint.serviceClient* | datalake service client for azure storage datalake | null | false | MEDIUM
+| *camel.sink.endpoint.sharedKeyCredential* | shared key credential for azure datalake gen2 | null | false | MEDIUM
+| *camel.sink.endpoint.tenantId* | tenant id for azure account | null | false | MEDIUM
+| *camel.sink.endpoint.timeout* | Timeout for operation | null | false | MEDIUM
+| *camel.sink.endpoint.umask* | umask permission for file | null | false | MEDIUM
+| *camel.sink.endpoint.userPrincipalNameReturned* | whether or not to use upn | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.operation* | operation to be performed One of: [listFileSystem] [listFiles] | "listFileSystem" | false | MEDIUM
+| *camel.component.azure-storage-datalake.accountKey* | account key for authentication | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.clientId* | client id for azure account | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.client Secret* | client secret for azure account | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.client SecretCredential* | client secret credential for authentication | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.close* | Whether or not a file changed event raised indicates completion (true) or modification (false) | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.closeStream AfterRead* | check for closing stream after read | null | false | MEDIUM
+| * camel.component.azure-storage-datalake.configuration* | configuration object for datalake | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.dataCount* | count number of bytes to download | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.directory Name* | directory of the file to be handled in component | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.download LinkExpiration* | download link expiration time | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.expression* | expression for queryInputStream | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.fileDir* | directory of file to do operations in the local system | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.fileName* | name of file to be handled in component | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.fileOffset* | offset position in file for different operations | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.maxResults* | maximum number of results to show at a time | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.maxRetry Requests* | no of retries to a given request | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.openOptions* | set open options for creating file | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.path* | path in azure datalake for operations | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.permission* | permission string for the file | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.position* | This parameter allows the caller to upload data in parallel and control the order in which it is appended to the file. | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.recursive* | recursively include all paths | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.regex* | regular expression for matching file names | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.retain UncommitedData* | Whether or not uncommitted data is to be retained after the operation | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.service Client* | datalake service client for azure storage datalake | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.sharedKey Credential* | shared key credential for azure datalake gen2 | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.tenantId* | tenant id for azure account | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.timeout* | Timeout for operation | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.umask* | umask permission for file | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.user PrincipalNameReturned* | whether or not to use upn | null | false | MEDIUM
+| *camel.component.azure-storage-datalake.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.azure-storage-datalake.operation* | operation to be performed One of: [listFileSystem] [listFiles] | "listFileSystem" | false | MEDIUM
+| *camel.component.azure-storage-datalake.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-azure-storage-datalake sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-storage-datalake sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-storage-datalake sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

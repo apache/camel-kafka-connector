@@ -1,0 +1,87 @@
+// kafka-connector options: START
+[[camel-ironmq-kafka-connector-source]]
+= camel-ironmq-kafka-connector source configuration
+
+Connector description: Send and receive messages to/from IronMQ an elastic and durable hosted message queue as a service.
+
+When using camel-ironmq-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ironmq-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.ironmq.CamelIronmqSourceConnector
+----
+
+
+The camel-ironmq source connector supports 32 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.queueName* | The name of the IronMQ queue | null | true | HIGH
+| *camel.source.endpoint.client* | Reference to a io.iron.ironmq.Client in the Registry. | null | false | MEDIUM
+| *camel.source.endpoint.ironMQCloud* | IronMq Cloud url. Urls for public clusters: \https://mq-aws-us-east-1-1.iron.io (US) and \https://mq-aws-eu-west-1-1.iron.io (EU) | "https://mq-aws-us-east-1-1.iron.io" | false | MEDIUM
+| *camel.source.endpoint.preserveHeaders* | Should message headers be preserved when publishing messages. This will add the Camel headers to the Iron MQ message as a json payload with a header list, and a message body. Useful when Camel is both consumer and producer. | false | false | MEDIUM
+| *camel.source.endpoint.projectId* | IronMQ projectId | null | false | MEDIUM
+| *camel.source.endpoint.token* | IronMQ token | null | false | MEDIUM
+| *camel.source.endpoint.batchDelete* | Should messages be deleted in one batch. This will limit the number of api requests since messages are deleted in one request, instead of one pr. exchange. If enabled care should be taken that the consumer is idempotent when processing exchanges. | false | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.concurrentConsumers* | The number of concurrent consumers. | 1 | false | MEDIUM
+| *camel.source.endpoint.maxMessagesPerPoll* | Number of messages to poll pr. call. Maximum is 100. | 1 | false | MEDIUM
+| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
+| *camel.source.endpoint.timeout* | After timeout (in seconds), item will be placed back onto the queue. | 60 | false | MEDIUM
+| *camel.source.endpoint.wait* | Time in seconds to wait for a message to become available. This enables long polling. Default is 0 (does not wait), maximum is 30. | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
+| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | false | MEDIUM
+| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | false | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | false | MEDIUM
+| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | false | MEDIUM
+| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | false | MEDIUM
+| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | false | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | false | MEDIUM
+| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | false | MEDIUM
+| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | false | MEDIUM
+| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | false | MEDIUM
+| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
+| *camel.component.ironmq.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.ironmq.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-ironmq source connector has no converters out of the box.
+
+
+
+
+
+The camel-ironmq source connector has no transforms out of the box.
+
+
+
+
+
+The camel-ironmq source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

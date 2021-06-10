@@ -1,0 +1,83 @@
+// kafka-connector options: START
+[[camel-mllp-kafka-connector-source]]
+= camel-mllp-kafka-connector source configuration
+
+Connector description: Communicate with external systems using the MLLP protocol.
+
+When using camel-mllp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mllp-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mllp.CamelMllpSourceConnector
+----
+
+
+The camel-mllp source connector supports 28 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.hostname* | Hostname or IP for connection for the TCP connection. The default value is null, which means any local IP address | null | true | HIGH
+| *camel.source.path.port* | Port number for the TCP connection | null | true | HIGH
+| *camel.source.endpoint.autoAck* | Enable/Disable the automatic generation of a MLLP Acknowledgement MLLP Consumers only | true | false | MEDIUM
+| *camel.source.endpoint.hl7Headers* | Enable/Disable the automatic generation of message headers from the HL7 Message MLLP Consumers only | true | false | MEDIUM
+| *camel.source.endpoint.requireEndOfData* | Enable/Disable strict compliance to the MLLP standard. The MLLP standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA, however, some systems do not send the final END_OF_DATA byte. This setting controls whether or not the final END_OF_DATA byte is required or optional. | true | false | MEDIUM
+| *camel.source.endpoint.stringPayload* | Enable/Disable converting the payload to a String. If enabled, HL7 Payloads received from external systems will be validated converted to a String. If the charsetName property is set, that character set will be used for the conversion. If the charsetName property is not set, the value of MSH-18 will be used to determine th appropriate character set. If MSH-18 is not set, then the default ISO-8859-1 character set will be use. | true | false | MEDIUM
+| *camel.source.endpoint.validatePayload* | Enable/Disable the validation of HL7 Payloads If enabled, HL7 Payloads received from external systems will be validated (see Hl7Util.generateInvalidPayloadExceptionMessage for details on the validation). If and invalid payload is detected, a MllpInvalidMessageException (for consumers) or a MllpInvalidAcknowledgementException will be thrown. | false | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to receive incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. If disabled, the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions by logging them at WARN or ERROR level and ignored. | true | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | "InOut" | false | MEDIUM
+| *camel.source.endpoint.charsetName* | Set the CamelCharsetName property on the exchange | null | false | MEDIUM
+| *camel.source.endpoint.backlog* | The maximum queue length for incoming connection indications (a request to connect) is set to the backlog parameter. If a connection indication arrives when the queue is full, the connection is refused. | "5" | false | MEDIUM
+| *camel.source.endpoint.lenientBind* | TCP Server Only - Allow the endpoint to start before the TCP ServerSocket is bound. In some environments, it may be desirable to allow the endpoint to start before the TCP ServerSocket is bound. | false | false | MEDIUM
+| *camel.source.endpoint.maxConcurrentConsumers* | The maximum number of concurrent MLLP Consumer connections that will be allowed. If a new connection is received and the maximum is number are already established, the new connection will be reset immediately. | 5 | false | MEDIUM
+| *camel.source.endpoint.receiveBufferSize* | Sets the SO_RCVBUF option to the specified value (in bytes) | "8192" | false | MEDIUM
+| *camel.source.endpoint.reuseAddress* | Enable/disable the SO_REUSEADDR socket option. | "false" | false | MEDIUM
+| *camel.source.endpoint.sendBufferSize* | Sets the SO_SNDBUF option to the specified value (in bytes) | "8192" | false | MEDIUM
+| *camel.source.endpoint.acceptTimeout* | Timeout (in milliseconds) while waiting for a TCP connection TCP Server Only | 60000 | false | MEDIUM
+| *camel.source.endpoint.bindRetryInterval* | TCP Server Only - The number of milliseconds to wait between bind attempts | 5000 | false | MEDIUM
+| *camel.source.endpoint.bindTimeout* | TCP Server Only - The number of milliseconds to retry binding to a server port | 30000 | false | MEDIUM
+| *camel.source.endpoint.idleTimeout* | The approximate idle time allowed before the Client TCP Connection will be reset. A null value or a value less than or equal to zero will disable the idle timeout. | null | false | MEDIUM
+| *camel.source.endpoint.readTimeout* | The SO_TIMEOUT value (in milliseconds) used after the start of an MLLP frame has been received | 5000 | false | MEDIUM
+| *camel.source.endpoint.receiveTimeout* | The SO_TIMEOUT value (in milliseconds) used when waiting for the start of an MLLP frame | 15000 | false | MEDIUM
+| *camel.component.mllp.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.mllp.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.mllp.defaultCharset* | Set the default character set to use for byte to/from String conversions. | "ISO-8859-1" | false | MEDIUM
+| *camel.component.mllp.logPhi* | Set the component to log PHI data. | "true" | false | MEDIUM
+| *camel.component.mllp.logPhiMaxBytes* | Set the maximum number of bytes of PHI that will be logged in a log entry. | "5120" | false | MEDIUM
+|===
+
+
+
+The camel-mllp source connector has no converters out of the box.
+
+
+
+
+
+The camel-mllp source connector has no transforms out of the box.
+
+
+
+
+
+The camel-mllp source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END
