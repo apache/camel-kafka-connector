@@ -15,6 +15,7 @@
 
 **Merged pull requests:**
 
+- Littel documentation adjustments. [\#1201](https://github.com/apache/camel-kafka-connector/pull/1201) ([valdar](https://github.com/valdar))
 - Some documentation link fixes. [\#1199](https://github.com/apache/camel-kafka-connector/pull/1199) ([valdar](https://github.com/valdar))
 - Added Release Documentation. [\#1197](https://github.com/apache/camel-kafka-connector/pull/1197) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1194](https://github.com/apache/camel-kafka-connector/pull/1194) ([github-actions[bot]](https://github.com/apps/github-actions))
