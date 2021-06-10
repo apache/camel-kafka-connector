@@ -1,0 +1,69 @@
+// kafka-connector options: START
+[[camel-disruptor-vm-kafka-connector-source]]
+= camel-disruptor-vm-kafka-connector source configuration
+
+Connector description: Provides asynchronous SEDA behavior using LMAX Disruptor.
+
+When using camel-disruptor-vm-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-disruptor-vm-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.disruptorvm.CamelDisruptorvmSourceConnector
+----
+
+
+The camel-disruptor-vm source connector supports 14 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.name* | Name of queue | null | true | HIGH
+| *camel.source.endpoint.size* | The maximum capacity of the Disruptors ringbuffer Will be effectively increased to the nearest power of two. Notice: Mind if you use this option, then its the first endpoint being created with the queue name, that determines the size. To make sure all endpoints use same size, then configure the size option on all of them, or the first endpoint being created. | 1024 | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.concurrentConsumers* | Number of concurrent threads processing exchanges. | 1 | false | MEDIUM
+| *camel.source.endpoint.multipleConsumers* | Specifies whether multiple consumers are allowed. If enabled, you can use Disruptor for Publish-Subscribe messaging. That is, you can send a message to the queue and have each consumer receive a copy of the message. When enabled, this option should be specified on every consumer endpoint. | false | false | MEDIUM
+| *camel.source.endpoint.waitStrategy* | Defines the strategy used by consumer threads to wait on new exchanges to be published. The options allowed are:Blocking, Sleeping, BusySpin and Yielding. One of: [Blocking] [Sleeping] [BusySpin] [Yielding] | "Blocking" | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.disruptor-vm.bufferSize* | To configure the ring buffer size | 1024 | false | MEDIUM
+| *camel.component.disruptor-vm.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.disruptor-vm.defaultConcurrent Consumers* | To configure the default number of concurrent consumers | 1 | false | MEDIUM
+| *camel.component.disruptor-vm.defaultMultiple Consumers* | To configure the default value for multiple consumers | false | false | MEDIUM
+| *camel.component.disruptor-vm.defaultWaitStrategy* | To configure the default value for DisruptorWaitStrategy The default value is Blocking. One of: [Blocking] [Sleeping] [BusySpin] [Yielding] | "Blocking" | false | MEDIUM
+| *camel.component.disruptor-vm.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-disruptor-vm source connector has no converters out of the box.
+
+
+
+
+
+The camel-disruptor-vm source connector has no transforms out of the box.
+
+
+
+
+
+The camel-disruptor-vm source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

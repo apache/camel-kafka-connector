@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-ignite-idgen-kafka-connector-sink]]
+= camel-ignite-idgen-kafka-connector sink configuration
+
+Connector Description: Interact with Ignite Atomic Sequences and ID Generators .
+
+When using camel-ignite-idgen-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ignite-idgen-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.igniteidgen.CamelIgniteidgenSinkConnector
+----
+
+
+The camel-ignite-idgen sink connector supports 12 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.name* | The sequence name. | null | true | HIGH
+| *camel.sink.endpoint.batchSize* | The batch size. | null | false | MEDIUM
+| *camel.sink.endpoint.initialValue* | The initial value. | "0" | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to invoke on the Ignite ID Generator. Superseded by the IgniteConstants.IGNITE_IDGEN_OPERATION header in the IN message. Possible values: ADD_AND_GET, GET, GET_AND_ADD, GET_AND_INCREMENT, INCREMENT_AND_GET. One of: [ADD_AND_GET] [GET] [GET_AND_ADD] [GET_AND_INCREMENT] [INCREMENT_AND_GET] | null | false | MEDIUM
+| *camel.sink.endpoint.propagateIncomingBodyIfNo ReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | false | MEDIUM
+| *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | false | MEDIUM
+| *camel.component.ignite-idgen.configurationResource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | false | MEDIUM
+| *camel.component.ignite-idgen.ignite* | To use an existing Ignite instance. | null | false | MEDIUM
+| *camel.component.ignite-idgen.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | false | MEDIUM
+| *camel.component.ignite-idgen.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.ignite-idgen.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-ignite-idgen sink connector has no converters out of the box.
+
+
+
+
+
+The camel-ignite-idgen sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-ignite-idgen sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -1,0 +1,78 @@
+// kafka-connector options: START
+[[camel-milo-server-kafka-connector-source]]
+= camel-milo-server-kafka-connector source configuration
+
+Connector description: Make telemetry data available as an OPC UA server.
+
+When using camel-milo-server-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-milo-server-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.miloserver.CamelMiloserverSourceConnector
+----
+
+
+The camel-milo-server source connector supports 23 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.itemId* | ID of the item | null | true | HIGH
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.milo-server.applicationName* | The application name | null | false | MEDIUM
+| *camel.component.milo-server.applicationUri* | The application URI | null | false | MEDIUM
+| *camel.component.milo-server.bindAddresses* | Set the addresses of the local addresses the server should bind to | null | false | MEDIUM
+| *camel.component.milo-server.buildInfo* | Server build info | null | false | MEDIUM
+| *camel.component.milo-server.namespaceUri* | The URI of the namespace, defaults to urn:org:apache:camel | "urn:org:apache:camel" | false | MEDIUM
+| *camel.component.milo-server.path* | The path to be appended to the end of the endpoint url. (doesn't need to start with '/') | null | false | MEDIUM
+| *camel.component.milo-server.port* | The TCP port the server binds to | null | false | MEDIUM
+| *camel.component.milo-server.productUri* | The product URI | null | false | MEDIUM
+| *camel.component.milo-server.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.milo-server.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.milo-server.certificate* | Server certificate | null | false | MEDIUM
+| *camel.component.milo-server.certificateManager* | Server certificate manager | null | false | MEDIUM
+| *camel.component.milo-server.certificateValidator* | Validator for client certificates | null | false | MEDIUM
+| *camel.component.milo-server.defaultCertificate Validator* | Validator for client certificates using default file based approach | null | false | MEDIUM
+| *camel.component.milo-server.enableAnonymous Authentication* | Enable anonymous authentication, disabled by default | false | false | MEDIUM
+| *camel.component.milo-server.securityPolicies* | Security policies | null | false | MEDIUM
+| *camel.component.milo-server.securityPoliciesById* | Security policies by URI or name. Multiple policies can be separated by comma. | null | false | MEDIUM
+| *camel.component.milo-server.userAuthentication Credentials* | Set user password combinations in the form of user1:pwd1,user2:pwd2 Usernames and passwords will be URL decoded | null | false | MEDIUM
+| *camel.component.milo-server.usernameSecurityPolicy Uri* | Set the UserTokenPolicy used when One of: [None] [Basic128Rsa15] [Basic256] [Basic256Sha256] [Aes128_Sha256_RsaOaep] [Aes256_Sha256_RsaPss] | null | false | MEDIUM
+|===
+
+
+
+The camel-milo-server source connector has no converters out of the box.
+
+
+
+
+
+The camel-milo-server source connector has no transforms out of the box.
+
+
+
+
+
+The camel-milo-server source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

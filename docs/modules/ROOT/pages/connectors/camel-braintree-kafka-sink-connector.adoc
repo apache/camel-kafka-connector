@@ -1,0 +1,73 @@
+// kafka-connector options: START
+[[camel-braintree-kafka-connector-sink]]
+= camel-braintree-kafka-connector sink configuration
+
+Connector Description: Process payments using Braintree Payments.
+
+When using camel-braintree-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-braintree-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.braintree.CamelBraintreeSinkConnector
+----
+
+
+The camel-braintree sink connector supports 18 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [ADD_ON] [ADDRESS] [CLIENT_TOKEN] [CREDIT_CARD_VERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENT_UPLOAD] [MERCHANT_ACCOUNT] [PAYMENT_METHOD] [PAYMENT_METHOD_NONCE] [PLAN] [REPORT] [SETTLEMENT_BATCH_SUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOK_NOTIFICATION] | null | true | HIGH
+| *camel.sink.path.methodName* | What sub operation to use for the selected operation One of: [accept] [addFileEvidence] [addTextEvidence] [cancel] [cancelRelease] [cloneTransaction] [create] [createForCurrency] [credit] [delete] [fetchMerchantAccounts] [finalize] [find] [generate] [grant] [holdInEscrow] [parse] [refund] [releaseFromEscrow] [removeEvidence] [retryCharge] [revoke] [sale] [search] [submitForPartialSettlement] [submitForSettlement] [transactionLevelFees] [update] [updateDetails] [verify] [voidTransaction] | null | true | HIGH
+| *camel.sink.endpoint.environment* | The environment Either SANDBOX or PRODUCTION | null | false | MEDIUM
+| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.merchantId* | The merchant id provided by Braintree. | null | false | MEDIUM
+| *camel.sink.endpoint.httpReadTimeout* | Set read timeout for http calls. | null | false | MEDIUM
+| *camel.sink.endpoint.httpLogLevel* | Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL] | null | false | MEDIUM
+| *camel.sink.endpoint.httpLogName* | Set log category to use to log http calls. | "Braintree" | false | MEDIUM
+| *camel.sink.endpoint.logHandlerEnabled* | Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to 'false' where an existing JUL - SLF4J logger bridge is on the classpath. This option can also be configured globally on the BraintreeComponent. | true | false | MEDIUM
+| *camel.sink.endpoint.proxyHost* | The proxy host | null | false | MEDIUM
+| *camel.sink.endpoint.proxyPort* | The proxy port | null | false | MEDIUM
+| *camel.sink.endpoint.accessToken* | The access token granted by a merchant to another in order to process transactions on their behalf. Used in place of environment, merchant id, public key and private key fields. | null | false | MEDIUM
+| *camel.sink.endpoint.privateKey* | The private key provided by Braintree. | null | false | MEDIUM
+| *camel.sink.endpoint.publicKey* | The public key provided by Braintree. | null | false | MEDIUM
+| *camel.component.braintree.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.braintree.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.braintree.configuration* | Component configuration | null | false | MEDIUM
+|===
+
+
+
+The camel-braintree sink connector has no converters out of the box.
+
+
+
+
+
+The camel-braintree sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-braintree sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

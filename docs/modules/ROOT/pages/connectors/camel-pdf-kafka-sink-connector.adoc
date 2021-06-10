@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-pdf-kafka-connector-sink]]
+= camel-pdf-kafka-connector sink configuration
+
+Connector Description: Create, modify or extract content from PDF documents.
+
+When using camel-pdf-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-pdf-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.pdf.CamelPdfSinkConnector
+----
+
+
+The camel-pdf sink connector supports 12 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.operation* | Operation type One of: [create] [append] [extractText] | null | true | HIGH
+| *camel.sink.endpoint.font* | Font One of: [Courier] [Courier-Bold] [Courier-Oblique] [Courier-BoldOblique] [Helvetica] [Helvetica-Bold] [Helvetica-Oblique] [Helvetica-BoldOblique] [Times-Roman] [Times-Bold] [Times-Italic] [Times-BoldItalic] [Symbol] [ZapfDingbats] | "Helvetica" | false | MEDIUM
+| *camel.sink.endpoint.fontSize* | Font size in pixels | 14.0F | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.marginBottom* | Margin bottom in pixels | 20 | false | MEDIUM
+| *camel.sink.endpoint.marginLeft* | Margin left in pixels | 20 | false | MEDIUM
+| *camel.sink.endpoint.marginRight* | Margin right in pixels | 40 | false | MEDIUM
+| *camel.sink.endpoint.marginTop* | Margin top in pixels | 20 | false | MEDIUM
+| *camel.sink.endpoint.pageSize* | Page size One of: [LETTER] [LEGAL] [A0] [A1] [A2] [A3] [A4] [A5] [A6] | "A4" | false | MEDIUM
+| *camel.sink.endpoint.textProcessingFactory* | Text processing to use. autoFormatting: Text is getting sliced by words, then max amount of words that fits in the line will be written into pdf document. With this strategy all words that doesn't fit in the line will be moved to the new line. lineTermination: Builds set of classes for line-termination writing strategy. Text getting sliced by line termination symbol and then it will be written regardless it fits in the line or not. One of: [autoFormatting] [lineTermination] | "lineTermination" | false | MEDIUM
+| *camel.component.pdf.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.pdf.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-pdf sink connector has no converters out of the box.
+
+
+
+
+
+The camel-pdf sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-pdf sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -330,6 +330,7 @@
         <module>camel-hdfs-kafka-connector</module>
         <module>camel-http-kafka-connector</module>
         <module>camel-https-kafka-connector</module>
+        <module>camel-hwcloud-functiongraph-kafka-connector</module>
         <module>camel-hwcloud-smn-kafka-connector</module>
         <module>camel-iec60870-client-kafka-connector</module>
         <module>camel-iec60870-server-kafka-connector</module>
