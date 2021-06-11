@@ -37,7 +37,7 @@ public class CamelHwcloudfunctiongraphSinkConnectorConfig
     public static final String CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_FUNCTION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_FUNCTION_PACKAGE_CONF = "camel.sink.endpoint.functionPackage";
     public static final String CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_FUNCTION_PACKAGE_DOC = "Functions that can be logically grouped together";
-    public static final String CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_FUNCTION_PACKAGE_DEFAULT = null;
+    public static final String CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_FUNCTION_PACKAGE_DEFAULT = "default";
     public static final String CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_HWCLOUDFUNCTIONGRAPH_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
