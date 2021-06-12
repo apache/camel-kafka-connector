@@ -158,4 +158,20 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>tooling</artifactId>
+                <version>0.11.0-SNAPSHOT</version>
+                <configuration>
+                    <sinkConnectorLinkSuffixAdoc>kafka-sink-connector.adoc[Sink Docs]</sinkConnectorLinkSuffixAdoc>
+                    <sourceConnectorLinkSuffixAdoc>kafka-source-connector.adoc[Source Docs]</sourceConnectorLinkSuffixAdoc>
+                    <xrefConnectorLinkPrefix>xref:reference/connectors/</xrefConnectorLinkPrefix>
+                    <docFolderWebsiteChildPath>docs/modules/ROOT/</docFolderWebsiteChildPath>
+                    <docFileWebsiteChildPath>pages/reference/index.adoc</docFileWebsiteChildPath>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

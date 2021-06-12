@@ -48,10 +48,21 @@ import static org.apache.camel.tooling.util.PackageHelper.writeText;
  */
 @Mojo(name = "update-doc-connectors-list", threadSafe = true)
 public class UpdateDocComponentsListMojo extends AbstractMojo {
-    //TODO: make these configurable:
-    private static final String SINK_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-sink-connector.adoc[Sink Docs]";
-    private static final String SOURCE_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-source-connector.adoc[Source Docs]";
-    private static final String XREF_CONNECTOR_LINK_PREFIX = "xref:reference/connectors/";
+
+    @Parameter( property = "sinkConnectorLinkSuffixAdoc", defaultValue = "kafka-sink-connector.adoc[Sink Docs]")
+    private String sinkConnectorLinkSuffixAdoc;
+
+    @Parameter(property = "sourceConnectorLinkSuffixAdoc", defaultValue = "kafka-source-connector.adoc[Source Docs]")
+    private String sourceConnectorLinkSuffixAdoc;
+
+    @Parameter(property = "xrefConnectorLinkPrefix", defaultValue = "xref:reference/connectors/")
+    private String xrefConnectorLinkPrefix;
+
+    @Parameter(property = "docFolderWebsiteChildPath", defaultValue = "docs/modules/ROOT/")
+    private String docFolderWebsiteChildPath;
+
+    @Parameter(property = "docFileWebsiteChildPath", defaultValue = "pages/reference/index.adoc")
+    private String docFileWebsiteChildPath;
 
     /**
      * The maven project.
@@ -119,8 +130,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
         if (connectorsDir != null && connectorsDir.isDirectory()) {
             File[] files = connectorsDir.listFiles();
             if (files != null) {
-                for (int i = 0; i < files.length; i++) {
-                    File file = files[i];
+                for (File file : files) {
                     if (file.isDirectory()) {
                         Collection sinkConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SinkTask.*"), DirectoryFileFilter.DIRECTORY);
                         Collection sourceConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SourceTask.*"), DirectoryFileFilter.DIRECTORY);
@@ -131,26 +141,26 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                 singleConnector.setSink(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-coap+tcp-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSink(xrefConnectorLinkPrefix + "camel-coap+tcp-" + sinkConnectorLinkSuffixAdoc);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-coaps+tcp-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSink(xrefConnectorLinkPrefix + "camel-coaps+tcp-" + sinkConnectorLinkSuffixAdoc);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-solrCloud-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSink(xrefConnectorLinkPrefix + "camel-solrCloud-" + sinkConnectorLinkSuffixAdoc);
                                 } else {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSink(xrefConnectorLinkPrefix + connectorFinal + sinkConnectorLinkSuffixAdoc);
                                 }
                             }
                             if (!sourceConnector.isEmpty()) {
                                 singleConnector.setSource(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-coap+tcp-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSource(xrefConnectorLinkPrefix + "camel-coap+tcp-" + sourceConnectorLinkSuffixAdoc);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-coaps+tcp-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSource(xrefConnectorLinkPrefix + "camel-coaps+tcp-" + sourceConnectorLinkSuffixAdoc);
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-solrCloud-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSource(xrefConnectorLinkPrefix + "camel-solrCloud-" + sourceConnectorLinkSuffixAdoc);
                                 } else {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
+                                    singleConnector.setDocsSource(xrefConnectorLinkPrefix + connectorFinal + sourceConnectorLinkSuffixAdoc);
                                 }
                             }
                             String downloadLinkTar = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.tar.gz[Download]";
@@ -168,9 +178,10 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                 tableModel.setOptions(options);
             }
         }
-        //TODO: make these configurable:
-        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/");
-        File docFileWebsite = new File(docFolderWebsite, "pages/reference/index.adoc");
+
+        File docFolderWebsite = new File(projectBaseDir, docFolderWebsiteChildPath);
+        File docFileWebsite = new File(docFolderWebsite, docFileWebsiteChildPath);
+
         String changed = templateConnnectorsTable(tableModel);
         boolean updated = updateConnectorsTable(docFileWebsite, changed);
         if (updated) {
@@ -190,7 +201,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
     private String templateConnnectorsTable(CamelKafkaConnectorTableModel model) throws MojoExecutionException {
 
         try {
-            String template = null;
+            String template;
             template = loadText(UpdateDocComponentsListMojo.class.getClassLoader().getResourceAsStream("connectors.mvel"));
             String out = (String)TemplateRuntime.eval(template, model, Collections.singletonMap("util", MvelHelper.INSTANCE));
             return out;
