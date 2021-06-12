@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.smpps.CamelSmppsSinkConnector
 ----
 
 
-The camel-smpps sink connector supports 76 options, which are listed below.
+The camel-smpps sink connector supports 78 options, which are listed below.
 
 
 
@@ -57,6 +57,7 @@ The camel-smpps sink connector supports 76 options, which are listed below.
 | *camel.sink.endpoint.pduProcessorDegree* | Sets the number of threads which can read PDU and process them in parallel. | "3" | false | MEDIUM
 | *camel.sink.endpoint.pduProcessorQueueCapacity* | Sets the capacity of the working queue for PDU processing. | "100" | false | MEDIUM
 | *camel.sink.endpoint.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM
+| *camel.sink.endpoint.singleDLR* | When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged. | false | false | MEDIUM
 | *camel.sink.endpoint.transactionTimer* | Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME). | "10000" | false | MEDIUM
 | *camel.sink.endpoint.alphabet* | Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8] | null | false | MEDIUM
 | *camel.sink.endpoint.dataCoding* | Defines the data coding according the SMPP 3.4 specification, section 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2 (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990) | null | false | MEDIUM
@@ -95,6 +96,7 @@ The camel-smpps sink connector supports 76 options, which are listed below.
 | *camel.component.smpps.pduProcessorDegree* | Sets the number of threads which can read PDU and process them in parallel. | "3" | false | MEDIUM
 | *camel.component.smpps.pduProcessorQueueCapacity* | Sets the capacity of the working queue for PDU processing. | "100" | false | MEDIUM
 | *camel.component.smpps.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM
+| *camel.component.smpps.singleDLR* | When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged. | false | false | MEDIUM
 | *camel.component.smpps.transactionTimer* | Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME). | "10000" | false | MEDIUM
 | *camel.component.smpps.alphabet* | Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8] | null | false | MEDIUM
 | *camel.component.smpps.dataCoding* | Defines the data coding according the SMPP 3.4 specification, section 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2 (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990) | null | false | MEDIUM
@@ -124,8 +126,4 @@ The camel-smpps sink connector has no transforms out of the box.
 
 
 The camel-smpps sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END
