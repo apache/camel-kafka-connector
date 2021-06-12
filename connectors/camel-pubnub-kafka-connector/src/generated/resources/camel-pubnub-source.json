@@ -95,9 +95,28 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.pubnub.configuration": {
+			"name": "camel.component.pubnub.configuration",
+			"description": "The component configurations",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.uuid": {
+			"name": "camel.component.pubnub.uuid",
+			"description": "UUID to be used as a device identifier, a default UUID is generated if not passed.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.pubnub.bridgeErrorHandler": {
 			"name": "camel.component.pubnub.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.withPresence": {
+			"name": "camel.component.pubnub.withPresence",
+			"description": "Also subscribe to related presence information",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -106,6 +125,43 @@
 			"name": "camel.component.pubnub.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.authKey": {
+			"name": "camel.component.pubnub.authKey",
+			"description": "If Access Manager is utilized, client will use this authKey in all restricted requests.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.cipherKey": {
+			"name": "camel.component.pubnub.cipherKey",
+			"description": "If cipher is passed, all communications to\/from PubNub will be encrypted.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.publishKey": {
+			"name": "camel.component.pubnub.publishKey",
+			"description": "The publish key obtained from your PubNub account. Required when publishing messages.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.secretKey": {
+			"name": "camel.component.pubnub.secretKey",
+			"description": "The secret key used for message signing.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.secure": {
+			"name": "camel.component.pubnub.secure",
+			"description": "Use SSL for secure transmission.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.subscribeKey": {
+			"name": "camel.component.pubnub.subscribeKey",
+			"description": "The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events",
 			"priority": "MEDIUM",
 			"required": "false"
 		}
