@@ -71,6 +71,9 @@ public class CamelSmppSourceConnectorConfig
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF = "camel.source.endpoint.sessionStateListener";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC = "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SINGLE_DLRCONF = "camel.source.endpoint.singleDLR";
+    public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SINGLE_DLRDOC = "When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged.";
+    public static final Boolean CAMEL_SOURCE_SMPP_ENDPOINT_SINGLE_DLRDEFAULT = false;
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_CONF = "camel.source.endpoint.transactionTimer";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DOC = "Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME).";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DEFAULT = "10000";
@@ -146,6 +149,9 @@ public class CamelSmppSourceConnectorConfig
     public static final String CAMEL_SOURCE_SMPP_COMPONENT_SESSION_STATE_LISTENER_CONF = "camel.component.smpp.sessionStateListener";
     public static final String CAMEL_SOURCE_SMPP_COMPONENT_SESSION_STATE_LISTENER_DOC = "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.";
     public static final String CAMEL_SOURCE_SMPP_COMPONENT_SESSION_STATE_LISTENER_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SMPP_COMPONENT_SINGLE_DLRCONF = "camel.component.smpp.singleDLR";
+    public static final String CAMEL_SOURCE_SMPP_COMPONENT_SINGLE_DLRDOC = "When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged.";
+    public static final Boolean CAMEL_SOURCE_SMPP_COMPONENT_SINGLE_DLRDEFAULT = false;
     public static final String CAMEL_SOURCE_SMPP_COMPONENT_TRANSACTION_TIMER_CONF = "camel.component.smpp.transactionTimer";
     public static final String CAMEL_SOURCE_SMPP_COMPONENT_TRANSACTION_TIMER_DOC = "Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME).";
     public static final String CAMEL_SOURCE_SMPP_COMPONENT_TRANSACTION_TIMER_DEFAULT = "10000";
@@ -210,6 +216,7 @@ public class CamelSmppSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_PDU_PROCESSOR_DEGREE_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_PDU_PROCESSOR_QUEUE_CAPACITY_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC);
+        conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_SINGLE_DLRCONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMPP_ENDPOINT_SINGLE_DLRDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_SINGLE_DLRDOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_ALPHABET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_ALPHABET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_ALPHABET_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_DATA_CODING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_DATA_CODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_DATA_CODING_DOC);
@@ -235,6 +242,7 @@ public class CamelSmppSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_COMPONENT_PDU_PROCESSOR_DEGREE_DOC);
         conf.define(CAMEL_SOURCE_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_COMPONENT_PDU_PROCESSOR_QUEUE_CAPACITY_DOC);
         conf.define(CAMEL_SOURCE_SMPP_COMPONENT_SESSION_STATE_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_COMPONENT_SESSION_STATE_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_COMPONENT_SESSION_STATE_LISTENER_DOC);
+        conf.define(CAMEL_SOURCE_SMPP_COMPONENT_SINGLE_DLRCONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMPP_COMPONENT_SINGLE_DLRDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_COMPONENT_SINGLE_DLRDOC);
         conf.define(CAMEL_SOURCE_SMPP_COMPONENT_TRANSACTION_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_COMPONENT_TRANSACTION_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_COMPONENT_TRANSACTION_TIMER_DOC);
         conf.define(CAMEL_SOURCE_SMPP_COMPONENT_ALPHABET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_COMPONENT_ALPHABET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_COMPONENT_ALPHABET_DOC);
         conf.define(CAMEL_SOURCE_SMPP_COMPONENT_DATA_CODING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_COMPONENT_DATA_CODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_COMPONENT_DATA_CODING_DOC);

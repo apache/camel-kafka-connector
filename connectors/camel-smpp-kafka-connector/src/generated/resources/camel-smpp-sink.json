@@ -269,6 +269,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.singleDLR": {
+			"name": "camel.sink.endpoint.singleDLR",
+			"description": "When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.transactionTimer": {
 			"name": "camel.sink.endpoint.transactionTimer",
 			"description": "Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME).",
@@ -607,6 +614,13 @@
 		"camel.component.smpp.sessionStateListener": {
 			"name": "camel.component.smpp.sessionStateListener",
 			"description": "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.smpp.singleDLR": {
+			"name": "camel.component.smpp.singleDLR",
+			"description": "When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
