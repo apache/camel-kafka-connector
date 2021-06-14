@@ -19,17 +19,21 @@ package org.apache.camel.kafkaconnector.file.sink;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.file.sink.util.CustomProducer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -42,15 +46,25 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Testcontainers
-public class CamelSinkFileITCase extends CamelSinkTestSupport {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkFileITCase.class);
+public class CamelSinkFileAppendCharsITCase extends CamelSinkTestSupport {
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkFileAppendCharsITCase.class);
 
-    private static final String SINK_DIR = CamelSinkFileITCase.class.getResource(".").getPath();
-    private static final String FILENAME = "test.txt";
+    private static final String SINK_DIR = CamelSinkFileAppendCharsITCase.class.getResource(".").getPath();
+    private static final String FILENAME = "test-append-with-chars.txt";
+    private Map<String, Function<Integer, String>> verifierTable;
 
     private String topicName;
-    private final int expect = 1;
+    private final int numMessages = 10;
+    private int expectedLines;
+    private String currentChar;
+
     private CustomProducer producer;
+
+
+    static {
+
+    }
+
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -61,6 +75,12 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
     public void setUp() {
         topicName = getTopicForTest(this);
         cleanup();
+
+        verifierTable = new HashMap<>();
+
+        verifierTable.put("ddd", this::verifierRegularChar);
+        verifierTable.put("n", this::verifierRegularChar);
+        verifierTable.put("%0A", this::verifierNewLine);
     }
 
     @AfterEach
@@ -73,6 +93,11 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
         if (doneFile.exists()) {
             doneFile.delete();
         }
+
+        File testFile = new File(SINK_DIR, FILENAME);
+        if (testFile.exists()) {
+            testFile.delete();
+        }
     }
 
     @Override
@@ -82,6 +107,9 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
             File doneFile = new File(SINK_DIR, FILENAME + ".done");
 
             waitForFile(sinkFile, doneFile);
+
+            // We need to give some time for all the messages to be read and appended
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             fail(e.getMessage());
         } catch (IOException e) {
@@ -91,8 +119,18 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
         }
     }
 
-    private String verifier(int i) {
-        return producer.testMessageContent(i);
+    private String verifierRegularChar(int currentLine) {
+        String expected = "";
+
+        for (int i = 0; i < numMessages; i++) {
+            expected += producer.testMessageContent(i) + currentChar;
+        }
+
+        return expected;
+    }
+
+    private String verifierNewLine(int currentLine) {
+        return producer.testMessageContent(currentLine);
     }
 
     @Override
@@ -103,8 +141,10 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
             assertTrue(sinkFile.exists(), String.format("The file %s does not exist", sinkFile.getPath()));
 
             try {
-                int lines = checkFileContents(sinkFile, this::verifier);
-                assertEquals(expect, lines, "Did not receive the same amount of messages that were sent");
+                Function<Integer, String> verifier = verifierTable.get(currentChar);
+
+                int lines = checkFileContents(sinkFile, verifier);
+                assertEquals(expectedLines, lines, "Did not receive the same amount of messages that were sent");
             } catch (IOException e) {
                 fail(e.getMessage());
             }
@@ -113,30 +153,41 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
         }
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"ddd", "n"})
     @Timeout(90)
-    public void testBasicSendReceive() throws Exception {
+    public void testBasicSendReceiveWithAppendChar(String appendedChars) throws Exception {
         ConnectorPropertyFactory connectorPropertyFactory = CamelFilePropertyFactory.basic()
                 .withTopics(topicName)
                 .withDirectoryName(SINK_DIR)
                 .withFileName(FILENAME)
+                .withAppendChars(appendedChars)
+                .withFileExist("Append")
                 .withDoneFileName(FILENAME + ".done");
 
-        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect);
+        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, numMessages);
+        expectedLines = 1;
+        currentChar = appendedChars;
+
         runTest(connectorPropertyFactory, producer);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"%0A"})
     @Timeout(90)
-    public void testBasicSendReceiveUsingUrl() throws Exception {
+    public void testBasicSendReceiveWithAppendSpecialChars(String appendedChars) throws Exception {
         ConnectorPropertyFactory connectorPropertyFactory = CamelFilePropertyFactory.basic()
                 .withTopics(topicName)
-                .withUrl(SINK_DIR)
-                .append("fileName", FILENAME)
-                .append("doneFileName", FILENAME + ".done")
-                .buildUrl();
+                .withDirectoryName(SINK_DIR)
+                .withFileName(FILENAME)
+                .withAppendChars(appendedChars)
+                .withFileExist("Append")
+                .withDoneFileName(FILENAME + ".done");
 
-        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect);
+        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, numMessages);
+        expectedLines = numMessages;
+        currentChar = appendedChars;
+
         runTest(connectorPropertyFactory, producer);
     }
 }

@@ -42,14 +42,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Testcontainers
-public class CamelSinkFileITCase extends CamelSinkTestSupport {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkFileITCase.class);
+public class CamelSinkFileAppendITCase extends CamelSinkTestSupport {
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkFileAppendITCase.class);
 
-    private static final String SINK_DIR = CamelSinkFileITCase.class.getResource(".").getPath();
-    private static final String FILENAME = "test.txt";
+    private static final String SINK_DIR = CamelSinkFileAppendITCase.class.getResource(".").getPath();
+    private static final String FILENAME = "test-append.txt";
 
     private String topicName;
-    private final int expect = 1;
+    private final int numMessages = 10;
+    private final int expectedLines = 1;
+
     private CustomProducer producer;
 
     @Override
@@ -73,6 +75,11 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
         if (doneFile.exists()) {
             doneFile.delete();
         }
+
+        File testFile = new File(SINK_DIR, FILENAME);
+        if (testFile.exists()) {
+            testFile.delete();
+        }
     }
 
     @Override
@@ -82,6 +89,8 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
             File doneFile = new File(SINK_DIR, FILENAME + ".done");
 
             waitForFile(sinkFile, doneFile);
+            // We need to give some time for all the messages to be read and appended
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             fail(e.getMessage());
         } catch (IOException e) {
@@ -92,7 +101,11 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
     }
 
     private String verifier(int i) {
-        return producer.testMessageContent(i);
+        if (i == 0) {
+            return "test0test1test2test3test4test5test6test7test8test9";
+        }
+
+        return "NO MATCH";
     }
 
     @Override
@@ -104,7 +117,7 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
 
             try {
                 int lines = checkFileContents(sinkFile, this::verifier);
-                assertEquals(expect, lines, "Did not receive the same amount of messages that were sent");
+                assertEquals(expectedLines, lines, "Did not receive the same amount of messages that were sent");
             } catch (IOException e) {
                 fail(e.getMessage());
             }
@@ -113,6 +126,7 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
         }
     }
 
+
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
@@ -120,23 +134,10 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withDirectoryName(SINK_DIR)
                 .withFileName(FILENAME)
+                .withFileExist("Append")
                 .withDoneFileName(FILENAME + ".done");
 
-        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect);
-        runTest(connectorPropertyFactory, producer);
-    }
-
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveUsingUrl() throws Exception {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelFilePropertyFactory.basic()
-                .withTopics(topicName)
-                .withUrl(SINK_DIR)
-                .append("fileName", FILENAME)
-                .append("doneFileName", FILENAME + ".done")
-                .buildUrl();
-
-        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect);
+        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, numMessages);
         runTest(connectorPropertyFactory, producer);
     }
 }
