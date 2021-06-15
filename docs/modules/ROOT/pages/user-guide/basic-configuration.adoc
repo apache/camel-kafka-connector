@@ -62,3 +62,9 @@ For a Source connector the basic options are:
 |===
 
 For more options related to single connector you can have a look at xref:reference/index.adoc[Connectors list].
+
+[[BasicConfiguration-MessageLevelHeaders]]
+== Message Level Headers
+
+Certain sink components offer additional configuration and adjustment of behavior by setting specific headers on the message sent via Kafka. For example the file sink connector allows the user to set the file name either via the configuration property or via the header `CamelHeader.CamelFileName`. This is usually noted on the connector documentation, but as a rule of thumb, users are advised to also check the Camel components documentation to verify what message headers are available.
+If they are available, to configure them directly from your Kafka producer, you can append them with the string `CamelHeader.` (i.e.: `CamelHeader.CamelFileName`, `CamelHeader.CamelFilePath`, etc) and include them on the message headers from Kafka.
