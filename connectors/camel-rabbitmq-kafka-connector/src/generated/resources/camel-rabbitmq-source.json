@@ -232,6 +232,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.recoverFromDeclareException": {
+			"name": "camel.source.endpoint.recoverFromDeclareException",
+			"description": "Decides whether an exception during declaration of exchanges or queues is recoverable or not. If the option is false, camel will throw an exception when starting the consumer, which will interrupt application startup (e.g. in the case when the exchange \/ queue is already declared in RabbitMQ and has incompatible configuration). If set to true, the consumer will try to reconnect periodically.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.reQueue": {
 			"name": "camel.source.endpoint.reQueue",
 			"description": "This is used by the consumer to control rejection of the message. When the consumer is complete processing the exchange, and if the exchange failed, then the consumer is going to reject the message from the RabbitMQ broker. If the header CamelRabbitmqRequeue is present then the value of the header will be used, otherwise this endpoint value is used as fallback. If the value is false (by default) then the message is discarded\/dead-lettered. If the value is true, then the message is re-queued.",
@@ -539,6 +546,13 @@
 		"camel.component.rabbitmq.prefetchSize": {
 			"name": "camel.component.rabbitmq.prefetchSize",
 			"description": "The maximum amount of content (measured in octets) that the server will deliver, 0 if unlimited. You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.rabbitmq.recoverFromDeclareException": {
+			"name": "camel.component.rabbitmq.recoverFromDeclareException",
+			"description": "Decides whether an exception during declaration of exchanges or queues is recoverable or not. If the option is false, camel will throw an exception when starting the consumer, which will interrupt application startup (e.g. in the case when the exchange \/ queue is already declared in RabbitMQ and has incompatible configuration). If set to true, the consumer will try to reconnect periodically.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
