@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- aws2s3 source connector split file into several messages  [\#1196](https://github.com/apache/camel-kafka-connector/issues/1196)
 - camel-elasticsearch-rest-kafka-connector indexId [\#1192](https://github.com/apache/camel-kafka-connector/issues/1192)
 - CAMEL-AWS-KINESIS-KAFKA-CONNECTOR SOURCE CONFIGURATION [\#1186](https://github.com/apache/camel-kafka-connector/issues/1186)
 - Release 0.10.0 [\#1184](https://github.com/apache/camel-kafka-connector/issues/1184)
@@ -15,6 +16,8 @@
 
 **Merged pull requests:**
 
+- Added a brief note about adjusting connectors behavior via Kafka message headers [\#1212](https://github.com/apache/camel-kafka-connector/pull/1212) ([orpiske](https://github.com/orpiske))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1210](https://github.com/apache/camel-kafka-connector/pull/1210) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1207](https://github.com/apache/camel-kafka-connector/pull/1207) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1205](https://github.com/apache/camel-kafka-connector/pull/1205) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1203](https://github.com/apache/camel-kafka-connector/pull/1203) ([github-actions[bot]](https://github.com/apps/github-actions))
