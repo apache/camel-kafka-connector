@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kubernetes-custom-resources-source",
 		"type": "source",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.10.1",
 		"description": "Perform operations on Kubernetes Custom Resources and get notified on Deployment changes."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-quartz-source",
 		"type": "source",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.10.1",
 		"description": "Schedule sending of messages using the Quartz 2.x scheduler."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-rest-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.10.1",
 		"description": "Expose REST services or call external REST services."
 	},
 	"properties": {
