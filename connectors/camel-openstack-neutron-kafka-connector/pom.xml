@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>0.11.0-SNAPSHOT</version>
+    <version>0.10.1</version>
   </parent>
   <artifactId>camel-openstack-neutron-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: openstack-neutron</name>
