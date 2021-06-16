@@ -97,7 +97,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_DOC = "The naming strategy to use in streaming upload mode One of: [progressive] [random]";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_NAMING_STRATEGY_DEFAULT = "progressive";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_DOC = "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]";
+    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_DOC = "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] [createDownloadLink]";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_CONF = "camel.sink.endpoint.partSize";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_PART_SIZE_DOC = "Setup the partSize which is used in multi part upload, the default size is 25M.";
@@ -202,7 +202,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_DOC = "The naming strategy to use in streaming upload mode One of: [progressive] [random]";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_NAMING_STRATEGY_DEFAULT = "progressive";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_CONF = "camel.component.aws2-s3.operation";
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_DOC = "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]";
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_DOC = "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] [createDownloadLink]";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_CONF = "camel.component.aws2-s3.partSize";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_PART_SIZE_DOC = "Setup the partSize which is used in multi part upload, the default size is 25M.";

@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 339 
+Number of Camel Kafka connectors: 340 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -145,6 +145,7 @@ Number of Camel Kafka connectors: 339
 | *camel-http-kafka-connector* | true | false | xref:reference/connectors/camel-http-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-http-kafka-connector/0.10.0/camel-http-kafka-connector-0.10.0-package.tar.gz[Download]
 | *camel-https-kafka-connector* | true | false | xref:reference/connectors/camel-https-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-https-kafka-connector/0.10.0/camel-https-kafka-connector-0.10.0-package.tar.gz[Download]
 | *camel-hwcloud-functiongraph-kafka-connector* | true | false | xref:reference/connectors/camel-hwcloud-functiongraph-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-hwcloud-functiongraph-kafka-connector/0.10.0/camel-hwcloud-functiongraph-kafka-connector-0.10.0-package.tar.gz[Download]
+| *camel-hwcloud-iam-kafka-connector* | true | true | xref:reference/connectors/camel-hwcloud-iam-kafka-sink-connector.adoc[Sink Docs] | xref:reference/connectors/camel-hwcloud-iam-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-hwcloud-iam-kafka-connector/0.10.0/camel-hwcloud-iam-kafka-connector-0.10.0-package.tar.gz[Download]
 | *camel-hwcloud-smn-kafka-connector* | true | false | xref:reference/connectors/camel-hwcloud-smn-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-hwcloud-smn-kafka-connector/0.10.0/camel-hwcloud-smn-kafka-connector-0.10.0-package.tar.gz[Download]
 | *camel-iec60870-client-kafka-connector* | true | true | xref:reference/connectors/camel-iec60870-client-kafka-sink-connector.adoc[Sink Docs] | xref:reference/connectors/camel-iec60870-client-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-iec60870-client-kafka-connector/0.10.0/camel-iec60870-client-kafka-connector-0.10.0-package.tar.gz[Download]
 | *camel-iec60870-server-kafka-connector* | true | true | xref:reference/connectors/camel-iec60870-server-kafka-sink-connector.adoc[Sink Docs] | xref:reference/connectors/camel-iec60870-server-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-iec60870-server-kafka-connector/0.10.0/camel-iec60870-server-kafka-connector-0.10.0-package.tar.gz[Download]
