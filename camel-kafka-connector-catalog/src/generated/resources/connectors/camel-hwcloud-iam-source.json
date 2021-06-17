@@ -1,0 +1,124 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.hwcloudiam.CamelHwcloudiamSourceConnector",
+		"artifactId": "camel-hwcloud-iam-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-hwcloud-iam-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "To securely manage users on Huawei Cloud"
+	},
+	"properties": {
+		"camel.source.endpoint.authenticationKey": {
+			"name": "camel.source.endpoint.authenticationKey",
+			"description": "Authentication key for the cloud user",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.source.endpoint.endpoint": {
+			"name": "camel.source.endpoint.endpoint",
+			"description": "IAM endpoint url. Carries higher precedence than region parameter based client initialization",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.groupId": {
+			"name": "camel.source.endpoint.groupId",
+			"description": "Group ID to perform operation with",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.ignoreSslVerification": {
+			"name": "camel.source.endpoint.ignoreSslVerification",
+			"description": "Ignore SSL verification",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.proxyHost": {
+			"name": "camel.source.endpoint.proxyHost",
+			"description": "Proxy server ip\/hostname",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.proxyPassword": {
+			"name": "camel.source.endpoint.proxyPassword",
+			"description": "Proxy authentication password",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.proxyPort": {
+			"name": "camel.source.endpoint.proxyPort",
+			"description": "Proxy server port",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.proxyUser": {
+			"name": "camel.source.endpoint.proxyUser",
+			"description": "Proxy authentication user",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.region": {
+			"name": "camel.source.endpoint.region",
+			"description": "IAM service region. This is lower precedence than endpoint based configuration",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.source.endpoint.secretKey": {
+			"name": "camel.source.endpoint.secretKey",
+			"description": "Secret key for the cloud user",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.source.endpoint.serviceKeys": {
+			"name": "camel.source.endpoint.serviceKeys",
+			"description": "Configuration object for cloud service authentication",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.userId": {
+			"name": "camel.source.endpoint.userId",
+			"description": "User ID to perform operation with",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
+		},
+		"camel.component.hwcloud-iam.bridgeErrorHandler": {
+			"name": "camel.component.hwcloud-iam.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.hwcloud-iam.autowiredEnabled": {
+			"name": "camel.component.hwcloud-iam.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
