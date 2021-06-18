@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1214](https://github.com/apache/camel-kafka-connector/pull/1214) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1213](https://github.com/apache/camel-kafka-connector/pull/1213) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Added a brief note about adjusting connectors behavior via Kafka message headers [\#1212](https://github.com/apache/camel-kafka-connector/pull/1212) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1210](https://github.com/apache/camel-kafka-connector/pull/1210) ([github-actions[bot]](https://github.com/apps/github-actions))
