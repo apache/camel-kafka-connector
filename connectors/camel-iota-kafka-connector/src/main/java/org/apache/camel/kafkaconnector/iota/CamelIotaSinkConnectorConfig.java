@@ -46,7 +46,7 @@ public class CamelIotaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_IOTA_ENDPOINT_URL_DOC = "Node url";
     public static final String CAMEL_SINK_IOTA_ENDPOINT_URL_DEFAULT = null;
     public static final String CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_CONF = "camel.sink.endpoint.securityLevel";
-    public static final String CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_DOC = "Address security level";
+    public static final String CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_DOC = "Security level to be used for the private key / address. Can be 1, 2 or 3.";
     public static final String CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_DEFAULT = "1";
     public static final String CAMEL_SINK_IOTA_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.iota.lazyStartProducer";
     public static final String CAMEL_SINK_IOTA_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";

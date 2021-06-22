@@ -30,6 +30,9 @@ public class CamelKameletSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAMELET_PATH_ROUTE_ID_CONF = "camel.sink.path.routeId";
     public static final String CAMEL_SINK_KAMELET_PATH_ROUTE_ID_DOC = "The Route ID. Default value notice: The ID will be auto-generated if not provided";
     public static final String CAMEL_SINK_KAMELET_PATH_ROUTE_ID_DEFAULT = null;
+    public static final String CAMEL_SINK_KAMELET_ENDPOINT_LOCATION_CONF = "camel.sink.endpoint.location";
+    public static final String CAMEL_SINK_KAMELET_ENDPOINT_LOCATION_DOC = "Location of the Kamelet to use which can be specified as a resource from file system, classpath etc. The location cannot use wildcards, and must refer to a file including extension, for example file:/etc/foo-kamelet.xml";
+    public static final String CAMEL_SINK_KAMELET_ENDPOINT_LOCATION_DEFAULT = null;
     public static final String CAMEL_SINK_KAMELET_ENDPOINT_BLOCK_CONF = "camel.sink.endpoint.block";
     public static final String CAMEL_SINK_KAMELET_ENDPOINT_BLOCK_DOC = "If sending a message to a direct endpoint which has no active consumer, then we can tell the producer to block and wait for the consumer to become active.";
     public static final Boolean CAMEL_SINK_KAMELET_ENDPOINT_BLOCK_DEFAULT = true;
@@ -63,9 +66,9 @@ public class CamelKameletSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.kamelet.autowiredEnabled";
     public static final String CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
-    public static final String CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_CONF = "camel.component.kamelet.kameletResourceLoaderListener";
-    public static final String CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DOC = "To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources.";
-    public static final String CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DEFAULT = null;
+    public static final String CAMEL_SINK_KAMELET_COMPONENT_ROUTE_TEMPLATE_LOADER_LISTENER_CONF = "camel.component.kamelet.routeTemplateLoaderListener";
+    public static final String CAMEL_SINK_KAMELET_COMPONENT_ROUTE_TEMPLATE_LOADER_LISTENER_DOC = "To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources.";
+    public static final String CAMEL_SINK_KAMELET_COMPONENT_ROUTE_TEMPLATE_LOADER_LISTENER_DEFAULT = null;
 
     public CamelKameletSinkConnectorConfig(
             ConfigDef config,
@@ -81,6 +84,7 @@ public class CamelKameletSinkConnectorConfig extends CamelSinkConnectorConfig {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_KAMELET_PATH_TEMPLATE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAMELET_PATH_TEMPLATE_ID_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAMELET_PATH_TEMPLATE_ID_DOC);
         conf.define(CAMEL_SINK_KAMELET_PATH_ROUTE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAMELET_PATH_ROUTE_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_PATH_ROUTE_ID_DOC);
+        conf.define(CAMEL_SINK_KAMELET_ENDPOINT_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAMELET_ENDPOINT_LOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_ENDPOINT_LOCATION_DOC);
         conf.define(CAMEL_SINK_KAMELET_ENDPOINT_BLOCK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAMELET_ENDPOINT_BLOCK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_ENDPOINT_BLOCK_DOC);
         conf.define(CAMEL_SINK_KAMELET_ENDPOINT_FAIL_IF_NO_CONSUMERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAMELET_ENDPOINT_FAIL_IF_NO_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_ENDPOINT_FAIL_IF_NO_CONSUMERS_DOC);
         conf.define(CAMEL_SINK_KAMELET_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAMELET_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_ENDPOINT_LAZY_START_PRODUCER_DOC);
@@ -92,7 +96,7 @@ public class CamelKameletSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_KAMELET_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAMELET_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_KAMELET_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_KAMELET_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_AUTOWIRED_ENABLED_DOC);
-        conf.define(CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_KAMELET_RESOURCE_LOADER_LISTENER_DOC);
+        conf.define(CAMEL_SINK_KAMELET_COMPONENT_ROUTE_TEMPLATE_LOADER_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAMELET_COMPONENT_ROUTE_TEMPLATE_LOADER_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAMELET_COMPONENT_ROUTE_TEMPLATE_LOADER_LISTENER_DOC);
         return conf;
     }
 }
