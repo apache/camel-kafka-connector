@@ -21,12 +21,6 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.sink.endpoint.endpoint": {
-			"name": "camel.sink.endpoint.endpoint",
-			"description": "IAM endpoint url. Carries higher precedence than region parameter based client initialization",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.groupId": {
 			"name": "camel.sink.endpoint.groupId",
 			"description": "Group ID to perform operation with",
@@ -36,6 +30,13 @@
 		"camel.sink.endpoint.ignoreSslVerification": {
 			"name": "camel.sink.endpoint.ignoreSslVerification",
 			"description": "Ignore SSL verification",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -66,7 +67,7 @@
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
-			"description": "IAM service region. This is lower precedence than endpoint based configuration",
+			"description": "IAM service region",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -85,13 +86,6 @@
 		"camel.sink.endpoint.userId": {
 			"name": "camel.sink.endpoint.userId",
 			"description": "User ID to perform operation with",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.lazyStartProducer": {
-			"name": "camel.sink.endpoint.lazyStartProducer",
-			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

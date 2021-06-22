@@ -45,14 +45,8 @@
 		},
 		"camel.sink.endpoint.dataSource": {
 			"name": "camel.sink.endpoint.dataSource",
-			"description": "Sets the DataSource to use to communicate with the database.",
+			"description": "Sets the DataSource to use to communicate with the database at endpoint level.",
 			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.dataSourceRef": {
-			"name": "camel.sink.endpoint.dataSourceRef",
-			"description": "Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database.",
-			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.outputClass": {

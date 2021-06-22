@@ -31,11 +31,8 @@ public class CamelSqlSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_DOC = "Whether to allow using named parameters in the queries.";
     public static final Boolean CAMEL_SINK_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_DEFAULT = true;
     public static final String CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_CONF = "camel.sink.endpoint.dataSource";
-    public static final String CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_DOC = "Sets the DataSource to use to communicate with the databaset at endpoint level.";
+    public static final String CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_DOC = "Sets the DataSource to use to communicate with the database at endpoint level.";
     public static final String CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_DEFAULT = null;
-    public static final String CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_REF_CONF = "camel.sink.endpoint.dataSourceRef";
-    public static final String CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_REF_DOC = "Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database.";
-    public static final String CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_REF_DEFAULT = null;
     public static final String CAMEL_SINK_SQL_ENDPOINT_OUTPUT_CLASS_CONF = "camel.sink.endpoint.outputClass";
     public static final String CAMEL_SINK_SQL_ENDPOINT_OUTPUT_CLASS_DOC = "Specify the full package and class name to use as conversion when outputType=SelectOne.";
     public static final String CAMEL_SINK_SQL_ENDPOINT_OUTPUT_CLASS_DEFAULT = null;
@@ -106,7 +103,6 @@ public class CamelSqlSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SQL_PATH_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQL_PATH_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQL_PATH_QUERY_DOC);
         conf.define(CAMEL_SINK_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_DOC);
-        conf.define(CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_REF_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_REF_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SQL_ENDPOINT_DATA_SOURCE_REF_DOC);
         conf.define(CAMEL_SINK_SQL_ENDPOINT_OUTPUT_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQL_ENDPOINT_OUTPUT_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQL_ENDPOINT_OUTPUT_CLASS_DOC);
         conf.define(CAMEL_SINK_SQL_ENDPOINT_OUTPUT_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQL_ENDPOINT_OUTPUT_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQL_ENDPOINT_OUTPUT_HEADER_DOC);
         conf.define(CAMEL_SINK_SQL_ENDPOINT_OUTPUT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQL_ENDPOINT_OUTPUT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQL_ENDPOINT_OUTPUT_TYPE_DOC);
