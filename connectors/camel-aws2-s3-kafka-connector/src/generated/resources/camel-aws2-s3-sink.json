@@ -175,7 +175,7 @@
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
-			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]",
+			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] [createDownloadLink]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -185,7 +185,8 @@
 				"deleteBucket",
 				"listBuckets",
 				"getObject",
-				"getObjectRange"
+				"getObjectRange",
+				"createDownloadLink"
 			]
 		},
 		"camel.sink.endpoint.partSize": {
@@ -423,7 +424,7 @@
 		},
 		"camel.component.aws2-s3.operation": {
 			"name": "camel.component.aws2-s3.operation",
-			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange]",
+			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] [createDownloadLink]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -433,7 +434,8 @@
 				"deleteBucket",
 				"listBuckets",
 				"getObject",
-				"getObjectRange"
+				"getObjectRange",
+				"createDownloadLink"
 			]
 		},
 		"camel.component.aws2-s3.partSize": {

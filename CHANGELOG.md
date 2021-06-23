@@ -2,19 +2,18 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.0...HEAD)
-
-**Closed issues:**
-
-- camel-elasticsearch-rest-kafka-connector indexId [\#1192](https://github.com/apache/camel-kafka-connector/issues/1192)
-- CAMEL-AWS-KINESIS-KAFKA-CONNECTOR SOURCE CONFIGURATION [\#1186](https://github.com/apache/camel-kafka-connector/issues/1186)
-- Release 0.10.0 [\#1184](https://github.com/apache/camel-kafka-connector/issues/1184)
-- Bump to Camel 3.10.0 [\#1183](https://github.com/apache/camel-kafka-connector/issues/1183)
-- camel-salesforce-kafka-connector missing dependency library [\#1114](https://github.com/apache/camel-kafka-connector/issues/1114)
-- Improve documentation TOC [\#389](https://github.com/apache/camel-kafka-connector/issues/389)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.1...HEAD)
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1215](https://github.com/apache/camel-kafka-connector/pull/1215) ([github-actions[bot]](https://github.com/apps/github-actions))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1214](https://github.com/apache/camel-kafka-connector/pull/1214) ([github-actions[bot]](https://github.com/apps/github-actions))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1213](https://github.com/apache/camel-kafka-connector/pull/1213) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Added a brief note about adjusting connectors behavior via Kafka message headers [\#1212](https://github.com/apache/camel-kafka-connector/pull/1212) ([orpiske](https://github.com/orpiske))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1210](https://github.com/apache/camel-kafka-connector/pull/1210) ([github-actions[bot]](https://github.com/apps/github-actions))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1207](https://github.com/apache/camel-kafka-connector/pull/1207) ([github-actions[bot]](https://github.com/apps/github-actions))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1205](https://github.com/apache/camel-kafka-connector/pull/1205) ([github-actions[bot]](https://github.com/apps/github-actions))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1203](https://github.com/apache/camel-kafka-connector/pull/1203) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1202](https://github.com/apache/camel-kafka-connector/pull/1202) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Littel documentation adjustments. [\#1201](https://github.com/apache/camel-kafka-connector/pull/1201) ([valdar](https://github.com/valdar))
 - Some documentation link fixes. [\#1199](https://github.com/apache/camel-kafka-connector/pull/1199) ([valdar](https://github.com/valdar))
@@ -298,6 +297,20 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.10.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.10.1) (2021-06-16)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.0...camel-kafka-connector-0.10.1)
+
+**Closed issues:**
+
+- aws2s3 source connector split file into several messages  [\#1196](https://github.com/apache/camel-kafka-connector/issues/1196)
+- camel-elasticsearch-rest-kafka-connector indexId [\#1192](https://github.com/apache/camel-kafka-connector/issues/1192)
+- CAMEL-AWS-KINESIS-KAFKA-CONNECTOR SOURCE CONFIGURATION [\#1186](https://github.com/apache/camel-kafka-connector/issues/1186)
+- Release 0.10.0 [\#1184](https://github.com/apache/camel-kafka-connector/issues/1184)
+- Bump to Camel 3.10.0 [\#1183](https://github.com/apache/camel-kafka-connector/issues/1183)
+- camel-salesforce-kafka-connector missing dependency library [\#1114](https://github.com/apache/camel-kafka-connector/issues/1114)
+- Improve documentation TOC [\#389](https://github.com/apache/camel-kafka-connector/issues/389)
 
 ## [camel-kafka-connector-0.10.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.10.0) (2021-05-22)
 

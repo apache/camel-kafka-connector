@@ -21,6 +21,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.location": {
+			"name": "camel.sink.endpoint.location",
+			"description": "Location of the Kamelet to use which can be specified as a resource from file system, classpath etc. The location cannot use wildcards, and must refer to a file including extension, for example file:\/etc\/foo-kamelet.xml",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.block": {
 			"name": "camel.sink.endpoint.block",
 			"description": "If sending a message to a direct endpoint which has no active consumer, then we can tell the producer to block and wait for the consumer to become active.",
@@ -96,8 +102,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kamelet.kameletResourceLoaderListener": {
-			"name": "camel.component.kamelet.kameletResourceLoaderListener",
+		"camel.component.kamelet.routeTemplateLoaderListener": {
+			"name": "camel.component.kamelet.routeTemplateLoaderListener",
 			"description": "To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources.",
 			"priority": "MEDIUM",
 			"required": "false"

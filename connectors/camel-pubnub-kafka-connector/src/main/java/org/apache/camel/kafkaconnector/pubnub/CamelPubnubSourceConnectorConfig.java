@@ -65,12 +65,39 @@ public class CamelPubnubSourceConnectorConfig
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_CONF = "camel.source.endpoint.subscribeKey";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DOC = "The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_CONFIGURATION_CONF = "camel.component.pubnub.configuration";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_CONFIGURATION_DOC = "The component configurations";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_UUID_CONF = "camel.component.pubnub.uuid";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_UUID_DOC = "UUID to be used as a device identifier, a default UUID is generated if not passed.";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_UUID_DEFAULT = null;
     public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.pubnub.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_WITH_PRESENCE_CONF = "camel.component.pubnub.withPresence";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_WITH_PRESENCE_DOC = "Also subscribe to related presence information";
+    public static final Boolean CAMEL_SOURCE_PUBNUB_COMPONENT_WITH_PRESENCE_DEFAULT = false;
     public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.pubnub.autowiredEnabled";
     public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_AUTH_KEY_CONF = "camel.component.pubnub.authKey";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_AUTH_KEY_DOC = "If Access Manager is utilized, client will use this authKey in all restricted requests.";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_AUTH_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_CIPHER_KEY_CONF = "camel.component.pubnub.cipherKey";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_CIPHER_KEY_DOC = "If cipher is passed, all communications to/from PubNub will be encrypted.";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_CIPHER_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_PUBLISH_KEY_CONF = "camel.component.pubnub.publishKey";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_PUBLISH_KEY_DOC = "The publish key obtained from your PubNub account. Required when publishing messages.";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_PUBLISH_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SECRET_KEY_CONF = "camel.component.pubnub.secretKey";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SECRET_KEY_DOC = "The secret key used for message signing.";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SECRET_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SECURE_CONF = "camel.component.pubnub.secure";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SECURE_DOC = "Use SSL for secure transmission.";
+    public static final Boolean CAMEL_SOURCE_PUBNUB_COMPONENT_SECURE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SUBSCRIBE_KEY_CONF = "camel.component.pubnub.subscribeKey";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SUBSCRIBE_KEY_DOC = "The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_SUBSCRIBE_KEY_DEFAULT = null;
 
     public CamelPubnubSourceConnectorConfig(
             ConfigDef config,
@@ -97,8 +124,17 @@ public class CamelPubnubSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_PUBNUB_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_UUID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_COMPONENT_UUID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_UUID_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_WITH_PRESENCE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_COMPONENT_WITH_PRESENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_WITH_PRESENCE_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_AUTH_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_PUBNUB_COMPONENT_AUTH_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_AUTH_KEY_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_CIPHER_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_PUBNUB_COMPONENT_CIPHER_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_CIPHER_KEY_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_PUBLISH_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_PUBNUB_COMPONENT_PUBLISH_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_PUBLISH_KEY_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_PUBNUB_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_SECRET_KEY_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_COMPONENT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_SECURE_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_SUBSCRIBE_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_PUBNUB_COMPONENT_SUBSCRIBE_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_SUBSCRIBE_KEY_DOC);
         return conf;
     }
 }

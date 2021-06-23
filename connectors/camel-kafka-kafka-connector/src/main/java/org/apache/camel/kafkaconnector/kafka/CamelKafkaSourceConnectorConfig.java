@@ -92,6 +92,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_ID_CONF = "camel.source.endpoint.groupId";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_ID_DOC = "A string that uniquely identifies the group of consumer processes to which this consumer belongs. By setting the same group id multiple processes indicate that they are all part of the same consumer group. This option is required for consumers.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_ID_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_INSTANCE_ID_CONF = "camel.source.endpoint.groupInstanceId";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_INSTANCE_ID_DOC = "A unique identifier of the consumer instance provided by the end user. Only non-empty strings are permitted. If set, the consumer is treated as a static member, which means that only one instance with this ID is allowed in the consumer group at any time. This can be used in combination with a larger session timeout to avoid group rebalances caused by transient unavailability (e.g. process restarts). If not set, the consumer will join the group as a dynamic member, which is the traditional behavior.";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_INSTANCE_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_DESERIALIZER_CONF = "camel.source.endpoint.headerDeserializer";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_DESERIALIZER_DOC = "To use a custom KafkaHeaderDeserializer to deserialize kafka headers values";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_DESERIALIZER_DEFAULT = null;
@@ -275,6 +278,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_ID_CONF = "camel.component.kafka.groupId";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_ID_DOC = "A string that uniquely identifies the group of consumer processes to which this consumer belongs. By setting the same group id multiple processes indicate that they are all part of the same consumer group. This option is required for consumers.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_ID_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_INSTANCE_ID_CONF = "camel.component.kafka.groupInstanceId";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_INSTANCE_ID_DOC = "A unique identifier of the consumer instance provided by the end user. Only non-empty strings are permitted. If set, the consumer is treated as a static member, which means that only one instance with this ID is allowed in the consumer group at any time. This can be used in combination with a larger session timeout to avoid group rebalances caused by transient unavailability (e.g. process restarts). If not set, the consumer will join the group as a dynamic member, which is the traditional behavior.";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_INSTANCE_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_DESERIALIZER_CONF = "camel.component.kafka.headerDeserializer";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_DESERIALIZER_DOC = "To use a custom KafkaHeaderDeserializer to deserialize kafka headers values";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_DESERIALIZER_DEFAULT = null;
@@ -436,6 +442,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_FETCH_MIN_BYTES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_FETCH_MIN_BYTES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_FETCH_MIN_BYTES_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_FETCH_WAIT_MAX_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_FETCH_WAIT_MAX_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_FETCH_WAIT_MAX_MS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_ID_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_INSTANCE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_INSTANCE_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_GROUP_INSTANCE_ID_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_DESERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_DESERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_DESERIALIZER_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_HEARTBEAT_INTERVAL_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_HEARTBEAT_INTERVAL_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_HEARTBEAT_INTERVAL_MS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_KEY_DESERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_KEY_DESERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_KEY_DESERIALIZER_DOC);
@@ -497,6 +504,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_FETCH_MIN_BYTES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_FETCH_MIN_BYTES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_FETCH_MIN_BYTES_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_FETCH_WAIT_MAX_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_FETCH_WAIT_MAX_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_FETCH_WAIT_MAX_MS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_ID_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_INSTANCE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_INSTANCE_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_GROUP_INSTANCE_ID_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_DESERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_DESERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_DESERIALIZER_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_HEARTBEAT_INTERVAL_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_HEARTBEAT_INTERVAL_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_HEARTBEAT_INTERVAL_MS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_KEY_DESERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_KEY_DESERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_KEY_DESERIALIZER_DOC);

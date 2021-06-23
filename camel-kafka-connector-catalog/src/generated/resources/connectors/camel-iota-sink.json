@@ -61,7 +61,7 @@
 		},
 		"camel.sink.endpoint.securityLevel": {
 			"name": "camel.sink.endpoint.securityLevel",
-			"description": "Address security level",
+			"description": "Security level to be used for the private key \/ address. Can be 1, 2 or 3.",
 			"defaultValue": "\"1\"",
 			"priority": "MEDIUM",
 			"required": "false"

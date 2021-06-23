@@ -17,22 +17,14 @@
 
 package org.apache.camel.kafkaconnector.file.sink;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.StandardWatchEventKinds;
-import java.nio.file.WatchEvent;
-import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
+import org.apache.camel.kafkaconnector.file.sink.util.CustomProducer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,6 +34,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static org.apache.camel.kafkaconnector.file.sink.util.FileTestUtil.checkFileContents;
+import static org.apache.camel.kafkaconnector.file.sink.util.FileTestUtil.waitForFile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -56,17 +50,7 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
 
     private String topicName;
     private final int expect = 1;
-
-    private static class CustomProducer extends StringMessageProducer {
-        public CustomProducer(String bootstrapServer, String topicName, int count) {
-            super(bootstrapServer, topicName, count);
-        }
-
-        @Override
-        public String testMessageContent(int current) {
-            return "test";
-        }
-    }
+    private CustomProducer producer;
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -107,6 +91,10 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
         }
     }
 
+    private String verifier(int i) {
+        return producer.testMessageContent(i);
+    }
+
     @Override
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
         if (latch.await(30, TimeUnit.SECONDS)) {
@@ -115,76 +103,14 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
             assertTrue(sinkFile.exists(), String.format("The file %s does not exist", sinkFile.getPath()));
 
             try {
-                checkFileContents(sinkFile);
+                int lines = checkFileContents(sinkFile, this::verifier);
+                assertEquals(expect, lines, "Did not receive the same amount of messages that were sent");
             } catch (IOException e) {
                 fail(e.getMessage());
             }
         } else {
             fail("Failed to receive the messages within the specified time");
         }
-    }
-
-    private void checkFileContents(File sinkFile) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(sinkFile));
-
-        int i = 0;
-        String line;
-        do {
-            line = reader.readLine();
-            if (line != null) {
-                assertEquals("test", line, String.format("Unexpected data: %s", line));
-                i++;
-            }
-        } while (line != null);
-
-        assertEquals(expect, i, "Did not receive the same amount of messages that were sent");
-    }
-
-    private void waitForFile(File sinkFile, File doneFile) throws IOException, InterruptedException {
-        WatchService watchService = FileSystems.getDefault().newWatchService();
-        Path path = sinkFile.getParentFile().toPath();
-
-        if (doneFile.exists()) {
-            return;
-        }
-
-        // We watch for both the file creation and truncation
-        path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY);
-
-        int retries = 30;
-        do {
-            WatchKey watchKey = watchService.poll(1, TimeUnit.SECONDS);
-
-            if (watchKey == null) {
-                continue;
-            }
-
-            for (WatchEvent<?> event : watchKey.pollEvents()) {
-
-                /*
-                  It should return a Path object for ENTRY_CREATE and ENTRY_MODIFY events
-                 */
-                Object context = event.context();
-                if (!(context instanceof Path)) {
-                    LOG.warn("Received an unexpected event of kind {} for context {}", event.kind(), event.context());
-                    continue;
-                }
-
-                Path contextPath = (Path) context;
-
-                if (contextPath.toString().equals(doneFile.getName())) {
-                    LOG.info("Sink file at the build path {} had a matching event of type: {}", sinkFile.getPath(),
-                            event.kind());
-
-                    return;
-                } else {
-                    LOG.debug("Ignoring a watch event at build path {} of type {} for file: {}", sinkFile.getPath(),
-                            event.kind(), contextPath.getFileName());
-                }
-            }
-            watchKey.reset();
-            retries--;
-        } while (!doneFile.exists() && retries > 0);
     }
 
     @Test
@@ -196,7 +122,8 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
                 .withFileName(FILENAME)
                 .withDoneFileName(FILENAME + ".done");
 
-        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
+        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect);
+        runTest(connectorPropertyFactory, producer);
     }
 
     @Test
@@ -209,6 +136,7 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
                 .append("doneFileName", FILENAME + ".done")
                 .buildUrl();
 
-        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
+        producer = new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect);
+        runTest(connectorPropertyFactory, producer);
     }
 }

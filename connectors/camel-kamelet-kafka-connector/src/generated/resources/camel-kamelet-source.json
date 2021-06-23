@@ -21,6 +21,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.location": {
+			"name": "camel.source.endpoint.location",
+			"description": "Location of the Kamelet to use which can be specified as a resource from file system, classpath etc. The location cannot use wildcards, and must refer to a file including extension, for example file:\/etc\/foo-kamelet.xml",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -78,8 +84,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kamelet.kameletResourceLoaderListener": {
-			"name": "camel.component.kamelet.kameletResourceLoaderListener",
+		"camel.component.kamelet.routeTemplateLoaderListener": {
+			"name": "camel.component.kamelet.routeTemplateLoaderListener",
 			"description": "To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources.",
 			"priority": "MEDIUM",
 			"required": "false"

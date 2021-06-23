@@ -5,7 +5,6 @@
 == Table of Contents
 
 * <<running-the-tests,Running The Tests>>
-* <<running-the-tests-remotely,Running The Tests Remotely>>
 * <<writing-new-tests,Writing New Tests>>
 
 [#running-the-tests]
@@ -15,7 +14,14 @@ The most basic way of running the tests is to do so as part of the build. The co
 
 [source,bash]
 ----
-mvn -DskipIntegrationTests=false clean verify package
+mvn -DskipIntegrationTests=false clean verify
+----
+
+To also run the slow integration tests use:
+
+[source,bash]
+----
+mvn -DskipIntegrationTests=false -Denable.slow.tests=true clean verify
 ----
 
 The test code in the project is rather flexible and allow a different range of options regarding the environment,
@@ -23,11 +29,11 @@ tools, etc that can be used. For example, to use an external (remote) Kafka brok
 
 [source,bash]
 ----
-mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipIntegrationTests=false clean verify package
+mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipIntegrationTests=false clean verify
 ----
 
 [#running-the-tests-remotely]
-== Running The Tests Remotely
+=== Running The Tests Remotely
 
 Not only Kafka, but also other external infrastructure can be used for the tests. To do so, you must set properties
 for the services that you want to run. This causes the tests to not launch the local container and use existing
@@ -80,6 +86,33 @@ these flags along with others that are specific to that service:
 
 * it.test.salesforce.enable
 * it.test.slack.enable
+
+==== Salesforce Test
+
+Configure your Salesforce developer account as described here https://github.com/apache/camel-examples/blob/main/examples/salesforce-consumer/README.adoc#configuring-salesforce
+
+Before running the tests be sure to:
+
+- Run the Salesforce CLI container:
+
+[source,bash]
+----
+$ docker run --rm --name salesforce-cli -it -v /path/to/sfdx:/root/.sfdx salesforce/salesforcedx
+----
+
+- Within the container, use the following command to login:
+
+[source,bash]
+----
+$ sfdx force:auth:device:login -s -d -i <client ID>
+----
+
+- Now you should be able to run all integration tests including Salesforce tests with:
+
+[source,bash]
+----
+$ mvn -DskipIntegrationTests=false -Dit.test.salesforce.enable=true clean verify
+----
 
 === Performance Tests
 

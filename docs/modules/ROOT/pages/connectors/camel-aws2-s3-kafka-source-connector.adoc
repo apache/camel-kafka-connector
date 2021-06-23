@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SourceConnecto
 ----
 
 
-The camel-aws2-s3 source connector supports 85 options, which are listed below.
+The camel-aws2-s3 source connector supports 87 options, which are listed below.
 
 
 
@@ -56,7 +56,8 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.source.endpoint.destinationBucketSuffix* | Define the destination bucket suffix to use when an object must be moved and moveAfterRead is set to true. | null | false | MEDIUM
 | *camel.source.endpoint.doneFileName* | If provided, Camel will only consume files if a done file exists. | null | false | MEDIUM
 | *camel.source.endpoint.fileName* | To get the object from the bucket with the given file name | null | false | MEDIUM
-| *camel.source.endpoint.includeBody* | If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion. | true | false | MEDIUM
+| *camel.source.endpoint.ignoreBody* | If it is true, the S3 Object Body will be ignored completely, if it is set to false the S3 Object will be put in the body. Setting this to true, will override any behavior defined by includeBody option. | false | false | MEDIUM
+| *camel.source.endpoint.includeBody* | If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed, while in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion. | true | false | MEDIUM
 | *camel.source.endpoint.includeFolders* | If it is true, the folders/directories will be consumed. If it is false, they will be ignored, and Exchanges will not be created for those | true | false | MEDIUM
 | *camel.source.endpoint.maxConnections* | Set the maxConnections parameter in the S3 client configuration | 60 | false | MEDIUM
 | *camel.source.endpoint.maxMessagesPerPoll* | Gets the maximum number of messages as a limit to poll at each polling. Gets the maximum number of messages as a limit to poll at each polling. The default value is 10. Use 0 or a negative number to set it as unlimited. | 10 | false | MEDIUM
@@ -108,7 +109,8 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.component.aws2-s3.destinationBucketSuffix* | Define the destination bucket suffix to use when an object must be moved and moveAfterRead is set to true. | null | false | MEDIUM
 | *camel.component.aws2-s3.doneFileName* | If provided, Camel will only consume files if a done file exists. | null | false | MEDIUM
 | *camel.component.aws2-s3.fileName* | To get the object from the bucket with the given file name | null | false | MEDIUM
-| *camel.component.aws2-s3.includeBody* | If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion. | true | false | MEDIUM
+| *camel.component.aws2-s3.ignoreBody* | If it is true, the S3 Object Body will be ignored completely, if it is set to false the S3 Object will be put in the body. Setting this to true, will override any behavior defined by includeBody option. | false | false | MEDIUM
+| *camel.component.aws2-s3.includeBody* | If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed, while in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion. | true | false | MEDIUM
 | *camel.component.aws2-s3.includeFolders* | If it is true, the folders/directories will be consumed. If it is false, they will be ignored, and Exchanges will not be created for those | true | false | MEDIUM
 | *camel.component.aws2-s3.moveAfterRead* | Move objects from S3 bucket to a different bucket after they have been retrieved. To accomplish the operation the destinationBucket option must be set. The copy bucket operation is only performed if the Exchange is committed. If a rollback occurs, the object is not moved. | false | false | MEDIUM
 | *camel.component.aws2-s3.prefix* | The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in. | null | false | MEDIUM
@@ -156,6 +158,4 @@ The camel-aws2-s3 source connector supports 1 aggregation strategies out of the 
 org.apache.camel.kafkaconnector.aws2s3.aggregation.NewlineAggregationStrategy
 
 ----
-
-
 // kafka-connector options: END

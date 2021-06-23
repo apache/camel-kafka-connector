@@ -37,6 +37,14 @@ final class CamelFilePropertyFactory extends SinkConnectorPropertyFactory<CamelF
         return setProperty("camel.sink.path.directoryName", directoryName);
     }
 
+    public CamelFilePropertyFactory withAppendChars(String value) {
+        return setProperty("camel.sink.endpoint.appendChars", value);
+    }
+
+    public CamelFilePropertyFactory withFileExist(String value) {
+        return setProperty("camel.sink.endpoint.fileExist", value);
+    }
+
     public EndpointUrlBuilder<CamelFilePropertyFactory> withUrl(String fileOrDirName) {
         String queueUrl = String.format("file://%s", fileOrDirName);
 

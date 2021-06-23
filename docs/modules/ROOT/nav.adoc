@@ -375,6 +375,9 @@
 **** xref:reference/connectors/camel-https-kafka-sink-connector.adoc[Sink Docs]
 *** camel-hwcloud-functiongraph-kafka-connector
 **** xref:reference/connectors/camel-hwcloud-functiongraph-kafka-sink-connector.adoc[Sink Docs]
+*** camel-hwcloud-iam-kafka-connector
+**** xref:reference/connectors/camel-hwcloud-iam-kafka-source-connector.adoc[Source Docs]
+**** xref:reference/connectors/camel-hwcloud-iam-kafka-sink-connector.adoc[Sink Docs]
 *** camel-hwcloud-smn-kafka-connector
 **** xref:reference/connectors/camel-hwcloud-smn-kafka-sink-connector.adoc[Sink Docs]
 *** camel-iec60870-client-kafka-connector

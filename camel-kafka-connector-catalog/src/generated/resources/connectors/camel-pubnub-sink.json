@@ -86,6 +86,18 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.pubnub.configuration": {
+			"name": "camel.component.pubnub.configuration",
+			"description": "The component configurations",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.uuid": {
+			"name": "camel.component.pubnub.uuid",
+			"description": "UUID to be used as a device identifier, a default UUID is generated if not passed.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.pubnub.lazyStartProducer": {
 			"name": "camel.component.pubnub.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
@@ -93,10 +105,62 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.pubnub.operation": {
+			"name": "camel.component.pubnub.operation",
+			"description": "The operation to perform. PUBLISH: Default. Send a message to all subscribers of a channel. FIRE: allows the client to send a message to BLOCKS Event Handlers. These messages will go directly to any Event Handlers registered on the channel. HERENOW: Obtain information about the current state of a channel including a list of unique user-ids currently subscribed to the channel and the total occupancy count. WHERENOW: Obtain information about the current list of channels to which a uuid is subscribed to. GETSTATE: Used to get key\/value pairs specific to a subscriber uuid. State information is supplied as a JSON object of key\/value pairs SETSTATE: Used to set key\/value pairs specific to a subscriber uuid GETHISTORY: Fetches historical messages of a channel. One of: [HERENOW] [WHERENOW] [GETSTATE] [SETSTATE] [GETHISTORY] [PUBLISH] [FIRE]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"HERENOW",
+				"WHERENOW",
+				"GETSTATE",
+				"SETSTATE",
+				"GETHISTORY",
+				"PUBLISH",
+				"FIRE"
+			]
+		},
 		"camel.component.pubnub.autowiredEnabled": {
 			"name": "camel.component.pubnub.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.authKey": {
+			"name": "camel.component.pubnub.authKey",
+			"description": "If Access Manager is utilized, client will use this authKey in all restricted requests.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.cipherKey": {
+			"name": "camel.component.pubnub.cipherKey",
+			"description": "If cipher is passed, all communications to\/from PubNub will be encrypted.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.publishKey": {
+			"name": "camel.component.pubnub.publishKey",
+			"description": "The publish key obtained from your PubNub account. Required when publishing messages.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.secretKey": {
+			"name": "camel.component.pubnub.secretKey",
+			"description": "The secret key used for message signing.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.secure": {
+			"name": "camel.component.pubnub.secure",
+			"description": "Use SSL for secure transmission.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pubnub.subscribeKey": {
+			"name": "camel.component.pubnub.subscribeKey",
+			"description": "The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

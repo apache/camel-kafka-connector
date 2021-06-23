@@ -143,12 +143,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.streamFilter": {
-			"name": "camel.sink.endpoint.streamFilter",
-			"description": "Filter condition for change streams consumer.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "User password for mongodb connection",
@@ -158,43 +152,6 @@
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Username for mongodb connection",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.persistentId": {
-			"name": "camel.sink.endpoint.persistentId",
-			"description": "One tail tracking collection can host many trackers for several tailable consumers. To keep them separate, each tracker should have its own unique persistentId.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.persistentTailTracking": {
-			"name": "camel.sink.endpoint.persistentTailTracking",
-			"description": "Enable persistent tail tracking, which is a mechanism to keep track of the last consumed message across system restarts. The next time the system is up, the endpoint will recover the cursor from the point where it last stopped slurping records.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.tailTrackCollection": {
-			"name": "camel.sink.endpoint.tailTrackCollection",
-			"description": "Collection where tail tracking information will be persisted. If not specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used by default.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.tailTrackDb": {
-			"name": "camel.sink.endpoint.tailTrackDb",
-			"description": "Indicates what database the tail tracking mechanism will persist to. If not specified, the current database will be picked by default. Dynamicity will not be taken into account even if enabled, i.e. the tail tracking database will not vary past endpoint initialisation.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.tailTrackField": {
-			"name": "camel.sink.endpoint.tailTrackField",
-			"description": "Field where the last tracked value will be placed. If not specified, MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.tailTrackIncreasingField": {
-			"name": "camel.sink.endpoint.tailTrackIncreasingField",
-			"description": "Correlation field in the incoming record which is of increasing nature and will be used to position the tailing cursor every time it is generated. The cursor will be (re)created with a query of type: tailTrackIncreasingField greater than lastValue (possibly recovered from persistent tail tracking). Can be of type Integer, Date, String, etc. NOTE: No support for dot notation at the current time, so the field should be at the top level of the document.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

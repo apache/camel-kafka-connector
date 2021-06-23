@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.kamelet.CamelKameletSourceConnec
 ----
 
 
-The camel-kamelet source connector supports 11 options, which are listed below.
+The camel-kamelet source connector supports 12 options, which are listed below.
 
 
 
@@ -33,6 +33,7 @@ The camel-kamelet source connector supports 11 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.source.path.templateId* | The Route Template ID | null | true | HIGH
 | *camel.source.path.routeId* | The Route ID. Default value notice: The ID will be auto-generated if not provided | null | false | MEDIUM
+| *camel.source.endpoint.location* | Location of the Kamelet to use which can be specified as a resource from file system, classpath etc. The location cannot use wildcards, and must refer to a file including extension, for example file:/etc/foo-kamelet.xml | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
@@ -41,7 +42,7 @@ The camel-kamelet source connector supports 11 options, which are listed below.
 | *camel.component.kamelet.templateProperties* | Set template local parameters. | null | false | MEDIUM
 | *camel.component.kamelet.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.kamelet.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
-| *camel.component.kamelet.kameletResourceLoader Listener* | To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources. | null | false | MEDIUM
+| *camel.component.kamelet.routeTemplateLoader Listener* | To plugin a custom listener for when the Kamelet component is loading Kamelets from external resources. | null | false | MEDIUM
 |===
 
 
