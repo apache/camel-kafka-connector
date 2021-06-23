@@ -29,6 +29,7 @@ import org.apache.kafka.connect.transforms.Transformation;
 import org.apache.camel.kafkaconnector.aws2s3.models.StorageHeader;
 import org.apache.camel.kafkaconnector.aws2s3.models.StorageRecord;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 public class RecordToJSONTransforms<R extends ConnectRecord<R>> implements Transformation<R> {
   public static final String FIELD_KEY_CONFIG = "key";
@@ -61,7 +62,7 @@ public class RecordToJSONTransforms<R extends ConnectRecord<R>> implements Trans
     GsonBuilder gsonBuilder = new GsonBuilder();
     Gson gson = gsonBuilder.create();
     String storageRecordJSON = gson.toJson(storageRecord, StorageRecord.class);
-    InputStream storageRecordStream = new ByteArrayInputStream(storageRecordJSON.getBytes())
+    InputStream storageRecordStream = new ByteArrayInputStream(storageRecordJSON.getBytes());
     return record.newRecord(
         record.topic(),
         record.kafkaPartition(),
