@@ -67,3 +67,9 @@ when trying to do so.
 [#known-limitations]
 == Known Limitations
 
+[#camel-file-kafka-connector]
+=== Camel File Kafka Connector
+
+When using append chars, it must be UTF-8 encoded so that they can be transmitted over the internet (i.e.: for new line
+use use %0A instead of \n and so on). You can check https://www.w3schools.com/tags/ref_urlencode.ASP[the W3 Schools encoding reference]
+ for a reference list of characters and their encoded strings.
