@@ -4,8 +4,16 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.1...HEAD)
 
+**Closed issues:**
+
+- Improve documentation about limitations of special chars in the file connector [\#1218](https://github.com/apache/camel-kafka-connector/issues/1218)
+- Java bean error when using aws2-s3-source connector [\#1217](https://github.com/apache/camel-kafka-connector/issues/1217)
+- AWSS2-S3-Kafka connector sink returns 403 with bucket and object not public [\#1216](https://github.com/apache/camel-kafka-connector/issues/1216)
+- CamelFileSink Connector appendChars = \n not working [\#1208](https://github.com/apache/camel-kafka-connector/issues/1208)
+
 **Merged pull requests:**
 
+- Camel File Sink Connector: updates [\#1220](https://github.com/apache/camel-kafka-connector/pull/1220) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1215](https://github.com/apache/camel-kafka-connector/pull/1215) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1214](https://github.com/apache/camel-kafka-connector/pull/1214) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1213](https://github.com/apache/camel-kafka-connector/pull/1213) ([github-actions[bot]](https://github.com/apps/github-actions))
