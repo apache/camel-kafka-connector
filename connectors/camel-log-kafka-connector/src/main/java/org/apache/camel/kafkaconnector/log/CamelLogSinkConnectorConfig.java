@@ -63,6 +63,9 @@ public class CamelLogSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_CONF = "camel.sink.endpoint.showAll";
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_DOC = "Quick option for turning all options on. (multiline, maxChars has to be manually set if to be used)";
     public static final Boolean CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_DEFAULT = false;
+    public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_PROPERTIES_CONF = "camel.sink.endpoint.showAllProperties";
+    public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_PROPERTIES_DOC = "Show all of the exchange properties (both internal and custom).";
+    public static final Boolean CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_PROPERTIES_DEFAULT = false;
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_CONF = "camel.sink.endpoint.showBody";
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_DOC = "Show the message body.";
     public static final Boolean CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_DEFAULT = true;
@@ -91,7 +94,7 @@ public class CamelLogSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_HEADERS_DOC = "Show the message headers.";
     public static final Boolean CAMEL_SINK_LOG_ENDPOINT_SHOW_HEADERS_DEFAULT = false;
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_PROPERTIES_CONF = "camel.sink.endpoint.showProperties";
-    public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_PROPERTIES_DOC = "Show the exchange properties.";
+    public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_PROPERTIES_DOC = "Show the exchange properties (only custom). Use showAllProperties to show both internal and custom properties.";
     public static final Boolean CAMEL_SINK_LOG_ENDPOINT_SHOW_PROPERTIES_DEFAULT = false;
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_STACK_TRACE_CONF = "camel.sink.endpoint.showStackTrace";
     public static final String CAMEL_SINK_LOG_ENDPOINT_SHOW_STACK_TRACE_DOC = "Show the stack trace, if an exchange has an exception. Only effective if one of showAll, showException or showCaughtException are enabled.";
@@ -140,6 +143,7 @@ public class CamelLogSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_CONF, ConfigDef.Type.INT, CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_MULTILINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_MULTILINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_MULTILINE_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_DOC);
+        conf.define(CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_TYPE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_SHOW_BODY_TYPE_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_SHOW_CAUGHT_EXCEPTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_SHOW_CAUGHT_EXCEPTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_SHOW_CAUGHT_EXCEPTION_DOC);

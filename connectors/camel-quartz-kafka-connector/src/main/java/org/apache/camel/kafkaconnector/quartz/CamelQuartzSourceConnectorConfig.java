@@ -120,7 +120,7 @@ public class CamelQuartzSourceConnectorConfig
     public static final String CAMEL_SOURCE_QUARTZ_COMPONENT_AUTO_START_SCHEDULER_DOC = "Whether or not the scheduler should be auto started. This options is default true";
     public static final Boolean CAMEL_SOURCE_QUARTZ_COMPONENT_AUTO_START_SCHEDULER_DEFAULT = true;
     public static final String CAMEL_SOURCE_QUARTZ_COMPONENT_INTERRUPT_JOBS_ON_SHUTDOWN_CONF = "camel.component.quartz.interruptJobsOnShutdown";
-    public static final String CAMEL_SOURCE_QUARTZ_COMPONENT_INTERRUPT_JOBS_ON_SHUTDOWN_DOC = "Whether to interrupt jobs on shutdown which forces the scheduler to shutdown quicker and attempt to interrupt any running jobs. If this is enabled then any running jobs can fail due to being interrupted.";
+    public static final String CAMEL_SOURCE_QUARTZ_COMPONENT_INTERRUPT_JOBS_ON_SHUTDOWN_DOC = "Whether to interrupt jobs on shutdown which forces the scheduler to shutdown quicker and attempt to interrupt any running jobs. If this is enabled then any running jobs can fail due to being interrupted. When a job is interrupted then Camel will mark the exchange to stop continue routing and set java.util.concurrent.RejectedExecutionException as caused exception. Therefore use this with care, as its often better to allow Camel jobs to complete and shutdown gracefully.";
     public static final Boolean CAMEL_SOURCE_QUARTZ_COMPONENT_INTERRUPT_JOBS_ON_SHUTDOWN_DEFAULT = false;
     public static final String CAMEL_SOURCE_QUARTZ_COMPONENT_START_DELAYED_SECONDS_CONF = "camel.component.quartz.startDelayedSeconds";
     public static final String CAMEL_SOURCE_QUARTZ_COMPONENT_START_DELAYED_SECONDS_DOC = "Seconds to wait before starting the quartz scheduler.";
