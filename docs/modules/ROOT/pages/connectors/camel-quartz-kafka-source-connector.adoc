@@ -62,7 +62,7 @@ The camel-quartz source connector supports 33 options, which are listed below.
 | *camel.component.quartz.scheduler* | To use the custom configured Quartz scheduler, instead of creating a new Scheduler. | null | false | MEDIUM
 | *camel.component.quartz.schedulerFactory* | To use the custom SchedulerFactory which is used to create the Scheduler. | null | false | MEDIUM
 | *camel.component.quartz.autoStartScheduler* | Whether or not the scheduler should be auto started. This options is default true | true | false | MEDIUM
-| *camel.component.quartz.interruptJobsOnShutdown* | Whether to interrupt jobs on shutdown which forces the scheduler to shutdown quicker and attempt to interrupt any running jobs. If this is enabled then any running jobs can fail due to being interrupted. | false | false | MEDIUM
+| *camel.component.quartz.interruptJobsOnShutdown* | Whether to interrupt jobs on shutdown which forces the scheduler to shutdown quicker and attempt to interrupt any running jobs. If this is enabled then any running jobs can fail due to being interrupted. When a job is interrupted then Camel will mark the exchange to stop continue routing and set java.util.concurrent.RejectedExecutionException as caused exception. Therefore use this with care, as its often better to allow Camel jobs to complete and shutdown gracefully. | false | false | MEDIUM
 | *camel.component.quartz.startDelayedSeconds* | Seconds to wait before starting the quartz scheduler. | null | false | MEDIUM
 |===
 
@@ -81,8 +81,4 @@ The camel-quartz source connector has no transforms out of the box.
 
 
 The camel-quartz source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END
