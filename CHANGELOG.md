@@ -13,6 +13,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1223](https://github.com/apache/camel-kafka-connector/pull/1223) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Camel File Sink Connector: updates [\#1220](https://github.com/apache/camel-kafka-connector/pull/1220) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1215](https://github.com/apache/camel-kafka-connector/pull/1215) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1214](https://github.com/apache/camel-kafka-connector/pull/1214) ([github-actions[bot]](https://github.com/apps/github-actions))
