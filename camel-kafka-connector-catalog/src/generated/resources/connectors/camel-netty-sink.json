@@ -6,7 +6,7 @@
 		"id": "camel-netty-sink",
 		"type": "sink",
 		"version": "0.11.0-SNAPSHOT",
-		"description": "Socket level networking using TCP or UDP with the Netty 4.x."
+		"description": "Socket level networking using TCP or UDP with Netty 4.x."
 	},
 	"properties": {
 		"camel.sink.path.protocol": {

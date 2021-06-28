@@ -2,7 +2,7 @@
 [[camel-elasticsearch-rest-kafka-connector-sink]]
 = camel-elasticsearch-rest-kafka-connector sink configuration
 
-Connector Description: Send requests to with an ElasticSearch via REST API.
+Connector Description: Send requests to ElasticSearch via REST API
 
 When using camel-elasticsearch-rest-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -86,8 +86,4 @@ org.apache.camel.kafkaconnector.elasticsearchrest.transformers.ConnectRecordValu
 
 
 The camel-elasticsearch-rest sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END
