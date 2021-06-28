@@ -2,7 +2,7 @@
 [[camel-aws2-sqs-kafka-connector-source]]
 = camel-aws2-sqs-kafka-connector source configuration
 
-Connector description: Sending and receive messages to/from AWS SQS service using AWS SDK version 2.x.
+Connector description: Send and receive messages to/from AWS SQS service using AWS SDK version 2.x.
 
 When using camel-aws2-sqs-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
@@ -148,8 +148,4 @@ org.apache.camel.kafkaconnector.aws2sqs.transformers.SQSKeySetterTransforms
 
 
 The camel-aws2-sqs source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END
