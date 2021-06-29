@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - Jira source connector only sourcing new issues [\#1221](https://github.com/apache/camel-kafka-connector/issues/1221)
+- Bump to Strimzi Operator 0.24.0 [\#1219](https://github.com/apache/camel-kafka-connector/issues/1219)
 - Improve documentation about limitations of special chars in the file connector [\#1218](https://github.com/apache/camel-kafka-connector/issues/1218)
 - Java bean error when using aws2-s3-source connector [\#1217](https://github.com/apache/camel-kafka-connector/issues/1217)
 - AWSS2-S3-Kafka connector sink returns 403 with bucket and object not public [\#1216](https://github.com/apache/camel-kafka-connector/issues/1216)
@@ -14,6 +15,8 @@
 
 **Merged pull requests:**
 
+- Upgrade to Strimzi 0.24.0 [\#1226](https://github.com/apache/camel-kafka-connector/pull/1226) ([oscerd](https://github.com/oscerd))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1225](https://github.com/apache/camel-kafka-connector/pull/1225) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1223](https://github.com/apache/camel-kafka-connector/pull/1223) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Camel File Sink Connector: updates [\#1220](https://github.com/apache/camel-kafka-connector/pull/1220) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1215](https://github.com/apache/camel-kafka-connector/pull/1215) ([github-actions[bot]](https://github.com/apps/github-actions))
