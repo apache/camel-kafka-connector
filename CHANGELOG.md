@@ -15,6 +15,8 @@
 
 **Merged pull requests:**
 
+- Update compatibility matrix with no LTS for 0.8, 0.9 and 0.10.x [\#1231](https://github.com/apache/camel-kafka-connector/pull/1231) ([oscerd](https://github.com/oscerd))
+- Align compatibility matrix [\#1229](https://github.com/apache/camel-kafka-connector/pull/1229) ([oscerd](https://github.com/oscerd))
 - Upgrade to Strimzi 0.24.0 [\#1226](https://github.com/apache/camel-kafka-connector/pull/1226) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1225](https://github.com/apache/camel-kafka-connector/pull/1225) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1223](https://github.com/apache/camel-kafka-connector/pull/1223) ([github-actions[bot]](https://github.com/apps/github-actions))
