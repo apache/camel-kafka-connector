@@ -31,8 +31,9 @@ import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.jdbc.client.DatabaseClient;
+import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.jdbc.services.JDBCService;
 import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
 import org.junit.jupiter.api.Test;
@@ -91,7 +92,7 @@ public class CamelSinkJDBCNoDataSourceITCase extends AbstractKafkaTest {
                 jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestData", "test data " + i);
 
                 try {
-                    kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), body, jdbcParameters);
+                    kafkaClient.produce(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()), body, jdbcParameters);
                 } catch (ExecutionException e) {
                     LOG.error("Unable to produce messages: {}", e.getMessage(), e);
                 } catch (InterruptedException e) {
@@ -164,7 +165,7 @@ public class CamelSinkJDBCNoDataSourceITCase extends AbstractKafkaTest {
                     .end()
                 .withDataSourceName("anotherName")
                 .withUseHeaderAsParameters(true)
-                .withTopics(TestUtils.getDefaultTestTopic(this.getClass()));
+                .withTopics(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()));
 
         runTest(factory);
 

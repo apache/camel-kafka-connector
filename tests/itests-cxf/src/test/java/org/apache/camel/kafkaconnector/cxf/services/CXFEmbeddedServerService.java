@@ -17,8 +17,8 @@
 package org.apache.camel.kafkaconnector.cxf.services;
 
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.cxf.common.CXFProperties;
+import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.ext.logging.LoggingInInterceptor;

@@ -25,12 +25,13 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
+import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -128,7 +129,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
     public void testBasicSendReceive() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
+            String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
@@ -152,7 +153,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
     public void testBasicSendReceiveUsingKafkaStyle() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
+            String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
@@ -177,7 +178,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
     public void testBasicSendReceiveUsingUrl() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
+            String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
