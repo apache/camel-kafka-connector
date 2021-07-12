@@ -24,8 +24,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.google.pubsub.clients.GooglePubEasy;
+import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.google.pubsub.services.GooglePubSubService;
 import org.apache.camel.test.infra.google.pubsub.services.GooglePubSubServiceFactory;
 import org.junit.jupiter.api.AfterEach;

@@ -19,6 +19,7 @@ package org.apache.camel.kafkaconnector.elasticsearch.clients;
 
 import java.io.IOException;
 
+import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
@@ -33,7 +34,6 @@ import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.apache.camel.kafkaconnector.common.utils.TestUtils.waitFor;
 
 public class ElasticSearchClient {
     private static final Logger LOG = LoggerFactory.getLogger(ElasticSearchClient.class);
@@ -121,10 +121,10 @@ public class ElasticSearchClient {
     }
 
     public void waitForIndex() {
-        waitFor(this::indexExists);
+        TestUtils.waitFor(this::indexExists);
     }
 
     public void waitForData(int expect) {
-        waitFor(this::hasData, expect);
+        TestUtils.waitFor(this::hasData, expect);
     }
 }

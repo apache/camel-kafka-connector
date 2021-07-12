@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -77,7 +77,7 @@ public class CamelSourceSlackITCase extends AbstractKafkaTest {
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        String kafkaTopic = TestUtils.getDefaultTestTopic(this.getClass());
+        String kafkaTopic = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
         ConnectorPropertyFactory factory = CamelSlackPropertyFactory
                 .basic()
                 .withKafkaTopic(kafkaTopic)

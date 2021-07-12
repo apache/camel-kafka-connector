@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.test.infra.rabbitmq.services.RabbitMQService;
 import org.apache.camel.test.infra.rabbitmq.services.RabbitMQServiceFactory;
 import org.junit.jupiter.api.BeforeAll;
@@ -51,7 +51,7 @@ public class RabbitMQSourcePerformanceITCase extends AbstractKafkaTest {
     public void testMemory() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory factory = CamelRabbitMQPropertyFactory
                 .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
                 .withUrl(service.connectionProperties().hostname(), service.connectionProperties().port(),
                         "X.test")
                 .append("username", service.connectionProperties().username())

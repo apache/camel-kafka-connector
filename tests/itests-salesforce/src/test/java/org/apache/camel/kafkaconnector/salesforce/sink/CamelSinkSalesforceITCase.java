@@ -23,9 +23,10 @@ import java.util.concurrent.ExecutionException;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.salesforce.clients.SalesforceCliContainer;
 import org.apache.camel.kafkaconnector.salesforce.clients.SfdxCommand;
+import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -165,14 +166,14 @@ public class CamelSinkSalesforceITCase extends AbstractKafkaTest {
 
         LOG.info("Sending new account {}", data);
 
-        kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), data);
+        kafkaClient.produce(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()), data);
     }
 
     @Test
     @Timeout(180)
     public void testBasicProduce() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory factory = CamelSalesforcePropertyFactory.basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
                 .withUserName(userName)
                 .withPassword(password)
                 .withClientId(clientId)

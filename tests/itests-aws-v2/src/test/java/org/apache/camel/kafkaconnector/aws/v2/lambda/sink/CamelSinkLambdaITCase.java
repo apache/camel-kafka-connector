@@ -36,10 +36,11 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.clients.kafka.ProducerPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.AbstractTestMessageProducer;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
+import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.kafka.common.utils.Bytes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -173,7 +174,7 @@ public class CamelSinkLambdaITCase extends CamelSinkTestSupport {
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
         Properties amazonProperties = awsService.getConnectionProperties();
-        String topicName = TestUtils.getDefaultTestTopic(this.getClass());
+        String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
 
         ConnectorPropertyFactory testProperties = CamelAWSLambdaPropertyFactory
                 .basic()

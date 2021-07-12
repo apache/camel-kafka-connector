@@ -23,7 +23,7 @@ import java.util.concurrent.ExecutionException;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
@@ -88,7 +88,7 @@ public class CamelSinkWithDLQJMSITCase extends AbstractKafkaTest {
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
         for (int i = 0; i < expect; i++) {
-            kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
+            kafkaClient.produce(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
         }
 
         LOG.debug("Created the consumer ... About to receive messages");
@@ -105,7 +105,7 @@ public class CamelSinkWithDLQJMSITCase extends AbstractKafkaTest {
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
+                    .withTopics(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
                     .withConnectionProperties(brokenProp)
                     .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE)
                     .withDeadLetterQueueTopicName("dlq-sink-topic");
