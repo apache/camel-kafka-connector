@@ -24,9 +24,9 @@ import java.util.concurrent.ExecutionException;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -45,6 +45,7 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
 
     private boolean running;
     private String trace;
+    private String topicName;
 
 
     private Properties connectionProperties() {
@@ -54,6 +55,11 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
         properties.put("camel.component.sjms2.connection-factory.remoteURI", "amqp://invalid");
 
         return properties;
+    }
+
+    @BeforeEach
+    void setUp() {
+        topicName = getTopicForTest(this);
     }
 
     @Override
@@ -82,7 +88,7 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
 
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
-        kafkaClient.produce(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()), "Sink test message ");
+        kafkaClient.produce(topicName, "Sink test message ");
     }
 
     private void checkThatFailed() throws InterruptedException {
@@ -110,7 +116,7 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
-                    .withTopics(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
+                    .withTopics(topicName)
                     .withConnectionProperties(brokenProp)
                     .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE)
                     .withDeadLetterQueueTopicName("dlq-sink-topic");

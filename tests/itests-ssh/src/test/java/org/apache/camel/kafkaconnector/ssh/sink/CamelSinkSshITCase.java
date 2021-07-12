@@ -23,7 +23,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.ssh.services.SshService;
 import org.apache.camel.kafkaconnector.ssh.services.SshServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
@@ -67,7 +66,7 @@ public class CamelSinkSshITCase extends CamelSinkTestSupport {
 
     @BeforeEach
     public void setUp() {
-        topic = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
+        topic = getTopicForTest(this);
     }
 
 

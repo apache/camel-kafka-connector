@@ -31,11 +31,11 @@ import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.jdbc.client.DatabaseClient;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.jdbc.services.JDBCService;
 import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -57,6 +57,7 @@ public class CamelSinkJDBCNoDataSourceITCase extends AbstractKafkaTest {
 
     private final int expect = 10;
     private int received;
+    private String topicName;
 
     static {
         final String postgresImage = "postgres:9.6.2";
@@ -72,6 +73,11 @@ public class CamelSinkJDBCNoDataSourceITCase extends AbstractKafkaTest {
         jdbcService = JDBCServiceBuilder.newBuilder()
                 .withContainer(container)
                 .build();
+    }
+
+    @BeforeEach
+    void setUp() {
+        topicName = getTopicForTest(this);
     }
 
     @Override
@@ -92,7 +98,7 @@ public class CamelSinkJDBCNoDataSourceITCase extends AbstractKafkaTest {
                 jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestData", "test data " + i);
 
                 try {
-                    kafkaClient.produce(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()), body, jdbcParameters);
+                    kafkaClient.produce(topicName, body, jdbcParameters);
                 } catch (ExecutionException e) {
                     LOG.error("Unable to produce messages: {}", e.getMessage(), e);
                 } catch (InterruptedException e) {
@@ -165,7 +171,7 @@ public class CamelSinkJDBCNoDataSourceITCase extends AbstractKafkaTest {
                     .end()
                 .withDataSourceName("anotherName")
                 .withUseHeaderAsParameters(true)
-                .withTopics(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()));
+                .withTopics(topicName);
 
         runTest(factory);
 

@@ -27,7 +27,6 @@ import org.apache.camel.kafkaconnector.aws.v2.s3.common.TestS3Configuration;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
@@ -94,7 +93,7 @@ public class CamelSourceAWSS3LargeFilesITCase extends CamelSourceTestSupport {
 
     @BeforeEach
     public void setUp() {
-        topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
+        topicName = getTopicForTest(this);
 
         awsS3Client = AWSSDKClientUtils.newS3Client();
         bucketName = AWSCommon.DEFAULT_S3_BUCKET + TestUtils.randomWithRange(0, 100);

@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.salesforce.clients.SalesforceCliContainer;
 import org.apache.camel.kafkaconnector.salesforce.clients.SfdxCommand;
 import org.apache.camel.test.infra.common.TestUtils;
@@ -98,6 +97,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
 
     private volatile boolean received;
     private String account;
+    private String topicName;
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -109,6 +109,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
         received = false;
 
         account = "TestAccount" + TestUtils.randomWithRange(1, 100);
+        topicName = getTopicForTest(this);
 
         SfdxCommand sfdxCommand = SfdxCommand.forceDataRecordCreate()
                 .withArgument("-u", userName)
@@ -150,7 +151,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
 
         LOG.debug("Creating the consumer ...");
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-        kafkaClient.consume(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
+        kafkaClient.consume(topicName, this::checkRecord);
         LOG.debug("Created the consumer ...");
 
         assertTrue(received, "Didn't receive any messages");
@@ -205,7 +206,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
     @Timeout(180)
     public void testBasicConsume() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory factory = CamelSalesforcePropertyFactory.basic()
-                .withKafkaTopic(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withUserName(userName)
                 .withPassword(password)
                 .withClientId(clientId)
@@ -228,7 +229,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
     @Timeout(180)
     public void testBasicConsumeUsingUrl() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory factory = CamelSalesforcePropertyFactory.basic()
-                .withKafkaTopic(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withUserName(userName)
                 .withPassword(password)
                 .withClientId(clientId)
@@ -271,7 +272,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
          * HTTP error 500 without much details.
          */
         ConnectorPropertyFactory factory = CamelSalesforcePropertyFactory.basic()
-                .withKafkaTopic(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withUserName(userName)
                 .withPassword(password)
                 .withClientId(clientId)
@@ -289,7 +290,7 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
     @Timeout(180)
     public void testBasicCDCUsingUrl() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory factory = CamelSalesforcePropertyFactory.basic()
-                .withKafkaTopic(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withUserName(userName)
                 .withPassword(password)
                 .withClientId(clientId)
