@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
@@ -129,7 +128,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
     public void testBasicSendReceive() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
+            String topicName = getTopicForTest(this);
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
@@ -153,7 +152,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
     public void testBasicSendReceiveUsingKafkaStyle() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
+            String topicName = getTopicForTest(this);
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
@@ -178,7 +177,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
     public void testBasicSendReceiveUsingUrl() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
+            String topicName = getTopicForTest(this);
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()

@@ -27,7 +27,6 @@ import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSLocalContainerService;
@@ -160,7 +159,7 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
     @Timeout(value = 120)
     public void testBasicSendReceive() throws Exception {
         Properties amazonProperties = awsService.getConnectionProperties();
-        String topicName = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass());
+        String topicName = getTopicForTest(this);
 
         ConnectorPropertyFactory testProperties = CamelAWSCWPropertyFactory
                 .basic()

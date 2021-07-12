@@ -20,7 +20,6 @@ package org.apache.camel.kafkaconnector.common;
 import org.apache.camel.kafkaconnector.common.services.kafka.EmbeddedKafkaService;
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectRunnerFactory;
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectService;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.common.utils.PropertyUtils;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.kafka.services.ContainerLocalKafkaService;
@@ -68,7 +67,16 @@ public abstract class AbstractKafkaTest {
         return kafkaConnectService;
     }
 
+    /**
+     * Gets a topic name for the test class
+     * @param clazz
+     * @return
+     */
+    protected String getDefaultTestTopic(Class<?> clazz) {
+        return clazz.getName();
+    }
+
     protected String getTopicForTest(Object testObject) {
-        return CamelKafkaConnectorTestUtils.getDefaultTestTopic(testObject.getClass()) + "." + TestUtils.randomWithRange(0, 1000);
+        return getDefaultTestTopic(testObject.getClass()) + "." + TestUtils.randomWithRange(0, 1000);
     }
 }

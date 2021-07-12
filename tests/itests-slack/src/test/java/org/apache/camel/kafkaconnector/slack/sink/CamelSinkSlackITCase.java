@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
@@ -46,6 +46,12 @@ public class CamelSinkSlackITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkSlackITCase.class);
     private String slackChannel = System.getProperty("it.test.slack.channel");
     private String webhookUrl = System.getProperty("it.test.slack.webhookUrl");
+    private String topicName;
+
+    @BeforeEach
+    void setUp() {
+        topicName = getTopicForTest(this);
+    }
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -58,7 +64,7 @@ public class CamelSinkSlackITCase extends AbstractKafkaTest {
 
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
-        kafkaClient.produce(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()), message);
+        kafkaClient.produce(topicName, message);
 
 
         LOG.debug("Created the consumer ... About to receive messages");
@@ -70,7 +76,7 @@ public class CamelSinkSlackITCase extends AbstractKafkaTest {
         try {
             ConnectorPropertyFactory connectorPropertyFactory = CamelSlackPropertyFactory
                     .basic()
-                    .withTopics(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
+                    .withTopics(topicName)
                     .withChannel(slackChannel)
                     .withWebhookUrl(webhookUrl);
 
@@ -88,7 +94,7 @@ public class CamelSinkSlackITCase extends AbstractKafkaTest {
         try {
             ConnectorPropertyFactory connectorPropertyFactory = CamelSlackPropertyFactory
                     .basic()
-                    .withTopics(CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()))
+                    .withTopics(topicName)
                     .withUrl(slackChannel)
                         .append("webhookUrl", webhookUrl)
                         .buildUrl();

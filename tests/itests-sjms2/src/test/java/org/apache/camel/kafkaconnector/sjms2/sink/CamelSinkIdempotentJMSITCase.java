@@ -32,7 +32,6 @@ import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.camel.kafkaconnector.common.utils.CamelKafkaConnectorTestUtils;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.camel.test.infra.common.TestUtils;
@@ -86,7 +85,7 @@ public class CamelSinkIdempotentJMSITCase extends CamelSinkTestSupport {
         LOG.info("JMS service running at {}", jmsService.defaultEndpoint());
         received = 0;
 
-        topic = CamelKafkaConnectorTestUtils.getDefaultTestTopic(this.getClass()) + TestUtils.randomWithRange(0, 100);
+        topic = getTopicForTest(this);
         destinationName = SJMS2Common.DEFAULT_JMS_QUEUE + "-" + TestUtils.randomWithRange(0, 100);
     }
 
