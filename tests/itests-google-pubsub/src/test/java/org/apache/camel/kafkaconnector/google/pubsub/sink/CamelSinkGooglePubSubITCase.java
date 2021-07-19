@@ -92,7 +92,7 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
         List<String> receivedMessages = easyClient.getReceivedMessages();
 
-        if (latch.await(40, TimeUnit.SECONDS)) {
+        if (latch.await(60, TimeUnit.SECONDS)) {
             assertEquals(expected, receivedMessages.size(), "Did not receive as many messages as was sent");
         } else {
             fail("Failed to receive the messages within the specified time");
