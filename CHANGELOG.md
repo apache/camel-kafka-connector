@@ -11,6 +11,7 @@
 - Improve documentation about limitations of special chars in the file connector [\#1218](https://github.com/apache/camel-kafka-connector/issues/1218)
 - Java bean error when using aws2-s3-source connector [\#1217](https://github.com/apache/camel-kafka-connector/issues/1217)
 - AWSS2-S3-Kafka connector sink returns 403 with bucket and object not public [\#1216](https://github.com/apache/camel-kafka-connector/issues/1216)
+- Issue with camel-google-pubsub-kafka-connector sink configuration [\#1209](https://github.com/apache/camel-kafka-connector/issues/1209)
 - CamelFileSink Connector appendChars = \n not working [\#1208](https://github.com/apache/camel-kafka-connector/issues/1208)
 
 **Merged pull requests:**
