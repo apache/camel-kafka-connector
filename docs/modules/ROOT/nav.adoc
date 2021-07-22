@@ -37,6 +37,9 @@
 *** camel-amqp-kafka-connector
 **** xref:reference/connectors/camel-amqp-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-amqp-kafka-sink-connector.adoc[Sink Docs]
+*** camel-apns-kafka-connector
+**** xref:reference/connectors/camel-apns-kafka-source-connector.adoc[Source Docs]
+**** xref:reference/connectors/camel-apns-kafka-sink-connector.adoc[Sink Docs]
 *** camel-arangodb-kafka-connector
 **** xref:reference/connectors/camel-arangodb-kafka-sink-connector.adoc[Sink Docs]
 *** camel-as2-kafka-connector
@@ -198,6 +201,8 @@
 **** xref:reference/connectors/camel-cql-kafka-sink-connector.adoc[Sink Docs]
 *** camel-cron-kafka-connector
 **** xref:reference/connectors/camel-cron-kafka-source-connector.adoc[Source Docs]
+*** camel-crypto-cms-kafka-connector
+**** xref:reference/connectors/camel-crypto-cms-kafka-sink-connector.adoc[Sink Docs]
 *** camel-crypto-kafka-connector
 **** xref:reference/connectors/camel-crypto-kafka-sink-connector.adoc[Sink Docs]
 *** camel-cxf-kafka-connector

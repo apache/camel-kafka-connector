@@ -119,7 +119,7 @@ org.apache.camel.kafkaconnector.aws2s3.converters.S3ObjectConverter
 
 
 
-The camel-aws2-s3 sink connector supports 1 transforms out of the box, which are listed below.
+The camel-aws2-s3 sink connector supports 3 transforms out of the box, which are listed below.
 
 
 
@@ -127,6 +127,10 @@ The camel-aws2-s3 sink connector supports 1 transforms out of the box, which are
 ----
 
 org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms
+
+org.apache.camel.kafkaconnector.aws2s3.transformers.JSONToRecordTransforms
+
+org.apache.camel.kafkaconnector.aws2s3.transformers.RecordToJSONTransforms
 
 ----
 

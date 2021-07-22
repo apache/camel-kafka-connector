@@ -19,6 +19,8 @@ package org.apache.camel.kafkaconnector.aws2s3.transformers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.Map;
+
+import org.apache.camel.kafkaconnector.aws2s3.models.StorageRecord;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.header.ConnectHeaders;
