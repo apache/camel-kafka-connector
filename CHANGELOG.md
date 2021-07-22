@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- aws2-s3 prefix not working with Kafka source connector [\#1235](https://github.com/apache/camel-kafka-connector/issues/1235)
 - Jira source connector only sourcing new issues [\#1221](https://github.com/apache/camel-kafka-connector/issues/1221)
 - Bump to Strimzi Operator 0.24.0 [\#1219](https://github.com/apache/camel-kafka-connector/issues/1219)
 - Improve documentation about limitations of special chars in the file connector [\#1218](https://github.com/apache/camel-kafka-connector/issues/1218)
