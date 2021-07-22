@@ -6,7 +6,7 @@
 		"id": "camel-elasticsearch-rest-sink",
 		"type": "sink",
 		"version": "0.11.0-SNAPSHOT",
-		"description": "Send requests to ElasticSearch via REST API"
+		"description": "Send requests to with an ElasticSearch via REST API."
 	},
 	"properties": {
 		"camel.sink.path.clusterName": {

@@ -2,7 +2,7 @@
 [[camel-aws2-sqs-kafka-connector-sink]]
 = camel-aws2-sqs-kafka-connector sink configuration
 
-Connector Description: Send and receive messages to/from AWS SQS service using AWS SDK version 2.x.
+Connector Description: Sending and receive messages to/from AWS SQS service using AWS SDK version 2.x.
 
 When using camel-aws2-sqs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
