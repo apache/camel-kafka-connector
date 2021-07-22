@@ -16,14 +16,13 @@
  */
 package org.apache.camel.kafkaconnector.aws2s3.models;
 
-
 public class StorageHeader {
-  public final String key;
-  public final String value;
+    public final String key;
+    public final String value;
 
-  public StorageHeader(String key, String value) {
-    this.key = key;
-    this.value = value;
-  }
+    public StorageHeader(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
 }
 
