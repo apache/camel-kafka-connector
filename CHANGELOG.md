@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Upgrade to Camel 3.11.0 [\#1237](https://github.com/apache/camel-kafka-connector/issues/1237)
 - aws2-s3 prefix not working with Kafka source connector [\#1235](https://github.com/apache/camel-kafka-connector/issues/1235)
 - Jira source connector only sourcing new issues [\#1221](https://github.com/apache/camel-kafka-connector/issues/1221)
 - Bump to Strimzi Operator 0.24.0 [\#1219](https://github.com/apache/camel-kafka-connector/issues/1219)
@@ -17,6 +18,7 @@
 
 **Merged pull requests:**
 
+- Upgrade to Camel 3.11.0 [\#1238](https://github.com/apache/camel-kafka-connector/pull/1238) ([oscerd](https://github.com/oscerd))
 - Adjusted test code to avoid recycling test topics [\#1234](https://github.com/apache/camel-kafka-connector/pull/1234) ([orpiske](https://github.com/orpiske))
 - \(chores\): replaces duplicated TestUtils code with the one from Camel Core [\#1233](https://github.com/apache/camel-kafka-connector/pull/1233) ([orpiske](https://github.com/orpiske))
 - Update compatibility matrix with no LTS for 0.8, 0.9 and 0.10.x [\#1231](https://github.com/apache/camel-kafka-connector/pull/1231) ([oscerd](https://github.com/oscerd))
