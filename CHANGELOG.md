@@ -15,6 +15,7 @@
 - AWSS2-S3-Kafka connector sink returns 403 with bucket and object not public [\#1216](https://github.com/apache/camel-kafka-connector/issues/1216)
 - Issue with camel-google-pubsub-kafka-connector sink configuration [\#1209](https://github.com/apache/camel-kafka-connector/issues/1209)
 - CamelFileSink Connector appendChars = \n not working [\#1208](https://github.com/apache/camel-kafka-connector/issues/1208)
+- Missing kafkaconnector parent pom artifact for version 0.10.0 [\#1190](https://github.com/apache/camel-kafka-connector/issues/1190)
 
 **Merged pull requests:**
 
