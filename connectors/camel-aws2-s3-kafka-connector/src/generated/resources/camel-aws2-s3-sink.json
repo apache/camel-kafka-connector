@@ -519,9 +519,9 @@
 		"org.apache.camel.kafkaconnector.aws2s3.converters.S3ObjectConverter"
 	],
 	"transforms": [
-		"org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms",
+		"org.apache.camel.kafkaconnector.aws2s3.transformers.RecordToJSONTransforms",
 		"org.apache.camel.kafkaconnector.aws2s3.transformers.JSONToRecordTransforms",
-		"org.apache.camel.kafkaconnector.aws2s3.transformers.RecordToJSONTransforms"
+		"org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms"
 	],
 	"aggregationStrategies": [
 		"org.apache.camel.kafkaconnector.aws2s3.aggregation.NewlineAggregationStrategy"
