@@ -21,6 +21,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1246](https://github.com/apache/camel-kafka-connector/pull/1246) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Upgrade to Camel 3.11.1 [\#1244](https://github.com/apache/camel-kafka-connector/pull/1244) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1240](https://github.com/apache/camel-kafka-connector/pull/1240) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1239](https://github.com/apache/camel-kafka-connector/pull/1239) ([github-actions[bot]](https://github.com/apps/github-actions))
