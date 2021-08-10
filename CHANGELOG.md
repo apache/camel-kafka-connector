@@ -6,9 +6,11 @@
 
 **Closed issues:**
 
+- Using a Kafka Consumer with Idempotency enabled Kafka consume [\#1245](https://github.com/apache/camel-kafka-connector/issues/1245)
 - Bump to Camel 3.11.1 [\#1243](https://github.com/apache/camel-kafka-connector/issues/1243)
 - Endpoint doesn't get resolved when using Camel Splunk HEC Kafka connector [\#1241](https://github.com/apache/camel-kafka-connector/issues/1241)
 - Upgrade to Camel 3.11.0 [\#1237](https://github.com/apache/camel-kafka-connector/issues/1237)
+- idempotency support in Kafka AWS s3 source connector [\#1236](https://github.com/apache/camel-kafka-connector/issues/1236)
 - aws2-s3 prefix not working with Kafka source connector [\#1235](https://github.com/apache/camel-kafka-connector/issues/1235)
 - Jira source connector only sourcing new issues [\#1221](https://github.com/apache/camel-kafka-connector/issues/1221)
 - Bump to Strimzi Operator 0.24.0 [\#1219](https://github.com/apache/camel-kafka-connector/issues/1219)
