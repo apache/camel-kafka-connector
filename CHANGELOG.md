@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Configurable parameters in AWS2-s3 Kafka source connector [\#1247](https://github.com/apache/camel-kafka-connector/issues/1247)
 - Using a Kafka Consumer with Idempotency enabled Kafka consume [\#1245](https://github.com/apache/camel-kafka-connector/issues/1245)
 - Bump to Camel 3.11.1 [\#1243](https://github.com/apache/camel-kafka-connector/issues/1243)
 - Endpoint doesn't get resolved when using Camel Splunk HEC Kafka connector [\#1241](https://github.com/apache/camel-kafka-connector/issues/1241)
