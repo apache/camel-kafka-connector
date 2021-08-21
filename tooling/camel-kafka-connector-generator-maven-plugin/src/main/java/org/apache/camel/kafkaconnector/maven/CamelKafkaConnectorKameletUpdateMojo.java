@@ -33,7 +33,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import javax.annotation.Generated;
@@ -43,6 +42,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
@@ -51,14 +51,14 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import freemarker.template.Template;
+import org.apache.camel.kafkaconnector.maven.model.KameletModel;
+import org.apache.camel.kafkaconnector.maven.model.KameletPropertyModel;
 import org.apache.camel.kafkaconnector.maven.utils.JsonMapperKafkaConnector;
 import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
+import org.apache.camel.kafkaconnector.maven.utils.YamlKameletMapper;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
 import org.apache.camel.maven.packaging.MvelHelper;
-import org.apache.camel.tooling.model.BaseOptionModel;
-import org.apache.camel.tooling.model.ComponentModel;
-import org.apache.camel.tooling.model.JsonMapper;
 import org.apache.camel.tooling.util.Strings;
 import org.apache.camel.tooling.util.srcgen.JavaClass;
 import org.apache.camel.tooling.util.srcgen.Method;
@@ -88,13 +88,13 @@ import static org.apache.camel.tooling.util.PackageHelper.loadText;
 import static org.apache.camel.tooling.util.PackageHelper.writeText;
 
 /**
- * Generate Camel Kafka Connector for the component
+ * Generate Camel Kafka Connector for the kamelet
  */
-@Mojo(name = "camel-kafka-connector-update", threadSafe = true, 
+@Mojo(name = "camel-kafka-connector-kamelet-update", threadSafe = true,
 requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME, 
 requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, 
 defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
-public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaConnectorMojo {
+public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKafkaConnectorMojo {
 
     private static final String GENERATED_SECTION_START = "START OF GENERATED CODE";
     private static final String GENERATED_SECTION_START_COMMENT = "<!--" + GENERATED_SECTION_START + "-->";
@@ -102,6 +102,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
     private static final String GENERATED_SECTION_END_COMMENT = "<!--" + GENERATED_SECTION_END + "-->";
 
     private static final String EXCLUDE_DEPENDENCY_PROPERTY_PREFIX = "exclude_";
+
     private static final String ADDITIONAL_COMMON_PROPERTIES_PROPERTY_PREFIX = "additional_properties_";
     private static final String XML_FEATURES_DISALLOW_DOCTYPE_DECL = "http://apache.org/xml/features/disallow-doctype-decl";
 
@@ -122,6 +123,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         PRIMITIVE_TYPES_TO_CLASS_MAP.put("boolean", Boolean.class);
         PRIMITIVE_TYPES_TO_CLASS_MAP.put("long", Long.class);
         PRIMITIVE_TYPES_TO_CLASS_MAP.put("int", Integer.class);
+        PRIMITIVE_TYPES_TO_CLASS_MAP.put("integer", Integer.class);
         PRIMITIVE_TYPES_TO_CLASS_MAP.put("short", Short.class);
         PRIMITIVE_TYPES_TO_CLASS_MAP.put("double", Double.class);
         PRIMITIVE_TYPES_TO_CLASS_MAP.put("float", Float.class);
@@ -130,6 +132,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.put("boolean", "ConfigDef.Type.BOOLEAN");
         PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.put("long", "ConfigDef.Type.LONG");
         PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.put("int", "ConfigDef.Type.INT");
+        PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.put("integer", "ConfigDef.Type.INT");
         PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.put("short", "ConfigDef.Type.SHORT");
         PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.put("double", "ConfigDef.Type.DOUBLE");
         PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.put("float", "ConfigDef.Type.DOUBLE");
@@ -143,8 +146,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
     @Parameter(property = "name", required = true)
     protected String name;
 
-    @Parameter(property = "componentJson", required = true)
-    protected String componentJson;
+    @Parameter(property = "kameletYaml", required = true)
+    protected String kameletYaml;
 
     /**
      * The maven session.
@@ -197,20 +200,26 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
     }
 
     private void updateConnector() throws Exception {
+        KameletModel kamelet = YamlKameletMapper.parseKameletYaml(kameletYaml);
         String sanitizedName = sanitizeMavenArtifactId(name);
         // create the connector directory
-        File connectorDir = new File(projectDir, "camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX);
+        File connectorDir = new File(projectDir,  "camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX);
         if (!connectorDir.exists() || !connectorDir.isDirectory()) {
-            getLog().info("Connector " + name + " can not be updated since directory " + connectorDir.getAbsolutePath() + " dose not exist.");
-            throw new MojoFailureException("Directory already exists: " + connectorDir);
+            getLog().info("Connector " + name + " can not be updated since directory " + connectorDir.getAbsolutePath() + " dose not exist or is not a directory (maybe use camel-kafka-connector-kamelet-create first).");
+            throw new MojoFailureException("Directory dose not already exists or is not a directory: " + connectorDir);
         }
 
         // create the base pom.xml
         Document pom = createBasePom(connectorDir);
 
-        // Apply changes to the connector pom
-        fixExcludedDependencies(pom);
-        fixAdditionalDependencies(pom, additionalDependencies);
+        // Apply changes to the connector pomDocument pom
+        Set<String> dependencies = new HashSet<>();
+        dependencies.addAll(getKameletDependencies(kamelet));
+        dependencies.addAll(getAdditionalDependencies(additionalDependencies));
+        if (!dependencies.isEmpty()) {
+            getLog().debug("The following dependencies will be added to the connector: " + dependencies);
+            MavenUtils.addDependencies(pom, dependencies, GENERATED_SECTION_START, GENERATED_SECTION_END);
+        }
         fixAdditionalRepositories(pom);
 
         // Write the connector pom
@@ -225,57 +234,49 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         // write LICENSE, USAGE
         writeStaticFiles(connectorDir);
 
+        // write kamlete yaml file
+        File docFolder = new File(connectorDir, "src/main/resources/kamelets");
+        File docFile = new File(docFolder, name + ".kamelet.yaml");
+        updateFile(docFile, kameletYaml);
+
         // generate classes
-        ComponentModel model = JsonMapper.generateComponentModel(componentJson);
-        if (model.isConsumerOnly()) {
-            createClasses(sanitizedName, connectorDir, model, ConnectorType.SOURCE);
-        } else if (model.isProducerOnly()) {
-            createClasses(sanitizedName, connectorDir, model, ConnectorType.SINK);
-        } else {
-            createClasses(sanitizedName, connectorDir, model, ConnectorType.SOURCE);
-            createClasses(sanitizedName, connectorDir, model, ConnectorType.SINK);
+        String kameletType = kamelet.getType().toLowerCase();
+        switch (kameletType) {
+            case "source":
+                createClassesAndDocumentation(sanitizedName, connectorDir, kamelet, ConnectorType.SOURCE);
+                break;
+            case "sink":
+                createClassesAndDocumentation(sanitizedName, connectorDir, kamelet, ConnectorType.SINK);
+                break;
+            default:
+                getLog().warn("Unsupported kamelet type: " + kameletType);
         }
     }
 
-    private void fixExcludedDependencies(Document pom) throws Exception {
-        // add dependencies to be excluded form camel component dependency
-        Set<String> loggingImpl = new HashSet<>();
-
-        // excluded dependencies
-        Set<String> configExclusions = new HashSet<>();
-        Properties properties = new Properties();
-
-        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties))) {
-            properties.load(stream);
-        }
-
-        String artExcl = properties.getProperty(EXCLUDE_DEPENDENCY_PROPERTY_PREFIX + getMainDepArtifactId());
-        getLog().debug("Configured exclusions: " + artExcl);
-        if (artExcl != null && artExcl.trim().length() > 0) {
-            for (String dep : artExcl.split(",")) {
-                getLog().debug("Adding configured exclusion: " + dep);
-                configExclusions.add(dep);
+    private Set<String> getKameletDependencies(KameletModel kamelet) throws XPathExpressionException {
+        Set<String> deps = new HashSet<>(kamelet.getDependencies());
+        Set<String> gavDeps = deps.stream().map(stringDep -> {
+            if (stringDep.startsWith("mvn:")) {
+                return stringDep.replaceFirst("mvn:", "");
+            } else if (stringDep.startsWith("camel:")) {
+                return getMainDepGroupId() + ":" + stringDep.replaceFirst(":", "-");
+            } else {
+                getLog().warn("Dependency " + stringDep + "is used as is. Might not be the intended behaviour!");
+                return stringDep;
             }
-        }
+        }).collect(Collectors.toSet());
 
-        Set<String> libsToRemove = new TreeSet<>();
-        libsToRemove.addAll(loggingImpl);
-        libsToRemove.addAll(configExclusions);
-
-        if (!libsToRemove.isEmpty()) {
-            getLog().info("Camel-kafka-connector: the following dependencies will be removed from the connector: " + libsToRemove);
-            MavenUtils.addExclusionsToDependency(pom, getMainDepArtifactId(), libsToRemove, GENERATED_SECTION_START, GENERATED_SECTION_END);
-        }
+        return gavDeps;
     }
 
-    private void fixAdditionalDependencies(Document pom, String additionalDependencies) throws Exception {
+    private Set<String> getAdditionalDependencies(String additionalDependencies) throws Exception {
         Properties properties = new Properties();
 
-        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties))) {
+        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixKameletDependenciesProperties))) {
             properties.load(stream);
         }
 
-        Set<String> deps = new TreeSet<>();
+        Set<String> deps = new HashSet<>();
         deps.addAll(MavenUtils.csvToSet(properties.getProperty(getMainDepArtifactId())));
         deps.addAll(MavenUtils.csvToSet(additionalDependencies));
 
@@ -295,10 +296,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
             deps.addAll(globalProps);
         }
 
-        if (!deps.isEmpty()) {
-            getLog().debug("The following dependencies will be added to the connector: " + deps);
-            MavenUtils.addDependencies(pom, deps, GENERATED_SECTION_START, GENERATED_SECTION_END);
-        }
+        return deps;
     }
 
     private void fixAdditionalRepositories(Document pom) throws Exception {
@@ -357,8 +355,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
                 }
             }
         } else {
-            getLog().error("The pom.xml file is not present, please use camel-kafka-connector-create first.");
-            throw new UnsupportedOperationException("The pom.xml file is not present, please use camel-kafka-connector-create first.");
+            getLog().error("The pom.xml file is not present, please use camel-kafka-connector-kamelet-create first.");
+            throw new UnsupportedOperationException("The pom.xml file is not present, please use camel-kafka-connector-kamelet-create first.");
         }
     }
 
@@ -374,7 +372,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         writeFileIfChanged(license, new File(connectorDir, "src/main/resources/META-INF/LICENSE.txt"), getLog());
     }
 
-    private void createClasses(String sanitizedName, File connectorDir, ComponentModel model, ConnectorType ct)
+    private void createClassesAndDocumentation(String sanitizedName, File connectorDir, KameletModel kamelet, ConnectorType ct)
         throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException, IOException, MojoExecutionException {
         String ctCapitalizedName = StringUtils.capitalize(ct.name().toLowerCase());
         String ctLowercaseName = ct.name().toLowerCase();
@@ -382,7 +380,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         Map<String, String> additionalProperties = new HashMap<>();
         Properties properties = new Properties();
 
-        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties))) {
+        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixKameletDependenciesProperties))) {
             properties.load(stream);
         }
 
@@ -413,37 +411,12 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         Method confMethod = javaClassConnectorConfig.addMethod().setConstructor(false).setName("conf").setReturnType("ConfigDef").setPublic().setStatic()
             .setBody("ConfigDef conf = new ConfigDef(Camel" + ctCapitalizedName + "ConnectorConfig.conf());\n");
 
-        Predicate<? super BaseOptionModel> filterEndpointOptions;
-        switch (ct) {
-            case SINK:
-                filterEndpointOptions = new Predicate<BaseOptionModel>() {
-                    @Override
-                    public boolean test(BaseOptionModel optionModel) {
-                        return optionModel.getLabel() == null || optionModel.getLabel().contains("producer")
-                               || (!optionModel.getLabel().contains("producer") && !optionModel.getLabel().contains("consumer"));
-                    }
-                };
-                break;
-            case SOURCE:
-                filterEndpointOptions = new Predicate<BaseOptionModel>() {
-                    @Override
-                    public boolean test(BaseOptionModel optionModel) {
-                        return optionModel.getLabel() == null || optionModel.getLabel().contains("consumer")
-                               || (!optionModel.getLabel().contains("producer") && !optionModel.getLabel().contains("consumer"));
-                    }
-                };
-                break;
-            default:
-                throw new UnsupportedOperationException("Connector type not supported: " + ct + " must be one of " + ConnectorType.SINK + ", " + ConnectorType.SOURCE);
-        }
-
+        // instantiate CamelKafkaConnectorOptionModel for further use during documentation generation
         List<CamelKafkaConnectorOptionModel> listOptions = new ArrayList<>();
-        model.getEndpointPathOptions().stream().filter(filterEndpointOptions)
-            .forEachOrdered(epo -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "PATH", ctLowercaseName, "path", epo, listOptions));
-        model.getEndpointParameterOptions().stream().filter(filterEndpointOptions)
-            .forEachOrdered(epo -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "ENDPOINT", ctLowercaseName, "endpoint", epo, listOptions));
-        model.getComponentOptions().stream().filter(filterEndpointOptions)
-            .forEachOrdered(co -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "COMPONENT", "component", sanitizedName, co, listOptions));
+        List<KameletPropertyModel> kameletProperties = kamelet.getProperties();
+        kameletProperties.forEach(
+            kameletProperty -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "KAMELET", kameletProperty, listOptions, kamelet.getRequiredProperties())
+        );
 
         confMethod.setBody(confMethod.getBody() + "return conf;");
 
@@ -466,15 +439,21 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         javaClassTask.addMethod().setConstructor(false).setName("getCamel" + ctCapitalizedName + "ConnectorConfig").setProtected().addParameter("Map<String, String>", "props")
             .setReturnType("Camel" + ctCapitalizedName + "ConnectorConfig")
             .setBody("return new Camel" + StringUtils.capitalize(sanitizedName.replace("-", "")) + ctCapitalizedName + "ConnectorConfig(props);").addAnnotation(Override.class);
-        Method getDefaultConfigMethod = javaClassTask.addMethod().setConstructor(false).setName("getDefaultConfig").setProtected().setReturnType("Map<String, String>")
-            .setBody("return new HashMap<String, String>() {{\n");
-        getDefaultConfigMethod
-            .setBody(getDefaultConfigMethod.getBody() + "    put(Camel" + ctCapitalizedName + "ConnectorConfig.CAMEL_" + ct + "_COMPONENT_CONF, \"" + model.getScheme() + "\");\n");
-        for (String key : new TreeSet<String>(additionalProperties.keySet())) {
-            getDefaultConfigMethod.setBody(getDefaultConfigMethod.getBody() + "    put(\"" + key + "\", \"" + additionalProperties.get(key) + "\");\n");
+
+        if (!additionalProperties.keySet().isEmpty()) {
+            Method getDefaultConfigMethod = javaClassTask.addMethod().setConstructor(false).setName("getDefaultConfig").setProtected().setReturnType("Map<String, String>")
+                    .setBody("return new HashMap<String, String>() {{\n");
+            for (String key : new TreeSet<String>(additionalProperties.keySet())) {
+                getDefaultConfigMethod.setBody(getDefaultConfigMethod.getBody() + "    put(\"" + key + "\", \"" + additionalProperties.get(key) + "\");\n");
+            }
+            getDefaultConfigMethod.setBody(getDefaultConfigMethod.getBody() + "}};\n");
+            getDefaultConfigMethod.addAnnotation(Override.class);
         }
-        getDefaultConfigMethod.setBody(getDefaultConfigMethod.getBody() + "}};\n");
-        getDefaultConfigMethod.addAnnotation(Override.class);
+
+        Method getSinkOrSourceKameletMethod = javaClassTask.addMethod().setConstructor(false).setName("get" + ctCapitalizedName + "Kamelet").setProtected().setReturnType("String")
+                .setBody("return \"kamelet:" + name + "\"");
+        getSinkOrSourceKameletMethod.addAnnotation(Override.class);
+
         String javaClassTaskFileName = packageName.replaceAll("\\.", "\\/") + File.separator + javaClassTaskName + ".java";
         MavenUtils.writeSourceIfChanged(javaClassTask, javaClassTaskFileName, false, connectorDir, rm.getResourceAsFile(javaFilesHeader));
 
@@ -535,6 +514,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
                 }
             }
         }
+
         // docs/examples/Camel{sanitizedName}{Sink,Source}.properties
         try {
             String examplesPropertiestemplate = null;
@@ -566,11 +546,10 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         // docs/modules/ROOT/pages/connectors
         File docFolder = new File(connectorDir, "src/main/docs/");
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/reference/connectors/");
+        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
         File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        String changed = templateAutoConfigurationOptions(listOptions, model.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList,
+        String changed = templateAutoConfigurationOptions(listOptions, kamelet.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList,
                                                           transformsList, aggregationStrategiesList);
-
 
         boolean updated = updateAutoConfigureOptions(docFile, changed);
         if (updated) {
@@ -586,7 +565,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         }
 
         // generate json descriptor src/generated/resources/<connector-name>.json
-        writeJson(listOptions, model.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
+        writeJson(listOptions, kamelet.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
         // generate descriptor src/generated/descriptors/connector-{sink,source}.properties
         writeDescriptors(connectorDir, ct);
     }
@@ -602,39 +581,37 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         }
     }
 
-    private void addConnectorOptions(String sanitizedName, ConnectorType ct, JavaClass javaClass, Method confMethod, String propertyQualifier, String firstNamespace,
-                                     String secondNamespace, BaseOptionModel baseOptionModel, List<CamelKafkaConnectorOptionModel> listOptions) {
-        String propertyName = baseOptionModel.getName();
+    private void addConnectorOptions(String sanitizedName, ConnectorType ct, JavaClass javaClass, Method confMethod, String propertyQualifier, KameletPropertyModel kameletProperty,
+                                     List<CamelKafkaConnectorOptionModel> listOptions, Set<String> kameletRequiredProperties) {
+        String propertyName = kameletProperty.getName();
 
         String regex = "([A-Z][a-z]+)";
         String replacement = "$1_";
 
         String propertyPrefix = "CAMEL_" + ct + "_" + sanitizedName.replace("-", "").toUpperCase() + "_" + propertyQualifier.toUpperCase() + "_"
                                 + StringUtils.capitalize(propertyName).replaceAll(regex, replacement).toUpperCase();
-        String propertyValue = "camel." + firstNamespace + "." + secondNamespace + "." + baseOptionModel.getName();
+        String propertyValue = "camel.kamelet." + propertyName;
 
         String confFieldName = propertyPrefix + "CONF";
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(confFieldName).setType(String.class).setStringInitializer(propertyValue);
 
         String docFieldName = propertyPrefix + "DOC";
-        String docLiteralInitializer = baseOptionModel.getDescription();
-        if (baseOptionModel.getEnums() != null && !baseOptionModel.getEnums().isEmpty()) {
-            docLiteralInitializer = docLiteralInitializer + " One of:";
-            String enumOptionListing = baseOptionModel.getEnums().stream().reduce("", (s, s2) -> s + " [" + s2 + "]");
-            docLiteralInitializer = docLiteralInitializer + enumOptionListing;
+        String docLiteralInitializer = kameletProperty.getDescription();
+        if (kameletProperty.getExample() != null) {
+            docLiteralInitializer = docLiteralInitializer + " Example: " + kameletProperty.getExample();
         }
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(docFieldName).setType(String.class).setStringInitializer(docLiteralInitializer);
 
         String defaultFieldName = propertyPrefix + "DEFAULT";
-        Class<?> defaultValueClass = PRIMITIVE_TYPES_TO_CLASS_MAP.getOrDefault(baseOptionModel.getShortJavaType(), String.class);
-        String type = baseOptionModel.getType();
+        Class<?> defaultValueClass = PRIMITIVE_TYPES_TO_CLASS_MAP.getOrDefault(kameletProperty.getType(), String.class);
+        String type = defaultValueClass.getSimpleName();
 
         String defaultValueClassLiteralInitializer;
-        if (baseOptionModel.getDefaultValue() == null) {
+        if (kameletProperty.getDefaultValue() == null) {
             //Handling null default camel options values (that means there is no default value).
             defaultValueClassLiteralInitializer = "null";
         } else {
-            defaultValueClassLiteralInitializer = baseOptionModel.getDefaultValue().toString();
+            defaultValueClassLiteralInitializer = kameletProperty.getDefaultValue();
             if (defaultValueClass.equals(String.class)) {
                 defaultValueClassLiteralInitializer = "\"" + defaultValueClassLiteralInitializer + "\"";
             }
@@ -666,22 +643,21 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
             .setLiteralInitializer(defaultValueClassLiteralInitializer);
 
         String confType;
-
-        if (baseOptionModel.isSecret()) {
-            confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(baseOptionModel.getShortJavaType(), CONFIG_DEF_TYPE_PASSWORD);
+        if ("password".equals(kameletProperty.getFormat())) {
+            confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(type, CONFIG_DEF_TYPE_PASSWORD);
         } else {
-            confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(baseOptionModel.getShortJavaType(), CONFIG_DEF_TYPE_STRING);
+            confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(type, CONFIG_DEF_TYPE_STRING);
         }
-        String confPriority = baseOptionModel.isDeprecated() ? CONFIG_DEF_IMPORTANCE_LOW : CONFIG_DEF_IMPORTANCE_MEDIUM;
-        confPriority = baseOptionModel.isRequired() ? CONFIG_DEF_IMPORTANCE_HIGH : confPriority;
+        boolean isRequired = kameletRequiredProperties.contains(kameletProperty.getName());
+        String confPriority = isRequired ? CONFIG_DEF_IMPORTANCE_HIGH : CONFIG_DEF_IMPORTANCE_MEDIUM;
         confMethod.setBody(confMethod.getBody() + "conf.define(" + confFieldName + ", " + confType + ", " + defaultFieldName + ", " + confPriority + ", " + docFieldName + ");\n");
         CamelKafkaConnectorOptionModel optionModel = new CamelKafkaConnectorOptionModel();
         optionModel.setName(propertyValue);
         optionModel.setDescription(docLiteralInitializer);
         optionModel.setPriority(StringUtils.removeStart(confPriority, CONFIG_DEF_IMPORTANCE_PREFIX));
         optionModel.setDefaultValue(defaultValueClassLiteralInitializer.equals("null") ? null : defaultValueClassLiteralInitializer);
-        optionModel.setRequired(String.valueOf(baseOptionModel.isRequired()));
-        optionModel.setPossibleEnumValues(baseOptionModel.getEnums());
+        optionModel.setRequired(String.valueOf(isRequired));
+        //XXX: kamelets dose not support enum like properties type yet.
         listOptions.add(optionModel);
     }
 
@@ -710,9 +686,9 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         try {
             String template = null;
             if (ct.name().equals(ConnectorType.SINK.name())) {
-                template = loadText(CamelKafkaConnectorUpdateMojo.class.getClassLoader().getResourceAsStream("camel-kafka-connector-sink-options.mvel"));
+                template = loadText(CamelKafkaConnectorKameletUpdateMojo.class.getClassLoader().getResourceAsStream("camel-kafka-connector-sink-options.mvel"));
             } else if (ct.name().equals(ConnectorType.SOURCE.name())) {
-                template = loadText(CamelKafkaConnectorUpdateMojo.class.getClassLoader().getResourceAsStream("camel-kafka-connector-source-options.mvel"));
+                template = loadText(CamelKafkaConnectorKameletUpdateMojo.class.getClassLoader().getResourceAsStream("camel-kafka-connector-source-options.mvel"));
             }
             String out = (String)TemplateRuntime.eval(template, model, Collections.singletonMap("util", MvelHelper.INSTANCE));
             return out;
@@ -750,7 +726,6 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
     }
     
     private void writeDescriptors(File connectorDir, ConnectorType ct) throws MojoExecutionException {
-
         String title;
         if (getMainDepArtifactId().equalsIgnoreCase("camel-coap+tcp")) {
             title = "camel-coap-tcp";

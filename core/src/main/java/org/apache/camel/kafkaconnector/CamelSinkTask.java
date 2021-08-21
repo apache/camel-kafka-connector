@@ -38,6 +38,7 @@ import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.sink.ErrantRecordReporter;
 import org.apache.kafka.connect.sink.SinkRecord;
 import org.apache.kafka.connect.sink.SinkTask;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,6 +55,7 @@ public class CamelSinkTask extends SinkTask {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkTask.class);
 
     private static final String LOCAL_URL = "direct:start";
+    private static final String DEFAULT_KAMELET_CKC_SINK = "kamelet:ckcSink";
     private ErrantRecordReporter reporter;
 
     private CamelKafkaConnectMain cms;
@@ -123,7 +125,7 @@ public class CamelSinkTask extends SinkTask {
             }
             actualProps.put(KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "toUrl", remoteUrl);
 
-            cms = CamelKafkaConnectMain.builder(LOCAL_URL, "kamelet:ckcSink")
+            cms = CamelKafkaConnectMain.builder(LOCAL_URL, getSinkKamelet())
                 .withProperties(actualProps)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
@@ -144,7 +146,6 @@ public class CamelSinkTask extends SinkTask {
                 .withHeadersExcludePattern(headersRemovePattern)
                 .build(camelContext);
 
-
             cms.start();
 
             producer = cms.getProducerTemplate();
@@ -154,6 +155,11 @@ public class CamelSinkTask extends SinkTask {
         } catch (Exception e) {
             throw new ConnectException("Failed to create and start Camel context", e);
         }
+    }
+
+    @NotNull
+    protected String getSinkKamelet() {
+        return DEFAULT_KAMELET_CKC_SINK;
     }
 
     protected CamelSinkConnectorConfig getCamelSinkConnectorConfig(Map<String, String> props) {

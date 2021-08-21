@@ -42,29 +42,17 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class GenerateCamelKafkaConnectorsMojoIT {
 
     @MavenTest
+//    @MavenOption(MavenCLIOptions.DEBUG)
     public void test_generate(MavenExecutionResult result) throws IOException {
         assertThat(result).isSuccessful();
         assertThat(result)
             .out()
             .info()
-            .contains("Excluded Components that won't be generated: "
-                + "[bonita,"
-                + " bean-validator,"
-                + " browse,"
-                + " class,"
-                + " dataset,"
-                + " dataset-test,"
-                + " debezium-mongodb,"
-                + " debezium-mysql,"
-                + " debezium-postgres,"
-                + " debezium-sqlserver,"
-                + " digitalocean,"
-                + " mock,"
-                + " ref,"
-                + " robotframework"
-                + "]")
-            .anyMatch(s -> s.startsWith("Components found to be generated/updated: ["))
+            .anyMatch(s -> s.startsWith("Excluded Components that won't be used to generate a kafka connector: "))
+            .anyMatch(s -> s.startsWith("Components found to be used to generate/update a kafka connector: ["))
+            .anyMatch(s -> s.startsWith("Kamelets found to be used to generate/update a kafka connector: ["))
             .anyMatch(s -> s.startsWith("Creating camel kafka connector for"))
+            .anyMatch(s -> s.startsWith("Creating camel kafka kamelet connector for"))
             .containsSequence(
                 "Creating a new pom.xml for the connector from scratch",
                 "Creating a new package.xml for the connector.")
@@ -92,18 +80,18 @@ class GenerateCamelKafkaConnectorsMojoIT {
 
     private List<String> extractExcluded(List<String> stdout) {
         return stdout.stream()
-            .filter(s -> s.startsWith("[INFO] Excluded Components that won't be generated: ["))
+            .filter(s -> s.startsWith("[INFO] Excluded Components that won't be used to generate a kafka connector: ["))
             .findFirst()
-            .map(s -> Strings.between(s, "[INFO] Excluded Components that won't be generated: [", "]"))
+            .map(s -> Strings.between(s, "[INFO] Excluded Components that won't be used to generate a kafka connector: [", "]"))
             .map(s -> Arrays.asList(s.split(", ")))
             .orElse(Collections.emptyList());
     }
 
     private List<String> extractGenerated(List<String> stdout) {
         return stdout.stream()
-            .filter(s -> s.startsWith("[INFO] Components found to be generated/updated: ["))
+            .filter(s -> s.startsWith("[INFO] Components found to be used to generate/update a kafka connector: ["))
             .findFirst()
-            .map(s -> Strings.between(s, "[INFO] Components found to be generated/updated: [", "]"))
+            .map(s -> Strings.between(s, "[INFO] Components found to be used to generate/update a kafka connector: [", "]"))
             .map(s -> Arrays.asList(s.split(", ")))
             .orElse(Collections.emptyList());
     }

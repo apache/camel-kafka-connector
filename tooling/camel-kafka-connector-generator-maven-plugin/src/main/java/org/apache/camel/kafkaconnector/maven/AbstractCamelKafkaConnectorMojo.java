@@ -54,12 +54,6 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     protected MavenProject project;
 
     /**
-     * The initial pom template file.
-     */
-    @Parameter(defaultValue = "camel-kafka-connector-template-pom.template")
-    protected String initialPomTemplate;
-
-    /**
      * NOTICE file.
      */
     @Parameter(defaultValue = "camel-kafka-connector-NOTICE.txt")
@@ -70,12 +64,6 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
      */
     @Parameter(defaultValue = "camel-kafka-connector-LICENSE.txt")
     protected String licenseTemplate;
-
-    /**
-     * Properties file to configure additional dependencies.
-     */
-    @Parameter(defaultValue = "camel-kafka-connector-fix-dependencies.properties")
-    protected String fixDependenciesProperties;
 
     /**
      * Package file template to be placed in src/main/assembly/package.xml.
@@ -130,13 +118,13 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     /**
      * Execute goal.
      *
-     * @throws MojoExecutionException execution of the main class or one of the
-     *                                                        threads it generated failed.
+     * @throws MojoExecutionException execution of the main class or one of the threads it generated failed.
      * @throws MojoFailureException   something bad happened...
      */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         configureResourceManager();
+        //execute only once for the connectors parent project which can be configured with <connectorsProjectName> option
         if (!project.getArtifactId().equals(connectorsProjectName)) {
             getLog().debug("Skipping project " + project.getArtifactId() + " since it is not " + connectorsProjectName + ", which can be configured with <connectorsProjectName> option.");
             return;

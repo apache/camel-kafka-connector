@@ -30,8 +30,6 @@ import org.w3c.dom.Document;
 
 import freemarker.template.Template;
 import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
-import org.apache.camel.tooling.model.ComponentModel;
-import org.apache.camel.tooling.model.JsonMapper;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -40,22 +38,19 @@ import org.apache.maven.plugins.annotations.Parameter;
 import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.sanitizeMavenArtifactId;
 import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.writeXmlFormatted;
 
-@Mojo(name = "camel-kafka-connector-create", threadSafe = true,
+@Mojo(name = "camel-kafka-connector-kamelet-create", threadSafe = true,
         defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
-public class CamelKafkaConnectorCreateMojo extends AbstractCamelComponentKafkaConnectorMojo {
+public class CamelKafkaConnectorKameletCreateMojo extends AbstractCamelKameletKafkaConnectorMojo {
 
     @Parameter(property = "name", required = true)
     protected String name;
-
-    @Parameter(property = "componentJson", required = true)
-    protected String componentJson;
 
     @Parameter(property = "overridePomFile", required = false, defaultValue = "false")
     protected Boolean overridePomFile;
 
     @Override
     protected String getMainDepArtifactId() {
-        return "camel-" + name;
+        return name;
     }
 
     @Override
@@ -77,7 +72,7 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelComponentKafkaCo
     }
 
     private void createConnector() throws Exception {
-        getLog().info("Creating camel kafka connector for " + name);
+        getLog().info("Creating camel kafka kamelet connector for " + name);
         String sanitizedName = sanitizeMavenArtifactId(name);
         //check if the connector is already created
         File directory = new File(projectDir, "camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX);
@@ -103,13 +98,10 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelComponentKafkaCo
 
     private void generateAndWritePom(String sanitizedName, File directory) throws Exception {
         //create initial connector pom
-        ComponentModel cm = JsonMapper.generateComponentModel(componentJson);
         getLog().info("Creating a new pom.xml for the connector from scratch");
-        Template pomTemplate = MavenUtils.getTemplate(rm.getResourceAsFile(initialPomTemplate));
+        Template pomTemplate = MavenUtils.getTemplate(rm.getResourceAsFile(initialKameletPomTemplate));
         Map<String, String> props = new HashMap<>();
         props.put("version", project.getVersion());
-        props.put("dependencyId", cm.getArtifactId());
-        props.put("dependencyGroup", cm.getGroupId());
         props.put("componentName", name);
         props.put("componentSanitizedName", sanitizedName);
         props.put("componentDescription", name);
