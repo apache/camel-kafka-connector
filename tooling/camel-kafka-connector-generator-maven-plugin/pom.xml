@@ -51,6 +51,11 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.classgraph</groupId>
+            <artifactId>classgraph</artifactId>
+            <version>${classgraph.version}</version>
+        </dependency>
 
         <!-- Maven plugin deps -->
         <dependency>
@@ -106,6 +111,18 @@
             <version>2.3.1</version>
         </dependency>
 
+        <!--  jackson  -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+<!--            <version>${jackson.version}</version>-->
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+<!--            <version>${jackson.version}</version>-->
+        </dependency>
+
         <!-- camel -->
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -118,6 +135,11 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-catalog</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel.kamelets</groupId>
+            <artifactId>camel-kamelets-catalog</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -43,6 +43,7 @@ import org.apache.kafka.connect.source.SourceRecord;
 import org.apache.kafka.connect.source.SourceTask;
 import org.jctools.queues.MessagePassingQueue;
 import org.jctools.queues.SpscArrayQueue;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,6 +60,7 @@ public class CamelSourceTask extends SourceTask {
     private static final String CAMEL_SOURCE_PATH_PROPERTIES_PREFIX = "camel.source.path.";
 
     private static final String LOCAL_URL = "seda:end";
+    private static final String DEFAULT_KAMELET_CKC_SOURCE = "kamelet:ckcSource";
 
     private CamelKafkaConnectMain cms;
     private PollingConsumer consumer;
@@ -148,7 +150,7 @@ public class CamelSourceTask extends SourceTask {
             }
             actualProps.put(KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "fromUrl", remoteUrl);
 
-            cms = CamelKafkaConnectMain.builder("kamelet:ckcSource", localUrl)
+            cms = CamelKafkaConnectMain.builder(getSourceKamelet(), localUrl)
                 .withProperties(actualProps)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
@@ -178,6 +180,11 @@ public class CamelSourceTask extends SourceTask {
         } catch (Exception e) {
             throw new ConnectException("Failed to create and start Camel context", e);
         }
+    }
+
+    @NotNull
+    protected String getSourceKamelet() {
+        return DEFAULT_KAMELET_CKC_SOURCE;
     }
 
     private long remaining(long startPollEpochMilli, long maxPollDuration)  {

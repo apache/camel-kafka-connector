@@ -48,6 +48,9 @@
                     <initialPomTemplate>
                         ${project.build.testOutputDirectory}/template-connector-pom.xml
                     </initialPomTemplate>
+                    <initialKameletPomTemplate>
+                        ${project.build.testOutputDirectory}/template-connecotr-kamelet-pom.xml
+                    </initialKameletPomTemplate>
                     <noticeTemplate>
                         ${project.build.testOutputDirectory}/camel-kafka-connector-NOTICE.txt
                     </noticeTemplate>
@@ -57,6 +60,9 @@
                     <fixDependenciesProperties>
                         ${project.build.testOutputDirectory}/camel-kafka-connector-fix-dependencies.properties
                     </fixDependenciesProperties>
+                    <fixKameletDependenciesProperties>
+                        ${project.build.testOutputDirectory}/camel-kafka-connector-kamelet-fix-dependencies.properties
+                    </fixKameletDependenciesProperties>
                     <packageFileTemplate>
                         ${project.build.testOutputDirectory}/template-connector-package.xml
                     </packageFileTemplate>
@@ -97,6 +103,11 @@
                         <groupId>org.apache.camel</groupId>
                         <artifactId>camel-catalog</artifactId>
                         <version>@camel.version@</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.camel.kamelets</groupId>
+                        <artifactId>camel-kamelets-catalog</artifactId>
+                        <version>@camel.kamelet.catalog.version@</version>
                     </dependency>
                 </dependencies>
             </plugin>
