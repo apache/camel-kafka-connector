@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Bump to Strimzi 0.25.0 [\#1248](https://github.com/apache/camel-kafka-connector/issues/1248)
 - Configurable parameters in AWS2-s3 Kafka source connector [\#1247](https://github.com/apache/camel-kafka-connector/issues/1247)
 - Using a Kafka Consumer with Idempotency enabled Kafka consume [\#1245](https://github.com/apache/camel-kafka-connector/issues/1245)
 - Bump to Camel 3.11.1 [\#1243](https://github.com/apache/camel-kafka-connector/issues/1243)
@@ -13,6 +14,8 @@
 - Upgrade to Camel 3.11.0 [\#1237](https://github.com/apache/camel-kafka-connector/issues/1237)
 - idempotency support in Kafka AWS s3 source connector [\#1236](https://github.com/apache/camel-kafka-connector/issues/1236)
 - aws2-s3 prefix not working with Kafka source connector [\#1235](https://github.com/apache/camel-kafka-connector/issues/1235)
+- Is it possible to attach Custom Processor to existing Connector? [\#1228](https://github.com/apache/camel-kafka-connector/issues/1228)
+- Access headers on S3 Source connector [\#1224](https://github.com/apache/camel-kafka-connector/issues/1224)
 - Jira source connector only sourcing new issues [\#1221](https://github.com/apache/camel-kafka-connector/issues/1221)
 - Bump to Strimzi Operator 0.24.0 [\#1219](https://github.com/apache/camel-kafka-connector/issues/1219)
 - Improve documentation about limitations of special chars in the file connector [\#1218](https://github.com/apache/camel-kafka-connector/issues/1218)
@@ -20,10 +23,12 @@
 - AWSS2-S3-Kafka connector sink returns 403 with bucket and object not public [\#1216](https://github.com/apache/camel-kafka-connector/issues/1216)
 - Issue with camel-google-pubsub-kafka-connector sink configuration [\#1209](https://github.com/apache/camel-kafka-connector/issues/1209)
 - CamelFileSink Connector appendChars = \n not working [\#1208](https://github.com/apache/camel-kafka-connector/issues/1208)
+- aws2s3 sink connector cannot access kafka headers [\#1200](https://github.com/apache/camel-kafka-connector/issues/1200)
 - Missing kafkaconnector parent pom artifact for version 0.10.0 [\#1190](https://github.com/apache/camel-kafka-connector/issues/1190)
 
 **Merged pull requests:**
 
+- Upgrade Strimzi to version 0.25.0 [\#1251](https://github.com/apache/camel-kafka-connector/pull/1251) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1246](https://github.com/apache/camel-kafka-connector/pull/1246) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Upgrade to Camel 3.11.1 [\#1244](https://github.com/apache/camel-kafka-connector/pull/1244) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1240](https://github.com/apache/camel-kafka-connector/pull/1240) ([github-actions[bot]](https://github.com/apps/github-actions))
