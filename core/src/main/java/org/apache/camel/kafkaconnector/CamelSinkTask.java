@@ -38,7 +38,6 @@ import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.sink.ErrantRecordReporter;
 import org.apache.kafka.connect.sink.SinkRecord;
 import org.apache.kafka.connect.sink.SinkTask;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -157,7 +156,6 @@ public class CamelSinkTask extends SinkTask {
         }
     }
 
-    @NotNull
     protected String getSinkKamelet() {
         return DEFAULT_KAMELET_CKC_SINK;
     }
