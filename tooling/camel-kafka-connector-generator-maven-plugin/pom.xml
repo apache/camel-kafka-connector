@@ -33,6 +33,7 @@
 
     <properties>
         <maven-version>3.6.3</maven-version>
+        <classgraph.version>4.8.110</classgraph.version>
     </properties>
 
     <dependencyManagement>
@@ -115,12 +116,10 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-<!--            <version>${jackson.version}</version>-->
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-<!--            <version>${jackson.version}</version>-->
         </dependency>
 
         <!-- camel -->
@@ -195,6 +194,12 @@
         </dependency>
 
         <!-- testing -->
+        <dependency>
+            <groupId>org.apache.camel.kafkaconnector</groupId>
+            <artifactId>camel-kafka-connector</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -273,6 +278,31 @@
             </activation>
             <build>
                 <plugins>
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-resources-plugin</artifactId>-->
+<!--                        <version>3.0.2</version>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>copy-resource-one</id>-->
+<!--                                <phase>generate-sources</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>copy-resources</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <outputDirectory>${basedir}/src/test/resources-its/org/apache/camel/kafkaconnector/maven/GenerateCamelKafkaConnectorsMojoIT/.predefined-repo/org/apache/camel/kafkaconnector/camel-kafka-connector/${project.version}</outputDirectory>-->
+<!--                                    <resources>-->
+<!--                                        <resource>-->
+<!--                                            <directory>${basedir}/../../core/target/</directory>-->
+<!--                                            <includes>-->
+<!--                                                <include>camel-kafka-connector-${project.version}.jar</include>-->
+<!--                                            </includes>-->
+<!--                                        </resource>-->
+<!--                                    </resources>-->
+<!--                                    <overwrite>true</overwrite>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
                     <plugin>
                         <groupId>com.soebes.itf.jupiter.extension</groupId>
                         <artifactId>itf-maven-plugin</artifactId>

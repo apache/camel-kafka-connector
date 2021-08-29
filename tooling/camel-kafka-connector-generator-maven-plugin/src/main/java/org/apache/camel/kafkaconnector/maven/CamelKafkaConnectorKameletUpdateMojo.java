@@ -451,7 +451,7 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
         }
 
         Method getSinkOrSourceKameletMethod = javaClassTask.addMethod().setConstructor(false).setName("get" + ctCapitalizedName + "Kamelet").setProtected().setReturnType("String")
-                .setBody("return \"kamelet:" + name + "\"");
+                .setBody("return \"kamelet:" + name + "\";");
         getSinkOrSourceKameletMethod.addAnnotation(Override.class);
 
         String javaClassTaskFileName = packageName.replaceAll("\\.", "\\/") + File.separator + javaClassTaskName + ".java";
@@ -596,9 +596,9 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(confFieldName).setType(String.class).setStringInitializer(propertyValue);
 
         String docFieldName = propertyPrefix + "DOC";
-        String docLiteralInitializer = kameletProperty.getDescription();
+        String docLiteralInitializer = kameletProperty.getDescription().replace("\n", " ");
         if (kameletProperty.getExample() != null) {
-            docLiteralInitializer = docLiteralInitializer + " Example: " + kameletProperty.getExample();
+            docLiteralInitializer = docLiteralInitializer + " Example: " + kameletProperty.getExample().replace("\n", " ");
         }
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(docFieldName).setType(String.class).setStringInitializer(docLiteralInitializer);
 

@@ -182,7 +182,6 @@ public class CamelSourceTask extends SourceTask {
         }
     }
 
-    @NotNull
     protected String getSourceKamelet() {
         return DEFAULT_KAMELET_CKC_SOURCE;
     }

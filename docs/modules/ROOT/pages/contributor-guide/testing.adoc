@@ -6,6 +6,7 @@
 
 * <<running-the-tests,Running The Tests>>
 * <<writing-new-tests,Writing New Tests>>
+* <<running-generator-plugin-tests,Running Maven Generator Plugin tests>>
 
 [#running-the-tests]
 == Running The Tests
@@ -219,3 +220,14 @@ Kafka's Connect own runtime libraries.
 
 The test code should avoid printing data to the stdout. Instead, the default project logger should be used. Every
 connector module has its own log file. Tests for new connectors should ensure that the relevant information is logged.
+
+[#running-generator-plugin-tests]
+== Running Maven Generator Plugin tests
+In order to run tests for `tooling/camel-kafka-generator-maven-plugin` please run:
+
+[source,bash]
+----
+$ ./mvnw clean install -pl :camel-kafka-connector-generator-maven-plugin -am -Pmaven-it
+----
+
+this can be useful during adjustments or new features development of `tooling/camel-kafka-generator-maven-plugin`.
