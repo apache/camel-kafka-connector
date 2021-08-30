@@ -34,7 +34,7 @@ import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.sanitizeMav
 
 @Mojo(name = "camel-kafka-connector-delete", threadSafe = true,
         defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
-public class CamelKafkaConnectorDeleteMojo extends AbstractCamelComponentKafkaConnectorMojo {
+public class CamelKafkaConnectorDeleteMojo extends AbstractCamelKafkaConnectorMojo {
 
     @Parameter(property = "name", required = true)
     protected String name;
