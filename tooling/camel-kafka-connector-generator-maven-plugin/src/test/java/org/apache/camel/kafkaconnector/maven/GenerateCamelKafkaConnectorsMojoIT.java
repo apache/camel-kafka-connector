@@ -29,8 +29,6 @@ import java.util.stream.Collectors;
 
 import com.soebes.itf.jupiter.extension.MavenGoal;
 import com.soebes.itf.jupiter.extension.MavenJupiterExtension;
-import com.soebes.itf.jupiter.extension.MavenOption;
-import com.soebes.itf.jupiter.extension.MavenPredefinedRepository;
 import com.soebes.itf.jupiter.extension.MavenProject;
 import com.soebes.itf.jupiter.extension.MavenRepository;
 import com.soebes.itf.jupiter.extension.MavenTest;
@@ -48,7 +46,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @MavenRepository
 //@MavenPredefinedRepository
 @MavenProject
-@TestMethodOrder( MethodOrderer.OrderAnnotation.class )
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class GenerateCamelKafkaConnectorsMojoIT {
 
     @MavenTest

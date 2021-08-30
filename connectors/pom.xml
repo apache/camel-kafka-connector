@@ -94,12 +94,15 @@
                     <!-- WARNING: you may lose some changes done to the pom. -->
                     <!-- <overridePomFile>false</overridePomFile> -->
                     <initialPomTemplate>${project.basedir}/template-connector-pom.xml</initialPomTemplate>
+                    <initialKameletPomTemplate>${project.basedir}/template-connecotr-kamelet-pom.xml</initialKameletPomTemplate>
                     <noticeTemplate>${project.basedir}/camel-kafka-connector-NOTICE.txt</noticeTemplate>
                     <licenseTemplate>${project.basedir}/camel-kafka-connector-LICENSE.txt</licenseTemplate>
                     <fixDependenciesProperties>${project.basedir}/camel-kafka-connector-fix-dependencies.properties</fixDependenciesProperties>
+                    <fixKameletDependenciesProperties>${project.basedir}/camel-kafka-connector-kamelet-fix-dependencies.properties</fixKameletDependenciesProperties>
                     <packageFileTemplate>${project.basedir}/template-connector-package.xml</packageFileTemplate>
                     <exampleSourcePropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-source-properties.template</exampleSourcePropertiesFileTemplate>
                     <exampleSinkPropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-sink-properties.template</exampleSinkPropertiesFileTemplate>
+                    <removeMissingComponents>true</removeMissingComponents>
                     <excludedComponents>
                         <param>bonita</param>
                         <param>bean-validator</param>
@@ -131,6 +134,11 @@
                         <groupId>org.apache.camel</groupId>
                         <artifactId>camel-catalog</artifactId>
                         <version>${camel.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.camel.kamelets</groupId>
+                        <artifactId>camel-kamelets-catalog</artifactId>
+                        <version>${camel.kamelet.catalog.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
