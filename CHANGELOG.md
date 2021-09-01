@@ -25,6 +25,7 @@
 - CamelFileSink Connector appendChars = \n not working [\#1208](https://github.com/apache/camel-kafka-connector/issues/1208)
 - aws2s3 sink connector cannot access kafka headers [\#1200](https://github.com/apache/camel-kafka-connector/issues/1200)
 - Missing kafkaconnector parent pom artifact for version 0.10.0 [\#1190](https://github.com/apache/camel-kafka-connector/issues/1190)
+- camel-minio-kafka-connector can't split minio file [\#1124](https://github.com/apache/camel-kafka-connector/issues/1124)
 
 **Merged pull requests:**
 
