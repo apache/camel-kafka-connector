@@ -29,6 +29,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1252](https://github.com/apache/camel-kafka-connector/pull/1252) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Upgrade Strimzi to version 0.25.0 [\#1251](https://github.com/apache/camel-kafka-connector/pull/1251) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1246](https://github.com/apache/camel-kafka-connector/pull/1246) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Upgrade to Camel 3.11.1 [\#1244](https://github.com/apache/camel-kafka-connector/pull/1244) ([oscerd](https://github.com/oscerd))
