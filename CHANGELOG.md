@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- how to convert csv to json using unmarshal/marshal  [\#1253](https://github.com/apache/camel-kafka-connector/issues/1253)
 - Bump to Strimzi 0.25.0 [\#1248](https://github.com/apache/camel-kafka-connector/issues/1248)
 - Configurable parameters in AWS2-s3 Kafka source connector [\#1247](https://github.com/apache/camel-kafka-connector/issues/1247)
 - Using a Kafka Consumer with Idempotency enabled Kafka consume [\#1245](https://github.com/apache/camel-kafka-connector/issues/1245)
