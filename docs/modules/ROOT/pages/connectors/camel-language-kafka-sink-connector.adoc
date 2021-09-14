@@ -1,0 +1,66 @@
+// kafka-connector options: START
+[[camel-language-kafka-connector-sink]]
+= camel-language-kafka-connector sink configuration
+
+Connector Description: Execute scripts in any of the languages supported by Camel.
+
+When using camel-language-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-language-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.language.CamelLanguageSinkConnector
+----
+
+
+The camel-language sink connector supports 11 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.languageName* | Sets the name of the language to use One of: [bean] [constant] [exchangeProperty] [file] [groovy] [header] [javascript] [jsonpath] [mvel] [ognl] [] [ref] [simple] [spel] [sql] [terser] [tokenize] [xpath] [xquery] [xtokenize] | null | true | HIGH
+| *camel.sink.path.resourceUri* | Path to the resource, or a reference to lookup a bean in the Registry to use as the resource | null | false | MEDIUM
+| *camel.sink.endpoint.allowContextMapAll* | Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API. | false | false | MEDIUM
+| *camel.sink.endpoint.binary* | Whether the script is binary content or text content. By default the script is read as text content (eg java.lang.String) | false | false | MEDIUM
+| *camel.sink.endpoint.cacheScript* | Whether to cache the compiled script and reuse Notice reusing the script can cause side effects from processing one Camel org.apache.camel.Exchange to the next org.apache.camel.Exchange. | false | false | MEDIUM
+| *camel.sink.endpoint.contentCache* | Sets whether to use resource content cache or not | true | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.script* | Sets the script to execute | null | false | MEDIUM
+| *camel.sink.endpoint.transform* | Whether or not the result of the script should be used as message body. This options is default true. | true | false | MEDIUM
+| *camel.component.language.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.language.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-language sink connector has no converters out of the box.
+
+
+
+
+
+The camel-language sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-language sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END
