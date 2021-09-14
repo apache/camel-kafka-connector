@@ -201,6 +201,8 @@
 **** xref:reference/connectors/camel-cql-kafka-sink-connector.adoc[Sink Docs]
 *** camel-cron-kafka-connector
 **** xref:reference/connectors/camel-cron-kafka-source-connector.adoc[Source Docs]
+*** camel-crypto-cms-kafka-connector
+**** xref:reference/connectors/camel-crypto-cms-kafka-sink-connector.adoc[Sink Docs]
 *** camel-crypto-kafka-connector
 **** xref:reference/connectors/camel-crypto-kafka-sink-connector.adoc[Sink Docs]
 *** camel-cxf-kafka-connector
@@ -376,6 +378,11 @@
 **** xref:reference/connectors/camel-http-kafka-sink-connector.adoc[Sink Docs]
 *** camel-https-kafka-connector
 **** xref:reference/connectors/camel-https-kafka-sink-connector.adoc[Sink Docs]
+*** camel-hwcloud-functiongraph-kafka-connector
+**** xref:reference/connectors/camel-hwcloud-functiongraph-kafka-sink-connector.adoc[Sink Docs]
+*** camel-hwcloud-iam-kafka-connector
+**** xref:reference/connectors/camel-hwcloud-iam-kafka-source-connector.adoc[Source Docs]
+**** xref:reference/connectors/camel-hwcloud-iam-kafka-sink-connector.adoc[Sink Docs]
 *** camel-hwcloud-smn-kafka-connector
 **** xref:reference/connectors/camel-hwcloud-smn-kafka-sink-connector.adoc[Sink Docs]
 *** camel-iec60870-client-kafka-connector

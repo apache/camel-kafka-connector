@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-openstack-cinder-kafka-connector-sink]]
+= camel-openstack-cinder-kafka-connector sink configuration
+
+Connector Description: Access data in OpenStack Cinder block storage.
+
+When using camel-openstack-cinder-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-openstack-cinder-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.openstackcinder.CamelOpenstackcinderSinkConnector
+----
+
+
+The camel-openstack-cinder sink connector supports 12 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.host* | OpenStack host url | null | true | HIGH
+| *camel.sink.endpoint.apiVersion* | OpenStack API version One of: [V2] [V3] | "V3" | false | MEDIUM
+| *camel.sink.endpoint.config* | OpenStack configuration | null | false | MEDIUM
+| *camel.sink.endpoint.domain* | Authentication domain | "default" | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to do | null | false | MEDIUM
+| *camel.sink.endpoint.password* | OpenStack password | null | true | HIGH
+| *camel.sink.endpoint.project* | The project ID | null | true | HIGH
+| *camel.sink.endpoint.subsystem* | OpenStack Cinder subsystem One of: [snapshots] [volumes] | null | true | HIGH
+| *camel.sink.endpoint.username* | OpenStack username | null | true | HIGH
+| *camel.component.openstack-cinder.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.openstack-cinder.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-openstack-cinder sink connector has no converters out of the box.
+
+
+
+
+
+The camel-openstack-cinder sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-openstack-cinder sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

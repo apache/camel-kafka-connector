@@ -1,0 +1,65 @@
+// kafka-connector options: START
+[[camel-controlbus-kafka-connector-sink]]
+= camel-controlbus-kafka-connector sink configuration
+
+Connector Description: Manage and monitor Camel routes.
+
+When using camel-controlbus-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-controlbus-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.controlbus.CamelControlbusSinkConnector
+----
+
+
+The camel-controlbus sink connector supports 10 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.command* | Command can be either route or language One of: [route] [language] | null | true | HIGH
+| *camel.sink.path.language* | Allows you to specify the name of a Language to use for evaluating the message body. If there is any result from the evaluation, then the result is put in the message body. One of: [bean] [constant] [el] [exchangeProperty] [file] [groovy] [header] [jsonpath] [mvel] [ognl] [ref] [simple] [spel] [sql] [terser] [tokenize] [xpath] [xquery] [xtokenize] | null | false | MEDIUM
+| *camel.sink.endpoint.action* | To denote an action that can be either: start, stop, or status. To either start or stop a route, or to get the status of the route as output in the message body. You can use suspend and resume from Camel 2.11.1 onwards to either suspend or resume a route. And from Camel 2.11.1 onwards you can use stats to get performance statics returned in XML format; the routeId option can be used to define which route to get the performance stats for, if routeId is not defined, then you get statistics for the entire CamelContext. The restart action will restart the route. One of: [start] [stop] [suspend] [resume] [restart] [status] [stats] | null | false | MEDIUM
+| *camel.sink.endpoint.async* | Whether to execute the control bus task asynchronously. Important: If this option is enabled, then any result from the task is not set on the Exchange. This is only possible if executing tasks synchronously. | false | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.loggingLevel* | Logging level used for logging when task is done, or if any exceptions occurred during processing the task. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "INFO" | false | MEDIUM
+| *camel.sink.endpoint.restartDelay* | The delay in millis to use when restarting a route. | 1000 | false | MEDIUM
+| *camel.sink.endpoint.routeId* | To specify a route by its id. The special keyword current indicates the current route. | null | false | MEDIUM
+| *camel.component.controlbus.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.controlbus.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-controlbus sink connector has no converters out of the box.
+
+
+
+
+
+The camel-controlbus sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-controlbus sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END
