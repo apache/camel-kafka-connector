@@ -1,0 +1,59 @@
+// kafka-connector options: START
+[[camel-ftps-source-kafka-connector-source]]
+= camel-ftps-source-kafka-connector source configuration
+
+Connector description: Receive data from an FTPS Server.
+
+When using camel-ftps-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ftps-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.ftpssource.CamelFtpssourceSourceConnector
+----
+
+
+The camel-ftps-source source connector supports 8 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.ftps-source.host* | Hostname of the FTPS server | null | true | HIGH
+| *camel.kamelet.ftps-source.port* | Port of the FTPS server | "21" | true | HIGH
+| *camel.kamelet.ftps-source.username* | The username to access the FTPS server | null | true | HIGH
+| *camel.kamelet.ftps-source.password* | The password to access the FTPS server | null | true | HIGH
+| *camel.kamelet.ftps-source.directoryName* | The starting directory | null | true | HIGH
+| *camel.kamelet.ftps-source.passiveMode* | Sets passive mode connection | false | false | MEDIUM
+| *camel.kamelet.ftps-source.recursive* | If a directory, will look for files in all the sub-directories as well. | false | false | MEDIUM
+| *camel.kamelet.ftps-source.idempotent* | Skip already processed files. | true | false | MEDIUM
+|===
+
+
+
+The camel-ftps-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-ftps-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-ftps-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

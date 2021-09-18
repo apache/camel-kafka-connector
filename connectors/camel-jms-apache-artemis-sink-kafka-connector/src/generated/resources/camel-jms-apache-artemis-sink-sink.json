@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jmsapacheartemissink.CamelJmsapacheartemissinkSinkConnector",
+		"artifactId": "camel-jms-apache-artemis-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jms-apache-artemis-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "A Kamelet that can produce events to an Apache Artemis message broker using JMS"
+	},
+	"properties": {
+		"camel.kamelet.jms-apache-artemis-sink.destinationType": {
+			"name": "camel.kamelet.jms-apache-artemis-sink.destinationType",
+			"description": "The JMS destination type (i.e.: queue or topic)",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-apache-artemis-sink.destinationName": {
+			"name": "camel.kamelet.jms-apache-artemis-sink.destinationName",
+			"description": "The JMS destination name Example: person",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-apache-artemis-sink.brokerURL": {
+			"name": "camel.kamelet.jms-apache-artemis-sink.brokerURL",
+			"description": "The JMS URL Example: tcp:\/\/my-host:61616",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

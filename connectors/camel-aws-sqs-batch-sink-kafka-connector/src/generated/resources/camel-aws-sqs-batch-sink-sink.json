@@ -1,0 +1,50 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awssqsbatchsink.CamelAwssqsbatchsinkSinkConnector",
+		"artifactId": "camel-aws-sqs-batch-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-sqs-batch-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send Batch message to an AWS SQS Queue"
+	},
+	"properties": {
+		"camel.kamelet.aws-sqs-batch-sink.queueNameOrArn": {
+			"name": "camel.kamelet.aws-sqs-batch-sink.queueNameOrArn",
+			"description": "The SQS Queue name or ARN",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-batch-sink.accessKey": {
+			"name": "camel.kamelet.aws-sqs-batch-sink.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-batch-sink.secretKey": {
+			"name": "camel.kamelet.aws-sqs-batch-sink.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-batch-sink.region": {
+			"name": "camel.kamelet.aws-sqs-batch-sink.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-batch-sink.autoCreateQueue": {
+			"name": "camel.kamelet.aws-sqs-batch-sink.autoCreateQueue",
+			"description": "Setting the autocreation of the SQS queue.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-batch-sink.batchSeparator": {
+			"name": "camel.kamelet.aws-sqs-batch-sink.batchSeparator",
+			"description": "The batch separator string Example: ,",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -1,0 +1,65 @@
+// kafka-connector options: START
+[[camel-postgresql-sink-kafka-connector-sink]]
+= camel-postgresql-sink-kafka-connector sink configuration
+
+Connector Description: Send data to a PostgreSQL Database.
+
+This Kamelet expects a JSON as body. The mapping between the JSON fields and parameters is done by key, so if you have the following query:
+
+'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'
+
+The Kamelet needs to receive as input something like:
+
+'{ "username":"oscerd", "city":"Rome"}'
+
+When using camel-postgresql-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-postgresql-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.postgresqlsink.CamelPostgresqlsinkSinkConnector
+----
+
+
+The camel-postgresql-sink sink connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.postgresql-sink.serverName* | Server Name for the data source Example: localhost | null | true | HIGH
+| *camel.kamelet.postgresql-sink.port* | Server Port for the data source | "5432" | false | MEDIUM
+| *camel.kamelet.postgresql-sink.username* | The username to use for accessing a secured PostgreSQL Database | null | true | HIGH
+| *camel.kamelet.postgresql-sink.password* | The password to use for accessing a secured PostgreSQL Database | null | true | HIGH
+| *camel.kamelet.postgresql-sink.query* | The Query to execute against the PostgreSQL Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city) | null | true | HIGH
+| *camel.kamelet.postgresql-sink.databaseName* | The Database Name we are pointing | null | true | HIGH
+|===
+
+
+
+The camel-postgresql-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-postgresql-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-postgresql-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

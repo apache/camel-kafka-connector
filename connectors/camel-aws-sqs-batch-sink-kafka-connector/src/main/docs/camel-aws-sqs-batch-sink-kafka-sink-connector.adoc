@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-aws-sqs-batch-sink-kafka-connector-sink]]
+= camel-aws-sqs-batch-sink-kafka-connector sink configuration
+
+Connector Description: Send Batch message to an AWS SQS Queue
+
+When using camel-aws-sqs-batch-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-sqs-batch-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awssqsbatchsink.CamelAwssqsbatchsinkSinkConnector
+----
+
+
+The camel-aws-sqs-batch-sink sink connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-sqs-batch-sink.queueNameOrArn* | The SQS Queue name or ARN | null | true | HIGH
+| *camel.kamelet.aws-sqs-batch-sink.accessKey* | The access key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-sqs-batch-sink.secretKey* | The secret key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-sqs-batch-sink.region* | The AWS region to connect to Example: eu-west-1 | null | true | HIGH
+| *camel.kamelet.aws-sqs-batch-sink.autoCreateQueue* | Setting the autocreation of the SQS queue. | false | false | MEDIUM
+| *camel.kamelet.aws-sqs-batch-sink.batchSeparator* | The batch separator string Example: , | null | true | HIGH
+|===
+
+
+
+The camel-aws-sqs-batch-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-sqs-batch-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-sqs-batch-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

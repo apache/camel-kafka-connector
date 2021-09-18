@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mongodbsource.CamelMongodbsourceSourceConnector",
+		"artifactId": "camel-mongodb-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mongodb-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Consume documents from MongoDB.\n\nIf the persistentTailTracking option will be enabled, the consumer will keep track of the last consumed message and on the next restart, the consumption will restart from that message. In case of persistentTailTracking enabled, the tailTrackIncreasingField must be provided (by default it is optional).\n\nIf the persistentTailTracking option won't be enabled, the consumer will consume the whole collection and wait in idle for new documents to consume."
+	},
+	"properties": {
+		"camel.kamelet.mongodb-source.hosts": {
+			"name": "camel.kamelet.mongodb-source.hosts",
+			"description": "Comma separated list of MongoDB Host Addresses in host:port format.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-source.collection": {
+			"name": "camel.kamelet.mongodb-source.collection",
+			"description": "Sets the name of the MongoDB collection to bind to this endpoint.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-source.password": {
+			"name": "camel.kamelet.mongodb-source.password",
+			"description": "User password for accessing MongoDB.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-source.username": {
+			"name": "camel.kamelet.mongodb-source.username",
+			"description": "Username for accessing MongoDB.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-source.database": {
+			"name": "camel.kamelet.mongodb-source.database",
+			"description": "Sets the name of the MongoDB database to target.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-source.persistentTailTracking": {
+			"name": "camel.kamelet.mongodb-source.persistentTailTracking",
+			"description": "Enable persistent tail tracking, which is a mechanism to keep track of the last consumed message across system restarts. The next time the system is up, the endpoint will recover the cursor from the point where it last stopped slurping records.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mongodb-source.tailTrackIncreasingField": {
+			"name": "camel.kamelet.mongodb-source.tailTrackIncreasingField",
+			"description": "Correlation field in the incoming record which is of increasing nature and will be used to position the tailing cursor every time it is generated.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

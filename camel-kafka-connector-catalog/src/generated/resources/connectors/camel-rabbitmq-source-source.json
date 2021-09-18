@@ -1,0 +1,44 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.rabbitmqsource.CamelRabbitmqsourceSourceConnector",
+		"artifactId": "camel-rabbitmq-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-rabbitmq-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive data from an RabbitMQ Brokers."
+	},
+	"properties": {
+		"camel.kamelet.rabbitmq-source.addresses": {
+			"name": "camel.kamelet.rabbitmq-source.addresses",
+			"description": "Comma separated list of RabbitMQ broker addresses",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.rabbitmq-source.port": {
+			"name": "camel.kamelet.rabbitmq-source.port",
+			"description": "Port of the RabbitMQ server",
+			"defaultValue": "\"5672\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.rabbitmq-source.username": {
+			"name": "camel.kamelet.rabbitmq-source.username",
+			"description": "The username to access the RabbitMQ server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.rabbitmq-source.password": {
+			"name": "camel.kamelet.rabbitmq-source.password",
+			"description": "The password to access the RabbitMQ server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.rabbitmq-source.exchangeName": {
+			"name": "camel.kamelet.rabbitmq-source.exchangeName",
+			"description": "The exchange name determines the exchange the queue will be bound to",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

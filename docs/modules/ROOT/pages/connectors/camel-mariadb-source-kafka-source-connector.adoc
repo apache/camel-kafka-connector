@@ -1,0 +1,62 @@
+// kafka-connector options: START
+[[camel-mariadb-source-kafka-connector-source]]
+= camel-mariadb-source-kafka-connector source configuration
+
+Connector description: Query data from a MariaDB Database.
+
+In you KameletBinding file you'll need to explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies
+
+- "mvn:org.mariadb.jdbc:mariadb-java-client:<version>"
+
+When using camel-mariadb-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mariadb-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mariadbsource.CamelMariadbsourceSourceConnector
+----
+
+
+The camel-mariadb-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.mariadb-source.serverName* | Server Name for the data source Example: localhost | null | true | HIGH
+| *camel.kamelet.mariadb-source.port* | Server Port for the data source | "3306" | false | MEDIUM
+| *camel.kamelet.mariadb-source.username* | The username to use for accessing a secured MariaDB Database | null | true | HIGH
+| *camel.kamelet.mariadb-source.password* | The password to use for accessing a secured MariaDB Database | null | true | HIGH
+| *camel.kamelet.mariadb-source.query* | The Query to execute against the MariaDB Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city) | null | true | HIGH
+| *camel.kamelet.mariadb-source.databaseName* | The Database Name we are pointing | null | true | HIGH
+| *camel.kamelet.mariadb-source.consumedQuery* | A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id | null | false | MEDIUM
+|===
+
+
+
+The camel-mariadb-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-mariadb-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-mariadb-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

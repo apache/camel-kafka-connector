@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awslambdasink.CamelAwslambdasinkSinkConnector",
+		"artifactId": "camel-aws-lambda-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-lambda-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send a payload to an AWS Lambda function"
+	},
+	"properties": {
+		"camel.kamelet.aws-lambda-sink.function": {
+			"name": "camel.kamelet.aws-lambda-sink.function",
+			"description": "The Lambda Function name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-lambda-sink.accessKey": {
+			"name": "camel.kamelet.aws-lambda-sink.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-lambda-sink.secretKey": {
+			"name": "camel.kamelet.aws-lambda-sink.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-lambda-sink.region": {
+			"name": "camel.kamelet.aws-lambda-sink.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

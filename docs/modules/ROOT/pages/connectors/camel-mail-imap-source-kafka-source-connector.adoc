@@ -1,0 +1,57 @@
+// kafka-connector options: START
+[[camel-mail-imap-source-kafka-connector-source]]
+= camel-mail-imap-source-kafka-connector source configuration
+
+Connector description: Receive unread emails from an IMAP mail server, marking them as read once they are received.
+
+When using camel-mail-imap-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mail-imap-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mailimapsource.CamelMailimapsourceSourceConnector
+----
+
+
+The camel-mail-imap-source source connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.mail-imap-source.host* | The IMAP server host Example: imap.gmail.com | null | true | HIGH
+| *camel.kamelet.mail-imap-source.port* | The IMAP server port | "993" | true | HIGH
+| *camel.kamelet.mail-imap-source.username* | The username to access the mail box | null | true | HIGH
+| *camel.kamelet.mail-imap-source.password* | The password to access the mail box | null | true | HIGH
+| *camel.kamelet.mail-imap-source.fetchSize* | The number of messages fetched for each poll (-1 for no limits) | 10 | false | MEDIUM
+| *camel.kamelet.mail-imap-source.delay* | The delay between fetches in milliseconds | 60000 | false | MEDIUM
+|===
+
+
+
+The camel-mail-imap-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-mail-imap-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-mail-imap-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

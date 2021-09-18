@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jmsamqp10source.CamelJmsamqp10sourceSourceConnector",
+		"artifactId": "camel-jms-amqp-10-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jms-amqp-10-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "A Kamelet that can consume events from any AMQP 1.0 compliant message broker using the Apache Qpid JMS client"
+	},
+	"properties": {
+		"camel.kamelet.jms-amqp-10-source.destinationType": {
+			"name": "camel.kamelet.jms-amqp-10-source.destinationType",
+			"description": "The JMS destination type (i.e.: queue or topic)",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-amqp-10-source.destinationName": {
+			"name": "camel.kamelet.jms-amqp-10-source.destinationName",
+			"description": "The JMS destination name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-amqp-10-source.remoteURI": {
+			"name": "camel.kamelet.jms-amqp-10-source.remoteURI",
+			"description": "The JMS URL Example: amqp:\/\/my-host:31616",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

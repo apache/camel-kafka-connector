@@ -228,8 +228,5 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		}
-	},
-	"transforms": [
-		"org.apache.camel.kafkaconnector.slack.transformers.SlackTransforms"
-	]
+	}
 }

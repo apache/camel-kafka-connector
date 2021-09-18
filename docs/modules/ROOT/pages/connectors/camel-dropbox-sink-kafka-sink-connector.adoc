@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-dropbox-sink-kafka-connector-sink]]
+= camel-dropbox-sink-kafka-connector sink configuration
+
+Connector Description: Upload Files to Dropbox.
+
+The Kamelet expects the following headers to be set:
+
+- `file` / `ce-file`: as the file name to upload
+
+If the header won't be set the exchange ID will be used as file name.
+
+When using camel-dropbox-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-dropbox-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.dropboxsink.CamelDropboxsinkSinkConnector
+----
+
+
+The camel-dropbox-sink sink connector supports 4 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.dropbox-sink.accessToken* | The access Token to use to access Dropbox | null | true | HIGH
+| *camel.kamelet.dropbox-sink.clientIdentifier* | Dropbox App client Identifier | null | true | HIGH
+| *camel.kamelet.dropbox-sink.remotePath* | Original file or folder to work with | null | true | HIGH
+| *camel.kamelet.dropbox-sink.uploadMode* | Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. The value can be one of add, force. | "add" | true | HIGH
+|===
+
+
+
+The camel-dropbox-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-dropbox-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-dropbox-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

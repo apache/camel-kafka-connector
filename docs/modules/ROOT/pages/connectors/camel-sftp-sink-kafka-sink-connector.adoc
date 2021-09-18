@@ -1,0 +1,64 @@
+// kafka-connector options: START
+[[camel-sftp-sink-kafka-connector-sink]]
+= camel-sftp-sink-kafka-connector sink configuration
+
+Connector Description: Send data to an SFTP Server.
+
+The Kamelet expects the following headers to be set:
+
+- `file` / `ce-file`: as the file name to upload
+
+If the header won't be set the exchange ID will be used as file name.
+
+When using camel-sftp-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-sftp-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.sftpsink.CamelSftpsinkSinkConnector
+----
+
+
+The camel-sftp-sink sink connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.sftp-sink.host* | Hostname of the FTP server | null | true | HIGH
+| *camel.kamelet.sftp-sink.port* | Port of the FTP server | "22" | true | HIGH
+| *camel.kamelet.sftp-sink.username* | The username to access the FTP server | null | true | HIGH
+| *camel.kamelet.sftp-sink.password* | The password to access the FTP server | null | true | HIGH
+| *camel.kamelet.sftp-sink.directoryName* | The starting directory | null | true | HIGH
+| *camel.kamelet.sftp-sink.passiveMode* | Sets passive mode connection | false | false | MEDIUM
+| *camel.kamelet.sftp-sink.fileExist* | How to behave in case of file already existent. There are 4 enums and the value can be one of Override, Append, Fail or Ignore | "Override" | false | MEDIUM
+|===
+
+
+
+The camel-sftp-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-sftp-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-sftp-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

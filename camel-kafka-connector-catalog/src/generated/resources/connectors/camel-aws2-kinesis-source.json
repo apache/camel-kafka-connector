@@ -436,8 +436,5 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		}
-	},
-	"transforms": [
-		"org.apache.camel.kafkaconnector.aws2kinesis.transformers.KinesisRecordDataTransforms"
-	]
+	}
 }

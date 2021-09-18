@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-google-calendar-source-kafka-connector-source]]
+= camel-google-calendar-source-kafka-connector source configuration
+
+Connector description: Receive data from Google Calendar.
+
+When using camel-google-calendar-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-google-calendar-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.googlecalendarsource.CamelGooglecalendarsourceSourceConnector
+----
+
+
+The camel-google-calendar-source source connector supports 10 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.google-calendar-source.index* | An index for the google calendar endpoint | null | true | HIGH
+| *camel.kamelet.google-calendar-source.calendarId* | The calendar ID to be used as events source | null | true | HIGH
+| *camel.kamelet.google-calendar-source.clientId* | Client ID of the calendar application | null | true | HIGH
+| *camel.kamelet.google-calendar-source.clientSecret* | Client Secret of the calendar application | null | true | HIGH
+| *camel.kamelet.google-calendar-source.accessToken* | OAuth 2 access token for google calendar application. This typically expires after an hour so refreshToken is recommended for long term usage. | null | true | HIGH
+| *camel.kamelet.google-calendar-source.refreshToken* | OAuth 2 refresh token for google calendar application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | true | HIGH
+| *camel.kamelet.google-calendar-source.delay* | Milliseconds before the next poll | 500 | false | MEDIUM
+| *camel.kamelet.google-calendar-source.application Name* | Google Calendar application name | null | true | HIGH
+| *camel.kamelet.google-calendar-source.syncFlow* | Sync events for incremental synchronization | false | false | MEDIUM
+| *camel.kamelet.google-calendar-source.consumeFrom Now* | Consume events in the selected calendar from now on | true | false | MEDIUM
+|===
+
+
+
+The camel-google-calendar-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-google-calendar-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-calendar-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

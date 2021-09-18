@@ -1,0 +1,55 @@
+// kafka-connector options: START
+[[camel-github-source-kafka-connector-source]]
+= camel-github-source-kafka-connector source configuration
+
+Connector description: Receive events From Github.
+
+When using camel-github-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-github-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.githubsource.CamelGithubsourceSourceConnector
+----
+
+
+The camel-github-source source connector supports 4 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.github-source.repoName* | The Github Repository name | null | true | HIGH
+| *camel.kamelet.github-source.repoOwner* | The repository owner | null | true | HIGH
+| *camel.kamelet.github-source.oauthToken* | Oauth token | null | true | HIGH
+| *camel.kamelet.github-source.type* | The type of event to consume. One of event, pullRequest, pullRequestComment or tag | "event" | true | HIGH
+|===
+
+
+
+The camel-github-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-github-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-github-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

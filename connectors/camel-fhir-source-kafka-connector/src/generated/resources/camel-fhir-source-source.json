@@ -1,0 +1,59 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.fhirsource.CamelFhirsourceSourceConnector",
+		"artifactId": "camel-fhir-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-fhir-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive data from Fhir server."
+	},
+	"properties": {
+		"camel.kamelet.fhir-source.serverUrl": {
+			"name": "camel.kamelet.fhir-source.serverUrl",
+			"description": "The Fhir server url",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.fhir-source.url": {
+			"name": "camel.kamelet.fhir-source.url",
+			"description": "The Fhir resource type url",
+			"defaultValue": "\"\/Patient\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-source.encoding": {
+			"name": "camel.kamelet.fhir-source.encoding",
+			"description": "Encoding to use for all request. Possible values are JSON and XML",
+			"defaultValue": "\"JSON\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-source.fhirVersion": {
+			"name": "camel.kamelet.fhir-source.fhirVersion",
+			"description": "The FHIR Version to use. There are 6 enums and the value can be one of DSTU2, DSTU2_HL7ORG, DSTU2_1, DSTU3, R4, R5",
+			"defaultValue": "\"R4\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-source.username": {
+			"name": "camel.kamelet.fhir-source.username",
+			"description": "The username to access the Fhir server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.fhir-source.password": {
+			"name": "camel.kamelet.fhir-source.password",
+			"description": "The password to access the Fhir server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.fhir-source.prettyPrint": {
+			"name": "camel.kamelet.fhir-source.prettyPrint",
+			"description": "Define if the Json must be pretty print or not",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

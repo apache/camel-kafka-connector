@@ -1,0 +1,62 @@
+// kafka-connector options: START
+[[camel-minio-sink-kafka-connector-sink]]
+= camel-minio-sink-kafka-connector sink configuration
+
+Connector Description: Upload data to Minio.
+
+The Kamelet expects the following headers to be set:
+
+- `file` / `ce-file`: as the file name to upload
+
+If the header won't be set the exchange ID will be used as file name.
+
+When using camel-minio-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-minio-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.miniosink.CamelMiniosinkSinkConnector
+----
+
+
+The camel-minio-sink sink connector supports 5 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.minio-sink.bucketName* | The Minio Bucket name | null | true | HIGH
+| *camel.kamelet.minio-sink.accessKey* | The access key obtained from Minio | null | true | HIGH
+| *camel.kamelet.minio-sink.secretKey* | The secret key obtained from Minio | null | true | HIGH
+| *camel.kamelet.minio-sink.endpoint* | The Minio Endpoint, it can be an URL, domain name, IPv4 address or IPv6 address. Example: \http://localhost:9000 | null | true | HIGH
+| *camel.kamelet.minio-sink.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. | false | false | MEDIUM
+|===
+
+
+
+The camel-minio-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-minio-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-minio-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

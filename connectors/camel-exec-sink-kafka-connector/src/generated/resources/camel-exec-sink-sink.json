@@ -1,0 +1,19 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.execsink.CamelExecsinkSinkConnector",
+		"artifactId": "camel-exec-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-exec-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Execute system commands\n\nThe Kamelet expects the following headers to be set:\n\n- `args` \/ `ce-args`: as the args to be set on the executable.\n\nIf the header won't be set the executable will be run without arguments."
+	},
+	"properties": {
+		"camel.kamelet.exec-sink.executable": {
+			"name": "camel.kamelet.exec-sink.executable",
+			"description": "The command to execute",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mongodbsink.CamelMongodbsinkSinkConnector",
+		"artifactId": "camel-mongodb-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mongodb-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send documents to MongoDB.\n\nThis Kamelet expects a JSON as body.\n\nProperties you can as headers:\n\n`db-upsert` \/ `ce-db-upsert` If the database should create the element if it does not exist. Boolean value."
+	},
+	"properties": {
+		"camel.kamelet.mongodb-sink.hosts": {
+			"name": "camel.kamelet.mongodb-sink.hosts",
+			"description": "Comma separated list of MongoDB Host Addresses in host:port format.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-sink.collection": {
+			"name": "camel.kamelet.mongodb-sink.collection",
+			"description": "Sets the name of the MongoDB collection to bind to this endpoint.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-sink.password": {
+			"name": "camel.kamelet.mongodb-sink.password",
+			"description": "User password for accessing MongoDB.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-sink.username": {
+			"name": "camel.kamelet.mongodb-sink.username",
+			"description": "Username for accessing MongoDB.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-sink.database": {
+			"name": "camel.kamelet.mongodb-sink.database",
+			"description": "Sets the name of the MongoDB database to target.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-sink.writeConcern": {
+			"name": "camel.kamelet.mongodb-sink.writeConcern",
+			"description": "Configure the level of acknowledgment requested from MongoDB for write operations, possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, MAJORITY.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mongodb-sink.createCollection": {
+			"name": "camel.kamelet.mongodb-sink.createCollection",
+			"description": "Create collection during initialisation if it doesn't exist.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

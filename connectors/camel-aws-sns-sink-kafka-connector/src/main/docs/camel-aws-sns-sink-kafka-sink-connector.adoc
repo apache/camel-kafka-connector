@@ -1,0 +1,60 @@
+// kafka-connector options: START
+[[camel-aws-sns-sink-kafka-connector-sink]]
+= camel-aws-sns-sink-kafka-connector sink configuration
+
+Connector Description: Send message to an AWS SNS Topic
+
+When using camel-aws-sns-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-sns-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awssnssink.CamelAwssnssinkSinkConnector
+----
+
+
+The camel-aws-sns-sink sink connector supports 5 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-sns-sink.topicNameOrArn* | The SQS Topic name or ARN | null | true | HIGH
+| *camel.kamelet.aws-sns-sink.accessKey* | The access key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-sns-sink.secretKey* | The secret key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-sns-sink.region* | The AWS region to connect to Example: eu-west-1 | null | true | HIGH
+| *camel.kamelet.aws-sns-sink.autoCreateTopic* | Setting the autocreation of the SNS topic. | false | false | MEDIUM
+|===
+
+
+
+The camel-aws-sns-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-sns-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-sns-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

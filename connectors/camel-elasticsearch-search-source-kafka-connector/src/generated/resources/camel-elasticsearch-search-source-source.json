@@ -1,0 +1,63 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.elasticsearchsearchsource.CamelElasticsearchsearchsourceSourceConnector",
+		"artifactId": "camel-elasticsearch-search-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-elasticsearch-search-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Search data on ElasticSearch"
+	},
+	"properties": {
+		"camel.kamelet.elasticsearch-search-source.period": {
+			"name": "camel.kamelet.elasticsearch-search-source.period",
+			"description": "The time interval between two searches",
+			"defaultValue": "1000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-search-source.query": {
+			"name": "camel.kamelet.elasticsearch-search-source.query",
+			"description": "The query we want to use to search on ElasticSearch.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.elasticsearch-search-source.user": {
+			"name": "camel.kamelet.elasticsearch-search-source.user",
+			"description": "Username to connect to ElasticSearch.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-search-source.password": {
+			"name": "camel.kamelet.elasticsearch-search-source.password",
+			"description": "Password to connect to ElasticSearch.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-search-source.enableSSL": {
+			"name": "camel.kamelet.elasticsearch-search-source.enableSSL",
+			"description": "Do we want to connect using SSL?",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-search-source.hostAddresses": {
+			"name": "camel.kamelet.elasticsearch-search-source.hostAddresses",
+			"description": "Comma separated list with ip:port formatted remote transport addresses to use.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.elasticsearch-search-source.indexName": {
+			"name": "camel.kamelet.elasticsearch-search-source.indexName",
+			"description": "The name of the index to act against.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.elasticsearch-search-source.clusterName": {
+			"name": "camel.kamelet.elasticsearch-search-source.clusterName",
+			"description": "Name of the cluster.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

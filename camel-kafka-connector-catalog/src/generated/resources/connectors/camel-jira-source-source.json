@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jirasource.CamelJirasourceSourceConnector",
+		"artifactId": "camel-jira-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jira-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive notifications about new issues from Jira."
+	},
+	"properties": {
+		"camel.kamelet.jira-source.jiraUrl": {
+			"name": "camel.kamelet.jira-source.jiraUrl",
+			"description": "The URL of your instance of Jira Example: http:\/\/my_jira.com:8081",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jira-source.username": {
+			"name": "camel.kamelet.jira-source.username",
+			"description": "The username to access Jira",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jira-source.password": {
+			"name": "camel.kamelet.jira-source.password",
+			"description": "The password to access Jira",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jira-source.jql": {
+			"name": "camel.kamelet.jira-source.jql",
+			"description": "A query to filter issues Example: project=MyProject",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

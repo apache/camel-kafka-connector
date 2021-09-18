@@ -1,0 +1,44 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.miniosink.CamelMiniosinkSinkConnector",
+		"artifactId": "camel-minio-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-minio-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Upload data to Minio.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+	},
+	"properties": {
+		"camel.kamelet.minio-sink.bucketName": {
+			"name": "camel.kamelet.minio-sink.bucketName",
+			"description": "The Minio Bucket name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.minio-sink.accessKey": {
+			"name": "camel.kamelet.minio-sink.accessKey",
+			"description": "The access key obtained from Minio",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.minio-sink.secretKey": {
+			"name": "camel.kamelet.minio-sink.secretKey",
+			"description": "The secret key obtained from Minio",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.minio-sink.endpoint": {
+			"name": "camel.kamelet.minio-sink.endpoint",
+			"description": "The Minio Endpoint, it can be an URL, domain name, IPv4 address or IPv6 address. Example: http:\/\/localhost:9000",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.minio-sink.autoCreateBucket": {
+			"name": "camel.kamelet.minio-sink.autoCreateBucket",
+			"description": "Setting the autocreation of the S3 bucket bucketName.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

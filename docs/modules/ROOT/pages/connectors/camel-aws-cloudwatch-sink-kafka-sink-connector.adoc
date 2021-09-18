@@ -1,0 +1,64 @@
+// kafka-connector options: START
+[[camel-aws-cloudwatch-sink-kafka-connector-sink]]
+= camel-aws-cloudwatch-sink-kafka-connector sink configuration
+
+Connector Description: Send messages to AWS CloudWatch metrics.
+
+There are several properties you can set in the headers, such as:
+
+`metric-name` / `ce-metric-name` for the metric name.
+`metric-value` / `ce-metric-value` for the metric value.
+`metric-unit` / `ce-metric-unit` for the metric unit.
+`metric-timestamp` / `ce-metric-timestamp` for the metric timestamp.
+`metric-dimension-name` / `ce-metric-dimension-name` for the dimension name.
+`metric-dimension-value` / `ce-metric-dimension-value` for the dimension value.
+
+When using camel-aws-cloudwatch-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-cloudwatch-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awscloudwatchsink.CamelAwscloudwatchsinkSinkConnector
+----
+
+
+The camel-aws-cloudwatch-sink sink connector supports 4 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-cloudwatch-sink.cw_namespace* | The cloud watch metric namespace. | null | true | HIGH
+| *camel.kamelet.aws-cloudwatch-sink.accessKey* | The access key obtained from AWS. | null | true | HIGH
+| *camel.kamelet.aws-cloudwatch-sink.secretKey* | The secret key obtained from AWS. | null | true | HIGH
+| *camel.kamelet.aws-cloudwatch-sink.region* | The AWS region to connect to. Example: eu-west-1 | null | true | HIGH
+|===
+
+
+
+The camel-aws-cloudwatch-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-cloudwatch-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-cloudwatch-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

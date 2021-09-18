@@ -1,0 +1,65 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.infinispansource.CamelInfinispansourceSourceConnector",
+		"artifactId": "camel-infinispan-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-infinispan-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Get Events from an Infinispan cache"
+	},
+	"properties": {
+		"camel.kamelet.infinispan-source.hosts": {
+			"name": "camel.kamelet.infinispan-source.hosts",
+			"description": "Specifies the host of the cache on Infinispan instance",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.infinispan-source.secure": {
+			"name": "camel.kamelet.infinispan-source.secure",
+			"description": "If the Infinispan instance is secured or not",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.infinispan-source.username": {
+			"name": "camel.kamelet.infinispan-source.username",
+			"description": "Username to connect to Infinispan.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.infinispan-source.password": {
+			"name": "camel.kamelet.infinispan-source.password",
+			"description": "Password to connect to Infinispan.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.infinispan-source.saslMechanism": {
+			"name": "camel.kamelet.infinispan-source.saslMechanism",
+			"description": "The SASL Mechanism to use",
+			"defaultValue": "\"DIGEST-MD5\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.infinispan-source.securityRealm": {
+			"name": "camel.kamelet.infinispan-source.securityRealm",
+			"description": "Define the security realm to access the infinispan instance",
+			"defaultValue": "\"default\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.infinispan-source.securityServerName": {
+			"name": "camel.kamelet.infinispan-source.securityServerName",
+			"description": "Define the security server name to access the infinispan instance",
+			"defaultValue": "\"infinispan\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.infinispan-source.eventTypes": {
+			"name": "camel.kamelet.infinispan-source.eventTypes",
+			"description": "Specifies the set of event types to register by the consumer.Multiple event can be separated by comma. The possible event types are CLIENT_CACHE_ENTRY_CREATED, CLIENT_CACHE_ENTRY_MODIFIED, CLIENT_CACHE_ENTRY_REMOVED, CLIENT_CACHE_ENTRY_EXPIRED, CLIENT_CACHE_FAILOVER",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

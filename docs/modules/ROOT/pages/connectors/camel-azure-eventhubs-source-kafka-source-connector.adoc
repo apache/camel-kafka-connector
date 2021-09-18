@@ -1,0 +1,58 @@
+// kafka-connector options: START
+[[camel-azure-eventhubs-source-kafka-connector-source]]
+= camel-azure-eventhubs-source-kafka-connector source configuration
+
+Connector description: Receive events from Azure Eventhubs.
+
+When using camel-azure-eventhubs-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-eventhubs-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azureeventhubssource.CamelAzureeventhubssourceSourceConnector
+----
+
+
+The camel-azure-eventhubs-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.azure-eventhubs-source.namespaceName* | The eventhubs namespace | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-source.eventhubName* | The eventhub name | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-source.sharedAccess Name* | EventHubs SAS key name | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-source.sharedAccess Key* | The key for EventHubs SAS key name | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-source.blobAccount Name* | The name of the storage blob account to be use | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-source.blobContainer Name* | The name of the storage blob container to be use | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-source.blobAccessKey* | The key for Azure Storage Blob service associated with the Blob account name | null | true | HIGH
+|===
+
+
+
+The camel-azure-eventhubs-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-eventhubs-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-eventhubs-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

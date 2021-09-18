@@ -1,0 +1,55 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azureeventhubssource.CamelAzureeventhubssourceSourceConnector",
+		"artifactId": "camel-azure-eventhubs-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-eventhubs-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive events from Azure Eventhubs."
+	},
+	"properties": {
+		"camel.kamelet.azure-eventhubs-source.namespaceName": {
+			"name": "camel.kamelet.azure-eventhubs-source.namespaceName",
+			"description": "The eventhubs namespace",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-source.eventhubName": {
+			"name": "camel.kamelet.azure-eventhubs-source.eventhubName",
+			"description": "The eventhub name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-source.sharedAccessName": {
+			"name": "camel.kamelet.azure-eventhubs-source.sharedAccessName",
+			"description": "EventHubs SAS key name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-source.sharedAccessKey": {
+			"name": "camel.kamelet.azure-eventhubs-source.sharedAccessKey",
+			"description": "The key for EventHubs SAS key name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-source.blobAccountName": {
+			"name": "camel.kamelet.azure-eventhubs-source.blobAccountName",
+			"description": "The name of the storage blob account to be use",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-source.blobContainerName": {
+			"name": "camel.kamelet.azure-eventhubs-source.blobContainerName",
+			"description": "The name of the storage blob container to be use",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-source.blobAccessKey": {
+			"name": "camel.kamelet.azure-eventhubs-source.blobAccessKey",
+			"description": "The key for Azure Storage Blob service associated with the Blob account name",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

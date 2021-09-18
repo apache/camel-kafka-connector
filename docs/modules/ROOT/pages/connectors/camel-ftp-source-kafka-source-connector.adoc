@@ -1,0 +1,59 @@
+// kafka-connector options: START
+[[camel-ftp-source-kafka-connector-source]]
+= camel-ftp-source-kafka-connector source configuration
+
+Connector description: Receive data from an FTP Server.
+
+When using camel-ftp-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ftp-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.ftpsource.CamelFtpsourceSourceConnector
+----
+
+
+The camel-ftp-source source connector supports 8 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.ftp-source.host* | Hostname of the FTP server | null | true | HIGH
+| *camel.kamelet.ftp-source.port* | Port of the FTP server | "21" | true | HIGH
+| *camel.kamelet.ftp-source.username* | The username to access the FTP server | null | true | HIGH
+| *camel.kamelet.ftp-source.password* | The password to access the FTP server | null | true | HIGH
+| *camel.kamelet.ftp-source.directoryName* | The starting directory | null | true | HIGH
+| *camel.kamelet.ftp-source.passiveMode* | Sets passive mode connection | false | false | MEDIUM
+| *camel.kamelet.ftp-source.recursive* | If a directory, will look for files in all the sub-directories as well. | false | false | MEDIUM
+| *camel.kamelet.ftp-source.idempotent* | Skip already processed files. | true | false | MEDIUM
+|===
+
+
+
+The camel-ftp-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-ftp-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-ftp-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

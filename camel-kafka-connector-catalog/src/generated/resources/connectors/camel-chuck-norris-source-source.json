@@ -1,0 +1,20 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.chucknorrissource.CamelChucknorrissourceSourceConnector",
+		"artifactId": "camel-chuck-norris-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-chuck-norris-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Gets peridically Chuck Norris jokes from http:\/\/www.icndb.com\/"
+	},
+	"properties": {
+		"camel.kamelet.chuck-norris-source.period": {
+			"name": "camel.kamelet.chuck-norris-source.period",
+			"description": "The interval (msec) to wait before getting the next joke",
+			"defaultValue": "10000",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

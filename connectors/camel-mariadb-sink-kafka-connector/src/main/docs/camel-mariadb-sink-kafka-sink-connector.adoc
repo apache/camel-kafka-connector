@@ -1,0 +1,73 @@
+// kafka-connector options: START
+[[camel-mariadb-sink-kafka-connector-sink]]
+= camel-mariadb-sink-kafka-connector sink configuration
+
+Connector Description: Send data to a MariaDB Database.
+
+In you KameletBinding file you'll need to explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies
+
+- "mvn:org.mariadb.jdbc:mariadb-java-client:<version>"
+
+This Kamelet expects a JSON as body. The mapping between the JSON fields and parameters is done by key, so if you have the following query:
+
+'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'
+
+The Kamelet needs to receive as input something like:
+
+'{ "username":"oscerd", "city":"Rome"}'
+
+When using camel-mariadb-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mariadb-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mariadbsink.CamelMariadbsinkSinkConnector
+----
+
+
+The camel-mariadb-sink sink connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.mariadb-sink.serverName* | Server Name for the data source Example: localhost | null | true | HIGH
+| *camel.kamelet.mariadb-sink.port* | Server Port for the data source | "3306" | false | MEDIUM
+| *camel.kamelet.mariadb-sink.username* | The username to use for accessing a secured MariaDB Database | null | true | HIGH
+| *camel.kamelet.mariadb-sink.password* | The password to use for accessing a secured MariaDB Database | null | true | HIGH
+| *camel.kamelet.mariadb-sink.query* | The Query to execute against the MariaDB Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city) | null | true | HIGH
+| *camel.kamelet.mariadb-sink.databaseName* | The Database Name we are pointing | null | true | HIGH
+|===
+
+
+
+The camel-mariadb-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-mariadb-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-mariadb-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

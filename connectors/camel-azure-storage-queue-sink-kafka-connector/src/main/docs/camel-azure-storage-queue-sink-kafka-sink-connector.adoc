@@ -1,0 +1,66 @@
+// kafka-connector options: START
+[[camel-azure-storage-queue-sink-kafka-connector-sink]]
+= camel-azure-storage-queue-sink-kafka-connector sink configuration
+
+Connector Description: Send Messages to Azure Storage queues.
+
+The Kamelet is able to understand the following headers to be set:
+
+- `expiration` / `ce-expiration`: as the time to live of the message in the queue.
+
+If the header won't be set the default of 7 days will be used.
+
+The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S — parses as 20.345 seconds, P2D — parses as 2 days.
+
+When using camel-azure-storage-queue-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-storage-queue-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azurestoragequeuesink.CamelAzurestoragequeuesinkSinkConnector
+----
+
+
+The camel-azure-storage-queue-sink sink connector supports 3 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.azure-storage-queue-sink.accountName* | The Azure Storage Queue account name. | null | true | HIGH
+| *camel.kamelet.azure-storage-queue-sink.queueName* | The Azure Storage Queue container name. | null | true | HIGH
+| *camel.kamelet.azure-storage-queue-sink.accessKey* | The Azure Storage Queue access Key. | null | true | HIGH
+|===
+
+
+
+The camel-azure-storage-queue-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-storage-queue-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-storage-queue-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

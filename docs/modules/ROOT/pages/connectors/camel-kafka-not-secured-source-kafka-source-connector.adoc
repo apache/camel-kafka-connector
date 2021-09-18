@@ -1,0 +1,57 @@
+// kafka-connector options: START
+[[camel-kafka-not-secured-source-kafka-connector-source]]
+= camel-kafka-not-secured-source-kafka-connector source configuration
+
+Connector description: Receive data from Kafka topics on an insecure broker.
+
+When using camel-kafka-not-secured-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-kafka-not-secured-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.kafkanotsecuredsource.CamelKafkanotsecuredsourceSourceConnector
+----
+
+
+The camel-kafka-not-secured-source source connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.kafka-not-secured-source.topic* | Comma separated list of Kafka topic names | null | true | HIGH
+| *camel.kamelet.kafka-not-secured-source.brokers* | Comma separated list of Kafka Broker URLs | null | true | HIGH
+| *camel.kamelet.kafka-not-secured-source.autoCommit Enable* | If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer | true | false | MEDIUM
+| *camel.kamelet.kafka-not-secured-source.allowManual Commit* | Whether to allow doing manual commits | false | false | MEDIUM
+| *camel.kamelet.kafka-not-secured-source.pollOnError* | What to do if kafka threw an exception while polling for new messages. There are 5 enums and the value can be one of DISCARD, ERROR_HANDLER, RECONNECT, RETRY, STOP | "ERROR_HANDLER" | false | MEDIUM
+| *camel.kamelet.kafka-not-secured-source.autoOffset Reset* | What to do when there is no initial offset. There are 3 enums and the value can be one of latest, earliest, none | "latest" | false | MEDIUM
+|===
+
+
+
+The camel-kafka-not-secured-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-kafka-not-secured-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-kafka-not-secured-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

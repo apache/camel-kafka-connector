@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.natssink.CamelNatssinkSinkConnector",
+		"artifactId": "camel-nats-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-nats-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to NATS topics."
+	},
+	"properties": {
+		"camel.kamelet.nats-sink.topic": {
+			"name": "camel.kamelet.nats-sink.topic",
+			"description": "NATS Topic name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.nats-sink.servers": {
+			"name": "camel.kamelet.nats-sink.servers",
+			"description": "Comma separated list of NATS Servers",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

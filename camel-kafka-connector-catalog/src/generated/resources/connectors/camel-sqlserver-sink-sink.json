@@ -1,0 +1,50 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sqlserversink.CamelSqlserversinkSinkConnector",
+		"artifactId": "camel-sqlserver-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-sqlserver-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to a Microsoft SQL Server Database.\n\nIn you KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.microsoft.sqlserver:mssql-jdbc:<version>\"\n\nThis Kamelet expects a JSON as body. The mapping between the JSON fields and parameters is done by key, so if you have the following query:\n\n'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'\n\nThe Kamelet needs to receive as input something like:\n\n'{ \"username\":\"oscerd\", \"city\":\"Rome\"}'"
+	},
+	"properties": {
+		"camel.kamelet.sqlserver-sink.serverName": {
+			"name": "camel.kamelet.sqlserver-sink.serverName",
+			"description": "Server Name for the data source Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-sink.port": {
+			"name": "camel.kamelet.sqlserver-sink.port",
+			"description": "Server Port for the data source",
+			"defaultValue": "\"1433\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sqlserver-sink.username": {
+			"name": "camel.kamelet.sqlserver-sink.username",
+			"description": "The username to use for accessing a secured SQL Server Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-sink.password": {
+			"name": "camel.kamelet.sqlserver-sink.password",
+			"description": "The password to use for accessing a secured SQL Server Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-sink.query": {
+			"name": "camel.kamelet.sqlserver-sink.query",
+			"description": "The Query to execute against the SQL Server Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-sink.databaseName": {
+			"name": "camel.kamelet.sqlserver-sink.databaseName",
+			"description": "The Database Name we are pointing",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

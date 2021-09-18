@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awskinesissink.CamelAwskinesissinkSinkConnector",
+		"artifactId": "camel-aws-kinesis-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-kinesis-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to AWS Kinesis.\n\nThe Kamelet expects the following header:\n\n- `partition` \/ `ce-partition`: to set the Kinesis partition key\n\nIf the header won't be set the exchange ID will be used.\n\nThe Kamelet is also able to recognize the following header:\n\n- `sequence-number` \/ `ce-sequence-number`: to set the Sequence number\n\nThis header is optional."
+	},
+	"properties": {
+		"camel.kamelet.aws-kinesis-sink.stream": {
+			"name": "camel.kamelet.aws-kinesis-sink.stream",
+			"description": "The Kinesis stream that you want to access (needs to be created in advance)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-sink.accessKey": {
+			"name": "camel.kamelet.aws-kinesis-sink.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-sink.secretKey": {
+			"name": "camel.kamelet.aws-kinesis-sink.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-sink.region": {
+			"name": "camel.kamelet.aws-kinesis-sink.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

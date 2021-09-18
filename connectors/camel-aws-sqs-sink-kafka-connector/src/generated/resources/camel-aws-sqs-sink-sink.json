@@ -1,0 +1,44 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awssqssink.CamelAwssqssinkSinkConnector",
+		"artifactId": "camel-aws-sqs-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-sqs-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send message to an AWS SQS Queue"
+	},
+	"properties": {
+		"camel.kamelet.aws-sqs-sink.queueNameOrArn": {
+			"name": "camel.kamelet.aws-sqs-sink.queueNameOrArn",
+			"description": "The SQS Queue name or ARN",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-sink.accessKey": {
+			"name": "camel.kamelet.aws-sqs-sink.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-sink.secretKey": {
+			"name": "camel.kamelet.aws-sqs-sink.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-sink.region": {
+			"name": "camel.kamelet.aws-sqs-sink.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-sink.autoCreateQueue": {
+			"name": "camel.kamelet.aws-sqs-sink.autoCreateQueue",
+			"description": "Setting the autocreation of the SQS queue.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

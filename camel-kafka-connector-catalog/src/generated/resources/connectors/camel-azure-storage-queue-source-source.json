@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestoragequeuesource.CamelAzurestoragequeuesourceSourceConnector",
+		"artifactId": "camel-azure-storage-queue-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-queue-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive Messages from Azure Storage queues."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-queue-source.accountName": {
+			"name": "camel.kamelet.azure-storage-queue-source.accountName",
+			"description": "The Azure Storage Queue account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-queue-source.queueName": {
+			"name": "camel.kamelet.azure-storage-queue-source.queueName",
+			"description": "The Azure Storage Queue container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-queue-source.accessKey": {
+			"name": "camel.kamelet.azure-storage-queue-source.accessKey",
+			"description": "The Azure Storage Queue access Key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-queue-source.maxMessages": {
+			"name": "camel.kamelet.azure-storage-queue-source.maxMessages",
+			"description": "Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. By default it will consider 1 message to be retrieved, the allowed range is 1 to 32 messages.",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -1,0 +1,55 @@
+// kafka-connector options: START
+[[camel-jira-source-kafka-connector-source]]
+= camel-jira-source-kafka-connector source configuration
+
+Connector description: Receive notifications about new issues from Jira.
+
+When using camel-jira-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-jira-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.jirasource.CamelJirasourceSourceConnector
+----
+
+
+The camel-jira-source source connector supports 4 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.jira-source.jiraUrl* | The URL of your instance of Jira Example: \http://my_jira.com:8081 | null | true | HIGH
+| *camel.kamelet.jira-source.username* | The username to access Jira | null | true | HIGH
+| *camel.kamelet.jira-source.password* | The password to access Jira | null | true | HIGH
+| *camel.kamelet.jira-source.jql* | A query to filter issues Example: project=MyProject | null | false | MEDIUM
+|===
+
+
+
+The camel-jira-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-jira-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-jira-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

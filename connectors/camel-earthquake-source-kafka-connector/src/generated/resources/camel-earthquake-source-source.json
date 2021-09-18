@@ -1,0 +1,27 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.earthquakesource.CamelEarthquakesourceSourceConnector",
+		"artifactId": "camel-earthquake-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-earthquake-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Get data about current earthquake events happening in the world using the USGS API"
+	},
+	"properties": {
+		"camel.kamelet.earthquake-source.period": {
+			"name": "camel.kamelet.earthquake-source.period",
+			"description": "The interval between fetches to the earthquake API in milliseconds",
+			"defaultValue": "60000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.earthquake-source.lookAhead": {
+			"name": "camel.kamelet.earthquake-source.lookAhead",
+			"description": "The amount of minutes to look ahead when starting the integration afresh",
+			"defaultValue": "120",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

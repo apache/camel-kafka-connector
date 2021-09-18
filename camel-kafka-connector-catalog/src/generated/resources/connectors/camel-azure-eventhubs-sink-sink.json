@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azureeventhubssink.CamelAzureeventhubssinkSinkConnector",
+		"artifactId": "camel-azure-eventhubs-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-eventhubs-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send Events to Azure Eventhubs.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `partition` \/ `ce-partition`: as the time to live of the message in the queue.\n\nIf the header won't be set then the partition will be assigned by Eventhubs"
+	},
+	"properties": {
+		"camel.kamelet.azure-eventhubs-sink.namespaceName": {
+			"name": "camel.kamelet.azure-eventhubs-sink.namespaceName",
+			"description": "The eventhubs namespace",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-sink.eventhubName": {
+			"name": "camel.kamelet.azure-eventhubs-sink.eventhubName",
+			"description": "The eventhub name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-sink.sharedAccessName": {
+			"name": "camel.kamelet.azure-eventhubs-sink.sharedAccessName",
+			"description": "EventHubs SAS key name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-sink.sharedAccessKey": {
+			"name": "camel.kamelet.azure-eventhubs-sink.sharedAccessKey",
+			"description": "The key for EventHubs SAS key name",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestorageblobsource.CamelAzurestorageblobsourceSourceConnector",
+		"artifactId": "camel-azure-storage-blob-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-blob-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Consume Files from Azure Storage Blob."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-blob-source.period": {
+			"name": "camel.kamelet.azure-storage-blob-source.period",
+			"description": "The interval between fetches to the Azure Storage Container in milliseconds",
+			"defaultValue": "10000",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-source.accountName": {
+			"name": "camel.kamelet.azure-storage-blob-source.accountName",
+			"description": "The Azure Storage Blob account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-source.containerName": {
+			"name": "camel.kamelet.azure-storage-blob-source.containerName",
+			"description": "The Azure Storage Blob container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-source.accessKey": {
+			"name": "camel.kamelet.azure-storage-blob-source.accessKey",
+			"description": "The Azure Storage Blob access Key.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

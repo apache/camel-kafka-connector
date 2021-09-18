@@ -1,0 +1,69 @@
+// kafka-connector options: START
+[[camel-sqlserver-sink-kafka-connector-sink]]
+= camel-sqlserver-sink-kafka-connector sink configuration
+
+Connector Description: Send data to a Microsoft SQL Server Database.
+
+In you KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies
+
+- "mvn:com.microsoft.sqlserver:mssql-jdbc:<version>"
+
+This Kamelet expects a JSON as body. The mapping between the JSON fields and parameters is done by key, so if you have the following query:
+
+'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'
+
+The Kamelet needs to receive as input something like:
+
+'{ "username":"oscerd", "city":"Rome"}'
+
+When using camel-sqlserver-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-sqlserver-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.sqlserversink.CamelSqlserversinkSinkConnector
+----
+
+
+The camel-sqlserver-sink sink connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.sqlserver-sink.serverName* | Server Name for the data source Example: localhost | null | true | HIGH
+| *camel.kamelet.sqlserver-sink.port* | Server Port for the data source | "1433" | false | MEDIUM
+| *camel.kamelet.sqlserver-sink.username* | The username to use for accessing a secured SQL Server Database | null | true | HIGH
+| *camel.kamelet.sqlserver-sink.password* | The password to use for accessing a secured SQL Server Database | null | true | HIGH
+| *camel.kamelet.sqlserver-sink.query* | The Query to execute against the SQL Server Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city) | null | true | HIGH
+| *camel.kamelet.sqlserver-sink.databaseName* | The Database Name we are pointing | null | true | HIGH
+|===
+
+
+
+The camel-sqlserver-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-sqlserver-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-sqlserver-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

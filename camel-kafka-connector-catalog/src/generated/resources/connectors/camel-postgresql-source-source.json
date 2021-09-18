@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.postgresqlsource.CamelPostgresqlsourceSourceConnector",
+		"artifactId": "camel-postgresql-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-postgresql-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Query data from a PostgreSQL Database."
+	},
+	"properties": {
+		"camel.kamelet.postgresql-source.serverName": {
+			"name": "camel.kamelet.postgresql-source.serverName",
+			"description": "Server Name for the data source Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.postgresql-source.port": {
+			"name": "camel.kamelet.postgresql-source.port",
+			"description": "Server Port for the data source",
+			"defaultValue": "\"5432\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.postgresql-source.username": {
+			"name": "camel.kamelet.postgresql-source.username",
+			"description": "The username to use for accessing a secured PostgreSQL Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.postgresql-source.password": {
+			"name": "camel.kamelet.postgresql-source.password",
+			"description": "The password to use for accessing a secured PostgreSQL Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.postgresql-source.query": {
+			"name": "camel.kamelet.postgresql-source.query",
+			"description": "The Query to execute against the PostgreSQL Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.postgresql-source.databaseName": {
+			"name": "camel.kamelet.postgresql-source.databaseName",
+			"description": "The Database Name we are pointing",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.postgresql-source.consumedQuery": {
+			"name": "camel.kamelet.postgresql-source.consumedQuery",
+			"description": "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

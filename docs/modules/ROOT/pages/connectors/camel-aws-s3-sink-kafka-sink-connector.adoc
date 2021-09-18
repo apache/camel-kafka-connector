@@ -1,0 +1,62 @@
+// kafka-connector options: START
+[[camel-aws-s3-sink-kafka-connector-sink]]
+= camel-aws-s3-sink-kafka-connector sink configuration
+
+Connector Description: Upload data to AWS S3.
+
+The Kamelet expects the following headers to be set:
+
+- `file` / `ce-file`: as the file name to upload
+
+If the header won't be set the exchange ID will be used as file name.
+
+When using camel-aws-s3-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-s3-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awss3sink.CamelAwss3sinkSinkConnector
+----
+
+
+The camel-aws-s3-sink sink connector supports 5 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-s3-sink.bucketNameOrArn* | The S3 Bucket name or ARN. | null | true | HIGH
+| *camel.kamelet.aws-s3-sink.accessKey* | The access key obtained from AWS. | null | true | HIGH
+| *camel.kamelet.aws-s3-sink.secretKey* | The secret key obtained from AWS. | null | true | HIGH
+| *camel.kamelet.aws-s3-sink.region* | The AWS region to connect to. Example: eu-west-1 | null | true | HIGH
+| *camel.kamelet.aws-s3-sink.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. | false | false | MEDIUM
+|===
+
+
+
+The camel-aws-s3-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-s3-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-s3-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

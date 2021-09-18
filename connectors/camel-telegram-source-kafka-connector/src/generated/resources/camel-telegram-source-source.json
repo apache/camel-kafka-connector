@@ -1,0 +1,19 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.telegramsource.CamelTelegramsourceSourceConnector",
+		"artifactId": "camel-telegram-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-telegram-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive all messages that people send to your Telegram bot.\n\nTo create a bot, contact the @botfather account using the Telegram app."
+	},
+	"properties": {
+		"camel.kamelet.telegram-source.authorizationToken": {
+			"name": "camel.kamelet.telegram-source.authorizationToken",
+			"description": "The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

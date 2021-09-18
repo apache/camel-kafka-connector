@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mqttsource.CamelMqttsourceSourceConnector",
+		"artifactId": "camel-mqtt-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mqtt-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Allows receiving messages from any endpoint that supports the MQTT protocol, such as a message broker."
+	},
+	"properties": {
+		"camel.kamelet.mqtt-source.topic": {
+			"name": "camel.kamelet.mqtt-source.topic",
+			"description": "The topic to subscribe to Example: mytopic",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mqtt-source.brokerUrl": {
+			"name": "camel.kamelet.mqtt-source.brokerUrl",
+			"description": "The URL of the broker where to establish the connection Example: tcp:\/\/mosquitto:1883",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mqtt-source.clientId": {
+			"name": "camel.kamelet.mqtt-source.clientId",
+			"description": "The client ID to use when connecting to the resource",
+			"defaultValue": "\"mqtt-source\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

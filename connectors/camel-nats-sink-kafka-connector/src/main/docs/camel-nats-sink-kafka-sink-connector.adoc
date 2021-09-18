@@ -1,0 +1,57 @@
+// kafka-connector options: START
+[[camel-nats-sink-kafka-connector-sink]]
+= camel-nats-sink-kafka-connector sink configuration
+
+Connector Description: Send data to NATS topics.
+
+When using camel-nats-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-nats-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.natssink.CamelNatssinkSinkConnector
+----
+
+
+The camel-nats-sink sink connector supports 2 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.nats-sink.topic* | NATS Topic name | null | true | HIGH
+| *camel.kamelet.nats-sink.servers* | Comma separated list of NATS Servers | null | true | HIGH
+|===
+
+
+
+The camel-nats-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-nats-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-nats-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

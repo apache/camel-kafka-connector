@@ -1,0 +1,62 @@
+// kafka-connector options: START
+[[camel-sqlserver-source-kafka-connector-source]]
+= camel-sqlserver-source-kafka-connector source configuration
+
+Connector description: Query data from a Microsoft SQL Server Database.
+
+In you KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies
+
+- "mvn:com.microsoft.sqlserver:mssql-jdbc:<version>"
+
+When using camel-sqlserver-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-sqlserver-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.sqlserversource.CamelSqlserversourceSourceConnector
+----
+
+
+The camel-sqlserver-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.sqlserver-source.serverName* | Server Name for the data source Example: localhost | null | true | HIGH
+| *camel.kamelet.sqlserver-source.port* | Server Port for the data source | "1433" | false | MEDIUM
+| *camel.kamelet.sqlserver-source.username* | The username to use for accessing a secured SQL Server Database | null | true | HIGH
+| *camel.kamelet.sqlserver-source.password* | The password to use for accessing a secured SQL Server Database | null | true | HIGH
+| *camel.kamelet.sqlserver-source.query* | The Query to execute against the SQL Server Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city) | null | true | HIGH
+| *camel.kamelet.sqlserver-source.databaseName* | The Database Name we are pointing | null | true | HIGH
+| *camel.kamelet.sqlserver-source.consumedQuery* | A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id | null | false | MEDIUM
+|===
+
+
+
+The camel-sqlserver-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-sqlserver-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-sqlserver-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

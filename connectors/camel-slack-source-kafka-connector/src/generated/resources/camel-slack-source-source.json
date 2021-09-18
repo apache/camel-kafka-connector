@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.slacksource.CamelSlacksourceSourceConnector",
+		"artifactId": "camel-slack-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-slack-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive messages from a Slack channel."
+	},
+	"properties": {
+		"camel.kamelet.slack-source.channel": {
+			"name": "camel.kamelet.slack-source.channel",
+			"description": "The Slack channel to receive messages from Example: #myroom",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.slack-source.token": {
+			"name": "camel.kamelet.slack-source.token",
+			"description": "The token to access Slack. A Slack app is needed. This app needs to have channels:history and channels:read permissions. The Bot User OAuth Access Token is the kind of token needed.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -1,0 +1,58 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ftpsink.CamelFtpsinkSinkConnector",
+		"artifactId": "camel-ftp-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ftp-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to an FTP Server.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+	},
+	"properties": {
+		"camel.kamelet.ftp-sink.host": {
+			"name": "camel.kamelet.ftp-sink.host",
+			"description": "Hostname of the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-sink.port": {
+			"name": "camel.kamelet.ftp-sink.port",
+			"description": "Port of the FTP server",
+			"defaultValue": "\"21\"",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-sink.username": {
+			"name": "camel.kamelet.ftp-sink.username",
+			"description": "The username to access the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-sink.password": {
+			"name": "camel.kamelet.ftp-sink.password",
+			"description": "The password to access the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-sink.directoryName": {
+			"name": "camel.kamelet.ftp-sink.directoryName",
+			"description": "The starting directory",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-sink.passiveMode": {
+			"name": "camel.kamelet.ftp-sink.passiveMode",
+			"description": "Sets passive mode connection",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ftp-sink.fileExist": {
+			"name": "camel.kamelet.ftp-sink.fileExist",
+			"description": "How to behave in case of file already existent. There are 4 enums and the value can be one of Override, Append, Fail or Ignore",
+			"defaultValue": "\"Override\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

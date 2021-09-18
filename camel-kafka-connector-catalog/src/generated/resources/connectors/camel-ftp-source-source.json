@@ -1,0 +1,65 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ftpsource.CamelFtpsourceSourceConnector",
+		"artifactId": "camel-ftp-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ftp-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive data from an FTP Server."
+	},
+	"properties": {
+		"camel.kamelet.ftp-source.host": {
+			"name": "camel.kamelet.ftp-source.host",
+			"description": "Hostname of the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-source.port": {
+			"name": "camel.kamelet.ftp-source.port",
+			"description": "Port of the FTP server",
+			"defaultValue": "\"21\"",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-source.username": {
+			"name": "camel.kamelet.ftp-source.username",
+			"description": "The username to access the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-source.password": {
+			"name": "camel.kamelet.ftp-source.password",
+			"description": "The password to access the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-source.directoryName": {
+			"name": "camel.kamelet.ftp-source.directoryName",
+			"description": "The starting directory",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ftp-source.passiveMode": {
+			"name": "camel.kamelet.ftp-source.passiveMode",
+			"description": "Sets passive mode connection",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ftp-source.recursive": {
+			"name": "camel.kamelet.ftp-source.recursive",
+			"description": "If a directory, will look for files in all the sub-directories as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ftp-source.idempotent": {
+			"name": "camel.kamelet.ftp-source.idempotent",
+			"description": "Skip already processed files.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
