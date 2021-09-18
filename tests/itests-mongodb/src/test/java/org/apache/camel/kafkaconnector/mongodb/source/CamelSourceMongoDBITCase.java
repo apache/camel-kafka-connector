@@ -26,15 +26,15 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.CreateCollectionOptions;
-import org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
+import org.apache.camel.kafkaconnector.mongodb.common.MongoDBEnvVarServiceFactory;
 import org.apache.camel.test.infra.mongodb.services.MongoDBService;
-import org.apache.camel.test.infra.mongodb.services.MongoDBServiceFactory;
 import org.bson.Document;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -42,10 +42,11 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled("Waiting for https://github.com/apache/camel-kamelets/pull/486 to be merged and published.")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceMongoDBITCase extends CamelSourceTestSupport {
     @RegisterExtension
-    public static MongoDBService mongoDBService = MongoDBServiceFactory.createService();
+    public static MongoDBService mongoDBService = MongoDBEnvVarServiceFactory.createService("root", "password");
 
     private MongoClient mongoClient;
     private String topicName;
@@ -54,7 +55,7 @@ public class CamelSourceMongoDBITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[]{"camel-mongodb-kafka-connector"};
+        return new String[]{"camel-mongodb-source-kafka-connector"};
     }
 
     @BeforeAll
@@ -108,16 +109,13 @@ public class CamelSourceMongoDBITCase extends CamelSourceTestSupport {
     @Test
     @Timeout(90)
     public void testFindAll() throws ExecutionException, InterruptedException {
-        String connectionBeanRef = String.format("com.mongodb.client.MongoClients#create('%s')",
-                mongoDBService.getReplicaSetUrl());
-
         ConnectorPropertyFactory factory = CamelMongoDBPropertyFactory.basic()
                 .withKafkaTopic(topicName)
-                .withConnectionBean("mongo",
-                        BasicConnectorPropertyFactory.classRef(connectionBeanRef))
                 .withDatabase("testDatabase")
                 .withCollection("testCollection")
-                .withCreateCollection(true);
+                .withUsername("root")
+                .withPassword("password")
+                .withHosts(mongoDBService.getConnectionAddress());
 
         runTest(factory, topicName, expect);
     }

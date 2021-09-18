@@ -46,7 +46,7 @@ public class CamelSourceSshITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-ssh-kafka-connector"};
+        return new String[] {"camel-ssh-source-kafka-connector"};
     }
 
     @BeforeAll
@@ -81,12 +81,12 @@ public class CamelSourceSshITCase extends CamelSourceTestSupport {
                 .withKafkaTopic(topic)
                 .withHost(sshService.getSshHost())
                 .withPort(Integer.toString(sshService.getSshPort()))
-                .withDelay(Integer.toString(10000))
                 .withUsername("root")
                 .withPassword("root")
                 .withPollcommand("date")
                 .withTransformsConfig("SshTransforms")
-                    .withEntry("type", "org.apache.camel.kafkaconnector.ssh.transformers.SshTransforms")
+                    .withEntry("type", "org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Value")
+                    .withEntry("target.type", "java.lang.String")
                 .end();
 
         runTest(connectorPropertyFactory, topic, expect);

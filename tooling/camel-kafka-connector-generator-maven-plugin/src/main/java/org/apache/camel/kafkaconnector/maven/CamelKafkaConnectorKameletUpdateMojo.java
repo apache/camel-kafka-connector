@@ -590,7 +590,7 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
 
         String propertyPrefix = "CAMEL_" + ct + "_" + sanitizedName.replace("-", "").toUpperCase() + "_" + propertyQualifier.toUpperCase() + "_"
                                 + StringUtils.capitalize(propertyName).replaceAll(regex, replacement).toUpperCase();
-        String propertyValue = "camel.kamelet." + propertyName;
+        String propertyValue = "camel.kamelet." + name + "." + propertyName;
 
         String confFieldName = propertyPrefix + "CONF";
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(confFieldName).setType(String.class).setStringInitializer(propertyValue);
@@ -604,7 +604,7 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
 
         String defaultFieldName = propertyPrefix + "DEFAULT";
         Class<?> defaultValueClass = PRIMITIVE_TYPES_TO_CLASS_MAP.getOrDefault(kameletProperty.getType(), String.class);
-        String type = defaultValueClass.getSimpleName();
+        String type = defaultValueClass.getSimpleName().toLowerCase();
 
         String defaultValueClassLiteralInitializer;
         if (kameletProperty.getDefaultValue() == null) {

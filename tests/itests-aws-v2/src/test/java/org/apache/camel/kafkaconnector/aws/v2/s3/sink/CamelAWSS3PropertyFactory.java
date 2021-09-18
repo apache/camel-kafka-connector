@@ -27,16 +27,11 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 public final class CamelAWSS3PropertyFactory extends SinkConnectorPropertyFactory<CamelAWSS3PropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-s3.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-s3.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-s3.region");
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-s3.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-s3.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-s3.region");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-s3-sink.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-s3-sink.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-s3-sink.region");
     }
 
     private CamelAWSS3PropertyFactory() {
@@ -54,7 +49,7 @@ public final class CamelAWSS3PropertyFactory extends SinkConnectorPropertyFactor
     }
 
     public CamelAWSS3PropertyFactory withBucketNameOrArn(String bucketNameOrArn) {
-        return setProperty("camel.sink.path.bucketNameOrArn", bucketNameOrArn);
+        return setProperty("camel.kamelet.aws-s3-sink.bucketNameOrArn", bucketNameOrArn);
     }
 
     public CamelAWSS3PropertyFactory withConfiguration(String configurationClass) {
@@ -62,15 +57,16 @@ public final class CamelAWSS3PropertyFactory extends SinkConnectorPropertyFactor
     }
 
     public CamelAWSS3PropertyFactory withAutoCreateBucket(boolean value) {
-        return setProperty("camel.sink.endpoint.autoCreateBucket", value);
+        return setProperty("camel.kamelet.aws-s3-sink.autoCreateBucket", value);
     }
 
     public static CamelAWSS3PropertyFactory basic() {
         return new CamelAWSS3PropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelAws2s3SinkConnectorConfig")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SinkConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.awss3sink.CamelAwss3sinkSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

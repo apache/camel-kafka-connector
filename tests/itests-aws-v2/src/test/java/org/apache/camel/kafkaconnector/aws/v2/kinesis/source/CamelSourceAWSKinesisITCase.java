@@ -45,7 +45,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {
-
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory.createKinesisService();
 
@@ -57,7 +56,7 @@ public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-kinesis-kafka-connector"};
+        return new String[] {"camel-aws-kinesis-source-kafka-connector"};
     }
 
     @BeforeEach
@@ -69,7 +68,6 @@ public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {
 
         createStream(kinesisClient, streamName);
     }
-
 
     @AfterEach
     public void tearDown() {
@@ -86,7 +84,6 @@ public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {
         assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 
-
     @Test
     @Timeout(120)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
@@ -95,34 +92,7 @@ public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {
                 .withKafkaTopic(topicName)
                 .withAmazonConfig(awsService.getConnectionProperties())
                 .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withStreamName(streamName);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(120)
-    public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withAmazonConfig(awsService.getConnectionProperties(), CamelAWSKinesisPropertyFactory.KAFKA_STYLE)
-                .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withStreamName(streamName);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(120)
-    public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withAmazonConfig(awsService.getConnectionProperties())
-                .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withUrl(streamName)
-                .buildUrl();
+                .withStream(streamName);
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

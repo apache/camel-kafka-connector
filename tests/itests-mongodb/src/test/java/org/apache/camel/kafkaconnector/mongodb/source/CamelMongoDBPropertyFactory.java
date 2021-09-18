@@ -26,17 +26,20 @@ final class CamelMongoDBPropertyFactory extends SourceConnectorPropertyFactory<C
 
     }
 
-    public CamelMongoDBPropertyFactory withConnectionBean(String connectionBean, String ref) {
-        setProperty("camel.source.path.connectionBean", connectionBean);
-        return withBeans(connectionBean, ref);
+    public CamelMongoDBPropertyFactory withPassword(String password) {
+        return setProperty("camel.kamelet.mongodb-source.password", password);
+    }
+
+    public CamelMongoDBPropertyFactory withUsername(String username) {
+        return setProperty("camel.kamelet.mongodb-source.username", username);
+    }
+
+    public CamelMongoDBPropertyFactory withHosts(String hosts) {
+        return setProperty("camel.kamelet.mongodb-source.hosts", hosts);
     }
 
     public CamelMongoDBPropertyFactory withDatabase(String database) {
-        return setProperty("camel.source.endpoint.database", database);
-    }
-
-    public CamelMongoDBPropertyFactory withCreateCollection(boolean createCollection) {
-        return setProperty("camel.source.endpoint.createCollection", createCollection);
+        return setProperty("camel.kamelet.mongodb-source.database", database);
     }
 
     public CamelMongoDBPropertyFactory withCollection(String connection) {
@@ -47,9 +50,10 @@ final class CamelMongoDBPropertyFactory extends SourceConnectorPropertyFactory<C
         return new CamelMongoDBPropertyFactory()
                 .withName("CamelMongoDBSourceConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.mongodb.CamelMongodbSourceConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.mongodbsource.CamelMongodbsourceSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 
 

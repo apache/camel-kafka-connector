@@ -17,25 +17,24 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.blob.sink;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 public class CamelSinkAzureStorageBlobPropertyFactory extends SinkConnectorPropertyFactory<CamelSinkAzureStorageBlobPropertyFactory> {
 
     public CamelSinkAzureStorageBlobPropertyFactory withAccountName(String value) {
-        return setProperty("camel.sink.path.accountName", value);
+        return setProperty("camel.kamelet.azure-storage-blob-sink.accountName", value);
     }
 
     public CamelSinkAzureStorageBlobPropertyFactory withContainerName(String value) {
-        return setProperty("camel.sink.path.containerName", value);
+        return setProperty("camel.kamelet.azure-storage-blob-sink.containerName", value);
     }
 
     public CamelSinkAzureStorageBlobPropertyFactory withAccessKey(String value) {
-        return setProperty("camel.sink.endpoint.accessKey", value);
+        return setProperty("camel.kamelet.azure-storage-blob-sink.accessKey", value);
     }
 
     public CamelSinkAzureStorageBlobPropertyFactory withBlobName(String value) {
-        return setProperty("camel.component.azure-storage-blob.blobName", value);
+        return setProperty("camel.kamelet.azure-storage-blob-sink.blobName", value);
     }
 
     public CamelSinkAzureStorageBlobPropertyFactory withConfiguration(String configurationClass) {
@@ -43,23 +42,17 @@ public class CamelSinkAzureStorageBlobPropertyFactory extends SinkConnectorPrope
     }
 
     public CamelSinkAzureStorageBlobPropertyFactory withOperation(String value) {
-        return setProperty("camel.sink.endpoint.operation", value);
+        return setProperty("camel.kamelet.azure-storage-blob-sink.operation", value);
     }
-
-    public EndpointUrlBuilder<CamelSinkAzureStorageBlobPropertyFactory> withUrl(String path) {
-        String sinkUrl = String.format("azure-storage-blob://%s", path);
-    
-        return new EndpointUrlBuilder<>(this::withSinkUrl, sinkUrl);
-    }
-
 
     public static CamelSinkAzureStorageBlobPropertyFactory basic() {
         return new CamelSinkAzureStorageBlobPropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelAzurestorageblobSinkConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestorageblobSinkConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.azurestorageblobsink.CamelAzurestorageblobsinkSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
 
     }
 }

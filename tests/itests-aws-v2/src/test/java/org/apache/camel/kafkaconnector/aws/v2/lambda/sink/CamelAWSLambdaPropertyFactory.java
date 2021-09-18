@@ -27,18 +27,12 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 public class CamelAWSLambdaPropertyFactory extends SinkConnectorPropertyFactory<CamelAWSLambdaPropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-lambda.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-lambda.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-lambda.region");
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-lambda.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-lambda.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-lambda.region");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-lambda-sink.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-lambda-sink.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-lambda-sink.region");
     }
-
 
     public CamelAWSLambdaPropertyFactory withAmazonConfig(Properties amazonConfigs) {
         return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
@@ -50,29 +44,22 @@ public class CamelAWSLambdaPropertyFactory extends SinkConnectorPropertyFactory<
         return this;
     }
 
-    public CamelAWSLambdaPropertyFactory withSinkPathFunction(String value) {
-        return setProperty("camel.sink.path.function", value);
-    }
-
-    public CamelAWSLambdaPropertyFactory withSinkEndpointOperation(String value) {
-        return setProperty("camel.sink.endpoint.operation", value);
+    public CamelAWSLambdaPropertyFactory withFunction(String value) {
+        return setProperty("camel.kamelet.aws-lambda-sink.function", value);
     }
 
     public CamelAWSLambdaPropertyFactory withConfiguration(String value) {
         return setProperty("camel.component.aws2-lambda.configuration", classRef(value));
     }
 
-    public CamelAWSLambdaPropertyFactory withPojoRequest(boolean value) {
-        return setProperty("camel.sink.endpoint.pojoRequest", value);
-    }
-
     public static CamelAWSLambdaPropertyFactory basic() {
         return new CamelAWSLambdaPropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelAws2lambdaSinkConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.aws2lambda.CamelAws2lambdaSinkConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.awslambdasink.CamelAwslambdasinkSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
 
     }
 

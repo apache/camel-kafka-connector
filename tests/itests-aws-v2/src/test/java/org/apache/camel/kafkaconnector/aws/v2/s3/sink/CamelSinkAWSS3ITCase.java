@@ -120,7 +120,7 @@ public class CamelSinkAWSS3ITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-s3-kafka-connector"};
+        return new String[] {"camel-aws-s3-sink-kafka-connector"};
     }
 
     @BeforeEach

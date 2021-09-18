@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.aws.v2.sqs.source;
 
-import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
@@ -25,7 +24,6 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
-import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
@@ -35,12 +33,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.regions.Region;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -60,7 +56,7 @@ public class CamelSourceAWSSQSITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-sqs-kafka-connector"};
+        return new String[] {"camel-aws-sqs-source-kafka-connector"};
     }
 
     @BeforeEach
@@ -104,43 +100,6 @@ public class CamelSourceAWSSQSITCase extends CamelSourceTestSupport {
                 .withKafkaTopic(topicName)
                 .withQueueOrArn(queueName)
                 .withAmazonConfig(service.getConnectionProperties());
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    // This test does not run remotely because SQS has a cool down period for
-    // creating and removing the SQS queue
-    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withQueueOrArn(queueName)
-                .withAmazonConfig(service.getConnectionProperties(), CamelAWSSQSPropertyFactory.KAFKA_STYLE);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    // This test does not run remotely because SQS has a cool down period for
-    // creating and removing the SQS queue
-    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
-        Properties amazonProperties = service.getConnectionProperties();
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withUrl(queueName)
-                .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
-                .appendIfAvailable("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
-                .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Region.US_EAST_1.toString()))
-                .buildUrl();
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

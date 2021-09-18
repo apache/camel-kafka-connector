@@ -17,45 +17,34 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.queue.sink;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 public class CamelSinkAzureStorageQueuePropertyFactory extends SinkConnectorPropertyFactory<CamelSinkAzureStorageQueuePropertyFactory> {
 
     public CamelSinkAzureStorageQueuePropertyFactory withAccountName(String value) {
-        return setProperty("camel.sink.path.accountName", value);
+        return setProperty("camel.kamelet.azure-storage-queue-sink.accountName", value);
     }
 
     public CamelSinkAzureStorageQueuePropertyFactory withQueueName(String value) {
-        return setProperty("camel.sink.path.queueName", value);
+        return setProperty("camel.kamelet.azure-storage-queue-sink.queueName", value);
     }
 
     public CamelSinkAzureStorageQueuePropertyFactory withAccessKey(String value) {
-        return setProperty("camel.component.azure-storage-queue.accessKey", value);
+        return setProperty("camel.kamelet.azure-storage-queue-sink.accessKey", value);
     }
 
     public CamelSinkAzureStorageQueuePropertyFactory withConfiguration(String configurationClass) {
         return setProperty("camel.component.azure-storage-queue.configuration", classRef(configurationClass));
     }
 
-    public CamelSinkAzureStorageQueuePropertyFactory withOperation(String value) {
-        return setProperty("camel.component.azure-storage-queue.operation", value);
-    }
-
-    public EndpointUrlBuilder<CamelSinkAzureStorageQueuePropertyFactory> withUrl(String destinationName) {
-        String sinkUrl = String.format("azure-storage-queue://%s", destinationName);
-
-        return new EndpointUrlBuilder<>(this::withSinkUrl, sinkUrl);
-    }
-
-
     public static CamelSinkAzureStorageQueuePropertyFactory basic() {
         return new CamelSinkAzureStorageQueuePropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelAzurestoragequeueSinkConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.azurestoragequeue.CamelAzurestoragequeueSinkConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.azurestoragequeuesink.CamelAzurestoragequeuesinkSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
 
     }
 }

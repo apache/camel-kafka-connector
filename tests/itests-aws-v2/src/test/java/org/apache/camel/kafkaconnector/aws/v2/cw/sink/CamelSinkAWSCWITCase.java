@@ -65,9 +65,9 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSCWITCase.class);
 
+    private static String metricName = "test-metric";
     private CloudWatchClient client;
     private String namespace;
-    private String metricName = "test-metric";
 
     private volatile int received;
     private final int expect = 10;
@@ -88,6 +88,9 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
         public Map<String, String> messageHeaders(String text, int current) {
             Map<String, String> headers = new HashMap<>();
 
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "metric-name", metricName);
+            //TODO: once this https://github.com/apache/camel-kamelets/pull/522 is published  the following headers
+            // must be changed to metric-dimension-name and metric-dimension-value
             headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionName",
                     "test-dimension-" + current);
             headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionValue", String.valueOf(current));
@@ -98,7 +101,7 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-cw-kafka-connector"};
+        return new String[] {"camel-aws-cloudwatch-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -123,7 +126,7 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
                 ListMetricsResponse response = client.listMetrics(request);
 
                 for (Metric metric : response.metrics()) {
-                    LOG.info("Retrieved metric {}", metric.metricName());
+                    LOG.info("Retrieved metric {}, dimensions {}", metric.metricName(), metric.dimensions());
 
                     for (Dimension dimension : metric.dimensions()) {
                         LOG.info("Dimension {} value: {}", dimension.name(), dimension.value());
@@ -154,7 +157,6 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
         }
     }
 
-
     @Test
     @Timeout(value = 120)
     public void testBasicSendReceive() throws Exception {
@@ -166,8 +168,7 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withConfiguration(TestCloudWatchConfiguration.class.getName())
                 .withAmazonConfig(amazonProperties)
-                .withName(metricName)
-                .withSinkPathNamespace(namespace);
+                .withNamespace(namespace);
 
         runTest(testProperties, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }

@@ -55,7 +55,7 @@ public class CamelSourceAzureStorageQueueITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[]{"camel-azure-storage-queue-kafka-connector"};
+        return new String[]{"camel-azure-storage-queue-source-kafka-connector"};
     }
 
     @BeforeEach

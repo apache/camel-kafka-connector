@@ -124,7 +124,7 @@ public class CamelSinkLambdaITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-lambda-kafka-connector"};
+        return new String[] {"camel-aws-lambda-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -180,8 +180,7 @@ public class CamelSinkLambdaITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withConfiguration(TestLambda2Configuration.class.getName())
                 .withAmazonConfig(amazonProperties)
-                .withSinkPathFunction(function)
-                .withSinkEndpointOperation("createFunction");
+                .withFunction(function);
 
         runTest(testProperties, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }

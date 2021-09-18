@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.http.sink;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 final class CamelHTTPPropertyFactory extends SinkConnectorPropertyFactory<CamelHTTPPropertyFactory> {
@@ -25,22 +24,17 @@ final class CamelHTTPPropertyFactory extends SinkConnectorPropertyFactory<CamelH
 
     }
 
-    public CamelHTTPPropertyFactory withHttpUri(String uri) {
-        return setProperty("camel.sink.path.httpUri", uri);
-    }
-
-    public EndpointUrlBuilder<CamelHTTPPropertyFactory> withUrl(String hostname) {
-        String url = String.format("http://%s", hostname);
-
-        return new EndpointUrlBuilder<>(this::withSinkUrl, url);
+    public CamelHTTPPropertyFactory withHttpUrl(String url) {
+        return setProperty("camel.kamelet.http-sink.url", url);
     }
 
     public static CamelHTTPPropertyFactory basic() {
         return new CamelHTTPPropertyFactory()
                 .withTasksMax(1)
                 .withName("CamelHttpSinkConnector")
-                .withConnectorClass("org.apache.camel.kafkaconnector.http.CamelHttpSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.httpsink.CamelHttpsinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

@@ -21,32 +21,29 @@ import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 
 public class CamelSourceAzureStorageQueuePropertyFactory extends SourceConnectorPropertyFactory<CamelSourceAzureStorageQueuePropertyFactory> {
     public CamelSourceAzureStorageQueuePropertyFactory withAccountName(String value) {
-        return setProperty("camel.source.path.accountName", value);
+        return setProperty("camel.kamelet.azure-storage-queue-source.accountName", value);
     }
 
     public CamelSourceAzureStorageQueuePropertyFactory withQueueName(String value) {
-        return setProperty("camel.source.path.queueName", value);
+        return setProperty("camel.kamelet.azure-storage-queue-source.queueName", value);
     }
 
     public CamelSourceAzureStorageQueuePropertyFactory withAccessKey(String value) {
-        return setProperty("camel.component.azure-storage-queue.accessKey", value);
+        return setProperty("camel.kamelet.azure-storage-queue-source.accessKey", value);
     }
 
     public CamelSourceAzureStorageQueuePropertyFactory withConfiguration(String configurationClass) {
         return setProperty("camel.component.azure-storage-queue.configuration", classRef(configurationClass));
     }
 
-    public CamelSourceAzureStorageQueuePropertyFactory withOperation(String value) {
-        return setProperty("camel.component.azure-storage-queue.operation", value);
-    }
-
     public static CamelSourceAzureStorageQueuePropertyFactory basic() {
         return new CamelSourceAzureStorageQueuePropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelAzurequeueSourceConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.azurestoragequeue.CamelAzurestoragequeueSourceConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.azurestoragequeuesource.CamelAzurestoragequeuesourceSourceConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
 
     }
 }

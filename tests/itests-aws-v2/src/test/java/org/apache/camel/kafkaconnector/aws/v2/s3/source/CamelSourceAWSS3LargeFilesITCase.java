@@ -77,7 +77,7 @@ public class CamelSourceAWSS3LargeFilesITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-s3-kafka-connector"};
+        return new String[] {"camel-aws-s3-source-kafka-connector"};
     }
 
     @BeforeAll
@@ -136,7 +136,7 @@ public class CamelSourceAWSS3LargeFilesITCase extends CamelSourceTestSupport {
                 .withKafkaTopic(topicName)
                 .withConfiguration(TestS3Configuration.class.getName())
                 .withBucketNameOrArn(bucketName)
-                .withAmazonConfig(service.getConnectionProperties(), CamelAWSS3PropertyFactory.KAFKA_STYLE);
+                .withAmazonConfig(service.getConnectionProperties());
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

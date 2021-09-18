@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.aws.v2.common.AWSPropertiesUtils;
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
@@ -32,16 +31,11 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
  */
 final class CamelAWSS3PropertyFactory extends SourceConnectorPropertyFactory<CamelAWSS3PropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-s3.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-s3.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-s3.region");
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-s3.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-s3.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-s3.region");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-s3-source.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-s3-source.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-s3-source.region");
     }
 
     private CamelAWSS3PropertyFactory() {
@@ -58,18 +52,12 @@ final class CamelAWSS3PropertyFactory extends SourceConnectorPropertyFactory<Cam
         return this;
     }
 
-    public EndpointUrlBuilder<CamelAWSS3PropertyFactory> withUrl(String bucket) {
-        String queueUrl = String.format("aws2-s3://%s", bucket);
-
-        return new EndpointUrlBuilder<>(this::withSourceUrl, queueUrl);
-    }
-
     public CamelAWSS3PropertyFactory withMaxMessagesPerPoll(int value) {
         return setProperty("camel.source.endpoint.maxMessagesPerPoll", Integer.toString(value));
     }
 
     public CamelAWSS3PropertyFactory withBucketNameOrArn(String bucketNameOrArn) {
-        return setProperty("camel.source.path.bucketNameOrArn", bucketNameOrArn);
+        return setProperty("camel.kamelet.aws-s3-source.bucketNameOrArn", bucketNameOrArn);
     }
 
     public CamelAWSS3PropertyFactory withConfiguration(String configurationClass) {
@@ -80,8 +68,9 @@ final class CamelAWSS3PropertyFactory extends SourceConnectorPropertyFactory<Cam
         return new CamelAWSS3PropertyFactory()
                 .withName("CamelAwss3SourceConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SourceConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.awss3source.CamelAwss3sourceSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

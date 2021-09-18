@@ -27,24 +27,15 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 public class CamelAWSCWPropertyFactory extends SinkConnectorPropertyFactory<CamelAWSCWPropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-cw.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-cw.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-cw.region");
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-cw.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-cw.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-cw.region");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-cloudwatch-sink.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-cloudwatch-sink.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-cloudwatch-sink.region");
     }
 
-    public CamelAWSCWPropertyFactory withSinkPathNamespace(String value) {
-        return setProperty("camel.sink.path.namespace", value);
-    }
-
-    public CamelAWSCWPropertyFactory withName(String value) {
-        return setProperty("camel.sink.endpoint.name", value);
+    public CamelAWSCWPropertyFactory withNamespace(String value) {
+        return setProperty("camel.kamelet.aws-cloudwatch-sink.cw_namespace", value);
     }
 
     public CamelAWSCWPropertyFactory withConfiguration(String value) {
@@ -65,9 +56,11 @@ public class CamelAWSCWPropertyFactory extends SinkConnectorPropertyFactory<Came
         return new CamelAWSCWPropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelAWSCWConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.aws2cw.CamelAws2cwSinkConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.awscloudwatchsink.CamelAwscloudwatchsinkSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.sink.contentLogLevel", "INFO")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
 
     }
 }

@@ -102,6 +102,7 @@ public class CamelSourceTask extends SourceTask {
             camelMessageHeaderKey = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF);
 
             String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
+            final String componentSchema = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF);
             final String unmarshaller = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_UNMARSHAL_CONF);
             final String marshaller = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_MARSHAL_CONF);
             final int size = config.getInt(CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF);
@@ -141,13 +142,17 @@ public class CamelSourceTask extends SourceTask {
             exchangesWaitingForAck = new Exchange[freeSlots.capacity()];
 
             CamelContext camelContext = new DefaultCamelContext();
-            if (remoteUrl == null) {
+            // componentSchema can legitimately be null in case of kamelet connectors, in that case KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "fromUrl" property is ignored
+            if (remoteUrl == null && componentSchema != null) {
                 remoteUrl = TaskHelper.buildUrl(camelContext,
                                                 actualProps,
-                                                config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF), CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX,
+                                                componentSchema,
+                                                CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX,
                                                 CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
             }
-            actualProps.put(KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "fromUrl", remoteUrl);
+            if (remoteUrl != null) {
+                actualProps.put(KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "fromUrl", remoteUrl);
+            }
 
             cms = CamelKafkaConnectMain.builder(getSourceKamelet(), localUrl)
                 .withProperties(actualProps)
