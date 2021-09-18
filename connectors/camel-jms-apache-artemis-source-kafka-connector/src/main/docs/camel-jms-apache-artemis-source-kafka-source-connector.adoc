@@ -1,0 +1,58 @@
+// kafka-connector options: START
+[[camel-jms-apache-artemis-source-kafka-connector-source]]
+= camel-jms-apache-artemis-source-kafka-connector source configuration
+
+Connector description: A Kamelet that can consume events from an Apache Artemis message broker using JMS
+
+When using camel-jms-apache-artemis-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-jms-apache-artemis-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.jmsapacheartemissource.CamelJmsapacheartemissourceSourceConnector
+----
+
+
+The camel-jms-apache-artemis-source source connector supports 3 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| * camel.kamelet.jms-apache-artemis-source.destination Type* | The JMS destination type (i.e.: queue or topic) | "queue" | false | MEDIUM
+| * camel.kamelet.jms-apache-artemis-source.destination Name* | The JMS destination name | null | true | HIGH
+| *camel.kamelet.jms-apache-artemis-source.brokerURL* | The JMS URL Example: tcp://k3s-node-master.usersys.redhat.com:31616 | null | true | HIGH
+|===
+
+
+
+The camel-jms-apache-artemis-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-jms-apache-artemis-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-jms-apache-artemis-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -1,0 +1,65 @@
+// kafka-connector options: START
+[[camel-google-mail-source-kafka-connector-source]]
+= camel-google-mail-source-kafka-connector source configuration
+
+Connector description: Receive data from Google Mail.
+
+When using camel-google-mail-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-google-mail-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.googlemailsource.CamelGooglemailsourceSourceConnector
+----
+
+
+The camel-google-mail-source source connector supports 10 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.google-mail-source.index* | An index for the google mail endpoint | null | true | HIGH
+| *camel.kamelet.google-mail-source.clientId* | Client ID of the gmail application | null | true | HIGH
+| *camel.kamelet.google-mail-source.clientSecret* | Client Secret of the gmail application | null | true | HIGH
+| *camel.kamelet.google-mail-source.accessToken* | OAuth 2 access token for google mail application. This typically expires after an hour so refreshToken is recommended for long term usage. | null | true | HIGH
+| *camel.kamelet.google-mail-source.refreshToken* | OAuth 2 refresh token for google mail application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | true | HIGH
+| *camel.kamelet.google-mail-source.delay* | Milliseconds before the next poll | 500 | false | MEDIUM
+| *camel.kamelet.google-mail-source.applicationName* | Google Mail application name | null | true | HIGH
+| *camel.kamelet.google-mail-source.markAsRead* | Mark the message as read once it has been consumed | true | false | MEDIUM
+| *camel.kamelet.google-mail-source.labels* | Comma separated list of labels to take into account Example: inbox | null | false | MEDIUM
+| *camel.kamelet.google-mail-source.query* | The query to execute on gmail box Example: is:unread -category:(promotions OR social) | "is:unread" | false | MEDIUM
+|===
+
+
+
+The camel-google-mail-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-google-mail-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-mail-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

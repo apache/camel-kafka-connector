@@ -1,0 +1,59 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.httpsecuredsource.CamelHttpsecuredsourceSourceConnector",
+		"artifactId": "camel-http-secured-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-http-secured-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Periodically fetches a secured HTTP resource and provides the content as output."
+	},
+	"properties": {
+		"camel.kamelet.http-secured-source.period": {
+			"name": "camel.kamelet.http-secured-source.period",
+			"description": "The interval between fetches in milliseconds",
+			"defaultValue": "10000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.contentType": {
+			"name": "camel.kamelet.http-secured-source.contentType",
+			"description": "The content type accepted for the resource",
+			"defaultValue": "\"application\/json\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.url": {
+			"name": "camel.kamelet.http-secured-source.url",
+			"description": "The URL to fetch for data Example: https:\/\/gist.githubusercontent.com\/nicolaferraro\/e3c72ace3c751f9f88273896611ce5fe\/raw\/3b6f54060bacb56b6719b7386a4645cb59ad6cc1\/quote.json",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.http-secured-source.authMethod": {
+			"name": "camel.kamelet.http-secured-source.authMethod",
+			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
+			"defaultValue": "\"Basic\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.authenticationPreemptive": {
+			"name": "camel.kamelet.http-secured-source.authenticationPreemptive",
+			"description": "If this option is true, camel-http sends preemptive basic authentication to the server.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.authUsername": {
+			"name": "camel.kamelet.http-secured-source.authUsername",
+			"description": "Authentication username",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.authPassword": {
+			"name": "camel.kamelet.http-secured-source.authPassword",
+			"description": "Authentication password",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

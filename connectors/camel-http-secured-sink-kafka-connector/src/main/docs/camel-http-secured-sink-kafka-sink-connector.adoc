@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-http-secured-sink-kafka-connector-sink]]
+= camel-http-secured-sink-kafka-connector sink configuration
+
+Connector Description: Forwards an event to a secured HTTP endpoint
+
+When using camel-http-secured-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-http-secured-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.httpsecuredsink.CamelHttpsecuredsinkSinkConnector
+----
+
+
+The camel-http-secured-sink sink connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.http-secured-sink.url* | The URL to send data to Example: \https://my-service/path | null | true | HIGH
+| *camel.kamelet.http-secured-sink.method* | The HTTP method to use | "POST" | false | MEDIUM
+| *camel.kamelet.http-secured-sink.authMethod* | Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM. | "Basic" | false | MEDIUM
+| *camel.kamelet.http-secured-sink.authentication Preemptive* | If this option is true, camel-http sends preemptive basic authentication to the server. | false | false | MEDIUM
+| *camel.kamelet.http-secured-sink.authUsername* | Authentication username | null | false | MEDIUM
+| *camel.kamelet.http-secured-sink.authPassword* | Authentication password | null | false | MEDIUM
+|===
+
+
+
+The camel-http-secured-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-http-secured-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-http-secured-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -102,7 +102,8 @@
                     <packageFileTemplate>${project.basedir}/template-connector-package.xml</packageFileTemplate>
                     <exampleSourcePropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-source-properties.template</exampleSourcePropertiesFileTemplate>
                     <exampleSinkPropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-sink-properties.template</exampleSinkPropertiesFileTemplate>
-                    <removeMissingComponents>true</removeMissingComponents>
+                    <!-- WARNING: connectors not in catalog will be removed -->
+                    <!-- <removeMissingComponents>true</removeMissingComponents> -->
                     <excludedComponents>
                         <param>bonita</param>
                         <param>bean-validator</param>
@@ -220,40 +221,55 @@
         <module>camel-atomix-set-kafka-connector</module>
         <module>camel-atomix-value-kafka-connector</module>
         <module>camel-avro-kafka-connector</module>
+        <module>camel-aws-cloudwatch-sink-kafka-connector</module>
+        <module>camel-aws-ddb-streams-source-kafka-connector</module>
+        <module>camel-aws-ec2-sink-kafka-connector</module>
+        <module>camel-aws-kinesis-firehose-sink-kafka-connector</module>
+        <module>camel-aws-kinesis-sink-kafka-connector</module>
+        <module>camel-aws-kinesis-source-kafka-connector</module>
+        <module>camel-aws-lambda-sink-kafka-connector</module>
+        <module>camel-aws-s3-sink-kafka-connector</module>
+        <module>camel-aws-s3-source-kafka-connector</module>
+        <module>camel-aws-s3-streaming-upload-sink-kafka-connector</module>
         <module>camel-aws-secrets-manager-kafka-connector</module>
+        <module>camel-aws-sns-fifo-sink-kafka-connector</module>
+        <module>camel-aws-sns-sink-kafka-connector</module>
+        <module>camel-aws-sqs-batch-sink-kafka-connector</module>
+        <module>camel-aws-sqs-fifo-sink-kafka-connector</module>
+        <module>camel-aws-sqs-sink-kafka-connector</module>
+        <module>camel-aws-sqs-source-kafka-connector</module>
         <module>camel-aws2-athena-kafka-connector</module>
-        <module>camel-aws2-cw-kafka-connector</module>
-        <module>camel-aws2-ddb-kafka-connector</module>
         <module>camel-aws2-ddbstream-kafka-connector</module>
-        <module>camel-aws2-ec2-kafka-connector</module>
         <module>camel-aws2-ecs-kafka-connector</module>
         <module>camel-aws2-eks-kafka-connector</module>
         <module>camel-aws2-eventbridge-kafka-connector</module>
         <module>camel-aws2-iam-kafka-connector</module>
         <module>camel-aws2-kinesis-firehose-kafka-connector</module>
-        <module>camel-aws2-kinesis-kafka-connector</module>
         <module>camel-aws2-kms-kafka-connector</module>
-        <module>camel-aws2-lambda-kafka-connector</module>
         <module>camel-aws2-mq-kafka-connector</module>
         <module>camel-aws2-msk-kafka-connector</module>
-        <module>camel-aws2-s3-kafka-connector</module>
         <module>camel-aws2-ses-kafka-connector</module>
-        <module>camel-aws2-sns-kafka-connector</module>
-        <module>camel-aws2-sqs-kafka-connector</module>
         <module>camel-aws2-sts-kafka-connector</module>
         <module>camel-aws2-translate-kafka-connector</module>
         <module>camel-azure-cosmosdb-kafka-connector</module>
-        <module>camel-azure-eventhubs-kafka-connector</module>
-        <module>camel-azure-storage-blob-kafka-connector</module>
+        <module>camel-azure-eventhubs-sink-kafka-connector</module>
+        <module>camel-azure-eventhubs-source-kafka-connector</module>
+        <module>camel-azure-storage-blob-sink-kafka-connector</module>
+        <module>camel-azure-storage-blob-source-kafka-connector</module>
         <module>camel-azure-storage-datalake-kafka-connector</module>
-        <module>camel-azure-storage-queue-kafka-connector</module>
+        <module>camel-azure-storage-queue-sink-kafka-connector</module>
+        <module>camel-azure-storage-queue-source-kafka-connector</module>
         <module>camel-bean-kafka-connector</module>
         <module>camel-beanstalk-kafka-connector</module>
+        <module>camel-bitcoin-source-kafka-connector</module>
         <module>camel-box-kafka-connector</module>
         <module>camel-braintree-kafka-connector</module>
         <module>camel-caffeine-cache-kafka-connector</module>
         <module>camel-caffeine-loadcache-kafka-connector</module>
+        <module>camel-cassandra-sink-kafka-connector</module>
+        <module>camel-cassandra-source-kafka-connector</module>
         <module>camel-chatscript-kafka-connector</module>
+        <module>camel-chuck-norris-source-kafka-connector</module>
         <module>camel-chunk-kafka-connector</module>
         <module>camel-cm-sms-kafka-connector</module>
         <module>camel-cmis-kafka-connector</module>
@@ -269,7 +285,7 @@
         <module>camel-couchbase-kafka-connector</module>
         <module>camel-couchdb-kafka-connector</module>
         <module>camel-cql-kafka-connector</module>
-        <module>camel-cron-kafka-connector</module>
+        <module>camel-cron-source-kafka-connector</module>
         <module>camel-crypto-kafka-connector</module>
         <module>camel-cxf-kafka-connector</module>
         <module>camel-cxfrs-kafka-connector</module>
@@ -283,38 +299,44 @@
         <module>camel-docker-kafka-connector</module>
         <module>camel-dozer-kafka-connector</module>
         <module>camel-drill-kafka-connector</module>
-        <module>camel-dropbox-kafka-connector</module>
+        <module>camel-dropbox-sink-kafka-connector</module>
+        <module>camel-dropbox-source-kafka-connector</module>
+        <module>camel-earthquake-source-kafka-connector</module>
         <module>camel-ehcache-kafka-connector</module>
-        <module>camel-elasticsearch-rest-kafka-connector</module>
+        <module>camel-elasticsearch-index-sink-kafka-connector</module>
+        <module>camel-elasticsearch-search-source-kafka-connector</module>
         <module>camel-elsql-kafka-connector</module>
         <module>camel-etcd-keys-kafka-connector</module>
         <module>camel-etcd-stats-kafka-connector</module>
         <module>camel-etcd-watch-kafka-connector</module>
-        <module>camel-exec-kafka-connector</module>
+        <module>camel-exec-sink-kafka-connector</module>
         <module>camel-facebook-kafka-connector</module>
-        <module>camel-fhir-kafka-connector</module>
+        <module>camel-fhir-source-kafka-connector</module>
         <module>camel-file-kafka-connector</module>
-        <module>camel-file-watch-kafka-connector</module>
+        <module>camel-file-watch-source-kafka-connector</module>
         <module>camel-flatpack-kafka-connector</module>
         <module>camel-flink-kafka-connector</module>
         <module>camel-fop-kafka-connector</module>
         <module>camel-freemarker-kafka-connector</module>
-        <module>camel-ftp-kafka-connector</module>
+        <module>camel-ftp-sink-kafka-connector</module>
+        <module>camel-ftp-source-kafka-connector</module>
         <module>camel-ftps-kafka-connector</module>
+        <module>camel-ftps-sink-kafka-connector</module>
+        <module>camel-ftps-source-kafka-connector</module>
         <module>camel-ganglia-kafka-connector</module>
         <module>camel-geocoder-kafka-connector</module>
         <module>camel-git-kafka-connector</module>
-        <module>camel-github-kafka-connector</module>
+        <module>camel-github-source-kafka-connector</module>
         <module>camel-google-bigquery-kafka-connector</module>
         <module>camel-google-bigquery-sql-kafka-connector</module>
-        <module>camel-google-calendar-kafka-connector</module>
+        <module>camel-google-calendar-source-kafka-connector</module>
         <module>camel-google-calendar-stream-kafka-connector</module>
         <module>camel-google-drive-kafka-connector</module>
         <module>camel-google-functions-kafka-connector</module>
-        <module>camel-google-mail-kafka-connector</module>
+        <module>camel-google-mail-source-kafka-connector</module>
         <module>camel-google-mail-stream-kafka-connector</module>
         <module>camel-google-pubsub-kafka-connector</module>
-        <module>camel-google-sheets-kafka-connector</module>
+        <module>camel-google-sheets-source-kafka-connector</module>
         <module>camel-google-sheets-stream-kafka-connector</module>
         <module>camel-google-storage-kafka-connector</module>
         <module>camel-gora-kafka-connector</module>
@@ -335,7 +357,10 @@
         <module>camel-hazelcast-topic-kafka-connector</module>
         <module>camel-hbase-kafka-connector</module>
         <module>camel-hdfs-kafka-connector</module>
-        <module>camel-http-kafka-connector</module>
+        <module>camel-http-secured-sink-kafka-connector</module>
+        <module>camel-http-secured-source-kafka-connector</module>
+        <module>camel-http-sink-kafka-connector</module>
+        <module>camel-http-source-kafka-connector</module>
         <module>camel-https-kafka-connector</module>
         <module>camel-hwcloud-functiongraph-kafka-connector</module>
         <module>camel-hwcloud-iam-kafka-connector</module>
@@ -352,7 +377,7 @@
         <module>camel-imap-kafka-connector</module>
         <module>camel-imaps-kafka-connector</module>
         <module>camel-infinispan-embedded-kafka-connector</module>
-        <module>camel-infinispan-kafka-connector</module>
+        <module>camel-infinispan-source-kafka-connector</module>
         <module>camel-influxdb-kafka-connector</module>
         <module>camel-iota-kafka-connector</module>
         <module>camel-ipfs-kafka-connector</module>
@@ -367,8 +392,11 @@
         <module>camel-jgroups-kafka-connector</module>
         <module>camel-jgroups-raft-kafka-connector</module>
         <module>camel-jing-kafka-connector</module>
-        <module>camel-jira-kafka-connector</module>
-        <module>camel-jms-kafka-connector</module>
+        <module>camel-jira-source-kafka-connector</module>
+        <module>camel-jms-amqp-10-sink-kafka-connector</module>
+        <module>camel-jms-amqp-10-source-kafka-connector</module>
+        <module>camel-jms-apache-artemis-sink-kafka-connector</module>
+        <module>camel-jms-apache-artemis-source-kafka-connector</module>
         <module>camel-jmx-kafka-connector</module>
         <module>camel-jolt-kafka-connector</module>
         <module>camel-jooq-kafka-connector</module>
@@ -377,8 +405,10 @@
         <module>camel-json-validator-kafka-connector</module>
         <module>camel-jsonata-kafka-connector</module>
         <module>camel-jt400-kafka-connector</module>
-        <module>camel-kafka-kafka-connector</module>
-        <module>camel-kamelet-kafka-connector</module>
+        <module>camel-kafka-not-secured-sink-kafka-connector</module>
+        <module>camel-kafka-not-secured-source-kafka-connector</module>
+        <module>camel-kafka-sink-kafka-connector</module>
+        <module>camel-kafka-source-kafka-connector</module>
         <module>camel-kamelet-reify-kafka-connector</module>
         <module>camel-kubernetes-config-maps-kafka-connector</module>
         <module>camel-kubernetes-custom-resources-kafka-connector</module>
@@ -403,6 +433,9 @@
         <module>camel-lpr-kafka-connector</module>
         <module>camel-lucene-kafka-connector</module>
         <module>camel-lumberjack-kafka-connector</module>
+        <module>camel-mail-imap-source-kafka-connector</module>
+        <module>camel-mariadb-sink-kafka-connector</module>
+        <module>camel-mariadb-source-kafka-connector</module>
         <module>camel-master-kafka-connector</module>
         <module>camel-metrics-kafka-connector</module>
         <module>camel-micrometer-kafka-connector</module>
@@ -410,17 +443,23 @@
         <module>camel-milo-client-kafka-connector</module>
         <module>camel-milo-server-kafka-connector</module>
         <module>camel-mina-kafka-connector</module>
-        <module>camel-minio-kafka-connector</module>
+        <module>camel-minio-sink-kafka-connector</module>
+        <module>camel-minio-source-kafka-connector</module>
         <module>camel-mllp-kafka-connector</module>
         <module>camel-mongodb-gridfs-kafka-connector</module>
-        <module>camel-mongodb-kafka-connector</module>
+        <module>camel-mongodb-sink-kafka-connector</module>
+        <module>camel-mongodb-source-kafka-connector</module>
+        <module>camel-mqtt-source-kafka-connector</module>
         <module>camel-msv-kafka-connector</module>
         <module>camel-mustache-kafka-connector</module>
         <module>camel-mvel-kafka-connector</module>
         <module>camel-mybatis-bean-kafka-connector</module>
         <module>camel-mybatis-kafka-connector</module>
+        <module>camel-mysql-sink-kafka-connector</module>
+        <module>camel-mysql-source-kafka-connector</module>
         <module>camel-nagios-kafka-connector</module>
-        <module>camel-nats-kafka-connector</module>
+        <module>camel-nats-sink-kafka-connector</module>
+        <module>camel-nats-source-kafka-connector</module>
         <module>camel-netty-http-kafka-connector</module>
         <module>camel-netty-kafka-connector</module>
         <module>camel-nitrite-kafka-connector</module>
@@ -437,19 +476,18 @@
         <module>camel-openstack-nova-kafka-connector</module>
         <module>camel-openstack-swift-kafka-connector</module>
         <module>camel-optaplanner-kafka-connector</module>
-        <module>camel-paho-kafka-connector</module>
         <module>camel-paho-mqtt5-kafka-connector</module>
         <module>camel-pdf-kafka-connector</module>
         <module>camel-pg-replication-slot-kafka-connector</module>
         <module>camel-pgevent-kafka-connector</module>
-        <module>camel-platform-http-kafka-connector</module>
         <module>camel-pop3-kafka-connector</module>
         <module>camel-pop3s-kafka-connector</module>
+        <module>camel-postgresql-sink-kafka-connector</module>
+        <module>camel-postgresql-source-kafka-connector</module>
         <module>camel-pubnub-kafka-connector</module>
         <module>camel-pulsar-kafka-connector</module>
-        <module>camel-quartz-kafka-connector</module>
         <module>camel-quickfix-kafka-connector</module>
-        <module>camel-rabbitmq-kafka-connector</module>
+        <module>camel-rabbitmq-source-kafka-connector</module>
         <module>camel-reactive-streams-kafka-connector</module>
         <module>camel-rest-api-kafka-connector</module>
         <module>camel-rest-kafka-connector</module>
@@ -458,7 +496,7 @@
         <module>camel-resteasy-kafka-connector</module>
         <module>camel-rss-kafka-connector</module>
         <module>camel-saga-kafka-connector</module>
-        <module>camel-salesforce-kafka-connector</module>
+        <module>camel-salesforce-source-kafka-connector</module>
         <module>camel-sap-netweaver-kafka-connector</module>
         <module>camel-scheduler-kafka-connector</module>
         <module>camel-schematron-kafka-connector</module>
@@ -468,11 +506,13 @@
         <module>camel-servicenow-kafka-connector</module>
         <module>camel-servlet-kafka-connector</module>
         <module>camel-sftp-kafka-connector</module>
+        <module>camel-sftp-sink-kafka-connector</module>
+        <module>camel-sftp-source-kafka-connector</module>
         <module>camel-sip-kafka-connector</module>
         <module>camel-sips-kafka-connector</module>
         <module>camel-sjms-kafka-connector</module>
         <module>camel-sjms2-kafka-connector</module>
-        <module>camel-slack-kafka-connector</module>
+        <module>camel-slack-source-kafka-connector</module>
         <module>camel-smpp-kafka-connector</module>
         <module>camel-smpps-kafka-connector</module>
         <module>camel-smtp-kafka-connector</module>
@@ -493,9 +533,10 @@
         <module>camel-spring-rabbitmq-kafka-connector</module>
         <module>camel-spring-redis-kafka-connector</module>
         <module>camel-spring-ws-kafka-connector</module>
-        <module>camel-sql-kafka-connector</module>
         <module>camel-sql-stored-kafka-connector</module>
-        <module>camel-ssh-kafka-connector</module>
+        <module>camel-sqlserver-sink-kafka-connector</module>
+        <module>camel-sqlserver-source-kafka-connector</module>
+        <module>camel-ssh-source-kafka-connector</module>
         <module>camel-stax-kafka-connector</module>
         <module>camel-stitch-kafka-connector</module>
         <module>camel-stomp-kafka-connector</module>
@@ -503,14 +544,18 @@
         <module>camel-string-template-kafka-connector</module>
         <module>camel-stub-kafka-connector</module>
         <module>camel-syslog-kafka-connector</module>
-        <module>camel-telegram-kafka-connector</module>
+        <module>camel-telegram-sink-kafka-connector</module>
+        <module>camel-telegram-source-kafka-connector</module>
         <module>camel-thrift-kafka-connector</module>
         <module>camel-tika-kafka-connector</module>
-        <module>camel-timer-kafka-connector</module>
+        <module>camel-timer-source-kafka-connector</module>
         <module>camel-twilio-kafka-connector</module>
         <module>camel-twitter-directmessage-kafka-connector</module>
+        <module>camel-twitter-directmessage-source-kafka-connector</module>
         <module>camel-twitter-search-kafka-connector</module>
+        <module>camel-twitter-search-source-kafka-connector</module>
         <module>camel-twitter-timeline-kafka-connector</module>
+        <module>camel-twitter-timeline-source-kafka-connector</module>
         <module>camel-undertow-kafka-connector</module>
         <module>camel-validator-kafka-connector</module>
         <module>camel-velocity-kafka-connector</module>
@@ -522,12 +567,12 @@
         <module>camel-weather-kafka-connector</module>
         <module>camel-web3j-kafka-connector</module>
         <module>camel-webhook-kafka-connector</module>
+        <module>camel-webhook-source-kafka-connector</module>
         <module>camel-websocket-jsr356-kafka-connector</module>
         <module>camel-websocket-kafka-connector</module>
         <module>camel-weka-kafka-connector</module>
         <module>camel-wordpress-kafka-connector</module>
         <module>camel-workday-kafka-connector</module>
-        <module>camel-xchange-kafka-connector</module>
         <module>camel-xj-kafka-connector</module>
         <module>camel-xmlsecurity-sign-kafka-connector</module>
         <module>camel-xmlsecurity-verify-kafka-connector</module>

@@ -1,0 +1,20 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.webhooksource.CamelWebhooksourceSourceConnector",
+		"artifactId": "camel-webhook-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-webhook-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Creates an HTTP endpoint that can be used as a bridge to forward data to the Kamelet sink.\n\nThe \"subpath\" parameter of the Webhook source allows to customize the subpath where the integration will respond to HTTP requests.\nIt's common to use a non-guessable ID for that parameter.\n\nWhen the \"subpath\" parameter is set to \"webhook\" (default), the integration will accept requests at the \"https:\/\/integration-external-url\/webhook\" endpoint."
+	},
+	"properties": {
+		"camel.kamelet.webhook-source.subpath": {
+			"name": "camel.kamelet.webhook-source.subpath",
+			"description": "The subpath where the webhook is registered ",
+			"defaultValue": "\"webhook\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

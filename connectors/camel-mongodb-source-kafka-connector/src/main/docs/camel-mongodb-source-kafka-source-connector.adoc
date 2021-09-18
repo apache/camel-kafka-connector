@@ -1,0 +1,66 @@
+// kafka-connector options: START
+[[camel-mongodb-source-kafka-connector-source]]
+= camel-mongodb-source-kafka-connector source configuration
+
+Connector description: Consume documents from MongoDB.
+
+If the persistentTailTracking option will be enabled, the consumer will keep track of the last consumed message and on the next restart, the consumption will restart from that message. In case of persistentTailTracking enabled, the tailTrackIncreasingField must be provided (by default it is optional).
+
+If the persistentTailTracking option won't be enabled, the consumer will consume the whole collection and wait in idle for new documents to consume.
+
+When using camel-mongodb-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mongodb-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mongodbsource.CamelMongodbsourceSourceConnector
+----
+
+
+The camel-mongodb-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.mongodb-source.hosts* | Comma separated list of MongoDB Host Addresses in host:port format. | null | true | HIGH
+| *camel.kamelet.mongodb-source.collection* | Sets the name of the MongoDB collection to bind to this endpoint. | null | true | HIGH
+| *camel.kamelet.mongodb-source.password* | User password for accessing MongoDB. | null | true | HIGH
+| *camel.kamelet.mongodb-source.username* | Username for accessing MongoDB. | null | true | HIGH
+| *camel.kamelet.mongodb-source.database* | Sets the name of the MongoDB database to target. | null | true | HIGH
+| *camel.kamelet.mongodb-source.persistentTail Tracking* | Enable persistent tail tracking, which is a mechanism to keep track of the last consumed message across system restarts. The next time the system is up, the endpoint will recover the cursor from the point where it last stopped slurping records. | false | false | MEDIUM
+| *camel.kamelet.mongodb-source.tailTrackIncreasing Field* | Correlation field in the incoming record which is of increasing nature and will be used to position the tailing cursor every time it is generated. | null | false | MEDIUM
+|===
+
+
+
+The camel-mongodb-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-mongodb-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-mongodb-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

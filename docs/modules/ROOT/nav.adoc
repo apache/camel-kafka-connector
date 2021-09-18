@@ -75,18 +75,44 @@
 *** camel-avro-kafka-connector
 **** xref:reference/connectors/camel-avro-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-avro-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-cloudwatch-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-cloudwatch-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-ddb-streams-source-kafka-connector
+**** xref:reference/connectors/camel-aws-ddb-streams-source-kafka-source-connector.adoc[Source Docs]
+*** camel-aws-ec2-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-ec2-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-kinesis-firehose-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-kinesis-firehose-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-kinesis-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-kinesis-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-kinesis-source-kafka-connector
+**** xref:reference/connectors/camel-aws-kinesis-source-kafka-source-connector.adoc[Source Docs]
+*** camel-aws-lambda-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-lambda-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-s3-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-s3-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-s3-source-kafka-connector
+**** xref:reference/connectors/camel-aws-s3-source-kafka-source-connector.adoc[Source Docs]
+*** camel-aws-s3-streaming-upload-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-s3-streaming-upload-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws-secrets-manager-kafka-connector
 **** xref:reference/connectors/camel-aws-secrets-manager-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-sns-fifo-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-sns-fifo-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-sns-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-sns-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-sqs-batch-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-sqs-batch-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-sqs-fifo-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-sqs-fifo-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-sqs-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-sqs-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-sqs-source-kafka-connector
+**** xref:reference/connectors/camel-aws-sqs-source-kafka-source-connector.adoc[Source Docs]
 *** camel-aws2-athena-kafka-connector
 **** xref:reference/connectors/camel-aws2-athena-kafka-sink-connector.adoc[Sink Docs]
-*** camel-aws2-cw-kafka-connector
-**** xref:reference/connectors/camel-aws2-cw-kafka-sink-connector.adoc[Sink Docs]
-*** camel-aws2-ddb-kafka-connector
-**** xref:reference/connectors/camel-aws2-ddb-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-ddbstream-kafka-connector
 **** xref:reference/connectors/camel-aws2-ddbstream-kafka-source-connector.adoc[Source Docs]
-*** camel-aws2-ec2-kafka-connector
-**** xref:reference/connectors/camel-aws2-ec2-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-ecs-kafka-connector
 **** xref:reference/connectors/camel-aws2-ecs-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-eks-kafka-connector
@@ -97,27 +123,14 @@
 **** xref:reference/connectors/camel-aws2-iam-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-kinesis-firehose-kafka-connector
 **** xref:reference/connectors/camel-aws2-kinesis-firehose-kafka-sink-connector.adoc[Sink Docs]
-*** camel-aws2-kinesis-kafka-connector
-**** xref:reference/connectors/camel-aws2-kinesis-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-aws2-kinesis-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-kms-kafka-connector
 **** xref:reference/connectors/camel-aws2-kms-kafka-sink-connector.adoc[Sink Docs]
-*** camel-aws2-lambda-kafka-connector
-**** xref:reference/connectors/camel-aws2-lambda-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-mq-kafka-connector
 **** xref:reference/connectors/camel-aws2-mq-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-msk-kafka-connector
 **** xref:reference/connectors/camel-aws2-msk-kafka-sink-connector.adoc[Sink Docs]
-*** camel-aws2-s3-kafka-connector
-**** xref:reference/connectors/camel-aws2-s3-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-aws2-s3-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-ses-kafka-connector
 **** xref:reference/connectors/camel-aws2-ses-kafka-sink-connector.adoc[Sink Docs]
-*** camel-aws2-sns-kafka-connector
-**** xref:reference/connectors/camel-aws2-sns-kafka-sink-connector.adoc[Sink Docs]
-*** camel-aws2-sqs-kafka-connector
-**** xref:reference/connectors/camel-aws2-sqs-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-aws2-sqs-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-sts-kafka-connector
 **** xref:reference/connectors/camel-aws2-sts-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws2-translate-kafka-connector
@@ -125,23 +138,28 @@
 *** camel-azure-cosmosdb-kafka-connector
 **** xref:reference/connectors/camel-azure-cosmosdb-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-azure-cosmosdb-kafka-sink-connector.adoc[Sink Docs]
-*** camel-azure-eventhubs-kafka-connector
-**** xref:reference/connectors/camel-azure-eventhubs-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-azure-eventhubs-kafka-sink-connector.adoc[Sink Docs]
-*** camel-azure-storage-blob-kafka-connector
-**** xref:reference/connectors/camel-azure-storage-blob-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-azure-storage-blob-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-eventhubs-sink-kafka-connector
+**** xref:reference/connectors/camel-azure-eventhubs-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-eventhubs-source-kafka-connector
+**** xref:reference/connectors/camel-azure-eventhubs-source-kafka-source-connector.adoc[Source Docs]
+*** camel-azure-storage-blob-sink-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-blob-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-storage-blob-source-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-blob-source-kafka-source-connector.adoc[Source Docs]
 *** camel-azure-storage-datalake-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-datalake-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-azure-storage-datalake-kafka-sink-connector.adoc[Sink Docs]
-*** camel-azure-storage-queue-kafka-connector
-**** xref:reference/connectors/camel-azure-storage-queue-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-azure-storage-queue-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-storage-queue-sink-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-queue-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-storage-queue-source-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-queue-source-kafka-source-connector.adoc[Source Docs]
 *** camel-bean-kafka-connector
 **** xref:reference/connectors/camel-bean-kafka-sink-connector.adoc[Sink Docs]
 *** camel-beanstalk-kafka-connector
 **** xref:reference/connectors/camel-beanstalk-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-beanstalk-kafka-sink-connector.adoc[Sink Docs]
+*** camel-bitcoin-source-kafka-connector
+**** xref:reference/connectors/camel-bitcoin-source-kafka-source-connector.adoc[Source Docs]
 *** camel-box-kafka-connector
 **** xref:reference/connectors/camel-box-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-box-kafka-sink-connector.adoc[Sink Docs]
@@ -151,8 +169,14 @@
 **** xref:reference/connectors/camel-caffeine-cache-kafka-sink-connector.adoc[Sink Docs]
 *** camel-caffeine-loadcache-kafka-connector
 **** xref:reference/connectors/camel-caffeine-loadcache-kafka-sink-connector.adoc[Sink Docs]
+*** camel-cassandra-sink-kafka-connector
+**** xref:reference/connectors/camel-cassandra-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-cassandra-source-kafka-connector
+**** xref:reference/connectors/camel-cassandra-source-kafka-source-connector.adoc[Source Docs]
 *** camel-chatscript-kafka-connector
 **** xref:reference/connectors/camel-chatscript-kafka-sink-connector.adoc[Sink Docs]
+*** camel-chuck-norris-source-kafka-connector
+**** xref:reference/connectors/camel-chuck-norris-source-kafka-source-connector.adoc[Source Docs]
 *** camel-chunk-kafka-connector
 **** xref:reference/connectors/camel-chunk-kafka-sink-connector.adoc[Sink Docs]
 *** camel-cm-sms-kafka-connector
@@ -195,8 +219,8 @@
 *** camel-cql-kafka-connector
 **** xref:reference/connectors/camel-cql-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-cql-kafka-sink-connector.adoc[Sink Docs]
-*** camel-cron-kafka-connector
-**** xref:reference/connectors/camel-cron-kafka-source-connector.adoc[Source Docs]
+*** camel-cron-source-kafka-connector
+**** xref:reference/connectors/camel-cron-source-kafka-source-connector.adoc[Source Docs]
 *** camel-crypto-kafka-connector
 **** xref:reference/connectors/camel-crypto-kafka-sink-connector.adoc[Sink Docs]
 *** camel-cxf-kafka-connector
@@ -230,14 +254,19 @@
 **** xref:reference/connectors/camel-dozer-kafka-sink-connector.adoc[Sink Docs]
 *** camel-drill-kafka-connector
 **** xref:reference/connectors/camel-drill-kafka-sink-connector.adoc[Sink Docs]
-*** camel-dropbox-kafka-connector
-**** xref:reference/connectors/camel-dropbox-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-dropbox-kafka-sink-connector.adoc[Sink Docs]
+*** camel-dropbox-sink-kafka-connector
+**** xref:reference/connectors/camel-dropbox-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-dropbox-source-kafka-connector
+**** xref:reference/connectors/camel-dropbox-source-kafka-source-connector.adoc[Source Docs]
+*** camel-earthquake-source-kafka-connector
+**** xref:reference/connectors/camel-earthquake-source-kafka-source-connector.adoc[Source Docs]
 *** camel-ehcache-kafka-connector
 **** xref:reference/connectors/camel-ehcache-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-ehcache-kafka-sink-connector.adoc[Sink Docs]
-*** camel-elasticsearch-rest-kafka-connector
-**** xref:reference/connectors/camel-elasticsearch-rest-kafka-sink-connector.adoc[Sink Docs]
+*** camel-elasticsearch-index-sink-kafka-connector
+**** xref:reference/connectors/camel-elasticsearch-index-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-elasticsearch-search-source-kafka-connector
+**** xref:reference/connectors/camel-elasticsearch-search-source-kafka-source-connector.adoc[Source Docs]
 *** camel-elsql-kafka-connector
 **** xref:reference/connectors/camel-elsql-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-elsql-kafka-sink-connector.adoc[Sink Docs]
@@ -248,19 +277,18 @@
 **** xref:reference/connectors/camel-etcd-stats-kafka-sink-connector.adoc[Sink Docs]
 *** camel-etcd-watch-kafka-connector
 **** xref:reference/connectors/camel-etcd-watch-kafka-source-connector.adoc[Source Docs]
-*** camel-exec-kafka-connector
-**** xref:reference/connectors/camel-exec-kafka-sink-connector.adoc[Sink Docs]
+*** camel-exec-sink-kafka-connector
+**** xref:reference/connectors/camel-exec-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-facebook-kafka-connector
 **** xref:reference/connectors/camel-facebook-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-facebook-kafka-sink-connector.adoc[Sink Docs]
-*** camel-fhir-kafka-connector
-**** xref:reference/connectors/camel-fhir-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-fhir-kafka-sink-connector.adoc[Sink Docs]
+*** camel-fhir-source-kafka-connector
+**** xref:reference/connectors/camel-fhir-source-kafka-source-connector.adoc[Source Docs]
 *** camel-file-kafka-connector
 **** xref:reference/connectors/camel-file-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-file-kafka-sink-connector.adoc[Sink Docs]
-*** camel-file-watch-kafka-connector
-**** xref:reference/connectors/camel-file-watch-kafka-source-connector.adoc[Source Docs]
+*** camel-file-watch-source-kafka-connector
+**** xref:reference/connectors/camel-file-watch-source-kafka-source-connector.adoc[Source Docs]
 *** camel-flatpack-kafka-connector
 **** xref:reference/connectors/camel-flatpack-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-flatpack-kafka-sink-connector.adoc[Sink Docs]
@@ -270,12 +298,17 @@
 **** xref:reference/connectors/camel-fop-kafka-sink-connector.adoc[Sink Docs]
 *** camel-freemarker-kafka-connector
 **** xref:reference/connectors/camel-freemarker-kafka-sink-connector.adoc[Sink Docs]
-*** camel-ftp-kafka-connector
-**** xref:reference/connectors/camel-ftp-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-ftp-kafka-sink-connector.adoc[Sink Docs]
+*** camel-ftp-sink-kafka-connector
+**** xref:reference/connectors/camel-ftp-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-ftp-source-kafka-connector
+**** xref:reference/connectors/camel-ftp-source-kafka-source-connector.adoc[Source Docs]
 *** camel-ftps-kafka-connector
 **** xref:reference/connectors/camel-ftps-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-ftps-kafka-sink-connector.adoc[Sink Docs]
+*** camel-ftps-sink-kafka-connector
+**** xref:reference/connectors/camel-ftps-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-ftps-source-kafka-connector
+**** xref:reference/connectors/camel-ftps-source-kafka-source-connector.adoc[Source Docs]
 *** camel-ganglia-kafka-connector
 **** xref:reference/connectors/camel-ganglia-kafka-sink-connector.adoc[Sink Docs]
 *** camel-geocoder-kafka-connector
@@ -283,16 +316,14 @@
 *** camel-git-kafka-connector
 **** xref:reference/connectors/camel-git-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-git-kafka-sink-connector.adoc[Sink Docs]
-*** camel-github-kafka-connector
-**** xref:reference/connectors/camel-github-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-github-kafka-sink-connector.adoc[Sink Docs]
+*** camel-github-source-kafka-connector
+**** xref:reference/connectors/camel-github-source-kafka-source-connector.adoc[Source Docs]
 *** camel-google-bigquery-kafka-connector
 **** xref:reference/connectors/camel-google-bigquery-kafka-sink-connector.adoc[Sink Docs]
 *** camel-google-bigquery-sql-kafka-connector
 **** xref:reference/connectors/camel-google-bigquery-sql-kafka-sink-connector.adoc[Sink Docs]
-*** camel-google-calendar-kafka-connector
-**** xref:reference/connectors/camel-google-calendar-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-google-calendar-kafka-sink-connector.adoc[Sink Docs]
+*** camel-google-calendar-source-kafka-connector
+**** xref:reference/connectors/camel-google-calendar-source-kafka-source-connector.adoc[Source Docs]
 *** camel-google-calendar-stream-kafka-connector
 **** xref:reference/connectors/camel-google-calendar-stream-kafka-source-connector.adoc[Source Docs]
 *** camel-google-drive-kafka-connector
@@ -300,17 +331,15 @@
 **** xref:reference/connectors/camel-google-drive-kafka-sink-connector.adoc[Sink Docs]
 *** camel-google-functions-kafka-connector
 **** xref:reference/connectors/camel-google-functions-kafka-sink-connector.adoc[Sink Docs]
-*** camel-google-mail-kafka-connector
-**** xref:reference/connectors/camel-google-mail-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-google-mail-kafka-sink-connector.adoc[Sink Docs]
+*** camel-google-mail-source-kafka-connector
+**** xref:reference/connectors/camel-google-mail-source-kafka-source-connector.adoc[Source Docs]
 *** camel-google-mail-stream-kafka-connector
 **** xref:reference/connectors/camel-google-mail-stream-kafka-source-connector.adoc[Source Docs]
 *** camel-google-pubsub-kafka-connector
 **** xref:reference/connectors/camel-google-pubsub-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-google-pubsub-kafka-sink-connector.adoc[Sink Docs]
-*** camel-google-sheets-kafka-connector
-**** xref:reference/connectors/camel-google-sheets-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-google-sheets-kafka-sink-connector.adoc[Sink Docs]
+*** camel-google-sheets-source-kafka-connector
+**** xref:reference/connectors/camel-google-sheets-source-kafka-source-connector.adoc[Source Docs]
 *** camel-google-sheets-stream-kafka-connector
 **** xref:reference/connectors/camel-google-sheets-stream-kafka-source-connector.adoc[Source Docs]
 *** camel-google-storage-kafka-connector
@@ -365,8 +394,14 @@
 *** camel-hdfs-kafka-connector
 **** xref:reference/connectors/camel-hdfs-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-hdfs-kafka-sink-connector.adoc[Sink Docs]
-*** camel-http-kafka-connector
-**** xref:reference/connectors/camel-http-kafka-sink-connector.adoc[Sink Docs]
+*** camel-http-secured-sink-kafka-connector
+**** xref:reference/connectors/camel-http-secured-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-http-secured-source-kafka-connector
+**** xref:reference/connectors/camel-http-secured-source-kafka-source-connector.adoc[Source Docs]
+*** camel-http-sink-kafka-connector
+**** xref:reference/connectors/camel-http-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-http-source-kafka-connector
+**** xref:reference/connectors/camel-http-source-kafka-source-connector.adoc[Source Docs]
 *** camel-https-kafka-connector
 **** xref:reference/connectors/camel-https-kafka-sink-connector.adoc[Sink Docs]
 *** camel-hwcloud-functiongraph-kafka-connector
@@ -406,9 +441,8 @@
 *** camel-infinispan-embedded-kafka-connector
 **** xref:reference/connectors/camel-infinispan-embedded-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-infinispan-embedded-kafka-sink-connector.adoc[Sink Docs]
-*** camel-infinispan-kafka-connector
-**** xref:reference/connectors/camel-infinispan-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-infinispan-kafka-sink-connector.adoc[Sink Docs]
+*** camel-infinispan-source-kafka-connector
+**** xref:reference/connectors/camel-infinispan-source-kafka-source-connector.adoc[Source Docs]
 *** camel-influxdb-kafka-connector
 **** xref:reference/connectors/camel-influxdb-kafka-sink-connector.adoc[Sink Docs]
 *** camel-iota-kafka-connector
@@ -445,12 +479,16 @@
 **** xref:reference/connectors/camel-jgroups-raft-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jing-kafka-connector
 **** xref:reference/connectors/camel-jing-kafka-sink-connector.adoc[Sink Docs]
-*** camel-jira-kafka-connector
-**** xref:reference/connectors/camel-jira-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-jira-kafka-sink-connector.adoc[Sink Docs]
-*** camel-jms-kafka-connector
-**** xref:reference/connectors/camel-jms-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-jms-kafka-sink-connector.adoc[Sink Docs]
+*** camel-jira-source-kafka-connector
+**** xref:reference/connectors/camel-jira-source-kafka-source-connector.adoc[Source Docs]
+*** camel-jms-amqp-10-sink-kafka-connector
+**** xref:reference/connectors/camel-jms-amqp-10-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-jms-amqp-10-source-kafka-connector
+**** xref:reference/connectors/camel-jms-amqp-10-source-kafka-source-connector.adoc[Source Docs]
+*** camel-jms-apache-artemis-sink-kafka-connector
+**** xref:reference/connectors/camel-jms-apache-artemis-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-jms-apache-artemis-source-kafka-connector
+**** xref:reference/connectors/camel-jms-apache-artemis-source-kafka-source-connector.adoc[Source Docs]
 *** camel-jmx-kafka-connector
 **** xref:reference/connectors/camel-jmx-kafka-source-connector.adoc[Source Docs]
 *** camel-jolt-kafka-connector
@@ -470,12 +508,14 @@
 *** camel-jt400-kafka-connector
 **** xref:reference/connectors/camel-jt400-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-jt400-kafka-sink-connector.adoc[Sink Docs]
-*** camel-kafka-kafka-connector
-**** xref:reference/connectors/camel-kafka-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-kafka-kafka-sink-connector.adoc[Sink Docs]
-*** camel-kamelet-kafka-connector
-**** xref:reference/connectors/camel-kamelet-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-kamelet-kafka-sink-connector.adoc[Sink Docs]
+*** camel-kafka-not-secured-sink-kafka-connector
+**** xref:reference/connectors/camel-kafka-not-secured-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-kafka-not-secured-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-not-secured-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-sink-kafka-connector
+**** xref:reference/connectors/camel-kafka-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-kafka-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kamelet-reify-kafka-connector
 **** xref:reference/connectors/camel-kamelet-reify-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-kamelet-reify-kafka-sink-connector.adoc[Sink Docs]
@@ -534,6 +574,12 @@
 **** xref:reference/connectors/camel-lucene-kafka-sink-connector.adoc[Sink Docs]
 *** camel-lumberjack-kafka-connector
 **** xref:reference/connectors/camel-lumberjack-kafka-source-connector.adoc[Source Docs]
+*** camel-mail-imap-source-kafka-connector
+**** xref:reference/connectors/camel-mail-imap-source-kafka-source-connector.adoc[Source Docs]
+*** camel-mariadb-sink-kafka-connector
+**** xref:reference/connectors/camel-mariadb-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-mariadb-source-kafka-connector
+**** xref:reference/connectors/camel-mariadb-source-kafka-source-connector.adoc[Source Docs]
 *** camel-master-kafka-connector
 **** xref:reference/connectors/camel-master-kafka-source-connector.adoc[Source Docs]
 *** camel-metrics-kafka-connector
@@ -551,18 +597,22 @@
 *** camel-mina-kafka-connector
 **** xref:reference/connectors/camel-mina-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-mina-kafka-sink-connector.adoc[Sink Docs]
-*** camel-minio-kafka-connector
-**** xref:reference/connectors/camel-minio-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-minio-kafka-sink-connector.adoc[Sink Docs]
+*** camel-minio-sink-kafka-connector
+**** xref:reference/connectors/camel-minio-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-minio-source-kafka-connector
+**** xref:reference/connectors/camel-minio-source-kafka-source-connector.adoc[Source Docs]
 *** camel-mllp-kafka-connector
 **** xref:reference/connectors/camel-mllp-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-mllp-kafka-sink-connector.adoc[Sink Docs]
 *** camel-mongodb-gridfs-kafka-connector
 **** xref:reference/connectors/camel-mongodb-gridfs-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-mongodb-gridfs-kafka-sink-connector.adoc[Sink Docs]
-*** camel-mongodb-kafka-connector
-**** xref:reference/connectors/camel-mongodb-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-mongodb-kafka-sink-connector.adoc[Sink Docs]
+*** camel-mongodb-sink-kafka-connector
+**** xref:reference/connectors/camel-mongodb-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-mongodb-source-kafka-connector
+**** xref:reference/connectors/camel-mongodb-source-kafka-source-connector.adoc[Source Docs]
+*** camel-mqtt-source-kafka-connector
+**** xref:reference/connectors/camel-mqtt-source-kafka-source-connector.adoc[Source Docs]
 *** camel-msv-kafka-connector
 **** xref:reference/connectors/camel-msv-kafka-sink-connector.adoc[Sink Docs]
 *** camel-mustache-kafka-connector
@@ -574,11 +624,16 @@
 *** camel-mybatis-kafka-connector
 **** xref:reference/connectors/camel-mybatis-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-mybatis-kafka-sink-connector.adoc[Sink Docs]
+*** camel-mysql-sink-kafka-connector
+**** xref:reference/connectors/camel-mysql-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-mysql-source-kafka-connector
+**** xref:reference/connectors/camel-mysql-source-kafka-source-connector.adoc[Source Docs]
 *** camel-nagios-kafka-connector
 **** xref:reference/connectors/camel-nagios-kafka-sink-connector.adoc[Sink Docs]
-*** camel-nats-kafka-connector
-**** xref:reference/connectors/camel-nats-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-nats-kafka-sink-connector.adoc[Sink Docs]
+*** camel-nats-sink-kafka-connector
+**** xref:reference/connectors/camel-nats-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-nats-source-kafka-connector
+**** xref:reference/connectors/camel-nats-source-kafka-source-connector.adoc[Source Docs]
 *** camel-netty-http-kafka-connector
 **** xref:reference/connectors/camel-netty-http-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-netty-http-kafka-sink-connector.adoc[Sink Docs]
@@ -619,9 +674,6 @@
 *** camel-optaplanner-kafka-connector
 **** xref:reference/connectors/camel-optaplanner-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-optaplanner-kafka-sink-connector.adoc[Sink Docs]
-*** camel-paho-kafka-connector
-**** xref:reference/connectors/camel-paho-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-paho-kafka-sink-connector.adoc[Sink Docs]
 *** camel-paho-mqtt5-kafka-connector
 **** xref:reference/connectors/camel-paho-mqtt5-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-paho-mqtt5-kafka-sink-connector.adoc[Sink Docs]
@@ -632,28 +684,27 @@
 *** camel-pgevent-kafka-connector
 **** xref:reference/connectors/camel-pgevent-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-pgevent-kafka-sink-connector.adoc[Sink Docs]
-*** camel-platform-http-kafka-connector
-**** xref:reference/connectors/camel-platform-http-kafka-source-connector.adoc[Source Docs]
 *** camel-pop3-kafka-connector
 **** xref:reference/connectors/camel-pop3-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-pop3-kafka-sink-connector.adoc[Sink Docs]
 *** camel-pop3s-kafka-connector
 **** xref:reference/connectors/camel-pop3s-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-pop3s-kafka-sink-connector.adoc[Sink Docs]
+*** camel-postgresql-sink-kafka-connector
+**** xref:reference/connectors/camel-postgresql-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-postgresql-source-kafka-connector
+**** xref:reference/connectors/camel-postgresql-source-kafka-source-connector.adoc[Source Docs]
 *** camel-pubnub-kafka-connector
 **** xref:reference/connectors/camel-pubnub-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-pubnub-kafka-sink-connector.adoc[Sink Docs]
 *** camel-pulsar-kafka-connector
 **** xref:reference/connectors/camel-pulsar-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-pulsar-kafka-sink-connector.adoc[Sink Docs]
-*** camel-quartz-kafka-connector
-**** xref:reference/connectors/camel-quartz-kafka-source-connector.adoc[Source Docs]
 *** camel-quickfix-kafka-connector
 **** xref:reference/connectors/camel-quickfix-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-quickfix-kafka-sink-connector.adoc[Sink Docs]
-*** camel-rabbitmq-kafka-connector
-**** xref:reference/connectors/camel-rabbitmq-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-rabbitmq-kafka-sink-connector.adoc[Sink Docs]
+*** camel-rabbitmq-source-kafka-connector
+**** xref:reference/connectors/camel-rabbitmq-source-kafka-source-connector.adoc[Source Docs]
 *** camel-reactive-streams-kafka-connector
 **** xref:reference/connectors/camel-reactive-streams-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-reactive-streams-kafka-sink-connector.adoc[Sink Docs]
@@ -673,9 +724,8 @@
 **** xref:reference/connectors/camel-rss-kafka-source-connector.adoc[Source Docs]
 *** camel-saga-kafka-connector
 **** xref:reference/connectors/camel-saga-kafka-sink-connector.adoc[Sink Docs]
-*** camel-salesforce-kafka-connector
-**** xref:reference/connectors/camel-salesforce-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-salesforce-kafka-sink-connector.adoc[Sink Docs]
+*** camel-salesforce-source-kafka-connector
+**** xref:reference/connectors/camel-salesforce-source-kafka-source-connector.adoc[Source Docs]
 *** camel-sap-netweaver-kafka-connector
 **** xref:reference/connectors/camel-sap-netweaver-kafka-sink-connector.adoc[Sink Docs]
 *** camel-scheduler-kafka-connector
@@ -696,6 +746,10 @@
 *** camel-sftp-kafka-connector
 **** xref:reference/connectors/camel-sftp-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-sftp-kafka-sink-connector.adoc[Sink Docs]
+*** camel-sftp-sink-kafka-connector
+**** xref:reference/connectors/camel-sftp-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-sftp-source-kafka-connector
+**** xref:reference/connectors/camel-sftp-source-kafka-source-connector.adoc[Source Docs]
 *** camel-sip-kafka-connector
 **** xref:reference/connectors/camel-sip-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-sip-kafka-sink-connector.adoc[Sink Docs]
@@ -708,9 +762,8 @@
 *** camel-sjms2-kafka-connector
 **** xref:reference/connectors/camel-sjms2-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-sjms2-kafka-sink-connector.adoc[Sink Docs]
-*** camel-slack-kafka-connector
-**** xref:reference/connectors/camel-slack-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-slack-kafka-sink-connector.adoc[Sink Docs]
+*** camel-slack-source-kafka-connector
+**** xref:reference/connectors/camel-slack-source-kafka-source-connector.adoc[Source Docs]
 *** camel-smpp-kafka-connector
 **** xref:reference/connectors/camel-smpp-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-smpp-kafka-sink-connector.adoc[Sink Docs]
@@ -763,14 +816,14 @@
 *** camel-spring-ws-kafka-connector
 **** xref:reference/connectors/camel-spring-ws-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-spring-ws-kafka-sink-connector.adoc[Sink Docs]
-*** camel-sql-kafka-connector
-**** xref:reference/connectors/camel-sql-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-sql-kafka-sink-connector.adoc[Sink Docs]
 *** camel-sql-stored-kafka-connector
 **** xref:reference/connectors/camel-sql-stored-kafka-sink-connector.adoc[Sink Docs]
-*** camel-ssh-kafka-connector
-**** xref:reference/connectors/camel-ssh-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-ssh-kafka-sink-connector.adoc[Sink Docs]
+*** camel-sqlserver-sink-kafka-connector
+**** xref:reference/connectors/camel-sqlserver-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-sqlserver-source-kafka-connector
+**** xref:reference/connectors/camel-sqlserver-source-kafka-source-connector.adoc[Source Docs]
+*** camel-ssh-source-kafka-connector
+**** xref:reference/connectors/camel-ssh-source-kafka-source-connector.adoc[Source Docs]
 *** camel-stax-kafka-connector
 **** xref:reference/connectors/camel-stax-kafka-sink-connector.adoc[Sink Docs]
 *** camel-stitch-kafka-connector
@@ -789,28 +842,35 @@
 *** camel-syslog-kafka-connector
 **** xref:reference/connectors/camel-syslog-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-syslog-kafka-sink-connector.adoc[Sink Docs]
-*** camel-telegram-kafka-connector
-**** xref:reference/connectors/camel-telegram-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-telegram-kafka-sink-connector.adoc[Sink Docs]
+*** camel-telegram-sink-kafka-connector
+**** xref:reference/connectors/camel-telegram-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-telegram-source-kafka-connector
+**** xref:reference/connectors/camel-telegram-source-kafka-source-connector.adoc[Source Docs]
 *** camel-thrift-kafka-connector
 **** xref:reference/connectors/camel-thrift-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-thrift-kafka-sink-connector.adoc[Sink Docs]
 *** camel-tika-kafka-connector
 **** xref:reference/connectors/camel-tika-kafka-sink-connector.adoc[Sink Docs]
-*** camel-timer-kafka-connector
-**** xref:reference/connectors/camel-timer-kafka-source-connector.adoc[Source Docs]
+*** camel-timer-source-kafka-connector
+**** xref:reference/connectors/camel-timer-source-kafka-source-connector.adoc[Source Docs]
 *** camel-twilio-kafka-connector
 **** xref:reference/connectors/camel-twilio-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-twilio-kafka-sink-connector.adoc[Sink Docs]
 *** camel-twitter-directmessage-kafka-connector
 **** xref:reference/connectors/camel-twitter-directmessage-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-twitter-directmessage-kafka-sink-connector.adoc[Sink Docs]
+*** camel-twitter-directmessage-source-kafka-connector
+**** xref:reference/connectors/camel-twitter-directmessage-source-kafka-source-connector.adoc[Source Docs]
 *** camel-twitter-search-kafka-connector
 **** xref:reference/connectors/camel-twitter-search-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-twitter-search-kafka-sink-connector.adoc[Sink Docs]
+*** camel-twitter-search-source-kafka-connector
+**** xref:reference/connectors/camel-twitter-search-source-kafka-source-connector.adoc[Source Docs]
 *** camel-twitter-timeline-kafka-connector
 **** xref:reference/connectors/camel-twitter-timeline-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-twitter-timeline-kafka-sink-connector.adoc[Sink Docs]
+*** camel-twitter-timeline-source-kafka-connector
+**** xref:reference/connectors/camel-twitter-timeline-source-kafka-source-connector.adoc[Source Docs]
 *** camel-undertow-kafka-connector
 **** xref:reference/connectors/camel-undertow-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-undertow-kafka-sink-connector.adoc[Sink Docs]
@@ -840,6 +900,8 @@
 **** xref:reference/connectors/camel-web3j-kafka-sink-connector.adoc[Sink Docs]
 *** camel-webhook-kafka-connector
 **** xref:reference/connectors/camel-webhook-kafka-source-connector.adoc[Source Docs]
+*** camel-webhook-source-kafka-connector
+**** xref:reference/connectors/camel-webhook-source-kafka-source-connector.adoc[Source Docs]
 *** camel-websocket-jsr356-kafka-connector
 **** xref:reference/connectors/camel-websocket-jsr356-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-websocket-jsr356-kafka-sink-connector.adoc[Sink Docs]
@@ -853,8 +915,6 @@
 **** xref:reference/connectors/camel-wordpress-kafka-sink-connector.adoc[Sink Docs]
 *** camel-workday-kafka-connector
 **** xref:reference/connectors/camel-workday-kafka-sink-connector.adoc[Sink Docs]
-*** camel-xchange-kafka-connector
-**** xref:reference/connectors/camel-xchange-kafka-sink-connector.adoc[Sink Docs]
 *** camel-xj-kafka-connector
 **** xref:reference/connectors/camel-xj-kafka-sink-connector.adoc[Sink Docs]
 *** camel-xmlsecurity-sign-kafka-connector

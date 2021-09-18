@@ -1,0 +1,85 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awss3streaminguploadsink.CamelAwss3streaminguploadsinkSinkConnector",
+		"artifactId": "camel-aws-s3-streaming-upload-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-s3-streaming-upload-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Upload data to AWS S3 in streaming upload mode."
+	},
+	"properties": {
+		"camel.kamelet.aws-s3-streaming-upload-sink.bucketNameOrArn": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.bucketNameOrArn",
+			"description": "The S3 Bucket name or ARN.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.accessKey": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.secretKey": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.region": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.region",
+			"description": "The AWS region to connect to. Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.autoCreateBucket": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.autoCreateBucket",
+			"description": "Setting the autocreation of the S3 bucket bucketName.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadMode": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadMode",
+			"description": "Setting the Streaming Upload Mode",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.restartingPolicy": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.restartingPolicy",
+			"description": "The restarting policy to use in streaming upload mode. There are 2 enums and the value can be one of override, lastPart",
+			"defaultValue": "\"lastPart\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.batchMessageNumber": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.batchMessageNumber",
+			"description": "The number of messages composing a batch in streaming upload mode",
+			"defaultValue": "10",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.batchSize": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.batchSize",
+			"description": "The batch size (in bytes) in streaming upload mode",
+			"defaultValue": "1000000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.namingStrategy": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.namingStrategy",
+			"description": "The naming strategy to use in streaming upload mode. There are 2 enums and the value can be one of progressive, random",
+			"defaultValue": "\"progressive\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.keyName": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.keyName",
+			"description": "Setting the key name for an element in the bucket through endpoint parameter. In Streaming Upload, with the default configuration, this will be the base for the progressive creation of files.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

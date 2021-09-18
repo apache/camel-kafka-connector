@@ -1,0 +1,57 @@
+// kafka-connector options: START
+[[camel-cron-source-kafka-connector-source]]
+= camel-cron-source-kafka-connector source configuration
+
+Connector description: Send events at specific time.
+
+When using camel-cron-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-cron-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.cronsource.CamelCronsourceSourceConnector
+----
+
+
+The camel-cron-source source connector supports 2 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.cron-source.schedule* | A cron expression that will be used to trigger events generation. Example: 0/3 10 * * * ? | null | true | HIGH
+| *camel.kamelet.cron-source.message* | The message to generate Example: hello world | null | true | HIGH
+|===
+
+
+
+The camel-cron-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-cron-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-cron-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

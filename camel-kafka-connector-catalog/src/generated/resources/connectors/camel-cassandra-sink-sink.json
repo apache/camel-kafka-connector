@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cassandrasink.CamelCassandrasinkSinkConnector",
+		"artifactId": "camel-cassandra-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-cassandra-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to a Cassandra Cluster.\n\nThis Kamelet expects the body as JSON Array. The content of the JSON Array will be used as input for the CQL Prepared Statement set in the query parameter."
+	},
+	"properties": {
+		"camel.kamelet.cassandra-sink.host": {
+			"name": "camel.kamelet.cassandra-sink.host",
+			"description": "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-sink.port": {
+			"name": "camel.kamelet.cassandra-sink.port",
+			"description": "Port number of cassandra server(s) Example: 9042",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-sink.keyspace": {
+			"name": "camel.kamelet.cassandra-sink.keyspace",
+			"description": "Keyspace to use Example: customers",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-sink.username": {
+			"name": "camel.kamelet.cassandra-sink.username",
+			"description": "The username to use for accessing a secured Cassandra Cluster",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-sink.password": {
+			"name": "camel.kamelet.cassandra-sink.password",
+			"description": "The password to use for accessing a secured Cassandra Cluster",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-sink.consistencyLevel": {
+			"name": "camel.kamelet.cassandra-sink.consistencyLevel",
+			"description": "Consistency level to use. The value can be one of ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE",
+			"defaultValue": "\"ANY\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.cassandra-sink.preparedStatement": {
+			"name": "camel.kamelet.cassandra-sink.preparedStatement",
+			"description": "The Prepared statement to execute against the Cassandra cluster table",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

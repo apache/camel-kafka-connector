@@ -1,0 +1,58 @@
+// kafka-connector options: START
+[[camel-jms-amqp-10-sink-kafka-connector-sink]]
+= camel-jms-amqp-10-sink-kafka-connector sink configuration
+
+Connector Description: A Kamelet that can produce events to any AMQP 1.0 compliant message broker using the Apache Qpid JMS client
+
+When using camel-jms-amqp-10-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-jms-amqp-10-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.jmsamqp10sink.CamelJmsamqp10sinkSinkConnector
+----
+
+
+The camel-jms-amqp-10-sink sink connector supports 3 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.jms-amqp-10-sink.destinationType* | The JMS destination type (i.e.: queue or topic) | "queue" | false | MEDIUM
+| *camel.kamelet.jms-amqp-10-sink.destinationName* | The JMS destination name | null | true | HIGH
+| *camel.kamelet.jms-amqp-10-sink.remoteURI* | The JMS URL Example: amqp://my-host:31616 | null | true | HIGH
+|===
+
+
+
+The camel-jms-amqp-10-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-jms-amqp-10-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-jms-amqp-10-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

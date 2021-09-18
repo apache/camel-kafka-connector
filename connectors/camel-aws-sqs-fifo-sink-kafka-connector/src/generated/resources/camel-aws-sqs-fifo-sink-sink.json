@@ -1,0 +1,51 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awssqsfifosink.CamelAwssqsfifosinkSinkConnector",
+		"artifactId": "camel-aws-sqs-fifo-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-sqs-fifo-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send message to an AWS SQS FIFO Queue"
+	},
+	"properties": {
+		"camel.kamelet.aws-sqs-fifo-sink.queueNameOrArn": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.queueNameOrArn",
+			"description": "The SQS Queue name or ARN",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.accessKey": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.secretKey": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.region": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.contentBasedDeduplication": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.contentBasedDeduplication",
+			"description": "Use content-based deduplication (should be enabled in the SQS FIFO queue first)",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.autoCreateQueue": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.autoCreateQueue",
+			"description": "Setting the autocreation of the SQS queue.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

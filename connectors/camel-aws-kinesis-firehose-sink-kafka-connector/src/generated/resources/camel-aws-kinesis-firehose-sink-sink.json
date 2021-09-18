@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awskinesisfirehosesink.CamelAwskinesisfirehosesinkSinkConnector",
+		"artifactId": "camel-aws-kinesis-firehose-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-kinesis-firehose-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send message to an AWS Kinesis Firehose Stream"
+	},
+	"properties": {
+		"camel.kamelet.aws-kinesis-firehose-sink.streamName": {
+			"name": "camel.kamelet.aws-kinesis-firehose-sink.streamName",
+			"description": "The name of the stream we want to send to data to",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-firehose-sink.accessKey": {
+			"name": "camel.kamelet.aws-kinesis-firehose-sink.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-firehose-sink.secretKey": {
+			"name": "camel.kamelet.aws-kinesis-firehose-sink.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-firehose-sink.region": {
+			"name": "camel.kamelet.aws-kinesis-firehose-sink.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

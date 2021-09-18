@@ -1,0 +1,60 @@
+// kafka-connector options: START
+[[camel-rabbitmq-source-kafka-connector-source]]
+= camel-rabbitmq-source-kafka-connector source configuration
+
+Connector description: Receive data from an RabbitMQ Brokers.
+
+When using camel-rabbitmq-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-rabbitmq-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.rabbitmqsource.CamelRabbitmqsourceSourceConnector
+----
+
+
+The camel-rabbitmq-source source connector supports 5 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.rabbitmq-source.addresses* | Comma separated list of RabbitMQ broker addresses | null | true | HIGH
+| *camel.kamelet.rabbitmq-source.port* | Port of the RabbitMQ server | "5672" | false | MEDIUM
+| *camel.kamelet.rabbitmq-source.username* | The username to access the RabbitMQ server | null | true | HIGH
+| *camel.kamelet.rabbitmq-source.password* | The password to access the RabbitMQ server | null | true | HIGH
+| *camel.kamelet.rabbitmq-source.exchangeName* | The exchange name determines the exchange the queue will be bound to | null | true | HIGH
+|===
+
+
+
+The camel-rabbitmq-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-rabbitmq-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-rabbitmq-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -1,0 +1,26 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.filewatchsource.CamelFilewatchsourceSourceConnector",
+		"artifactId": "camel-file-watch-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-file-watch-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive events related to a file or folder. It may require a volume mounting on Kubernetes."
+	},
+	"properties": {
+		"camel.kamelet.file-watch-source.path": {
+			"name": "camel.kamelet.file-watch-source.path",
+			"description": "Path of file or folder to watch",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.file-watch-source.events": {
+			"name": "camel.kamelet.file-watch-source.events",
+			"description": "The type of events to consume",
+			"defaultValue": "\"CREATE,MODIFY,DELETE\"",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

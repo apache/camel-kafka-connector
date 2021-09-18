@@ -1,0 +1,51 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awsddbstreamssource.CamelAwsddbstreamssourceSourceConnector",
+		"artifactId": "camel-aws-ddb-streams-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-ddb-streams-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive events from AWS DynamoDB Streams."
+	},
+	"properties": {
+		"camel.kamelet.aws-ddb-streams-source.table": {
+			"name": "camel.kamelet.aws-ddb-streams-source.table",
+			"description": "Name of the DynamoDB table to look at",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ddb-streams-source.accessKey": {
+			"name": "camel.kamelet.aws-ddb-streams-source.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ddb-streams-source.secretKey": {
+			"name": "camel.kamelet.aws-ddb-streams-source.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ddb-streams-source.region": {
+			"name": "camel.kamelet.aws-ddb-streams-source.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ddb-streams-source.iteratorType": {
+			"name": "camel.kamelet.aws-ddb-streams-source.iteratorType",
+			"description": "Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. There are 4 enums and the value can be one of TRIM_HORIZON, LATEST, AT_SEQUENCE_NUMBER, AFTER_SEQUENCE_NUMBER",
+			"defaultValue": "\"LATEST\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-ddb-streams-source.sequenceNumberProvider": {
+			"name": "camel.kamelet.aws-ddb-streams-source.sequenceNumberProvider",
+			"description": "Provider for the sequence number when using one of the two ShardIteratorType AT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. Example: 900000000005745712447",
+			"defaultValue": "\"000000000000000000000\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

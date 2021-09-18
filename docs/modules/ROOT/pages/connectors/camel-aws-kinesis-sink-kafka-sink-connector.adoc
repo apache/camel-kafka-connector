@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-aws-kinesis-sink-kafka-connector-sink]]
+= camel-aws-kinesis-sink-kafka-connector sink configuration
+
+Connector Description: Send data to AWS Kinesis.
+
+The Kamelet expects the following header:
+
+- `partition` / `ce-partition`: to set the Kinesis partition key
+
+If the header won't be set the exchange ID will be used.
+
+The Kamelet is also able to recognize the following header:
+
+- `sequence-number` / `ce-sequence-number`: to set the Sequence number
+
+This header is optional.
+
+When using camel-aws-kinesis-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-kinesis-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awskinesissink.CamelAwskinesissinkSinkConnector
+----
+
+
+The camel-aws-kinesis-sink sink connector supports 4 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-kinesis-sink.stream* | The Kinesis stream that you want to access (needs to be created in advance) | null | true | HIGH
+| *camel.kamelet.aws-kinesis-sink.accessKey* | The access key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-kinesis-sink.secretKey* | The secret key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-kinesis-sink.region* | The AWS region to connect to Example: eu-west-1 | null | true | HIGH
+|===
+
+
+
+The camel-aws-kinesis-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-kinesis-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-kinesis-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

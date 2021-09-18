@@ -1,0 +1,31 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awsec2sink.CamelAwsec2sinkSinkConnector",
+		"artifactId": "camel-aws-ec2-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-ec2-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Check the status of EC2 instances\n\nThe Kamelet expects the following headers to be set:\n\n- `instanceIds` \/ `ce-instanceIds`: as a comma separated list of EC2 instance ids."
+	},
+	"properties": {
+		"camel.kamelet.aws-ec2-sink.accessKey": {
+			"name": "camel.kamelet.aws-ec2-sink.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ec2-sink.secretKey": {
+			"name": "camel.kamelet.aws-ec2-sink.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ec2-sink.region": {
+			"name": "camel.kamelet.aws-ec2-sink.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

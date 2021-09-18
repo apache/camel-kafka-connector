@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jmsamqp10sink.CamelJmsamqp10sinkSinkConnector",
+		"artifactId": "camel-jms-amqp-10-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jms-amqp-10-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "A Kamelet that can produce events to any AMQP 1.0 compliant message broker using the Apache Qpid JMS client"
+	},
+	"properties": {
+		"camel.kamelet.jms-amqp-10-sink.destinationType": {
+			"name": "camel.kamelet.jms-amqp-10-sink.destinationType",
+			"description": "The JMS destination type (i.e.: queue or topic)",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-amqp-10-sink.destinationName": {
+			"name": "camel.kamelet.jms-amqp-10-sink.destinationName",
+			"description": "The JMS destination name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-amqp-10-sink.remoteURI": {
+			"name": "camel.kamelet.jms-amqp-10-sink.remoteURI",
+			"description": "The JMS URL Example: amqp:\/\/my-host:31616",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

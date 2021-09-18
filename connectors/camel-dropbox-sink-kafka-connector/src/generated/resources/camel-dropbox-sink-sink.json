@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.dropboxsink.CamelDropboxsinkSinkConnector",
+		"artifactId": "camel-dropbox-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-dropbox-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Upload Files to Dropbox.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+	},
+	"properties": {
+		"camel.kamelet.dropbox-sink.accessToken": {
+			"name": "camel.kamelet.dropbox-sink.accessToken",
+			"description": "The access Token to use to access Dropbox",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.dropbox-sink.clientIdentifier": {
+			"name": "camel.kamelet.dropbox-sink.clientIdentifier",
+			"description": "Dropbox App client Identifier",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.dropbox-sink.remotePath": {
+			"name": "camel.kamelet.dropbox-sink.remotePath",
+			"description": "Original file or folder to work with",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.dropbox-sink.uploadMode": {
+			"name": "camel.kamelet.dropbox-sink.uploadMode",
+			"description": "Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. The value can be one of add, force.",
+			"defaultValue": "\"add\"",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mariadbsource.CamelMariadbsourceSourceConnector",
+		"artifactId": "camel-mariadb-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mariadb-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Query data from a MariaDB Database.\n\nIn you KameletBinding file you'll need to explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies\n\n- \"mvn:org.mariadb.jdbc:mariadb-java-client:<version>\""
+	},
+	"properties": {
+		"camel.kamelet.mariadb-source.serverName": {
+			"name": "camel.kamelet.mariadb-source.serverName",
+			"description": "Server Name for the data source Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mariadb-source.port": {
+			"name": "camel.kamelet.mariadb-source.port",
+			"description": "Server Port for the data source",
+			"defaultValue": "\"3306\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mariadb-source.username": {
+			"name": "camel.kamelet.mariadb-source.username",
+			"description": "The username to use for accessing a secured MariaDB Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mariadb-source.password": {
+			"name": "camel.kamelet.mariadb-source.password",
+			"description": "The password to use for accessing a secured MariaDB Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mariadb-source.query": {
+			"name": "camel.kamelet.mariadb-source.query",
+			"description": "The Query to execute against the MariaDB Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mariadb-source.databaseName": {
+			"name": "camel.kamelet.mariadb-source.databaseName",
+			"description": "The Database Name we are pointing",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mariadb-source.consumedQuery": {
+			"name": "camel.kamelet.mariadb-source.consumedQuery",
+			"description": "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

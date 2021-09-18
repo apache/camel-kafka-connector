@@ -1,0 +1,65 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sftpsource.CamelSftpsourceSourceConnector",
+		"artifactId": "camel-sftp-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-sftp-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive data from an SFTP Server."
+	},
+	"properties": {
+		"camel.kamelet.sftp-source.host": {
+			"name": "camel.kamelet.sftp-source.host",
+			"description": "Hostname of the SFTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-source.port": {
+			"name": "camel.kamelet.sftp-source.port",
+			"description": "Port of the FTP server",
+			"defaultValue": "\"22\"",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-source.username": {
+			"name": "camel.kamelet.sftp-source.username",
+			"description": "The username to access the SFTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-source.password": {
+			"name": "camel.kamelet.sftp-source.password",
+			"description": "The password to access the SFTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-source.directoryName": {
+			"name": "camel.kamelet.sftp-source.directoryName",
+			"description": "The starting directory",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-source.passiveMode": {
+			"name": "camel.kamelet.sftp-source.passiveMode",
+			"description": "Sets passive mode connection",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.recursive": {
+			"name": "camel.kamelet.sftp-source.recursive",
+			"description": "If a directory, will look for files in all the sub-directories as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.idempotent": {
+			"name": "camel.kamelet.sftp-source.idempotent",
+			"description": "Skip already processed files.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sqlserversource.CamelSqlserversourceSourceConnector",
+		"artifactId": "camel-sqlserver-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-sqlserver-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Query data from a Microsoft SQL Server Database.\n\nIn you KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.microsoft.sqlserver:mssql-jdbc:<version>\""
+	},
+	"properties": {
+		"camel.kamelet.sqlserver-source.serverName": {
+			"name": "camel.kamelet.sqlserver-source.serverName",
+			"description": "Server Name for the data source Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-source.port": {
+			"name": "camel.kamelet.sqlserver-source.port",
+			"description": "Server Port for the data source",
+			"defaultValue": "\"1433\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sqlserver-source.username": {
+			"name": "camel.kamelet.sqlserver-source.username",
+			"description": "The username to use for accessing a secured SQL Server Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-source.password": {
+			"name": "camel.kamelet.sqlserver-source.password",
+			"description": "The password to use for accessing a secured SQL Server Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-source.query": {
+			"name": "camel.kamelet.sqlserver-source.query",
+			"description": "The Query to execute against the SQL Server Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-source.databaseName": {
+			"name": "camel.kamelet.sqlserver-source.databaseName",
+			"description": "The Database Name we are pointing",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sqlserver-source.consumedQuery": {
+			"name": "camel.kamelet.sqlserver-source.consumedQuery",
+			"description": "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

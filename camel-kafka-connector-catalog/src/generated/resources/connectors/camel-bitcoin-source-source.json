@@ -1,0 +1,20 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.bitcoinsource.CamelBitcoinsourceSourceConnector",
+		"artifactId": "camel-bitcoin-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-bitcoin-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Provides a feed of the value of the Bitcoin compared to USDT using the Binance service."
+	},
+	"properties": {
+		"camel.kamelet.bitcoin-source.period": {
+			"name": "camel.kamelet.bitcoin-source.period",
+			"description": "The interval between updates in milliseconds",
+			"defaultValue": "10000",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

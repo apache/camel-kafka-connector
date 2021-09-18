@@ -1,0 +1,31 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestoragequeuesink.CamelAzurestoragequeuesinkSinkConnector",
+		"artifactId": "camel-azure-storage-queue-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-queue-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send Messages to Azure Storage queues.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `expiration` \/ `ce-expiration`: as the time to live of the message in the queue.\n\nIf the header won't be set the default of 7 days will be used.\n\nThe format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S\u2009\u2014\u2009parses as 20.345 seconds, P2D\u2009\u2014\u2009parses as 2 days."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-queue-sink.accountName": {
+			"name": "camel.kamelet.azure-storage-queue-sink.accountName",
+			"description": "The Azure Storage Queue account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-queue-sink.queueName": {
+			"name": "camel.kamelet.azure-storage-queue-sink.queueName",
+			"description": "The Azure Storage Queue container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-queue-sink.accessKey": {
+			"name": "camel.kamelet.azure-storage-queue-sink.accessKey",
+			"description": "The Azure Storage Queue access Key.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

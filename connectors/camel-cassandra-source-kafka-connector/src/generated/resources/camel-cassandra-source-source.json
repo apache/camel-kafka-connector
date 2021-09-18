@@ -1,0 +1,63 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cassandrasource.CamelCassandrasourceSourceConnector",
+		"artifactId": "camel-cassandra-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-cassandra-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Query a Cassandra cluster table."
+	},
+	"properties": {
+		"camel.kamelet.cassandra-source.host": {
+			"name": "camel.kamelet.cassandra-source.host",
+			"description": "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-source.port": {
+			"name": "camel.kamelet.cassandra-source.port",
+			"description": "Port number of cassandra server(s) Example: 9042",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-source.keyspace": {
+			"name": "camel.kamelet.cassandra-source.keyspace",
+			"description": "Keyspace to use Example: customers",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-source.username": {
+			"name": "camel.kamelet.cassandra-source.username",
+			"description": "The username to use for accessing a secured Cassandra Cluster",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-source.password": {
+			"name": "camel.kamelet.cassandra-source.password",
+			"description": "The password to use for accessing a secured Cassandra Cluster",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cassandra-source.resultStrategy": {
+			"name": "camel.kamelet.cassandra-source.resultStrategy",
+			"description": "The strategy to convert the result set of the query. Possible values are ALL, ONE, LIMIT_10, LIMIT_100...",
+			"defaultValue": "\"ALL\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.cassandra-source.consistencyLevel": {
+			"name": "camel.kamelet.cassandra-source.consistencyLevel",
+			"description": "Consistency level to use. The value can be one of ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE",
+			"defaultValue": "\"ANY\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.cassandra-source.query": {
+			"name": "camel.kamelet.cassandra-source.query",
+			"description": "The query to execute against the Cassandra cluster table",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

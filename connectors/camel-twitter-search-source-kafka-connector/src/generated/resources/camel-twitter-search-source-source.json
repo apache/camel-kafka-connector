@@ -1,0 +1,43 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.twittersearchsource.CamelTwittersearchsourceSourceConnector",
+		"artifactId": "camel-twitter-search-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-twitter-search-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Allows to get all tweets on particular keywords from Twitter.\n\nIt requires tokens that can be obtained by creating an application \nin the Twitter developer portal: https:\/\/developer.twitter.com\/."
+	},
+	"properties": {
+		"camel.kamelet.twitter-search-source.keywords": {
+			"name": "camel.kamelet.twitter-search-source.keywords",
+			"description": "The keywords to use in the Twitter search (Supports Twitter standard operators) Example: Apache Camel",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.twitter-search-source.apiKey": {
+			"name": "camel.kamelet.twitter-search-source.apiKey",
+			"description": "The API Key from the Twitter application in the developer portal",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.twitter-search-source.apiKeySecret": {
+			"name": "camel.kamelet.twitter-search-source.apiKeySecret",
+			"description": "The API Key Secret from the Twitter application in the developer portal",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.twitter-search-source.accessToken": {
+			"name": "camel.kamelet.twitter-search-source.accessToken",
+			"description": "The Access Token from the Twitter application in the developer portal",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.twitter-search-source.accessTokenSecret": {
+			"name": "camel.kamelet.twitter-search-source.accessTokenSecret",
+			"description": "The Access Token Secret from the Twitter application in the developer portal",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

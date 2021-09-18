@@ -1,0 +1,51 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kafkasink.CamelKafkasinkSinkConnector",
+		"artifactId": "camel-kafka-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kafka-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to Kafka topics.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partition-key`: as message partition key\n\nBoth the headers are optional."
+	},
+	"properties": {
+		"camel.kamelet.kafka-sink.topic": {
+			"name": "camel.kamelet.kafka-sink.topic",
+			"description": "Comma separated list of Kafka topic names",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-sink.brokers": {
+			"name": "camel.kamelet.kafka-sink.brokers",
+			"description": "Comma separated list of Kafka Broker URLs",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-sink.securityProtocol": {
+			"name": "camel.kamelet.kafka-sink.securityProtocol",
+			"description": "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported",
+			"defaultValue": "\"SASL_SSL\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-sink.saslMechanism": {
+			"name": "camel.kamelet.kafka-sink.saslMechanism",
+			"description": "The Simple Authentication and Security Layer (SASL) Mechanism used.",
+			"defaultValue": "\"PLAIN\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-sink.username": {
+			"name": "camel.kamelet.kafka-sink.username",
+			"description": "Username to authenticate to Kafka",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-sink.password": {
+			"name": "camel.kamelet.kafka-sink.password",
+			"description": "Password to authenticate to kafka",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

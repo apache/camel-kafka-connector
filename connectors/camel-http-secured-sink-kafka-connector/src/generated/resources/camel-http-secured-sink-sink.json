@@ -1,0 +1,52 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.httpsecuredsink.CamelHttpsecuredsinkSinkConnector",
+		"artifactId": "camel-http-secured-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-http-secured-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Forwards an event to a secured HTTP endpoint"
+	},
+	"properties": {
+		"camel.kamelet.http-secured-sink.url": {
+			"name": "camel.kamelet.http-secured-sink.url",
+			"description": "The URL to send data to Example: https:\/\/my-service\/path",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.http-secured-sink.method": {
+			"name": "camel.kamelet.http-secured-sink.method",
+			"description": "The HTTP method to use",
+			"defaultValue": "\"POST\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.authMethod": {
+			"name": "camel.kamelet.http-secured-sink.authMethod",
+			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
+			"defaultValue": "\"Basic\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.authenticationPreemptive": {
+			"name": "camel.kamelet.http-secured-sink.authenticationPreemptive",
+			"description": "If this option is true, camel-http sends preemptive basic authentication to the server.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.authUsername": {
+			"name": "camel.kamelet.http-secured-sink.authUsername",
+			"description": "Authentication username",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.authPassword": {
+			"name": "camel.kamelet.http-secured-sink.authPassword",
+			"description": "Authentication password",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

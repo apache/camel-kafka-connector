@@ -1,0 +1,44 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.dropboxsource.CamelDropboxsourceSourceConnector",
+		"artifactId": "camel-dropbox-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-dropbox-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Consume Files from Dropbox."
+	},
+	"properties": {
+		"camel.kamelet.dropbox-source.period": {
+			"name": "camel.kamelet.dropbox-source.period",
+			"description": "The interval between fetches to the Dropbox remote path in milliseconds",
+			"defaultValue": "10000",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.dropbox-source.accessToken": {
+			"name": "camel.kamelet.dropbox-source.accessToken",
+			"description": "The access Token to use to access Dropbox",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.dropbox-source.clientIdentifier": {
+			"name": "camel.kamelet.dropbox-source.clientIdentifier",
+			"description": "Dropbox App client Identifier",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.dropbox-source.remotePath": {
+			"name": "camel.kamelet.dropbox-source.remotePath",
+			"description": "Original file or folder to work with",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.dropbox-source.query": {
+			"name": "camel.kamelet.dropbox-source.query",
+			"description": "A space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings. If this option is not set, all files will be matched.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awskinesissource.CamelAwskinesissourceSourceConnector",
+		"artifactId": "camel-aws-kinesis-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-kinesis-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive data from AWS Kinesis."
+	},
+	"properties": {
+		"camel.kamelet.aws-kinesis-source.stream": {
+			"name": "camel.kamelet.aws-kinesis-source.stream",
+			"description": "The Kinesis stream that you want to access (needs to be created in advance)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-source.accessKey": {
+			"name": "camel.kamelet.aws-kinesis-source.accessKey",
+			"description": "The access key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-source.secretKey": {
+			"name": "camel.kamelet.aws-kinesis-source.secretKey",
+			"description": "The secret key obtained from AWS",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-kinesis-source.region": {
+			"name": "camel.kamelet.aws-kinesis-source.region",
+			"description": "The AWS region to connect to Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

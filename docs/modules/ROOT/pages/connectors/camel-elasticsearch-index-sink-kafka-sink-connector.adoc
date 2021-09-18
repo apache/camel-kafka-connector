@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-elasticsearch-index-sink-kafka-connector-sink]]
+= camel-elasticsearch-index-sink-kafka-connector sink configuration
+
+Connector Description: This sink stores documents into ElasticSearch.
+
+Input data must have JSON format according to the index used.
+
+If the *indexId* parameter is set, that value will be used as the document ID on ElasticSearch.
+
+If the *indexId* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic, partition and offset of the
+element to generate an automatic ID that warrantees that this element is processed only once.
+
+If the *indexName* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic as the indexName.
+
+When using camel-elasticsearch-index-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-elasticsearch-index-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector
+----
+
+
+The camel-elasticsearch-index-sink sink connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.elasticsearch-index-sink.user* | Username to connect to ElasticSearch. | null | false | MEDIUM
+| *camel.kamelet.elasticsearch-index-sink.password* | Password to connect to ElasticSearch. | null | false | MEDIUM
+| *camel.kamelet.elasticsearch-index-sink.enableSSL* | Do we want to connect using SSL? | true | false | MEDIUM
+| *camel.kamelet.elasticsearch-index-sink.host Addresses* | Comma separated list with ip:port formatted remote transport addresses to use. Example: quickstart-es-http:9200 | null | true | HIGH
+| *camel.kamelet.elasticsearch-index-sink.indexName* | The name of the index to act against. Example: data | "NONE" | false | MEDIUM
+| *camel.kamelet.elasticsearch-index-sink.clusterName* | Name of the cluster. Example: quickstart | null | true | HIGH
+| *camel.kamelet.elasticsearch-index-sink.indexId* | None | "NONE" | false | MEDIUM
+|===
+
+
+
+The camel-elasticsearch-index-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-elasticsearch-index-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-elasticsearch-index-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

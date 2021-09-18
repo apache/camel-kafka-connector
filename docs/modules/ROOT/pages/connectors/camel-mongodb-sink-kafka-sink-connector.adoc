@@ -1,0 +1,64 @@
+// kafka-connector options: START
+[[camel-mongodb-sink-kafka-connector-sink]]
+= camel-mongodb-sink-kafka-connector sink configuration
+
+Connector Description: Send documents to MongoDB.
+
+This Kamelet expects a JSON as body.
+
+Properties you can as headers:
+
+`db-upsert` / `ce-db-upsert` If the database should create the element if it does not exist. Boolean value.
+
+When using camel-mongodb-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mongodb-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mongodbsink.CamelMongodbsinkSinkConnector
+----
+
+
+The camel-mongodb-sink sink connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.mongodb-sink.hosts* | Comma separated list of MongoDB Host Addresses in host:port format. | null | true | HIGH
+| *camel.kamelet.mongodb-sink.collection* | Sets the name of the MongoDB collection to bind to this endpoint. | null | true | HIGH
+| *camel.kamelet.mongodb-sink.password* | User password for accessing MongoDB. | null | true | HIGH
+| *camel.kamelet.mongodb-sink.username* | Username for accessing MongoDB. | null | true | HIGH
+| *camel.kamelet.mongodb-sink.database* | Sets the name of the MongoDB database to target. | null | true | HIGH
+| *camel.kamelet.mongodb-sink.writeConcern* | Configure the level of acknowledgment requested from MongoDB for write operations, possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, MAJORITY. | null | false | MEDIUM
+| *camel.kamelet.mongodb-sink.createCollection* | Create collection during initialisation if it doesn't exist. | false | false | MEDIUM
+|===
+
+
+
+The camel-mongodb-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-mongodb-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-mongodb-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cronsource.CamelCronsourceSourceConnector",
+		"artifactId": "camel-cron-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-cron-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send events at specific time."
+	},
+	"properties": {
+		"camel.kamelet.cron-source.schedule": {
+			"name": "camel.kamelet.cron-source.schedule",
+			"description": "A cron expression that will be used to trigger events generation. Example: 0\/3 10 * * * ?",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.cron-source.message": {
+			"name": "camel.kamelet.cron-source.message",
+			"description": "The message to generate Example: hello world",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

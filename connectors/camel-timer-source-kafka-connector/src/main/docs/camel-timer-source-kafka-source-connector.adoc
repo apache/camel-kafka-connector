@@ -1,0 +1,58 @@
+// kafka-connector options: START
+[[camel-timer-source-kafka-connector-source]]
+= camel-timer-source-kafka-connector source configuration
+
+Connector description: Produces periodic events with a custom payload.
+
+When using camel-timer-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-timer-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.timersource.CamelTimersourceSourceConnector
+----
+
+
+The camel-timer-source source connector supports 3 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.timer-source.period* | The interval between two events in milliseconds | 1000 | false | MEDIUM
+| *camel.kamelet.timer-source.message* | The message to generate Example: hello world | null | true | HIGH
+| *camel.kamelet.timer-source.contentType* | The content type of the message being generated | "text/plain" | false | MEDIUM
+|===
+
+
+
+The camel-timer-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-timer-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-timer-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

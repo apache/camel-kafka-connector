@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.telegramsink.CamelTelegramsinkSinkConnector",
+		"artifactId": "camel-telegram-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-telegram-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send a message to a Telegram chat using your Telegram bot as sender.\n\nTo create a bot, contact the @botfather account using the Telegram app.\n\nThis sink supports the following message types:\n\n- Standard text messages\n- PNG images (`Content-Type` must be set to `image\/png`)\n- JPEG images (`Content-Type` must be set to `image\/jpeg`)\n\nThis following message headers are also supported:\n\n- `text` \/ `ce-text`: when sending an image, the image caption\n- `chat-id` \/ `ce-chat-id`: to override the default chat where messages are sent to"
+	},
+	"properties": {
+		"camel.kamelet.telegram-sink.authorizationToken": {
+			"name": "camel.kamelet.telegram-sink.authorizationToken",
+			"description": "The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.telegram-sink.chatId": {
+			"name": "camel.kamelet.telegram-sink.chatId",
+			"description": "The Chat ID where messages should be sent by default",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

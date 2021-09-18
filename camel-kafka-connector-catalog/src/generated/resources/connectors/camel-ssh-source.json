@@ -353,8 +353,5 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		}
-	},
-	"transforms": [
-		"org.apache.camel.kafkaconnector.ssh.transformers.SshTransforms"
-	]
+	}
 }

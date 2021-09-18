@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-kafka-not-secured-sink-kafka-connector-sink]]
+= camel-kafka-not-secured-sink-kafka-connector sink configuration
+
+Connector Description: Send data to Kafka topics on an insecure broker.
+
+The Kamelet is able to understand the following headers to be set:
+
+- `key` / `ce-key`: as message key
+
+- `partition-key` / `ce-partition-key`: as message partition key
+
+Both the headers are optional.
+
+When using camel-kafka-not-secured-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-kafka-not-secured-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.kafkanotsecuredsink.CamelKafkanotsecuredsinkSinkConnector
+----
+
+
+The camel-kafka-not-secured-sink sink connector supports 2 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.kafka-not-secured-sink.topic* | Comma separated list of Kafka topic names | null | true | HIGH
+| *camel.kamelet.kafka-not-secured-sink.brokers* | Comma separated list of Kafka Broker URLs | null | true | HIGH
+|===
+
+
+
+The camel-kafka-not-secured-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-kafka-not-secured-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-kafka-not-secured-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

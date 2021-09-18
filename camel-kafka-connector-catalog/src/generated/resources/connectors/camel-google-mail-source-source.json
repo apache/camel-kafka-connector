@@ -1,0 +1,76 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlemailsource.CamelGooglemailsourceSourceConnector",
+		"artifactId": "camel-google-mail-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-mail-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive data from Google Mail."
+	},
+	"properties": {
+		"camel.kamelet.google-mail-source.index": {
+			"name": "camel.kamelet.google-mail-source.index",
+			"description": "An index for the google mail endpoint",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-mail-source.clientId": {
+			"name": "camel.kamelet.google-mail-source.clientId",
+			"description": "Client ID of the gmail application",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-mail-source.clientSecret": {
+			"name": "camel.kamelet.google-mail-source.clientSecret",
+			"description": "Client Secret of the gmail application",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-mail-source.accessToken": {
+			"name": "camel.kamelet.google-mail-source.accessToken",
+			"description": "OAuth 2 access token for google mail application. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-mail-source.refreshToken": {
+			"name": "camel.kamelet.google-mail-source.refreshToken",
+			"description": "OAuth 2 refresh token for google mail application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-mail-source.delay": {
+			"name": "camel.kamelet.google-mail-source.delay",
+			"description": "Milliseconds before the next poll",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-mail-source.applicationName": {
+			"name": "camel.kamelet.google-mail-source.applicationName",
+			"description": "Google Mail application name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-mail-source.markAsRead": {
+			"name": "camel.kamelet.google-mail-source.markAsRead",
+			"description": "Mark the message as read once it has been consumed",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-mail-source.labels": {
+			"name": "camel.kamelet.google-mail-source.labels",
+			"description": "Comma separated list of labels to take into account Example: inbox",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-mail-source.query": {
+			"name": "camel.kamelet.google-mail-source.query",
+			"description": "The query to execute on gmail box Example: is:unread -category:(promotions OR social)",
+			"defaultValue": "\"is:unread\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

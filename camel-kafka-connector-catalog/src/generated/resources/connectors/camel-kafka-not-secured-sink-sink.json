@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kafkanotsecuredsink.CamelKafkanotsecuredsinkSinkConnector",
+		"artifactId": "camel-kafka-not-secured-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kafka-not-secured-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to Kafka topics on an insecure broker.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partition-key`: as message partition key\n\nBoth the headers are optional."
+	},
+	"properties": {
+		"camel.kamelet.kafka-not-secured-sink.topic": {
+			"name": "camel.kamelet.kafka-not-secured-sink.topic",
+			"description": "Comma separated list of Kafka topic names",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-sink.brokers": {
+			"name": "camel.kamelet.kafka-not-secured-sink.brokers",
+			"description": "Comma separated list of Kafka Broker URLs",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

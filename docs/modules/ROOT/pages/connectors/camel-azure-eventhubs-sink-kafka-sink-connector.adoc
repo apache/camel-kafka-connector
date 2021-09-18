@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-azure-eventhubs-sink-kafka-connector-sink]]
+= camel-azure-eventhubs-sink-kafka-connector sink configuration
+
+Connector Description: Send Events to Azure Eventhubs.
+
+The Kamelet is able to understand the following headers to be set:
+
+- `partition` / `ce-partition`: as the time to live of the message in the queue.
+
+If the header won't be set then the partition will be assigned by Eventhubs
+
+When using camel-azure-eventhubs-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-eventhubs-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azureeventhubssink.CamelAzureeventhubssinkSinkConnector
+----
+
+
+The camel-azure-eventhubs-sink sink connector supports 4 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.azure-eventhubs-sink.namespaceName* | The eventhubs namespace | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-sink.eventhubName* | The eventhub name | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-sink.sharedAccess Name* | EventHubs SAS key name | null | true | HIGH
+| *camel.kamelet.azure-eventhubs-sink.sharedAccessKey* | The key for EventHubs SAS key name | null | true | HIGH
+|===
+
+
+
+The camel-azure-eventhubs-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-eventhubs-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-eventhubs-sink sink connector has no aggregation strategies out of the box.
+// kafka-connector options: END

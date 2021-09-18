@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestorageblobsink.CamelAzurestorageblobsinkSinkConnector",
+		"artifactId": "camel-azure-storage-blob-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-blob-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Upload data to Azure Storage Blob.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-blob-sink.accountName": {
+			"name": "camel.kamelet.azure-storage-blob-sink.accountName",
+			"description": "The Azure Storage Blob account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-sink.containerName": {
+			"name": "camel.kamelet.azure-storage-blob-sink.containerName",
+			"description": "The Azure Storage Blob container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-sink.accessKey": {
+			"name": "camel.kamelet.azure-storage-blob-sink.accessKey",
+			"description": "The Azure Storage Blob access Key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-sink.operation": {
+			"name": "camel.kamelet.azure-storage-blob-sink.operation",
+			"description": "The operation to perform.",
+			"defaultValue": "\"uploadBlockBlob\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

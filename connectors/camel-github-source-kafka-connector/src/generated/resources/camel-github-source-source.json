@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.githubsource.CamelGithubsourceSourceConnector",
+		"artifactId": "camel-github-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-github-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive events From Github."
+	},
+	"properties": {
+		"camel.kamelet.github-source.repoName": {
+			"name": "camel.kamelet.github-source.repoName",
+			"description": "The Github Repository name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.github-source.repoOwner": {
+			"name": "camel.kamelet.github-source.repoOwner",
+			"description": "The repository owner",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.github-source.oauthToken": {
+			"name": "camel.kamelet.github-source.oauthToken",
+			"description": "Oauth token",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.github-source.type": {
+			"name": "camel.kamelet.github-source.type",
+			"description": "The type of event to consume. One of event, pullRequest, pullRequestComment or tag",
+			"defaultValue": "\"event\"",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

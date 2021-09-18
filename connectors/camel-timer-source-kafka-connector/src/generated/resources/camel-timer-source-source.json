@@ -1,0 +1,33 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.timersource.CamelTimersourceSourceConnector",
+		"artifactId": "camel-timer-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-timer-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Produces periodic events with a custom payload."
+	},
+	"properties": {
+		"camel.kamelet.timer-source.period": {
+			"name": "camel.kamelet.timer-source.period",
+			"description": "The interval between two events in milliseconds",
+			"defaultValue": "1000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.timer-source.message": {
+			"name": "camel.kamelet.timer-source.message",
+			"description": "The message to generate Example: hello world",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.timer-source.contentType": {
+			"name": "camel.kamelet.timer-source.contentType",
+			"description": "The content type of the message being generated",
+			"defaultValue": "\"text\/plain\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

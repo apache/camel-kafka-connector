@@ -1,0 +1,26 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.httpsink.CamelHttpsinkSinkConnector",
+		"artifactId": "camel-http-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-http-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Forwards an event to a HTTP endpoint"
+	},
+	"properties": {
+		"camel.kamelet.http-sink.url": {
+			"name": "camel.kamelet.http-sink.url",
+			"description": "The URL to send data to Example: https:\/\/my-service\/path",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.http-sink.method": {
+			"name": "camel.kamelet.http-sink.method",
+			"description": "The HTTP method to use",
+			"defaultValue": "\"POST\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

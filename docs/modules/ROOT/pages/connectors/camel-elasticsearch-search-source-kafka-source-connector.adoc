@@ -1,0 +1,59 @@
+// kafka-connector options: START
+[[camel-elasticsearch-search-source-kafka-connector-source]]
+= camel-elasticsearch-search-source-kafka-connector source configuration
+
+Connector description: Search data on ElasticSearch
+
+When using camel-elasticsearch-search-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-elasticsearch-search-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.elasticsearchsearchsource.CamelElasticsearchsearchsourceSourceConnector
+----
+
+
+The camel-elasticsearch-search-source source connector supports 8 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.elasticsearch-search-source.period* | The time interval between two searches | 1000 | false | MEDIUM
+| *camel.kamelet.elasticsearch-search-source.query* | The query we want to use to search on ElasticSearch. | null | true | HIGH
+| *camel.kamelet.elasticsearch-search-source.user* | Username to connect to ElasticSearch. | null | false | MEDIUM
+| *camel.kamelet.elasticsearch-search-source.password* | Password to connect to ElasticSearch. | null | false | MEDIUM
+| * camel.kamelet.elasticsearch-search-source.enableSSL* | Do we want to connect using SSL? | true | false | MEDIUM
+| *camel.kamelet.elasticsearch-search-source.host Addresses* | Comma separated list with ip:port formatted remote transport addresses to use. | null | true | HIGH
+| *camel.kamelet.elasticsearch-search-source.index Name* | The name of the index to act against. | null | true | HIGH
+| *camel.kamelet.elasticsearch-search-source.cluster Name* | Name of the cluster. | null | true | HIGH
+|===
+
+
+
+The camel-elasticsearch-search-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-elasticsearch-search-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-elasticsearch-search-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

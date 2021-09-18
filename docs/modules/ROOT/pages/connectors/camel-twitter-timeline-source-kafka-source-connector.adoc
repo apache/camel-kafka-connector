@@ -1,0 +1,59 @@
+// kafka-connector options: START
+[[camel-twitter-timeline-source-kafka-connector-source]]
+= camel-twitter-timeline-source-kafka-connector source configuration
+
+Connector description: Allows to get tweets from the timeline of a specific user from Twitter.
+
+It requires tokens that can be obtained by creating an application 
+in the Twitter developer portal: https://developer.twitter.com/.
+
+When using camel-twitter-timeline-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-twitter-timeline-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.twittertimelinesource.CamelTwittertimelinesourceSourceConnector
+----
+
+
+The camel-twitter-timeline-source source connector supports 5 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.twitter-timeline-source.user* | The user we want to read the timeline Example: ApacheCamel | null | true | HIGH
+| *camel.kamelet.twitter-timeline-source.apiKey* | The API Key from the Twitter application in the developer portal | null | true | HIGH
+| *camel.kamelet.twitter-timeline-source.apiKeySecret* | The API Key Secret from the Twitter application in the developer portal | null | true | HIGH
+| *camel.kamelet.twitter-timeline-source.accessToken* | The Access Token from the Twitter application in the developer portal | null | true | HIGH
+| *camel.kamelet.twitter-timeline-source.accessToken Secret* | The Access Token Secret from the Twitter application in the developer portal | null | true | HIGH
+|===
+
+
+
+The camel-twitter-timeline-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-twitter-timeline-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-twitter-timeline-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mysqlsource.CamelMysqlsourceSourceConnector",
+		"artifactId": "camel-mysql-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mysql-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Query data from a MySQL Database.\n\nIn you KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies\n\n- \"mvn:mysql:mysql-connector-java:<version>\""
+	},
+	"properties": {
+		"camel.kamelet.mysql-source.serverName": {
+			"name": "camel.kamelet.mysql-source.serverName",
+			"description": "Server Name for the data source Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mysql-source.port": {
+			"name": "camel.kamelet.mysql-source.port",
+			"description": "Server Port for the data source",
+			"defaultValue": "\"3306\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mysql-source.username": {
+			"name": "camel.kamelet.mysql-source.username",
+			"description": "The username to use for accessing a secured MySQL Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mysql-source.password": {
+			"name": "camel.kamelet.mysql-source.password",
+			"description": "The password to use for accessing a secured MySQL Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mysql-source.query": {
+			"name": "camel.kamelet.mysql-source.query",
+			"description": "The Query to execute against the MySQL Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mysql-source.databaseName": {
+			"name": "camel.kamelet.mysql-source.databaseName",
+			"description": "The Database Name we are pointing",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mysql-source.consumedQuery": {
+			"name": "camel.kamelet.mysql-source.consumedQuery",
+			"description": "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

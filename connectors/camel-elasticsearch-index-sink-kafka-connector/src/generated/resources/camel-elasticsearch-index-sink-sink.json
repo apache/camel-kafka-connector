@@ -1,0 +1,58 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector",
+		"artifactId": "camel-elasticsearch-index-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-elasticsearch-index-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "This sink stores documents into ElasticSearch.\n\nInput data must have JSON format according to the index used.\n\nIf the *indexId* parameter is set, that value will be used as the document ID on ElasticSearch.\n\nIf the *indexId* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic, partition and offset of the\nelement to generate an automatic ID that warrantees that this element is processed only once.\n\nIf the *indexName* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic as the indexName."
+	},
+	"properties": {
+		"camel.kamelet.elasticsearch-index-sink.user": {
+			"name": "camel.kamelet.elasticsearch-index-sink.user",
+			"description": "Username to connect to ElasticSearch.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-index-sink.password": {
+			"name": "camel.kamelet.elasticsearch-index-sink.password",
+			"description": "Password to connect to ElasticSearch.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-index-sink.enableSSL": {
+			"name": "camel.kamelet.elasticsearch-index-sink.enableSSL",
+			"description": "Do we want to connect using SSL?",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-index-sink.hostAddresses": {
+			"name": "camel.kamelet.elasticsearch-index-sink.hostAddresses",
+			"description": "Comma separated list with ip:port formatted remote transport addresses to use. Example: quickstart-es-http:9200",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.elasticsearch-index-sink.indexName": {
+			"name": "camel.kamelet.elasticsearch-index-sink.indexName",
+			"description": "The name of the index to act against. Example: data",
+			"defaultValue": "\"NONE\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.elasticsearch-index-sink.clusterName": {
+			"name": "camel.kamelet.elasticsearch-index-sink.clusterName",
+			"description": "Name of the cluster. Example: quickstart",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.elasticsearch-index-sink.indexId": {
+			"name": "camel.kamelet.elasticsearch-index-sink.indexId",
+			"description": "None",
+			"defaultValue": "\"NONE\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

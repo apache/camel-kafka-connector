@@ -1,0 +1,59 @@
+// kafka-connector options: START
+[[camel-cassandra-source-kafka-connector-source]]
+= camel-cassandra-source-kafka-connector source configuration
+
+Connector description: Query a Cassandra cluster table.
+
+When using camel-cassandra-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-cassandra-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.cassandrasource.CamelCassandrasourceSourceConnector
+----
+
+
+The camel-cassandra-source source connector supports 8 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.cassandra-source.host* | Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost | null | true | HIGH
+| *camel.kamelet.cassandra-source.port* | Port number of cassandra server(s) Example: 9042 | null | true | HIGH
+| *camel.kamelet.cassandra-source.keyspace* | Keyspace to use Example: customers | null | true | HIGH
+| *camel.kamelet.cassandra-source.username* | The username to use for accessing a secured Cassandra Cluster | null | true | HIGH
+| *camel.kamelet.cassandra-source.password* | The password to use for accessing a secured Cassandra Cluster | null | true | HIGH
+| *camel.kamelet.cassandra-source.resultStrategy* | The strategy to convert the result set of the query. Possible values are ALL, ONE, LIMIT_10, LIMIT_100... | "ALL" | false | MEDIUM
+| *camel.kamelet.cassandra-source.consistencyLevel* | Consistency level to use. The value can be one of ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE | "ANY" | false | MEDIUM
+| *camel.kamelet.cassandra-source.query* | The query to execute against the Cassandra cluster table | null | true | HIGH
+|===
+
+
+
+The camel-cassandra-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-cassandra-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-cassandra-source source connector has no aggregation strategies out of the box.
+// kafka-connector options: END

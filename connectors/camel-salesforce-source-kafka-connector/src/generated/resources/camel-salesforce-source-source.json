@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.salesforcesource.CamelSalesforcesourceSourceConnector",
+		"artifactId": "camel-salesforce-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-salesforce-source-source",
+		"type": "source",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Receive updates from Salesforce."
+	},
+	"properties": {
+		"camel.kamelet.salesforce-source.query": {
+			"name": "camel.kamelet.salesforce-source.query",
+			"description": "The query to execute on Salesforce Example: SELECT Id, Name, Email, Phone FROM Contact",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-source.topicName": {
+			"name": "camel.kamelet.salesforce-source.topicName",
+			"description": "The name of the topic\/channel to use Example: ContactTopic",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-source.loginUrl": {
+			"name": "camel.kamelet.salesforce-source.loginUrl",
+			"description": "The Salesforce instance login URL",
+			"defaultValue": "\"https:\/\/login.salesforce.com\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.salesforce-source.clientId": {
+			"name": "camel.kamelet.salesforce-source.clientId",
+			"description": "The Salesforce application consumer key",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-source.clientSecret": {
+			"name": "camel.kamelet.salesforce-source.clientSecret",
+			"description": "The Salesforce application consumer secret",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-source.userName": {
+			"name": "camel.kamelet.salesforce-source.userName",
+			"description": "The Salesforce username",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-source.password": {
+			"name": "camel.kamelet.salesforce-source.password",
+			"description": "The Salesforce user password",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -1,0 +1,58 @@
+// kafka-connector options: START
+[[camel-mqtt-source-kafka-connector-source]]
+= camel-mqtt-source-kafka-connector source configuration
+
+Connector description: Allows receiving messages from any endpoint that supports the MQTT protocol, such as a message broker.
+
+When using camel-mqtt-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mqtt-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mqttsource.CamelMqttsourceSourceConnector
+----
+
+
+The camel-mqtt-source source connector supports 3 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.mqtt-source.topic* | The topic to subscribe to Example: mytopic | null | true | HIGH
+| *camel.kamelet.mqtt-source.brokerUrl* | The URL of the broker where to establish the connection Example: tcp://mosquitto:1883 | null | true | HIGH
+| *camel.kamelet.mqtt-source.clientId* | The client ID to use when connecting to the resource | "mqtt-source" | false | MEDIUM
+|===
+
+
+
+The camel-mqtt-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-mqtt-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-mqtt-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

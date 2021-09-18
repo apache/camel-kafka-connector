@@ -1,0 +1,58 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sftpsink.CamelSftpsinkSinkConnector",
+		"artifactId": "camel-sftp-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-sftp-sink-sink",
+		"type": "sink",
+		"version": "0.11.0-SNAPSHOT",
+		"description": "Send data to an SFTP Server.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+	},
+	"properties": {
+		"camel.kamelet.sftp-sink.host": {
+			"name": "camel.kamelet.sftp-sink.host",
+			"description": "Hostname of the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-sink.port": {
+			"name": "camel.kamelet.sftp-sink.port",
+			"description": "Port of the FTP server",
+			"defaultValue": "\"22\"",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-sink.username": {
+			"name": "camel.kamelet.sftp-sink.username",
+			"description": "The username to access the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-sink.password": {
+			"name": "camel.kamelet.sftp-sink.password",
+			"description": "The password to access the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-sink.directoryName": {
+			"name": "camel.kamelet.sftp-sink.directoryName",
+			"description": "The starting directory",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.sftp-sink.passiveMode": {
+			"name": "camel.kamelet.sftp-sink.passiveMode",
+			"description": "Sets passive mode connection",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.fileExist": {
+			"name": "camel.kamelet.sftp-sink.fileExist",
+			"description": "How to behave in case of file already existent. There are 4 enums and the value can be one of Override, Append, Fail or Ignore",
+			"defaultValue": "\"Override\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
