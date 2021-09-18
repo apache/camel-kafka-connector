@@ -27,24 +27,19 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 public class CamelAWSEC2PropertyFactory extends SinkConnectorPropertyFactory<CamelAWSEC2PropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-ec2.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-ec2.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-ec2.region");
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-ec2.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-ec2.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-ec2.region");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-ec2-sink.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-ec2-sink.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-ec2-sink.region");
     }
 
-    public CamelAWSEC2PropertyFactory withSinkPathLabel(String value) {
-        return setProperty("camel.sink.path.label", value);
-    }
+//    public CamelAWSEC2PropertyFactory withSinkPathLabel(String value) {
+//        return setProperty("camel.kamelet.aws-ec2-sink.label", value);
+//    }
 
     public CamelAWSEC2PropertyFactory withSinkEndpointOperation(String value) {
-        return setProperty("camel.sink.endpoint.operation", value);
+        return setProperty("camel.component.aws2-ec2.operation", value);
     }
 
     public CamelAWSEC2PropertyFactory withConfiguration(String value) {
@@ -67,7 +62,8 @@ public class CamelAWSEC2PropertyFactory extends SinkConnectorPropertyFactory<Cam
                     .withName("CamelAws2ec2SinkConnector")
                     .withConnectorClass("org.apache.camel.kafkaconnector.aws2ec2.CamelAws2ec2SinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
 
     }
 }

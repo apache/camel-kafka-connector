@@ -59,7 +59,7 @@ public class CamelSinkAzureStorageQueueITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[]{"camel-azure-storage-queue-kafka-connector"};
+        return new String[]{"camel-azure-storage-queue-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -118,7 +118,6 @@ public class CamelSinkAzureStorageQueueITCase extends CamelSinkTestSupport {
         queueClient.peekMessages(count, null, null).forEach(this::acknowledgeReceived);
     }
 
-
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
@@ -130,26 +129,7 @@ public class CamelSinkAzureStorageQueueITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withAccessKey(azureCredentialsHolder.accountKey())
                 .withAccountName(azureCredentialsHolder.accountName())
-                .withOperation("sendMessage")
                 .withQueueName(queueName);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveUrl() throws Exception {
-        AzureCredentialsHolder azureCredentialsHolder = service.azureCredentials();
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelSinkAzureStorageQueuePropertyFactory
-                .basic()
-                .withTopics(topicName)
-                .withConfiguration(TestQueueConfiguration.class.getName())
-                .withUrl(azureCredentialsHolder.accountName() + "/" + queueName)
-                .append("accessKey", azureCredentialsHolder.accountKey())
-                .append("operation", "sendMessage")
-                .buildUrl();
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

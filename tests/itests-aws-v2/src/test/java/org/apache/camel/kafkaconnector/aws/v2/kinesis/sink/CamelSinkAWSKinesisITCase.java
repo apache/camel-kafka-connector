@@ -110,7 +110,6 @@ public class CamelSinkAWSKinesisITCase  extends CamelSinkTestSupport {
         }
     }
 
-
     @Override
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
         if (latch.await(110, TimeUnit.SECONDS)) {
@@ -123,7 +122,7 @@ public class CamelSinkAWSKinesisITCase  extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-kinesis-kafka-connector"};
+        return new String[] {"camel-aws-kinesis-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -147,7 +146,7 @@ public class CamelSinkAWSKinesisITCase  extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withAmazonConfig(amazonProperties)
                 .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withStreamName(streamName);
+                .withStream(streamName);
 
         runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }

@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.elasticsearch.sink;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 final class CamelElasticSearchPropertyFactory extends SinkConnectorPropertyFactory<CamelElasticSearchPropertyFactory> {
@@ -27,34 +26,28 @@ final class CamelElasticSearchPropertyFactory extends SinkConnectorPropertyFacto
     }
 
     public CamelElasticSearchPropertyFactory withClusterName(String clusterName) {
-        return setProperty("camel.sink.path.clusterName", clusterName);
+        return setProperty("camel.kamelet.elasticsearch-index-sink.clusterName", clusterName);
     }
 
     public CamelElasticSearchPropertyFactory withHostAddress(String hostAddress) {
-        return setProperty("camel.sink.endpoint.hostAddresses", hostAddress);
+        return setProperty("camel.kamelet.elasticsearch-index-sink.hostAddresses", hostAddress);
     }
 
     public CamelElasticSearchPropertyFactory withIndexName(String indexName) {
-        return setProperty("camel.sink.endpoint.indexName", indexName);
-    }
-
-    public CamelElasticSearchPropertyFactory withOperation(String operation) {
-        return setProperty("camel.sink.endpoint.operation", operation);
-    }
-
-    public EndpointUrlBuilder<CamelElasticSearchPropertyFactory> withUrl(String clusterName) {
-        String queueUrl = String.format("elasticsearch-rest://%s", clusterName);
-
-        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
+        return setProperty("camel.kamelet.elasticsearch-index-sink.indexName", indexName);
     }
 
     public static CamelElasticSearchPropertyFactory basic() {
         return new CamelElasticSearchPropertyFactory()
                 .withName("CamelElasticSearchSinkConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.elasticsearchrest.CamelElasticsearchrestSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.kamelet.elasticsearch-index-sink.username", "dummy")
+                .setProperty("camel.kamelet.elasticsearch-index-sink.password", "dummy")
+                .setProperty("camel.kamelet.elasticsearch-index-sink.enableSSL", "false")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 
 }

@@ -20,10 +20,14 @@ package org.apache.camel.kafkaconnector.elasticsearch.sink;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.elasticsearch.clients.ElasticSearchClient;
 import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
+import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchIndexMessageProducer;
 import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchService;
 import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchServiceFactory;
 import org.elasticsearch.search.SearchHit;
@@ -39,7 +43,6 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
@@ -49,6 +52,7 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
     public static ElasticSearchService elasticSearch = ElasticSearchServiceFactory.createService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelElasticSearchPropertyFactory.class);
+    private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private ElasticSearchClient client;
     private String topicName;
@@ -60,7 +64,7 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-elasticsearch-rest-kafka-connector"};
+        return new String[] {"camel-elasticsearch-index-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -100,17 +104,21 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
 
     private void verifyHit(SearchHit searchHit) {
         String source = searchHit.getSourceAsString();
+        LOG.debug("Search hit: {} ", source);
 
         assertNotNull(source);
         assertFalse(source.isEmpty());
 
-        // TODO: this is not enough, we need to parse the json and check the key itself
-        assertTrue(source.contains(transformKey));
+        try {
+            JsonNode rootNode = MAPPER.readTree(source);
+            assertEquals(String.valueOf(received), rootNode.at("/counter").asText());
+        } catch (JsonProcessingException e) {
+            LOG.error("Error in parsing json elasticsearch search hit answer: " + e.getMessage() + e.getCause());
+            fail();
+        }
 
-        LOG.debug("Search hit: {} ", searchHit.getSourceAsString());
         received++;
     }
-
 
     @Test
     @Timeout(90)
@@ -118,34 +126,10 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
         ConnectorPropertyFactory propertyFactory = CamelElasticSearchPropertyFactory
                 .basic()
                 .withTopics(topicName)
-                .withOperation("Index")
                 .withClusterName(ElasticSearchCommon.DEFAULT_ELASTICSEARCH_CLUSTER)
                 .withHostAddress(elasticSearch.getHttpHostAddress())
-                .withIndexName(ElasticSearchCommon.DEFAULT_ELASTICSEARCH_INDEX)
-                .withTransformsConfig("ElasticSearchTransforms")
-                    .withEntry("type", "org.apache.camel.kafkaconnector.elasticsearchrest.transformers.ConnectRecordValueToMapTransforms")
-                    .withEntry("key", transformKey)
-                    .end();
+                .withIndexName(ElasticSearchCommon.DEFAULT_ELASTICSEARCH_INDEX);
 
-        runTest(propertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(90)
-    public void testIndexOperationUsingUrl() throws Exception {
-        ConnectorPropertyFactory propertyFactory = CamelElasticSearchPropertyFactory
-                .basic()
-                .withTopics(topicName)
-                .withUrl(ElasticSearchCommon.DEFAULT_ELASTICSEARCH_CLUSTER)
-                    .append("hostAddresses", elasticSearch.getHttpHostAddress())
-                    .append("operation", "Index")
-                    .append("indexName", ElasticSearchCommon.DEFAULT_ELASTICSEARCH_INDEX)
-                    .buildUrl()
-                .withTransformsConfig("ElasticSearchTransforms")
-                    .withEntry("type", "org.apache.camel.kafkaconnector.elasticsearchrest.transformers.ConnectRecordValueToMapTransforms")
-                    .withEntry("key", transformKey)
-                    .end();
-
-        runTest(propertyFactory, topicName, expect);
+        runTest(propertyFactory, new ElasticSearchIndexMessageProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

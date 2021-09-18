@@ -34,6 +34,7 @@ import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -48,6 +49,7 @@ import software.amazon.awssdk.services.ec2.model.InstanceStatus;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Disabled("Until this https://github.com/apache/camel-kamelets/issues/516 is implemented and published.")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkAWSEC2ITCase extends CamelSinkTestSupport {
@@ -144,7 +146,7 @@ public class CamelSinkAWSEC2ITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withConfiguration(TestCloudWatchConfiguration.class.getName())
                 .withAmazonConfig(amazonProperties)
-                .withSinkPathLabel(logicalName)
+//                .withSinkPathLabel(logicalName)
                 .withConfiguration(TestEC2Configuration.class.getName())
                 .withSinkEndpointOperation("createAndRunInstances");
 

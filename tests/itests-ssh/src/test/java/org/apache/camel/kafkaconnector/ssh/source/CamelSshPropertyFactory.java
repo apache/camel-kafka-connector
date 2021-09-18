@@ -26,31 +26,31 @@ final class CamelSshPropertyFactory extends SourceConnectorPropertyFactory<Camel
     }
 
     public CamelSshPropertyFactory withHost(String host) {
-        return setProperty("camel.source.path.host", host);
+        return setProperty("camel.kamelet.ssh-source.host", host);
     }
 
     public CamelSshPropertyFactory withPort(String port) {
-        return setProperty("camel.source.path.port", port);
-    }
-
-    public CamelSshPropertyFactory withDelay(String value) {
-        return setProperty("camel.source.endpoint.delay", value);
+        return setProperty("camel.kamelet.ssh-source.port", port);
     }
 
     public CamelSshPropertyFactory withUsername(String username) {
-        return setProperty("camel.source.endpoint.username", username);
+        return setProperty("camel.kamelet.ssh-source.username", username);
     }
 
     public CamelSshPropertyFactory withPassword(String password) {
-        return setProperty("camel.source.endpoint.password", password);
+        return setProperty("camel.kamelet.ssh-source.password", password);
     }
 
     public CamelSshPropertyFactory withPollcommand(String pollCommand) {
-        return setProperty("camel.source.endpoint.pollCommand", pollCommand);
+        return setProperty("camel.kamelet.ssh-source.pollCommand", pollCommand);
     }
 
     public static CamelSshPropertyFactory basic() {
-        return new CamelSshPropertyFactory().withName("CamelSshSourceConnector").withTasksMax(1)
-            .withConnectorClass("org.apache.camel.kafkaconnector.ssh.CamelSshSourceConnector").withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter");
+        return new CamelSshPropertyFactory().withName("CamelSshSourceConnector")
+                        .withTasksMax(1)
+                        .withConnectorClass("org.apache.camel.kafkaconnector.sshsource.CamelSshsourceSourceConnector")
+                        .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                        .setProperty("camel.component.kamelet.location", "kamelets")
+                        .setProperty("camel.component.properties.environment-variable-mode", "1");
     }
 }

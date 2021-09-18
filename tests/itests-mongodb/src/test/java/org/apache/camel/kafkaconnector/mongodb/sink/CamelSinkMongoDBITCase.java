@@ -24,14 +24,14 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
+import org.apache.camel.kafkaconnector.mongodb.common.MongoDBEnvVarServiceFactory;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.mongodb.services.MongoDBService;
-import org.apache.camel.test.infra.mongodb.services.MongoDBServiceFactory;
 import org.bson.Document;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -42,10 +42,11 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Disabled("Waiting for https://github.com/apache/camel-kamelets/pull/485 to be merged and published.")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static MongoDBService mongoDBService = MongoDBServiceFactory.createService();
+    public static MongoDBService mongoDBService = MongoDBEnvVarServiceFactory.createService("root", "password");
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelMongoDBPropertyFactory.class);
 
@@ -69,7 +70,7 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[]{"camel-mongodb-kafka-connector"};
+        return new String[]{"camel-mongodb-sink-kafka-connector"};
     }
 
 
@@ -122,11 +123,11 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
 
         CamelMongoDBPropertyFactory factory = CamelMongoDBPropertyFactory.basic()
                 .withTopics(topicName)
-                .withConnectionBean("mongo",
-                        BasicConnectorPropertyFactory.classRef(connectionBeanRef))
                 .withDatabase("testDB")
                 .withCollection("testRecords")
-                .withOperation("insert");
+                .withUsername("root")
+                .withPassword("password")
+                .withHosts(mongoDBService.getConnectionAddress());
 
         runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }

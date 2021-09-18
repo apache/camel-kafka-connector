@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.aws.v2.common.AWSPropertiesUtils;
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
@@ -31,26 +30,17 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
  */
 final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<CamelAWSSQSPropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-sqs.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-sqs.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-sqs.region");
-        SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.sink.endpoint.protocol");
-        SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.sink.endpoint.amazonAWSHost");
-
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-sqs.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-sqs.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-sqs.region");
-        KAFKA_STYLE.put(AWSConfigs.PROTOCOL, "camel.sink.endpoint.protocol");
-        KAFKA_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.sink.endpoint.amazonAWSHost");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-sqs-sink.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-sqs-sink.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-sqs-sink.region");
+        SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.component.aws2-sqs.protocol");
+        SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.component.aws2-sqs.amazonAWSHost");
     }
 
     private CamelAWSSQSPropertyFactory() {
     }
-
 
     public CamelAWSSQSPropertyFactory withAmazonConfig(Properties amazonConfigs) {
         return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
@@ -62,27 +52,21 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
         return this;
     }
 
-    public EndpointUrlBuilder<CamelAWSSQSPropertyFactory> withUrl(String queueNameOrArn) {
-        String queueUrl = String.format("aws2-sqs://%s", queueNameOrArn);
-
-        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
-    }
-
     public CamelAWSSQSPropertyFactory withQueueNameOrArn(String queueNameOrArn) {
-        return setProperty("camel.sink.path.queueNameOrArn", queueNameOrArn);
+        return setProperty("camel.kamelet.aws-sqs-sink.queueNameOrArn", queueNameOrArn);
     }
 
     public CamelAWSSQSPropertyFactory withAutoCreateQueue(boolean value) {
-        return setProperty("camel.sink.endpoint.autoCreateQueue", value);
+        return setProperty("camel.kamelet.aws-sqs-sink.autoCreateQueue", value);
     }
 
     public static CamelAWSSQSPropertyFactory basic() {
         return new CamelAWSSQSPropertyFactory()
                 .withName("CamelAws2sqsSinkConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.aws2sqs.CamelAws2sqsSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.awssqssink.CamelAwssqssinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
-
 }

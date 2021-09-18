@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.rabbitmq.sink;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 public class CamelRabbitMQPropertyFactory extends SinkConnectorPropertyFactory<CamelRabbitMQPropertyFactory> {
@@ -45,6 +44,14 @@ public class CamelRabbitMQPropertyFactory extends SinkConnectorPropertyFactory<C
         return setProperty("camel.source.endpoint.exchangeType", value);
     }
 
+    public CamelRabbitMQPropertyFactory withSkipExchangeDeclare(boolean value) {
+        return setProperty("camel.source.endpoint.skipExchangeDeclare", value);
+    }
+
+    public CamelRabbitMQPropertyFactory withSkipQueueBind(boolean value) {
+        return setProperty("camel.source.endpoint.skipQueueBind", value);
+    }
+
     public CamelRabbitMQPropertyFactory withAutoDelete(boolean value) {
         return setProperty("camel.source.endpoint.autoDelete", value);
     }
@@ -57,20 +64,15 @@ public class CamelRabbitMQPropertyFactory extends SinkConnectorPropertyFactory<C
         return setProperty("camel.source.endpoint.routingKey", value);
     }
 
-    public EndpointUrlBuilder<CamelRabbitMQPropertyFactory> withUrl(String exchangeName) {
-        String sourceUrl = String.format("rabbitmq:%s", exchangeName);
-
-        return new EndpointUrlBuilder<>(this::withSinkUrl, sourceUrl);
-    }
-
     public static CamelRabbitMQPropertyFactory basic() {
         return new CamelRabbitMQPropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelRabbitmqSinkConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.rabbitmq.CamelRabbitmqSinkConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.rabbitmqsink.CamelRabbitmqsinkSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.converters.ByteArrayConverter");
-    
+                    .withValueConverterClass("org.apache.kafka.connect.converters.ByteArrayConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets")
+                    .setProperty("camel.component.properties.environment-variable-mode", "1");
     }
 
 }

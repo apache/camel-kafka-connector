@@ -20,7 +20,6 @@ package org.apache.camel.kafkaconnector.aws.v2.s3.source;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils;
@@ -29,7 +28,6 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
-import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
@@ -44,7 +42,6 @@ import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 
 import static org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils.createBucket;
@@ -68,7 +65,7 @@ public class CamelSourceAWSS3ITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-s3-kafka-connector"};
+        return new String[] {"camel-aws-s3-source-kafka-connector"};
     }
 
     @BeforeAll
@@ -142,38 +139,6 @@ public class CamelSourceAWSS3ITCase extends CamelSourceTestSupport {
                 .withMaxMessagesPerPoll(5)
                 .withBucketNameOrArn(bucketName)
                 .withAmazonConfig(service.getConnectionProperties());
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(180)
-    public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withBucketNameOrArn(bucketName)
-                .withAmazonConfig(service.getConnectionProperties(), CamelAWSS3PropertyFactory.KAFKA_STYLE);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(180)
-    public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
-        Properties amazonProperties = service.getConnectionProperties();
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withUrl(bucketName)
-                    .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                    .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                    .appendIfAvailable("proxyProtocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
-                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Region.US_EAST_1.id()))
-                .buildUrl();
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

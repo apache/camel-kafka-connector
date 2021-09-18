@@ -21,25 +21,30 @@ import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
-import org.apache.camel.kafkaconnector.sql.services.TestDataSource;
 import org.apache.camel.test.infra.jdbc.services.JDBCService;
 import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
-        disabledReason = "Database connection fails when running with the embedded Kafka Connect instance")
+//@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
+//        disabledReason = "Database connection fails when running with the embedded Kafka Connect instance")
 public class CamelSourceSQLITCase extends CamelSourceTestSupport {
+    private static final String DATABASE_NAME = "camel";
+    private static final String USERNAME = "ckc";
+    private static final String PASSWORD = "ckcDevel123";
+
     @RegisterExtension
     public JDBCService sqlService;
 
     private final int expect = 1;
+
+    private String hostname;
+    private String port;
 
     public CamelSourceSQLITCase() {
         JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:9.6.2")
@@ -54,11 +59,14 @@ public class CamelSourceSQLITCase extends CamelSourceTestSupport {
                 .build();
 
         sqlService.initialize();
+
+        hostname = container.getContainerIpAddress();
+        port = String.valueOf(container.getMappedPort(PostgreSQLContainer.POSTGRESQL_PORT));
     }
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-sql-kafka-connector"};
+        return new String[] {"camel-postgresql-source-kafka-connector"};
     }
 
     @Override
@@ -79,7 +87,11 @@ public class CamelSourceSQLITCase extends CamelSourceTestSupport {
 
         CamelSqlPropertyFactory factory = CamelSqlPropertyFactory
                 .basic()
-                .withDataSource(CamelSqlPropertyFactory.classRef(TestDataSource.class.getName()))
+                .withDatabaseName(DATABASE_NAME)
+                .withServerName(hostname)
+                .withPort(port)
+                .withUsername(USERNAME)
+                .withPassword(PASSWORD)
                 .withQuery("select * from test")
                 .withTopics(topicName);
 

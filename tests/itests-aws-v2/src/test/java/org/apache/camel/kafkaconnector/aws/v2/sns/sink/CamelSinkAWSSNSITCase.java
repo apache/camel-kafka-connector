@@ -22,11 +22,11 @@ import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSNSClient;
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
-import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
@@ -39,10 +39,8 @@ import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.model.Message;
 
-import static org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFactory.classRef;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -55,25 +53,38 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
 
     private AWSSQSClient awsSqsClient;
-    private String sqsQueueUrl;
+    private AWSSNSClient awsSnsClient;
+
     private String queueName;
+
+    private String sqsQueueUrl;
+    private String snsTopicUrl;
 
     private volatile int received;
     private final int expect = 10;
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-sns-kafka-connector"};
+        return new String[] {"camel-aws-sns-sink-kafka-connector"};
     }
 
     @BeforeEach
     public void setUp() {
         awsSqsClient = new AWSSQSClient(AWSSDKClientUtils.newSQSClient());
+        awsSnsClient = new AWSSNSClient(AWSSDKClientUtils.newSNSClient());
 
         queueName = AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS + "-" + TestUtils.randomWithRange(0, 1000);
         sqsQueueUrl = awsSqsClient.createQueue(queueName);
 
         LOG.info("Created SQS queue {}", sqsQueueUrl);
+
+        snsTopicUrl = awsSnsClient.createTopic(queueName);
+
+        LOG.info("Created SNS topic {}", snsTopicUrl);
+
+        awsSnsClient.subscribeSQS(snsTopicUrl, sqsQueueUrl);
+
+        LOG.info("Created subscription between SQS queue {} and SNS topic {}", sqsQueueUrl, snsTopicUrl);
 
         received = 0;
     }
@@ -124,52 +135,11 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
                 .withName("CamelAWSSNSSinkConnectorDefault")
                 .withTopics(topicName)
                 .withTopicOrArn(queueName)
-                .withSubscribeSNStoSQS(sqsQueueUrl)
-                .withAutoCreateTopic(true)
+//                .withSubscribeSNStoSQS(sqsQueueUrl)
                 .withConfiguration(TestSnsConfiguration.class.getName())
+                .withAutoCreateTopic(true)
                 .withAmazonConfig(amazonProperties);
 
         runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(value = 90)
-    public void testBasicSendReceiveUsingKafkaStyle() throws Exception {
-        Properties amazonProperties = service.getConnectionProperties();
-        String topicName = getTopicForTest(this.getClass());
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory
-                .basic()
-                .withName("CamelAWSSNSSinkKafkaStyleConnector")
-                .withTopics(topicName)
-                .withTopicOrArn(queueName)
-                .withSubscribeSNStoSQS(sqsQueueUrl)
-                .withAutoCreateTopic(true)
-                .withConfiguration(TestSnsConfiguration.class.getName())
-                .withAmazonConfig(amazonProperties, CamelAWSSNSPropertyFactory.KAFKA_STYLE);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(value = 90)
-    public void testBasicSendReceiveUsingUrl() throws Exception {
-        Properties amazonProperties = service.getConnectionProperties();
-        String topicName = getTopicForTest(this.getClass());
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory
-                .basic()
-                .withName("CamelAWSSNSSinkKafkaStyleConnectorWithUrl")
-                .withTopics(topicName)
-                .withUrl(queueName)
-                    .append("queueUrl", sqsQueueUrl)
-                    .append("subscribeSNStoSQS", "true")
-                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Region.US_EAST_1.id()))
-                    .append("configuration", classRef(TestSnsConfiguration.class.getName()))
-                    .append("autoCreateTopic", "true")
-                    .buildUrl();
-
-        runTest(connectorPropertyFactory, topicName, expect);
-
     }
 }

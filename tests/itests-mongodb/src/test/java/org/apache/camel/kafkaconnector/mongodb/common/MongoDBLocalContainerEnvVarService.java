@@ -14,25 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.apache.camel.kafkaconnector.mongodb.common;
 
-package org.apache.camel.kafkaconnector.sql.services;
+import org.apache.camel.test.infra.mongodb.services.MongoDBLocalContainerService;
 
-import org.apache.camel.test.infra.jdbc.common.JDBCProperties;
-import org.postgresql.ds.PGSimpleDataSource;
-
-public class TestDataSource extends PGSimpleDataSource {
-    private static final String URL;
-
-    static {
-        URL = System.getProperty(JDBCProperties.JDBC_CONNECTION_URL);
-    }
-
-    public TestDataSource() {
-        super();
-        setUrl(URL);
-
-        setUser("ckc");
-        setPassword("ckcDevel123");
-
+public class MongoDBLocalContainerEnvVarService extends MongoDBLocalContainerService {
+    public void addEnvProperty(String property, String value) {
+        getContainer().addEnv(property, value);
     }
 }

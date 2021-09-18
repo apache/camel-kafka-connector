@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.timer.source;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 
 final class CamelTimerPropertyFactory extends SourceConnectorPropertyFactory<CamelTimerPropertyFactory> {
@@ -26,26 +25,21 @@ final class CamelTimerPropertyFactory extends SourceConnectorPropertyFactory<Cam
 
     }
 
-    public CamelTimerPropertyFactory withRepeatCount(int repeatCount) {
-        return setProperty("camel.source.endpoint.repeatCount", repeatCount);
+    public CamelTimerPropertyFactory withPeriod(int period) {
+        return setProperty("camel.kamelet.timer-source.period", period);
     }
 
-    public CamelTimerPropertyFactory withTimerName(String timerName) {
-        return setProperty("camel.source.path.timerName", timerName);
-    }
-
-    public EndpointUrlBuilder<CamelTimerPropertyFactory> withUrl(String timerName) {
-        String url = String.format("timer:%s", timerName);
-
-        return new EndpointUrlBuilder<>(this::withSourceUrl, url);
+    public CamelTimerPropertyFactory withMessage(String message) {
+        return setProperty("camel.kamelet.timer-source.message", message);
     }
 
     public static CamelTimerPropertyFactory basic() {
         return new CamelTimerPropertyFactory()
                 .withName("CamelTimerSourceConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.timer.CamelTimerSourceConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.timersource.CamelTimersourceSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

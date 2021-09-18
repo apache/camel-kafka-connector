@@ -25,6 +25,7 @@ import org.apache.camel.kafkaconnector.rabbitmq.clients.RabbitMQClient;
 import org.apache.camel.test.infra.rabbitmq.services.RabbitMQService;
 import org.apache.camel.test.infra.rabbitmq.services.RabbitMQServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -34,6 +35,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled("Until https://github.com/apache/camel-kamelets/pull/502 is merged and published")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RabbitMQSourceITCase extends CamelSourceTestSupport {
     @RegisterExtension
@@ -48,7 +50,7 @@ public class RabbitMQSourceITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-rabbitmq-kafka-connector"};
+        return new String[] {"camel-rabbitmq-source-kafka-connector"};
     }
 
     @BeforeEach
@@ -72,23 +74,16 @@ public class RabbitMQSourceITCase extends CamelSourceTestSupport {
         assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 
-
     @Test
     @Timeout(90)
     public void testSource() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory factory = CamelRabbitMQPropertyFactory
                 .basic()
                 .withKafkaTopic(topicName)
-                .withUrl("")
-                    .append("username", rabbitmqService.connectionProperties().username())
-                    .append("password", rabbitmqService.connectionProperties().password())
-                    .append("autoDelete", "false")
-                    .append("queue", DEFAULT_RABBITMQ_QUEUE)
-                    .append("skipExchangeDeclare", "true")
-                    .append("skipQueueBind", "true")
-                    .append("hostname", rabbitmqService.connectionProperties().hostname())
-                    .append("portNumber", rabbitmqService.connectionProperties().port())
-                    .buildUrl();
+                .withAddresses(rabbitmqService.connectionProperties().hostname() + ":" + rabbitmqService.connectionProperties().port())
+                .withPassword(rabbitmqService.connectionProperties().password())
+                .withUsername(rabbitmqService.connectionProperties().username())
+                .withExchangeName("default");
 
         runTest(factory, topicName, expect);
     }

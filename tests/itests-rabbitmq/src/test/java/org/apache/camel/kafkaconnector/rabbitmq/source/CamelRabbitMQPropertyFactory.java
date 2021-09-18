@@ -17,59 +17,38 @@
 
 package org.apache.camel.kafkaconnector.rabbitmq.source;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 
 public class CamelRabbitMQPropertyFactory extends SourceConnectorPropertyFactory<CamelRabbitMQPropertyFactory> {
-    public CamelRabbitMQPropertyFactory withHostname(String value) {
-        return setProperty("camel.component.rabbitmq.hostname", value);
+    public CamelRabbitMQPropertyFactory withAddresses(String value) {
+        return setProperty("camel.kamelet.rabbitmq-source.addresses", value);
     }
 
     public CamelRabbitMQPropertyFactory withPortNumber(int value) {
-        return setProperty("camel.component.rabbitmq.portNumber", value);
+        return setProperty("camel.kamelet.rabbitmq-source.portNumber", value);
     }
 
     public CamelRabbitMQPropertyFactory withUsername(String value) {
-        return setProperty("camel.component.rabbitmq.username", value);
+        return setProperty("camel.kamelet.rabbitmq-source.username", value);
     }
 
     public CamelRabbitMQPropertyFactory withPassword(String value) {
-        return setProperty("camel.component.rabbitmq.password", value);
+        return setProperty("camel.kamelet.rabbitmq-source.password", value);
     }
 
     public CamelRabbitMQPropertyFactory withExchangeName(String value) {
-        return setProperty("camel.source.path.exchangeName", value);
-    }
-
-    public CamelRabbitMQPropertyFactory withExchangeType(String value) {
-        return setProperty("camel.source.endpoint.exchangeType", value);
-    }
-
-    public CamelRabbitMQPropertyFactory withAutoDelete(boolean value) {
-        return setProperty("camel.source.endpoint.autoDelete", value);
-    }
-
-    public CamelRabbitMQPropertyFactory withQueue(String value) {
-        return setProperty("camel.source.endpoint.queue", value);
-    }
-
-    public CamelRabbitMQPropertyFactory withRoutingKey(String value) {
-        return setProperty("camel.source.endpoint.routingKey", value);
-    }
-
-    public EndpointUrlBuilder<CamelRabbitMQPropertyFactory> withUrl(String exchangeName) {
-        String sourceUrl = String.format("rabbitmq://%s", exchangeName);
-
-        return new EndpointUrlBuilder<>(this::withSourceUrl, sourceUrl);
+        return setProperty("camel.kamelet.rabbitmq-source.exchangeName", value);
     }
 
     public static CamelRabbitMQPropertyFactory basic() {
         return new CamelRabbitMQPropertyFactory()
                     .withTasksMax(1)
                     .withName("CamelRabbitmqSourceConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.rabbitmq.CamelRabbitmqSourceConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.rabbitmqsource.CamelRabbitmqsourceSourceConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.converters.ByteArrayConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.converters.ByteArrayConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets")
+                    .setProperty("camel.component.properties.environment-variable-mode", "1");
     
     }
 

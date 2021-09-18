@@ -34,12 +34,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceTimerITCase extends CamelSourceTestSupport {
-    private final int expect = 10;
+    private final int expect = 1;
     private String topicName;
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-timer-kafka-connector"};
+        return new String[] {"camel-timer-source-kafka-connector"};
     }
 
     @BeforeEach
@@ -65,21 +65,8 @@ public class CamelSourceTimerITCase extends CamelSourceTestSupport {
         CamelTimerPropertyFactory connectorPropertyFactory = CamelTimerPropertyFactory
                 .basic()
                 .withKafkaTopic(topicName)
-                .withTimerName("launchTest")
-                .withRepeatCount(expect);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(30)
-    public void testLaunchConnectorUsingUrl() throws ExecutionException, InterruptedException {
-        CamelTimerPropertyFactory connectorPropertyFactory = CamelTimerPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withUrl("launchTestUsingUrl")
-                    .append("repeatCount", expect)
-                    .buildUrl();
+                .withPeriod(Integer.MAX_VALUE)
+                .withMessage("hello world!");
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

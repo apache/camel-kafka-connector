@@ -81,7 +81,7 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
 
             sentData.put(sentFile, testMessageContent(current));
 
-            messageParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAzureStorageBlobBlobName", sentFile);
+            messageParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "file", sentFile);
 
             return messageParameters;
         }
@@ -89,7 +89,7 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[]{"camel-azure-storage-blob-kafka-connector"};
+        return new String[]{"camel-azure-storage-blob-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -119,7 +119,7 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
 
     @Override
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
-        if (latch.await(120, TimeUnit.SECONDS)) {
+        if (latch.await(240, TimeUnit.SECONDS)) {
             assertEquals(expect, received,
                     "Didn't process the expected amount of messages: " + received + " != " + expect);
         } else {
@@ -147,7 +147,7 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
                 blobClient.download(outputStream);
                 String contentFile = outputStream.toString();
 
-                LOG.info("Received: '{}' with content: '{}'", receivedFile, contentFile);
+                LOG.info("Received: '{}' with content: '{}' expected content: '{}'", receivedFile, contentFile, sentData.get(receivedFile));
                 assertEquals(sentData.get(receivedFile), contentFile, "Did not receive the same message that was sent");
 
                 received++;
@@ -173,20 +173,4 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
         runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveUrl() throws Exception {
-        AzureCredentialsHolder azureCredentialsHolder = service.azureCredentials();
-
-        ConnectorPropertyFactory factory = CamelSinkAzureStorageBlobPropertyFactory
-                .basic()
-                .withTopics(topicName)
-                .withConfiguration(TestBlobConfiguration.class.getName())
-                .withUrl(azureCredentialsHolder.accountName() + "/" + blobContainerName)
-                    .append("accessKey", azureCredentialsHolder.accountKey())
-                    .append("operation", "uploadBlockBlob")
-                    .buildUrl();
-
-        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
-    }
 }

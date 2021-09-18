@@ -55,7 +55,7 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-http-kafka-connector"};
+        return new String[] {"camel-http-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -118,24 +118,11 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
-        String url = localServer.getInetAddress().getHostName() + ":" + localServer.getLocalPort() + "/ckc";
+        String url = "http://" + localServer.getInetAddress().getHostName() + ":" + localServer.getLocalPort() + "/ckc";
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
                 .withTopics(topicName)
-                .withHttpUri(url);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveUsingUrl() throws Exception {
-        String hostName = localServer.getInetAddress().getHostName() + ":" + localServer.getLocalPort() + "/ckc";
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
-                .withTopics(topicName)
-                .withUrl(hostName)
-                    .buildUrl();
+                .withHttpUrl(url);
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

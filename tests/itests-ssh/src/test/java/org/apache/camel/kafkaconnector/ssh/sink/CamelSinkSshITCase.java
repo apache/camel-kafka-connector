@@ -26,18 +26,19 @@ import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.ssh.services.SshService;
 import org.apache.camel.kafkaconnector.ssh.services.SshServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
-        disabledReason = "Hangs when running with the embedded Kafka Connect instance")
+@Disabled("Sink ssh kamelet needs to be implemented see: https://github.com/apache/camel-kamelets/issues/504")
+//@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
+//        disabledReason = "Hangs when running with the embedded Kafka Connect instance")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkSshITCase extends CamelSinkTestSupport {
     @RegisterExtension
@@ -61,7 +62,7 @@ public class CamelSinkSshITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-ssh-kafka-connector"};
+        return new String[] {"camel-ssh-sink-kafka-connector"};
     }
 
     @BeforeEach

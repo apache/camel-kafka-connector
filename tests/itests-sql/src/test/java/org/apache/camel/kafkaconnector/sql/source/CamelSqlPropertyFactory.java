@@ -24,16 +24,40 @@ public final class CamelSqlPropertyFactory extends SinkConnectorPropertyFactory<
 
     }
 
-    public CamelSqlPropertyFactory withDataSource(String value) {
-        return setProperty("camel.component.sql.dataSource", value);
+    public CamelSqlPropertyFactory withServerName(String value) {
+        return setProperty("camel.kamelet.postgresql-source.serverName", value);
+    }
+
+    public CamelSqlPropertyFactory withUsername(String value) {
+        return setProperty("camel.kamelet.postgresql-source.username", value);
+    }
+
+    public CamelSqlPropertyFactory withPassword(String value) {
+        return setProperty("camel.kamelet.postgresql-source.password", value);
     }
 
     public CamelSqlPropertyFactory withQuery(String value) {
-        return setProperty("camel.source.path.query", value);
+        return setProperty("camel.kamelet.postgresql-source.query", value);
+    }
+
+    public CamelSqlPropertyFactory withDatabaseName(String value) {
+        return setProperty("camel.kamelet.postgresql-source.databaseName", value);
+    }
+
+    public CamelSqlPropertyFactory withPort(String port) {
+        return setProperty("camel.kamelet.postgresql-source.port", port);
     }
 
     public static CamelSqlPropertyFactory basic() {
-        return new CamelSqlPropertyFactory().withName("CamelSQLSourceConnector").withTasksMax(1).withConnectorClass("org.apache.camel.kafkaconnector.sql.CamelSqlSourceConnector")
-            .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter").withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+        return new CamelSqlPropertyFactory()
+                        .withName("CamelSQLSourceConnector")
+                        .withTasksMax(1)
+                        .withConnectorClass("org.apache.camel.kafkaconnector.postgresqlsource.CamelPostgresqlsourceSourceConnector")
+                        .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                        .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                        .setProperty("camel.component.kamelet.location", "kamelets")
+                        .setProperty("camel.component.properties.environment-variable-mode", "1");
     }
+
+
 }

@@ -26,23 +26,19 @@ import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
-import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.model.Message;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -64,7 +60,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-aws2-sqs-kafka-connector"};
+        return new String[] {"camel-aws-sqs-sink-kafka-connector"};
     }
 
 
@@ -144,62 +140,4 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
             fail(e.getMessage());
         }
     }
-
-    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote",
-            disabledReason = "Runs repeatedly, so it's disabled to avoid abusing the free tier")
-    @Timeout(value = 120)
-    @RepeatedTest(3)
-    public void testBasicSendReceiveUsingKafkaStyle() {
-        try {
-            Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = getTopicForTest(this);
-
-            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
-                    .basic()
-                    .withName("CamelAwssqsSinkConnectorKafkaStyle")
-                    .withTopics(topicName)
-                    .withAmazonConfig(amazonProperties, CamelAWSSQSPropertyFactory.KAFKA_STYLE)
-                    .withAutoCreateQueue(true)
-                    .withQueueNameOrArn(queueName);
-
-            runTest(testProperties, topicName, expect);
-
-        } catch (Exception e) {
-            LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
-        }
-    }
-
-    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote",
-            disabledReason = "Uses arguments that may require additional setup on AWS or are not available in remote mode")
-    @Timeout(value = 120)
-    @RepeatedTest(3)
-    public void testBasicSendReceiveUsingUrl() {
-        try {
-            Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = getTopicForTest(this);
-
-            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
-                    .basic()
-                    .withName("CamelAwssqsSinkConnectorUsingUrl")
-                    .withTopics(topicName)
-                    .withUrl(queueName)
-                        .append("autoCreateQueue", "true")
-                        .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                        .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                        .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
-                        .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Region.US_EAST_1.toString()))
-                        .append("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
-                        .buildUrl();
-
-            runTest(testProperties, topicName, expect);
-
-        } catch (Exception e) {
-            LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
-        }
-    }
-
-
-
 }

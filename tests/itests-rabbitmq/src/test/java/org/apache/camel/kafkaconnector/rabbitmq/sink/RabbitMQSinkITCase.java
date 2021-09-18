@@ -29,6 +29,7 @@ import org.apache.camel.test.infra.rabbitmq.services.RabbitMQService;
 import org.apache.camel.test.infra.rabbitmq.services.RabbitMQServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -39,6 +40,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Disabled("Until we have a rabbitmq sink kamelet see: https://github.com/apache/camel-kamelets/issues/45")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RabbitMQSinkITCase extends CamelSinkTestSupport {
     @RegisterExtension
@@ -54,7 +56,7 @@ public class RabbitMQSinkITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-rabbitmq-kafka-connector"};
+        return new String[] {"camel-rabbitmq-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -116,17 +118,15 @@ public class RabbitMQSinkITCase extends CamelSinkTestSupport {
         ConnectorPropertyFactory factory = CamelRabbitMQPropertyFactory
                 .basic()
                 .withTopics(topicName)
-                    .withUrl("")
-                    .append("username", rabbitmqService.connectionProperties().username())
-                    .append("password", rabbitmqService.connectionProperties().password())
-                    .append("autoDelete", "false")
-                    .append("queue", DEFAULT_RABBITMQ_QUEUE)
-                    .append("RoutingKey", DEFAULT_RABBITMQ_QUEUE)
-                    .append("skipExchangeDeclare", "true")
-                    .append("skipQueueBind", "true")
-                    .append("hostname", rabbitmqService.connectionProperties().hostname())
-                    .append("portNumber", rabbitmqService.connectionProperties().port())
-                    .buildUrl();
+                .withUsername(rabbitmqService.connectionProperties().username())
+                .withPassword(rabbitmqService.connectionProperties().password())
+                .withAutoDelete(false)
+                .withQueue(DEFAULT_RABBITMQ_QUEUE)
+                .withRoutingKey(DEFAULT_RABBITMQ_QUEUE)
+                .withSkipExchangeDeclare(true)
+                .withSkipQueueBind(true)
+                .withHostname(rabbitmqService.connectionProperties().hostname())
+                .withPortNumber(rabbitmqService.connectionProperties().port());
 
         runTest(factory, topicName, expect);
     }

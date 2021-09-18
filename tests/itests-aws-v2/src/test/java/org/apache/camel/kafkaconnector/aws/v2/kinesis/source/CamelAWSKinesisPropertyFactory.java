@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.aws.v2.common.AWSPropertiesUtils;
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
@@ -32,16 +31,11 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
  */
 final class CamelAWSKinesisPropertyFactory extends SourceConnectorPropertyFactory<CamelAWSKinesisPropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-kinesis.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-kinesis.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-kinesis.region");
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-kinesis.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-kinesis.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-kinesis.region");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-kinesis-source.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-kinesis-source.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-kinesis-source.region");
     }
 
     private CamelAWSKinesisPropertyFactory() {
@@ -58,14 +52,8 @@ final class CamelAWSKinesisPropertyFactory extends SourceConnectorPropertyFactor
         return this;
     }
 
-    public CamelAWSKinesisPropertyFactory withStreamName(String streamName) {
-        return setProperty("camel.source.path.streamName", streamName);
-    }
-
-    public EndpointUrlBuilder<CamelAWSKinesisPropertyFactory> withUrl(String streamName) {
-        String sourceUrl = String.format("aws2-kinesis://%s", streamName);
-
-        return new EndpointUrlBuilder<>(this::withSourceUrl, sourceUrl);
+    public CamelAWSKinesisPropertyFactory withStream(String streamName) {
+        return setProperty("camel.kamelet.aws-kinesis-source.stream", streamName);
     }
 
     public CamelAWSKinesisPropertyFactory withConfiguration(String configurationClass) {
@@ -77,8 +65,9 @@ final class CamelAWSKinesisPropertyFactory extends SourceConnectorPropertyFactor
         return new CamelAWSKinesisPropertyFactory()
                 .withName("CamelAwskinesisSourceConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.aws2kinesis.CamelAws2kinesisSourceConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.awskinesissource.CamelAwskinesissourceSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

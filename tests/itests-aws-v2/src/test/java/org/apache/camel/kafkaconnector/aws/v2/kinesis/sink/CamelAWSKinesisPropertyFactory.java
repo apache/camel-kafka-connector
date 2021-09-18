@@ -31,16 +31,11 @@ import org.apache.camel.test.infra.aws.common.AWSConfigs;
  */
 final class CamelAWSKinesisPropertyFactory extends SinkConnectorPropertyFactory<CamelAWSKinesisPropertyFactory> {
     public static final Map<String, String> SPRING_STYLE = new HashMap<>();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
-        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-kinesis.accessKey");
-        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-kinesis.secretKey");
-        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-kinesis.region");
-
-        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws2-kinesis.access-key");
-        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws2-kinesis.secret-key");
-        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws2-kinesis.region");
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-kinesis-sink.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-kinesis-sink.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-kinesis-sink.region");
     }
 
     private CamelAWSKinesisPropertyFactory() {
@@ -57,8 +52,8 @@ final class CamelAWSKinesisPropertyFactory extends SinkConnectorPropertyFactory<
         return this;
     }
 
-    public CamelAWSKinesisPropertyFactory withStreamName(String streamName) {
-        return setProperty("camel.sink.path.streamName", streamName);
+    public CamelAWSKinesisPropertyFactory withStream(String streamName) {
+        return setProperty("camel.kamelet.aws-kinesis-sink.stream", streamName);
     }
 
     public CamelAWSKinesisPropertyFactory withConfiguration(String configurationClass) {
@@ -70,8 +65,9 @@ final class CamelAWSKinesisPropertyFactory extends SinkConnectorPropertyFactory<
         return new CamelAWSKinesisPropertyFactory()
                 .withName("CamelAwsKinesisSinkConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.aws2kinesis.CamelAws2kinesisSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.awskinesissink.CamelAwskinesissinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

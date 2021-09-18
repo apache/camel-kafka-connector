@@ -28,7 +28,6 @@ import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.sql.client.DatabaseClient;
-import org.apache.camel.kafkaconnector.sql.services.TestDataSource;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.jdbc.services.JDBCService;
 import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
@@ -47,6 +46,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class CamelSinkSQLITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkSQLITCase.class);
+    private static final String DATABASE_NAME = "camel";
+    private static final String USERNAME = "ckc";
+    private static final String PASSWORD = "ckcDevel123";
 
     @RegisterExtension
     public JDBCService sqlService;
@@ -55,6 +57,9 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
     private String topicName;
     private final int expect = 1;
     private int received;
+
+    private String hostname;
+    private String port;
 
     private static class CustomProducer extends StringMessageProducer {
         public CustomProducer(String bootstrapServer, String topicName, int count) {
@@ -80,9 +85,9 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
 
     public CamelSinkSQLITCase() {
         JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:9.6.2")
-                .withDatabaseName("camel")
-                .withUsername("ckc")
-                .withPassword("ckcDevel123")
+                .withDatabaseName(DATABASE_NAME)
+                .withUsername(USERNAME)
+                .withPassword(PASSWORD)
                 .withInitScript("schema.sql")
                 .withStartupTimeoutSeconds(60);
 
@@ -91,11 +96,14 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
                 .build();
 
         sqlService.initialize();
+
+        hostname = container.getContainerIpAddress();
+        port = String.valueOf(container.getMappedPort(PostgreSQLContainer.POSTGRESQL_PORT));
     }
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-sql-kafka-connector"};
+        return new String[] {"camel-postgresql-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -155,7 +163,11 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
     public void testDBFetch() throws Exception {
         CamelSqlPropertyFactory factory = CamelSqlPropertyFactory
                 .basic()
-                .withDataSource(CamelSqlPropertyFactory.classRef(TestDataSource.class.getName()))
+                .withDatabaseName(DATABASE_NAME)
+                .withServerName(hostname)
+                .withPort(port)
+                .withUsername(USERNAME)
+                .withPassword(PASSWORD)
                 .withQuery("insert into test(test_name, test_data) values(:#TestName,:#TestData)")
                 .withTopics(topicName);
 

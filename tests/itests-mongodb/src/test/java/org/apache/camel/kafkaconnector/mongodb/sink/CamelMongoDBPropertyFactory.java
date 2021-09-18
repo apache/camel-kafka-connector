@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.mongodb.sink;
 
 
@@ -26,29 +25,33 @@ final class CamelMongoDBPropertyFactory extends SinkConnectorPropertyFactory<Cam
 
     }
 
-    public CamelMongoDBPropertyFactory withConnectionBean(String connectionBean, String ref) {
-        setProperty("camel.sink.path.connectionBean", connectionBean);
-        return withBeans(connectionBean, ref);
+    public CamelMongoDBPropertyFactory withPassword(String password) {
+        return setProperty("camel.kamelet.mongodb-sink.password", password);
+    }
+
+    public CamelMongoDBPropertyFactory withUsername(String username) {
+        return setProperty("camel.kamelet.mongodb-sink.username", username);
+    }
+
+    public CamelMongoDBPropertyFactory withHosts(String hosts) {
+        return setProperty("camel.kamelet.mongodb-sink.hosts", hosts);
     }
 
     public CamelMongoDBPropertyFactory withDatabase(String database) {
-        return setProperty("camel.sink.endpoint.database", database);
-    }
-
-    public CamelMongoDBPropertyFactory withOperation(String operation) {
-        return setProperty("camel.sink.endpoint.operation", operation);
+        return setProperty("camel.kamelet.mongodb-sink.database", database);
     }
 
     public CamelMongoDBPropertyFactory withCollection(String connection) {
-        return setProperty("camel.sink.endpoint.collection", connection);
+        return setProperty("camel.kamelet.mongodb-sink.collection", connection);
     }
 
     public static CamelMongoDBPropertyFactory basic() {
         return new CamelMongoDBPropertyFactory()
                 .withName("CamelMongoDBSinkConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.mongodb.CamelMongodbSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.mongodbsink.CamelMongodbsinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * An interface for producing different types of connector properties that match
- * an specific type of connector in test.
+ * a specific type of connector in test.
  */
 public interface ConnectorPropertyFactory {
 
