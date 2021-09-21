@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-xj-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.11.0",
 		"description": "Transform JSON and XML message using a XSLT."
 	},
 	"properties": {

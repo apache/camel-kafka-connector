@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-vertx-source",
 		"type": "source",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.11.0",
 		"description": "Send and receive messages to\/from Vert.x Event Bus."
 	},
 	"properties": {

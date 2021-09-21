@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-disruptor-vm-source",
 		"type": "source",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.11.0",
 		"description": "Provides asynchronous SEDA behavior using LMAX Disruptor."
 	},
 	"properties": {

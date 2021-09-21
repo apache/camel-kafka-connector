@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-json-validator-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.11.0",
 		"description": "Validate JSON payloads using NetworkNT JSON Schema."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-microprofile-metrics-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.11.0",
 		"description": "Expose metrics from Camel routes."
 	},
 	"properties": {

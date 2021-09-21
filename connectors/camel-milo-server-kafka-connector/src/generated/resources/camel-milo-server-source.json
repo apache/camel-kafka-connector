@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-milo-server-source",
 		"type": "source",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.11.0",
 		"description": "Make telemetry data available as an OPC UA server."
 	},
 	"properties": {
