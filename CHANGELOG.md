@@ -2,34 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.1...HEAD)
-
-**Closed issues:**
-
-- how to convert csv to json using unmarshal/marshal  [\#1253](https://github.com/apache/camel-kafka-connector/issues/1253)
-- Bump to Strimzi 0.25.0 [\#1248](https://github.com/apache/camel-kafka-connector/issues/1248)
-- Configurable parameters in AWS2-s3 Kafka source connector [\#1247](https://github.com/apache/camel-kafka-connector/issues/1247)
-- Using a Kafka Consumer with Idempotency enabled Kafka consume [\#1245](https://github.com/apache/camel-kafka-connector/issues/1245)
-- Bump to Camel 3.11.1 [\#1243](https://github.com/apache/camel-kafka-connector/issues/1243)
-- Endpoint doesn't get resolved when using Camel Splunk HEC Kafka connector [\#1241](https://github.com/apache/camel-kafka-connector/issues/1241)
-- Upgrade to Camel 3.11.0 [\#1237](https://github.com/apache/camel-kafka-connector/issues/1237)
-- idempotency support in Kafka AWS s3 source connector [\#1236](https://github.com/apache/camel-kafka-connector/issues/1236)
-- aws2-s3 prefix not working with Kafka source connector [\#1235](https://github.com/apache/camel-kafka-connector/issues/1235)
-- Is it possible to attach Custom Processor to existing Connector? [\#1228](https://github.com/apache/camel-kafka-connector/issues/1228)
-- Access headers on S3 Source connector [\#1224](https://github.com/apache/camel-kafka-connector/issues/1224)
-- Jira source connector only sourcing new issues [\#1221](https://github.com/apache/camel-kafka-connector/issues/1221)
-- Bump to Strimzi Operator 0.24.0 [\#1219](https://github.com/apache/camel-kafka-connector/issues/1219)
-- Improve documentation about limitations of special chars in the file connector [\#1218](https://github.com/apache/camel-kafka-connector/issues/1218)
-- Java bean error when using aws2-s3-source connector [\#1217](https://github.com/apache/camel-kafka-connector/issues/1217)
-- AWSS2-S3-Kafka connector sink returns 403 with bucket and object not public [\#1216](https://github.com/apache/camel-kafka-connector/issues/1216)
-- Issue with camel-google-pubsub-kafka-connector sink configuration [\#1209](https://github.com/apache/camel-kafka-connector/issues/1209)
-- CamelFileSink Connector appendChars = \n not working [\#1208](https://github.com/apache/camel-kafka-connector/issues/1208)
-- aws2s3 sink connector cannot access kafka headers [\#1200](https://github.com/apache/camel-kafka-connector/issues/1200)
-- Missing kafkaconnector parent pom artifact for version 0.10.0 [\#1190](https://github.com/apache/camel-kafka-connector/issues/1190)
-- camel-minio-kafka-connector can't split minio file [\#1124](https://github.com/apache/camel-kafka-connector/issues/1124)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.11.0...HEAD)
 
 **Merged pull requests:**
 
+- chore: regen. [\#1257](https://github.com/apache/camel-kafka-connector/pull/1257) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1256](https://github.com/apache/camel-kafka-connector/pull/1256) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1252](https://github.com/apache/camel-kafka-connector/pull/1252) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Upgrade Strimzi to version 0.25.0 [\#1251](https://github.com/apache/camel-kafka-connector/pull/1251) ([oscerd](https://github.com/oscerd))
@@ -337,6 +314,34 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.11.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.11.0) (2021-09-21)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.10.1...camel-kafka-connector-0.11.0)
+
+**Closed issues:**
+
+- how to convert csv to json using unmarshal/marshal  [\#1253](https://github.com/apache/camel-kafka-connector/issues/1253)
+- Bump to Strimzi 0.25.0 [\#1248](https://github.com/apache/camel-kafka-connector/issues/1248)
+- Configurable parameters in AWS2-s3 Kafka source connector [\#1247](https://github.com/apache/camel-kafka-connector/issues/1247)
+- Using a Kafka Consumer with Idempotency enabled Kafka consume [\#1245](https://github.com/apache/camel-kafka-connector/issues/1245)
+- Bump to Camel 3.11.1 [\#1243](https://github.com/apache/camel-kafka-connector/issues/1243)
+- Endpoint doesn't get resolved when using Camel Splunk HEC Kafka connector [\#1241](https://github.com/apache/camel-kafka-connector/issues/1241)
+- Upgrade to Camel 3.11.0 [\#1237](https://github.com/apache/camel-kafka-connector/issues/1237)
+- idempotency support in Kafka AWS s3 source connector [\#1236](https://github.com/apache/camel-kafka-connector/issues/1236)
+- aws2-s3 prefix not working with Kafka source connector [\#1235](https://github.com/apache/camel-kafka-connector/issues/1235)
+- Is it possible to attach Custom Processor to existing Connector? [\#1228](https://github.com/apache/camel-kafka-connector/issues/1228)
+- Access headers on S3 Source connector [\#1224](https://github.com/apache/camel-kafka-connector/issues/1224)
+- Jira source connector only sourcing new issues [\#1221](https://github.com/apache/camel-kafka-connector/issues/1221)
+- Bump to Strimzi Operator 0.24.0 [\#1219](https://github.com/apache/camel-kafka-connector/issues/1219)
+- Improve documentation about limitations of special chars in the file connector [\#1218](https://github.com/apache/camel-kafka-connector/issues/1218)
+- Java bean error when using aws2-s3-source connector [\#1217](https://github.com/apache/camel-kafka-connector/issues/1217)
+- AWSS2-S3-Kafka connector sink returns 403 with bucket and object not public [\#1216](https://github.com/apache/camel-kafka-connector/issues/1216)
+- Issue with camel-google-pubsub-kafka-connector sink configuration [\#1209](https://github.com/apache/camel-kafka-connector/issues/1209)
+- CamelFileSink Connector appendChars = \n not working [\#1208](https://github.com/apache/camel-kafka-connector/issues/1208)
+- aws2s3 sink connector cannot access kafka headers [\#1200](https://github.com/apache/camel-kafka-connector/issues/1200)
+- Missing kafkaconnector parent pom artifact for version 0.10.0 [\#1190](https://github.com/apache/camel-kafka-connector/issues/1190)
+- camel-minio-kafka-connector can't split minio file [\#1124](https://github.com/apache/camel-kafka-connector/issues/1124)
 
 ## [camel-kafka-connector-0.10.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.10.1) (2021-06-16)
 
