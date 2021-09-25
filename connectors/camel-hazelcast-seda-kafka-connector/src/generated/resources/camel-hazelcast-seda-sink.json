@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hazelcast-seda-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.12.0-SNAPSHOT",
 		"description": "Asynchronously send\/receive Exchanges between Camel routes running on potentially distinct JVMs\/hosts backed by Hazelcast BlockingQueue."
 	},
 	"properties": {
