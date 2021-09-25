@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hwcloud-smn-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.12.0-SNAPSHOT",
 		"description": "To broadcast messages and connect cloud services through notifications on Huawei Cloud"
 	},
 	"properties": {

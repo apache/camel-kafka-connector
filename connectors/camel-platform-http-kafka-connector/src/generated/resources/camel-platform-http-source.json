@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-platform-http-source",
 		"type": "source",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.12.0-SNAPSHOT",
 		"description": "Expose HTTP endpoints using the HTTP server available in the current platform."
 	},
 	"properties": {
