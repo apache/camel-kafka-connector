@@ -566,7 +566,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         // docs/modules/ROOT/pages/connectors
         File docFolder = new File(connectorDir, "src/main/docs/");
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
+        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/reference/connectors/");
         File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         String changed = templateAutoConfigurationOptions(listOptions, model.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList,
                                                           transformsList, aggregationStrategiesList);
