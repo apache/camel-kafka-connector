@@ -1,0 +1,67 @@
+// kafka-connector options: START
+[[camel-git-kafka-connector-sink]]
+= camel-git-kafka-connector sink configuration
+
+Connector Description: Perform operations on git repositories.
+
+When using camel-git-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-git-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.git.CamelGitSinkConnector
+----
+
+
+The camel-git sink connector supports 12 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.localPath* | Local repository path | null | true | HIGH
+| *camel.sink.endpoint.branchName* | The branch name to work on | null | false | MEDIUM
+| *camel.sink.endpoint.allowEmpty* | The flag to manage empty git commits | true | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to do on the repository One of: [clone] [init] [add] [remove] [commit] [commitAll] [createBranch] [deleteBranch] [createTag] [deleteTag] [status] [log] [push] [pull] [showBranches] [cherryPick] [remoteAdd] [remoteList] | null | false | MEDIUM
+| *camel.sink.endpoint.password* | Remote repository password | null | false | MEDIUM
+| *camel.sink.endpoint.remoteName* | The remote repository name to use in particular operation like pull | null | false | MEDIUM
+| *camel.sink.endpoint.remotePath* | The remote repository path | null | false | MEDIUM
+| *camel.sink.endpoint.tagName* | The tag name to work on | null | false | MEDIUM
+| *camel.sink.endpoint.username* | Remote repository username | null | false | MEDIUM
+| *camel.component.git.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.git.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+|===
+
+
+
+The camel-git sink connector has no converters out of the box.
+
+
+
+
+
+The camel-git sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-git sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -1,0 +1,63 @@
+// kafka-connector options: START
+[[camel-websocket-jsr356-kafka-connector-source]]
+= camel-websocket-jsr356-kafka-connector source configuration
+
+Connector description: Expose websocket endpoints using JSR356.
+
+When using camel-websocket-jsr356-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-websocket-jsr356-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.websocketjsr356.CamelWebsocketjsr356SourceConnector
+----
+
+
+The camel-websocket-jsr356 source connector supports 8 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.uri* | If a schemeless URI path is provided, a ServerEndpoint is deployed under that path. Else if the URI is prefixed with the 'ws://' scheme, then a connection is established to the corresponding server | null | false | MEDIUM
+| *camel.source.endpoint.sessionCount* | Used when the endpoint is in client mode to populate a pool of sessions | 1 | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.websocket-jsr356.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.websocket-jsr356.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.websocket-jsr356.serverEndpoint DeploymentStrategy* | To enable customization of how a WebSocket ServerEndpoint is configured and deployed. By default DefaultServerEndpointDeploymentStrategy is used. | null | false | MEDIUM
+|===
+
+
+
+The camel-websocket-jsr356 source connector has no converters out of the box.
+
+
+
+
+
+The camel-websocket-jsr356 source connector has no transforms out of the box.
+
+
+
+
+
+The camel-websocket-jsr356 source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

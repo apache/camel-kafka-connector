@@ -1,0 +1,81 @@
+// kafka-connector options: START
+[[camel-etcd-watch-kafka-connector-source]]
+= camel-etcd-watch-kafka-connector source configuration
+
+Connector description: Watch specific etcd keys or directories for changes.
+
+When using camel-etcd-watch-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-etcd-watch-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.etcdwatch.CamelEtcdwatchSourceConnector
+----
+
+
+The camel-etcd-watch source connector supports 26 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.path* | The path the endpoint refers to | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.recursive* | To apply an action recursively. | false | false | MEDIUM
+| *camel.source.endpoint.servicePath* | The path to look for for service discovery | "/services/" | false | MEDIUM
+| *camel.source.endpoint.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | false | MEDIUM
+| *camel.source.endpoint.sendEmptyExchangeOnTimeout* | To send an empty message in case of timeout watching for a key. | false | false | MEDIUM
+| *camel.source.endpoint.timeout* | To set the maximum time an action could take to complete. | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.fromIndex* | The index to watch from | 0L | false | MEDIUM
+| *camel.source.endpoint.password* | The password to use for basic authentication. | null | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters. | null | false | MEDIUM
+| *camel.source.endpoint.userName* | The user name to use for basic authentication. | null | false | MEDIUM
+| *camel.component.etcd-watch.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.etcd-watch.configuration* | Component configuration. | null | false | MEDIUM
+| *camel.component.etcd-watch.recursive* | To apply an action recursively. | false | false | MEDIUM
+| *camel.component.etcd-watch.servicePath* | The path to look for for service discovery | "/services/" | false | MEDIUM
+| *camel.component.etcd-watch.timeout* | To set the maximum time an action could take to complete. | null | false | MEDIUM
+| *camel.component.etcd-watch.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | false | MEDIUM
+| *camel.component.etcd-watch.sendEmptyExchangeOn Timeout* | To send an empty message in case of timeout watching for a key. | false | false | MEDIUM
+| *camel.component.etcd-watch.fromIndex* | The index to watch from | 0L | false | MEDIUM
+| *camel.component.etcd-watch.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.etcd-watch.password* | The password to use for basic authentication. | null | false | MEDIUM
+| *camel.component.etcd-watch.sslContextParameters* | To configure security using SSLContextParameters. | null | false | MEDIUM
+| *camel.component.etcd-watch.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
+| *camel.component.etcd-watch.userName* | The user name to use for basic authentication. | null | false | MEDIUM
+|===
+
+
+
+The camel-etcd-watch source connector has no converters out of the box.
+
+
+
+
+
+The camel-etcd-watch source connector has no transforms out of the box.
+
+
+
+
+
+The camel-etcd-watch source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

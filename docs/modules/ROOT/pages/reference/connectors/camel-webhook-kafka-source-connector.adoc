@@ -1,0 +1,72 @@
+// kafka-connector options: START
+[[camel-webhook-kafka-connector-source]]
+= camel-webhook-kafka-connector source configuration
+
+Connector description: Expose webhook endpoints to receive push notifications for other Camel components.
+
+When using camel-webhook-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-webhook-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.webhook.CamelWebhookSourceConnector
+----
+
+
+The camel-webhook source connector supports 17 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.endpointUri* | The delegate uri. Must belong to a component that supports webhooks. | null | true | HIGH
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.webhookAutoRegister* | Automatically register the webhook at startup and unregister it on shutdown. | true | false | MEDIUM
+| *camel.source.endpoint.webhookBasePath* | The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties. | null | false | MEDIUM
+| *camel.source.endpoint.webhookComponentName* | The Camel Rest component to use for the REST transport, such as netty-http. | null | false | MEDIUM
+| *camel.source.endpoint.webhookExternalUrl* | The URL of the current service as seen by the webhook provider | null | false | MEDIUM
+| *camel.source.endpoint.webhookPath* | The path where the webhook endpoint will be exposed (relative to basePath, if any) | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.webhook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.webhook.webhookAutoRegister* | Automatically register the webhook at startup and unregister it on shutdown. | true | false | MEDIUM
+| *camel.component.webhook.webhookBasePath* | The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties. | null | false | MEDIUM
+| *camel.component.webhook.webhookComponentName* | The Camel Rest component to use for the REST transport, such as netty-http. | null | false | MEDIUM
+| *camel.component.webhook.webhookExternalUrl* | The URL of the current service as seen by the webhook provider | null | false | MEDIUM
+| *camel.component.webhook.webhookPath* | The path where the webhook endpoint will be exposed (relative to basePath, if any) | null | false | MEDIUM
+| *camel.component.webhook.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.webhook.configuration* | Set the default configuration for the webhook meta-component. | null | false | MEDIUM
+|===
+
+
+
+The camel-webhook source connector has no converters out of the box.
+
+
+
+
+
+The camel-webhook source connector has no transforms out of the box.
+
+
+
+
+
+The camel-webhook source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

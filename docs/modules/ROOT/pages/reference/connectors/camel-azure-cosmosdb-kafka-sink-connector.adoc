@@ -1,0 +1,99 @@
+// kafka-connector options: START
+[[camel-azure-cosmosdb-kafka-connector-sink]]
+= camel-azure-cosmosdb-kafka-connector sink configuration
+
+Connector Description: To read and write records to the CosmosDB database on Azure cloud platform.
+
+When using camel-azure-cosmosdb-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-cosmosdb-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azurecosmosdb.CamelAzurecosmosdbSinkConnector
+----
+
+
+The camel-azure-cosmosdb sink connector supports 44 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.databaseName* | The name of the Cosmos database that component should connect to. In case you are producing data and have createDatabaseIfNotExists=true, the component will automatically auto create a Cosmos database. | null | false | MEDIUM
+| *camel.sink.path.containerName* | The name of the Cosmos container that component should connect to. In case you are producing data and have createContainerIfNotExists=true, the component will automatically auto create a Cosmos container. | null | false | MEDIUM
+| *camel.sink.endpoint.clientTelemetryEnabled* | Sets the flag to enable client telemetry which will periodically collect database operations aggregation statistics, system information like cpu/memory and send it to cosmos monitoring service, which will be helpful during debugging. DEFAULT value is false indicating this is opt in feature, by default no telemetry collection. | false | false | MEDIUM
+| *camel.sink.endpoint.connectionSharingAcrossClients Enabled* | Enables connections sharing across multiple Cosmos Clients. The default is false. When you have multiple instances of Cosmos Client in the same JVM interacting to multiple Cosmos accounts, enabling this allows connection sharing in Direct mode if possible between instances of Cosmos Client. Please note, when setting this option, the connection configuration (e.g., socket timeout config, idle timeout config) of the first instantiated client will be used for all other client instances. | false | false | MEDIUM
+| *camel.sink.endpoint.consistencyLevel* | Sets the consistency levels supported for Azure Cosmos DB client operations in the Azure Cosmos DB service. The requested ConsistencyLevel must match or be weaker than that provisioned for the database account. Consistency levels by order of strength are STRONG, BOUNDED_STALENESS, SESSION and EVENTUAL. Refer to consistency level documentation for additional details: \https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels One of: [Strong] [BoundedStaleness] [Session] [Eventual] [ConsistentPrefix] | "SESSION" | false | MEDIUM
+| *camel.sink.endpoint.containerPartitionKeyPath* | Sets the container partition key path. | null | false | MEDIUM
+| *camel.sink.endpoint.contentResponseOnWriteEnabled* | Sets the boolean to only return the headers and status code in Cosmos DB response in case of Create, Update and Delete operations on CosmosItem. In Consumer, it is enabled by default because of the ChangeFeed in the consumer that needs this flag to be enabled and thus is shouldn't be overridden. In Producer, it advised to disable it since it reduces the network overhead | true | false | MEDIUM
+| *camel.sink.endpoint.cosmosAsyncClient* | Inject an external CosmosAsyncClient into the component which provides a client-side logical representation of the Azure Cosmos DB service. This asynchronous client is used to configure and execute requests against the service. | null | false | MEDIUM
+| *camel.sink.endpoint.createContainerIfNotExists* | Sets if the component should create Cosmos container automatically in case it doesn't exist in Cosmos database | false | false | MEDIUM
+| *camel.sink.endpoint.createDatabaseIfNotExists* | Sets if the component should create Cosmos database automatically in case it doesn't exist in Cosmos account | false | false | MEDIUM
+| *camel.sink.endpoint.databaseEndpoint* | Sets the Azure Cosmos database endpoint the component will connect to. | null | true | HIGH
+| *camel.sink.endpoint.multipleWriteRegionsEnabled* | Sets the flag to enable writes on any regions for geo-replicated database accounts in the Azure Cosmos DB service. When the value of this property is true, the SDK will direct write operations to available writable regions of geo-replicated database account. Writable regions are ordered by PreferredRegions property. Setting the property value to true has no effect until EnableMultipleWriteRegions in DatabaseAccount is also set to true. DEFAULT value is true indicating that writes are directed to available writable regions of geo-replicated database account. | true | false | MEDIUM
+| *camel.sink.endpoint.preferredRegions* | Sets the preferred regions for geo-replicated database accounts. For example, East US as the preferred region. When EnableEndpointDiscovery is true and PreferredRegions is non-empty, the SDK will prefer to use the regions in the container in the order they are specified to perform operations. | null | false | MEDIUM
+| *camel.sink.endpoint.readRequestsFallbackEnabled* | Sets whether to allow for reads to go to multiple regions configured on an account of Azure Cosmos DB service. DEFAULT value is true. If this property is not set, the default is true for all Consistency Levels other than Bounded Staleness, The default is false for Bounded Staleness. 1. endpointDiscoveryEnabled is true 2. the Azure Cosmos DB account has more than one region | true | false | MEDIUM
+| *camel.sink.endpoint.throughputProperties* | Sets throughput of the resources in the Azure Cosmos DB service. | null | false | MEDIUM
+| *camel.sink.endpoint.itemId* | Sets the itemId in case needed for operation on item like delete, replace | null | false | MEDIUM
+| *camel.sink.endpoint.itemPartitionKey* | Sets partition key. Represents a partition key value in the Azure Cosmos DB database service. A partition key identifies the partition where the item is stored in. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.operation* | The CosmosDB operation that can be used with this component on the producer. One of: [listDatabases] [createDatabase] [queryDatabases] [deleteDatabase] [createContainer] [replaceDatabaseThroughput] [listContainers] [queryContainers] [deleteContainer] [replaceContainerThroughput] [createItem] [upsertItem] [deleteItem] [replaceItem] [readItem] [readAllItems] [queryItems] | "listDatabases" | false | MEDIUM
+| *camel.sink.endpoint.query* | An SQL query to execute on a given resources. To learn more about Cosmos SQL API, check this link {link \https://docs.microsoft.com/en-us/azure/cosmos-db/sql-query-getting-started} | null | false | MEDIUM
+| *camel.sink.endpoint.queryRequestOptions* | Set additional QueryRequestOptions that can be used with queryItems, queryContainers, queryDatabases, listDatabases, listItems, listContainers operations | null | false | MEDIUM
+| *camel.sink.endpoint.accountKey* | Sets either a master or readonly key used to perform authentication for accessing resource. | null | true | HIGH
+| *camel.component.azure-cosmosdb.clientTelemetry Enabled* | Sets the flag to enable client telemetry which will periodically collect database operations aggregation statistics, system information like cpu/memory and send it to cosmos monitoring service, which will be helpful during debugging. DEFAULT value is false indicating this is opt in feature, by default no telemetry collection. | false | false | MEDIUM
+| *camel.component.azure-cosmosdb.configuration* | The component configurations | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.connectionSharing AcrossClientsEnabled* | Enables connections sharing across multiple Cosmos Clients. The default is false. When you have multiple instances of Cosmos Client in the same JVM interacting to multiple Cosmos accounts, enabling this allows connection sharing in Direct mode if possible between instances of Cosmos Client. Please note, when setting this option, the connection configuration (e.g., socket timeout config, idle timeout config) of the first instantiated client will be used for all other client instances. | false | false | MEDIUM
+| *camel.component.azure-cosmosdb.consistencyLevel* | Sets the consistency levels supported for Azure Cosmos DB client operations in the Azure Cosmos DB service. The requested ConsistencyLevel must match or be weaker than that provisioned for the database account. Consistency levels by order of strength are STRONG, BOUNDED_STALENESS, SESSION and EVENTUAL. Refer to consistency level documentation for additional details: \https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels One of: [Strong] [BoundedStaleness] [Session] [Eventual] [ConsistentPrefix] | "SESSION" | false | MEDIUM
+| *camel.component.azure-cosmosdb.containerPartition KeyPath* | Sets the container partition key path. | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.contentResponseOn WriteEnabled* | Sets the boolean to only return the headers and status code in Cosmos DB response in case of Create, Update and Delete operations on CosmosItem. In Consumer, it is enabled by default because of the ChangeFeed in the consumer that needs this flag to be enabled and thus is shouldn't be overridden. In Producer, it advised to disable it since it reduces the network overhead | true | false | MEDIUM
+| *camel.component.azure-cosmosdb.cosmosAsyncClient* | Inject an external CosmosAsyncClient into the component which provides a client-side logical representation of the Azure Cosmos DB service. This asynchronous client is used to configure and execute requests against the service. | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.createContainerIf NotExists* | Sets if the component should create Cosmos container automatically in case it doesn't exist in Cosmos database | false | false | MEDIUM
+| *camel.component.azure-cosmosdb.createDatabaseIfNot Exists* | Sets if the component should create Cosmos database automatically in case it doesn't exist in Cosmos account | false | false | MEDIUM
+| *camel.component.azure-cosmosdb.databaseEndpoint* | Sets the Azure Cosmos database endpoint the component will connect to. | null | true | HIGH
+| *camel.component.azure-cosmosdb.multipleWrite RegionsEnabled* | Sets the flag to enable writes on any regions for geo-replicated database accounts in the Azure Cosmos DB service. When the value of this property is true, the SDK will direct write operations to available writable regions of geo-replicated database account. Writable regions are ordered by PreferredRegions property. Setting the property value to true has no effect until EnableMultipleWriteRegions in DatabaseAccount is also set to true. DEFAULT value is true indicating that writes are directed to available writable regions of geo-replicated database account. | true | false | MEDIUM
+| *camel.component.azure-cosmosdb.preferredRegions* | Sets the preferred regions for geo-replicated database accounts. For example, East US as the preferred region. When EnableEndpointDiscovery is true and PreferredRegions is non-empty, the SDK will prefer to use the regions in the container in the order they are specified to perform operations. | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.readRequests FallbackEnabled* | Sets whether to allow for reads to go to multiple regions configured on an account of Azure Cosmos DB service. DEFAULT value is true. If this property is not set, the default is true for all Consistency Levels other than Bounded Staleness, The default is false for Bounded Staleness. 1. endpointDiscoveryEnabled is true 2. the Azure Cosmos DB account has more than one region | true | false | MEDIUM
+| *camel.component.azure-cosmosdb.throughput Properties* | Sets throughput of the resources in the Azure Cosmos DB service. | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.itemId* | Sets the itemId in case needed for operation on item like delete, replace | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.itemPartitionKey* | Sets partition key. Represents a partition key value in the Azure Cosmos DB database service. A partition key identifies the partition where the item is stored in. | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.azure-cosmosdb.operation* | The CosmosDB operation that can be used with this component on the producer. One of: [listDatabases] [createDatabase] [queryDatabases] [deleteDatabase] [createContainer] [replaceDatabaseThroughput] [listContainers] [queryContainers] [deleteContainer] [replaceContainerThroughput] [createItem] [upsertItem] [deleteItem] [replaceItem] [readItem] [readAllItems] [queryItems] | "listDatabases" | false | MEDIUM
+| *camel.component.azure-cosmosdb.query* | An SQL query to execute on a given resources. To learn more about Cosmos SQL API, check this link {link \https://docs.microsoft.com/en-us/azure/cosmos-db/sql-query-getting-started} | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.queryRequestOptions* | Set additional QueryRequestOptions that can be used with queryItems, queryContainers, queryDatabases, listDatabases, listItems, listContainers operations | null | false | MEDIUM
+| *camel.component.azure-cosmosdb.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.azure-cosmosdb.accountKey* | Sets either a master or readonly key used to perform authentication for accessing resource. | null | true | HIGH
+|===
+
+
+
+The camel-azure-cosmosdb sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-cosmosdb sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-cosmosdb sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

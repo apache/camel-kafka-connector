@@ -163,7 +163,7 @@
                 <artifactId>camel-kafka-connector-docs-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <configuration>
-                    <lastReleasedVersion>0.10.0</lastReleasedVersion>
+                    <lastReleasedVersion>0.11.0</lastReleasedVersion>
                 </configuration>
                 <executions>
                     <execution>
@@ -279,7 +279,6 @@
         <module>camel-ehcache-kafka-connector</module>
         <module>camel-elasticsearch-rest-kafka-connector</module>
         <module>camel-elsql-kafka-connector</module>
-        <module>camel-elytron-kafka-connector</module>
         <module>camel-etcd-keys-kafka-connector</module>
         <module>camel-etcd-stats-kafka-connector</module>
         <module>camel-etcd-watch-kafka-connector</module>
@@ -463,7 +462,6 @@
         <module>camel-sftp-kafka-connector</module>
         <module>camel-sip-kafka-connector</module>
         <module>camel-sips-kafka-connector</module>
-        <module>camel-sjms-batch-kafka-connector</module>
         <module>camel-sjms-kafka-connector</module>
         <module>camel-sjms2-kafka-connector</module>
         <module>camel-slack-kafka-connector</module>

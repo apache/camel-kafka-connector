@@ -1,0 +1,107 @@
+// kafka-connector options: START
+[[camel-twitter-directmessage-kafka-connector-source]]
+= camel-twitter-directmessage-kafka-connector source configuration
+
+Connector description: Send and receive Twitter direct messages.
+
+When using camel-twitter-directmessage-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-twitter-directmessage-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.twitterdirectmessage.CamelTwitterdirectmessageSourceConnector
+----
+
+
+The camel-twitter-directmessage source connector supports 52 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.user* | The user name to send a direct message. This will be ignored for consumer. | null | true | HIGH
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
+| *camel.source.endpoint.type* | Endpoint type to use. One of: [polling] [direct] | "polling" | false | MEDIUM
+| *camel.source.endpoint.distanceMetric* | Used by the geography search, to search by radius using the configured metrics. The unit can either be mi for miles, or km for kilometers. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. One of: [km] [mi] | "km" | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.extendedMode* | Used for enabling full text from twitter (eg receive tweets that contains more than 140 characters). | true | false | MEDIUM
+| *camel.source.endpoint.latitude* | Used by the geography search to search by latitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. | null | false | MEDIUM
+| *camel.source.endpoint.locations* | Bounding boxes, created by pairs of lat/lons. Can be used for filter. A pair is defined as lat,lon. And multiple paris can be separated by semi colon. | null | false | MEDIUM
+| *camel.source.endpoint.longitude* | Used by the geography search to search by longitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. | null | false | MEDIUM
+| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
+| *camel.source.endpoint.radius* | Used by the geography search to search by radius. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. | null | false | MEDIUM
+| *camel.source.endpoint.count* | Limiting number of results per page. | "5" | false | MEDIUM
+| *camel.source.endpoint.filterOld* | Filter out old tweets, that has previously been polled. This state is stored in memory only, and based on last tweet id. | true | false | MEDIUM
+| *camel.source.endpoint.lang* | The lang string ISO_639-1 which will be used for searching | null | false | MEDIUM
+| *camel.source.endpoint.numberOfPages* | The number of pages result which you want camel-twitter to consume. | "1" | false | MEDIUM
+| *camel.source.endpoint.sinceId* | The last tweet id which will be used for pulling the tweets. It is useful when the camel route is restarted after a long running. | 1L | false | MEDIUM
+| *camel.source.endpoint.userIds* | To filter by user ids for filter. Multiple values can be separated by comma. | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyHost* | The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyPort* | The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyUser* | The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 30000L | false | MEDIUM
+| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | false | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | false | MEDIUM
+| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | false | MEDIUM
+| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | false | MEDIUM
+| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | false | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | false | MEDIUM
+| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | false | MEDIUM
+| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | false | MEDIUM
+| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | false | MEDIUM
+| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
+| *camel.source.endpoint.accessToken* | The access token. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.accessTokenSecret* | The access secret. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.consumerKey* | The consumer key. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.consumerSecret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
+| *camel.source.endpoint.sortById* | Sorts by id, so the oldest are first, and newest last. | true | false | MEDIUM
+| *camel.component.twitter-directmessage.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.twitter-directmessage.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.twitter-directmessage.httpProxy Host* | The http proxy host which can be used for the camel-twitter. | null | false | MEDIUM
+| *camel.component.twitter-directmessage.httpProxy Password* | The http proxy password which can be used for the camel-twitter. | null | false | MEDIUM
+| *camel.component.twitter-directmessage.httpProxy Port* | The http proxy port which can be used for the camel-twitter. | null | false | MEDIUM
+| *camel.component.twitter-directmessage.httpProxy User* | The http proxy user which can be used for the camel-twitter. | null | false | MEDIUM
+| *camel.component.twitter-directmessage.accessToken* | The access token | null | false | MEDIUM
+| *camel.component.twitter-directmessage.accessToken Secret* | The access token secret | null | false | MEDIUM
+| *camel.component.twitter-directmessage.consumerKey* | The consumer key | null | false | MEDIUM
+| *camel.component.twitter-directmessage.consumer Secret* | The consumer secret | null | false | MEDIUM
+|===
+
+
+
+The camel-twitter-directmessage source connector has no converters out of the box.
+
+
+
+
+
+The camel-twitter-directmessage source connector has no transforms out of the box.
+
+
+
+
+
+The camel-twitter-directmessage source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -146,7 +146,6 @@
 **** xref:reference/connectors/camel-box-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-box-kafka-sink-connector.adoc[Sink Docs]
 *** camel-braintree-kafka-connector
-**** xref:reference/connectors/camel-braintree-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-braintree-kafka-sink-connector.adoc[Sink Docs]
 *** camel-caffeine-cache-kafka-connector
 **** xref:reference/connectors/camel-caffeine-cache-kafka-sink-connector.adoc[Sink Docs]
@@ -242,9 +241,6 @@
 *** camel-elsql-kafka-connector
 **** xref:reference/connectors/camel-elsql-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-elsql-kafka-sink-connector.adoc[Sink Docs]
-*** camel-elytron-kafka-connector
-**** xref:reference/connectors/camel-elytron-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-elytron-kafka-sink-connector.adoc[Sink Docs]
 *** camel-etcd-keys-kafka-connector
 **** xref:reference/connectors/camel-etcd-keys-kafka-sink-connector.adoc[Sink Docs]
 *** camel-etcd-stats-kafka-connector
@@ -376,7 +372,6 @@
 *** camel-hwcloud-functiongraph-kafka-connector
 **** xref:reference/connectors/camel-hwcloud-functiongraph-kafka-sink-connector.adoc[Sink Docs]
 *** camel-hwcloud-iam-kafka-connector
-**** xref:reference/connectors/camel-hwcloud-iam-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-hwcloud-iam-kafka-sink-connector.adoc[Sink Docs]
 *** camel-hwcloud-smn-kafka-connector
 **** xref:reference/connectors/camel-hwcloud-smn-kafka-sink-connector.adoc[Sink Docs]
@@ -707,8 +702,6 @@
 *** camel-sips-kafka-connector
 **** xref:reference/connectors/camel-sips-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-sips-kafka-sink-connector.adoc[Sink Docs]
-*** camel-sjms-batch-kafka-connector
-**** xref:reference/connectors/camel-sjms-batch-kafka-source-connector.adoc[Source Docs]
 *** camel-sjms-kafka-connector
 **** xref:reference/connectors/camel-sjms-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-sjms-kafka-sink-connector.adoc[Sink Docs]
