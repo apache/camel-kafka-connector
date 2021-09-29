@@ -1,0 +1,109 @@
+// kafka-connector options: START
+[[camel-smpp-kafka-connector-source]]
+= camel-smpp-kafka-connector source configuration
+
+Connector description: Send and receive SMS messages using a SMSC (Short Message Service Center).
+
+When using camel-smpp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-smpp-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.smpp.CamelSmppSourceConnector
+----
+
+
+The camel-smpp source connector supports 54 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.source.path.host* | Hostname for the SMSC server to use. | "localhost" | false | MEDIUM
+| *camel.source.path.port* | Port number for the SMSC server to use. | "2775" | false | MEDIUM
+| *camel.source.endpoint.initialReconnectDelay* | Defines the initial delay in milliseconds after the consumer/producer tries to reconnect to the SMSC, after the connection was lost. | 5000L | false | MEDIUM
+| *camel.source.endpoint.maxReconnect* | Defines the maximum number of attempts to reconnect to the SMSC, if SMSC returns a negative bind response | 2147483647 | false | MEDIUM
+| *camel.source.endpoint.reconnectDelay* | Defines the interval in milliseconds between the reconnect attempts, if the connection to the SMSC was lost and the previous was not succeed. | 5000L | false | MEDIUM
+| *camel.source.endpoint.splittingPolicy* | You can specify a policy for handling long messages: ALLOW - the default, long messages are split to 140 bytes per message TRUNCATE - long messages are split and only the first fragment will be sent to the SMSC. Some carriers drop subsequent fragments so this reduces load on the SMPP connection sending parts of a message that will never be delivered. REJECT - if a message would need to be split, it is rejected with an SMPP NegativeResponseException and the reason code signifying the message is too long. One of: [ALLOW] [REJECT] [TRUNCATE] | "ALLOW" | false | MEDIUM
+| *camel.source.endpoint.systemType* | This parameter is used to categorize the type of ESME (External Short Message Entity) that is binding to the SMSC (max. 13 characters). | null | false | MEDIUM
+| *camel.source.endpoint.addressRange* | You can specify the address range for the SmppConsumer as defined in section 5.2.7 of the SMPP 3.4 specification. The SmppConsumer will receive messages only from SMSC's which target an address (MSISDN or IP address) within this range. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.enquireLinkTimer* | Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC. | "60000" | false | MEDIUM
+| *camel.source.endpoint.pduProcessorDegree* | Sets the number of threads which can read PDU and process them in parallel. | "3" | false | MEDIUM
+| *camel.source.endpoint.pduProcessorQueueCapacity* | Sets the capacity of the working queue for PDU processing. | "100" | false | MEDIUM
+| *camel.source.endpoint.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM
+| *camel.source.endpoint.singleDLR* | When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged. | false | false | MEDIUM
+| *camel.source.endpoint.transactionTimer* | Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME). | "10000" | false | MEDIUM
+| *camel.source.endpoint.alphabet* | Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8] | null | false | MEDIUM
+| *camel.source.endpoint.dataCoding* | Defines the data coding according the SMPP 3.4 specification, section 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2 (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990) | null | false | MEDIUM
+| *camel.source.endpoint.encoding* | Defines the encoding scheme of the short message user data. Only for SubmitSm, ReplaceSm and SubmitMulti. | "ISO-8859-1" | false | MEDIUM
+| *camel.source.endpoint.httpProxyHost* | If you need to tunnel SMPP through a HTTP proxy, set this attribute to the hostname or ip address of your HTTP proxy. | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyPassword* | If your HTTP proxy requires basic authentication, set this attribute to the password required for your HTTP proxy. | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyPort* | If you need to tunnel SMPP through a HTTP proxy, set this attribute to the port of your HTTP proxy. | "3128" | false | MEDIUM
+| *camel.source.endpoint.httpProxyUsername* | If your HTTP proxy requires basic authentication, set this attribute to the username required for your HTTP proxy. | null | false | MEDIUM
+| *camel.source.endpoint.proxyHeaders* | These headers will be passed to the proxy server while establishing the connection. | null | false | MEDIUM
+| *camel.source.endpoint.password* | The password for connecting to SMSC server. | null | false | MEDIUM
+| *camel.source.endpoint.systemId* | The system id (username) for connecting to SMSC server. | "smppclient" | false | MEDIUM
+| *camel.source.endpoint.usingSSL* | Whether using SSL with the smpps protocol | false | false | MEDIUM
+| *camel.component.smpp.initialReconnectDelay* | Defines the initial delay in milliseconds after the consumer/producer tries to reconnect to the SMSC, after the connection was lost. | 5000L | false | MEDIUM
+| *camel.component.smpp.maxReconnect* | Defines the maximum number of attempts to reconnect to the SMSC, if SMSC returns a negative bind response | 2147483647 | false | MEDIUM
+| *camel.component.smpp.reconnectDelay* | Defines the interval in milliseconds between the reconnect attempts, if the connection to the SMSC was lost and the previous was not succeed. | 5000L | false | MEDIUM
+| *camel.component.smpp.splittingPolicy* | You can specify a policy for handling long messages: ALLOW - the default, long messages are split to 140 bytes per message TRUNCATE - long messages are split and only the first fragment will be sent to the SMSC. Some carriers drop subsequent fragments so this reduces load on the SMPP connection sending parts of a message that will never be delivered. REJECT - if a message would need to be split, it is rejected with an SMPP NegativeResponseException and the reason code signifying the message is too long. One of: [ALLOW] [REJECT] [TRUNCATE] | "ALLOW" | false | MEDIUM
+| *camel.component.smpp.systemType* | This parameter is used to categorize the type of ESME (External Short Message Entity) that is binding to the SMSC (max. 13 characters). | null | false | MEDIUM
+| *camel.component.smpp.addressRange* | You can specify the address range for the SmppConsumer as defined in section 5.2.7 of the SMPP 3.4 specification. The SmppConsumer will receive messages only from SMSC's which target an address (MSISDN or IP address) within this range. | null | false | MEDIUM
+| *camel.component.smpp.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.smpp.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.smpp.configuration* | To use the shared SmppConfiguration as configuration. | null | false | MEDIUM
+| *camel.component.smpp.enquireLinkTimer* | Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC. | "60000" | false | MEDIUM
+| *camel.component.smpp.pduProcessorDegree* | Sets the number of threads which can read PDU and process them in parallel. | "3" | false | MEDIUM
+| *camel.component.smpp.pduProcessorQueueCapacity* | Sets the capacity of the working queue for PDU processing. | "100" | false | MEDIUM
+| *camel.component.smpp.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM
+| *camel.component.smpp.singleDLR* | When true, the SMSC delivery receipt would be requested only for the last segment of a multi-segment (long) message. For short messages, with only 1 segment the behaviour is unchanged. | false | false | MEDIUM
+| *camel.component.smpp.transactionTimer* | Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME). | "10000" | false | MEDIUM
+| *camel.component.smpp.alphabet* | Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8] | null | false | MEDIUM
+| *camel.component.smpp.dataCoding* | Defines the data coding according the SMPP 3.4 specification, section 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2 (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990) | null | false | MEDIUM
+| *camel.component.smpp.encoding* | Defines the encoding scheme of the short message user data. Only for SubmitSm, ReplaceSm and SubmitMulti. | "ISO-8859-1" | false | MEDIUM
+| *camel.component.smpp.httpProxyHost* | If you need to tunnel SMPP through a HTTP proxy, set this attribute to the hostname or ip address of your HTTP proxy. | null | false | MEDIUM
+| *camel.component.smpp.httpProxyPassword* | If your HTTP proxy requires basic authentication, set this attribute to the password required for your HTTP proxy. | null | false | MEDIUM
+| *camel.component.smpp.httpProxyPort* | If you need to tunnel SMPP through a HTTP proxy, set this attribute to the port of your HTTP proxy. | "3128" | false | MEDIUM
+| *camel.component.smpp.httpProxyUsername* | If your HTTP proxy requires basic authentication, set this attribute to the username required for your HTTP proxy. | null | false | MEDIUM
+| *camel.component.smpp.proxyHeaders* | These headers will be passed to the proxy server while establishing the connection. | null | false | MEDIUM
+| *camel.component.smpp.password* | The password for connecting to SMSC server. | null | false | MEDIUM
+| *camel.component.smpp.systemId* | The system id (username) for connecting to SMSC server. | "smppclient" | false | MEDIUM
+| *camel.component.smpp.usingSSL* | Whether using SSL with the smpps protocol | false | false | MEDIUM
+|===
+
+
+
+The camel-smpp source connector has no converters out of the box.
+
+
+
+
+
+The camel-smpp source connector has no transforms out of the box.
+
+
+
+
+
+The camel-smpp source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

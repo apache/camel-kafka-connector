@@ -1,0 +1,83 @@
+// kafka-connector options: START
+[[camel-olingo4-kafka-connector-sink]]
+= camel-olingo4-kafka-connector sink configuration
+
+Connector Description: Communicate with OData 4.0 services using Apache Olingo OData API.
+
+When using camel-olingo4-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-olingo4-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.olingo4.CamelOlingo4SinkConnector
+----
+
+
+The camel-olingo4 sink connector supports 28 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [DEFAULT] | null | true | HIGH
+| *camel.sink.path.methodName* | What sub operation to use for the selected operation | null | true | HIGH
+| *camel.sink.endpoint.connectTimeout* | HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | false | MEDIUM
+| *camel.sink.endpoint.contentType* | Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8 | "application/json;charset=utf-8" | false | MEDIUM
+| *camel.sink.endpoint.filterAlreadySeen* | Set this to true to filter out results that have already been communicated by this component. | false | false | MEDIUM
+| *camel.sink.endpoint.httpHeaders* | Custom HTTP headers to inject into every request, this could include OAuth tokens, etc. | null | false | MEDIUM
+| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | false | MEDIUM
+| *camel.sink.endpoint.proxy* | HTTP proxy server configuration | null | false | MEDIUM
+| *camel.sink.endpoint.serviceUri* | Target OData service base URI, e.g. \http://services.odata.org/OData/OData.svc | null | false | MEDIUM
+| *camel.sink.endpoint.socketTimeout* | HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.httpAsyncClientBuilder* | Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | false | MEDIUM
+| *camel.sink.endpoint.httpClientBuilder* | Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | false | MEDIUM
+| *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.olingo4.configuration* | To use the shared configuration | null | false | MEDIUM
+| *camel.component.olingo4.connectTimeout* | HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | false | MEDIUM
+| *camel.component.olingo4.contentType* | Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8 | "application/json;charset=utf-8" | false | MEDIUM
+| *camel.component.olingo4.filterAlreadySeen* | Set this to true to filter out results that have already been communicated by this component. | false | false | MEDIUM
+| *camel.component.olingo4.httpHeaders* | Custom HTTP headers to inject into every request, this could include OAuth tokens, etc. | null | false | MEDIUM
+| *camel.component.olingo4.proxy* | HTTP proxy server configuration | null | false | MEDIUM
+| *camel.component.olingo4.serviceUri* | Target OData service base URI, e.g. \http://services.odata.org/OData/OData.svc | null | false | MEDIUM
+| *camel.component.olingo4.socketTimeout* | HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | false | MEDIUM
+| *camel.component.olingo4.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.olingo4.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.olingo4.httpAsyncClientBuilder* | Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | false | MEDIUM
+| *camel.component.olingo4.httpClientBuilder* | Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | false | MEDIUM
+| *camel.component.olingo4.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.olingo4.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
+|===
+
+
+
+The camel-olingo4 sink connector has no converters out of the box.
+
+
+
+
+
+The camel-olingo4 sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-olingo4 sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END
