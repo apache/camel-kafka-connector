@@ -45,6 +45,7 @@ public class CamelSinkTask extends SinkTask {
     public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
     public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
     public static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
+    public static final String PARTITION_KEY = "CamelAwsKinesisPartitionKey";
 
     private static final String CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX = "camel.sink.endpoint.";
     private static final String CAMEL_SINK_PATH_PROPERTIES_PREFIX = "camel.sink.path.";
@@ -110,36 +111,36 @@ public class CamelSinkTask extends SinkTask {
             final String headersRemovePattern = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
             mapProperties = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
             mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
-            
+
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
                 remoteUrl = TaskHelper.buildUrl(camelContext,
-                                                actualProps,
-                                                config.getString(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF),
-                                                CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX,
-                                                CAMEL_SINK_PATH_PROPERTIES_PREFIX);
+                        actualProps,
+                        config.getString(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF),
+                        CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX,
+                        CAMEL_SINK_PATH_PROPERTIES_PREFIX);
             }
 
             cms = CamelKafkaConnectMain.builder(LOCAL_URL, remoteUrl)
-                .withProperties(actualProps)
-                .withUnmarshallDataFormat(unmarshaller)
-                .withMarshallDataFormat(marshaller)
-                .withAggregationSize(size)
-                .withAggregationTimeout(timeout)
-                .withErrorHandler(errorHandler)
-                .withMaxRedeliveries(maxRedeliveries)
-                .withRedeliveryDelay(redeliveryDelay)
-                .withIdempotencyEnabled(idempotencyEnabled)
-                .withExpressionType(expressionType)
-                .withExpressionHeader(expressionHeader)
-                .withMemoryDimension(memoryDimension)
-                .withIdempotentRepositoryType(idempotentRepositoryType)
-                .withIdempotentRepositoryTopicName(idempotentRepositoryKafkaTopic)
-                .withIdempotentRepositoryKafkaServers(idempotentRepositoryBootstrapServers)
-                .withIdempotentRepositoryKafkaMaxCacheSize(idempotentRepositoryKafkaMaxCacheSize)
-                .withIdempotentRepositoryKafkaPollDuration(idempotentRepositoryKafkaPollDuration)
-                .withHeadersExcludePattern(headersRemovePattern)
-                .build(camelContext);
+                    .withProperties(actualProps)
+                    .withUnmarshallDataFormat(unmarshaller)
+                    .withMarshallDataFormat(marshaller)
+                    .withAggregationSize(size)
+                    .withAggregationTimeout(timeout)
+                    .withErrorHandler(errorHandler)
+                    .withMaxRedeliveries(maxRedeliveries)
+                    .withRedeliveryDelay(redeliveryDelay)
+                    .withIdempotencyEnabled(idempotencyEnabled)
+                    .withExpressionType(expressionType)
+                    .withExpressionHeader(expressionHeader)
+                    .withMemoryDimension(memoryDimension)
+                    .withIdempotentRepositoryType(idempotentRepositoryType)
+                    .withIdempotentRepositoryTopicName(idempotentRepositoryKafkaTopic)
+                    .withIdempotentRepositoryKafkaServers(idempotentRepositoryBootstrapServers)
+                    .withIdempotentRepositoryKafkaMaxCacheSize(idempotentRepositoryKafkaMaxCacheSize)
+                    .withIdempotentRepositoryKafkaPollDuration(idempotentRepositoryKafkaPollDuration)
+                    .withHeadersExcludePattern(headersRemovePattern)
+                    .build(camelContext);
 
 
             cms.start();
@@ -178,16 +179,24 @@ public class CamelSinkTask extends SinkTask {
             exchange.getMessage().setBody(record.value());
             exchange.getMessage().setHeader(KAFKA_RECORD_KEY_HEADER, record.key());
 
-            for (Header header : record.headers()) {
-                if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
-                    if (mapHeaders) {
-                        mapHeader(header, HEADER_CAMEL_PREFIX, exchange.getMessage().getHeaders());
-                    }
-                } else if (header.key().startsWith(PROPERTY_CAMEL_PREFIX)) {
-                    if (mapProperties) {
-                        mapHeader(header, PROPERTY_CAMEL_PREFIX, exchange.getProperties());
+            if(!record.headers().isEmpty()){
+                for (Header header : record.headers()) {
+                    if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
+                        if (mapHeaders) {
+                            mapHeader(header, HEADER_CAMEL_PREFIX, exchange.getMessage().getHeaders());
+                        }
+                    } else if (header.key().startsWith(PROPERTY_CAMEL_PREFIX)) {
+                        if (mapProperties) {
+                            mapHeader(header, PROPERTY_CAMEL_PREFIX, exchange.getProperties());
+                        }
                     }
                 }
+            } else if(record.key() != null && !record.key().toString().trim().equals("")){
+                LOG.debug("No record headers found, using kafka record key as partition key");
+                exchange.getMessage().setHeader(PARTITION_KEY, record.key().toString());
+            } else {
+                LOG.debug("Kafka partition key is null or empty, using exchange id as partition key");
+                exchange.getMessage().setHeader(PARTITION_KEY, exchange.getExchangeId());
             }
 
             LOG.debug("Sending exchange {} to {}", exchange.getExchangeId(), LOCAL_URL);
