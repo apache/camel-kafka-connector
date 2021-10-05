@@ -75,7 +75,16 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic m
 [[Tryitoutlocally-TryExamples]]
 == Try some examples
 
-For the following examples you need to fetch the `camel-kafka-connector` project and https://github.com/apache/camel-kafka-connector/blob/master/README.adoc#build-the-project[build] it locally by running `./mvnw package` from the root of the project. Look into the `config` and `docs/examples` directories for the configuration files (`*.properties`) of the examples showcased here.
+For the following examples you need to fetch the `camel-kafka-connector` project and https://github.com/apache/camel-kafka-connector/blob/master/README.adoc#build-the-project[build] it locally. You can either build the entire project with `./mvnw package` from the root directory (which may take some time) or build just the connectors you are interested in with the following command from within a connector's directory.
+
+[source,bash]
+----
+> cd connectors/camel-log-kafka-connector/
+> mvn package -pl camel-timer-kafka-connector -am
+----
+
+
+Look into the `config` and `docs/examples` directories for the configuration files (`*.properties`) of the examples showcased here.
 
 [[Tryitoutlocally-SimpleLogger]]
 === Simple logger (sink)
