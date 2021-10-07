@@ -4,6 +4,12 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.11.0...HEAD)
 
+**Closed issues:**
+
+- AWS SQS Source Message Delete [\#1266](https://github.com/apache/camel-kafka-connector/issues/1266)
+- Modular packaging of connectors? [\#1264](https://github.com/apache/camel-kafka-connector/issues/1264)
+- Bearer Token with HTTP sink? [\#1255](https://github.com/apache/camel-kafka-connector/issues/1255)
+
 **Merged pull requests:**
 
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1260](https://github.com/apache/camel-kafka-connector/pull/1260) ([github-actions[bot]](https://github.com/apps/github-actions))
@@ -754,7 +760,6 @@
 - source: better handling of headers of type Data [\#544](https://github.com/apache/camel-kafka-connector/issues/544)
 - Catalog: expose an API for consuming connectors catalog metadata and options [\#542](https://github.com/apache/camel-kafka-connector/issues/542)
 - Catalog: Rename the json file to reflect the id and connectors.properties content [\#534](https://github.com/apache/camel-kafka-connector/issues/534)
-- Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#529](https://github.com/apache/camel-kafka-connector/issues/529)
 - Create descriptors for source and sink connector for catalog purpose [\#523](https://github.com/apache/camel-kafka-connector/issues/523)
 - Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOptionModel in their own module [\#515](https://github.com/apache/camel-kafka-connector/issues/515)
 - Copy all Json connectors metadata into a camel-kafka-connector-catalog [\#514](https://github.com/apache/camel-kafka-connector/issues/514)
@@ -919,7 +924,6 @@
 - Version bump to Camel 3.3.0 [\#230](https://github.com/apache/camel-kafka-connector/pull/230) ([orpiske](https://github.com/orpiske))
 - Connectors doc generation shuld be moved from `core` to `connectors` … [\#229](https://github.com/apache/camel-kafka-connector/pull/229) ([oscerd](https://github.com/oscerd))
 - Syslog docs [\#227](https://github.com/apache/camel-kafka-connector/pull/227) ([oscerd](https://github.com/oscerd))
-- Fixed con cong autogen [\#222](https://github.com/apache/camel-kafka-connector/pull/222) ([valdar](https://github.com/valdar))
 - Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
 - Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
