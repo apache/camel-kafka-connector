@@ -142,11 +142,11 @@ The camel-aws2-s3 source connector supports 3 transforms out of the box, which a
 [source,java]
 ----
 
-org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms
+org.apache.camel.kafkaconnector.aws2s3.transformers.JSONToRecordTransforms
 
 org.apache.camel.kafkaconnector.aws2s3.transformers.RecordToJSONTransforms
 
-org.apache.camel.kafkaconnector.aws2s3.transformers.JSONToRecordTransforms
+org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms
 
 ----
 
