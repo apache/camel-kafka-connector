@@ -84,7 +84,7 @@ For the following examples you need to fetch the `camel-kafka-connector` project
 ----
 
 
-Look into the `config` and `docs/examples` directories for the configuration files (`*.properties`) of the examples showcased here.
+Look into the `config` and `docs/examples` directories for the configuration files (`*.properties`) of the examples showcased here. There is also a comprehensive set of examples with instructions on how to run them https://github.com/apache/camel-kafka-connector-examples[in this repository].
 
 [[Tryitoutlocally-SimpleLogger]]
 === Simple logger (sink)
