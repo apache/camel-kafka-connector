@@ -6,6 +6,8 @@
 
 **Closed issues:**
 
+- Salesforce Camel Kafka Source Connector not converting to JSON [\#1271](https://github.com/apache/camel-kafka-connector/issues/1271)
+- java.lang.NullPointerException in kinesis sink connector if headers not present  [\#1268](https://github.com/apache/camel-kafka-connector/issues/1268)
 - AWS SQS Source Message Delete [\#1266](https://github.com/apache/camel-kafka-connector/issues/1266)
 - Modular packaging of connectors? [\#1264](https://github.com/apache/camel-kafka-connector/issues/1264)
 - Bearer Token with HTTP sink? [\#1255](https://github.com/apache/camel-kafka-connector/issues/1255)
