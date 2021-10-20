@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-exec-sink-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.12.0-SNAPSHOT",
 		"description": "Execute system commands\n\nThe Kamelet expects the following headers to be set:\n\n- `args` \/ `ce-args`: as the args to be set on the executable.\n\nIf the header won't be set the executable will be run without arguments."
 	},
 	"properties": {
