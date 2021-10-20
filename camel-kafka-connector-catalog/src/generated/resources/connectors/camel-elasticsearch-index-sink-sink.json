@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-elasticsearch-index-sink-sink",
 		"type": "sink",
-		"version": "0.11.0-SNAPSHOT",
+		"version": "0.12.0-SNAPSHOT",
 		"description": "This sink stores documents into ElasticSearch.\n\nInput data must have JSON format according to the index used.\n\nIf the *indexId* parameter is set, that value will be used as the document ID on ElasticSearch.\n\nIf the *indexId* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic, partition and offset of the\nelement to generate an automatic ID that warrantees that this element is processed only once.\n\nIf the *indexName* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic as the indexName."
 	},
 	"properties": {
