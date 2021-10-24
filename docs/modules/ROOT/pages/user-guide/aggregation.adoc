@@ -4,7 +4,7 @@
 In a Sink Connector scenario, there are, sometimes, use cases where an end user want to aggregate his Kafka record before sending them to an external system. 
 Usually this can be done by defining a batch size or a timeout and once the aggregation has been completed, sent the aggregate records collection to the external system.
 
-In Apache Camel it exists the xref:latest@components:eips:aggregate-eip.adoc[Aggregate EIP] implementation and in Camel-Kafka-connector we wanted to leverage what we already have in the plain Apache Camel project.
+In Apache Camel it exists the xref:next@components:eips:aggregate-eip.adoc[Aggregate EIP] implementation and in Camel-Kafka-connector we wanted to leverage what we already have in the plain Apache Camel project.
 
 We introduced then the following options in the Sink Connector Configuration:
 
