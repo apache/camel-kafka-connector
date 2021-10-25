@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Using kinesis sink with STS assumeRole credentials? [\#1272](https://github.com/apache/camel-kafka-connector/issues/1272)
 - Salesforce Camel Kafka Source Connector not converting to JSON [\#1271](https://github.com/apache/camel-kafka-connector/issues/1271)
 - java.lang.NullPointerException in kinesis sink connector if headers not present  [\#1268](https://github.com/apache/camel-kafka-connector/issues/1268)
 - AWS SQS Source Message Delete [\#1266](https://github.com/apache/camel-kafka-connector/issues/1266)
