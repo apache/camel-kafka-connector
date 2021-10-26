@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-minio-source-kafka-connector-source]]
+= camel-minio-source-kafka-connector source configuration
+
+Connector description: Receive data from Minio.
+
+When using camel-minio-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-minio-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.miniosource.CamelMiniosourceSourceConnector
+----
+
+
+The camel-minio-source source connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.minio-source.bucketName* | The Minio Bucket name | null | true | HIGH
+| *camel.kamelet.minio-source.deleteAfterRead* | Delete objects after consuming them | true | false | MEDIUM
+| *camel.kamelet.minio-source.accessKey* | The access key obtained from Minio | null | true | HIGH
+| *camel.kamelet.minio-source.secretKey* | The secret key obtained from Minio | null | true | HIGH
+| *camel.kamelet.minio-source.endpoint* | The Minio Endpoint, it can be an URL, domain name, IPv4 address or IPv6 address. Example: \http://localhost:9000 | null | true | HIGH
+| *camel.kamelet.minio-source.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. | false | false | MEDIUM
+|===
+
+
+
+The camel-minio-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-minio-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-minio-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

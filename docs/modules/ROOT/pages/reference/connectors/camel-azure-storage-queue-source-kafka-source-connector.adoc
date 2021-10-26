@@ -1,0 +1,59 @@
+// kafka-connector options: START
+[[camel-azure-storage-queue-source-kafka-connector-source]]
+= camel-azure-storage-queue-source-kafka-connector source configuration
+
+Connector description: Receive Messages from Azure Storage queues.
+
+When using camel-azure-storage-queue-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-storage-queue-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azurestoragequeuesource.CamelAzurestoragequeuesourceSourceConnector
+----
+
+
+The camel-azure-storage-queue-source source connector supports 4 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.azure-storage-queue-source.account Name* | The Azure Storage Queue account name. | null | true | HIGH
+| *camel.kamelet.azure-storage-queue-source.queueName* | The Azure Storage Queue container name. | null | true | HIGH
+| *camel.kamelet.azure-storage-queue-source.accessKey* | The Azure Storage Queue access Key. | null | true | HIGH
+| *camel.kamelet.azure-storage-queue-source.max Messages* | Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. By default it will consider 1 message to be retrieved, the allowed range is 1 to 32 messages. | 1 | false | MEDIUM
+|===
+
+
+
+The camel-azure-storage-queue-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-storage-queue-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-storage-queue-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

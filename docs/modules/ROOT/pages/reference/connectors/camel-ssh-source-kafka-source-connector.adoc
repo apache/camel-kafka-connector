@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-ssh-source-kafka-connector-source]]
+= camel-ssh-source-kafka-connector source configuration
+
+Connector description: Receive data from SSH session.
+
+When using camel-ssh-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ssh-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.sshsource.CamelSshsourceSourceConnector
+----
+
+
+The camel-ssh-source source connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.ssh-source.host* | The SSH Host | null | true | HIGH
+| *camel.kamelet.ssh-source.port* | The SSH Port | "22" | true | HIGH
+| *camel.kamelet.ssh-source.username* | The SSH username to use | null | true | HIGH
+| *camel.kamelet.ssh-source.password* | The SSH password to use | null | true | HIGH
+| *camel.kamelet.ssh-source.delay* | Milliseconds before the next poll | 500 | false | MEDIUM
+| *camel.kamelet.ssh-source.pollCommand* | The command to run while polling the SSH session Example: date | null | true | HIGH
+|===
+
+
+
+The camel-ssh-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-ssh-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-ssh-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

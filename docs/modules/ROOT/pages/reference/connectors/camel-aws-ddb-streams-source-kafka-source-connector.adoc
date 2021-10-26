@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-aws-ddb-streams-source-kafka-connector-source]]
+= camel-aws-ddb-streams-source-kafka-connector source configuration
+
+Connector description: Receive events from AWS DynamoDB Streams.
+
+When using camel-aws-ddb-streams-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-ddb-streams-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awsddbstreamssource.CamelAwsddbstreamssourceSourceConnector
+----
+
+
+The camel-aws-ddb-streams-source source connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-ddb-streams-source.table* | Name of the DynamoDB table to look at | null | true | HIGH
+| *camel.kamelet.aws-ddb-streams-source.accessKey* | The access key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-ddb-streams-source.secretKey* | The secret key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-ddb-streams-source.region* | The AWS region to connect to Example: eu-west-1 | null | true | HIGH
+| *camel.kamelet.aws-ddb-streams-source.iteratorType* | Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. There are 4 enums and the value can be one of TRIM_HORIZON, LATEST, AT_SEQUENCE_NUMBER, AFTER_SEQUENCE_NUMBER | "LATEST" | false | MEDIUM
+| *camel.kamelet.aws-ddb-streams-source.sequence NumberProvider* | Provider for the sequence number when using one of the two ShardIteratorType AT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. Example: 900000000005745712447 | "000000000000000000000" | false | MEDIUM
+|===
+
+
+
+The camel-aws-ddb-streams-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-ddb-streams-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-ddb-streams-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

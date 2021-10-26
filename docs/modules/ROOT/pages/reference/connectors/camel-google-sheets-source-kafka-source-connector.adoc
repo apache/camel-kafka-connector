@@ -1,0 +1,65 @@
+// kafka-connector options: START
+[[camel-google-sheets-source-kafka-connector-source]]
+= camel-google-sheets-source-kafka-connector source configuration
+
+Connector description: Receive data from Google Sheets.
+
+When using camel-google-sheets-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-google-sheets-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.googlesheetssource.CamelGooglesheetssourceSourceConnector
+----
+
+
+The camel-google-sheets-source source connector supports 10 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.google-sheets-source.index* | An index for the google sheets endpoint | null | true | HIGH
+| *camel.kamelet.google-sheets-source.spreadsheetId* | The Spreadsheet ID to be used as events source | null | true | HIGH
+| *camel.kamelet.google-sheets-source.clientId* | Client ID of the sheets application | null | true | HIGH
+| *camel.kamelet.google-sheets-source.clientSecret* | Client Secret of the sheets application | null | true | HIGH
+| *camel.kamelet.google-sheets-source.accessToken* | OAuth 2 access token for google sheets application. This typically expires after an hour so refreshToken is recommended for long term usage. | null | true | HIGH
+| *camel.kamelet.google-sheets-source.refreshToken* | OAuth 2 refresh token for google sheets application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | true | HIGH
+| *camel.kamelet.google-sheets-source.delay* | Milliseconds before the next poll | 500 | false | MEDIUM
+| *camel.kamelet.google-sheets-source.applicationName* | Google Sheets application name | null | true | HIGH
+| *camel.kamelet.google-sheets-source.splitResults* | True if value range result should be split into rows or columns to process each of them individually. | true | false | MEDIUM
+| *camel.kamelet.google-sheets-source.range* | the range of rows and columns in a sheet to get data from. Example: A1:B3 | null | false | MEDIUM
+|===
+
+
+
+The camel-google-sheets-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-google-sheets-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-sheets-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

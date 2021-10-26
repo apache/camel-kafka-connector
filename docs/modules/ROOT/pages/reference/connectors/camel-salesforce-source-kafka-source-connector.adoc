@@ -1,0 +1,62 @@
+// kafka-connector options: START
+[[camel-salesforce-source-kafka-connector-source]]
+= camel-salesforce-source-kafka-connector source configuration
+
+Connector description: Receive updates from Salesforce.
+
+When using camel-salesforce-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-salesforce-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.salesforcesource.CamelSalesforcesourceSourceConnector
+----
+
+
+The camel-salesforce-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.salesforce-source.query* | The query to execute on Salesforce Example: SELECT Id, Name, Email, Phone FROM Contact | null | true | HIGH
+| *camel.kamelet.salesforce-source.topicName* | The name of the topic/channel to use Example: ContactTopic | null | true | HIGH
+| *camel.kamelet.salesforce-source.loginUrl* | The Salesforce instance login URL | "https://login.salesforce.com" | false | MEDIUM
+| *camel.kamelet.salesforce-source.clientId* | The Salesforce application consumer key | null | true | HIGH
+| *camel.kamelet.salesforce-source.clientSecret* | The Salesforce application consumer secret | null | true | HIGH
+| *camel.kamelet.salesforce-source.userName* | The Salesforce username | null | true | HIGH
+| *camel.kamelet.salesforce-source.password* | The Salesforce user password | null | true | HIGH
+|===
+
+
+
+The camel-salesforce-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-salesforce-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-salesforce-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

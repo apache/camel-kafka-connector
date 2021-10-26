@@ -1,0 +1,70 @@
+// kafka-connector options: START
+[[camel-telegram-sink-kafka-connector-sink]]
+= camel-telegram-sink-kafka-connector sink configuration
+
+Connector Description: Send a message to a Telegram chat using your Telegram bot as sender.
+
+To create a bot, contact the @botfather account using the Telegram app.
+
+This sink supports the following message types:
+
+- Standard text messages
+- PNG images (`Content-Type` must be set to `image/png`)
+- JPEG images (`Content-Type` must be set to `image/jpeg`)
+
+This following message headers are also supported:
+
+- `text` / `ce-text`: when sending an image, the image caption
+- `chat-id` / `ce-chat-id`: to override the default chat where messages are sent to
+
+When using camel-telegram-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-telegram-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.telegramsink.CamelTelegramsinkSinkConnector
+----
+
+
+The camel-telegram-sink sink connector supports 2 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.telegram-sink.authorizationToken* | The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather. | null | true | HIGH
+| *camel.kamelet.telegram-sink.chatId* | The Chat ID where messages should be sent by default | null | false | MEDIUM
+|===
+
+
+
+The camel-telegram-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-telegram-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-telegram-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

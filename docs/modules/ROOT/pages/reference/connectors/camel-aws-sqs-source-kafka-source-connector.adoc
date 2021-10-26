@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-aws-sqs-source-kafka-connector-source]]
+= camel-aws-sqs-source-kafka-connector source configuration
+
+Connector description: Receive data from AWS SQS.
+
+When using camel-aws-sqs-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-sqs-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awssqssource.CamelAwssqssourceSourceConnector
+----
+
+
+The camel-aws-sqs-source source connector supports 6 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-sqs-source.queueNameOrArn* | The SQS Queue Name or ARN | null | true | HIGH
+| *camel.kamelet.aws-sqs-source.deleteAfterRead* | Delete messages after consuming them | true | false | MEDIUM
+| *camel.kamelet.aws-sqs-source.accessKey* | The access key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-sqs-source.secretKey* | The secret key obtained from AWS | null | true | HIGH
+| *camel.kamelet.aws-sqs-source.region* | The AWS region to connect to Example: eu-west-1 | null | true | HIGH
+| *camel.kamelet.aws-sqs-source.autoCreateQueue* | Setting the autocreation of the SQS queue. | false | false | MEDIUM
+|===
+
+
+
+The camel-aws-sqs-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-sqs-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-sqs-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END
