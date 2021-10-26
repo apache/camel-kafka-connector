@@ -44,7 +44,7 @@ import static org.apache.camel.tooling.util.PackageHelper.loadText;
 import static org.apache.camel.tooling.util.PackageHelper.writeText;
 
 /**
- * Updates the documentation in: - docs/modules/ROOT/pages/connectors.adoc
+ * Generates the table of connectors in: - docs/modules/ROOT/pages/reference/index.adoc
  */
 @Mojo(name = "update-doc-connectors-list", threadSafe = true)
 public class UpdateDocComponentsListMojo extends AbstractMojo {
