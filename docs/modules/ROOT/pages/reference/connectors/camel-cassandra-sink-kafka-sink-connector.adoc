@@ -1,0 +1,64 @@
+// kafka-connector options: START
+[[camel-cassandra-sink-kafka-connector-sink]]
+= camel-cassandra-sink-kafka-connector sink configuration
+
+Connector Description: Send data to a Cassandra Cluster.
+
+This Kamelet expects the body as JSON Array. The content of the JSON Array will be used as input for the CQL Prepared Statement set in the query parameter.
+
+When using camel-cassandra-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-cassandra-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.cassandrasink.CamelCassandrasinkSinkConnector
+----
+
+
+The camel-cassandra-sink sink connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.cassandra-sink.host* | Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost | null | true | HIGH
+| *camel.kamelet.cassandra-sink.port* | Port number of cassandra server(s) Example: 9042 | null | true | HIGH
+| *camel.kamelet.cassandra-sink.keyspace* | Keyspace to use Example: customers | null | true | HIGH
+| *camel.kamelet.cassandra-sink.username* | The username to use for accessing a secured Cassandra Cluster | null | true | HIGH
+| *camel.kamelet.cassandra-sink.password* | The password to use for accessing a secured Cassandra Cluster | null | true | HIGH
+| *camel.kamelet.cassandra-sink.consistencyLevel* | Consistency level to use. The value can be one of ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE | "ANY" | false | MEDIUM
+| *camel.kamelet.cassandra-sink.preparedStatement* | The Prepared statement to execute against the Cassandra cluster table | null | true | HIGH
+|===
+
+
+
+The camel-cassandra-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-cassandra-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-cassandra-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -1,0 +1,62 @@
+// kafka-connector options: START
+[[camel-http-secured-source-kafka-connector-source]]
+= camel-http-secured-source-kafka-connector source configuration
+
+Connector description: Periodically fetches a secured HTTP resource and provides the content as output.
+
+When using camel-http-secured-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-http-secured-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.httpsecuredsource.CamelHttpsecuredsourceSourceConnector
+----
+
+
+The camel-http-secured-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.http-secured-source.period* | The interval between fetches in milliseconds | 10000 | false | MEDIUM
+| *camel.kamelet.http-secured-source.contentType* | The content type accepted for the resource | "application/json" | false | MEDIUM
+| *camel.kamelet.http-secured-source.url* | The URL to fetch for data Example: \https://gist.githubusercontent.com/nicolaferraro/e3c72ace3c751f9f88273896611ce5fe/raw/3b6f54060bacb56b6719b7386a4645cb59ad6cc1/quote.json | null | true | HIGH
+| *camel.kamelet.http-secured-source.authMethod* | Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM. | "Basic" | false | MEDIUM
+| *camel.kamelet.http-secured-source.authentication Preemptive* | If this option is true, camel-http sends preemptive basic authentication to the server. | false | false | MEDIUM
+| *camel.kamelet.http-secured-source.authUsername* | Authentication username | null | false | MEDIUM
+| *camel.kamelet.http-secured-source.authPassword* | Authentication password | null | false | MEDIUM
+|===
+
+
+
+The camel-http-secured-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-http-secured-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-http-secured-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

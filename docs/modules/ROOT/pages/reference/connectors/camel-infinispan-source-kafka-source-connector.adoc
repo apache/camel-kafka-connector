@@ -1,0 +1,63 @@
+// kafka-connector options: START
+[[camel-infinispan-source-kafka-connector-source]]
+= camel-infinispan-source-kafka-connector source configuration
+
+Connector description: Get Events from an Infinispan cache
+
+When using camel-infinispan-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-infinispan-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.infinispansource.CamelInfinispansourceSourceConnector
+----
+
+
+The camel-infinispan-source source connector supports 8 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.infinispan-source.hosts* | Specifies the host of the cache on Infinispan instance | null | true | HIGH
+| *camel.kamelet.infinispan-source.secure* | If the Infinispan instance is secured or not | true | false | MEDIUM
+| *camel.kamelet.infinispan-source.username* | Username to connect to Infinispan. | null | true | HIGH
+| *camel.kamelet.infinispan-source.password* | Password to connect to Infinispan. | null | true | HIGH
+| *camel.kamelet.infinispan-source.saslMechanism* | The SASL Mechanism to use | "DIGEST-MD5" | false | MEDIUM
+| *camel.kamelet.infinispan-source.securityRealm* | Define the security realm to access the infinispan instance | "default" | false | MEDIUM
+| *camel.kamelet.infinispan-source.securityServerName* | Define the security server name to access the infinispan instance | "infinispan" | false | MEDIUM
+| *camel.kamelet.infinispan-source.eventTypes* | Specifies the set of event types to register by the consumer.Multiple event can be separated by comma. The possible event types are CLIENT_CACHE_ENTRY_CREATED, CLIENT_CACHE_ENTRY_MODIFIED, CLIENT_CACHE_ENTRY_REMOVED, CLIENT_CACHE_ENTRY_EXPIRED, CLIENT_CACHE_FAILOVER | null | false | MEDIUM
+|===
+
+
+
+The camel-infinispan-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-infinispan-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-infinispan-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

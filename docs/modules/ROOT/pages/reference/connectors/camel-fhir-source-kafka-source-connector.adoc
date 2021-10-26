@@ -1,0 +1,62 @@
+// kafka-connector options: START
+[[camel-fhir-source-kafka-connector-source]]
+= camel-fhir-source-kafka-connector source configuration
+
+Connector description: Receive data from Fhir server.
+
+When using camel-fhir-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-fhir-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.fhirsource.CamelFhirsourceSourceConnector
+----
+
+
+The camel-fhir-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.fhir-source.serverUrl* | The Fhir server url | null | true | HIGH
+| *camel.kamelet.fhir-source.url* | The Fhir resource type url | "/Patient" | false | MEDIUM
+| *camel.kamelet.fhir-source.encoding* | Encoding to use for all request. Possible values are JSON and XML | "JSON" | false | MEDIUM
+| *camel.kamelet.fhir-source.fhirVersion* | The FHIR Version to use. There are 6 enums and the value can be one of DSTU2, DSTU2_HL7ORG, DSTU2_1, DSTU3, R4, R5 | "R4" | false | MEDIUM
+| *camel.kamelet.fhir-source.username* | The username to access the Fhir server | null | true | HIGH
+| *camel.kamelet.fhir-source.password* | The password to access the Fhir server | null | true | HIGH
+| *camel.kamelet.fhir-source.prettyPrint* | Define if the Json must be pretty print or not | true | false | MEDIUM
+|===
+
+
+
+The camel-fhir-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-fhir-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-fhir-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -1,0 +1,58 @@
+// kafka-connector options: START
+[[camel-telegram-source-kafka-connector-source]]
+= camel-telegram-source-kafka-connector source configuration
+
+Connector description: Receive all messages that people send to your Telegram bot.
+
+To create a bot, contact the @botfather account using the Telegram app.
+
+When using camel-telegram-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-telegram-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.telegramsource.CamelTelegramsourceSourceConnector
+----
+
+
+The camel-telegram-source source connector supports 1 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.telegram-source.authorizationToken* | The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather. | null | true | HIGH
+|===
+
+
+
+The camel-telegram-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-telegram-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-telegram-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

@@ -1,0 +1,66 @@
+// kafka-connector options: START
+[[camel-aws-s3-streaming-upload-sink-kafka-connector-sink]]
+= camel-aws-s3-streaming-upload-sink-kafka-connector sink configuration
+
+Connector Description: Upload data to AWS S3 in streaming upload mode.
+
+When using camel-aws-s3-streaming-upload-sink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws-s3-streaming-upload-sink-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awss3streaminguploadsink.CamelAwss3streaminguploadsinkSinkConnector
+----
+
+
+The camel-aws-s3-streaming-upload-sink sink connector supports 11 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.aws-s3-streaming-upload-sink.bucket NameOrArn* | The S3 Bucket name or ARN. | null | true | HIGH
+| *camel.kamelet.aws-s3-streaming-upload-sink.access Key* | The access key obtained from AWS. | null | true | HIGH
+| *camel.kamelet.aws-s3-streaming-upload-sink.secret Key* | The secret key obtained from AWS. | null | true | HIGH
+| *camel.kamelet.aws-s3-streaming-upload-sink.region* | The AWS region to connect to. Example: eu-west-1 | null | true | HIGH
+| *camel.kamelet.aws-s3-streaming-upload-sink.auto CreateBucket* | Setting the autocreation of the S3 bucket bucketName. | false | false | MEDIUM
+| * camel.kamelet.aws-s3-streaming-upload-sink.streaming UploadMode* | Setting the Streaming Upload Mode | true | false | MEDIUM
+| * camel.kamelet.aws-s3-streaming-upload-sink.restarting Policy* | The restarting policy to use in streaming upload mode. There are 2 enums and the value can be one of override, lastPart | "lastPart" | false | MEDIUM
+| *camel.kamelet.aws-s3-streaming-upload-sink.batch MessageNumber* | The number of messages composing a batch in streaming upload mode | 10 | false | MEDIUM
+| *camel.kamelet.aws-s3-streaming-upload-sink.batch Size* | The batch size (in bytes) in streaming upload mode | 1000000 | false | MEDIUM
+| *camel.kamelet.aws-s3-streaming-upload-sink.naming Strategy* | The naming strategy to use in streaming upload mode. There are 2 enums and the value can be one of progressive, random | "progressive" | false | MEDIUM
+| *camel.kamelet.aws-s3-streaming-upload-sink.keyName* | Setting the key name for an element in the bucket through endpoint parameter. In Streaming Upload, with the default configuration, this will be the base for the progressive creation of files. | null | true | HIGH
+|===
+
+
+
+The camel-aws-s3-streaming-upload-sink sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-s3-streaming-upload-sink sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-s3-streaming-upload-sink sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END

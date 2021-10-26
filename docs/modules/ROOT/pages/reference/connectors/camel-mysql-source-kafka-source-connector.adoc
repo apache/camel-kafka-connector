@@ -1,0 +1,66 @@
+// kafka-connector options: START
+[[camel-mysql-source-kafka-connector-source]]
+= camel-mysql-source-kafka-connector source configuration
+
+Connector description: Query data from a MySQL Database.
+
+In you KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies
+
+- "mvn:mysql:mysql-connector-java:<version>"
+
+When using camel-mysql-source-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-mysql-source-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mysqlsource.CamelMysqlsourceSourceConnector
+----
+
+
+The camel-mysql-source source connector supports 7 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,1,1",options="header"]
+|===
+| Name | Description | Default | Required | Priority
+| *camel.kamelet.mysql-source.serverName* | Server Name for the data source Example: localhost | null | true | HIGH
+| *camel.kamelet.mysql-source.port* | Server Port for the data source | "3306" | false | MEDIUM
+| *camel.kamelet.mysql-source.username* | The username to use for accessing a secured MySQL Database | null | true | HIGH
+| *camel.kamelet.mysql-source.password* | The password to use for accessing a secured MySQL Database | null | true | HIGH
+| *camel.kamelet.mysql-source.query* | The Query to execute against the MySQL Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city) | null | true | HIGH
+| *camel.kamelet.mysql-source.databaseName* | The Database Name we are pointing | null | true | HIGH
+| *camel.kamelet.mysql-source.consumedQuery* | A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id | null | false | MEDIUM
+|===
+
+
+
+The camel-mysql-source source connector has no converters out of the box.
+
+
+
+
+
+The camel-mysql-source source connector has no transforms out of the box.
+
+
+
+
+
+The camel-mysql-source source connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END
