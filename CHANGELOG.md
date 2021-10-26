@@ -15,6 +15,7 @@
 
 **Merged pull requests:**
 
+- Kamelets [\#1273](https://github.com/apache/camel-kafka-connector/pull/1273) ([valdar](https://github.com/valdar))
 - Update try-it-out-locally.adoc [\#1270](https://github.com/apache/camel-kafka-connector/pull/1270) ([duanasq](https://github.com/duanasq))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1267](https://github.com/apache/camel-kafka-connector/pull/1267) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1260](https://github.com/apache/camel-kafka-connector/pull/1260) ([github-actions[bot]](https://github.com/apps/github-actions))
