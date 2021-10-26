@@ -563,7 +563,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelComponentKafkaCo
         }
 
         // Generate documentation in src/main/docs and
-        // docs/modules/ROOT/pages/connectors
+        // docs/modules/ROOT/pages/reference/connectors
         File docFolder = new File(connectorDir, "src/main/docs/");
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/reference/connectors/");
