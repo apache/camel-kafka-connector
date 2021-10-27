@@ -42,9 +42,15 @@ public class CamelGraphqlSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_CONF = "camel.sink.endpoint.queryFile";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_DOC = "The query file name located in the classpath.";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_DEFAULT = null;
+    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_HEADER_CONF = "camel.sink.endpoint.queryHeader";
+    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_HEADER_DOC = "The name of a header containing the GraphQL query.";
+    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_HEADER_DEFAULT = null;
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_CONF = "camel.sink.endpoint.variables";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DOC = "The JsonObject instance containing the operation variables.";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DEFAULT = null;
+    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_HEADER_CONF = "camel.sink.endpoint.variablesHeader";
+    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_HEADER_DOC = "The name of a header containing a JsonObject instance containing the operation variables.";
+    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_HEADER_DEFAULT = null;
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_CONF = "camel.sink.endpoint.accessToken";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DOC = "The access token sent in the Authorization header.";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
@@ -82,7 +88,9 @@ public class CamelGraphqlSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_DOC);
+        conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_HEADER_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DOC);
+        conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_HEADER_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_JWT_AUTHORIZATION_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_JWT_AUTHORIZATION_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_JWT_AUTHORIZATION_TYPE_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_GRAPHQL_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_PASSWORD_DOC);

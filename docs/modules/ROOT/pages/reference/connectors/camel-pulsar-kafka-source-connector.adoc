@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.pulsar.CamelPulsarSourceConnecto
 ----
 
 
-The camel-pulsar source connector supports 45 options, which are listed below.
+The camel-pulsar source connector supports 55 options, which are listed below.
 
 
 
@@ -35,6 +35,9 @@ The camel-pulsar source connector supports 45 options, which are listed below.
 | *camel.source.path.tenant* | The tenant | null | true | HIGH
 | *camel.source.path.namespace* | The namespace | null | true | HIGH
 | *camel.source.path.topic* | The topic | null | true | HIGH
+| *camel.source.endpoint.authenticationClass* | The Authentication FQCN to be used while creating the client from URI | null | false | MEDIUM
+| *camel.source.endpoint.authenticationParams* | The Authentication Parameters to be used while creating the client from URI | null | false | MEDIUM
+| *camel.source.endpoint.serviceUrl* | The Pulsar Service URL to point while creating the client from URI | null | false | MEDIUM
 | *camel.source.endpoint.ackGroupTimeMillis* | Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100 | 100L | false | MEDIUM
 | *camel.source.endpoint.ackTimeoutMillis* | Timeout for unacknowledged messages in milliseconds - defaults to 10000 | 10000L | false | MEDIUM
 | *camel.source.endpoint.allowManualAcknowledgement* | Whether to allow manual message acknowledgements. If this option is enabled, then messages are not acknowledged automatically after successful route completion. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs. | false | false | MEDIUM
@@ -44,8 +47,10 @@ The camel-pulsar source connector supports 45 options, which are listed below.
 | *camel.source.endpoint.consumerQueueSize* | Size of the consumer queue - defaults to 10 | 10 | false | MEDIUM
 | *camel.source.endpoint.deadLetterTopic* | Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ | null | false | MEDIUM
 | *camel.source.endpoint.maxRedeliverCount* | Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created | null | false | MEDIUM
+| *camel.source.endpoint.messageListener* | Whether to use the messageListener interface, or to receive messages using a separate thread pool | true | false | MEDIUM
 | *camel.source.endpoint.negativeAckRedeliveryDelay Micros* | Set the negative acknowledgement delay | 60000000L | false | MEDIUM
 | *camel.source.endpoint.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | false | MEDIUM
+| *camel.source.endpoint.numberOfConsumerThreads* | Number of threads to receive and handle messages when using a separate thread pool | 1 | false | MEDIUM
 | *camel.source.endpoint.readCompacted* | Enable compacted topic reading. | false | false | MEDIUM
 | *camel.source.endpoint.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | false | MEDIUM
 | *camel.source.endpoint.subscriptionName* | Name of the subscription to use | "subs" | false | MEDIUM
@@ -54,7 +59,10 @@ The camel-pulsar source connector supports 45 options, which are listed below.
 | *camel.source.endpoint.topicsPattern* | Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.component.pulsar.authenticationClass* | The Authentication FQCN to be used while creating the client from URI | null | false | MEDIUM
+| *camel.component.pulsar.authenticationParams* | The Authentication Parameters to be used while creating the client from URI | null | false | MEDIUM
 | *camel.component.pulsar.configuration* | Allows to pre-configure the Pulsar component with common options that the endpoints will reuse. | null | false | MEDIUM
+| *camel.component.pulsar.serviceUrl* | The Pulsar Service URL to point while creating the client from URI | null | false | MEDIUM
 | *camel.component.pulsar.ackGroupTimeMillis* | Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100 | 100L | false | MEDIUM
 | *camel.component.pulsar.ackTimeoutMillis* | Timeout for unacknowledged messages in milliseconds - defaults to 10000 | 10000L | false | MEDIUM
 | *camel.component.pulsar.allowManualAcknowledgement* | Whether to allow manual message acknowledgements. If this option is enabled, then messages are not acknowledged automatically after successful route completion. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs. | false | false | MEDIUM
@@ -64,8 +72,10 @@ The camel-pulsar source connector supports 45 options, which are listed below.
 | *camel.component.pulsar.consumerQueueSize* | Size of the consumer queue - defaults to 10 | 10 | false | MEDIUM
 | *camel.component.pulsar.deadLetterTopic* | Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ | null | false | MEDIUM
 | *camel.component.pulsar.maxRedeliverCount* | Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created | null | false | MEDIUM
+| *camel.component.pulsar.messageListener* | Whether to use the messageListener interface, or to receive messages using a separate thread pool | true | false | MEDIUM
 | *camel.component.pulsar.negativeAckRedeliveryDelay Micros* | Set the negative acknowledgement delay | 60000000L | false | MEDIUM
 | *camel.component.pulsar.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | false | MEDIUM
+| *camel.component.pulsar.numberOfConsumerThreads* | Number of threads to receive and handle messages when using a separate thread pool | 1 | false | MEDIUM
 | *camel.component.pulsar.readCompacted* | Enable compacted topic reading. | false | false | MEDIUM
 | *camel.component.pulsar.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | false | MEDIUM
 | *camel.component.pulsar.subscriptionName* | Name of the subscription to use | "subs" | false | MEDIUM
@@ -93,8 +103,4 @@ The camel-pulsar source connector has no transforms out of the box.
 
 
 The camel-pulsar source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

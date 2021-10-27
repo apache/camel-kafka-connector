@@ -37,6 +37,24 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.sink.endpoint.authenticationClass": {
+			"name": "camel.sink.endpoint.authenticationClass",
+			"description": "The Authentication FQCN to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.authenticationParams": {
+			"name": "camel.sink.endpoint.authenticationParams",
+			"description": "The Authentication Parameters to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.serviceUrl": {
+			"name": "camel.sink.endpoint.serviceUrl",
+			"description": "The Pulsar Service URL to point while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.batcherBuilder": {
 			"name": "camel.sink.endpoint.batcherBuilder",
 			"description": "Control batching method used by the producer.",
@@ -145,9 +163,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.pulsar.authenticationClass": {
+			"name": "camel.component.pulsar.authenticationClass",
+			"description": "The Authentication FQCN to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pulsar.authenticationParams": {
+			"name": "camel.component.pulsar.authenticationParams",
+			"description": "The Authentication Parameters to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.pulsar.configuration": {
 			"name": "camel.component.pulsar.configuration",
 			"description": "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pulsar.serviceUrl": {
+			"name": "camel.component.pulsar.serviceUrl",
+			"description": "The Pulsar Service URL to point while creating the client from URI",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

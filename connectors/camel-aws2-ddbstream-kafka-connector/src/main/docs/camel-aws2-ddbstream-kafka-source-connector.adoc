@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2ddbstream.CamelAws2ddbstream
 ----
 
 
-The camel-aws2-ddbstream source connector supports 51 options, which are listed below.
+The camel-aws2-ddbstream source connector supports 49 options, which are listed below.
 
 
 
@@ -34,7 +34,6 @@ The camel-aws2-ddbstream source connector supports 51 options, which are listed 
 | *camel.source.path.tableName* | Name of the dynamodb table | null | true | HIGH
 | *camel.source.endpoint.amazonDynamoDbStreamsClient* | Amazon DynamoDB client to use for all requests for this endpoint | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.source.endpoint.iteratorType* | Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. One of: [TRIM_HORIZON] [LATEST] [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [null] | "LATEST" | false | MEDIUM
 | *camel.source.endpoint.maxResultsPerRequest* | Maximum number of records that will be fetched in each poll | null | false | MEDIUM
 | *camel.source.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the DDBStreams client | null | false | MEDIUM
@@ -42,7 +41,7 @@ The camel-aws2-ddbstream source connector supports 51 options, which are listed 
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the DDBStreams client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.source.endpoint.region* | The region in which DDBStreams client needs to work | null | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
-| *camel.source.endpoint.sequenceNumberProvider* | Provider for the sequence number when using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. | null | false | MEDIUM
+| *camel.source.endpoint.streamIteratorType* | Defines where in the DynamoDB stream to start getting records. Note that using FROM_START can cause a significant delay before the stream has caught up to real-time. One of: [FROM_LATEST] [FROM_START] | "FROM_LATEST" | false | MEDIUM
 | *camel.source.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.source.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.source.endpoint.useDefaultCredentials Provider* | Set whether the DynamoDB Streams client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
@@ -68,14 +67,13 @@ The camel-aws2-ddbstream source connector supports 51 options, which are listed 
 | *camel.component.aws2-ddbstream.amazonDynamoDb StreamsClient* | Amazon DynamoDB client to use for all requests for this endpoint | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.aws2-ddbstream.configuration* | The component configuration | null | false | MEDIUM
-| *camel.component.aws2-ddbstream.iteratorType* | Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. One of: [TRIM_HORIZON] [LATEST] [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [null] | "LATEST" | false | MEDIUM
 | *camel.component.aws2-ddbstream.maxResultsPer Request* | Maximum number of records that will be fetched in each poll | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-ddbstream.proxyHost* | To define a proxy host when instantiating the DDBStreams client | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.proxyPort* | To define a proxy port when instantiating the DDBStreams client | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.proxyProtocol* | To define a proxy protocol when instantiating the DDBStreams client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.component.aws2-ddbstream.region* | The region in which DDBStreams client needs to work | null | false | MEDIUM
-| *camel.component.aws2-ddbstream.sequenceNumber Provider* | Provider for the sequence number when using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. | null | false | MEDIUM
+| *camel.component.aws2-ddbstream.streamIteratorType* | Defines where in the DynamoDB stream to start getting records. Note that using FROM_START can cause a significant delay before the stream has caught up to real-time. One of: [FROM_LATEST] [FROM_START] | "FROM_LATEST" | false | MEDIUM
 | *camel.component.aws2-ddbstream.trustAll Certificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.component.aws2-ddbstream.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.useDefault CredentialsProvider* | Set whether the DynamoDB Streams client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM

@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.as2.CamelAs2SinkConnector
 ----
 
 
-The camel-as2 sink connector supports 33 options, which are listed below.
+The camel-as2 sink connector supports 34 options, which are listed below.
 
 
 
@@ -37,6 +37,7 @@ The camel-as2 sink connector supports 33 options, which are listed below.
 | *camel.sink.endpoint.as2MessageStructure* | The structure of AS2 Message. One of: PLAIN - No encryption, no signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption, no signature, ENCRYPTED_SIGNED - Encryption, signature One of: [PLAIN] [SIGNED] [ENCRYPTED] [SIGNED_ENCRYPTED] [PLAIN_COMPRESSED] [SIGNED_COMPRESSED] [ENCRYPTED_COMPRESSED] [ENCRYPTED_COMPRESSED_SIGNED] | null | false | MEDIUM
 | *camel.sink.endpoint.as2To* | The value of the AS2To header of AS2 message. | null | false | MEDIUM
 | *camel.sink.endpoint.as2Version* | The version of the AS2 protocol. One of: [1.0] [1.1] | "1.1" | false | MEDIUM
+| *camel.sink.endpoint.attachedFileName* | The name of the attached file | null | false | MEDIUM
 | *camel.sink.endpoint.clientFqdn* | The Client Fully Qualified Domain Name (FQDN). Used in message ids sent by endpoint. | "camel.apache.org" | false | MEDIUM
 | *camel.sink.endpoint.compressionAlgorithm* | The algorithm used to compress EDI message. One of: [ZLIB] | null | false | MEDIUM
 | *camel.sink.endpoint.decryptingPrivateKey* | The key used to encrypt the EDI message. | null | false | MEDIUM
@@ -81,8 +82,4 @@ The camel-as2 sink connector has no transforms out of the box.
 
 
 The camel-as2 sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

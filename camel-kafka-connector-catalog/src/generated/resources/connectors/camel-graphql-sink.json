@@ -46,9 +46,21 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.queryHeader": {
+			"name": "camel.sink.endpoint.queryHeader",
+			"description": "The name of a header containing the GraphQL query.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.variables": {
 			"name": "camel.sink.endpoint.variables",
 			"description": "The JsonObject instance containing the operation variables.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.variablesHeader": {
+			"name": "camel.sink.endpoint.variablesHeader",
+			"description": "The name of a header containing a JsonObject instance containing the operation variables.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

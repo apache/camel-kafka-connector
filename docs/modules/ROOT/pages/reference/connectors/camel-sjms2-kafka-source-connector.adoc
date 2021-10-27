@@ -43,11 +43,11 @@ The camel-sjms2 source connector supports 46 options, which are listed below.
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.clientId* | Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead. | null | false | MEDIUM
 | *camel.source.endpoint.concurrentConsumers* | Specifies the default number of concurrent consumers when consuming from JMS (not for request/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up/down of threads. When doing request/reply over JMS then the option replyToConcurrentConsumers is used to control number of concurrent consumers on the reply message listener. | 1 | false | MEDIUM
-| *camel.source.endpoint.durable* | Sets topic consumer to durable. | false | false | MEDIUM
+| *camel.source.endpoint.durable* | Sets the topic to be durable | false | false | MEDIUM
 | *camel.source.endpoint.durableSubscriptionName* | The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well. | null | false | MEDIUM
 | *camel.source.endpoint.replyToDeliveryPersistent* | Specifies whether to use persistent delivery by default for replies. | true | false | MEDIUM
-| *camel.source.endpoint.shared* | Sets the consumer to shared. | false | false | MEDIUM
-| *camel.source.endpoint.subscriptionId* | Sets the subscription Id, required for durable or shared topics. | null | false | MEDIUM
+| *camel.source.endpoint.shared* | Sets the topic to be shared | false | false | MEDIUM
+| *camel.source.endpoint.subscriptionId* | Sets the topic subscription id, required for durable or shared topics. | null | false | MEDIUM
 | *camel.source.endpoint.eagerLoadingOfProperties* | Enables eager loading of JMS properties and payload as soon as a message is loaded which generally is inefficient as the JMS properties may not be required but sometimes can catch early any issues with the underlying JMS provider and the use of JMS properties. See also the option eagerPoisonBody. | false | false | MEDIUM
 | *camel.source.endpoint.eagerPoisonBody* | If eagerLoadingOfProperties is enabled and the JMS message payload (JMS body or JMS properties) is poison (cannot be read/mapped), then set this text as the message body instead so the message can be processed (the cause of the poison are already stored as exception on the Exchange). This can be turned off by setting eagerPoisonBody=false. See also the option eagerLoadingOfProperties. | "Poison JMS message due to ${exception.message}" | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
@@ -94,8 +94,4 @@ The camel-sjms2 source connector has no transforms out of the box.
 
 
 The camel-sjms2 source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

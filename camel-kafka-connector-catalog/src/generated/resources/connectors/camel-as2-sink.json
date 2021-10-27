@@ -64,6 +64,12 @@
 				"1.1"
 			]
 		},
+		"camel.sink.endpoint.attachedFileName": {
+			"name": "camel.sink.endpoint.attachedFileName",
+			"description": "The name of the attached file",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.clientFqdn": {
 			"name": "camel.sink.endpoint.clientFqdn",
 			"description": "The Client Fully Qualified Domain Name (FQDN). Used in message ids sent by endpoint.",

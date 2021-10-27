@@ -25,7 +25,7 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelStitchSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_STITCH_PATH_TABLE_NAME_CONF = "camel.sink.path.tableName";
-    public static final String CAMEL_SINK_STITCH_PATH_TABLE_NAME_DOC = "The name of the destination table the data is being pushed to. Table names must be unique in each destination schema, or loading issues will occur. Note: The number of characters in the table name should be within the destinations allowed limits or data will rejected.";
+    public static final String CAMEL_SINK_STITCH_PATH_TABLE_NAME_DOC = "The name of the destination table the data is being pushed to. Table names must be unique in each destination schema, or loading issues will occur. Note: The number of characters in the table name should be within the destination's allowed limits or data will rejected.";
     public static final String CAMEL_SINK_STITCH_PATH_TABLE_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_STITCH_ENDPOINT_KEY_NAMES_CONF = "camel.sink.endpoint.keyNames";
     public static final String CAMEL_SINK_STITCH_ENDPOINT_KEY_NAMES_DOC = "A collection of comma separated strings representing the Primary Key fields in the source table. Stitch use these Primary Keys to de-dupe data during loading If not provided, the table will be loaded in an append-only manner.";

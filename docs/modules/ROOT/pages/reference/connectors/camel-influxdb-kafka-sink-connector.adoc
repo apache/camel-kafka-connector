@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.influxdb.CamelInfluxdbSinkConnec
 ----
 
 
-The camel-influxdb sink connector supports 10 options, which are listed below.
+The camel-influxdb sink connector supports 12 options, which are listed below.
 
 
 
@@ -32,7 +32,9 @@ The camel-influxdb sink connector supports 10 options, which are listed below.
 |===
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.connectionBean* | Connection to the influx database, of class InfluxDB.class | null | true | HIGH
+| *camel.sink.endpoint.autoCreateDatabase* | Define if we want to auto create the database if it's not present | false | false | MEDIUM
 | *camel.sink.endpoint.batch* | Define if this operation is a batch operation or not | false | false | MEDIUM
+| *camel.sink.endpoint.checkDatabaseExistence* | Define if we want to check the database existence while starting the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.databaseName* | The name of the database where the time series will be stored | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.operation* | Define if this operation is an insert or a query | "insert" | false | MEDIUM
@@ -58,8 +60,4 @@ The camel-influxdb sink connector has no transforms out of the box.
 
 
 The camel-influxdb sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

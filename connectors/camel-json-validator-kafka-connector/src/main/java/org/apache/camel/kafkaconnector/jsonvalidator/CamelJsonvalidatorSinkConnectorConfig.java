@@ -50,9 +50,9 @@ public class CamelJsonvalidatorSinkConnectorConfig
     public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_ERROR_HANDLER_CONF = "camel.sink.endpoint.errorHandler";
     public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_ERROR_HANDLER_DOC = "To use a custom ValidatorErrorHandler. The default error handler captures the errors and throws an exception.";
     public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_ERROR_HANDLER_DEFAULT = null;
-    public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_SCHEMA_LOADER_CONF = "camel.sink.endpoint.schemaLoader";
-    public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_SCHEMA_LOADER_DOC = "To use a custom schema loader allowing for adding custom format validation. The default implementation will create a schema loader with draft v4 support.";
-    public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_SCHEMA_LOADER_DEFAULT = null;
+    public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_URI_SCHEMA_LOADER_CONF = "camel.sink.endpoint.uriSchemaLoader";
+    public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_URI_SCHEMA_LOADER_DOC = "To use a custom schema loader allowing for adding custom format validation. The default implementation will create a schema loader that tries to determine the schema version from the $schema property of the specified schema.";
+    public static final String CAMEL_SINK_JSONVALIDATOR_ENDPOINT_URI_SCHEMA_LOADER_DEFAULT = null;
     public static final String CAMEL_SINK_JSONVALIDATOR_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.json-validator.lazyStartProducer";
     public static final String CAMEL_SINK_JSONVALIDATOR_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_JSONVALIDATOR_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -81,7 +81,7 @@ public class CamelJsonvalidatorSinkConnectorConfig
         conf.define(CAMEL_SINK_JSONVALIDATOR_ENDPOINT_HEADER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_HEADER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_HEADER_NAME_DOC);
         conf.define(CAMEL_SINK_JSONVALIDATOR_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JSONVALIDATOR_ENDPOINT_ERROR_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SINK_JSONVALIDATOR_ENDPOINT_SCHEMA_LOADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_SCHEMA_LOADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_SCHEMA_LOADER_DOC);
+        conf.define(CAMEL_SINK_JSONVALIDATOR_ENDPOINT_URI_SCHEMA_LOADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_URI_SCHEMA_LOADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JSONVALIDATOR_ENDPOINT_URI_SCHEMA_LOADER_DOC);
         conf.define(CAMEL_SINK_JSONVALIDATOR_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JSONVALIDATOR_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JSONVALIDATOR_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JSONVALIDATOR_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JSONVALIDATOR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JSONVALIDATOR_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;

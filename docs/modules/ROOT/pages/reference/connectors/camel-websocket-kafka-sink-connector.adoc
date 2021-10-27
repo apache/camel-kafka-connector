@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.websocket.CamelWebsocketSinkConn
 ----
 
 
-The camel-websocket sink connector supports 29 options, which are listed below.
+The camel-websocket sink connector supports 30 options, which are listed below.
 
 
 
@@ -54,6 +54,7 @@ The camel-websocket sink connector supports 29 options, which are listed below.
 | *camel.component.websocket.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | false | MEDIUM
 | *camel.component.websocket.maxThreads* | To set a value for maximum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for maxThreads is 1 2 noCores. | null | false | MEDIUM
 | *camel.component.websocket.minThreads* | To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for minThreads is 1. | null | false | MEDIUM
+| *camel.component.websocket.subprotocol* | This is a comma-separated list of subprotocols that are supported by the application. The list is in priority order. The first subprotocol on this list that is proposed by the client is the one that will be accepted. If no subprotocol on this list is proposed by the client, then the websocket connection is refused. The special value 'any' means that any subprotocol is acceptable. 'any' can be used on its own, or as a failsafe at the end of a list of more specific protocols. 'any' will also match the case where no subprotocol is proposed by the client. | "any" | false | MEDIUM
 | *camel.component.websocket.threadPool* | To use a custom thread pool for the server. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. | null | false | MEDIUM
 | *camel.component.websocket.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
 | *camel.component.websocket.sslKeyPassword* | The password for the keystore when using SSL. | null | false | MEDIUM
@@ -77,8 +78,4 @@ The camel-websocket sink connector has no transforms out of the box.
 
 
 The camel-websocket sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

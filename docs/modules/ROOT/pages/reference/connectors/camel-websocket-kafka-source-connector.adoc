@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.websocket.CamelWebsocketSourceCo
 ----
 
 
-The camel-websocket source connector supports 32 options, which are listed below.
+The camel-websocket source connector supports 34 options, which are listed below.
 
 
 
@@ -38,6 +38,7 @@ The camel-websocket source connector supports 32 options, which are listed below
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.sessionSupport* | Whether to enable session support which enables HttpSession for each http request. | false | false | MEDIUM
 | *camel.source.endpoint.staticResources* | Set a resource path for static resources (such as .html files etc). The resources can be loaded from classpath, if you prefix with classpath:, otherwise the resources is loaded from file system or from JAR files. For example to load from root classpath use classpath:., or classpath:WEB-INF/static If not configured (eg null) then no static resource is in use. | null | false | MEDIUM
+| *camel.source.endpoint.subprotocol* | This is a comma-separated list of subprotocols that are supported by the application. The list is in priority order. The first subprotocol on this list that is proposed by the client is the one that will be accepted. If no subprotocol on this list is proposed by the client, then the websocket connection is refused. The special value 'any' means that any subprotocol is acceptable. 'any' can be used on its own, or as a failsafe at the end of a list of more specific protocols. 'any' will also match the case where no subprotocol is proposed by the client. | "any" | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.bufferSize* | Set the buffer size of the websocketServlet, which is also the max frame byte size (default 8192) | "8192" | false | MEDIUM
@@ -57,6 +58,7 @@ The camel-websocket source connector supports 32 options, which are listed below
 | *camel.component.websocket.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | false | MEDIUM
 | *camel.component.websocket.maxThreads* | To set a value for maximum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for maxThreads is 1 2 noCores. | null | false | MEDIUM
 | *camel.component.websocket.minThreads* | To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for minThreads is 1. | null | false | MEDIUM
+| *camel.component.websocket.subprotocol* | This is a comma-separated list of subprotocols that are supported by the application. The list is in priority order. The first subprotocol on this list that is proposed by the client is the one that will be accepted. If no subprotocol on this list is proposed by the client, then the websocket connection is refused. The special value 'any' means that any subprotocol is acceptable. 'any' can be used on its own, or as a failsafe at the end of a list of more specific protocols. 'any' will also match the case where no subprotocol is proposed by the client. | "any" | false | MEDIUM
 | *camel.component.websocket.threadPool* | To use a custom thread pool for the server. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. | null | false | MEDIUM
 | *camel.component.websocket.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
 | *camel.component.websocket.sslKeyPassword* | The password for the keystore when using SSL. | null | false | MEDIUM
@@ -80,8 +82,4 @@ The camel-websocket source connector has no transforms out of the box.
 
 
 The camel-websocket source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

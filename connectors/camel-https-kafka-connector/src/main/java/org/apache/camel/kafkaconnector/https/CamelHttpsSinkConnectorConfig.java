@@ -27,6 +27,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_PATH_HTTP_URI_CONF = "camel.sink.path.httpUri";
     public static final String CAMEL_SINK_HTTPS_PATH_HTTP_URI_DOC = "The url of the HTTP endpoint to call.";
     public static final String CAMEL_SINK_HTTPS_PATH_HTTP_URI_DEFAULT = null;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_CONF = "camel.sink.endpoint.chunked";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DOC = "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response";
+    public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DEFAULT = true;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_DISABLE_STREAM_CACHE_CONF = "camel.sink.endpoint.disableStreamCache";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_DISABLE_STREAM_CACHE_DOC = "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_DISABLE_STREAM_CACHE_DEFAULT = false;
@@ -39,9 +42,6 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_BRIDGE_ENDPOINT_CONF = "camel.sink.endpoint.bridgeEndpoint";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_BRIDGE_ENDPOINT_DOC = "If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request. You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back.";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_BRIDGE_ENDPOINT_DEFAULT = false;
-    public static final String CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_CONF = "camel.sink.endpoint.chunked";
-    public static final String CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DOC = "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response";
-    public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DEFAULT = true;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_CONF = "camel.sink.endpoint.clearExpiredCookies";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DOC = "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too.";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DEFAULT = true;
@@ -93,6 +93,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_CONF = "camel.sink.endpoint.skipResponseHeaders";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_DOC = "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_DEFAULT = false;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_USER_AGENT_CONF = "camel.sink.endpoint.userAgent";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_USER_AGENT_DOC = "To set a custom HTTP User-Agent request header";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_USER_AGENT_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_BUILDER_CONF = "camel.sink.endpoint.clientBuilder";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_BUILDER_DOC = "Provide access to the http client request parameters used on new RequestConfig instances used by producers or consumers of this endpoint.";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_BUILDER_DEFAULT = null;
@@ -302,11 +305,11 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_HTTPS_PATH_HTTP_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_PATH_HTTP_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HTTPS_PATH_HTTP_URI_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_DISABLE_STREAM_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_DISABLE_STREAM_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_DISABLE_STREAM_CACHE_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HTTP_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_BINDING_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_BRIDGE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_BRIDGE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_BRIDGE_ENDPOINT_DOC);
-        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CHUNKED_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CONNECTION_CLOSE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_CONNECTION_CLOSE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CONNECTION_CLOSE_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_COPY_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_COPY_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_COPY_HEADERS_DOC);
@@ -324,6 +327,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OK_STATUS_CODE_RANGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_OK_STATUS_CODE_RANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OK_STATUS_CODE_RANGE_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_SKIP_REQUEST_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_SKIP_REQUEST_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_SKIP_REQUEST_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_USER_AGENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_USER_AGENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_USER_AGENT_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_BUILDER_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_CONNECTION_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_CONNECTION_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CLIENT_CONNECTION_MANAGER_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CONNECTIONS_PER_ROUTE_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTPS_ENDPOINT_CONNECTIONS_PER_ROUTE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CONNECTIONS_PER_ROUTE_DOC);

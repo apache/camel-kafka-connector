@@ -29,9 +29,9 @@ public class CamelHwcloudsmnSinkConnectorConfig
     public static final String CAMEL_SINK_HWCLOUDSMN_PATH_SMN_SERVICE_CONF = "camel.sink.path.smnService";
     public static final String CAMEL_SINK_HWCLOUDSMN_PATH_SMN_SERVICE_DOC = "Name of SMN service to invoke";
     public static final String CAMEL_SINK_HWCLOUDSMN_PATH_SMN_SERVICE_DEFAULT = null;
-    public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_AUTH_KEY_CONF = "camel.sink.endpoint.authKey";
-    public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_AUTH_KEY_DOC = "Authentication key for the cloud user";
-    public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_AUTH_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
+    public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ACCESS_KEY_DOC = "Access key for the cloud user";
+    public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ENDPOINT_CONF = "camel.sink.endpoint.endpoint";
     public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ENDPOINT_DOC = "Fully qualified smn service url. Carries higher precedence than region parameter based client initialization";
     public static final String CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ENDPOINT_DEFAULT = null;
@@ -91,7 +91,7 @@ public class CamelHwcloudsmnSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_HWCLOUDSMN_PATH_SMN_SERVICE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HWCLOUDSMN_PATH_SMN_SERVICE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HWCLOUDSMN_PATH_SMN_SERVICE_DOC);
-        conf.define(CAMEL_SINK_HWCLOUDSMN_ENDPOINT_AUTH_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_AUTH_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_AUTH_KEY_DOC);
+        conf.define(CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ENDPOINT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_HWCLOUDSMN_ENDPOINT_IGNORE_SSL_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_IGNORE_SSL_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_IGNORE_SSL_VERIFICATION_DOC);
         conf.define(CAMEL_SINK_HWCLOUDSMN_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HWCLOUDSMN_ENDPOINT_LAZY_START_PRODUCER_DOC);

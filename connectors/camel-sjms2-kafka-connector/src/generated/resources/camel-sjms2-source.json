@@ -101,7 +101,7 @@
 		},
 		"camel.source.endpoint.durable": {
 			"name": "camel.source.endpoint.durable",
-			"description": "Sets topic consumer to durable.",
+			"description": "Sets the topic to be durable",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -121,14 +121,14 @@
 		},
 		"camel.source.endpoint.shared": {
 			"name": "camel.source.endpoint.shared",
-			"description": "Sets the consumer to shared.",
+			"description": "Sets the topic to be shared",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.source.endpoint.subscriptionId": {
 			"name": "camel.source.endpoint.subscriptionId",
-			"description": "Sets the subscription Id, required for durable or shared topics.",
+			"description": "Sets the topic subscription id, required for durable or shared topics.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

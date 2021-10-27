@@ -95,6 +95,9 @@ public class CamelWebsocketSinkConnectorConfig
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_CONF = "camel.component.websocket.minThreads";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_DOC = "To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for minThreads is 1.";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_DEFAULT = null;
+    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_SUBPROTOCOL_CONF = "camel.component.websocket.subprotocol";
+    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_SUBPROTOCOL_DOC = "This is a comma-separated list of subprotocols that are supported by the application. The list is in priority order. The first subprotocol on this list that is proposed by the client is the one that will be accepted. If no subprotocol on this list is proposed by the client, then the websocket connection is refused. The special value 'any' means that any subprotocol is acceptable. 'any' can be used on its own, or as a failsafe at the end of a list of more specific protocols. 'any' will also match the case where no subprotocol is proposed by the client.";
+    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_SUBPROTOCOL_DEFAULT = "any";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_THREAD_POOL_CONF = "camel.component.websocket.threadPool";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_THREAD_POOL_DOC = "To use a custom thread pool for the server. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9.";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_THREAD_POOL_DEFAULT = null;
@@ -149,6 +152,7 @@ public class CamelWebsocketSinkConnectorConfig
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_MAX_THREADS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_MAX_THREADS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_MAX_THREADS_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_DOC);
+        conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_SUBPROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_SUBPROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_SUBPROTOCOL_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_THREAD_POOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_THREAD_POOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_THREAD_POOL_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_SSL_KEY_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_WEBSOCKET_COMPONENT_SSL_KEY_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_SSL_KEY_PASSWORD_DOC);

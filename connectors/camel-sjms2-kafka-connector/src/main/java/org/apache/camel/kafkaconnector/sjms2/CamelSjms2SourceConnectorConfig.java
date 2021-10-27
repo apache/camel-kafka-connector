@@ -63,7 +63,7 @@ public class CamelSjms2SourceConnectorConfig
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_CONCURRENT_CONSUMERS_DOC = "Specifies the default number of concurrent consumers when consuming from JMS (not for request/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up/down of threads. When doing request/reply over JMS then the option replyToConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.";
     public static final Integer CAMEL_SOURCE_SJMS2_ENDPOINT_CONCURRENT_CONSUMERS_DEFAULT = 1;
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_CONF = "camel.source.endpoint.durable";
-    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_DOC = "Sets topic consumer to durable.";
+    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_DOC = "Sets the topic to be durable";
     public static final Boolean CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_DEFAULT = false;
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_CONF = "camel.source.endpoint.durableSubscriptionName";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_DOC = "The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.";
@@ -72,10 +72,10 @@ public class CamelSjms2SourceConnectorConfig
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DOC = "Specifies whether to use persistent delivery by default for replies.";
     public static final Boolean CAMEL_SOURCE_SJMS2_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SHARED_CONF = "camel.source.endpoint.shared";
-    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SHARED_DOC = "Sets the consumer to shared.";
+    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SHARED_DOC = "Sets the topic to be shared";
     public static final Boolean CAMEL_SOURCE_SJMS2_ENDPOINT_SHARED_DEFAULT = false;
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_CONF = "camel.source.endpoint.subscriptionId";
-    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_DOC = "Sets the subscription Id, required for durable or shared topics.";
+    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_DOC = "Sets the topic subscription id, required for durable or shared topics.";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_CONF = "camel.source.endpoint.eagerLoadingOfProperties";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_DOC = "Enables eager loading of JMS properties and payload as soon as a message is loaded which generally is inefficient as the JMS properties may not be required but sometimes can catch early any issues with the underlying JMS provider and the use of JMS properties. See also the option eagerPoisonBody.";

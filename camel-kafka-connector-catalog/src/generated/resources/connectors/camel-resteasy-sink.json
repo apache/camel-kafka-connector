@@ -168,6 +168,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.userAgent": {
+			"name": "camel.sink.endpoint.userAgent",
+			"description": "To set a custom HTTP User-Agent request header",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
