@@ -280,8 +280,8 @@
 		},
 		"camel.source.endpoint.artemisStreamingEnabled": {
 			"name": "camel.source.endpoint.artemisStreamingEnabled",
-			"description": "Whether optimizing for Apache Artemis streaming mode.",
-			"defaultValue": "true",
+			"description": "Whether optimizing for Apache Artemis streaming mode. This can reduce memory overhead when using Artemis with JMS StreamMessage types. This option must only be enabled if Apache Artemis is being used.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -807,8 +807,8 @@
 		},
 		"camel.component.activemq.artemisStreamingEnabled": {
 			"name": "camel.component.activemq.artemisStreamingEnabled",
-			"description": "Whether optimizing for Apache Artemis streaming mode.",
-			"defaultValue": "true",
+			"description": "Whether optimizing for Apache Artemis streaming mode. This can reduce memory overhead when using Artemis with JMS StreamMessage types. This option must only be enabled if Apache Artemis is being used.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

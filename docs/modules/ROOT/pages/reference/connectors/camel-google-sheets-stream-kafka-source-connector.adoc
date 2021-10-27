@@ -24,14 +24,14 @@ connector.class=org.apache.camel.kafkaconnector.googlesheetsstream.CamelGooglesh
 ----
 
 
-The camel-google-sheets-stream source connector supports 50 options, which are listed below.
+The camel-google-sheets-stream source connector supports 48 options, which are listed below.
 
 
 
 [width="100%",cols="2,5,^1,1,1",options="header"]
 |===
 | Name | Description | Default | Required | Priority
-| *camel.source.path.apiName* | Sets the apiName. | null | true | HIGH
+| *camel.source.path.spreadsheetId* | Specifies the spreadsheet identifier that is used to identify the target to obtain. | null | true | HIGH
 | *camel.source.endpoint.applicationName* | Google sheets application name. Example would be camel-google-sheets/1.0 | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.clientId* | Client ID of the sheets application | null | false | MEDIUM
@@ -42,7 +42,6 @@ The camel-google-sheets-stream source connector supports 50 options, which are l
 | *camel.source.endpoint.scopes* | Specifies the level of permissions you want a sheets application to have to a user account. See \https://developers.google.com/identity/protocols/googlescopes for more info. | null | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
 | *camel.source.endpoint.splitResults* | True if value range result should be split into rows or columns to process each of them individually. When true each row or column is represented with a separate exchange in batch processing. Otherwise value range object is used as exchange junk size. | false | false | MEDIUM
-| *camel.source.endpoint.spreadsheetId* | Specifies the spreadsheet identifier that is used to identify the target to obtain. | null | false | MEDIUM
 | *camel.source.endpoint.valueRenderOption* | Determines how values should be rendered in the output. One of: [FORMATTED_VALUE] [UNFORMATTED_VALUE] [FORMULA] | "FORMATTED_VALUE" | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
@@ -74,7 +73,6 @@ The camel-google-sheets-stream source connector supports 50 options, which are l
 | *camel.component.google-sheets-stream.range* | Specifies the range of rows and columns in a sheet to get data from. | null | false | MEDIUM
 | *camel.component.google-sheets-stream.scopes* | Specifies the level of permissions you want a sheets application to have to a user account. See \https://developers.google.com/identity/protocols/googlescopes for more info. | null | false | MEDIUM
 | *camel.component.google-sheets-stream.splitResults* | True if value range result should be split into rows or columns to process each of them individually. When true each row or column is represented with a separate exchange in batch processing. Otherwise value range object is used as exchange junk size. | false | false | MEDIUM
-| *camel.component.google-sheets-stream.spreadsheetId* | Specifies the spreadsheet identifier that is used to identify the target to obtain. | null | false | MEDIUM
 | *camel.component.google-sheets-stream.valueRender Option* | Determines how values should be rendered in the output. One of: [FORMATTED_VALUE] [UNFORMATTED_VALUE] [FORMULA] | "FORMATTED_VALUE" | false | MEDIUM
 | *camel.component.google-sheets-stream.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.google-sheets-stream.clientFactory* | To use the GoogleSheetsClientFactory as factory for creating the client. Will by default use BatchGoogleSheetsClientFactory | null | false | MEDIUM
@@ -98,8 +96,4 @@ The camel-google-sheets-stream source connector has no transforms out of the box
 
 
 The camel-google-sheets-stream source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

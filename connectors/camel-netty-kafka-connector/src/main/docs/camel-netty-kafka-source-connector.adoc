@@ -2,7 +2,7 @@
 [[camel-netty-kafka-connector-source]]
 = camel-netty-kafka-connector source configuration
 
-Connector description: Socket level networking using TCP or UDP with the Netty 4.x.
+Connector description: Socket level networking using TCP or UDP with Netty 4.x.
 
 When using camel-netty-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

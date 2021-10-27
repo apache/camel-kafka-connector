@@ -101,6 +101,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.showAllProperties": {
+			"name": "camel.sink.endpoint.showAllProperties",
+			"description": "Show all of the exchange properties (both internal and custom).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.showBody": {
 			"name": "camel.sink.endpoint.showBody",
 			"description": "Show the message body.",
@@ -166,7 +173,7 @@
 		},
 		"camel.sink.endpoint.showProperties": {
 			"name": "camel.sink.endpoint.showProperties",
-			"description": "Show the exchange properties.",
+			"description": "Show the exchange properties (only custom). Use showAllProperties to show both internal and custom properties.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

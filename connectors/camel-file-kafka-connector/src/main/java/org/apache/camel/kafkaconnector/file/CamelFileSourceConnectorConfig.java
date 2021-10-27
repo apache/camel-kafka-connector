@@ -147,7 +147,7 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DOC = "To use a custom idempotent key. By default the absolute path of the file is used. You can use the File Language, for example to use the file name and file size, you can do: idempotentKey=${file:name}-${file:size}";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_REPOSITORY_CONF = "camel.source.endpoint.idempotentRepository";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_REPOSITORY_DOC = "A pluggable repository org.apache.camel.spi.IdempotentRepository which by default use MemoryMessageIdRepository if none is specified and idempotent is true.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_REPOSITORY_DOC = "A pluggable repository org.apache.camel.spi.IdempotentRepository which by default use MemoryIdempotentRepository if none is specified and idempotent is true.";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_REPOSITORY_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_CONF = "camel.source.endpoint.include";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_DOC = "Is used to include files, if filename matches the regex pattern (matching is case in-sensitive). Notice if you use symbols such as plus sign and others you would need to configure this using the RAW() syntax if configuring this as an endpoint uri. See more details at configuring endpoint uris";

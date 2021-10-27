@@ -15,9 +15,9 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.sink.endpoint.authenticationKey": {
-			"name": "camel.sink.endpoint.authenticationKey",
-			"description": "Authentication key for the cloud user",
+		"camel.sink.endpoint.accessKey": {
+			"name": "camel.sink.endpoint.accessKey",
+			"description": "Access key for the cloud user",
 			"priority": "HIGH",
 			"required": "true"
 		},

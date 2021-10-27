@@ -29,9 +29,9 @@ public class CamelHwcloudiamSinkConnectorConfig
     public static final String CAMEL_SINK_HWCLOUDIAM_PATH_OPERATION_CONF = "camel.sink.path.operation";
     public static final String CAMEL_SINK_HWCLOUDIAM_PATH_OPERATION_DOC = "Operation to be performed";
     public static final String CAMEL_SINK_HWCLOUDIAM_PATH_OPERATION_DEFAULT = null;
-    public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_AUTHENTICATION_KEY_CONF = "camel.sink.endpoint.authenticationKey";
-    public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_AUTHENTICATION_KEY_DOC = "Authentication key for the cloud user";
-    public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_AUTHENTICATION_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
+    public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_ACCESS_KEY_DOC = "Access key for the cloud user";
+    public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_GROUP_ID_CONF = "camel.sink.endpoint.groupId";
     public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_GROUP_ID_DOC = "Group ID to perform operation with";
     public static final String CAMEL_SINK_HWCLOUDIAM_ENDPOINT_GROUP_ID_DEFAULT = null;
@@ -85,7 +85,7 @@ public class CamelHwcloudiamSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_HWCLOUDIAM_PATH_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HWCLOUDIAM_PATH_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HWCLOUDIAM_PATH_OPERATION_DOC);
-        conf.define(CAMEL_SINK_HWCLOUDIAM_ENDPOINT_AUTHENTICATION_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_AUTHENTICATION_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_AUTHENTICATION_KEY_DOC);
+        conf.define(CAMEL_SINK_HWCLOUDIAM_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_HWCLOUDIAM_ENDPOINT_GROUP_ID_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_GROUP_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_GROUP_ID_DOC);
         conf.define(CAMEL_SINK_HWCLOUDIAM_ENDPOINT_IGNORE_SSL_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_IGNORE_SSL_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_IGNORE_SSL_VERIFICATION_DOC);
         conf.define(CAMEL_SINK_HWCLOUDIAM_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HWCLOUDIAM_ENDPOINT_LAZY_START_PRODUCER_DOC);

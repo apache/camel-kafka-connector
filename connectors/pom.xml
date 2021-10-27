@@ -362,8 +362,11 @@
         <module>camel-http-sink-kafka-connector</module>
         <module>camel-http-source-kafka-connector</module>
         <module>camel-https-kafka-connector</module>
+        <module>camel-hwcloud-dms-kafka-connector</module>
         <module>camel-hwcloud-functiongraph-kafka-connector</module>
         <module>camel-hwcloud-iam-kafka-connector</module>
+        <module>camel-hwcloud-imagerecognition-kafka-connector</module>
+        <module>camel-hwcloud-obs-kafka-connector</module>
         <module>camel-hwcloud-smn-kafka-connector</module>
         <module>camel-iec60870-client-kafka-connector</module>
         <module>camel-iec60870-server-kafka-connector</module>
@@ -402,6 +405,7 @@
         <module>camel-jooq-kafka-connector</module>
         <module>camel-jpa-kafka-connector</module>
         <module>camel-jslt-kafka-connector</module>
+        <module>camel-json-patch-kafka-connector</module>
         <module>camel-json-validator-kafka-connector</module>
         <module>camel-jsonata-kafka-connector</module>
         <module>camel-jt400-kafka-connector</module>

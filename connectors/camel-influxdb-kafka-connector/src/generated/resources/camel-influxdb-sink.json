@@ -15,9 +15,23 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.sink.endpoint.autoCreateDatabase": {
+			"name": "camel.sink.endpoint.autoCreateDatabase",
+			"description": "Define if we want to auto create the database if it's not present",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.batch": {
 			"name": "camel.sink.endpoint.batch",
 			"description": "Define if this operation is a batch operation or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.checkDatabaseExistence": {
+			"name": "camel.sink.endpoint.checkDatabaseExistence",
+			"description": "Define if we want to check the database existence while starting the endpoint",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

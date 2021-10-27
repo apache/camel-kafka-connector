@@ -37,6 +37,24 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.source.endpoint.authenticationClass": {
+			"name": "camel.source.endpoint.authenticationClass",
+			"description": "The Authentication FQCN to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.authenticationParams": {
+			"name": "camel.source.endpoint.authenticationParams",
+			"description": "The Authentication Parameters to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.serviceUrl": {
+			"name": "camel.source.endpoint.serviceUrl",
+			"description": "The Pulsar Service URL to point while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.ackGroupTimeMillis": {
 			"name": "camel.source.endpoint.ackGroupTimeMillis",
 			"description": "Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100",
@@ -98,6 +116,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.messageListener": {
+			"name": "camel.source.endpoint.messageListener",
+			"description": "Whether to use the messageListener interface, or to receive messages using a separate thread pool",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.negativeAckRedeliveryDelayMicros": {
 			"name": "camel.source.endpoint.negativeAckRedeliveryDelayMicros",
 			"description": "Set the negative acknowledgement delay",
@@ -108,6 +133,13 @@
 		"camel.source.endpoint.numberOfConsumers": {
 			"name": "camel.source.endpoint.numberOfConsumers",
 			"description": "Number of consumers - defaults to 1",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.numberOfConsumerThreads": {
+			"name": "camel.source.endpoint.numberOfConsumerThreads",
+			"description": "Number of threads to receive and handle messages when using a separate thread pool",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -186,9 +218,27 @@
 				"InOptionalOut"
 			]
 		},
+		"camel.component.pulsar.authenticationClass": {
+			"name": "camel.component.pulsar.authenticationClass",
+			"description": "The Authentication FQCN to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pulsar.authenticationParams": {
+			"name": "camel.component.pulsar.authenticationParams",
+			"description": "The Authentication Parameters to be used while creating the client from URI",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.pulsar.configuration": {
 			"name": "camel.component.pulsar.configuration",
 			"description": "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pulsar.serviceUrl": {
+			"name": "camel.component.pulsar.serviceUrl",
+			"description": "The Pulsar Service URL to point while creating the client from URI",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -253,6 +303,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.pulsar.messageListener": {
+			"name": "camel.component.pulsar.messageListener",
+			"description": "Whether to use the messageListener interface, or to receive messages using a separate thread pool",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.pulsar.negativeAckRedeliveryDelayMicros": {
 			"name": "camel.component.pulsar.negativeAckRedeliveryDelayMicros",
 			"description": "Set the negative acknowledgement delay",
@@ -263,6 +320,13 @@
 		"camel.component.pulsar.numberOfConsumers": {
 			"name": "camel.component.pulsar.numberOfConsumers",
 			"description": "Number of consumers - defaults to 1",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pulsar.numberOfConsumerThreads": {
+			"name": "camel.component.pulsar.numberOfConsumerThreads",
+			"description": "Number of threads to receive and handle messages when using a separate thread pool",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"

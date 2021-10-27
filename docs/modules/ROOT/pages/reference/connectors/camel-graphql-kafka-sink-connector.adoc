@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.graphql.CamelGraphqlSinkConnecto
 ----
 
 
-The camel-graphql sink connector supports 13 options, which are listed below.
+The camel-graphql sink connector supports 15 options, which are listed below.
 
 
 
@@ -37,7 +37,9 @@ The camel-graphql sink connector supports 13 options, which are listed below.
 | *camel.sink.endpoint.proxyHost* | The proxy host in the format hostname:port. | null | false | MEDIUM
 | *camel.sink.endpoint.query* | The query text. | null | false | MEDIUM
 | *camel.sink.endpoint.queryFile* | The query file name located in the classpath. | null | false | MEDIUM
+| *camel.sink.endpoint.queryHeader* | The name of a header containing the GraphQL query. | null | false | MEDIUM
 | *camel.sink.endpoint.variables* | The JsonObject instance containing the operation variables. | null | false | MEDIUM
+| *camel.sink.endpoint.variablesHeader* | The name of a header containing a JsonObject instance containing the operation variables. | null | false | MEDIUM
 | *camel.sink.endpoint.accessToken* | The access token sent in the Authorization header. | null | false | MEDIUM
 | *camel.sink.endpoint.jwtAuthorizationType* | The JWT Authorization type. Default is Bearer. | "Bearer" | false | MEDIUM
 | *camel.sink.endpoint.password* | The password for Basic authentication. | null | false | MEDIUM
@@ -61,8 +63,4 @@ The camel-graphql sink connector has no transforms out of the box.
 
 
 The camel-graphql sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END
