@@ -1,0 +1,139 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.hwcloudimagerecognition.CamelHwcloudimagerecognitionSinkConnector",
+		"artifactId": "camel-hwcloud-imagerecognition-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-hwcloud-imagerecognition-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "To identify objects, scenes, and concepts in images on Huawei Cloud"
+	},
+	"properties": {
+		"camel.sink.path.operation": {
+			"name": "camel.sink.path.operation",
+			"description": "Name of Image Recognition operation to perform, including celebrityRecognition and tagRecognition",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.accessKey": {
+			"name": "camel.sink.endpoint.accessKey",
+			"description": "Access key for the cloud user",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.endpoint": {
+			"name": "camel.sink.endpoint.endpoint",
+			"description": "Fully qualified Image Recognition service url. Carries higher precedence than region based configuration.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.imageContent": {
+			"name": "camel.sink.endpoint.imageContent",
+			"description": "Indicates the Base64 character string converted from the image. The size cannot exceed 10 MB. The image resolution of the narrow sides must be greater than 15 pixels, and that of the wide sides cannot exceed 4096 pixels.The supported image formats include JPG, PNG, and BMP. Configure either this parameter or imageUrl, and this one carries higher precedence than imageUrl.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.imageUrl": {
+			"name": "camel.sink.endpoint.imageUrl",
+			"description": "Indicates the URL of an image. The options are as follows: HTTP\/HTTPS URLs on the public network OBS URLs. To use OBS data, authorization is required, including service authorization, temporary authorization, and anonymous public authorization. For details, see Configuring the Access Permission of OBS. Configure either this parameter or imageContent, and this one carries lower precedence than imageContent.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.projectId": {
+			"name": "camel.sink.endpoint.projectId",
+			"description": "Cloud project ID",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "Proxy server ip\/hostname",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.proxyPassword": {
+			"name": "camel.sink.endpoint.proxyPassword",
+			"description": "Proxy authentication password",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "Proxy server port",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.proxyUser": {
+			"name": "camel.sink.endpoint.proxyUser",
+			"description": "Proxy authentication user",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.region": {
+			"name": "camel.sink.endpoint.region",
+			"description": "Image Recognition service region. Currently only cn-north-1 and cn-north-4 are supported. This is lower precedence than endpoint based configuration.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.secretKey": {
+			"name": "camel.sink.endpoint.secretKey",
+			"description": "Secret key for the cloud user",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.serviceKeys": {
+			"name": "camel.sink.endpoint.serviceKeys",
+			"description": "Configuration object for cloud service authentication",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.tagLanguage": {
+			"name": "camel.sink.endpoint.tagLanguage",
+			"description": "Indicates the language of the returned tags when the operation is tagRecognition, including zh and en.",
+			"defaultValue": "\"zh\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.tagLimit": {
+			"name": "camel.sink.endpoint.tagLimit",
+			"description": "Indicates the maximum number of the returned tags when the operation is tagRecognition.",
+			"defaultValue": "50",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.threshold": {
+			"name": "camel.sink.endpoint.threshold",
+			"description": "Indicates the threshold of confidence. When the operation is tagRecognition, this parameter ranges from 0 to 100. Tags whose confidence score is lower than the threshold will not be returned. The default value is 60. When the operation is celebrityRecognition, this parameter ranges from 0 to 1. Labels whose confidence score is lower than the threshold will not be returned. The default value is 0.48.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.ignoreSslVerification": {
+			"name": "camel.sink.endpoint.ignoreSslVerification",
+			"description": "Ignore SSL verification",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.hwcloud-imagerecognition.lazyStartProducer": {
+			"name": "camel.component.hwcloud-imagerecognition.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.hwcloud-imagerecognition.autowiredEnabled": {
+			"name": "camel.component.hwcloud-imagerecognition.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

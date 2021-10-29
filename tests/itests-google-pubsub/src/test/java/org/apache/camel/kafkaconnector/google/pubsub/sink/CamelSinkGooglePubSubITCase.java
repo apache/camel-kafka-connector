@@ -76,7 +76,14 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
 
     @AfterEach
     public void tearDown() {
-        easyClient.shutdown();
+        try {
+            easyClient.deleteSubscription(testSubscription);
+            easyClient.deleteTopic(googlePubSubTopic);
+        } catch (InterruptedException | IOException e) {
+            fail(e.getMessage());
+        } finally {
+            easyClient.shutdown();
+        }
     }
 
     @Override

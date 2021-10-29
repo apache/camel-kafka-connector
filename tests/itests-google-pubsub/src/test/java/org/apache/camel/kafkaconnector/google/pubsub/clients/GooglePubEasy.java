@@ -74,6 +74,10 @@ public class GooglePubEasy {
         doCreateTopic(topicName);
     }
 
+    public void deleteTopic(String topicName) throws IOException, InterruptedException {
+        doDeleteTopic(topicName);
+    }
+
     public void createSubscription(String subscriptionName, String topicName) throws IOException {
         TopicName googleTopic = TopicName.of(project, topicName);
 
@@ -91,6 +95,20 @@ public class GooglePubEasy {
         }
     }
 
+    public void deleteSubscription(String subscriptionName) throws IOException {
+        projectSubscriptionName = ProjectSubscriptionName.of(project, subscriptionName);
+
+        SubscriptionAdminSettings adminSettings = SubscriptionAdminSettings
+                .newBuilder()
+                .setCredentialsProvider(NoCredentialsProvider.create())
+                .setTransportChannelProvider(channelProvider)
+                .build();
+
+        try (SubscriptionAdminClient subscriptionAdminClient = SubscriptionAdminClient.create(adminSettings)) {
+            subscriptionAdminClient.deleteSubscription(projectSubscriptionName);
+        }
+    }
+
     private void doCreateTopic(String topicName) throws IOException, InterruptedException {
         TopicName googleTopic = TopicName.of(project, topicName);
 
@@ -104,6 +122,26 @@ public class GooglePubEasy {
             LOG.info("Creating topic {} (original {})", googleTopic.toString(), googleTopic.getTopic());
 
             client.createTopic(googleTopic);
+
+            if (client.awaitTermination(10, TimeUnit.SECONDS)) {
+                client.shutdownNow();
+            }
+        }
+    }
+
+    private void doDeleteTopic(String topicName) throws IOException, InterruptedException {
+        TopicName googleTopic = TopicName.of(project, topicName);
+
+        TopicAdminSettings topicAdminSettings = TopicAdminSettings
+                .newBuilder()
+                .setCredentialsProvider(NoCredentialsProvider.create())
+                .setTransportChannelProvider(channelProvider)
+                .build();
+
+        try (TopicAdminClient client = TopicAdminClient.create(topicAdminSettings)) {
+            LOG.info("Deleting topic {} (original {})", googleTopic.toString(), googleTopic.getTopic());
+
+            client.deleteTopic(googleTopic);
 
             if (client.awaitTermination(10, TimeUnit.SECONDS)) {
                 client.shutdownNow();
