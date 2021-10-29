@@ -34,6 +34,9 @@ public class CamelGooglePubSubPropertyFactory extends SinkConnectorPropertyFacto
         return setProperty("camel.component.google-pubsub.endpoint", value);
     }
 
+    public CamelGooglePubSubPropertyFactory withAuthenticate(boolean authenticationEnabled) {
+        return setProperty("camel.component.google-pubsub.authenticate", authenticationEnabled);
+    }
 
     public EndpointUrlBuilder<CamelGooglePubSubPropertyFactory> withUrl(String projectId, String destinationName) {
         String queueUrl = String.format("google-pubsub:%s:%s", projectId, destinationName);
@@ -44,11 +47,10 @@ public class CamelGooglePubSubPropertyFactory extends SinkConnectorPropertyFacto
     public static CamelGooglePubSubPropertyFactory basic() {
         return new CamelGooglePubSubPropertyFactory()
                     .withTasksMax(1)
+                    .withAuthenticate(false)
                     .withName("CamelGooglePubSub")
                     .withConnectorClass("org.apache.camel.kafkaconnector.googlepubsub.CamelGooglepubsubSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                     .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
-
     }
-
 }
