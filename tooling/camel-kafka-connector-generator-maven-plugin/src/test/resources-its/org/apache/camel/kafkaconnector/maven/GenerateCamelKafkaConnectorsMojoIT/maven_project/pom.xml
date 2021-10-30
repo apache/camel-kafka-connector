@@ -131,6 +131,9 @@
                         <param>ref</param>
                         <param>robotframework</param>
                     </excludedComponents>
+                    <excludedConnectorsFromDeletion>
+                        <param>test</param>
+                    </excludedConnectorsFromDeletion>
                 </configuration>
                 <executions>
                     <execution>

@@ -148,6 +148,12 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
     @Parameter(defaultValue = "", readonly = true)
     private List excludedComponents = Collections.EMPTY_LIST;
 
+    /**
+     * The Exclusion List of connectors that must be skipped while deleting kafka connector.
+     */
+    @Parameter(defaultValue = "", readonly = true)
+    private List excludedConnectorsFromDeletion = Collections.EMPTY_LIST;
+
     @Component
     private ProjectDependenciesResolver projectDependenciesResolver;
 
@@ -335,13 +341,15 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                 if (existingConnectorNames != null) {
                     List<String> connectorsToRemove = Stream.of(existingConnectorNames).sorted().filter(filename -> {
                         String componentName = extractComponentName(filename);
-                        // set to remove connectors that are not generated from camel components or a kamelet
-                        return !sanitizedGeneratedFromComponentsConnectorsNames.contains(componentName) && !sanitizedGeneratedFromKameletsConnectorsNames.contains(componentName);
+                        // set to remove connectors that are not generated from camel components or a kamelet and are not excluded in excludedConnectorsFromDeletion
+                        return !sanitizedGeneratedFromComponentsConnectorsNames.contains(componentName)
+                                && !sanitizedGeneratedFromKameletsConnectorsNames.contains(componentName)
+                                && !excludedConnectorsFromDeletion.contains(componentName);
                     }).collect(Collectors.toList());
 
                     getLog().info("Connectors previously generated found to be removed: " + connectorsToRemove);
 
-                    for (String component: connectorsToRemove) {
+                    for (String connectorToBeRemoved: connectorsToRemove) {
 
                         executeMojo(
                                 plugin(
@@ -351,7 +359,7 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                                 ),
                                 goal("camel-kafka-connector-delete"),
                                 configuration(
-                                        element(name("name"), component),
+                                        element(name("name"), connectorToBeRemoved),
                                         element(name("connectorsProjectName"), connectorsProjectName)
                                 ),
                                 executionEnvironment(
