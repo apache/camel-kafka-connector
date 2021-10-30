@@ -101,7 +101,7 @@ public class CamelSourceNettyHTTPITCase extends CamelSourceTestSupport {
                 } else {
                     retriesLeft--;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(1000);
                     } catch (InterruptedException interruptedException) {
                         interruptedException.printStackTrace();
                     }
