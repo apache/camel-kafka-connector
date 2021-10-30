@@ -120,6 +120,9 @@
                         <param>ref</param>
                         <param>robotframework</param>
                     </excludedComponents>
+                    <excludedConnectorsFromDeletion>
+                        <param>syslog</param>
+                    </excludedConnectorsFromDeletion>
                 </configuration>
                 <executions>
                     <execution>
