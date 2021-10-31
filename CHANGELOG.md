@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.11.0...HEAD)
 
+**Fixed bugs:**
+
+- Error with Syslog Source Connector [\#665](https://github.com/apache/camel-kafka-connector/issues/665)
+
 **Closed issues:**
 
 - Using kinesis sink with STS assumeRole credentials? [\#1272](https://github.com/apache/camel-kafka-connector/issues/1272)
@@ -12,9 +16,13 @@
 - AWS SQS Source Message Delete [\#1266](https://github.com/apache/camel-kafka-connector/issues/1266)
 - Modular packaging of connectors? [\#1264](https://github.com/apache/camel-kafka-connector/issues/1264)
 - Bearer Token with HTTP sink? [\#1255](https://github.com/apache/camel-kafka-connector/issues/1255)
+- Run slow tests on Apache CI [\#786](https://github.com/apache/camel-kafka-connector/issues/786)
 
 **Merged pull requests:**
 
+- chore: regen. [\#1281](https://github.com/apache/camel-kafka-connector/pull/1281) ([valdar](https://github.com/valdar))
+- GenerateCamelKafkaConnectorsMojo : Added possibility to exclude conne… [\#1280](https://github.com/apache/camel-kafka-connector/pull/1280) ([valdar](https://github.com/valdar))
+- Camel3.12 [\#1279](https://github.com/apache/camel-kafka-connector/pull/1279) ([valdar](https://github.com/valdar))
 - Main latest to next2 [\#1278](https://github.com/apache/camel-kafka-connector/pull/1278) ([djencks](https://github.com/djencks))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1277](https://github.com/apache/camel-kafka-connector/pull/1277) ([github-actions[bot]](https://github.com/apps/github-actions))
 - camel kafka connector main latest to next [\#1275](https://github.com/apache/camel-kafka-connector/pull/1275) ([djencks](https://github.com/djencks))
