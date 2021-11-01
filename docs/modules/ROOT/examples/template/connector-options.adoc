@@ -1,0 +1,76 @@
+= camel-{basename}-kafka-connector {type} configuration
+:basename: ${basename}
+:type: ${type}
+:connector-option-name: util.boldLink(path[2], "connector_option")
+:last-cell-formats: |util.description(value) \
+|util.valueAsString(value.defaultValue) \
+|value.priority
+
+include::jsonpath$example$json/camel-{basename}-kafka-{type}-connector.json[query='$.connector',formats='class,artifactId,groupId,id,description', requires={requires}]]
+include::jsonpathcount$example$json/camel-{basename}-kafka-{type}-connector.json[queries='propertycount=nodes$.properties.*,convertercount=nodes$.converters.*,transformcount=nodes$.tranforms.*,aggregationstrategycount=nodes$.aggregationstrategies.*']
+
+Connector Description: {description}
+
+When using camel-{basename}-kafka-connector as {type} make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml,subs=+attributes]
+----
+<dependency>
+  <groupId>{groupid}</groupId>
+  <artifactId>{artifactid}</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this {type} connector in Kafka connect you'll need to set the following connector.class
+
+[source,java,subs=+attributes]
+----
+connector.class={class}
+----
+
+ifeval::[{propertycount} == 0]
+The camel-{basename} {type} connector has no options.
+endif::[]
+ifeval::[{propertycount} != 0]
+The camel-{basename} {type} connector supports {propertycount} options, which are listed below.
+
+[width="100%",cols="2a,5a,^1,1",options="header"]
+|===
+| Name | Description | Default | Priority
+|===
+
+jsonpathTable::example$json/camel-{basename}-kafka-{type}-connector.json['nodes$.properties.*','{connector-option-name}{last-cell-formats}',{requires}]
+
+endif::[]
+
+ifeval::[{convertercount} == 0]
+The camel-{basename} {type} connector has no converters out of the box.
+endif::[]
+ifeval::[{convertercount} != 0]
+The camel-{basename} {type} connector supports {convertercount}  converters out of the box, which are listed below.
+
+jsonpathList::example$json/camel-{basename}-kafka-{type}-connector.json['nodes$.converters.*','value',{requires}]
+
+endif::[]
+
+ifeval::[{transformcount} == 0]
+The camel-{basename} {type} connector has no transforms out of the box.
+endif::[]
+ifeval::[{transformcount} != 0]
+The camel-{basename} {type} connector supports {transformcount}  transforms out of the box, which are listed below.
+
+jsonpathList::example$json/camel-{basename}-kafka-{type}-connector.json['nodes$.transforms.*','value',{requires}]
+
+endif::[]
+
+ifeval::[{aggregationstrategycount} == 0]
+The camel-{basename} {type} connector has no aggregation strategies out of the box.
+endif::[]
+ifeval::[{aggregationstrategycount} != 0]
+The camel-{basename} {type} connector supports {aggregationstrategycount}  aggregation strategies out of the box, which are listed below.
+
+jsonpathList::example$json/camel-{basename}-kafka-{type}-connector.json['nodes$.aggregationstrategies.*','value',{requires}]
+
+endif::[]
