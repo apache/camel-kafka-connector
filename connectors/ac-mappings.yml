@@ -1,0 +1,17 @@
+mappings:
+  - module: ROOT
+    family: example
+    path:
+      include:
+        - '*/src/generated/resources/*.json'
+    relativemap:
+      - match: '*/src/generated/resources/camel-(?<name>*)-(?<type>source|sink).json'
+        format: 'json/camel-{name}-kafka-{type}-connector.json'
+  - module: ROOT
+    family: page
+    path:
+      include:
+        - 'camel-syslog-kafka-connector/src/main/docs/*.adoc'
+    relativemap:
+      - match: 'camel-syslog-kafka-connector/src/main/docs/(?<body>*).adoc'
+        format: 'reference/connectors/{body}.adoc'
