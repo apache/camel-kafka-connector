@@ -24,7 +24,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -58,7 +57,6 @@ import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
 import org.apache.camel.kafkaconnector.maven.utils.YamlKameletMapper;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
-import org.apache.camel.maven.packaging.MvelHelper;
 import org.apache.camel.tooling.util.Strings;
 import org.apache.camel.tooling.util.srcgen.JavaClass;
 import org.apache.camel.tooling.util.srcgen.Method;
@@ -542,28 +540,6 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
             throw new MojoExecutionException("Error processing mvel examples properties template. Reason: " + e, e);
         }
 
-        // Generate documentation in src/main/docs and
-        // docs/modules/ROOT/pages/reference/connectors
-        File docFolder = new File(connectorDir, "src/main/docs/");
-        File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/reference/connectors/");
-        File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        String changed = templateAutoConfigurationOptions(listOptions, kamelet.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList,
-                                                          transformsList, aggregationStrategiesList);
-
-        boolean updated = updateAutoConfigureOptions(docFile, changed);
-        if (updated) {
-            getLog().info("Updated doc file: " + docFile);
-        } else {
-            getLog().debug("No changes to doc file: " + docFile);
-        }
-        boolean updatedWebsite = updateAutoConfigureOptions(docFileWebsite, changed);
-        if (updatedWebsite) {
-            getLog().info("Updated website doc file: " + docFileWebsite);
-        } else {
-            getLog().debug("No changes to website doc file: " + docFileWebsite);
-        }
-
         // generate json descriptor src/generated/resources/<connector-name>.json
         writeJson(listOptions, kamelet.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
         // generate descriptor src/generated/descriptors/connector-{sink,source}.properties
@@ -659,42 +635,6 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
         optionModel.setRequired(String.valueOf(isRequired));
         //XXX: kamelets dose not support enum like properties type yet.
         listOptions.add(optionModel);
-    }
-
-    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentDescription, File connectorDir, ConnectorType ct, String connectorClass,
-                                                    List<String> convertersList, List<String> transformsList, List<String> aggregationStrategiesList)
-        throws MojoExecutionException {
-
-        CamelKafkaConnectorModel model = new CamelKafkaConnectorModel();
-        model.setOptions(options);
-        model.setArtifactId(getMainDepArtifactId());
-        model.setGroupId(getMainDepGroupId());
-        model.setVersion(getMainDepVersion());
-        model.setConnectorClass(connectorClass);
-        model.setConverters(convertersList);
-        model.setTransforms(transformsList);
-        model.setAggregationStrategies(aggregationStrategiesList);
-        model.setDescription(componentDescription);
-        if (getMainDepArtifactId().equalsIgnoreCase("camel-coap+tcp")) {
-            model.setTitle("camel-coap-tcp");
-        } else if (getMainDepArtifactId().equalsIgnoreCase("camel-coaps+tcp")) {
-            model.setTitle("camel-coaps-tcp");
-        } else {
-            model.setTitle(getMainDepArtifactId());
-        }
-
-        try {
-            String template = null;
-            if (ct.name().equals(ConnectorType.SINK.name())) {
-                template = loadText(CamelKafkaConnectorKameletUpdateMojo.class.getClassLoader().getResourceAsStream("camel-kafka-connector-sink-options.mvel"));
-            } else if (ct.name().equals(ConnectorType.SOURCE.name())) {
-                template = loadText(CamelKafkaConnectorKameletUpdateMojo.class.getClassLoader().getResourceAsStream("camel-kafka-connector-source-options.mvel"));
-            }
-            String out = (String)TemplateRuntime.eval(template, model, Collections.singletonMap("util", MvelHelper.INSTANCE));
-            return out;
-        } catch (Exception e) {
-            throw new MojoExecutionException("Error processing mvel template. Reason: " + e, e);
-        }
     }
 
     private void writeJson(List<CamelKafkaConnectorOptionModel> options, String componentDescription, File connectorDir, ConnectorType ct, String connectorClass,
