@@ -7,7 +7,7 @@
 |value.priority
 
 include::jsonpath$example$json/camel-{basename}-kafka-{type}-connector.json[query='$.connector',formats='class,artifactId,groupId,id,description', requires={requires}]]
-include::jsonpathcount$example$json/camel-{basename}-kafka-{type}-connector.json[queries='propertycount=nodes$.properties.*,convertercount=nodes$.converters.*,transformcount=nodes$.tranforms.*,aggregationstrategycount=nodes$.aggregationstrategies.*']
+include::jsonpathcount$example$json/camel-{basename}-kafka-{type}-connector.json[queries='propertycount=nodes$.properties.*,convertercount=nodes$.converters.*,transformcount=nodes$.transforms.*,aggregationstrategycount=nodes$.aggregationStrategies.*']
 
 Connector Description: {description}
 
@@ -71,6 +71,6 @@ endif::[]
 ifeval::[{aggregationstrategycount} != 0]
 The camel-{basename} {type} connector supports {aggregationstrategycount}  aggregation strategies out of the box, which are listed below.
 
-jsonpathList::example$json/camel-{basename}-kafka-{type}-connector.json['nodes$.aggregationstrategies.*','value',{requires}]
+jsonpathList::example$json/camel-{basename}-kafka-{type}-connector.json['nodes$.aggregationStrategies.*','value',{requires}]
 
 endif::[]
