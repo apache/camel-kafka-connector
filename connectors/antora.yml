@@ -2,4 +2,4 @@
 # A distributed part of the component at /docs/antora.yml
 
 name: camel-kafka-connector
-version: next
+version: 0.11.0
