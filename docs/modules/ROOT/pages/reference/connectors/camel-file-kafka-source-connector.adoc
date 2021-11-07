@@ -136,4 +136,8 @@ org.apache.camel.kafkaconnector.file.transformers.FileTransforms
 
 
 The camel-file source connector has no aggregation strategies out of the box.
+
+
+
+
 // kafka-connector options: END
