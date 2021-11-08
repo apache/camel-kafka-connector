@@ -20,6 +20,7 @@
 
 **Merged pull requests:**
 
+- Fixed documentation for removed connectors. [\#1283](https://github.com/apache/camel-kafka-connector/pull/1283) ([valdar](https://github.com/valdar))
 - chore: regen. [\#1281](https://github.com/apache/camel-kafka-connector/pull/1281) ([valdar](https://github.com/valdar))
 - GenerateCamelKafkaConnectorsMojo : Added possibility to exclude conne… [\#1280](https://github.com/apache/camel-kafka-connector/pull/1280) ([valdar](https://github.com/valdar))
 - Camel3.12 [\#1279](https://github.com/apache/camel-kafka-connector/pull/1279) ([valdar](https://github.com/valdar))
