@@ -36,7 +36,7 @@ endif::[]
 ifeval::[{propertycount} != 0]
 The camel-{basename} {type} connector supports {propertycount} options, which are listed below.
 
-[width="100%",cols="2a,5a,^1,1",options="header"]
+[width="100%",cols="2,5a,^1,1",options="header"]
 |===
 | Name | Description | Default | Priority
 |===
