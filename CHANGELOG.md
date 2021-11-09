@@ -10,12 +10,14 @@
 
 **Closed issues:**
 
+- Cannot findr camel-salesforce-source-kafka-connector in maven repository [\#1284](https://github.com/apache/camel-kafka-connector/issues/1284)
 - Using kinesis sink with STS assumeRole credentials? [\#1272](https://github.com/apache/camel-kafka-connector/issues/1272)
 - Salesforce Camel Kafka Source Connector not converting to JSON [\#1271](https://github.com/apache/camel-kafka-connector/issues/1271)
 - java.lang.NullPointerException in kinesis sink connector if headers not present  [\#1268](https://github.com/apache/camel-kafka-connector/issues/1268)
 - AWS SQS Source Message Delete [\#1266](https://github.com/apache/camel-kafka-connector/issues/1266)
 - Modular packaging of connectors? [\#1264](https://github.com/apache/camel-kafka-connector/issues/1264)
 - Bearer Token with HTTP sink? [\#1255](https://github.com/apache/camel-kafka-connector/issues/1255)
+- One file per message \(kafka hdfs sink connector\) [\#1222](https://github.com/apache/camel-kafka-connector/issues/1222)
 - Run slow tests on Apache CI [\#786](https://github.com/apache/camel-kafka-connector/issues/786)
 
 **Merged pull requests:**
