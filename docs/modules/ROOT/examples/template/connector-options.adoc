@@ -6,10 +6,10 @@
 |util.valueAsString(value.defaultValue) \
 |value.priority
 
-include::jsonpath$example$json/camel-{basename}-kafka-{type}-connector.json[query='$.connector',formats='class,artifactId,groupId,id,description', requires={requires}]]
+include::jsonpath$example$json/camel-{basename}-kafka-{type}-connector.json[query='$.connector',formats='class,artifactId,groupId,id,desc=util.scSubs(description)', requires={requires}]]
 include::jsonpathcount$example$json/camel-{basename}-kafka-{type}-connector.json[queries='propertycount=nodes$.properties.*,convertercount=nodes$.converters.*,transformcount=nodes$.transforms.*,aggregationstrategycount=nodes$.aggregationStrategies.*']
 
-Connector Description: {description}
+Connector Description: {desc}
 
 When using camel-{basename}-kafka-connector as {type} make sure to use the following Maven dependency to have support for the connector:
 
