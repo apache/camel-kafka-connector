@@ -22,6 +22,7 @@
 
 **Merged pull requests:**
 
+- Fixed missing syslog documentation. [\#1288](https://github.com/apache/camel-kafka-connector/pull/1288) ([valdar](https://github.com/valdar))
 - Fixed documentation for removed connectors. [\#1283](https://github.com/apache/camel-kafka-connector/pull/1283) ([valdar](https://github.com/valdar))
 - chore: regen. [\#1281](https://github.com/apache/camel-kafka-connector/pull/1281) ([valdar](https://github.com/valdar))
 - GenerateCamelKafkaConnectorsMojo : Added possibility to exclude conne… [\#1280](https://github.com/apache/camel-kafka-connector/pull/1280) ([valdar](https://github.com/valdar))
