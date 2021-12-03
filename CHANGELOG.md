@@ -10,6 +10,7 @@
 
 **Closed issues:**
 
+- Fails to create CamelAws2sqsSourceConnector [\#1293](https://github.com/apache/camel-kafka-connector/issues/1293)
 - The pre-release salesforce source connector, how does the query field work? [\#1289](https://github.com/apache/camel-kafka-connector/issues/1289)
 - Cannot findr camel-salesforce-source-kafka-connector in maven repository [\#1284](https://github.com/apache/camel-kafka-connector/issues/1284)
 - Using kinesis sink with STS assumeRole credentials? [\#1272](https://github.com/apache/camel-kafka-connector/issues/1272)
