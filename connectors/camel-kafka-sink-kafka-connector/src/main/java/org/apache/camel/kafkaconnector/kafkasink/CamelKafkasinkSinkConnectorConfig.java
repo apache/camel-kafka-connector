@@ -29,18 +29,18 @@ public class CamelKafkasinkSinkConnectorConfig
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_CONF = "camel.kamelet.kafka-sink.topic";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_DOC = "Comma separated list of Kafka topic names";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_DEFAULT = null;
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_BROKERS_CONF = "camel.kamelet.kafka-sink.brokers";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_BROKERS_DOC = "Comma separated list of Kafka Broker URLs";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_BROKERS_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_CONF = "camel.kamelet.kafka-sink.bootstrapServers";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_CONF = "camel.kamelet.kafka-sink.securityProtocol";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DOC = "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DEFAULT = "SASL_SSL";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_CONF = "camel.kamelet.kafka-sink.saslMechanism";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DOC = "The Simple Authentication and Security Layer (SASL) Mechanism used.";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DEFAULT = "PLAIN";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USERNAME_CONF = "camel.kamelet.kafka-sink.username";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USERNAME_DOC = "Username to authenticate to Kafka";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USER_CONF = "camel.kamelet.kafka-sink.user";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USER_DOC = "Username to authenticate to Kafka";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USER_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_CONF = "camel.kamelet.kafka-sink.password";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DOC = "Password to authenticate to kafka";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DEFAULT = null;
@@ -58,10 +58,10 @@ public class CamelKafkasinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_DOC);
-        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_BROKERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_BROKERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_BROKERS_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DOC);
         conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DOC);
-        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_USER_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_USER_DOC);
         conf.define(CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DOC);
         return conf;
     }

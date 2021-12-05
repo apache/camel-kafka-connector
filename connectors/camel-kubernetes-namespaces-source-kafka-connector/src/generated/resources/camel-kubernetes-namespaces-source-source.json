@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kubernetesnamespacessource.CamelKubernetesnamespacessourceSourceConnector",
+		"artifactId": "camel-kubernetes-namespaces-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kubernetes-namespaces-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Consume Events from Kubernetes Namespaces"
+	},
+	"properties": {
+		"camel.kamelet.kubernetes-namespaces-source.token": {
+			"name": "camel.kamelet.kubernetes-namespaces-source.token",
+			"description": "The Auth Token to connect to Kubernetes Cluster",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kubernetes-namespaces-source.masterUrl": {
+			"name": "camel.kamelet.kubernetes-namespaces-source.masterUrl",
+			"description": "The Kubernetes Cluster Master URL",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

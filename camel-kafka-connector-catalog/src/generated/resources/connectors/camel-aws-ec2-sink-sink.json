@@ -6,7 +6,7 @@
 		"id": "camel-aws-ec2-sink-sink",
 		"type": "sink",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Check the status of EC2 instances\n\nThe Kamelet expects the following headers to be set:\n\n- `instanceIds` \/ `ce-instanceIds`: as a comma separated list of EC2 instance ids."
+		"description": "Check the status of EC2 instances\n\nThe Kamelet expects the following headers to be set:\n\n- `instanceIds` \/ `ce-instanceids`: as a comma separated list of EC2 instance ids."
 	},
 	"properties": {
 		"camel.kamelet.aws-ec2-sink.accessKey": {

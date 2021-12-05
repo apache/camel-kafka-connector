@@ -1,0 +1,52 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlepubsubsource.CamelGooglepubsubsourceSourceConnector",
+		"artifactId": "camel-google-pubsub-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-pubsub-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Consume messages from Google Pubsub.\n\nThe serviceAccountKey property needs to be encoded in base64, so when you pass it as parameter, don't forget to encode it."
+	},
+	"properties": {
+		"camel.kamelet.google-pubsub-source.projectId": {
+			"name": "camel.kamelet.google-pubsub-source.projectId",
+			"description": "The Google Cloud PubSub Project Id",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-pubsub-source.subscriptionName": {
+			"name": "camel.kamelet.google-pubsub-source.subscriptionName",
+			"description": "The Subscription Name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-pubsub-source.serviceAccountKey": {
+			"name": "camel.kamelet.google-pubsub-source.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the PubSub publisher\/subscriber",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-pubsub-source.synchronousPull": {
+			"name": "camel.kamelet.google-pubsub-source.synchronousPull",
+			"description": "If Synchronously pull batches of messages is enabled or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-pubsub-source.maxMessagesPerPoll": {
+			"name": "camel.kamelet.google-pubsub-source.maxMessagesPerPoll",
+			"description": "The max number of messages to receive from the server in a single API call",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-pubsub-source.concurrentConsumers": {
+			"name": "camel.kamelet.google-pubsub-source.concurrentConsumers",
+			"description": "The number of parallel streams consuming from the subscription",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

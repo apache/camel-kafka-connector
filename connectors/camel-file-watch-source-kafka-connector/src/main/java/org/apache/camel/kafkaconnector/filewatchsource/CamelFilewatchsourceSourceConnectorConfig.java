@@ -26,9 +26,9 @@ public class CamelFilewatchsourceSourceConnectorConfig
         extends
             CamelSourceConnectorConfig {
 
-    public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_PATH_CONF = "camel.kamelet.file-watch-source.path";
-    public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_PATH_DOC = "Path of file or folder to watch";
-    public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_PATH_DEFAULT = null;
+    public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_FILE_PATH_CONF = "camel.kamelet.file-watch-source.filePath";
+    public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_FILE_PATH_DOC = "Path of file or folder to watch";
+    public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_FILE_PATH_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_EVENTS_CONF = "camel.kamelet.file-watch-source.events";
     public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_EVENTS_DOC = "The type of events to consume";
     public static final String CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_EVENTS_DEFAULT = "CREATE,MODIFY,DELETE";
@@ -46,7 +46,7 @@ public class CamelFilewatchsourceSourceConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
-        conf.define(CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_PATH_DOC);
+        conf.define(CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_FILE_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_FILE_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_FILE_PATH_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_EVENTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_EVENTS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FILEWATCHSOURCE_KAMELET_EVENTS_DOC);
         return conf;
     }

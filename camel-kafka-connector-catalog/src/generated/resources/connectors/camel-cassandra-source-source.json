@@ -9,14 +9,14 @@
 		"description": "Query a Cassandra cluster table."
 	},
 	"properties": {
-		"camel.kamelet.cassandra-source.host": {
-			"name": "camel.kamelet.cassandra-source.host",
+		"camel.kamelet.cassandra-source.connectionHost": {
+			"name": "camel.kamelet.cassandra-source.connectionHost",
 			"description": "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.cassandra-source.port": {
-			"name": "camel.kamelet.cassandra-source.port",
+		"camel.kamelet.cassandra-source.connectionPort": {
+			"name": "camel.kamelet.cassandra-source.connectionPort",
 			"description": "Port number of cassandra server(s) Example: 9042",
 			"priority": "HIGH",
 			"required": "true"

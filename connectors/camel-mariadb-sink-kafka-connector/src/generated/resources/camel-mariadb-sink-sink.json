@@ -15,8 +15,8 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.mariadb-sink.port": {
-			"name": "camel.kamelet.mariadb-sink.port",
+		"camel.kamelet.mariadb-sink.serverPort": {
+			"name": "camel.kamelet.mariadb-sink.serverPort",
 			"description": "Server Port for the data source",
 			"defaultValue": "\"3306\"",
 			"priority": "MEDIUM",

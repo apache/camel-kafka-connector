@@ -15,8 +15,8 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.postgresql-source.port": {
-			"name": "camel.kamelet.postgresql-source.port",
+		"camel.kamelet.postgresql-source.serverPort": {
+			"name": "camel.kamelet.postgresql-source.serverPort",
 			"description": "Server Port for the data source",
 			"defaultValue": "\"5432\"",
 			"priority": "MEDIUM",

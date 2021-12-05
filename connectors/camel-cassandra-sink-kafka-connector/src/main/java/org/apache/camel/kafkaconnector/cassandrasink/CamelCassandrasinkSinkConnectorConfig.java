@@ -26,12 +26,12 @@ public class CamelCassandrasinkSinkConnectorConfig
         extends
             CamelSinkConnectorConfig {
 
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_HOST_CONF = "camel.kamelet.cassandra-sink.host";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_HOST_DOC = "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_HOST_DEFAULT = null;
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PORT_CONF = "camel.kamelet.cassandra-sink.port";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PORT_DOC = "Port number of cassandra server(s) Example: 9042";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PORT_DEFAULT = null;
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.cassandra-sink.connectionHost";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_DOC = "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_DEFAULT = null;
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.cassandra-sink.connectionPort";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_DOC = "Port number of cassandra server(s) Example: 9042";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_DEFAULT = null;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_CONF = "camel.kamelet.cassandra-sink.keyspace";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_DOC = "Keyspace to use Example: customers";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_DEFAULT = null;
@@ -61,8 +61,8 @@ public class CamelCassandrasinkSinkConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
-        conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_HOST_DOC);
-        conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_PORT_DOC);
+        conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_DOC);
+        conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_DOC);
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_DOC);
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_DOC);

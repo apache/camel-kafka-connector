@@ -116,7 +116,7 @@
 		"camel.sink.endpoint.connectTimeout": {
 			"name": "camel.sink.endpoint.connectTimeout",
 			"description": "Define the timeoutconnect in milliseconds",
-			"defaultValue": "2500L",
+			"defaultValue": "30000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

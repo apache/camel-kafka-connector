@@ -48,6 +48,12 @@
 			"defaultValue": "\"latest\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.kafka-not-secured-source.consumerGroup": {
+			"name": "camel.kamelet.kafka-not-secured-source.consumerGroup",
+			"description": "A string that uniquely identifies the group of consumers to which this source belongs Example: my-group-id",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

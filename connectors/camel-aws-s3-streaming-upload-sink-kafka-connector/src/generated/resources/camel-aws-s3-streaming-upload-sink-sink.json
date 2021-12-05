@@ -68,6 +68,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadTimeout": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadTimeout",
+			"description": "While streaming upload mode is true, this option set the timeout to complete upload",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.namingStrategy": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.namingStrategy",
 			"description": "The naming strategy to use in streaming upload mode. There are 2 enums and the value can be one of progressive, random",

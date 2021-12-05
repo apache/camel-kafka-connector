@@ -42,7 +42,7 @@
 		},
 		"camel.kamelet.minio-source.autoCreateBucket": {
 			"name": "camel.kamelet.minio-source.autoCreateBucket",
-			"description": "Setting the autocreation of the S3 bucket bucketName.",
+			"description": "Setting the autocreation of the Minio bucket bucketName.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

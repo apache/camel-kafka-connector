@@ -26,12 +26,12 @@ public class CamelCassandrasourceSourceConnectorConfig
         extends
             CamelSourceConnectorConfig {
 
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_HOST_CONF = "camel.kamelet.cassandra-source.host";
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_HOST_DOC = "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost";
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_HOST_DEFAULT = null;
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PORT_CONF = "camel.kamelet.cassandra-source.port";
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PORT_DOC = "Port number of cassandra server(s) Example: 9042";
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PORT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.cassandra-source.connectionHost";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_HOST_DOC = "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_HOST_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.cassandra-source.connectionPort";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_PORT_DOC = "Port number of cassandra server(s) Example: 9042";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_PORT_DEFAULT = null;
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_KEYSPACE_CONF = "camel.kamelet.cassandra-source.keyspace";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_KEYSPACE_DOC = "Keyspace to use Example: customers";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_KEYSPACE_DEFAULT = null;
@@ -64,8 +64,8 @@ public class CamelCassandrasourceSourceConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
-        conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_HOST_DOC);
-        conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PORT_DOC);
+        conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_HOST_DOC);
+        conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONNECTION_PORT_DOC);
         conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_KEYSPACE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_KEYSPACE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_KEYSPACE_DOC);
         conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PASSWORD_DOC);

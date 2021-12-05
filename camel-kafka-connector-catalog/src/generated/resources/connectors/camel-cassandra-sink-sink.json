@@ -9,14 +9,14 @@
 		"description": "Send data to a Cassandra Cluster.\n\nThis Kamelet expects the body as JSON Array. The content of the JSON Array will be used as input for the CQL Prepared Statement set in the query parameter."
 	},
 	"properties": {
-		"camel.kamelet.cassandra-sink.host": {
-			"name": "camel.kamelet.cassandra-sink.host",
+		"camel.kamelet.cassandra-sink.connectionHost": {
+			"name": "camel.kamelet.cassandra-sink.connectionHost",
 			"description": "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.cassandra-sink.port": {
-			"name": "camel.kamelet.cassandra-sink.port",
+		"camel.kamelet.cassandra-sink.connectionPort": {
+			"name": "camel.kamelet.cassandra-sink.connectionPort",
 			"description": "Port number of cassandra server(s) Example: 9042",
 			"priority": "HIGH",
 			"required": "true"

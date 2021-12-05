@@ -159,7 +159,7 @@
 		"camel.source.endpoint.connectTimeout": {
 			"name": "camel.source.endpoint.connectTimeout",
 			"description": "Define the timeoutconnect in milliseconds",
-			"defaultValue": "2500L",
+			"defaultValue": "30000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -24,14 +24,14 @@
 		"camel.kamelet.mongodb-source.password": {
 			"name": "camel.kamelet.mongodb-source.password",
 			"description": "User password for accessing MongoDB.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.mongodb-source.username": {
 			"name": "camel.kamelet.mongodb-source.username",
-			"description": "Username for accessing MongoDB.",
-			"priority": "HIGH",
-			"required": "true"
+			"description": "Username for accessing MongoDB. The username must be present in the MongoDB's authentication database (authenticationDatabase). By default, the MongoDB authenticationDatabase is 'admin'.",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.mongodb-source.database": {
 			"name": "camel.kamelet.mongodb-source.database",

@@ -9,14 +9,14 @@
 		"description": "Receive data from an FTPS Server."
 	},
 	"properties": {
-		"camel.kamelet.ftps-source.host": {
-			"name": "camel.kamelet.ftps-source.host",
+		"camel.kamelet.ftps-source.connectionHost": {
+			"name": "camel.kamelet.ftps-source.connectionHost",
 			"description": "Hostname of the FTPS server",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.ftps-source.port": {
-			"name": "camel.kamelet.ftps-source.port",
+		"camel.kamelet.ftps-source.connectionPort": {
+			"name": "camel.kamelet.ftps-source.connectionPort",
 			"description": "Port of the FTPS server",
 			"defaultValue": "\"21\"",
 			"priority": "HIGH",

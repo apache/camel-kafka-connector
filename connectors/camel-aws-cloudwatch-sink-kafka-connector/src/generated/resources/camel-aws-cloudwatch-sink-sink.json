@@ -6,7 +6,7 @@
 		"id": "camel-aws-cloudwatch-sink-sink",
 		"type": "sink",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Send messages to AWS CloudWatch metrics.\n\nThere are several properties you can set in the headers, such as:\n\n`metric-name` \/ `ce-metric-name` for the metric name.\n`metric-value` \/ `ce-metric-value` for the metric value.\n`metric-unit` \/ `ce-metric-unit` for the metric unit.\n`metric-timestamp` \/ `ce-metric-timestamp` for the metric timestamp.\n`metric-dimension-name` \/ `ce-metric-dimension-name` for the dimension name.\n`metric-dimension-value` \/ `ce-metric-dimension-value` for the dimension value."
+		"description": "Send messages to AWS CloudWatch metrics.\n\nThere are several properties you can set in the headers, such as:\n\n`metric-name` \/ `ce-metricname` for the metric name.\n`metric-value` \/ `ce-metricvalue` for the metric value.\n`metric-unit` \/ `ce-metricunit` for the metric unit.\n`metric-timestamp` \/ `ce-metrictimestamp` for the metric timestamp.\n`metric-dimension-name` \/ `ce-metricdimensionname` for the dimension name.\n`metric-dimension-value` \/ `ce-metricdimensionvalue` for the dimension value."
 	},
 	"properties": {
 		"camel.kamelet.aws-cloudwatch-sink.cw_namespace": {

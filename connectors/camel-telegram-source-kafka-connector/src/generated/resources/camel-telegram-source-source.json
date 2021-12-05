@@ -6,7 +6,7 @@
 		"id": "camel-telegram-source-source",
 		"type": "source",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Receive all messages that people send to your Telegram bot.\n\nTo create a bot, contact the @botfather account using the Telegram app."
+		"description": "Receive all messages that people send to your Telegram bot.\n\nTo create a bot, contact the @botfather account using the Telegram app.\n\nThe source attaches the following headers to the messages:\n\n- `chat-id` \/ `ce-chatid`: the ID of the chat where the message comes from"
 	},
 	"properties": {
 		"camel.kamelet.telegram-source.authorizationToken": {

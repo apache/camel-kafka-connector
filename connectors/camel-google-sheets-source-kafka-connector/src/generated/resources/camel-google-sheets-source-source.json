@@ -52,6 +52,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.google-sheets-source.repeatCount": {
+			"name": "camel.kamelet.google-sheets-source.repeatCount",
+			"description": "Specifies a maximum limit of number of fires",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.google-sheets-source.applicationName": {
 			"name": "camel.kamelet.google-sheets-source.applicationName",
 			"description": "Google Sheets application name",

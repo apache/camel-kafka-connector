@@ -9,6 +9,12 @@
 		"description": "Get Events from an Infinispan cache"
 	},
 	"properties": {
+		"camel.kamelet.infinispan-source.cacheName": {
+			"name": "camel.kamelet.infinispan-source.cacheName",
+			"description": "The name of the Infinispan cache to use",
+			"priority": "HIGH",
+			"required": "true"
+		},
 		"camel.kamelet.infinispan-source.hosts": {
 			"name": "camel.kamelet.infinispan-source.hosts",
 			"description": "Specifies the host of the cache on Infinispan instance",

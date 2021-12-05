@@ -76,7 +76,7 @@ public class CamelCouchbaseSinkConnectorConfig
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_ADDITIONAL_HOSTS_DEFAULT = null;
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_CONF = "camel.sink.endpoint.connectTimeout";
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_DOC = "Define the timeoutconnect in milliseconds";
-    public static final Long CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_DEFAULT = 2500L;
+    public static final Long CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_DEFAULT = 30000L;
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_CONF = "camel.sink.endpoint.queryTimeout";
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_DOC = "Define the operation timeout in milliseconds";
     public static final Long CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_DEFAULT = 2500L;

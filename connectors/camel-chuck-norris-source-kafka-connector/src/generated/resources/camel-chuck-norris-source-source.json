@@ -6,7 +6,7 @@
 		"id": "camel-chuck-norris-source-source",
 		"type": "source",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Gets peridically Chuck Norris jokes from http:\/\/www.icndb.com\/"
+		"description": "Gets periodically Chuck Norris jokes from http:\/\/www.icndb.com\/"
 	},
 	"properties": {
 		"camel.kamelet.chuck-norris-source.period": {

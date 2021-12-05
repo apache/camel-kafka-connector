@@ -6,7 +6,7 @@
 		"id": "camel-elasticsearch-index-sink-sink",
 		"type": "sink",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "This sink stores documents into ElasticSearch.\n\nInput data must have JSON format according to the index used.\n\nIf the *indexId* parameter is set, that value will be used as the document ID on ElasticSearch.\n\nIf the *indexId* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic, partition and offset of the\nelement to generate an automatic ID that warrantees that this element is processed only once.\n\nIf the *indexName* parameter is not set and the source of the kamelet binding is a Kafka broker, it will take the kafka topic as the indexName."
+		"description": "This sink stores documents into ElasticSearch.\n\nInput data must have JSON format according to the index used.\n\n- `indexId` \/ `ce-indexid`: as the index ID for Elasticsearch\n\nIf the header won't be set the exchange ID will be used as index.\n\n- `indexName` \/ `ce-indexname`: as the index Name for Elasticsearch\n\nIf the header won't be set the exchange ID will be used as index name."
 	},
 	"properties": {
 		"camel.kamelet.elasticsearch-index-sink.user": {
@@ -34,23 +34,15 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.elasticsearch-index-sink.indexName": {
-			"name": "camel.kamelet.elasticsearch-index-sink.indexName",
-			"description": "The name of the index to act against. Example: data",
-			"defaultValue": "\"NONE\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.kamelet.elasticsearch-index-sink.clusterName": {
 			"name": "camel.kamelet.elasticsearch-index-sink.clusterName",
 			"description": "Name of the cluster. Example: quickstart",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.elasticsearch-index-sink.indexId": {
-			"name": "camel.kamelet.elasticsearch-index-sink.indexId",
-			"description": "None",
-			"defaultValue": "\"NONE\"",
+		"camel.kamelet.elasticsearch-index-sink.indexName": {
+			"name": "camel.kamelet.elasticsearch-index-sink.indexName",
+			"description": "The name of the index to act against. Example: data",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

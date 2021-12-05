@@ -1,0 +1,31 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlepubsubsink.CamelGooglepubsubsinkSinkConnector",
+		"artifactId": "camel-google-pubsub-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-pubsub-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Send messages to Google Pubsub.\n\nThe serviceAccountKey property needs to be encoded in base64, so when you pass it as parameter, don't forget to encode it."
+	},
+	"properties": {
+		"camel.kamelet.google-pubsub-sink.projectId": {
+			"name": "camel.kamelet.google-pubsub-sink.projectId",
+			"description": "The Google Cloud PubSub Project Id",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-pubsub-sink.destinationName": {
+			"name": "camel.kamelet.google-pubsub-sink.destinationName",
+			"description": "The Destination Name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-pubsub-sink.serviceAccountKey": {
+			"name": "camel.kamelet.google-pubsub-sink.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the PubSub publisher\/subscriber",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

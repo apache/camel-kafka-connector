@@ -6,7 +6,7 @@
 		"id": "camel-mongodb-sink-sink",
 		"type": "sink",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Send documents to MongoDB.\n\nThis Kamelet expects a JSON as body.\n\nProperties you can as headers:\n\n`db-upsert` \/ `ce-db-upsert` If the database should create the element if it does not exist. Boolean value."
+		"description": "Send documents to MongoDB.\n\nThis Kamelet expects a JSON as body.\n\nProperties you can as headers:\n\n`db-upsert` \/ `ce-dbupsert` If the database should create the element if it does not exist. Boolean value."
 	},
 	"properties": {
 		"camel.kamelet.mongodb-sink.hosts": {
@@ -24,14 +24,14 @@
 		"camel.kamelet.mongodb-sink.password": {
 			"name": "camel.kamelet.mongodb-sink.password",
 			"description": "User password for accessing MongoDB.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.mongodb-sink.username": {
 			"name": "camel.kamelet.mongodb-sink.username",
 			"description": "Username for accessing MongoDB.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.mongodb-sink.database": {
 			"name": "camel.kamelet.mongodb-sink.database",

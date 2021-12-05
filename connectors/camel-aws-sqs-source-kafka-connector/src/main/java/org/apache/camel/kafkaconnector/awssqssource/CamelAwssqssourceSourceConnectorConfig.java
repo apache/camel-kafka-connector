@@ -44,6 +44,12 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AUTO_CREATE_QUEUE_CONF = "camel.kamelet.aws-sqs-source.autoCreateQueue";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the SQS queue.";
     public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AUTO_CREATE_QUEUE_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_CONF = "camel.kamelet.aws-sqs-source.amazonAWSHost";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_DOC = "The hostname of the Amazon AWS cloud.";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_CONF = "camel.kamelet.aws-sqs-source.protocol";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS Example: http or https";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DEFAULT = "https";
 
     public CamelAwssqssourceSourceConnectorConfig(
             ConfigDef config,
@@ -64,6 +70,8 @@ public class CamelAwssqssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_REGION_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AUTO_CREATE_QUEUE_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DOC);
         return conf;
     }
 }

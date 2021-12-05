@@ -1,0 +1,27 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.logsink.CamelLogsinkSinkConnector",
+		"artifactId": "camel-log-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-log-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "A sink that logs all data that it receives, useful for debugging purposes."
+	},
+	"properties": {
+		"camel.kamelet.log-sink.showHeaders": {
+			"name": "camel.kamelet.log-sink.showHeaders",
+			"description": "Show the headers received",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.showStreams": {
+			"name": "camel.kamelet.log-sink.showStreams",
+			"description": "Show the stream bodies (they may not be available in following steps)",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -6,17 +6,17 @@
 		"id": "camel-mail-imap-source-source",
 		"type": "source",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Receive unread emails from an IMAP mail server, marking them as read once they are received."
+		"description": "Receive unread emails from an IMAP mail server, marking them as read once they are received.\n\nThe Kamelet generates the following headers:\n\n- `subject` \/ `ce-subject`: the subject of the incoming mail\n\n- `from` \/ `ce-from`: the `from` field of the incoming mail\n\n- `to` \/ `ce-to`: the `to` field of the incoming mail\n\n- `cc` \/ `ce-cc`: the `cc` field of the incoming mail"
 	},
 	"properties": {
-		"camel.kamelet.mail-imap-source.host": {
-			"name": "camel.kamelet.mail-imap-source.host",
+		"camel.kamelet.mail-imap-source.connectionHost": {
+			"name": "camel.kamelet.mail-imap-source.connectionHost",
 			"description": "The IMAP server host Example: imap.gmail.com",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.mail-imap-source.port": {
-			"name": "camel.kamelet.mail-imap-source.port",
+		"camel.kamelet.mail-imap-source.connectionPort": {
+			"name": "camel.kamelet.mail-imap-source.connectionPort",
 			"description": "The IMAP server port",
 			"defaultValue": "\"993\"",
 			"priority": "HIGH",
