@@ -44,6 +44,9 @@ public class CamelKafkanotsecuredsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_CONF = "camel.kamelet.kafka-not-secured-source.autoOffsetReset";
     public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_DOC = "What to do when there is no initial offset. There are 3 enums and the value can be one of latest, earliest, none";
     public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_DEFAULT = "latest";
+    public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_CONF = "camel.kamelet.kafka-not-secured-source.consumerGroup";
+    public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DOC = "A string that uniquely identifies the group of consumers to which this source belongs Example: my-group-id";
+    public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DEFAULT = null;
 
     public CamelKafkanotsecuredsourceSourceConnectorConfig(
             ConfigDef config,
@@ -64,6 +67,7 @@ public class CamelKafkanotsecuredsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_ALLOW_MANUAL_COMMIT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_ALLOW_MANUAL_COMMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_ALLOW_MANUAL_COMMIT_DOC);
         conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_POLL_ON_ERROR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_POLL_ON_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_POLL_ON_ERROR_DOC);
         conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_DOC);
+        conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DOC);
         return conf;
     }
 }

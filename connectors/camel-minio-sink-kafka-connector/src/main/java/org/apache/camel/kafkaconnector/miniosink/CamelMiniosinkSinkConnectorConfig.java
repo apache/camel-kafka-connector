@@ -39,7 +39,7 @@ public class CamelMiniosinkSinkConnectorConfig
     public static final String CAMEL_SINK_MINIOSINK_KAMELET_ENDPOINT_DOC = "The Minio Endpoint, it can be an URL, domain name, IPv4 address or IPv6 address. Example: http://localhost:9000";
     public static final String CAMEL_SINK_MINIOSINK_KAMELET_ENDPOINT_DEFAULT = null;
     public static final String CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.minio-sink.autoCreateBucket";
-    public static final String CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName.";
+    public static final String CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the Minio bucket bucketName.";
     public static final Boolean CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_DEFAULT = false;
 
     public CamelMiniosinkSinkConnectorConfig(

@@ -6,7 +6,7 @@
 		"id": "camel-aws-sns-sink-sink",
 		"type": "sink",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Send message to an AWS SNS Topic"
+		"description": "Send message to an AWS SNS Topic\n\nThe Kamelet expects the following headers to be set:\n\n- `subject` \/ `ce-subject`: the subject of the message"
 	},
 	"properties": {
 		"camel.kamelet.aws-sns-sink.topicNameOrArn": {

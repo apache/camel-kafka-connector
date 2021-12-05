@@ -29,18 +29,18 @@ public class CamelKafkasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_CONF = "camel.kamelet.kafka-source.topic";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_DOC = "Comma separated list of Kafka topic names";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_DEFAULT = null;
-    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_BROKERS_CONF = "camel.kamelet.kafka-source.brokers";
-    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_BROKERS_DOC = "Comma separated list of Kafka Broker URLs";
-    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_BROKERS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_BOOTSTRAP_SERVERS_CONF = "camel.kamelet.kafka-source.bootstrapServers";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_BOOTSTRAP_SERVERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_SECURITY_PROTOCOL_CONF = "camel.kamelet.kafka-source.securityProtocol";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_SECURITY_PROTOCOL_DOC = "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_SECURITY_PROTOCOL_DEFAULT = "SASL_SSL";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_SASL_MECHANISM_CONF = "camel.kamelet.kafka-source.saslMechanism";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_SASL_MECHANISM_DOC = "The Simple Authentication and Security Layer (SASL) Mechanism used.";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_SASL_MECHANISM_DEFAULT = "PLAIN";
-    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.kafka-source.username";
-    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_USERNAME_DOC = "Username to authenticate to Kafka";
-    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_USER_CONF = "camel.kamelet.kafka-source.user";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_USER_DOC = "Username to authenticate to Kafka";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_USER_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.kafka-source.password";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_PASSWORD_DOC = "Password to authenticate to kafka";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_PASSWORD_DEFAULT = null;
@@ -56,6 +56,9 @@ public class CamelKafkasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_CONF = "camel.kamelet.kafka-source.autoOffsetReset";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DOC = "What to do when there is no initial offset. There are 3 enums and the value can be one of latest, earliest, none";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DEFAULT = "latest";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_CONF = "camel.kamelet.kafka-source.consumerGroup";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DOC = "A string that uniquely identifies the group of consumers to which this source belongs Example: my-group-id";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DEFAULT = null;
 
     public CamelKafkasourceSourceConnectorConfig(
             ConfigDef config,
@@ -71,15 +74,16 @@ public class CamelKafkasourceSourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_DOC);
-        conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_BROKERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_BROKERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KAFKASOURCE_KAMELET_BROKERS_DOC);
+        conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_BOOTSTRAP_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_BOOTSTRAP_SERVERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KAFKASOURCE_KAMELET_BOOTSTRAP_SERVERS_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_SECURITY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_SECURITY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_SECURITY_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_SASL_MECHANISM_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_SASL_MECHANISM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_SASL_MECHANISM_DOC);
-        conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KAFKASOURCE_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_USER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_USER_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KAFKASOURCE_KAMELET_USER_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_KAFKASOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KAFKASOURCE_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_COMMIT_ENABLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_COMMIT_ENABLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_COMMIT_ENABLE_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_ALLOW_MANUAL_COMMIT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKASOURCE_KAMELET_ALLOW_MANUAL_COMMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_ALLOW_MANUAL_COMMIT_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DOC);
+        conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DOC);
         return conf;
     }
 }

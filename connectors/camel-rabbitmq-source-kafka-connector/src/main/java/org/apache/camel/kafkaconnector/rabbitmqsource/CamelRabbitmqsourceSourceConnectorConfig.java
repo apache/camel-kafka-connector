@@ -27,11 +27,11 @@ public class CamelRabbitmqsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ADDRESSES_CONF = "camel.kamelet.rabbitmq-source.addresses";
-    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ADDRESSES_DOC = "Comma separated list of RabbitMQ broker addresses";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ADDRESSES_DOC = "Comma separated list of RabbitMQ broker addresses Example: localhost:5672";
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ADDRESSES_DEFAULT = null;
-    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PORT_CONF = "camel.kamelet.rabbitmq-source.port";
-    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PORT_DOC = "Port of the RabbitMQ server";
-    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PORT_DEFAULT = "5672";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ROUTING_KEY_CONF = "camel.kamelet.rabbitmq-source.routingKey";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ROUTING_KEY_DOC = "The routing key to use when binding a consumer queue to the exchange";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ROUTING_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.rabbitmq-source.username";
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_DOC = "The username to access the RabbitMQ server";
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_DEFAULT = null;
@@ -41,6 +41,9 @@ public class CamelRabbitmqsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_CONF = "camel.kamelet.rabbitmq-source.exchangeName";
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DOC = "The exchange name determines the exchange the queue will be bound to";
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_CONF = "camel.kamelet.rabbitmq-source.queue";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DOC = "The queue to receive messages from";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DEFAULT = null;
 
     public CamelRabbitmqsourceSourceConnectorConfig(
             ConfigDef config,
@@ -56,10 +59,11 @@ public class CamelRabbitmqsourceSourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ADDRESSES_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ADDRESSES_DOC);
-        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PORT_DOC);
-        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_DOC);
-        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_DOC);
+        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ROUTING_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ROUTING_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_ROUTING_KEY_DOC);
+        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DOC);
+        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DOC);
         return conf;
     }
 }

@@ -1,0 +1,43 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.slacksink.CamelSlacksinkSinkConnector",
+		"artifactId": "camel-slack-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-slack-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Send messages to a Slack channel."
+	},
+	"properties": {
+		"camel.kamelet.slack-sink.channel": {
+			"name": "camel.kamelet.slack-sink.channel",
+			"description": "The Slack channel to send messages to. Example: #myroom",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.slack-sink.webhookUrl": {
+			"name": "camel.kamelet.slack-sink.webhookUrl",
+			"description": "The webhook URL used by the Slack channel to handle incoming messages.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.slack-sink.iconEmoji": {
+			"name": "camel.kamelet.slack-sink.iconEmoji",
+			"description": "Use a Slack emoji as an avatar.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.slack-sink.iconUrl": {
+			"name": "camel.kamelet.slack-sink.iconUrl",
+			"description": "The avatar that the component will use when sending message to a channel or user.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.slack-sink.username": {
+			"name": "camel.kamelet.slack-sink.username",
+			"description": "This is the username that the bot will have when sending messages to a channel or user.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

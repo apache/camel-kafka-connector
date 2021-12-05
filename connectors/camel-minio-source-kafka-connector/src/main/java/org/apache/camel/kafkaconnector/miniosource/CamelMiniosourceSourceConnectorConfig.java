@@ -42,7 +42,7 @@ public class CamelMiniosourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ENDPOINT_DOC = "The Minio Endpoint, it can be an URL, domain name, IPv4 address or IPv6 address. Example: http://localhost:9000";
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ENDPOINT_DEFAULT = null;
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.minio-source.autoCreateBucket";
-    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName.";
+    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the Minio bucket bucketName.";
     public static final Boolean CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_DEFAULT = false;
 
     public CamelMiniosourceSourceConnectorConfig(

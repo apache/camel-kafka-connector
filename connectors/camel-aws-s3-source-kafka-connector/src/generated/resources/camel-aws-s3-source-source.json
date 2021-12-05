@@ -53,6 +53,19 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.prefix": {
+			"name": "camel.kamelet.aws-s3-source.prefix",
+			"description": "The AWS S3 bucket prefix to consider while searching Example: folder\/",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.ignoreBody": {
+			"name": "camel.kamelet.aws-s3-source.ignoreBody",
+			"description": "If it is true, the S3 Object Body will be ignored completely, if it is set to false the S3 Object will be put in the body. Setting this to true, will override any behavior defined by includeBody option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

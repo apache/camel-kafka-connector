@@ -15,8 +15,8 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.mariadb-source.port": {
-			"name": "camel.kamelet.mariadb-source.port",
+		"camel.kamelet.mariadb-source.serverPort": {
+			"name": "camel.kamelet.mariadb-source.serverPort",
 			"description": "Server Port for the data source",
 			"defaultValue": "\"3306\"",
 			"priority": "MEDIUM",

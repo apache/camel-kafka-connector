@@ -29,9 +29,9 @@ public class CamelSqlserversinkSinkConnectorConfig
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_NAME_CONF = "camel.kamelet.sqlserver-sink.serverName";
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_NAME_DOC = "Server Name for the data source Example: localhost";
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_PORT_CONF = "camel.kamelet.sqlserver-sink.port";
-    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_PORT_DOC = "Server Port for the data source";
-    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_PORT_DEFAULT = "1433";
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_PORT_CONF = "camel.kamelet.sqlserver-sink.serverPort";
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_PORT_DOC = "Server Port for the data source";
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_PORT_DEFAULT = "1433";
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_USERNAME_CONF = "camel.kamelet.sqlserver-sink.username";
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_USERNAME_DOC = "The username to use for accessing a secured SQL Server Database";
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_USERNAME_DEFAULT = null;
@@ -59,7 +59,7 @@ public class CamelSqlserversinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_NAME_DOC);
-        conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQLSERVERSINK_KAMELET_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQLSERVERSINK_KAMELET_PORT_DOC);
+        conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQLSERVERSINK_KAMELET_SERVER_PORT_DOC);
         conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQLSERVERSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQLSERVERSINK_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SQLSERVERSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQLSERVERSINK_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQLSERVERSINK_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQLSERVERSINK_KAMELET_QUERY_DOC);

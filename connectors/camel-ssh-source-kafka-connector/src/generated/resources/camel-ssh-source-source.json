@@ -9,14 +9,14 @@
 		"description": "Receive data from SSH session."
 	},
 	"properties": {
-		"camel.kamelet.ssh-source.host": {
-			"name": "camel.kamelet.ssh-source.host",
+		"camel.kamelet.ssh-source.connectionHost": {
+			"name": "camel.kamelet.ssh-source.connectionHost",
 			"description": "The SSH Host",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.ssh-source.port": {
-			"name": "camel.kamelet.ssh-source.port",
+		"camel.kamelet.ssh-source.connectionPort": {
+			"name": "camel.kamelet.ssh-source.connectionPort",
 			"description": "The SSH Port",
 			"defaultValue": "\"22\"",
 			"priority": "HIGH",

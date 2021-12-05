@@ -15,8 +15,8 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.sqlserver-sink.port": {
-			"name": "camel.kamelet.sqlserver-sink.port",
+		"camel.kamelet.sqlserver-sink.serverPort": {
+			"name": "camel.kamelet.sqlserver-sink.serverPort",
 			"description": "Server Port for the data source",
 			"defaultValue": "\"1433\"",
 			"priority": "MEDIUM",

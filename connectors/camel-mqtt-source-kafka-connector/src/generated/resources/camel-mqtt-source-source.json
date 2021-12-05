@@ -27,6 +27,18 @@
 			"defaultValue": "\"mqtt-source\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.mqtt-source.username": {
+			"name": "camel.kamelet.mqtt-source.username",
+			"description": "Username to use when connecting to the MQTT broker",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mqtt-source.password": {
+			"name": "camel.kamelet.mqtt-source.password",
+			"description": "Password to use when connecting to the MQTT broker",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

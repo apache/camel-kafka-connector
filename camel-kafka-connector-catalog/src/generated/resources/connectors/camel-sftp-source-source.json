@@ -9,14 +9,14 @@
 		"description": "Receive data from an SFTP Server."
 	},
 	"properties": {
-		"camel.kamelet.sftp-source.host": {
-			"name": "camel.kamelet.sftp-source.host",
+		"camel.kamelet.sftp-source.connectionHost": {
+			"name": "camel.kamelet.sftp-source.connectionHost",
 			"description": "Hostname of the SFTP server",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.sftp-source.port": {
-			"name": "camel.kamelet.sftp-source.port",
+		"camel.kamelet.sftp-source.connectionPort": {
+			"name": "camel.kamelet.sftp-source.connectionPort",
 			"description": "Port of the FTP server",
 			"defaultValue": "\"22\"",
 			"priority": "HIGH",

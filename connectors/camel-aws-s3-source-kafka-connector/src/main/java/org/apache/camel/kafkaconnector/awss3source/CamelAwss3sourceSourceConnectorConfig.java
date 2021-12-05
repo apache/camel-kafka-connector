@@ -47,6 +47,12 @@ public class CamelAwss3sourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_CONF = "camel.kamelet.aws-s3-source.includeBody";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_DOC = "If it is true, the exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata.";
     public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_DEFAULT = true;
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_CONF = "camel.kamelet.aws-s3-source.prefix";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_DOC = "The AWS S3 bucket prefix to consider while searching Example: folder/";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_CONF = "camel.kamelet.aws-s3-source.ignoreBody";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_DOC = "If it is true, the S3 Object Body will be ignored completely, if it is set to false the S3 Object will be put in the body. Setting this to true, will override any behavior defined by includeBody option.";
+    public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_DEFAULT = false;
 
     public CamelAwss3sourceSourceConnectorConfig(
             ConfigDef config,
@@ -68,6 +74,8 @@ public class CamelAwss3sourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_REGION_DOC);
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC);
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_DOC);
+        conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_DOC);
+        conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_DOC);
         return conf;
     }
 }

@@ -26,12 +26,12 @@ public class CamelSftpsinkSinkConnectorConfig
         extends
             CamelSinkConnectorConfig {
 
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_HOST_CONF = "camel.kamelet.sftp-sink.host";
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_HOST_DOC = "Hostname of the FTP server";
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_HOST_DEFAULT = null;
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PORT_CONF = "camel.kamelet.sftp-sink.port";
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PORT_DOC = "Port of the FTP server";
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PORT_DEFAULT = "22";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.sftp-sink.connectionHost";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DOC = "Hostname of the FTP server";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DEFAULT = null;
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.sftp-sink.connectionPort";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DOC = "Port of the FTP server";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DEFAULT = "22";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_CONF = "camel.kamelet.sftp-sink.username";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DOC = "The username to access the FTP server";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DEFAULT = null;
@@ -60,8 +60,8 @@ public class CamelSftpsinkSinkConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
-        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_HOST_DOC);
-        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_PORT_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DOC);
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_DIRECTORY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_DIRECTORY_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_DIRECTORY_NAME_DOC);

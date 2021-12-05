@@ -15,8 +15,8 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.mysql-source.port": {
-			"name": "camel.kamelet.mysql-source.port",
+		"camel.kamelet.mysql-source.serverPort": {
+			"name": "camel.kamelet.mysql-source.serverPort",
 			"description": "Server Port for the data source",
 			"defaultValue": "\"3306\"",
 			"priority": "MEDIUM",

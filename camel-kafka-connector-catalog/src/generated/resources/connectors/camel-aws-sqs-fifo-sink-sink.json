@@ -46,6 +46,19 @@
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.amazonAWSHost": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.amazonAWSHost",
+			"description": "The hostname of the Amazon AWS cloud.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.protocol": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.protocol",
+			"description": "The underlying protocol used to communicate with SQS Example: http or https",
+			"defaultValue": "\"https\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

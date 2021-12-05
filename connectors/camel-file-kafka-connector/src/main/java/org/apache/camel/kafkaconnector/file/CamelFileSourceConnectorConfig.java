@@ -92,6 +92,9 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_PROCESS_STRATEGY_CONF = "camel.source.endpoint.processStrategy";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_PROCESS_STRATEGY_DOC = "A pluggable org.apache.camel.component.file.GenericFileProcessStrategy allowing you to implement your own readLock option or similar. Can also be used when special conditions must be met before a file can be consumed, such as a special ready file exists. If this option is set then the readLock option does not apply.";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_PROCESS_STRATEGY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_RESUME_STRATEGY_CONF = "camel.source.endpoint.resumeStrategy";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_RESUME_STRATEGY_DOC = "Set a resume strategy for files. This makes it possible to define a strategy for resuming reading files after the last point before stopping the application. See the FileConsumerResumeStrategy for implementation details";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_RESUME_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_CONF = "camel.source.endpoint.startingDirectoryMustExist";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DOC = "Whether the starting directory must exist. Mind that the autoCreate option is default enabled, which means the starting directory is normally auto created if it doesn't exist. You can disable autoCreate and enable this to ensure the starting directory must exist. Will thrown an exception if the directory doesn't exist.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DEFAULT = false;
@@ -304,6 +307,7 @@ public class CamelFileSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_PROBE_CONTENT_TYPE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_PROBE_CONTENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_PROBE_CONTENT_TYPE_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_PROCESS_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_PROCESS_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_PROCESS_STRATEGY_DOC);
+        conf.define(CAMEL_SOURCE_FILE_ENDPOINT_RESUME_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_RESUME_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_RESUME_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DOC);

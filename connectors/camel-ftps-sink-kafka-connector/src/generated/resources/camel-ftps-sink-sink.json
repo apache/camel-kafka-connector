@@ -9,14 +9,14 @@
 		"description": "Send data to an FTPS Server.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
 	},
 	"properties": {
-		"camel.kamelet.ftps-sink.host": {
-			"name": "camel.kamelet.ftps-sink.host",
+		"camel.kamelet.ftps-sink.connectionHost": {
+			"name": "camel.kamelet.ftps-sink.connectionHost",
 			"description": "Hostname of the FTP server",
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.ftps-sink.port": {
-			"name": "camel.kamelet.ftps-sink.port",
+		"camel.kamelet.ftps-sink.connectionPort": {
+			"name": "camel.kamelet.ftps-sink.connectionPort",
 			"description": "Port of the FTP server",
 			"defaultValue": "\"21\"",
 			"priority": "HIGH",

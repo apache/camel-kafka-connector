@@ -29,9 +29,9 @@ public class CamelMariadbsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_NAME_CONF = "camel.kamelet.mariadb-source.serverName";
     public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_NAME_DOC = "Server Name for the data source Example: localhost";
     public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_NAME_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PORT_CONF = "camel.kamelet.mariadb-source.port";
-    public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PORT_DOC = "Server Port for the data source";
-    public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PORT_DEFAULT = "3306";
+    public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_PORT_CONF = "camel.kamelet.mariadb-source.serverPort";
+    public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_PORT_DOC = "Server Port for the data source";
+    public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_PORT_DEFAULT = "3306";
     public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.mariadb-source.username";
     public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_USERNAME_DOC = "The username to use for accessing a secured MariaDB Database";
     public static final String CAMEL_SOURCE_MARIADBSOURCE_KAMELET_USERNAME_DEFAULT = null;
@@ -62,7 +62,7 @@ public class CamelMariadbsourceSourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_NAME_DOC);
-        conf.define(CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PORT_DOC);
+        conf.define(CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_SERVER_PORT_DOC);
         conf.define(CAMEL_SOURCE_MARIADBSOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_MARIADBSOURCE_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MARIADBSOURCE_KAMELET_QUERY_DOC);

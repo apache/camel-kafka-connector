@@ -6,7 +6,7 @@
 		"id": "camel-telegram-sink-sink",
 		"type": "sink",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Send a message to a Telegram chat using your Telegram bot as sender.\n\nTo create a bot, contact the @botfather account using the Telegram app.\n\nThis sink supports the following message types:\n\n- Standard text messages\n- PNG images (`Content-Type` must be set to `image\/png`)\n- JPEG images (`Content-Type` must be set to `image\/jpeg`)\n\nThis following message headers are also supported:\n\n- `text` \/ `ce-text`: when sending an image, the image caption\n- `chat-id` \/ `ce-chat-id`: to override the default chat where messages are sent to"
+		"description": "Send a message to a Telegram chat using your Telegram bot as sender.\n\nTo create a bot, contact the @botfather account using the Telegram app.\n\nThis sink supports the following message types:\n\n- Standard text messages\n- PNG images (`Content-Type` must be set to `image\/png`)\n- JPEG images (`Content-Type` must be set to `image\/jpeg`)\n\nThis following message headers are also supported:\n\n- `text` \/ `ce-text`: when sending an image, the image caption\n- `chat-id` \/ `ce-chatid`: to override the default chat where messages are sent to"
 	},
 	"properties": {
 		"camel.kamelet.telegram-sink.authorizationToken": {

@@ -1,0 +1,31 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kubernetesnodessource.CamelKubernetesnodessourceSourceConnector",
+		"artifactId": "camel-kubernetes-nodes-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kubernetes-nodes-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Consume Events from Kubernetes Nodes"
+	},
+	"properties": {
+		"camel.kamelet.kubernetes-nodes-source.token": {
+			"name": "camel.kamelet.kubernetes-nodes-source.token",
+			"description": "The Auth Token to connect to Kubernetes Cluster",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kubernetes-nodes-source.masterUrl": {
+			"name": "camel.kamelet.kubernetes-nodes-source.masterUrl",
+			"description": "The Kubernetes Cluster Master URL",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kubernetes-nodes-source.resourceName": {
+			"name": "camel.kamelet.kubernetes-nodes-source.resourceName",
+			"description": "The Resource Name we want to watch",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

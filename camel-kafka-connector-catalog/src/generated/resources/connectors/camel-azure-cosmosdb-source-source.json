@@ -1,0 +1,63 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurecosmosdbsource.CamelAzurecosmosdbsourceSourceConnector",
+		"artifactId": "camel-azure-cosmosdb-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-cosmosdb-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Consume Changes from a CosmosDB instance"
+	},
+	"properties": {
+		"camel.kamelet.azure-cosmosdb-source.databaseName": {
+			"name": "camel.kamelet.azure-cosmosdb-source.databaseName",
+			"description": "The Azure Cosmos database name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-cosmosdb-source.containerName": {
+			"name": "camel.kamelet.azure-cosmosdb-source.containerName",
+			"description": "The Azure Cosmos container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-cosmosdb-source.accountKey": {
+			"name": "camel.kamelet.azure-cosmosdb-source.accountKey",
+			"description": "The Azure Cosmos account Key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-cosmosdb-source.leaseDatabaseName": {
+			"name": "camel.kamelet.azure-cosmosdb-source.leaseDatabaseName",
+			"description": "Sets the lease container which acts as a state storage and coordinates processing the change feed across multiple workers.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-cosmosdb-source.leaseContainerName": {
+			"name": "camel.kamelet.azure-cosmosdb-source.leaseContainerName",
+			"description": "Sets the lease database where the leaseContainerName will be stored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-cosmosdb-source.createLeaseDatabaseIfNotExists": {
+			"name": "camel.kamelet.azure-cosmosdb-source.createLeaseDatabaseIfNotExists",
+			"description": "Sets if the component should create Cosmos lease database for the consumer automatically in case it doesn\u2019t exist in Cosmos account.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-cosmosdb-source.createLeaseContainerIfNotExists": {
+			"name": "camel.kamelet.azure-cosmosdb-source.createLeaseContainerIfNotExists",
+			"description": "Sets if the component should create Cosmos lease container for the consumer automatically in case it doesn\u2019t exist in Cosmos database.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-cosmosdb-source.databaseEndpoint": {
+			"name": "camel.kamelet.azure-cosmosdb-source.databaseEndpoint",
+			"description": "Sets the Azure Cosmos database endpoint the component will connect to.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

@@ -9,8 +9,8 @@
 		"description": "Receive events related to a file or folder. It may require a volume mounting on Kubernetes."
 	},
 	"properties": {
-		"camel.kamelet.file-watch-source.path": {
-			"name": "camel.kamelet.file-watch-source.path",
+		"camel.kamelet.file-watch-source.filePath": {
+			"name": "camel.kamelet.file-watch-source.filePath",
 			"description": "Path of file or folder to watch",
 			"priority": "HIGH",
 			"required": "true"

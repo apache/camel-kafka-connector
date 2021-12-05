@@ -26,12 +26,12 @@ public class CamelFtpsourceSourceConnectorConfig
         extends
             CamelSourceConnectorConfig {
 
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_HOST_CONF = "camel.kamelet.ftp-source.host";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_HOST_DOC = "Hostname of the FTP server";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_HOST_DEFAULT = null;
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PORT_CONF = "camel.kamelet.ftp-source.port";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PORT_DOC = "Port of the FTP server";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PORT_DEFAULT = "21";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.ftp-source.connectionHost";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_DOC = "Hostname of the FTP server";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_DEFAULT = null;
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.ftp-source.connectionPort";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_DOC = "Port of the FTP server";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_DEFAULT = "21";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.ftp-source.username";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_DOC = "The username to access the FTP server";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_DEFAULT = null;
@@ -63,8 +63,8 @@ public class CamelFtpsourceSourceConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
-        conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPSOURCE_KAMELET_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FTPSOURCE_KAMELET_HOST_DOC);
-        conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPSOURCE_KAMELET_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FTPSOURCE_KAMELET_PORT_DOC);
+        conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_DOC);
+        conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_DOC);
         conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_DIRECTORY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPSOURCE_KAMELET_DIRECTORY_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FTPSOURCE_KAMELET_DIRECTORY_NAME_DOC);

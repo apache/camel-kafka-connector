@@ -35,6 +35,12 @@ public class CamelMqttsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_CLIENT_ID_CONF = "camel.kamelet.mqtt-source.clientId";
     public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_CLIENT_ID_DOC = "The client ID to use when connecting to the resource";
     public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_CLIENT_ID_DEFAULT = "mqtt-source";
+    public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.mqtt-source.username";
+    public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_USERNAME_DOC = "Username to use when connecting to the MQTT broker";
+    public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.mqtt-source.password";
+    public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_PASSWORD_DOC = "Password to use when connecting to the MQTT broker";
+    public static final String CAMEL_SOURCE_MQTTSOURCE_KAMELET_PASSWORD_DEFAULT = null;
 
     public CamelMqttsourceSourceConnectorConfig(
             ConfigDef config,
@@ -51,6 +57,8 @@ public class CamelMqttsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MQTTSOURCE_KAMELET_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MQTTSOURCE_KAMELET_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MQTTSOURCE_KAMELET_TOPIC_DOC);
         conf.define(CAMEL_SOURCE_MQTTSOURCE_KAMELET_BROKER_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MQTTSOURCE_KAMELET_BROKER_URL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MQTTSOURCE_KAMELET_BROKER_URL_DOC);
         conf.define(CAMEL_SOURCE_MQTTSOURCE_KAMELET_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MQTTSOURCE_KAMELET_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MQTTSOURCE_KAMELET_CLIENT_ID_DOC);
+        conf.define(CAMEL_SOURCE_MQTTSOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MQTTSOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MQTTSOURCE_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SOURCE_MQTTSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_MQTTSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MQTTSOURCE_KAMELET_PASSWORD_DOC);
         return conf;
     }
 }
