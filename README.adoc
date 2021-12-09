@@ -36,4 +36,4 @@ link:./docs/modules/ROOT/pages/testing.adoc[testing guide].
 
 == Documentation
 
-Read the https://camel.apache.org/camel-kafka-connector/latest/index.html[Official latest documentation] or try the local link:./docs/modules/ROOT/pages/getting-started.adoc[Getting started guide].
+Read the https://camel.apache.org/camel-kafka-connector/latest/index.html[Official latest documentation] or try the local link:./docs/modules/ROOT/pages/user-guide/index.adoc[Getting started guide].
