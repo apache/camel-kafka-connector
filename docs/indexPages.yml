@@ -1,0 +1,14 @@
+indexPages:
+  - query:
+      module: ROOT
+      family: example
+      relative: json/*
+    template-id:
+      family: example
+      relative: template/connector-options.adoc
+    extract:
+      - path: 'src.relative'
+        match: 'json/camel-(?<basename>*)-kafka-(?<type>source|sink)-connector.json'
+    target:
+      match: 'json/(?<body>*).json'
+      format: '`reference/connectors/${body}.adoc`'
