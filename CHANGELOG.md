@@ -25,6 +25,7 @@
 
 **Merged pull requests:**
 
+- Main local index page and local/partial build [\#1298](https://github.com/apache/camel-kafka-connector/pull/1298) ([djencks](https://github.com/djencks))
 - README - fix link to 'getting started guide' [\#1297](https://github.com/apache/camel-kafka-connector/pull/1297) ([aSemy](https://github.com/aSemy))
 - Fixed missing syslog documentation. [\#1288](https://github.com/apache/camel-kafka-connector/pull/1288) ([valdar](https://github.com/valdar))
 - Main collect [\#1286](https://github.com/apache/camel-kafka-connector/pull/1286) ([djencks](https://github.com/djencks))
