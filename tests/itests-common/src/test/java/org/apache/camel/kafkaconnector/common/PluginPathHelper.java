@@ -33,7 +33,7 @@ public final class PluginPathHelper {
     private static final Logger LOG = LoggerFactory.getLogger(PluginPathHelper.class);
 
     private static PluginPathHelper instance;
-    private List<String> connectors;
+    private volatile List<String> connectors;
 
     private static class PluginWalker extends DirectoryWalker<String> {
 
@@ -95,7 +95,7 @@ public final class PluginPathHelper {
             String path = System.getProperty("project.basedir") + File.separator + module;
             File pathFile = new File(path);
             try {
-                LOG.debug("Base dir used for search: {}", pathFile.getCanonicalPath());
+                LOG.debug("Base dir used for search: {}, with path: {}, coming from components: {}, {}, {}", pathFile.getCanonicalPath(), path, System.getProperty("project.basedir"), File.separator, module);
             } catch (IOException e) {
                 LOG.error("I/O exception: {}", e.getMessage(), e);
             }

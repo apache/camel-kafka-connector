@@ -34,10 +34,6 @@ public class CamelAWSEC2PropertyFactory extends SinkConnectorPropertyFactory<Cam
         SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-ec2-sink.region");
     }
 
-//    public CamelAWSEC2PropertyFactory withSinkPathLabel(String value) {
-//        return setProperty("camel.kamelet.aws-ec2-sink.label", value);
-//    }
-
     public CamelAWSEC2PropertyFactory withSinkEndpointOperation(String value) {
         return setProperty("camel.component.aws2-ec2.operation", value);
     }

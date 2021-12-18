@@ -55,6 +55,10 @@
 **** xref:reference/connectors/camel-aws-sqs-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws-sqs-source-kafka-connector
 **** xref:reference/connectors/camel-aws-sqs-source-kafka-source-connector.adoc[Source Docs]
+*** camel-aws2-iam-kafka-connector
+**** xref:reference/connectors/camel-aws2-iam-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws2-kms-kafka-connector
+**** xref:reference/connectors/camel-aws2-kms-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-cosmosdb-source-kafka-connector
 **** xref:reference/connectors/camel-azure-cosmosdb-source-kafka-source-connector.adoc[Source Docs]
 *** camel-azure-eventhubs-sink-kafka-connector
@@ -138,8 +142,12 @@
 **** xref:reference/connectors/camel-http-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-http-source-kafka-connector
 **** xref:reference/connectors/camel-http-source-kafka-source-connector.adoc[Source Docs]
+*** camel-https-kafka-connector
+**** xref:reference/connectors/camel-https-kafka-sink-connector.adoc[Sink Docs]
 *** camel-infinispan-source-kafka-connector
 **** xref:reference/connectors/camel-infinispan-source-kafka-source-connector.adoc[Source Docs]
+*** camel-jdbc-kafka-connector
+**** xref:reference/connectors/camel-jdbc-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jira-source-kafka-connector
 **** xref:reference/connectors/camel-jira-source-kafka-source-connector.adoc[Source Docs]
 *** camel-jms-amqp-10-sink-kafka-connector
@@ -192,6 +200,9 @@
 **** xref:reference/connectors/camel-nats-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-nats-source-kafka-connector
 **** xref:reference/connectors/camel-nats-source-kafka-source-connector.adoc[Source Docs]
+*** camel-netty-http-kafka-connector
+**** xref:reference/connectors/camel-netty-http-kafka-source-connector.adoc[Source Docs]
+**** xref:reference/connectors/camel-netty-http-kafka-sink-connector.adoc[Sink Docs]
 *** camel-netty-kafka-connector
 **** xref:reference/connectors/camel-netty-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-netty-kafka-sink-connector.adoc[Sink Docs]

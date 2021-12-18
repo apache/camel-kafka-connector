@@ -16,8 +16,10 @@
  */
 package org.apache.camel.kafkaconnector.elasticsearch.common;
 
+import java.util.Collections;
 import java.util.Map;
 
+import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.test.AbstractTestMessageProducer;
 
@@ -33,7 +35,7 @@ public class ElasticSearchIndexMessageProducer extends AbstractTestMessageProduc
 
     @Override
     public Map<String, String> messageHeaders(String text, int current) {
-        return null;
+        return Collections.singletonMap(CamelSinkTask.HEADER_CAMEL_PREFIX + "indexId", String.valueOf(current));
     }
 
     @Override
