@@ -26,11 +26,11 @@ final class CamelSshPropertyFactory extends SourceConnectorPropertyFactory<Camel
     }
 
     public CamelSshPropertyFactory withHost(String host) {
-        return setProperty("camel.kamelet.ssh-source.host", host);
+        return setProperty("camel.kamelet.ssh-source.connectionHost", host);
     }
 
     public CamelSshPropertyFactory withPort(String port) {
-        return setProperty("camel.kamelet.ssh-source.port", port);
+        return setProperty("camel.kamelet.ssh-source.connectionPort", port);
     }
 
     public CamelSshPropertyFactory withUsername(String username) {

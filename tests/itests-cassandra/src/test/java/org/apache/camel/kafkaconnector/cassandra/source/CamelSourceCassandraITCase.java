@@ -30,6 +30,7 @@ import org.apache.camel.test.infra.cassandra.services.CassandraServiceFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -41,6 +42,7 @@ import static org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFacto
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Disabled("TODO: Enable and convert once https://github.com/apache/camel-kamelets/pull/636 is published in kamelet-catalog")
 public class CamelSourceCassandraITCase extends CamelSourceTestSupport {
     @RegisterExtension
     public static CassandraService cassandraService = CassandraServiceFactory.createService();

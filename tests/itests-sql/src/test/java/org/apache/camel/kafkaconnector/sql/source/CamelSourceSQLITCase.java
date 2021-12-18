@@ -23,6 +23,7 @@ import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.test.infra.jdbc.services.JDBCService;
 import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -31,8 +32,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
-//        disabledReason = "Database connection fails when running with the embedded Kafka Connect instance")
+@Disabled("Database connection fails with connection refused.")
 public class CamelSourceSQLITCase extends CamelSourceTestSupport {
     private static final String DATABASE_NAME = "camel";
     private static final String USERNAME = "ckc";

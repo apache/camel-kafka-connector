@@ -53,7 +53,7 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[]{"camel-google-pubsub-kafka-connector"};
+        return new String[]{"camel-google-pubsub-sink-kafka-connector"};
     }
 
 
@@ -119,19 +119,4 @@ public class CamelSinkGooglePubSubITCase extends CamelSinkTestSupport {
 
         runTest(connectorPropertyFactory, topicName, expected);
     }
-
-    @Test
-    public void testBasicSendReceiveUrl() throws Exception {
-        String topicName = getTopicForTest(this);
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelGooglePubSubPropertyFactory
-                .basic()
-                .withTopics(topicName)
-                .withEndpoint(service.getServiceAddress())
-                .withUrl(project, googlePubSubTopic)
-                .buildUrl();
-
-        runTest(connectorPropertyFactory, topicName, expected);
-    }
-
 }

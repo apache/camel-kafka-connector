@@ -89,7 +89,7 @@
                     <!-- set to true to make build fail if an option has no description -->
                     <!--  <failOnMissingDescription>false</failOnMissingDescription> -->
                     <!-- Process just this, comma separated, components -->
-                    <filter>netty,http-netty,couchbase,cxf,cxfrs,file,hdfs,jdbs,sjms2,sql</filter>
+                    <filter>netty,https,netty-http,couchbase,cxf,cxfrs,file,hdfs,jdbc,sjms2,sql,aws2-iam,aws2-kms,cassandraql</filter>
                     <!-- Regenerate connector pom file completely even if one already exists -->
                     <!-- WARNING: you may lose some changes done to the pom. -->
                     <!-- <overridePomFile>false</overridePomFile> -->
@@ -221,6 +221,8 @@
         <module>camel-aws-sqs-fifo-sink-kafka-connector</module>
         <module>camel-aws-sqs-sink-kafka-connector</module>
         <module>camel-aws-sqs-source-kafka-connector</module>
+        <module>camel-aws2-iam-kafka-connector</module>
+        <module>camel-aws2-kms-kafka-connector</module>
         <module>camel-azure-cosmosdb-source-kafka-connector</module>
         <module>camel-azure-eventhubs-sink-kafka-connector</module>
         <module>camel-azure-eventhubs-source-kafka-connector</module>
@@ -260,7 +262,9 @@
         <module>camel-http-secured-source-kafka-connector</module>
         <module>camel-http-sink-kafka-connector</module>
         <module>camel-http-source-kafka-connector</module>
+        <module>camel-https-kafka-connector</module>
         <module>camel-infinispan-source-kafka-connector</module>
+        <module>camel-jdbc-kafka-connector</module>
         <module>camel-jira-source-kafka-connector</module>
         <module>camel-jms-amqp-10-sink-kafka-connector</module>
         <module>camel-jms-amqp-10-source-kafka-connector</module>
@@ -287,6 +291,7 @@
         <module>camel-mysql-source-kafka-connector</module>
         <module>camel-nats-sink-kafka-connector</module>
         <module>camel-nats-source-kafka-connector</module>
+        <module>camel-netty-http-kafka-connector</module>
         <module>camel-netty-kafka-connector</module>
         <module>camel-postgresql-sink-kafka-connector</module>
         <module>camel-postgresql-source-kafka-connector</module>
