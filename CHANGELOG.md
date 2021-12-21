@@ -10,6 +10,7 @@
 
 **Closed issues:**
 
+- CamelAws2s3SinkConnector not processing kafka null \(deleted\) messages [\#1300](https://github.com/apache/camel-kafka-connector/issues/1300)
 - Fails to create CamelAws2sqsSourceConnector [\#1293](https://github.com/apache/camel-kafka-connector/issues/1293)
 - Problem with line breaks kafka-hdfs sink connector [\#1291](https://github.com/apache/camel-kafka-connector/issues/1291)
 - The pre-release salesforce source connector, how does the query field work? [\#1289](https://github.com/apache/camel-kafka-connector/issues/1289)
@@ -27,6 +28,7 @@
 
 - Main local index page and local/partial build [\#1298](https://github.com/apache/camel-kafka-connector/pull/1298) ([djencks](https://github.com/djencks))
 - README - fix link to 'getting started guide' [\#1297](https://github.com/apache/camel-kafka-connector/pull/1297) ([aSemy](https://github.com/aSemy))
+- Prepare to 1.0.0 [\#1294](https://github.com/apache/camel-kafka-connector/pull/1294) ([valdar](https://github.com/valdar))
 - Fixed missing syslog documentation. [\#1288](https://github.com/apache/camel-kafka-connector/pull/1288) ([valdar](https://github.com/valdar))
 - Main collect [\#1286](https://github.com/apache/camel-kafka-connector/pull/1286) ([djencks](https://github.com/djencks))
 - Fixed documentation for removed connectors. [\#1283](https://github.com/apache/camel-kafka-connector/pull/1283) ([valdar](https://github.com/valdar))
