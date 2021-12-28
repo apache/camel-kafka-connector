@@ -20,15 +20,4 @@
       sources:
         - url: ./../camel-kafka-connector
           component: camel-kafka-connector
-          version: next
-
-    - require: "@djencks/antora-site-manifest"
-      import-manifests:
-        - primary-site-manifest-url: ./documentation/site-manifest.json
-      partial-components: true
-      local-urls: true
-
-    - require: '@djencks/antora-timer'
-      log_level: info
-
-  generator: '@djencks/antora-source-watch'
+          version: 0.11.0
