@@ -26,6 +26,7 @@
 
 **Merged pull requests:**
 
+- update to docs local build v2 [\#1305](https://github.com/apache/camel-kafka-connector/pull/1305) ([djencks](https://github.com/djencks))
 - Main local index page and local/partial build [\#1298](https://github.com/apache/camel-kafka-connector/pull/1298) ([djencks](https://github.com/djencks))
 - README - fix link to 'getting started guide' [\#1297](https://github.com/apache/camel-kafka-connector/pull/1297) ([aSemy](https://github.com/aSemy))
 - Prepare to 1.0.0 [\#1294](https://github.com/apache/camel-kafka-connector/pull/1294) ([valdar](https://github.com/valdar))
