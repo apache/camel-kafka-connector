@@ -68,8 +68,7 @@ class GenerateCamelKafkaConnectorsMojoIT {
             .anyMatch(s -> s.startsWith("Connectors previously generated found to be removed: []"))
             .containsSequence(
                 "Creating a new pom.xml for the connector from scratch",
-                "Creating a new package.xml for the connector.")
-            .anyMatch(s -> s.startsWith("Updated doc file:"));
+                "Creating a new package.xml for the connector.");
 
         List<String> stdout = Files.readAllLines(result.getMavenLog().getStdout());
         List<String> generated = extractGenerated(stdout);
