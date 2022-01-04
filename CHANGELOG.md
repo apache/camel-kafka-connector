@@ -26,6 +26,7 @@
 
 **Merged pull requests:**
 
+- Fix Maven IT failures due to doc generation removal [\#1307](https://github.com/apache/camel-kafka-connector/pull/1307) ([tadayosi](https://github.com/tadayosi))
 - update to docs local build v2 [\#1305](https://github.com/apache/camel-kafka-connector/pull/1305) ([djencks](https://github.com/djencks))
 - Main local index page and local/partial build [\#1298](https://github.com/apache/camel-kafka-connector/pull/1298) ([djencks](https://github.com/djencks))
 - README - fix link to 'getting started guide' [\#1297](https://github.com/apache/camel-kafka-connector/pull/1297) ([aSemy](https://github.com/aSemy))
