@@ -35,7 +35,7 @@ public class CamelAWSCWPropertyFactory extends SinkConnectorPropertyFactory<Came
     }
 
     public CamelAWSCWPropertyFactory withNamespace(String value) {
-        return setProperty("camel.kamelet.aws-cloudwatch-sink.cw_namespace", value);
+        return setProperty("camel.kamelet.aws-cloudwatch-sink.cwNamespace", value);
     }
 
     public CamelAWSCWPropertyFactory withConfiguration(String value) {
