@@ -1,0 +1,39 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.wttrinsource.CamelWttrinsourceSourceConnector",
+		"artifactId": "camel-wttrin-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-wttrin-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Get weather forecasts from the wttr.in weather forecast service"
+	},
+	"properties": {
+		"camel.kamelet.wttrin-source.period": {
+			"name": "camel.kamelet.wttrin-source.period",
+			"description": "The interval between fetches to the wttr.in service in milliseconds",
+			"defaultValue": "60000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.wttrin-source.wttrLocation": {
+			"name": "camel.kamelet.wttrin-source.wttrLocation",
+			"description": "The location to get weather forecasts Example: \"paris\", \"~Eiffel+tower\", \"Москва\", \"muc\", \"@stackoverflow.com\", \"94107\", \"-78.46,106.79\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.wttrin-source.wttrLanguage": {
+			"name": "camel.kamelet.wttrin-source.wttrLanguage",
+			"description": "The language to use for displaying weather forecasts Example: am ar af be bn ca da de el et fr fa hi hu ia id it lt mg nb nl oc pl pt-br ro ru ta tr th uk vi zh-cn zh-tw",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.wttrin-source.output": {
+			"name": "camel.kamelet.wttrin-source.output",
+			"description": "The type of output Example: current, weather, full",
+			"defaultValue": "\"current\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

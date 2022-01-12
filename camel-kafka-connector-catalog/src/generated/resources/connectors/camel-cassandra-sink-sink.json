@@ -30,14 +30,14 @@
 		"camel.kamelet.cassandra-sink.username": {
 			"name": "camel.kamelet.cassandra-sink.username",
 			"description": "The username to use for accessing a secured Cassandra Cluster",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.cassandra-sink.password": {
 			"name": "camel.kamelet.cassandra-sink.password",
 			"description": "The password to use for accessing a secured Cassandra Cluster",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.cassandra-sink.consistencyLevel": {
 			"name": "camel.kamelet.cassandra-sink.consistencyLevel",
@@ -48,7 +48,14 @@
 		},
 		"camel.kamelet.cassandra-sink.preparedStatement": {
 			"name": "camel.kamelet.cassandra-sink.preparedStatement",
-			"description": "The Prepared statement to execute against the Cassandra cluster table",
+			"description": "Whether to use PreparedStatements or regular Statements as the query.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.cassandra-sink.query": {
+			"name": "camel.kamelet.cassandra-sink.query",
+			"description": "The query to execute against the Cassandra cluster table",
 			"priority": "HIGH",
 			"required": "true"
 		}

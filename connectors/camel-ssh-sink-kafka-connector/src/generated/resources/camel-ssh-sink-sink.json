@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sshsink.CamelSshsinkSinkConnector",
+		"artifactId": "camel-ssh-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ssh-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Send command through SSH session."
+	},
+	"properties": {
+		"camel.kamelet.ssh-sink.connectionHost": {
+			"name": "camel.kamelet.ssh-sink.connectionHost",
+			"description": "The SSH Host",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ssh-sink.connectionPort": {
+			"name": "camel.kamelet.ssh-sink.connectionPort",
+			"description": "The SSH Port",
+			"defaultValue": "\"22\"",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ssh-sink.username": {
+			"name": "camel.kamelet.ssh-sink.username",
+			"description": "The SSH username to use",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ssh-sink.password": {
+			"name": "camel.kamelet.ssh-sink.password",
+			"description": "The SSH password to use",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

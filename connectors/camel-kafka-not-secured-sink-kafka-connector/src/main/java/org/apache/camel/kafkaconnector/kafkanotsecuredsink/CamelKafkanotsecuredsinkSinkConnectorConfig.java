@@ -29,9 +29,9 @@ public class CamelKafkanotsecuredsinkSinkConnectorConfig
     public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_TOPIC_CONF = "camel.kamelet.kafka-not-secured-sink.topic";
     public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_TOPIC_DOC = "Comma separated list of Kafka topic names";
     public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_TOPIC_DEFAULT = null;
-    public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BROKERS_CONF = "camel.kamelet.kafka-not-secured-sink.brokers";
-    public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BROKERS_DOC = "Comma separated list of Kafka Broker URLs";
-    public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BROKERS_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_CONF = "camel.kamelet.kafka-not-secured-sink.bootstrapServers";
+    public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs";
+    public static final String CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT = null;
 
     public CamelKafkanotsecuredsinkSinkConnectorConfig(
             ConfigDef config,
@@ -47,7 +47,7 @@ public class CamelKafkanotsecuredsinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_TOPIC_DOC);
-        conf.define(CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BROKERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BROKERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BROKERS_DOC);
+        conf.define(CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKANOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_DOC);
         return conf;
     }
 }

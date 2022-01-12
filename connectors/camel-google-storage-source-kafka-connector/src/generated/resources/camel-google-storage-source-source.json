@@ -1,0 +1,39 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlestoragesource.CamelGooglestoragesourceSourceConnector",
+		"artifactId": "camel-google-storage-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-storage-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Consume Objects from Google Storage.\n\nThe serviceAccountKey property needs to be encoded in base64, so when you pass it as parameter, don't forget to encode it."
+	},
+	"properties": {
+		"camel.kamelet.google-storage-source.bucketNameOrArn": {
+			"name": "camel.kamelet.google-storage-source.bucketNameOrArn",
+			"description": "The Bucket Name or Bucket ARN",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-storage-source.serviceAccountKey": {
+			"name": "camel.kamelet.google-storage-source.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the Google Cloud Storage access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-storage-source.deleteAfterRead": {
+			"name": "camel.kamelet.google-storage-source.deleteAfterRead",
+			"description": "Delete objects after consuming them",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-storage-source.autoCreateBucket": {
+			"name": "camel.kamelet.google-storage-source.autoCreateBucket",
+			"description": "Setting the autocreation of the Google Cloud Storage bucket bucketNameOrArn.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

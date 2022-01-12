@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awsredshiftsource.CamelAwsredshiftsourceSourceConnector",
+		"artifactId": "camel-aws-redshift-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-redshift-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Query data from an AWS Redshift Database."
+	},
+	"properties": {
+		"camel.kamelet.aws-redshift-source.serverName": {
+			"name": "camel.kamelet.aws-redshift-source.serverName",
+			"description": "Server Name for the data source Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-redshift-source.serverPort": {
+			"name": "camel.kamelet.aws-redshift-source.serverPort",
+			"description": "Server Port for the data source",
+			"defaultValue": "\"5439\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-redshift-source.username": {
+			"name": "camel.kamelet.aws-redshift-source.username",
+			"description": "The username to use for accessing a secured AWS Redshift Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-redshift-source.password": {
+			"name": "camel.kamelet.aws-redshift-source.password",
+			"description": "The password to use for accessing a secured AWS Redshift Database",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-redshift-source.query": {
+			"name": "camel.kamelet.aws-redshift-source.query",
+			"description": "The Query to execute against the AWS Redshift Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-redshift-source.databaseName": {
+			"name": "camel.kamelet.aws-redshift-source.databaseName",
+			"description": "The Database Name we are pointing",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-redshift-source.consumedQuery": {
+			"name": "camel.kamelet.aws-redshift-source.consumedQuery",
+			"description": "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

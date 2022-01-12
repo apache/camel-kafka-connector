@@ -1,0 +1,138 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.pulsarsink.CamelPulsarsinkSinkConnector",
+		"artifactId": "camel-pulsar-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-pulsar-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Send documents to Pulsar."
+	},
+	"properties": {
+		"camel.kamelet.pulsar-sink.topic": {
+			"name": "camel.kamelet.pulsar-sink.topic",
+			"description": "The topic name or regexp",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-sink.tenant": {
+			"name": "camel.kamelet.pulsar-sink.tenant",
+			"description": "The Tenant Name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-sink.topicType": {
+			"name": "camel.kamelet.pulsar-sink.topicType",
+			"description": "The topic type. Possible values are: persistent or non-persistent",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-sink.namespaceName": {
+			"name": "camel.kamelet.pulsar-sink.namespaceName",
+			"description": "The Pulsar Namespace Name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-sink.serviceUrl": {
+			"name": "camel.kamelet.pulsar-sink.serviceUrl",
+			"description": "The Pulsar Service URL to point while creating the client from URI.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-sink.authenticationClass": {
+			"name": "camel.kamelet.pulsar-sink.authenticationClass",
+			"description": "The Authentication FQCN to be used while creating the client from URI.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.authenticationParams": {
+			"name": "camel.kamelet.pulsar-sink.authenticationParams",
+			"description": "The Authentication Parameters to be used while creating the client from URI.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.batchingEnabled": {
+			"name": "camel.kamelet.pulsar-sink.batchingEnabled",
+			"description": "Control whether automatic batching of messages is enabled for the producer.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.batchingMaxMessages": {
+			"name": "camel.kamelet.pulsar-sink.batchingMaxMessages",
+			"description": "The maximum size to batch messages.",
+			"defaultValue": "1000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.batchingMaxPublishDelayMicros": {
+			"name": "camel.kamelet.pulsar-sink.batchingMaxPublishDelayMicros",
+			"description": "The maximum time period within which the messages sent will be batched if batchingEnabled is true.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.blockIfQueueFull": {
+			"name": "camel.kamelet.pulsar-sink.blockIfQueueFull",
+			"description": "Whether to block the producing thread if pending messages queue is full or to throw a ProducerQueueIsFullError.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.compressionType": {
+			"name": "camel.kamelet.pulsar-sink.compressionType",
+			"description": "Compression type to use. Possible values are: NONE, LZ4, ZLIB, ZSTD, SNAPPY",
+			"defaultValue": "\"NONE\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.initialSequenceId": {
+			"name": "camel.kamelet.pulsar-sink.initialSequenceId",
+			"description": "The first message published will have a sequence Id of initialSequenceId 1.",
+			"defaultValue": "-1L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.lazyStartProducer": {
+			"name": "camel.kamelet.pulsar-sink.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel\u2019s routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.maxPendingMessages": {
+			"name": "camel.kamelet.pulsar-sink.maxPendingMessages",
+			"description": "Size of the pending massages queue. When the queue is full, by default, any further sends will fail unless blockIfQueueFull=true.",
+			"defaultValue": "1000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.maxPendingMessagesAcrossPartitions": {
+			"name": "camel.kamelet.pulsar-sink.maxPendingMessagesAcrossPartitions",
+			"description": "The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition.",
+			"defaultValue": "50000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.messageRoutingMode": {
+			"name": "camel.kamelet.pulsar-sink.messageRoutingMode",
+			"description": "Message Routing Mode to use. Possible values are SinglePartition, RoundRobinPartition, CustomPartition",
+			"defaultValue": "\"RoundRobinPartition\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.producerName": {
+			"name": "camel.kamelet.pulsar-sink.producerName",
+			"description": "Name of the producer. If unset, lets Pulsar select a unique identifier.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-sink.sendTimeoutMs": {
+			"name": "camel.kamelet.pulsar-sink.sendTimeoutMs",
+			"description": "Send timeout in milliseconds.",
+			"defaultValue": "30000",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

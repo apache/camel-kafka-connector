@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlestoragesink.CamelGooglestoragesinkSinkConnector",
+		"artifactId": "camel-google-storage-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-storage-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Upload Objects to Google Storage.\n\nThe serviceAccountKey property needs to be encoded in base64, so when you pass it as parameter, don't forget to encode it.\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+	},
+	"properties": {
+		"camel.kamelet.google-storage-sink.bucketNameOrArn": {
+			"name": "camel.kamelet.google-storage-sink.bucketNameOrArn",
+			"description": "The Bucket Name or Bucket ARN",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-storage-sink.serviceAccountKey": {
+			"name": "camel.kamelet.google-storage-sink.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the Google Cloud Storage access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-storage-sink.autoCreateBucket": {
+			"name": "camel.kamelet.google-storage-sink.autoCreateBucket",
+			"description": "Setting the autocreation of the Google Cloud Storage bucket bucketNameOrArn.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -1,0 +1,64 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.couchbasesink.CamelCouchbasesinkSinkConnector",
+		"artifactId": "camel-couchbase-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-couchbase-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Send documents to Couchbase."
+	},
+	"properties": {
+		"camel.kamelet.couchbase-sink.protocol": {
+			"name": "camel.kamelet.couchbase-sink.protocol",
+			"description": "The protocol to use",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.couchbase-sink.couchbaseHostname": {
+			"name": "camel.kamelet.couchbase-sink.couchbaseHostname",
+			"description": "The hostname to use",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.couchbase-sink.couchbasePort": {
+			"name": "camel.kamelet.couchbase-sink.couchbasePort",
+			"description": "The port to use",
+			"defaultValue": "8091",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.couchbase-sink.bucket": {
+			"name": "camel.kamelet.couchbase-sink.bucket",
+			"description": "The bucket to use",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.couchbase-sink.username": {
+			"name": "camel.kamelet.couchbase-sink.username",
+			"description": "Username to connect to Couchbase.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.couchbase-sink.password": {
+			"name": "camel.kamelet.couchbase-sink.password",
+			"description": "Password to connect to Couchbase.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.couchbase-sink.startingId": {
+			"name": "camel.kamelet.couchbase-sink.startingId",
+			"description": "The starting id",
+			"defaultValue": "1L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.couchbase-sink.autoStartId": {
+			"name": "camel.kamelet.couchbase-sink.autoStartId",
+			"description": "Auto Start Id or not",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

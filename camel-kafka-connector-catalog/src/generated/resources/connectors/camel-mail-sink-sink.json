@@ -1,0 +1,63 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mailsink.CamelMailsinkSinkConnector",
+		"artifactId": "camel-mail-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mail-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Send mails to given SMTP server."
+	},
+	"properties": {
+		"camel.kamelet.mail-sink.protocol": {
+			"name": "camel.kamelet.mail-sink.protocol",
+			"description": "The mail protocol to use",
+			"defaultValue": "\"smtp\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mail-sink.connectionHost": {
+			"name": "camel.kamelet.mail-sink.connectionHost",
+			"description": "The mail server host Example: smtp.gmail.com",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mail-sink.connectionPort": {
+			"name": "camel.kamelet.mail-sink.connectionPort",
+			"description": "The mail server port",
+			"defaultValue": "\"25\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mail-sink.username": {
+			"name": "camel.kamelet.mail-sink.username",
+			"description": "The username to access the mail box",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mail-sink.password": {
+			"name": "camel.kamelet.mail-sink.password",
+			"description": "The password to access the mail box",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mail-sink.from": {
+			"name": "camel.kamelet.mail-sink.from",
+			"description": "The `from` field of the outgoing mail",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mail-sink.to": {
+			"name": "camel.kamelet.mail-sink.to",
+			"description": "The `to` field of the outgoing mail",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mail-sink.subject": {
+			"name": "camel.kamelet.mail-sink.subject",
+			"description": "The mail subject of the outgoing mail",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

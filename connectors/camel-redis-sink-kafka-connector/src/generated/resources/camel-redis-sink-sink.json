@@ -1,0 +1,46 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.redissink.CamelRedissinkSinkConnector",
+		"artifactId": "camel-redis-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-redis-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Write object to a Redis cache."
+	},
+	"properties": {
+		"camel.kamelet.redis-sink.redisHost": {
+			"name": "camel.kamelet.redis-sink.redisHost",
+			"description": "The host where Redis server is running",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.redis-sink.redisPort": {
+			"name": "camel.kamelet.redis-sink.redisPort",
+			"description": "The port where Redis server is running",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.redis-sink.command": {
+			"name": "camel.kamelet.redis-sink.command",
+			"description": "Redis Command",
+			"defaultValue": "\"GET\"",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.redis-sink.channels": {
+			"name": "camel.kamelet.redis-sink.channels",
+			"description": "Redis Channels",
+			"defaultValue": "\"one\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.redis-sink.serializer": {
+			"name": "camel.kamelet.redis-sink.serializer",
+			"description": "RedisSerializer fully qualified name implementation",
+			"defaultValue": "\"org.springframework.data.redis.serializer.StringRedisSerializer\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
