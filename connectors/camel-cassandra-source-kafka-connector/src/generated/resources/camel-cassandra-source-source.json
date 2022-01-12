@@ -30,14 +30,14 @@
 		"camel.kamelet.cassandra-source.username": {
 			"name": "camel.kamelet.cassandra-source.username",
 			"description": "The username to use for accessing a secured Cassandra Cluster",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.cassandra-source.password": {
 			"name": "camel.kamelet.cassandra-source.password",
 			"description": "The password to use for accessing a secured Cassandra Cluster",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.cassandra-source.resultStrategy": {
 			"name": "camel.kamelet.cassandra-source.resultStrategy",

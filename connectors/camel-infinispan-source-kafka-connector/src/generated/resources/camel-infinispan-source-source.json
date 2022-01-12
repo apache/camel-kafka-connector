@@ -63,7 +63,8 @@
 		},
 		"camel.kamelet.infinispan-source.eventTypes": {
 			"name": "camel.kamelet.infinispan-source.eventTypes",
-			"description": "Specifies the set of event types to register by the consumer.Multiple event can be separated by comma. The possible event types are CLIENT_CACHE_ENTRY_CREATED, CLIENT_CACHE_ENTRY_MODIFIED, CLIENT_CACHE_ENTRY_REMOVED, CLIENT_CACHE_ENTRY_EXPIRED, CLIENT_CACHE_FAILOVER",
+			"description": "Specifies the set of event types to register by the consumer. Multiple event can be separated by comma without spaces. The possible event types are CLIENT_CACHE_ENTRY_CREATED, CLIENT_CACHE_ENTRY_MODIFIED, CLIENT_CACHE_ENTRY_REMOVED, CLIENT_CACHE_ENTRY_EXPIRED, CLIENT_CACHE_FAILOVER Example: CLIENT_CACHE_ENTRY_CREATED,CLIENT_CACHE_ENTRY_MODIFIED",
+			"defaultValue": "\"CLIENT_CACHE_ENTRY_CREATED,CLIENT_CACHE_ENTRY_MODIFIED,CLIENT_CACHE_ENTRY_REMOVED,CLIENT_CACHE_ENTRY_EXPIRED,CLIENT_CACHE_FAILOVER\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

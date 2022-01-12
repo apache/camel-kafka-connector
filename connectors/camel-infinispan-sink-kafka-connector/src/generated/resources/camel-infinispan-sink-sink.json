@@ -1,0 +1,65 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.infinispansink.CamelInfinispansinkSinkConnector",
+		"artifactId": "camel-infinispan-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-infinispan-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Write object to an Infinispan cache.\n\nThe Kamelet expects the following headers to be set:\n\n- `key` \/ `ce-key`: as the key to use when put an object in the Infinispan cache.\n\nIf the header won't be set the exchange ID will be used as key."
+	},
+	"properties": {
+		"camel.kamelet.infinispan-sink.cacheName": {
+			"name": "camel.kamelet.infinispan-sink.cacheName",
+			"description": "The name of the Infinispan cache to use",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.infinispan-sink.hosts": {
+			"name": "camel.kamelet.infinispan-sink.hosts",
+			"description": "Specifies the host of the cache on Infinispan instance",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.infinispan-sink.secure": {
+			"name": "camel.kamelet.infinispan-sink.secure",
+			"description": "If the Infinispan instance is secured or not",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.infinispan-sink.username": {
+			"name": "camel.kamelet.infinispan-sink.username",
+			"description": "Username to connect to Infinispan.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.infinispan-sink.password": {
+			"name": "camel.kamelet.infinispan-sink.password",
+			"description": "Password to connect to Infinispan.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.infinispan-sink.saslMechanism": {
+			"name": "camel.kamelet.infinispan-sink.saslMechanism",
+			"description": "The SASL Mechanism to use",
+			"defaultValue": "\"DIGEST-MD5\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.infinispan-sink.securityRealm": {
+			"name": "camel.kamelet.infinispan-sink.securityRealm",
+			"description": "Define the security realm to access the infinispan instance",
+			"defaultValue": "\"default\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.infinispan-sink.securityServerName": {
+			"name": "camel.kamelet.infinispan-sink.securityServerName",
+			"description": "Define the security server name to access the infinispan instance",
+			"defaultValue": "\"infinispan\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

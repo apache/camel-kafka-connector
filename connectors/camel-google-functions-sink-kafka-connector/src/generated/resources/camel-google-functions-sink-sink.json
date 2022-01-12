@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlefunctionssink.CamelGooglefunctionssinkSinkConnector",
+		"artifactId": "camel-google-functions-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-functions-sink-sink",
+		"type": "sink",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Send messages to Google Functions.\n\nThe serviceAccountKey property needs to be a path to a service account key file."
+	},
+	"properties": {
+		"camel.kamelet.google-functions-sink.projectId": {
+			"name": "camel.kamelet.google-functions-sink.projectId",
+			"description": "The Google Cloud Functions Project Id",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-functions-sink.region": {
+			"name": "camel.kamelet.google-functions-sink.region",
+			"description": "The Region where the Google Cloud Functions has been deployed",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-functions-sink.functionName": {
+			"name": "camel.kamelet.google-functions-sink.functionName",
+			"description": "The Function Name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-functions-sink.serviceAccountKey": {
+			"name": "camel.kamelet.google-functions-sink.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the Google Cloud Functions platform",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

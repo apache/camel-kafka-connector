@@ -28,6 +28,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.salesforce-source.notifyForFields": {
+			"name": "camel.kamelet.salesforce-source.notifyForFields",
+			"description": "Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.",
+			"defaultValue": "\"ALL\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.salesforce-source.clientId": {
 			"name": "camel.kamelet.salesforce-source.clientId",
 			"description": "The Salesforce application consumer key",

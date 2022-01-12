@@ -1,0 +1,46 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.redissource.CamelRedissourceSourceConnector",
+		"artifactId": "camel-redis-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-redis-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Get Events from a Redis cache"
+	},
+	"properties": {
+		"camel.kamelet.redis-source.redisHost": {
+			"name": "camel.kamelet.redis-source.redisHost",
+			"description": "The host where Redis server is running",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.redis-source.redisPort": {
+			"name": "camel.kamelet.redis-source.redisPort",
+			"description": "The port where Redis server is running",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.redis-source.command": {
+			"name": "camel.kamelet.redis-source.command",
+			"description": "Redis Command",
+			"defaultValue": "\"SUBSCRIBE\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.redis-source.channels": {
+			"name": "camel.kamelet.redis-source.channels",
+			"description": "Redis Channels",
+			"defaultValue": "\"one\"",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.redis-source.serializer": {
+			"name": "camel.kamelet.redis-source.serializer",
+			"description": "RedisSerializer fully qualified name implementation",
+			"defaultValue": "\"org.springframework.data.redis.serializer.StringRedisSerializer\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -15,8 +15,8 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.kafka-not-secured-sink.brokers": {
-			"name": "camel.kamelet.kafka-not-secured-sink.brokers",
+		"camel.kamelet.kafka-not-secured-sink.bootstrapServers": {
+			"name": "camel.kamelet.kafka-not-secured-sink.bootstrapServers",
 			"description": "Comma separated list of Kafka Broker URLs",
 			"priority": "HIGH",
 			"required": "true"

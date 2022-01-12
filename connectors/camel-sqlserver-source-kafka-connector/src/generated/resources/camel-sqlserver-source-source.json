@@ -6,7 +6,7 @@
 		"id": "camel-sqlserver-source-source",
 		"type": "source",
 		"version": "0.12.0-SNAPSHOT",
-		"description": "Query data from a Microsoft SQL Server Database.\n\nIn you KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.microsoft.sqlserver:mssql-jdbc:<version>\""
+		"description": "Query data from a Microsoft SQL Server Database.\n\nIn your KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.microsoft.sqlserver:mssql-jdbc:<version>\""
 	},
 	"properties": {
 		"camel.kamelet.sqlserver-source.serverName": {

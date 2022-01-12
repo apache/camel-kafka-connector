@@ -1,0 +1,151 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.pulsarsource.CamelPulsarsourceSourceConnector",
+		"artifactId": "camel-pulsar-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-pulsar-source-source",
+		"type": "source",
+		"version": "0.12.0-SNAPSHOT",
+		"description": "Receive data from Pulsar topics."
+	},
+	"properties": {
+		"camel.kamelet.pulsar-source.topic": {
+			"name": "camel.kamelet.pulsar-source.topic",
+			"description": "The topic name or regexp",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-source.tenant": {
+			"name": "camel.kamelet.pulsar-source.tenant",
+			"description": "The Tenant Name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-source.topicType": {
+			"name": "camel.kamelet.pulsar-source.topicType",
+			"description": "The topic type. Possible values are: persistent or non-persistent",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-source.namespaceName": {
+			"name": "camel.kamelet.pulsar-source.namespaceName",
+			"description": "The Pulsar Namespace Name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-source.serviceUrl": {
+			"name": "camel.kamelet.pulsar-source.serviceUrl",
+			"description": "The Pulsar Service URL to point while creating the client from URI.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.pulsar-source.authenticationClass": {
+			"name": "camel.kamelet.pulsar-source.authenticationClass",
+			"description": "The Authentication FQCN to be used while creating the client from URI.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.authenticationParams": {
+			"name": "camel.kamelet.pulsar-source.authenticationParams",
+			"description": "The Authentication Parameters to be used while creating the client from URI.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.consumerNamePrefix": {
+			"name": "camel.kamelet.pulsar-source.consumerNamePrefix",
+			"description": "Prefix to add to consumer names when a SHARED or FAILOVER subscription is used",
+			"defaultValue": "\"cons\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.consumerQueueSize": {
+			"name": "camel.kamelet.pulsar-source.consumerQueueSize",
+			"description": "Size of the consumer queue",
+			"defaultValue": "10",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.deadLetterTopic": {
+			"name": "camel.kamelet.pulsar-source.deadLetterTopic",
+			"description": "Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.maxRedeliverCount": {
+			"name": "camel.kamelet.pulsar-source.maxRedeliverCount",
+			"description": "Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.negativeAckRedeliveryDelayMicros": {
+			"name": "camel.kamelet.pulsar-source.negativeAckRedeliveryDelayMicros",
+			"description": "Set the negative acknowledgement delay.",
+			"defaultValue": "60000000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.messageListener": {
+			"name": "camel.kamelet.pulsar-source.messageListener",
+			"description": "Whether to use the messageListener interface, or to receive messages using a separate thread pool.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.numberOfConsumers": {
+			"name": "camel.kamelet.pulsar-source.numberOfConsumers",
+			"description": "Number of consumers.",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.numberOfConsumerThreads": {
+			"name": "camel.kamelet.pulsar-source.numberOfConsumerThreads",
+			"description": "Number of threads to receive and handle messages when using a separate thread pool.",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.readCompacted": {
+			"name": "camel.kamelet.pulsar-source.readCompacted",
+			"description": "Enable compacted topic reading.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.subscriptionInitialPosition": {
+			"name": "camel.kamelet.pulsar-source.subscriptionInitialPosition",
+			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message.Possible values: EARLIEST or LATEST",
+			"defaultValue": "\"LATEST\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.subscriptionName": {
+			"name": "camel.kamelet.pulsar-source.subscriptionName",
+			"description": "Name of the subscription to use.",
+			"defaultValue": "\"subs\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.subscriptionTopicsMode": {
+			"name": "camel.kamelet.pulsar-source.subscriptionTopicsMode",
+			"description": "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions.Possible values: PersistentOnly, NonPersistentOnly, AllTopics",
+			"defaultValue": "\"PersistentOnly\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.subscriptionType": {
+			"name": "camel.kamelet.pulsar-source.subscriptionType",
+			"description": "Type of the subscription. Possible values: EXCLUSIVE, SHARED, FAILOVER, KEY_SHARED",
+			"defaultValue": "\"EXCLUSIVE\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.pulsar-source.topicsPattern": {
+			"name": "camel.kamelet.pulsar-source.topicsPattern",
+			"description": "Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

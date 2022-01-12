@@ -26,9 +26,9 @@ public class CamelAwscloudwatchsinkSinkConnectorConfig
         extends
             CamelSinkConnectorConfig {
 
-    public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW__NAMESPACECONF = "camel.kamelet.aws-cloudwatch-sink.cw_namespace";
-    public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW__NAMESPACEDOC = "The cloud watch metric namespace.";
-    public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW__NAMESPACEDEFAULT = null;
+    public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW_NAMESPACE_CONF = "camel.kamelet.aws-cloudwatch-sink.cwNamespace";
+    public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW_NAMESPACE_DOC = "The cloud watch metric namespace.";
+    public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW_NAMESPACE_DEFAULT = null;
     public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-cloudwatch-sink.accessKey";
     public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
     public static final String CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_ACCESS_KEY_DEFAULT = null;
@@ -52,7 +52,7 @@ public class CamelAwscloudwatchsinkSinkConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
-        conf.define(CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW__NAMESPACECONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW__NAMESPACEDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW__NAMESPACEDOC);
+        conf.define(CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW_NAMESPACE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW_NAMESPACE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_CW_NAMESPACE_DOC);
         conf.define(CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSCLOUDWATCHSINK_KAMELET_REGION_DOC);
