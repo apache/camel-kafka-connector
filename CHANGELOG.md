@@ -26,6 +26,8 @@
 
 **Merged pull requests:**
 
+- 1.0.0release [\#1312](https://github.com/apache/camel-kafka-connector/pull/1312) ([valdar](https://github.com/valdar))
+- \#1308 update Antora structure \(main\) [\#1309](https://github.com/apache/camel-kafka-connector/pull/1309) ([djencks](https://github.com/djencks))
 - Fix Maven IT failures due to doc generation removal [\#1307](https://github.com/apache/camel-kafka-connector/pull/1307) ([tadayosi](https://github.com/tadayosi))
 - update to docs local build v2 [\#1305](https://github.com/apache/camel-kafka-connector/pull/1305) ([djencks](https://github.com/djencks))
 - Main local index page and local/partial build [\#1298](https://github.com/apache/camel-kafka-connector/pull/1298) ([djencks](https://github.com/djencks))
