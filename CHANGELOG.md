@@ -10,6 +10,7 @@
 
 **Closed issues:**
 
+- Update Antora usage [\#1308](https://github.com/apache/camel-kafka-connector/issues/1308)
 - CamelAws2s3SinkConnector not processing kafka null \(deleted\) messages [\#1300](https://github.com/apache/camel-kafka-connector/issues/1300)
 - Fails to create CamelAws2sqsSourceConnector [\#1293](https://github.com/apache/camel-kafka-connector/issues/1293)
 - Problem with line breaks kafka-hdfs sink connector [\#1291](https://github.com/apache/camel-kafka-connector/issues/1291)
