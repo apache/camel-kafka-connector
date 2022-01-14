@@ -64,6 +64,7 @@ jobs:
             -DskipTests \
             -pl :camel-kafka-connector-model \
             -pl :camel-kafka-connector-generator-maven-plugin \
+            -pl :camel-kafka-connector \
             clean install
       # third command source check everything else but :camel-kafka-connector-generator-maven-plugin
       - name: build and itests

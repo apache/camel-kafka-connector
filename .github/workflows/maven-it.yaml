@@ -50,6 +50,13 @@ jobs:
             -pl :tooling \
             -pl :camel-kafka-connector-model \
             clean install
+      - name: Build core
+        run: |
+          ./mvnw ${MAVEN_ARGS} \
+            -DskipTests \
+            -pl :camel-kafka-connector \
+            -am \
+            clean install
       - name: Run maven plugins itests
         run: |
           ./mvnw ${MAVEN_ARGS} \
