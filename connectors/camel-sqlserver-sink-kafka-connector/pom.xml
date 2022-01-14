@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>0.12.0-SNAPSHOT</version>
+    <version>1.0.0</version>
   </parent>
   <artifactId>camel-sqlserver-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: sqlserver-sink</name>
