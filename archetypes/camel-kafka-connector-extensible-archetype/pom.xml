@@ -35,7 +35,7 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.camel.kafkaconnector</groupId>
-            <artifactId>camel-timer-kafka-connector</artifactId>
+            <artifactId>camel-timer-source-kafka-connector</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
