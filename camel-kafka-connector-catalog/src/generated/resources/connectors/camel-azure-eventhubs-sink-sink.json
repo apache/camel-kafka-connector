@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-eventhubs-sink-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "1.0.0",
 		"description": "Send Events to Azure Eventhubs.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `partition` \/ `ce-partition`: as the time to live of the message in the queue.\n\nIf the header won't be set then the partition will be assigned by Eventhubs"
 	},
 	"properties": {

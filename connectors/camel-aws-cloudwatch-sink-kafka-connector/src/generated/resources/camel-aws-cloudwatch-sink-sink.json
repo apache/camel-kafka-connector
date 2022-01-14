@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-cloudwatch-sink-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "1.0.0",
 		"description": "Send messages to AWS CloudWatch metrics.\n\nThere are several properties you can set in the headers, such as:\n\n`metric-name` \/ `ce-metricname` for the metric name.\n`metric-value` \/ `ce-metricvalue` for the metric value.\n`metric-unit` \/ `ce-metricunit` for the metric unit.\n`metric-timestamp` \/ `ce-metrictimestamp` for the metric timestamp.\n`metric-dimension-name` \/ `ce-metricdimensionname` for the dimension name.\n`metric-dimension-value` \/ `ce-metricdimensionvalue` for the dimension value."
 	},
 	"properties": {

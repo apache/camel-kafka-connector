@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-minio-sink-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "1.0.0",
 		"description": "Upload data to Minio.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
 	},
 	"properties": {
