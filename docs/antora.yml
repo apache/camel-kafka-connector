@@ -15,14 +15,22 @@
 # limitations under the License.
 #
 
+# Another part of this distributed component is at components/antora.yml
+
 name: camel-kafka-connector
 title: Camel Kafka Connector
-version: 0.11.0
-display_version: 0.11.0 (LTS)
+version: 0.11.x
+display_version: 0.11.x (LTS)
 
 nav:
 - modules/ROOT/nav.adoc
 
 asciidoc:
   attributes:
-    camel-version: 3.11.x
+#    based on vote thread https://lists.apache.org/thread/957zf5r8gwd5r0pmrot9j451s065jgmz 9/24/2021 (or 24/9/2021)
+    lts: September 2022
+    camel-version: 3.11.1
+    camel-docs-version: 3.11.x
+#    camel-kamelets-version: 0.6.0
+#    camel-kamelets-docs-version: 0.6.x
+    kafka-version: 2.8.0
