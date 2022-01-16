@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Depfix [\#1314](https://github.com/apache/camel-kafka-connector/pull/1314) ([valdar](https://github.com/valdar))
 - Camel kafka connector 1.0.x [\#1313](https://github.com/apache/camel-kafka-connector/pull/1313) ([valdar](https://github.com/valdar))
 - 1.0.0release [\#1312](https://github.com/apache/camel-kafka-connector/pull/1312) ([valdar](https://github.com/valdar))
 - \#1308 update Antora structure \(main\) [\#1309](https://github.com/apache/camel-kafka-connector/pull/1309) ([djencks](https://github.com/djencks))
