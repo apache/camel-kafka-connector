@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- camel-website \#701: RI info \(main\) [\#1315](https://github.com/apache/camel-kafka-connector/pull/1315) ([djencks](https://github.com/djencks))
 - Depfix [\#1314](https://github.com/apache/camel-kafka-connector/pull/1314) ([valdar](https://github.com/valdar))
 - Camel kafka connector 1.0.x [\#1313](https://github.com/apache/camel-kafka-connector/pull/1313) ([valdar](https://github.com/valdar))
 - 1.0.0release [\#1312](https://github.com/apache/camel-kafka-connector/pull/1312) ([valdar](https://github.com/valdar))
