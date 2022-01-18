@@ -28,9 +28,11 @@ nav:
 
 asciidoc:
   attributes:
+    requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
     prerelease: true
     camel-version: 3.14.0
     camel-docs-version: 3.14.x
     camel-kamelets-version: 0.6.0
     camel-kamelets-docs-version: 0.6.x
     kafka-version: 2.8.0
+    kafka-docs-version: 28
