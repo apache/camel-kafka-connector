@@ -25,3 +25,20 @@ The basic idea is reusing the available Camel components as Kafka sink and sourc
 * xref:user-guide/index.adoc[User guide]
 * xref:contributor-guide/index.adoc[Contributor guide]
 * xref:reference/index.adoc[Connectors reference]
+
+== Compatibility Matrix
+
+[caption=]
+.Compatibility between Camel-Kafka-Connector and dependencies
+[width="100%",cols="4,2,2,2,1,3",options="header",]
+|===
+|Camel-Kafka-Connector Version
+|Camel Version
+|Kamelets Version
+|Kafka Version
+|LTS Until
+|Branch
+|===
+
+//cannot use top level index.adoc as the page with the query is always omitted.
+indexTable::[version="*",relative="reference/index.adoc",cellformats="ckc.ckcRef(pageComponentVersion, pageComponentDisplayVersion)|ckc.camelRef(camelVersion, camelDocsVersion)|ckc.kameletsRef(camelKameletsVersion, camelKameletsDocsVersion)|ckc.kafkaRef(kafkaVersion, kafkaDocsVersion)|lts|ckc.branch(pageComponentVersion)", requires={requires}]
