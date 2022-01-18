@@ -27,6 +27,7 @@ nav:
 
 asciidoc:
   attributes:
+    requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
 #    based on vote thread https://lists.apache.org/thread/957zf5r8gwd5r0pmrot9j451s065jgmz 9/24/2021 (or 24/9/2021)
     lts: September 2022
     camel-version: 3.11.1
@@ -34,3 +35,4 @@ asciidoc:
 #    camel-kamelets-version: 0.6.0
 #    camel-kamelets-docs-version: 0.6.x
     kafka-version: 2.8.0
+    kafka-docs-version: 28
