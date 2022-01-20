@@ -4,8 +4,13 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-1.0.0...HEAD)
 
+**Closed issues:**
+
+- Pubsub kafka connector error: java.net.UnknownHostException: pubsub.googleapis.com: Name or service not known [\#1319](https://github.com/apache/camel-kafka-connector/issues/1319)
+
 **Merged pull requests:**
 
+- camel-website \#701: RI info in table \(main\) [\#1320](https://github.com/apache/camel-kafka-connector/pull/1320) ([djencks](https://github.com/djencks))
 - camel-website \#701: RI info \(main\) [\#1315](https://github.com/apache/camel-kafka-connector/pull/1315) ([djencks](https://github.com/djencks))
 - Depfix [\#1314](https://github.com/apache/camel-kafka-connector/pull/1314) ([valdar](https://github.com/valdar))
 - Camel kafka connector 1.0.x [\#1313](https://github.com/apache/camel-kafka-connector/pull/1313) ([valdar](https://github.com/valdar))
