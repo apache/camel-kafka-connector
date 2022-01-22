@@ -18,13 +18,5 @@
 module.exports = {
   branch: (version) =>  version === 'next' ?
     'https://github.com/apache/camel-kafka-connector[main]' :
-    `https://github.com/apache/camel-kafka-connectortree/camel-kafka-connector-${version}[camel-kafka-connector-${version}]`,
-
-  camelRef: (version, docVersion) => `xref:${docVersion}@components:ROOT:index.adoc[${version}]`,
-
-  ckcRef: (version, docVersion) => `xref:${version}@camel-kafka-connector:ROOT:index.adoc[${docVersion}]`,
-
-  kafkaRef: (version, docVersion) => `https://kafka.apache.org/${docVersion}/documentation.html[${version}]`,
-
-  kameletsRef: (version, docVersion) => `xref:${docVersion}@camel-kamelets:ROOT:index.adoc[${version}]`,
+    `https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-${version}[camel-kafka-connector-${version}]`,
 }
