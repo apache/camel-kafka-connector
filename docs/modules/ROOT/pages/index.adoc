@@ -41,4 +41,4 @@ The basic idea is reusing the available Camel components as Kafka sink and sourc
 |===
 
 //cannot use top level index.adoc as the page with the query is always omitted.
-indexTable::[version="*",relative="reference/index.adoc",cellformats="ckc.ckcRef(pageComponentVersion, pageComponentDisplayVersion)|ckc.camelRef(camelVersion, camelDocsVersion)|ckc.kameletsRef(camelKameletsVersion, camelKameletsDocsVersion)|ckc.kafkaRef(kafkaVersion, kafkaDocsVersion)|lts|ckc.branch(pageComponentVersion)", requires={requires}]
+indexTable::[version="*",relative="reference/index.adoc",cellformats="util.ckcRef(pageComponentDisplayVersion, pageComponentVersion)|util.camelRef(camelVersion, camelDocsVersion)|util.kameletsRef(camelKameletsVersion, camelKameletsDocsVersion)|util.kafkaRef(kafkaVersion, kafkaDocsVersion)|lts|ckc.branch(pageComponentVersion)", requires={requires},transform=util.sortCompatibilityItems]
