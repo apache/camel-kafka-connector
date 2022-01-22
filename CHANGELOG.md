@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - Pubsub kafka connector error: java.net.UnknownHostException: pubsub.googleapis.com: Name or service not known [\#1319](https://github.com/apache/camel-kafka-connector/issues/1319)
+- How can I capture the HTTP response from camel-http-kafka-connector \(sink\)?   [\#1296](https://github.com/apache/camel-kafka-connector/issues/1296)
 
 **Merged pull requests:**
 
