@@ -6,11 +6,16 @@
 
 **Closed issues:**
 
+- Connectors Webpage Links to Older Version [\#1326](https://github.com/apache/camel-kafka-connector/issues/1326)
 - Pubsub kafka connector error: java.net.UnknownHostException: pubsub.googleapis.com: Name or service not known [\#1319](https://github.com/apache/camel-kafka-connector/issues/1319)
+- camel-salesforce-kafka-connector-0.11.0 There is an Exception during HANDSHAKE: Invalid protocol null [\#1304](https://github.com/apache/camel-kafka-connector/issues/1304)
+- Upgrade to Kamelets 0.6.0 [\#1303](https://github.com/apache/camel-kafka-connector/issues/1303)
+- Upgrade to Camel 3.14.0 [\#1302](https://github.com/apache/camel-kafka-connector/issues/1302)
 - How can I capture the HTTP response from camel-http-kafka-connector \(sink\)?   [\#1296](https://github.com/apache/camel-kafka-connector/issues/1296)
 
 **Merged pull requests:**
 
+- camel-website \#701 camel-kafka-connector RI table improvement \(main\) [\#1327](https://github.com/apache/camel-kafka-connector/pull/1327) ([djencks](https://github.com/djencks))
 - camel-website \#701: RI info in table \(main\) [\#1320](https://github.com/apache/camel-kafka-connector/pull/1320) ([djencks](https://github.com/djencks))
 - camel-website \#701: RI info \(main\) [\#1315](https://github.com/apache/camel-kafka-connector/pull/1315) ([djencks](https://github.com/djencks))
 - Depfix [\#1314](https://github.com/apache/camel-kafka-connector/pull/1314) ([valdar](https://github.com/valdar))
