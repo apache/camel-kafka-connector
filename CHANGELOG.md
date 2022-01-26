@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1330](https://github.com/apache/camel-kafka-connector/issues/1330)
 - Connectors Webpage Links to Older Version [\#1326](https://github.com/apache/camel-kafka-connector/issues/1326)
 - Pubsub kafka connector error: java.net.UnknownHostException: pubsub.googleapis.com: Name or service not known [\#1319](https://github.com/apache/camel-kafka-connector/issues/1319)
 - camel-salesforce-kafka-connector-0.11.0 There is an Exception during HANDSHAKE: Invalid protocol null [\#1304](https://github.com/apache/camel-kafka-connector/issues/1304)
