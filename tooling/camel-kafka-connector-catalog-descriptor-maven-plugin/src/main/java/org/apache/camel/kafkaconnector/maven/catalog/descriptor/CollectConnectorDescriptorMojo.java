@@ -87,6 +87,11 @@ public class CollectConnectorDescriptorMojo extends AbstractMojo {
                 }
                 File file = FileUtils.getFile(catalogDescriptorDir, "connectors.properties");
                 getLog().info("About to write descriptor to: " + catalogDescriptorDir);
+                if (!file.exists()) {
+                    // Create the structure
+                    File parent = file.getParentFile();
+                    parent.mkdirs();
+                }
                 file.createNewFile();
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                     writer.write(sb.toString());
