@@ -6,6 +6,8 @@
 
 **Closed issues:**
 
+- Use SNS Aws2 connector with AWS Default Credential Provider [\#1335](https://github.com/apache/camel-kafka-connector/issues/1335)
+- `camel-kafka-connector-catalog` version 1.0.0 is missing `descriptor/` direcotry [\#1333](https://github.com/apache/camel-kafka-connector/issues/1333)
 - UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1330](https://github.com/apache/camel-kafka-connector/issues/1330)
 - Connectors Webpage Links to Older Version [\#1326](https://github.com/apache/camel-kafka-connector/issues/1326)
 - Do Camel Kafka Connectors support "Dead Letter Queue" and "Connect Reporter" features of Kafka Connect? [\#1323](https://github.com/apache/camel-kafka-connector/issues/1323)
@@ -18,6 +20,7 @@
 
 **Merged pull requests:**
 
+- fix \#1333: camel-kafka-connector-catalog version 1.0.0 is missing des… [\#1334](https://github.com/apache/camel-kafka-connector/pull/1334) ([valdar](https://github.com/valdar))
 - camel-website \#701 camel-kafka-connector RI table improvement \(main\) [\#1327](https://github.com/apache/camel-kafka-connector/pull/1327) ([djencks](https://github.com/djencks))
 - camel-website \#701: RI info in table \(main\) [\#1320](https://github.com/apache/camel-kafka-connector/pull/1320) ([djencks](https://github.com/djencks))
 - camel-website \#701: RI info \(main\) [\#1315](https://github.com/apache/camel-kafka-connector/pull/1315) ([djencks](https://github.com/djencks))
