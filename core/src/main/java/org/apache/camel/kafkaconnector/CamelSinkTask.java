@@ -240,7 +240,9 @@ public class CamelSinkTask extends SinkTask {
         final String key = StringHelper.after(header.key(), prefix, header.key());
         final Schema schema = header.schema();
 
-        if (schema.type().equals(Schema.BYTES_SCHEMA.type()) && Objects.equals(schema.name(), Decimal.LOGICAL_NAME)) {
+        if (schema.type().equals(Schema.BYTES_SCHEMA.type())
+                && Objects.equals(schema.name(), Decimal.LOGICAL_NAME)
+                && header.value() instanceof byte[]) {
             destination.put(key, Decimal.toLogical(schema, (byte[]) header.value()));
         } else {
             destination.put(key, header.value());

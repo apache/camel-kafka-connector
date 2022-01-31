@@ -36,7 +36,6 @@ import org.apache.camel.kafkaconnector.utils.SchemaHelper;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.UnitOfWorkHelper;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.source.SourceRecord;
@@ -357,8 +356,9 @@ public class CamelSourceTask extends SourceTask {
             } else if (value instanceof Date) {
                 record.headers().addTimestamp(keyCamelHeader, (Date)value);
             } else if (value instanceof BigDecimal) {
-                Schema schema = Decimal.schema(((BigDecimal)value).scale());
-                record.headers().add(keyCamelHeader, Decimal.fromLogical(schema, (BigDecimal)value), schema);
+                //XXX: kafka connect configured header converter takes care of the encoding,
+                //default: org.apache.kafka.connect.storage.SimpleHeaderConverter
+                record.headers().addDecimal(keyCamelHeader, (BigDecimal)value);
             } else if (value instanceof Double) {
                 record.headers().addDouble(keyCamelHeader, (double)value);
             } else if (value instanceof Float) {
