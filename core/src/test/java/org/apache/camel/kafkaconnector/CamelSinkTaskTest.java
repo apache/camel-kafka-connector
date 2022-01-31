@@ -33,6 +33,7 @@ import org.apache.kafka.connect.data.SchemaAndValue;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.sink.SinkRecord;
+import org.apache.kafka.connect.storage.SimpleHeaderConverter;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -118,7 +119,13 @@ public class CamelSinkTaskTest {
         int myInteger = 100;
         Long myLong = new Long("100");
         BigDecimal myBigDecimal = new BigDecimal(1234567890);
-        Schema schema = Decimal.schema(myBigDecimal.scale());
+        Schema myBigDecimalSchema = Decimal.schema(myBigDecimal.scale());
+        //reproducing bigDecimal encoding by kafka connect
+        BigDecimal kafkaBigDecimal = new BigDecimal("6.9203120E+787");
+        Schema kafkaBigDecimalSchema = Decimal.schema(kafkaBigDecimal.scale());
+        SimpleHeaderConverter shc = new SimpleHeaderConverter();
+        byte[] persistedBytes = shc.fromConnectHeader("", "MyBigDecimal", kafkaBigDecimalSchema, kafkaBigDecimal);
+        SchemaAndValue sav = shc.toConnectHeader("", "MyBigDecimal", persistedBytes);
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
@@ -129,7 +136,9 @@ public class CamelSinkTaskTest {
         record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
         record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
         record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
-        record.headers().add(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBigDecimal", Decimal.fromLogical(schema, myBigDecimal), schema);
+        record.headers().add(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBigDecimal", Decimal.fromLogical(myBigDecimalSchema, myBigDecimal), myBigDecimalSchema);
+        record.headers().add(CamelSinkTask.HEADER_CAMEL_PREFIX + "KafkaBigDecimal", sav.value(), sav.schema());
+
         records.add(record);
         sinkTask.put(records);
 
@@ -145,6 +154,7 @@ public class CamelSinkTaskTest {
         assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
         assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
         assertEquals(myBigDecimal, exchange.getIn().getHeader("MyBigDecimal", BigDecimal.class));
+        assertEquals(kafkaBigDecimal, exchange.getIn().getHeader("KafkaBigDecimal", BigDecimal.class));
 
         sinkTask.stop();
     }
