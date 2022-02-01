@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-1.0.0...HEAD)
 
+**Fixed bugs:**
+
+- CameHeader value is wrongly interpreted as BigDecimal and causes ClassCastException [\#1332](https://github.com/apache/camel-kafka-connector/issues/1332)
+
 **Closed issues:**
 
 - Use SNS Aws2 connector with AWS Default Credential Provider [\#1335](https://github.com/apache/camel-kafka-connector/issues/1335)
@@ -20,6 +24,7 @@
 
 **Merged pull requests:**
 
+- fix \#1332 : CameHeader value is wrongly interpreted as BigDecimal and… [\#1336](https://github.com/apache/camel-kafka-connector/pull/1336) ([valdar](https://github.com/valdar))
 - fix \#1333: camel-kafka-connector-catalog version 1.0.0 is missing des… [\#1334](https://github.com/apache/camel-kafka-connector/pull/1334) ([valdar](https://github.com/valdar))
 - camel-website \#701 camel-kafka-connector RI table improvement \(main\) [\#1327](https://github.com/apache/camel-kafka-connector/pull/1327) ([djencks](https://github.com/djencks))
 - camel-website \#701: RI info in table \(main\) [\#1320](https://github.com/apache/camel-kafka-connector/pull/1320) ([djencks](https://github.com/djencks))
