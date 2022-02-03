@@ -13,6 +13,7 @@
 - UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1337](https://github.com/apache/camel-kafka-connector/issues/1337)
 - Use SNS Aws2 connector with AWS Default Credential Provider [\#1335](https://github.com/apache/camel-kafka-connector/issues/1335)
 - `camel-kafka-connector-catalog` version 1.0.0 is missing `descriptor/` direcotry [\#1333](https://github.com/apache/camel-kafka-connector/issues/1333)
+- UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1330](https://github.com/apache/camel-kafka-connector/issues/1330)
 - Connectors Webpage Links to Older Version [\#1326](https://github.com/apache/camel-kafka-connector/issues/1326)
 - Do Camel Kafka Connectors support "Dead Letter Queue" and "Connect Reporter" features of Kafka Connect? [\#1323](https://github.com/apache/camel-kafka-connector/issues/1323)
 - Pubsub kafka connector error: java.net.UnknownHostException: pubsub.googleapis.com: Name or service not known [\#1319](https://github.com/apache/camel-kafka-connector/issues/1319)
