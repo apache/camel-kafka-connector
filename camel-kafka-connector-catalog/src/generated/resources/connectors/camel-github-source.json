@@ -33,13 +33,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.path.startingSha": {
-			"name": "camel.source.path.startingSha",
-			"description": "The starting sha to use for polling commits with the commit consumer. The value can either be a sha for the sha to start from, or use beginning to start from the beginning, or last to start from the last commit.",
-			"defaultValue": "\"last\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.repoName": {
 			"name": "camel.source.endpoint.repoName",
 			"description": "GitHub repository name",
@@ -63,6 +56,13 @@
 			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
 			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.startingSha": {
+			"name": "camel.source.endpoint.startingSha",
+			"description": "The starting sha to use for polling commits with the commit consumer. The value can either be a sha for the sha to start from, or use beginning to start from the beginning, or last to start from the last commit.",
+			"defaultValue": "\"last\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

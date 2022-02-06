@@ -32,9 +32,6 @@ public class CamelGithubSourceConnectorConfig
     public static final String CAMEL_SOURCE_GITHUB_PATH_BRANCH_NAME_CONF = "camel.source.path.branchName";
     public static final String CAMEL_SOURCE_GITHUB_PATH_BRANCH_NAME_DOC = "Name of branch";
     public static final String CAMEL_SOURCE_GITHUB_PATH_BRANCH_NAME_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GITHUB_PATH_STARTING_SHA_CONF = "camel.source.path.startingSha";
-    public static final String CAMEL_SOURCE_GITHUB_PATH_STARTING_SHA_DOC = "The starting sha to use for polling commits with the commit consumer. The value can either be a sha for the sha to start from, or use beginning to start from the beginning, or last to start from the last commit.";
-    public static final String CAMEL_SOURCE_GITHUB_PATH_STARTING_SHA_DEFAULT = "last";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_NAME_CONF = "camel.source.endpoint.repoName";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_NAME_DOC = "GitHub repository name";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_NAME_DEFAULT = null;
@@ -47,6 +44,9 @@ public class CamelGithubSourceConnectorConfig
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF = "camel.source.endpoint.sendEmptyMessageWhenIdle";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC = "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.";
     public static final Boolean CAMEL_SOURCE_GITHUB_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT = false;
+    public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_STARTING_SHA_CONF = "camel.source.endpoint.startingSha";
+    public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_STARTING_SHA_DOC = "The starting sha to use for polling commits with the commit consumer. The value can either be a sha for the sha to start from, or use beginning to start from the beginning, or last to start from the last commit.";
+    public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_STARTING_SHA_DEFAULT = "last";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_EVENT_FETCH_STRATEGY_CONF = "camel.source.endpoint.eventFetchStrategy";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_EVENT_FETCH_STRATEGY_DOC = "To specify a custom strategy that configures how the EventsConsumer fetches events.";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_EVENT_FETCH_STRATEGY_DEFAULT = null;
@@ -128,11 +128,11 @@ public class CamelGithubSourceConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_GITHUB_PATH_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_PATH_TYPE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GITHUB_PATH_TYPE_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_PATH_BRANCH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_PATH_BRANCH_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_PATH_BRANCH_NAME_DOC);
-        conf.define(CAMEL_SOURCE_GITHUB_PATH_STARTING_SHA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_PATH_STARTING_SHA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_PATH_STARTING_SHA_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_NAME_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_OWNER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_OWNER_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GITHUB_ENDPOINT_REPO_OWNER_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GITHUB_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GITHUB_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC);
+        conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_STARTING_SHA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_STARTING_SHA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_STARTING_SHA_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_EVENT_FETCH_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_EVENT_FETCH_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_EVENT_FETCH_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCHANGE_PATTERN_DOC);

@@ -29,7 +29,7 @@
 		},
 		"camel.source.endpoint.disconnect": {
 			"name": "camel.source.endpoint.disconnect",
-			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"description": "Whether to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -76,13 +76,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.disconnectOnNoReply": {
-			"name": "camel.source.endpoint.disconnectOnNoReply",
-			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -114,6 +107,13 @@
 				"ERROR",
 				"OFF"
 			]
+		},
+		"camel.source.endpoint.disconnectOnNoReply": {
+			"name": "camel.source.endpoint.disconnectOnNoReply",
+			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.maximumPoolSize": {
 			"name": "camel.source.endpoint.maximumPoolSize",
@@ -210,7 +210,7 @@
 		},
 		"camel.component.mina.disconnect": {
 			"name": "camel.component.mina.disconnect",
-			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"description": "Whether to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -257,13 +257,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.mina.disconnectOnNoReply": {
-			"name": "camel.component.mina.disconnectOnNoReply",
-			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.mina.noReplyLogLevel": {
 			"name": "camel.component.mina.noReplyLogLevel",
 			"description": "If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
@@ -289,6 +282,13 @@
 		"camel.component.mina.configuration": {
 			"name": "camel.component.mina.configuration",
 			"description": "To use the shared mina configuration.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.mina.disconnectOnNoReply": {
+			"name": "camel.component.mina.disconnectOnNoReply",
+			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

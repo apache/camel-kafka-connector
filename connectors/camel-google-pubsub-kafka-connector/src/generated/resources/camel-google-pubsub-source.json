@@ -21,6 +21,18 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.source.endpoint.loggerId": {
+			"name": "camel.source.endpoint.loggerId",
+			"description": "Logger ID to use when a match to the parent route required",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.serviceAccountKey": {
+			"name": "camel.source.endpoint.serviceAccountKey",
+			"description": "The Service account key that can be used as credentials for the PubSub publisher\/subscriber. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
+			"priority": "HIGH",
+			"required": "true"
+		},
 		"camel.source.endpoint.ackMode": {
 			"name": "camel.source.endpoint.ackMode",
 			"description": "AUTO = exchange gets ack'ed\/nack'ed on completion. NONE = downstream process has to ack\/nack explicitly One of: [AUTO] [NONE]",
@@ -32,16 +44,17 @@
 				"NONE"
 			]
 		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.concurrentConsumers": {
 			"name": "camel.source.endpoint.concurrentConsumers",
 			"description": "The number of parallel streams consuming from the subscription",
 			"defaultValue": "\"1\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.loggerId": {
-			"name": "camel.source.endpoint.loggerId",
-			"description": "Logger ID to use when a match to the parent route required",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -52,22 +65,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.serviceAccountKey": {
-			"name": "camel.source.endpoint.serviceAccountKey",
-			"description": "The Service account key that can be used as credentials for the PubSub publisher\/subscriber. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
-			"priority": "HIGH",
-			"required": "true"
-		},
 		"camel.source.endpoint.synchronousPull": {
 			"name": "camel.source.endpoint.synchronousPull",
 			"description": "Synchronously pull batches of messages",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.bridgeErrorHandler": {
-			"name": "camel.source.endpoint.bridgeErrorHandler",
-			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

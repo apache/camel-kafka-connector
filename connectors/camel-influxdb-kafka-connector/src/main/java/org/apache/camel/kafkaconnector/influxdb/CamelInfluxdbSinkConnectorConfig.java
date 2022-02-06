@@ -29,9 +29,15 @@ public class CamelInfluxdbSinkConnectorConfig
     public static final String CAMEL_SINK_INFLUXDB_PATH_CONNECTION_BEAN_CONF = "camel.sink.path.connectionBean";
     public static final String CAMEL_SINK_INFLUXDB_PATH_CONNECTION_BEAN_DOC = "Connection to the influx database, of class InfluxDB.class";
     public static final String CAMEL_SINK_INFLUXDB_PATH_CONNECTION_BEAN_DEFAULT = null;
+    public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_AUTO_CREATE_DATABASE_CONF = "camel.sink.endpoint.autoCreateDatabase";
+    public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_AUTO_CREATE_DATABASE_DOC = "Define if we want to auto create the database if it's not present";
+    public static final Boolean CAMEL_SINK_INFLUXDB_ENDPOINT_AUTO_CREATE_DATABASE_DEFAULT = false;
     public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_BATCH_CONF = "camel.sink.endpoint.batch";
     public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_BATCH_DOC = "Define if this operation is a batch operation or not";
     public static final Boolean CAMEL_SINK_INFLUXDB_ENDPOINT_BATCH_DEFAULT = false;
+    public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_CHECK_DATABASE_EXISTENCE_CONF = "camel.sink.endpoint.checkDatabaseExistence";
+    public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_CHECK_DATABASE_EXISTENCE_DOC = "Define if we want to check the database existence while starting the endpoint";
+    public static final Boolean CAMEL_SINK_INFLUXDB_ENDPOINT_CHECK_DATABASE_EXISTENCE_DEFAULT = false;
     public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_DATABASE_NAME_CONF = "camel.sink.endpoint.databaseName";
     public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_DATABASE_NAME_DOC = "The name of the database where the time series will be stored";
     public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_DATABASE_NAME_DEFAULT = null;
@@ -70,7 +76,9 @@ public class CamelInfluxdbSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_INFLUXDB_PATH_CONNECTION_BEAN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFLUXDB_PATH_CONNECTION_BEAN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_INFLUXDB_PATH_CONNECTION_BEAN_DOC);
+        conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_AUTO_CREATE_DATABASE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_ENDPOINT_AUTO_CREATE_DATABASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_AUTO_CREATE_DATABASE_DOC);
         conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_BATCH_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_ENDPOINT_BATCH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_BATCH_DOC);
+        conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_CHECK_DATABASE_EXISTENCE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_ENDPOINT_CHECK_DATABASE_EXISTENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_CHECK_DATABASE_EXISTENCE_DOC);
         conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_DATABASE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFLUXDB_ENDPOINT_DATABASE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_DATABASE_NAME_DOC);
         conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFLUXDB_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_OPERATION_DOC);

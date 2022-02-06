@@ -757,6 +757,20 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.salesforce.workerPoolMaxSize": {
+			"name": "camel.component.salesforce.workerPoolMaxSize",
+			"description": "Maximum size of the thread pool used to handle HTTP responses.",
+			"defaultValue": "20",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.workerPoolSize": {
+			"name": "camel.component.salesforce.workerPoolSize",
+			"description": "Size of the thread pool used to handle HTTP responses.",
+			"defaultValue": "10",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.salesforce.allOrNone": {
 			"name": "camel.component.salesforce.allOrNone",
 			"description": "Composite API option to indicate to rollback all records if any are not successful.",

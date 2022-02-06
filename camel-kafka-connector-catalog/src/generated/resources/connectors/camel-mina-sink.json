@@ -29,7 +29,7 @@
 		},
 		"camel.sink.endpoint.disconnect": {
 			"name": "camel.sink.endpoint.disconnect",
-			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"description": "Whether to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -79,6 +79,13 @@
 		"camel.sink.endpoint.lazySessionCreation": {
 			"name": "camel.sink.endpoint.lazySessionCreation",
 			"description": "Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.disconnectOnNoReply": {
+			"name": "camel.sink.endpoint.disconnectOnNoReply",
+			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -178,7 +185,7 @@
 		},
 		"camel.component.mina.disconnect": {
 			"name": "camel.component.mina.disconnect",
-			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"description": "Whether to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -242,6 +249,13 @@
 		"camel.component.mina.configuration": {
 			"name": "camel.component.mina.configuration",
 			"description": "To use the shared mina configuration.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.mina.disconnectOnNoReply": {
+			"name": "camel.component.mina.disconnectOnNoReply",
+			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

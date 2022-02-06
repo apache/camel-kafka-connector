@@ -34,7 +34,7 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINA_PATH_PORT_DOC = "Port number";
     public static final Integer CAMEL_SINK_MINA_PATH_PORT_DEFAULT = null;
     public static final String CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_CONF = "camel.sink.endpoint.disconnect";
-    public static final String CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_DOC = "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.";
+    public static final String CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_DOC = "Whether to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.";
     public static final Boolean CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_DEFAULT = false;
     public static final String CAMEL_SINK_MINA_ENDPOINT_MINA_LOGGER_CONF = "camel.sink.endpoint.minaLogger";
     public static final String CAMEL_SINK_MINA_ENDPOINT_MINA_LOGGER_DOC = "You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output.";
@@ -57,6 +57,9 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_CONF = "camel.sink.endpoint.lazySessionCreation";
     public static final String CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DOC = "Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.";
     public static final Boolean CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DEFAULT = true;
+    public static final String CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_ON_NO_REPLY_CONF = "camel.sink.endpoint.disconnectOnNoReply";
+    public static final String CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_ON_NO_REPLY_DOC = "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.";
+    public static final Boolean CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_ON_NO_REPLY_DEFAULT = true;
     public static final String CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_CONF = "camel.sink.endpoint.maximumPoolSize";
     public static final String CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DOC = "Number of worker threads in the worker pool for TCP and UDP";
     public static final Integer CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DEFAULT = 16;
@@ -97,7 +100,7 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC = "To configure SSL security.";
     public static final String CAMEL_SINK_MINA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_MINA_COMPONENT_DISCONNECT_CONF = "camel.component.mina.disconnect";
-    public static final String CAMEL_SINK_MINA_COMPONENT_DISCONNECT_DOC = "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.";
+    public static final String CAMEL_SINK_MINA_COMPONENT_DISCONNECT_DOC = "Whether to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.";
     public static final Boolean CAMEL_SINK_MINA_COMPONENT_DISCONNECT_DEFAULT = false;
     public static final String CAMEL_SINK_MINA_COMPONENT_MINA_LOGGER_CONF = "camel.component.mina.minaLogger";
     public static final String CAMEL_SINK_MINA_COMPONENT_MINA_LOGGER_DOC = "You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output.";
@@ -126,6 +129,9 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_CONF = "camel.component.mina.configuration";
     public static final String CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DOC = "To use the shared mina configuration.";
     public static final String CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SINK_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_CONF = "camel.component.mina.disconnectOnNoReply";
+    public static final String CAMEL_SINK_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_DOC = "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.";
+    public static final Boolean CAMEL_SINK_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_DEFAULT = true;
     public static final String CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_CONF = "camel.component.mina.maximumPoolSize";
     public static final String CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DOC = "Number of worker threads in the worker pool for TCP and UDP";
     public static final Integer CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DEFAULT = 16;
@@ -192,6 +198,7 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINA_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_CACHED_ADDRESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_CACHED_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_CACHED_ADDRESS_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DOC);
+        conf.define(CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_ON_NO_REPLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_ON_NO_REPLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_DISCONNECT_ON_NO_REPLY_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_DOC);
@@ -215,6 +222,7 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SINK_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_TRANSFER_EXCHANGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_TRANSFER_EXCHANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_TRANSFER_EXCHANGE_DOC);
