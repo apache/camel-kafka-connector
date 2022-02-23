@@ -40,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 public class CamelSourceCXFITCase extends CamelSourceTestSupport {
 
-    protected static final int PORT = NetworkUtils.getFreePort("localhost");
+    protected static final int PORT = NetworkUtils.getFreePort("localhost", NetworkUtils.DEFAULT_STARTING_PORT - 200, NetworkUtils.DEFAULT_STARTING_PORT - 100);
     protected static final String SIMPLE_ENDPOINT_ADDRESS = "http://localhost:" + PORT + "/CxfConsumerTest/test";
     protected static final String SIMPLE_ENDPOINT_URI = SIMPLE_ENDPOINT_ADDRESS
             + "?serviceClass=org.apache.camel.kafkaconnector.cxf.common.HelloService"
