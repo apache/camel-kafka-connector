@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-xchange-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.5",
 		"description": "Access market data and trade on Bitcoin and Altcoin exchanges."
 	},
 	"properties": {

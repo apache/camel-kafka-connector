@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-validator-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.5",
 		"description": "Validate the payload using XML Schema and JAXP Validation."
 	},
 	"properties": {

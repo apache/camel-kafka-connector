@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-chatscript-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.5",
 		"description": "Chat with a ChatScript Server."
 	},
 	"properties": {

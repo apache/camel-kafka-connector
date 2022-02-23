@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-source",
 		"type": "source",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.5",
 		"description": "Store and retrieve blobs from Azure Storage Blob Service using SDK v12."
 	},
 	"properties": {

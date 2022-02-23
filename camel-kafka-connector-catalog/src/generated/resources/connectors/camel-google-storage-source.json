@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-storage-source",
 		"type": "source",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.5",
 		"description": "Store and retrieve objects from Google Cloud Storage Service using the google-cloud-storage library."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-freemarker-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.5",
 		"description": "Transform messages using FreeMarker templates."
 	},
 	"properties": {

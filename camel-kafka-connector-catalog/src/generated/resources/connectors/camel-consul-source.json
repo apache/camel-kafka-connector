@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-consul-source",
 		"type": "source",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.5",
 		"description": "Integrate with Consul service discovery and configuration store."
 	},
 	"properties": {
