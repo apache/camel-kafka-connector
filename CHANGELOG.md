@@ -2,26 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-1.0.0...HEAD)
-
-**Fixed bugs:**
-
-- CameHeader value is wrongly interpreted as BigDecimal and causes ClassCastException [\#1332](https://github.com/apache/camel-kafka-connector/issues/1332)
-
-**Closed issues:**
-
-- UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1337](https://github.com/apache/camel-kafka-connector/issues/1337)
-- Use SNS Aws2 connector with AWS Default Credential Provider [\#1335](https://github.com/apache/camel-kafka-connector/issues/1335)
-- `camel-kafka-connector-catalog` version 1.0.0 is missing `descriptor/` direcotry [\#1333](https://github.com/apache/camel-kafka-connector/issues/1333)
-- UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1330](https://github.com/apache/camel-kafka-connector/issues/1330)
-- Connectors Webpage Links to Older Version [\#1326](https://github.com/apache/camel-kafka-connector/issues/1326)
-- Do Camel Kafka Connectors support "Dead Letter Queue" and "Connect Reporter" features of Kafka Connect? [\#1323](https://github.com/apache/camel-kafka-connector/issues/1323)
-- Pubsub kafka connector error: java.net.UnknownHostException: pubsub.googleapis.com: Name or service not known [\#1319](https://github.com/apache/camel-kafka-connector/issues/1319)
-- camel-salesforce-kafka-connector-0.11.0 There is an Exception during HANDSHAKE: Invalid protocol null [\#1304](https://github.com/apache/camel-kafka-connector/issues/1304)
-- Upgrade to Kamelets 0.6.0 [\#1303](https://github.com/apache/camel-kafka-connector/issues/1303)
-- Upgrade to Camel 3.14.0 [\#1302](https://github.com/apache/camel-kafka-connector/issues/1302)
-- \[Security\] Workflow daily-java-next.yml is using vulnerable action actions/checkout [\#1301](https://github.com/apache/camel-kafka-connector/issues/1301)
-- How can I capture the HTTP response from camel-http-kafka-connector \(sink\)?   [\#1296](https://github.com/apache/camel-kafka-connector/issues/1296)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.11.5...HEAD)
 
 **Merged pull requests:**
 
@@ -361,6 +342,29 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.11.5](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.11.5) (2022-02-23)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-1.0.0...camel-kafka-connector-0.11.5)
+
+**Fixed bugs:**
+
+- CameHeader value is wrongly interpreted as BigDecimal and causes ClassCastException [\#1332](https://github.com/apache/camel-kafka-connector/issues/1332)
+
+**Closed issues:**
+
+- UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1337](https://github.com/apache/camel-kafka-connector/issues/1337)
+- Use SNS Aws2 connector with AWS Default Credential Provider [\#1335](https://github.com/apache/camel-kafka-connector/issues/1335)
+- `camel-kafka-connector-catalog` version 1.0.0 is missing `descriptor/` direcotry [\#1333](https://github.com/apache/camel-kafka-connector/issues/1333)
+- UNAUTHENTICATED: Credentials require channel with PRIVACY\_AND\_INTEGRITY security level. Observed security level: NONE [\#1330](https://github.com/apache/camel-kafka-connector/issues/1330)
+- Connectors Webpage Links to Older Version [\#1326](https://github.com/apache/camel-kafka-connector/issues/1326)
+- Do Camel Kafka Connectors support "Dead Letter Queue" and "Connect Reporter" features of Kafka Connect? [\#1323](https://github.com/apache/camel-kafka-connector/issues/1323)
+- Pubsub kafka connector error: java.net.UnknownHostException: pubsub.googleapis.com: Name or service not known [\#1319](https://github.com/apache/camel-kafka-connector/issues/1319)
+- camel-salesforce-kafka-connector-0.11.0 There is an Exception during HANDSHAKE: Invalid protocol null [\#1304](https://github.com/apache/camel-kafka-connector/issues/1304)
+- Upgrade to Kamelets 0.6.0 [\#1303](https://github.com/apache/camel-kafka-connector/issues/1303)
+- Upgrade to Camel 3.14.0 [\#1302](https://github.com/apache/camel-kafka-connector/issues/1302)
+- \[Security\] Workflow daily-java-next.yml is using vulnerable action actions/checkout [\#1301](https://github.com/apache/camel-kafka-connector/issues/1301)
+- How can I capture the HTTP response from camel-http-kafka-connector \(sink\)?   [\#1296](https://github.com/apache/camel-kafka-connector/issues/1296)
 
 ## [camel-kafka-connector-1.0.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-1.0.0) (2022-01-14)
 
