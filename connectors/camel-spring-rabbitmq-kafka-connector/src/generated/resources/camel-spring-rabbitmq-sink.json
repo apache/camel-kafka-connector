@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-spring-rabbitmq-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.6-SNAPSHOT",
 		"description": "Send and receive messages from RabbitMQ using Spring RabbitMQ client."
 	},
 	"properties": {

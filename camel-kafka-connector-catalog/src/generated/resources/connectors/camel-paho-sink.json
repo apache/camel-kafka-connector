@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-paho-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.6-SNAPSHOT",
 		"description": "Communicate with MQTT message brokers using Eclipse Paho MQTT Client."
 	},
 	"properties": {

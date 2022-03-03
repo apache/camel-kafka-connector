@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-snmp-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.6-SNAPSHOT",
 		"description": "Receive traps and poll SNMP (Simple Network Management Protocol) capable devices."
 	},
 	"properties": {

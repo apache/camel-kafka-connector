@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-xmlsecurity-verify-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.6-SNAPSHOT",
 		"description": "Verify XML payloads using the XML signature specification."
 	},
 	"properties": {

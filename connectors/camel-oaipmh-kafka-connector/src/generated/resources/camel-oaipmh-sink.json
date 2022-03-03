@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-oaipmh-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "0.11.6-SNAPSHOT",
 		"description": "Harvest metadata using OAI-PMH protocol"
 	},
 	"properties": {

@@ -20,4 +20,4 @@
       sources:
         - url: ./../camel-kafka-connector
           component: camel-kafka-connector
-          version: 0.11.0
+          version: 0.11.5
