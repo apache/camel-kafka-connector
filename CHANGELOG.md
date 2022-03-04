@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.11.5...HEAD)
 
+**Closed issues:**
+
+- camel-salesforce cosumer: message id not in sequence for platform events [\#1343](https://github.com/apache/camel-kafka-connector/issues/1343)
+
 **Merged pull requests:**
 
 - fix \#1332 : CameHeader value is wrongly interpreted as BigDecimal and… [\#1336](https://github.com/apache/camel-kafka-connector/pull/1336) ([valdar](https://github.com/valdar))
