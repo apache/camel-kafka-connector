@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - camel-salesforce cosumer: message id not in sequence for platform events [\#1343](https://github.com/apache/camel-kafka-connector/issues/1343)
+- SalesforceConsumer : java.lang.IllegalStateException: Queue full  [\#1342](https://github.com/apache/camel-kafka-connector/issues/1342)
 
 **Merged pull requests:**
 
