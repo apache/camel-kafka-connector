@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-kinesis-sink-sink",
 		"type": "sink",
-		"version": "0.12.0-SNAPSHOT",
+		"version": "1.1.0-SNAPSHOT",
 		"description": "Send data to AWS Kinesis.\n\nThe Kamelet expects the following header:\n\n- `partition` \/ `ce-partition`: to set the Kinesis partition key\n\nIf the header won't be set the exchange ID will be used.\n\nThe Kamelet is also able to recognize the following header:\n\n- `sequence-number` \/ `ce-sequencenumber`: to set the Sequence number\n\nThis header is optional."
 	},
 	"properties": {
