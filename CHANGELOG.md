@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Fix Main links: Point to latest release 1.0.0 [\#1350](https://github.com/apache/camel-kafka-connector/pull/1350) ([oscerd](https://github.com/oscerd))
 - fix \#1332 : CameHeader value is wrongly interpreted as BigDecimal and… [\#1336](https://github.com/apache/camel-kafka-connector/pull/1336) ([valdar](https://github.com/valdar))
 - fix \#1333: camel-kafka-connector-catalog version 1.0.0 is missing des… [\#1334](https://github.com/apache/camel-kafka-connector/pull/1334) ([valdar](https://github.com/valdar))
 - camel-website \#701 camel-kafka-connector RI table improvement \(main\) [\#1327](https://github.com/apache/camel-kafka-connector/pull/1327) ([djencks](https://github.com/djencks))
