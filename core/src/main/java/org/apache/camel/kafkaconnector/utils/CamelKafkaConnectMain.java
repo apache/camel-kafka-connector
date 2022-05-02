@@ -323,7 +323,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                             .templateParameter("aggregationTimeout", String.valueOf(Long.MAX_VALUE))
                             .from("kamelet:source")
                             .aggregate(constant(true))
-                                .aggregationStrategyRef("{{aggregationStrategy}}")
+                                .aggregationStrategy("{{aggregationStrategy}}")
                                 .completionSize("{{aggregationSize}}")
                                 .completionTimeout("{{aggregationTimeout}}")
                                 .to("kamelet:sink")
@@ -334,7 +334,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                             .templateParameter("idempotentExpression", "dummyExpression")
                             .templateParameter("idempotentRepository", "ckcIdempotentRepository")
                             .from("kamelet:source")
-                            .idempotentConsumer(simple("{{idempotentExpression}}")).messageIdRepositoryRef("{{idempotentRepository}}")
+                            .idempotentConsumer(simple("{{idempotentExpression}}")).idempotentRepository("{{idempotentRepository}}")
                             .to("kamelet:sink");
 
                     //create removeHeader template

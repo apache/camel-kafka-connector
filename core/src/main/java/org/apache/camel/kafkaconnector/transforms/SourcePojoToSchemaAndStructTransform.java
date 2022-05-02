@@ -22,7 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.avro.AvroFactory;
@@ -64,14 +63,13 @@ public class SourcePojoToSchemaAndStructTransform<R extends ConnectRecord<R>> im
 
                     try {
                         MAPPER.acceptJsonFormatVisitor(r.value().getClass(), gen);
-                    } catch (JsonMappingException e) {
+                        AvroSchema schemaWrapper = gen.getGeneratedSchema();
+                        LOG.debug("Generated and cached avro schema: {}", schemaWrapper.getAvroSchema().toString(true));
+
+                        return new CacheEntry(schemaWrapper, MAPPER.writer(schemaWrapper));
+                    } catch (Exception e) {
                         throw new ConnectException("Error in generating POJO schema.", e);
                     }
-
-                    AvroSchema schemaWrapper = gen.getGeneratedSchema();
-                    LOG.debug("Generated and cached avro schema: {}", schemaWrapper.getAvroSchema().toString(true));
-
-                    return new CacheEntry(schemaWrapper, MAPPER.writer(schemaWrapper));
                 }
             });
 
