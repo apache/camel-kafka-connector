@@ -1,0 +1,31 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.githubeventsource.CamelGithubeventsourceSourceConnector",
+		"artifactId": "camel-github-event-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-github-event-source-source",
+		"type": "source",
+		"version": "1.1.0-SNAPSHOT",
+		"description": "Receive Events From a Github Repository."
+	},
+	"properties": {
+		"camel.kamelet.github-event-source.repoName": {
+			"name": "camel.kamelet.github-event-source.repoName",
+			"description": "The Github Repository name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.github-event-source.repoOwner": {
+			"name": "camel.kamelet.github-event-source.repoOwner",
+			"description": "The repository owner",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.github-event-source.oauthToken": {
+			"name": "camel.kamelet.github-event-source.oauthToken",
+			"description": "Oauth token",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

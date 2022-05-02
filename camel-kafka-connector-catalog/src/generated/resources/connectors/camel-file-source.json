@@ -154,12 +154,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.resumeStrategy": {
-			"name": "camel.source.endpoint.resumeStrategy",
-			"description": "Set a resume strategy for files. This makes it possible to define a strategy for resuming reading files after the last point before stopping the application. See the FileConsumerResumeStrategy for implementation details",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.startingDirectoryMustExist": {
 			"name": "camel.source.endpoint.startingDirectoryMustExist",
 			"description": "Whether the starting directory must exist. Mind that the autoCreate option is default enabled, which means the starting directory is normally auto created if it doesn't exist. You can disable autoCreate and enable this to ensure the starting directory must exist. Will thrown an exception if the directory doesn't exist.",

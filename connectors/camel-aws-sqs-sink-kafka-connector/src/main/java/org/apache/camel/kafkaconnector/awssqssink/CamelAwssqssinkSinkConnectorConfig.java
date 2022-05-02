@@ -43,10 +43,19 @@ public class CamelAwssqssinkSinkConnectorConfig
     public static final Boolean CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_CONF = "camel.kamelet.aws-sqs-sink.amazonAWSHost";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_DOC = "The hostname of the Amazon AWS cloud.";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_DEFAULT = "amazonaws.com";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_CONF = "camel.kamelet.aws-sqs-sink.protocol";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS Example: http or https";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_DEFAULT = "https";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-sqs-sink.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SQS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-sqs-sink.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-sqs-sink.overrideEndpoint";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.";
+    public static final Boolean CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
 
     public CamelAwssqssinkSinkConnectorConfig(
             ConfigDef config,
@@ -61,12 +70,15 @@ public class CamelAwssqssinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_QUEUE_NAME_OR_ARN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSQSSINK_KAMELET_QUEUE_NAME_OR_ARN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSQSSINK_KAMELET_QUEUE_NAME_OR_ARN_DOC);
-        conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSQSSINK_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSQSSINK_KAMELET_REGION_DOC);
         conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_DOC);
         conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_DOC);
         conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_DOC);
+        conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
+        conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_DOC);
         return conf;
     }
 }

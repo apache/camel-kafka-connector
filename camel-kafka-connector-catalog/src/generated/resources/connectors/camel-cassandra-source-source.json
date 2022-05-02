@@ -49,7 +49,7 @@
 		"camel.kamelet.cassandra-source.consistencyLevel": {
 			"name": "camel.kamelet.cassandra-source.consistencyLevel",
 			"description": "Consistency level to use. The value can be one of ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE",
-			"defaultValue": "\"ANY\"",
+			"defaultValue": "\"QUORUM\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

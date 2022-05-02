@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestorageblobchangefeedsource.CamelAzurestorageblobchangefeedsourceSourceConnector",
+		"artifactId": "camel-azure-storage-blob-changefeed-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-blob-changefeed-source-source",
+		"type": "source",
+		"version": "1.1.0-SNAPSHOT",
+		"description": "Consume Events from Azure Storage Blob Change feed."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-blob-changefeed-source.period": {
+			"name": "camel.kamelet.azure-storage-blob-changefeed-source.period",
+			"description": "The interval between fetches to the Azure Storage Changefeed in milliseconds",
+			"defaultValue": "10000",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-changefeed-source.accountName": {
+			"name": "camel.kamelet.azure-storage-blob-changefeed-source.accountName",
+			"description": "The Azure Storage Blob account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-changefeed-source.accessKey": {
+			"name": "camel.kamelet.azure-storage-blob-changefeed-source.accessKey",
+			"description": "The Azure Storage Blob access Key.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

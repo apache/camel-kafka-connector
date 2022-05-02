@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azureservicebussource.CamelAzureservicebussourceSourceConnector",
+		"artifactId": "camel-azure-servicebus-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-servicebus-source-source",
+		"type": "source",
+		"version": "1.1.0-SNAPSHOT",
+		"description": "Consume Messages from Azure Servicebus.\n\nThe subscribtion name parameter needs to be populated in case of consuming from a Topic."
+	},
+	"properties": {
+		"camel.kamelet.azure-servicebus-source.topicOrQueueName": {
+			"name": "camel.kamelet.azure-servicebus-source.topicOrQueueName",
+			"description": "Topic Or Queue Name for the Azure Servicebus instance",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-servicebus-source.connectionString": {
+			"name": "camel.kamelet.azure-servicebus-source.connectionString",
+			"description": "Connection String for Azure Servicebus instance",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-servicebus-source.serviceBusReceiveMode": {
+			"name": "camel.kamelet.azure-servicebus-source.serviceBusReceiveMode",
+			"description": "Sets the receive mode for the receiver, possible values are PEEK_LOCK and RECEIVE_AND_DELETE",
+			"defaultValue": "\"PEEK_LOCK\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-servicebus-source.subscriptionName": {
+			"name": "camel.kamelet.azure-servicebus-source.subscriptionName",
+			"description": "Sets the name of the subscription in the topic to listen to. This parameter is mandatory in case of topic.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

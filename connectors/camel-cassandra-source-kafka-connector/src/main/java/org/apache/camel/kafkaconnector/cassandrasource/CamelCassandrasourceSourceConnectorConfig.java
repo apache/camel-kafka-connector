@@ -46,7 +46,7 @@ public class CamelCassandrasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_DEFAULT = "ALL";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_CONF = "camel.kamelet.cassandra-source.consistencyLevel";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DOC = "Consistency level to use. The value can be one of ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE";
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DEFAULT = "ANY";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DEFAULT = "QUORUM";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_CONF = "camel.kamelet.cassandra-source.query";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_DOC = "The query to execute against the Cassandra cluster table";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_DEFAULT = null;

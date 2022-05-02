@@ -146,17 +146,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.producerPoolMaxActive": {
-			"name": "camel.sink.endpoint.producerPoolMaxActive",
-			"description": "Sets the cap on the number of objects that can be allocated by the pool (checked out to clients, or idle awaiting checkout) at a given time. Use a negative value for no limit.",
-			"defaultValue": "-1",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.producerPoolMaxIdle": {
 			"name": "camel.sink.endpoint.producerPoolMaxIdle",
 			"description": "Sets the cap on the number of idle instances in the pool.",
 			"defaultValue": "100",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.producerPoolMaxTotal": {
+			"name": "camel.sink.endpoint.producerPoolMaxTotal",
+			"description": "Sets the cap on the number of objects that can be allocated by the pool (checked out to clients, or idle awaiting checkout) at a given time. Use a negative value for no limit.",
+			"defaultValue": "-1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -472,17 +472,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.netty-http.producerPoolMaxActive": {
-			"name": "camel.component.netty-http.producerPoolMaxActive",
-			"description": "Sets the cap on the number of objects that can be allocated by the pool (checked out to clients, or idle awaiting checkout) at a given time. Use a negative value for no limit.",
-			"defaultValue": "-1",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.netty-http.producerPoolMaxIdle": {
 			"name": "camel.component.netty-http.producerPoolMaxIdle",
 			"description": "Sets the cap on the number of idle instances in the pool.",
 			"defaultValue": "100",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.netty-http.producerPoolMaxTotal": {
+			"name": "camel.component.netty-http.producerPoolMaxTotal",
+			"description": "Sets the cap on the number of objects that can be allocated by the pool (checked out to clients, or idle awaiting checkout) at a given time. Use a negative value for no limit.",
+			"defaultValue": "-1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

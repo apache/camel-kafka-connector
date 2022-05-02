@@ -41,6 +41,18 @@ public class CamelAwss3sinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSS3SINK_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.aws-s3-sink.autoCreateBucket";
     public static final String CAMEL_SINK_AWSS3SINK_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName.";
     public static final Boolean CAMEL_SINK_AWSS3SINK_KAMELET_AUTO_CREATE_BUCKET_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-s3-sink.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-s3-sink.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.";
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-s3-sink.overrideEndpoint";
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.";
+    public static final Boolean CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_CONF = "camel.kamelet.aws-s3-sink.keyName";
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DOC = "The key name for saving an element in the bucket.";
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DEFAULT = null;
 
     public CamelAwss3sinkSinkConnectorConfig(
             ConfigDef config,
@@ -55,10 +67,14 @@ public class CamelAwss3sinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_BUCKET_NAME_OR_ARN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3SINK_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSS3SINK_KAMELET_BUCKET_NAME_OR_ARN_DOC);
-        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSS3SINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSS3SINK_KAMELET_ACCESS_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSS3SINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSS3SINK_KAMELET_SECRET_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSS3SINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSS3SINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3SINK_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSS3SINK_KAMELET_REGION_DOC);
         conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3SINK_KAMELET_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_AUTO_CREATE_BUCKET_DOC);
+        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
+        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DOC);
+        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DOC);
         return conf;
     }
 }

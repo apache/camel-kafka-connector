@@ -1,0 +1,44 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awssessink.CamelAwssessinkSinkConnector",
+		"artifactId": "camel-aws-ses-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-ses-sink-sink",
+		"type": "sink",
+		"version": "1.1.0-SNAPSHOT",
+		"description": "Send Email through AWS SES Service.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SES Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SES client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThe Kamelet expects the following headers to be set:\n\n- `subject` \/ `ce-subject`: The email subject\n\nIf the header won't be set the exchange ID will be used as email subject.\n\n- `to` \/ `ce-to`: a comma separated list of email addresses\n\n- `reply-to-addresses` \/ `ce-reply-to-addresses`: a comma separated list of reply-to email addresses"
+	},
+	"properties": {
+		"camel.kamelet.aws-ses-sink.from": {
+			"name": "camel.kamelet.aws-ses-sink.from",
+			"description": "From address Example: user@example.com",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ses-sink.accessKey": {
+			"name": "camel.kamelet.aws-ses-sink.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-ses-sink.secretKey": {
+			"name": "camel.kamelet.aws-ses-sink.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-ses-sink.region": {
+			"name": "camel.kamelet.aws-ses-sink.region",
+			"description": "The AWS region to connect to. Example: eu-west-1",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-ses-sink.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-ses-sink.useDefaultCredentialsProvider",
+			"description": "Set whether the SES client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

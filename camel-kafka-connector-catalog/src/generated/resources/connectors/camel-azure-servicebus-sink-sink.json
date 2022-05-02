@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azureservicebussink.CamelAzureservicebussinkSinkConnector",
+		"artifactId": "camel-azure-servicebus-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-servicebus-sink-sink",
+		"type": "sink",
+		"version": "1.1.0-SNAPSHOT",
+		"description": "Send Messages to Azure Servicebus."
+	},
+	"properties": {
+		"camel.kamelet.azure-servicebus-sink.topicOrQueueName": {
+			"name": "camel.kamelet.azure-servicebus-sink.topicOrQueueName",
+			"description": "Topic Or Queue Name for the Azure Servicebus instance",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-servicebus-sink.connectionString": {
+			"name": "camel.kamelet.azure-servicebus-sink.connectionString",
+			"description": "Connection String for Azure Servicebus instance",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

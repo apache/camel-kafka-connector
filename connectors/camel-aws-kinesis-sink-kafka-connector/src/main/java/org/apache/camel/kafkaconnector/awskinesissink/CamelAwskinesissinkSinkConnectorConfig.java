@@ -38,6 +38,15 @@ public class CamelAwskinesissinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_REGION_CONF = "camel.kamelet.aws-kinesis-sink.region";
     public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_REGION_DOC = "The AWS region to connect to Example: eu-west-1";
     public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_REGION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-kinesis-sink.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the Kinesis client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWSKINESISSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-kinesis-sink.uriEndpointOverride";
+    public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.";
+    public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-kinesis-sink.overrideEndpoint";
+    public static final String CAMEL_SINK_AWSKINESISSINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.";
+    public static final Boolean CAMEL_SINK_AWSKINESISSINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
 
     public CamelAwskinesissinkSinkConnectorConfig(
             ConfigDef config,
@@ -53,9 +62,12 @@ public class CamelAwskinesissinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_STREAM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKINESISSINK_KAMELET_STREAM_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSKINESISSINK_KAMELET_STREAM_DOC);
-        conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSKINESISSINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSKINESISSINK_KAMELET_ACCESS_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSKINESISSINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSKINESISSINK_KAMELET_SECRET_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSKINESISSINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKINESISSINK_KAMELET_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSKINESISSINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKINESISSINK_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKINESISSINK_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSKINESISSINK_KAMELET_REGION_DOC);
+        conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSKINESISSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKINESISSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
+        conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKINESISSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKINESISSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
+        conf.define(CAMEL_SINK_AWSKINESISSINK_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSKINESISSINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKINESISSINK_KAMELET_OVERRIDE_ENDPOINT_DOC);
         return conf;
     }
 }
