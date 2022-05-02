@@ -6,7 +6,7 @@
 		"id": "camel-aws-ddb-streams-source-source",
 		"type": "source",
 		"version": "1.1.0-SNAPSHOT",
-		"description": "Receive events from AWS DynamoDB Streams."
+		"description": "Receive events from AWS DynamoDB Streams.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS DynamoDB Streams Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the AWS DynamoDB Streams client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
 	},
 	"properties": {
 		"camel.kamelet.aws-ddb-streams-source.table": {
@@ -18,14 +18,14 @@
 		"camel.kamelet.aws-ddb-streams-source.accessKey": {
 			"name": "camel.kamelet.aws-ddb-streams-source.accessKey",
 			"description": "The access key obtained from AWS",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-streams-source.secretKey": {
 			"name": "camel.kamelet.aws-ddb-streams-source.secretKey",
 			"description": "The secret key obtained from AWS",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-streams-source.region": {
 			"name": "camel.kamelet.aws-ddb-streams-source.region",
@@ -44,6 +44,26 @@
 			"name": "camel.kamelet.aws-ddb-streams-source.sequenceNumberProvider",
 			"description": "Provider for the sequence number when using one of the two ShardIteratorType AT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. Example: 900000000005745712447",
 			"defaultValue": "\"000000000000000000000\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-ddb-streams-source.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-ddb-streams-source.useDefaultCredentialsProvider",
+			"description": "Set whether the AWS DynamoDB Streams client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-ddb-streams-source.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-ddb-streams-source.uriEndpointOverride",
+			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-ddb-streams-source.overrideEndpoint": {
+			"name": "camel.kamelet.aws-ddb-streams-source.overrideEndpoint",
+			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

@@ -6,7 +6,7 @@
 		"id": "camel-aws-s3-source-source",
 		"type": "source",
 		"version": "1.1.0-SNAPSHOT",
-		"description": "Receive data from AWS S3."
+		"description": "Receive data from AWS S3 Bucket.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS S3 Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the S3 client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
 	},
 	"properties": {
 		"camel.kamelet.aws-s3-source.bucketNameOrArn": {
@@ -25,14 +25,14 @@
 		"camel.kamelet.aws-s3-source.accessKey": {
 			"name": "camel.kamelet.aws-s3-source.accessKey",
 			"description": "The access key obtained from AWS",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.secretKey": {
 			"name": "camel.kamelet.aws-s3-source.secretKey",
 			"description": "The secret key obtained from AWS",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.region": {
 			"name": "camel.kamelet.aws-s3-source.region",
@@ -63,6 +63,26 @@
 		"camel.kamelet.aws-s3-source.ignoreBody": {
 			"name": "camel.kamelet.aws-s3-source.ignoreBody",
 			"description": "If it is true, the S3 Object Body will be ignored completely, if it is set to false the S3 Object will be put in the body. Setting this to true, will override any behavior defined by includeBody option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-s3-source.useDefaultCredentialsProvider",
+			"description": "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-s3-source.uriEndpointOverride",
+			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.overrideEndpoint": {
+			"name": "camel.kamelet.aws-s3-source.overrideEndpoint",
+			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

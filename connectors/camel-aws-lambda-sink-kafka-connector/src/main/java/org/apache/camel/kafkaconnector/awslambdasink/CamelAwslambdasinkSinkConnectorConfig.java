@@ -38,6 +38,9 @@ public class CamelAwslambdasinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSLAMBDASINK_KAMELET_REGION_CONF = "camel.kamelet.aws-lambda-sink.region";
     public static final String CAMEL_SINK_AWSLAMBDASINK_KAMELET_REGION_DOC = "The AWS region to connect to Example: eu-west-1";
     public static final String CAMEL_SINK_AWSLAMBDASINK_KAMELET_REGION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDASINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-lambda-sink.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWSLAMBDASINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the Lambda client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWSLAMBDASINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
 
     public CamelAwslambdasinkSinkConnectorConfig(
             ConfigDef config,
@@ -53,9 +56,10 @@ public class CamelAwslambdasinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSLAMBDASINK_KAMELET_FUNCTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDASINK_KAMELET_FUNCTION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSLAMBDASINK_KAMELET_FUNCTION_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDASINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSLAMBDASINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSLAMBDASINK_KAMELET_ACCESS_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDASINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSLAMBDASINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSLAMBDASINK_KAMELET_SECRET_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDASINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSLAMBDASINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDASINK_KAMELET_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDASINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSLAMBDASINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDASINK_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDASINK_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDASINK_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSLAMBDASINK_KAMELET_REGION_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDASINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDASINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDASINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         return conf;
     }
 }

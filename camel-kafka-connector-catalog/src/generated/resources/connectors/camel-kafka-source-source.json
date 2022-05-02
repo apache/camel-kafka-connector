@@ -80,6 +80,13 @@
 			"description": "A string that uniquely identifies the group of consumers to which this source belongs Example: my-group-id",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.kafka-source.deserializeHeaders": {
+			"name": "camel.kamelet.kafka-source.deserializeHeaders",
+			"description": "When enabled the Kamelet source will deserialize all message headers to String representation.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

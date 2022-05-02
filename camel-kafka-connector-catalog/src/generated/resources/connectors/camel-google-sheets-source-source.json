@@ -9,12 +9,6 @@
 		"description": "Receive data from Google Sheets."
 	},
 	"properties": {
-		"camel.kamelet.google-sheets-source.index": {
-			"name": "camel.kamelet.google-sheets-source.index",
-			"description": "An index for the google sheets endpoint",
-			"priority": "HIGH",
-			"required": "true"
-		},
 		"camel.kamelet.google-sheets-source.spreadsheetId": {
 			"name": "camel.kamelet.google-sheets-source.spreadsheetId",
 			"description": "The Spreadsheet ID to be used as events source",
@@ -61,8 +55,8 @@
 		"camel.kamelet.google-sheets-source.applicationName": {
 			"name": "camel.kamelet.google-sheets-source.applicationName",
 			"description": "Google Sheets application name",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.google-sheets-source.splitResults": {
 			"name": "camel.kamelet.google-sheets-source.splitResults",

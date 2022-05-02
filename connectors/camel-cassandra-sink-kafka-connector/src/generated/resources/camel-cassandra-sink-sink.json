@@ -46,8 +46,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.kamelet.cassandra-sink.preparedStatement": {
-			"name": "camel.kamelet.cassandra-sink.preparedStatement",
+		"camel.kamelet.cassandra-sink.prepareStatements": {
+			"name": "camel.kamelet.cassandra-sink.prepareStatements",
 			"description": "Whether to use PreparedStatements or regular Statements as the query.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",

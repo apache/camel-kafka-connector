@@ -59,6 +59,9 @@ public class CamelKafkasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_CONF = "camel.kamelet.kafka-source.consumerGroup";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DOC = "A string that uniquely identifies the group of consumers to which this source belongs Example: my-group-id";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_CONF = "camel.kamelet.kafka-source.deserializeHeaders";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DOC = "When enabled the Kamelet source will deserialize all message headers to String representation.";
+    public static final Boolean CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT = false;
 
     public CamelKafkasourceSourceConnectorConfig(
             ConfigDef config,
@@ -84,6 +87,7 @@ public class CamelKafkasourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DOC);
+        conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DOC);
         return conf;
     }
 }

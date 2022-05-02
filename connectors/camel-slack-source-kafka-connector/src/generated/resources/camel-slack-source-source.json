@@ -17,9 +17,15 @@
 		},
 		"camel.kamelet.slack-source.token": {
 			"name": "camel.kamelet.slack-source.token",
-			"description": "The token to access Slack. A Slack app is needed. This app needs to have channels:history and channels:read permissions. The Bot User OAuth Access Token is the kind of token needed.",
+			"description": "The token to access Slack. A Slack app is needed. The token to access Slack. This app needs to have channels:history, groups:history, im:history, mpim:history, channels:read, groups:read, im:read and mpim:read permissions. The User OAuth Token is the kind of token needed.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.slack-source.delay": {
+			"name": "camel.kamelet.slack-source.delay",
+			"description": "The delay between polls Example: 1s",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

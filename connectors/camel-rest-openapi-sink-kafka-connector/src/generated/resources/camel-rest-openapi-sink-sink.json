@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.restopenapisink.CamelRestopenapisinkSinkConnector",
+		"artifactId": "camel-rest-openapi-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-rest-openapi-sink-sink",
+		"type": "sink",
+		"version": "1.1.0-SNAPSHOT",
+		"description": "Load OpenAPI specification from URI and call an operation on the HTTP service. The request is generated respecting the rules given in the OpenAPI specification (e.g. path parameters, Content-Type)."
+	},
+	"properties": {
+		"camel.kamelet.rest-openapi-sink.specification": {
+			"name": "camel.kamelet.rest-openapi-sink.specification",
+			"description": "URI to the OpenApi specification file Example: https:\/\/api.example.com\/openapi.json",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.rest-openapi-sink.operation": {
+			"name": "camel.kamelet.rest-openapi-sink.operation",
+			"description": "The operation to call",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

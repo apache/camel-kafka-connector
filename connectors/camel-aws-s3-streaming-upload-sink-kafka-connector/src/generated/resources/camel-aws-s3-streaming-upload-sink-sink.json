@@ -6,7 +6,7 @@
 		"id": "camel-aws-s3-streaming-upload-sink-sink",
 		"type": "sink",
 		"version": "1.1.0-SNAPSHOT",
-		"description": "Upload data to AWS S3 in streaming upload mode."
+		"description": "Upload data to AWS S3 in streaming upload mode.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS S3 Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the S3 client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
 	},
 	"properties": {
 		"camel.kamelet.aws-s3-streaming-upload-sink.bucketNameOrArn": {
@@ -18,14 +18,14 @@
 		"camel.kamelet.aws-s3-streaming-upload-sink.accessKey": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.accessKey",
 			"description": "The access key obtained from AWS.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.secretKey": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.secretKey",
 			"description": "The secret key obtained from AWS.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.region": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.region",
@@ -86,6 +86,26 @@
 			"description": "Setting the key name for an element in the bucket through endpoint parameter. In Streaming Upload, with the default configuration, this will be the base for the progressive creation of files.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.useDefaultCredentialsProvider",
+			"description": "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.uriEndpointOverride",
+			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-streaming-upload-sink.overrideEndpoint": {
+			"name": "camel.kamelet.aws-s3-streaming-upload-sink.overrideEndpoint",
+			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

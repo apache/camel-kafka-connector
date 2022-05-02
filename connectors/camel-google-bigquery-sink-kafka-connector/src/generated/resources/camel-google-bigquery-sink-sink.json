@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlebigquerysink.CamelGooglebigquerysinkSinkConnector",
+		"artifactId": "camel-google-bigquery-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-bigquery-sink-sink",
+		"type": "sink",
+		"version": "1.1.0-SNAPSHOT",
+		"description": "Send data to a Google Big Query table.\n\nIt is expected the body is in Json format representing an object or an array of objects.\n\nThe credentialsFileLocation property needs to be a path to a service account key file."
+	},
+	"properties": {
+		"camel.kamelet.google-bigquery-sink.projectId": {
+			"name": "camel.kamelet.google-bigquery-sink.projectId",
+			"description": "Google Cloud Project id",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-bigquery-sink.dataset": {
+			"name": "camel.kamelet.google-bigquery-sink.dataset",
+			"description": "The Big Query Dataset Id",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-bigquery-sink.table": {
+			"name": "camel.kamelet.google-bigquery-sink.table",
+			"description": "The Big Query Table Id",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-bigquery-sink.credentialsFileLocation": {
+			"name": "camel.kamelet.google-bigquery-sink.credentialsFileLocation",
+			"description": "The credential to access Google Cloud Platform api services",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}
