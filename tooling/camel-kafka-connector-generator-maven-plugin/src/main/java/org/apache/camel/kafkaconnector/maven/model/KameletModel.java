@@ -19,9 +19,6 @@ package org.apache.camel.kafkaconnector.maven.model;
 import java.util.List;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
-
 public class KameletModel {
     private String name;
     private String type;
@@ -47,7 +44,7 @@ public class KameletModel {
     }
 
     public Set<String> getDependencies() {
-        return ImmutableSet.copyOf(dependencies);
+        return Set.copyOf(dependencies);
     }
 
     public void setDependencies(Set<String> dependencies) {
@@ -55,7 +52,7 @@ public class KameletModel {
     }
 
     public List<KameletPropertyModel> getProperties() {
-        return ImmutableList.copyOf(properties);
+        return List.copyOf(properties);
     }
 
     public void setProperties(List<KameletPropertyModel> properties) {
@@ -63,7 +60,7 @@ public class KameletModel {
     }
 
     public Set<String> getRequiredProperties() {
-        return ImmutableSet.copyOf(requiredProperties);
+        return Set.copyOf(requiredProperties);
     }
 
     public void setRequiredProperties(Set<String> requiredProperties) {
