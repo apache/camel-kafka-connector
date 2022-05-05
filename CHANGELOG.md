@@ -6,12 +6,14 @@
 
 **Closed issues:**
 
+- Upgrade to Camel-Kamelets 0.8.0 and Camel 3.16.0 [\#1360](https://github.com/apache/camel-kafka-connector/issues/1360)
 - camel-aws-s3-sink-kafka-connector is showing class error and not pushing data to s3 [\#1347](https://github.com/apache/camel-kafka-connector/issues/1347)
 - camel-salesforce cosumer: message id not in sequence for platform events [\#1343](https://github.com/apache/camel-kafka-connector/issues/1343)
 - SalesforceConsumer : java.lang.IllegalStateException: Queue full  [\#1342](https://github.com/apache/camel-kafka-connector/issues/1342)
 
 **Merged pull requests:**
 
+- Issue/1360 [\#1362](https://github.com/apache/camel-kafka-connector/pull/1362) ([valdar](https://github.com/valdar))
 - Could org.apache.camel.kafkaconnector:camel-kafka-connector-catalog-descriptor-maven-plugin:1.1.0-SNAPSHOT drop off redundant dependencies? [\#1352](https://github.com/apache/camel-kafka-connector/pull/1352) ([Celebrate-future](https://github.com/Celebrate-future))
 - Fix Main links: Point to latest release 1.0.0 [\#1350](https://github.com/apache/camel-kafka-connector/pull/1350) ([oscerd](https://github.com/oscerd))
 - fix \#1332 : CameHeader value is wrongly interpreted as BigDecimal and… [\#1336](https://github.com/apache/camel-kafka-connector/pull/1336) ([valdar](https://github.com/valdar))
