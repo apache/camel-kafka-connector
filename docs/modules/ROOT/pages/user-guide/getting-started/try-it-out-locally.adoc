@@ -56,7 +56,7 @@ plugin.path=/home/connectors
 
 At this point you're able to run the connectors quickstart.
 
-Next, run Camel kafka connectors source and/or syncs:
+Next, run Camel kafka connectors source and/or sink:
 
 You can use these Kafka utilities to listen or produce from a Kafka topic:
 
