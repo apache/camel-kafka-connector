@@ -13,6 +13,7 @@
 
 **Merged pull requests:**
 
+- Updating Kafka terminology in doc [\#1367](https://github.com/apache/camel-kafka-connector/pull/1367) ([valathsu](https://github.com/valathsu))
 - Issue/1360 [\#1362](https://github.com/apache/camel-kafka-connector/pull/1362) ([valdar](https://github.com/valdar))
 - Could org.apache.camel.kafkaconnector:camel-kafka-connector-catalog-descriptor-maven-plugin:1.1.0-SNAPSHOT drop off redundant dependencies? [\#1352](https://github.com/apache/camel-kafka-connector/pull/1352) ([Celebrate-future](https://github.com/Celebrate-future))
 - Fix Main links: Point to latest release 1.0.0 [\#1350](https://github.com/apache/camel-kafka-connector/pull/1350) ([oscerd](https://github.com/oscerd))
