@@ -10,6 +10,7 @@
 - camel-aws-s3-sink-kafka-connector is showing class error and not pushing data to s3 [\#1347](https://github.com/apache/camel-kafka-connector/issues/1347)
 - camel-salesforce cosumer: message id not in sequence for platform events [\#1343](https://github.com/apache/camel-kafka-connector/issues/1343)
 - SalesforceConsumer : java.lang.IllegalStateException: Queue full  [\#1342](https://github.com/apache/camel-kafka-connector/issues/1342)
+- Dead loop for connector state [\#1341](https://github.com/apache/camel-kafka-connector/issues/1341)
 
 **Merged pull requests:**
 
