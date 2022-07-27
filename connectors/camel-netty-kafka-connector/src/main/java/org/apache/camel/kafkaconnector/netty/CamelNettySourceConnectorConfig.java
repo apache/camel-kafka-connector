@@ -53,9 +53,6 @@ public class CamelNettySourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_TCP_NO_DELAY_CONF = "camel.source.endpoint.tcpNoDelay";
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_TCP_NO_DELAY_DOC = "Setting to improve TCP protocol performance";
     public static final Boolean CAMEL_SOURCE_NETTY_ENDPOINT_TCP_NO_DELAY_DEFAULT = true;
-    public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BROADCAST_CONF = "camel.source.endpoint.broadcast";
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BROADCAST_DOC = "Setting to choose Multicast over UDP";
     public static final Boolean CAMEL_SOURCE_NETTY_ENDPOINT_BROADCAST_DEFAULT = false;
@@ -77,6 +74,9 @@ public class CamelNettySourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_GROUP_CONF = "camel.source.endpoint.bossGroup";
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_GROUP_DOC = "Set the BossGroup which could be used for handling the new connection of the server side across the NettyEndpoint";
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_GROUP_DEFAULT = null;
+    public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
+    public static final String CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    public static final Boolean CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_DISCONNECT_ON_NO_REPLY_CONF = "camel.source.endpoint.disconnectOnNoReply";
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_DISCONNECT_ON_NO_REPLY_DOC = "If sync is enabled then this option dictates NettyConsumer if it should disconnect where there is no reply to send back.";
     public static final Boolean CAMEL_SOURCE_NETTY_ENDPOINT_DISCONNECT_ON_NO_REPLY_DEFAULT = true;
@@ -411,7 +411,6 @@ public class CamelNettySourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_REUSE_CHANNEL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_REUSE_CHANNEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_REUSE_CHANNEL_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_SYNC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_SYNC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_SYNC_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_TCP_NO_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_TCP_NO_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_TCP_NO_DELAY_DOC);
-        conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_BROADCAST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_BROADCAST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_BROADCAST_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_CLIENT_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_CLIENT_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_CLIENT_MODE_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_RECONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_RECONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_RECONNECT_DOC);
@@ -419,6 +418,7 @@ public class CamelNettySourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_BACKLOG_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTY_ENDPOINT_BACKLOG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_BACKLOG_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_COUNT_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_BOSS_GROUP_DOC);
+        conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_DISCONNECT_ON_NO_REPLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTY_ENDPOINT_DISCONNECT_ON_NO_REPLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_DISCONNECT_ON_NO_REPLY_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTY_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NETTY_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTY_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTY_ENDPOINT_EXCHANGE_PATTERN_DOC);

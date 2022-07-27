@@ -60,9 +60,6 @@ public class CamelCxfrsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_HOSTNAME_VERIFIER_CONF = "camel.sink.endpoint.hostnameVerifier";
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_HOSTNAME_VERIFIER_DOC = "The hostname verifier to be used. Use the # notation to reference a HostnameVerifier from the registry.";
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_HOSTNAME_VERIFIER_DEFAULT = null;
-    public static final String CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
-    public static final String CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF = "camel.sink.endpoint.sslContextParameters";
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC = "The Camel SSL setting reference. Use the # notation to reference the SSL Context.";
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
@@ -75,6 +72,9 @@ public class CamelCxfrsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_IGNORE_DELETE_METHOD_MESSAGE_BODY_CONF = "camel.sink.endpoint.ignoreDeleteMethodMessageBody";
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_IGNORE_DELETE_METHOD_MESSAGE_BODY_DOC = "This option is used to tell CxfRsProducer to ignore the message body of the DELETE method when using HTTP API.";
     public static final Boolean CAMEL_SINK_CXFRS_ENDPOINT_IGNORE_DELETE_METHOD_MESSAGE_BODY_DEFAULT = false;
+    public static final String CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
+    public static final String CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    public static final Boolean CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_MAX_CLIENT_CACHE_SIZE_CONF = "camel.sink.endpoint.maxClientCacheSize";
     public static final String CAMEL_SINK_CXFRS_ENDPOINT_MAX_CLIENT_CACHE_SIZE_DOC = "This option allows you to configure the maximum size of the cache. The implementation caches CXF clients or ClientFactoryBean in CxfProvider and CxfRsProvider.";
     public static final Integer CAMEL_SINK_CXFRS_ENDPOINT_MAX_CLIENT_CACHE_SIZE_DEFAULT = 10;
@@ -142,11 +142,11 @@ public class CamelCxfrsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_SKIP_FAULT_LOGGING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXFRS_ENDPOINT_SKIP_FAULT_LOGGING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_SKIP_FAULT_LOGGING_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_COOKIE_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXFRS_ENDPOINT_COOKIE_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_COOKIE_HANDLER_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_HOSTNAME_VERIFIER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXFRS_ENDPOINT_HOSTNAME_VERIFIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_HOSTNAME_VERIFIER_DOC);
-        conf.define(CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXFRS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXFRS_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_HTTP_CLIENT_APICONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXFRS_ENDPOINT_HTTP_CLIENT_APIDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_HTTP_CLIENT_APIDOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_IGNORE_DELETE_METHOD_MESSAGE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXFRS_ENDPOINT_IGNORE_DELETE_METHOD_MESSAGE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_IGNORE_DELETE_METHOD_MESSAGE_BODY_DOC);
+        conf.define(CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_MAX_CLIENT_CACHE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_CXFRS_ENDPOINT_MAX_CLIENT_CACHE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_MAX_CLIENT_CACHE_SIZE_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXFRS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CXFRS_ENDPOINT_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXFRS_ENDPOINT_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_ENDPOINT_BINDING_DOC);

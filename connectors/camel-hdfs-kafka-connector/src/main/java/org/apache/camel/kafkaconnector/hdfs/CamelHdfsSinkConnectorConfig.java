@@ -57,12 +57,12 @@ public class CamelHdfsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HDFS_ENDPOINT_APPEND_CONF = "camel.sink.endpoint.append";
     public static final String CAMEL_SINK_HDFS_ENDPOINT_APPEND_DOC = "Append to existing file. Notice that not all HDFS file systems support the append option.";
     public static final Boolean CAMEL_SINK_HDFS_ENDPOINT_APPEND_DEFAULT = false;
-    public static final String CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
-    public static final String CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_HDFS_ENDPOINT_OVERWRITE_CONF = "camel.sink.endpoint.overwrite";
     public static final String CAMEL_SINK_HDFS_ENDPOINT_OVERWRITE_DOC = "Whether to overwrite existing files with the same name";
     public static final Boolean CAMEL_SINK_HDFS_ENDPOINT_OVERWRITE_DEFAULT = true;
+    public static final String CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
+    public static final String CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    public static final Boolean CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_HDFS_ENDPOINT_BLOCK_SIZE_CONF = "camel.sink.endpoint.blockSize";
     public static final String CAMEL_SINK_HDFS_ENDPOINT_BLOCK_SIZE_DOC = "The size of the HDFS blocks";
     public static final Long CAMEL_SINK_HDFS_ENDPOINT_BLOCK_SIZE_DEFAULT = 67108864L;
@@ -138,8 +138,8 @@ public class CamelHdfsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_OWNER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_ENDPOINT_OWNER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_OWNER_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_VALUE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_ENDPOINT_VALUE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_VALUE_TYPE_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_APPEND_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_ENDPOINT_APPEND_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_APPEND_DOC);
-        conf.define(CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_OVERWRITE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_ENDPOINT_OVERWRITE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_OVERWRITE_DOC);
+        conf.define(CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_BLOCK_SIZE_CONF, ConfigDef.Type.LONG, CAMEL_SINK_HDFS_ENDPOINT_BLOCK_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_BLOCK_SIZE_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_HDFS_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_CHECK_IDLE_INTERVAL_CONF, ConfigDef.Type.INT, CAMEL_SINK_HDFS_ENDPOINT_CHECK_IDLE_INTERVAL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_CHECK_IDLE_INTERVAL_DOC);

@@ -108,13 +108,6 @@
 				"BYTES"
 			]
 		},
-		"camel.source.endpoint.bridgeErrorHandler": {
-			"name": "camel.source.endpoint.bridgeErrorHandler",
-			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.pattern": {
 			"name": "camel.source.endpoint.pattern",
 			"description": "The pattern used for scanning the directory",
@@ -132,6 +125,13 @@
 		"camel.source.endpoint.streamDownload": {
 			"name": "camel.source.endpoint.streamDownload",
 			"description": "Sets the download method to use when not using a local working directory. If set to true, the remote files are streamed to the route as they are read. When set to false, the remote files are loaded into memory before being sent into the route.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

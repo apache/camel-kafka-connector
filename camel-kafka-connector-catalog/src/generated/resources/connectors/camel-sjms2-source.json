@@ -79,13 +79,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.bridgeErrorHandler": {
-			"name": "camel.source.endpoint.bridgeErrorHandler",
-			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.clientId": {
 			"name": "camel.source.endpoint.clientId",
 			"description": "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.",
@@ -129,6 +122,13 @@
 		"camel.source.endpoint.subscriptionId": {
 			"name": "camel.source.endpoint.subscriptionId",
 			"description": "Sets the topic subscription id, required for durable or shared topics.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -285,6 +285,12 @@
 		"camel.component.sjms2.destinationCreationStrategy": {
 			"name": "camel.component.sjms2.destinationCreationStrategy",
 			"description": "To use a custom DestinationCreationStrategy.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.sjms2.exceptionListener": {
+			"name": "camel.component.sjms2.exceptionListener",
+			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
