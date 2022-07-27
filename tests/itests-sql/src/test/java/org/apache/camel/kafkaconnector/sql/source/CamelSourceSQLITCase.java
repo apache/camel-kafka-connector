@@ -47,7 +47,7 @@ public class CamelSourceSQLITCase extends CamelSourceTestSupport {
     private String port;
 
     public CamelSourceSQLITCase() {
-        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:9.6.2")
+        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:13.0")
                 .withDatabaseName("camel")
                 .withUsername("ckc")
                 .withPassword("ckcDevel123")

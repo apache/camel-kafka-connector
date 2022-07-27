@@ -84,7 +84,7 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
     }
 
     public CamelSinkSQLITCase() {
-        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:9.6.2")
+        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:13.0")
                 .withDatabaseName(DATABASE_NAME)
                 .withUsername(USERNAME)
                 .withPassword(PASSWORD)
