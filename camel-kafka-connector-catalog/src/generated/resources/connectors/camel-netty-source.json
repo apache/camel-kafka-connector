@@ -73,13 +73,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.bridgeErrorHandler": {
-			"name": "camel.source.endpoint.bridgeErrorHandler",
-			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.broadcast": {
 			"name": "camel.source.endpoint.broadcast",
 			"description": "Setting to choose Multicast over UDP",
@@ -124,6 +117,13 @@
 		"camel.source.endpoint.bossGroup": {
 			"name": "camel.source.endpoint.bossGroup",
 			"description": "Set the BossGroup which could be used for handling the new connection of the server side across the NettyEndpoint",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -56,9 +56,6 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_CONF = "camel.source.endpoint.valueType";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DOC = "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DEFAULT = "BYTES";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_CONF = "camel.source.endpoint.pattern";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_DOC = "The pattern used for scanning the directory";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_DEFAULT = "*";
@@ -68,6 +65,9 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_STREAM_DOWNLOAD_CONF = "camel.source.endpoint.streamDownload";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_STREAM_DOWNLOAD_DOC = "Sets the download method to use when not using a local working directory. If set to true, the remote files are streamed to the route as they are read. When set to false, the remote files are loaded into memory before being sent into the route.";
     public static final Boolean CAMEL_SOURCE_HDFS_ENDPOINT_STREAM_DOWNLOAD_DEFAULT = false;
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    public static final Boolean CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
@@ -196,10 +196,10 @@ public class CamelHdfsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_NAMED_NODES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_NAMED_NODES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_NAMED_NODES_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_OWNER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_OWNER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_OWNER_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DOC);
-        conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_STREAM_DOWNLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_ENDPOINT_STREAM_DOWNLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_STREAM_DOWNLOAD_DOC);
+        conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_POLL_STRATEGY_DOC);

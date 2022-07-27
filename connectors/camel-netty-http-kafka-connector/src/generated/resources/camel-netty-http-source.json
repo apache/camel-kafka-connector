@@ -39,7 +39,7 @@
 		},
 		"camel.source.endpoint.bridgeEndpoint": {
 			"name": "camel.source.endpoint.bridgeEndpoint",
-			"description": "If the option is true, the producer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request. You may also set the throwExceptionOnFailure to be false to let the producer send all the fault response back. The consumer working in the bridge mode will skip the gzip compression and WWW URL form encoding (by adding the Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED headers to the consumed exchange).",
+			"description": "If the option is true, the producer will ignore the NettyHttpConstants.HTTP_URI header, and use the endpoint's URI for request. You may also set the throwExceptionOnFailure to be false to let the producer send all the fault response back. The consumer working in the bridge mode will skip the gzip compression and WWW URL form encoding (by adding the Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED headers to the consumed exchange).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -86,13 +86,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.bridgeErrorHandler": {
-			"name": "camel.source.endpoint.bridgeErrorHandler",
-			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.matchOnUriPrefix": {
 			"name": "camel.source.endpoint.matchOnUriPrefix",
 			"description": "Whether or not Camel should try to find a target consumer by matching the URI prefix if no exact match is found.",
@@ -130,6 +123,13 @@
 		"camel.source.endpoint.bossGroup": {
 			"name": "camel.source.endpoint.bossGroup",
 			"description": "Set the BossGroup which could be used for handling the new connection of the server side across the NettyEndpoint",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -26,7 +26,6 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.DefaultErrorHandlerBuilder;
-import org.apache.camel.builder.ErrorHandlerBuilderRef;
 import org.apache.camel.builder.NoErrorHandlerBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
@@ -349,7 +348,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                             .templateParameter("fromUrl")
                             .templateParameter("errorHandler", "ckcErrorHandler")
                             .from("{{fromUrl}}")
-                            .errorHandler(new ErrorHandlerBuilderRef("{{errorHandler}}"))
+                            .errorHandler("ckcErrorHandler")
                             .to("kamelet:sink");
 
                     //creating sink template
@@ -357,7 +356,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                             .templateParameter("toUrl")
                             .templateParameter("errorHandler", "ckcErrorHandler")
                             .from("kamelet:source")
-                            .errorHandler(new ErrorHandlerBuilderRef("{{errorHandler}}"))
+                            .errorHandler("ckcErrorHandler")
                             .to("{{toUrl}}");
 
                     //creating the actual route

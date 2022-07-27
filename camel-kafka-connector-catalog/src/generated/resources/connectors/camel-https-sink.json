@@ -15,13 +15,6 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.sink.endpoint.chunked": {
-			"name": "camel.sink.endpoint.chunked",
-			"description": "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.disableStreamCache": {
 			"name": "camel.sink.endpoint.disableStreamCache",
 			"description": "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory\/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge\/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.",
@@ -32,12 +25,6 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.httpBinding": {
-			"name": "camel.sink.endpoint.httpBinding",
-			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -98,13 +85,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.lazyStartProducer": {
-			"name": "camel.sink.endpoint.lazyStartProducer",
-			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.preserveHostHeader": {
 			"name": "camel.sink.endpoint.preserveHostHeader",
 			"description": "If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service",
@@ -116,13 +96,6 @@
 			"name": "camel.sink.endpoint.throwExceptionOnFailure",
 			"description": "Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server. This allows you to get all responses regardless of the HTTP status code.",
 			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.transferException": {
-			"name": "camel.sink.endpoint.transferException",
-			"description": "If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application\/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -148,6 +121,13 @@
 		"camel.sink.endpoint.getWithBody": {
 			"name": "camel.sink.endpoint.getWithBody",
 			"description": "Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

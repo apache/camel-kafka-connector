@@ -39,7 +39,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_PATH_PATH_DOC = "Resource path";
     public static final String CAMEL_SOURCE_NETTYHTTP_PATH_PATH_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ENDPOINT_CONF = "camel.source.endpoint.bridgeEndpoint";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ENDPOINT_DOC = "If the option is true, the producer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request. You may also set the throwExceptionOnFailure to be false to let the producer send all the fault response back. The consumer working in the bridge mode will skip the gzip compression and WWW URL form encoding (by adding the Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED headers to the consumed exchange).";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ENDPOINT_DOC = "If the option is true, the producer will ignore the NettyHttpConstants.HTTP_URI header, and use the endpoint's URI for request. You may also set the throwExceptionOnFailure to be false to let the producer send all the fault response back. The consumer working in the bridge mode will skip the gzip compression and WWW URL form encoding (by adding the Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED headers to the consumed exchange).";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DISCONNECT_CONF = "camel.source.endpoint.disconnect";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DISCONNECT_DOC = "Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.";
@@ -59,9 +59,6 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_CONF = "camel.source.endpoint.tcpNoDelay";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_DOC = "Setting to improve TCP protocol performance";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_DEFAULT = true;
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MATCH_ON_URI_PREFIX_CONF = "camel.source.endpoint.matchOnUriPrefix";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MATCH_ON_URI_PREFIX_DOC = "Whether or not Camel should try to find a target consumer by matching the URI prefix if no exact match is found.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MATCH_ON_URI_PREFIX_DEFAULT = false;
@@ -80,6 +77,9 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_GROUP_CONF = "camel.source.endpoint.bossGroup";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_GROUP_DOC = "Set the BossGroup which could be used for handling the new connection of the server side across the NettyEndpoint";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_GROUP_DEFAULT = null;
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_CHUNKED_MAX_CONTENT_LENGTH_CONF = "camel.source.endpoint.chunkedMaxContentLength";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_CHUNKED_MAX_CONTENT_LENGTH_DOC = "Value in bytes the max content length per chunked frame received on the Netty HTTP server.";
     public static final Integer CAMEL_SOURCE_NETTYHTTP_ENDPOINT_CHUNKED_MAX_CONTENT_LENGTH_DEFAULT = 1048576;
@@ -452,13 +452,13 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_REUSE_CHANNEL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_REUSE_CHANNEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_REUSE_CHANNEL_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNC_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_DOC);
-        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MATCH_ON_URI_PREFIX_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MATCH_ON_URI_PREFIX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MATCH_ON_URI_PREFIX_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MUTE_EXCEPTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MUTE_EXCEPTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MUTE_EXCEPTION_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_503WHENSUSPENDED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_503WHENSUSPENDED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_503WHENSUSPENDED_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BACKLOG_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BACKLOG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BACKLOG_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_COUNT_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BOSS_GROUP_DOC);
+        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_CHUNKED_MAX_CONTENT_LENGTH_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_CHUNKED_MAX_CONTENT_LENGTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_CHUNKED_MAX_CONTENT_LENGTH_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_COMPRESSION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_COMPRESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_COMPRESSION_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DISCONNECT_ON_NO_REPLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DISCONNECT_ON_NO_REPLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DISCONNECT_ON_NO_REPLY_DOC);

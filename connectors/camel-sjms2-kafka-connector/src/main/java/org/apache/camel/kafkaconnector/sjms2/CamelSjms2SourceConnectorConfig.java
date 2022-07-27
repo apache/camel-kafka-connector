@@ -53,9 +53,6 @@ public class CamelSjms2SourceConnectorConfig
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_AUTO_STARTUP_CONF = "camel.source.endpoint.autoStartup";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_AUTO_STARTUP_DOC = "Specifies whether the consumer container should auto-startup.";
     public static final Boolean CAMEL_SOURCE_SJMS2_ENDPOINT_AUTO_STARTUP_DEFAULT = true;
-    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_CLIENT_ID_CONF = "camel.source.endpoint.clientId";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_CLIENT_ID_DOC = "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_CLIENT_ID_DEFAULT = null;
@@ -77,6 +74,9 @@ public class CamelSjms2SourceConnectorConfig
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_CONF = "camel.source.endpoint.subscriptionId";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_DOC = "Sets the topic subscription id, required for durable or shared topics.";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
+    public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    public static final Boolean CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_CONF = "camel.source.endpoint.eagerLoadingOfProperties";
     public static final String CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_DOC = "Enables eager loading of JMS properties and payload as soon as a message is loaded which generally is inefficient as the JMS properties may not be required but sometimes can catch early any issues with the underlying JMS provider and the use of JMS properties. See also the option eagerPoisonBody.";
     public static final Boolean CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_DEFAULT = false;
@@ -146,6 +146,9 @@ public class CamelSjms2SourceConnectorConfig
     public static final String CAMEL_SOURCE_SJMS2_COMPONENT_DESTINATION_CREATION_STRATEGY_CONF = "camel.component.sjms2.destinationCreationStrategy";
     public static final String CAMEL_SOURCE_SJMS2_COMPONENT_DESTINATION_CREATION_STRATEGY_DOC = "To use a custom DestinationCreationStrategy.";
     public static final String CAMEL_SOURCE_SJMS2_COMPONENT_DESTINATION_CREATION_STRATEGY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SJMS2_COMPONENT_EXCEPTION_LISTENER_CONF = "camel.component.sjms2.exceptionListener";
+    public static final String CAMEL_SOURCE_SJMS2_COMPONENT_EXCEPTION_LISTENER_DOC = "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.";
+    public static final String CAMEL_SOURCE_SJMS2_COMPONENT_EXCEPTION_LISTENER_DEFAULT = null;
     public static final String CAMEL_SOURCE_SJMS2_COMPONENT_JMS_KEY_FORMAT_STRATEGY_CONF = "camel.component.sjms2.jmsKeyFormatStrategy";
     public static final String CAMEL_SOURCE_SJMS2_COMPONENT_JMS_KEY_FORMAT_STRATEGY_DOC = "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides one implementation out of the box: default. The default strategy will safely marshal dots and hyphens (. and -). Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.";
     public static final String CAMEL_SOURCE_SJMS2_COMPONENT_JMS_KEY_FORMAT_STRATEGY_DEFAULT = null;
@@ -186,7 +189,6 @@ public class CamelSjms2SourceConnectorConfig
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_ASYNC_CONSUMER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_ASYNC_CONSUMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_ASYNC_CONSUMER_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_AUTO_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_AUTO_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_AUTO_STARTUP_DOC);
-        conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_ENDPOINT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_CLIENT_ID_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SJMS2_ENDPOINT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_CONCURRENT_CONSUMERS_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_DURABLE_DOC);
@@ -194,6 +196,7 @@ public class CamelSjms2SourceConnectorConfig
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_SHARED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_SHARED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_SHARED_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_SUBSCRIPTION_ID_DOC);
+        conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_LOADING_OF_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_POISON_BODY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_POISON_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_EAGER_POISON_BODY_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_ENDPOINT_EXCEPTION_HANDLER_DOC);
@@ -217,6 +220,7 @@ public class CamelSjms2SourceConnectorConfig
         conf.define(CAMEL_SOURCE_SJMS2_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SJMS2_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_COMPONENT_DESTINATION_CREATION_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_COMPONENT_DESTINATION_CREATION_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_COMPONENT_DESTINATION_CREATION_STRATEGY_DOC);
+        conf.define(CAMEL_SOURCE_SJMS2_COMPONENT_EXCEPTION_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_COMPONENT_EXCEPTION_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_COMPONENT_EXCEPTION_LISTENER_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_COMPONENT_JMS_KEY_FORMAT_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_COMPONENT_JMS_KEY_FORMAT_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_COMPONENT_JMS_KEY_FORMAT_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_COMPONENT_MESSAGE_CREATED_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS2_COMPONENT_MESSAGE_CREATED_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_COMPONENT_MESSAGE_CREATED_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_SJMS2_COMPONENT_RECOVERY_INTERVAL_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SJMS2_COMPONENT_RECOVERY_INTERVAL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS2_COMPONENT_RECOVERY_INTERVAL_DOC);
