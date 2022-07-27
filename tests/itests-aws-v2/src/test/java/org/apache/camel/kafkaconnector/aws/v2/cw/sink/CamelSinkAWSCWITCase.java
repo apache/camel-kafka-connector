@@ -29,10 +29,7 @@ import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
-import org.apache.camel.test.infra.aws2.services.AWSLocalContainerService;
-import org.apache.camel.test.infra.aws2.services.AWSRemoteService;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
-import org.apache.camel.test.infra.aws2.services.Service;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -57,11 +54,7 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
 
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory
-            .builder()
-            .addRemoteMapping(AWSRemoteService::new)
-            .addLocalMapping(CustomAWSCloudWatchLocalContainerService::new)
-            .withPropertyNameFormat("%s-service.instance.type")
-            .build();
+            .createCloudWatchService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSCWITCase.class);
 
@@ -71,13 +64,6 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
 
     private volatile int received;
     private final int expect = 10;
-
-    // Dimensions are broken in localstack implementation of CloudWatch 0.12.10
-    private static class CustomAWSCloudWatchLocalContainerService extends AWSLocalContainerService {
-        public CustomAWSCloudWatchLocalContainerService() {
-            super("localstack/localstack:0.12.9.1", Service.CLOUD_WATCH);
-        }
-    }
 
     private static class CustomProducer extends StringMessageProducer {
         public CustomProducer(String bootstrapServer, String topicName, int count) {
