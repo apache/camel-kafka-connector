@@ -60,8 +60,8 @@
         <testcontainers-version>1.15.2</testcontainers-version>
 
         <mycila-license-version>3.0</mycila-license-version>
-        <gmavenplus-plugin-version>1.9.0</gmavenplus-plugin-version>
-        <groovy-version>3.0.7</groovy-version>
+        <gmavenplus-plugin-version>1.11.1</gmavenplus-plugin-version>
+        <groovy-version>3.0.12</groovy-version>
 
         <itest.zookeeper.container.image>quay.io/strimzi/kafka:0.25.0-kafka-2.8.0</itest.zookeeper.container.image>
         <itest.strimzi.container.image>quay.io/strimzi/kafka:0.25.0-kafka-2.8.0</itest.strimzi.container.image>
