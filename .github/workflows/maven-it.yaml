@@ -60,7 +60,7 @@ jobs:
             -pl :camel-kafka-connector-generator-maven-plugin \
             clean verify
       - name: Archive test results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: maven-it-java-${{ matrix.java }}
