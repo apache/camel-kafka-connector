@@ -27,27 +27,29 @@ on:
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - README.md
+      - SECURITY.md
+      - Jenkinsfile
+      - Jenkinsfile.*
+      - NOTICE.txt
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '11', '14' ]
+        java: [ '11', '17' ]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Set up JDK ${{ matrix.java }}
-        uses: AdoptOpenJDK/install-jdk@v1
+        uses: actions/setup-java@v3
         with:
-          version: ${{ matrix.java }}
-      - name: Cache local Maven repository
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+          cache: 'maven'
       # first command builds the source check module,
-      - name: build tools
+      - name: Build tools
         run: |
           ./mvnw ${MAVEN_ARGS} \
             -DskipTests \
@@ -57,7 +59,7 @@ jobs:
             clean install
       # second one source check and install :camel-kafka-connector-generator-maven-plugin
       # this is needed to add maven plugin metadata to it,
-      - name: build connector-generator-plugin
+      - name: Build connector-generator-plugin
         run: |
           ./mvnw ${MAVEN_ARGS} \
             -Dcheckstyle.failOnViolation=true \
@@ -68,7 +70,7 @@ jobs:
             -pl :camel-kafka-connector \
             clean install
       # third command source check everything else but :camel-kafka-connector-generator-maven-plugin
-      - name: build and itests
+      - name: Build and itests
         run: |
           ./mvnw ${MAVEN_ARGS} \
             -Dfailsafe.rerunFailingTestsCount=2 \
@@ -80,7 +82,7 @@ jobs:
             -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
             -pl '!:camel-kafka-connector-generator-maven-plugin' \
             clean test
-      - name: archive logs
+      - name: Archive logs
         uses: actions/upload-artifact@v2
         if: always()
         with:
