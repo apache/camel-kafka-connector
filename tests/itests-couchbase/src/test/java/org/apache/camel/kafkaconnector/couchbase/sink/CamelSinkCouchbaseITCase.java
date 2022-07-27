@@ -64,7 +64,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static CouchbaseService service = CouchbaseServiceFactory.getService();
+    public static CouchbaseService service = CouchbaseServiceFactory.createService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCouchbaseITCase.class);
 
