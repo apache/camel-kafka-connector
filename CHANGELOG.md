@@ -16,6 +16,20 @@
 
 **Merged pull requests:**
 
+- \(chores\) More minor test fixes [\#1407](https://github.com/apache/camel-kafka-connector/pull/1407) ([orpiske](https://github.com/orpiske))
+- \(chores\) itests-aws2: use the default test infra container [\#1406](https://github.com/apache/camel-kafka-connector/pull/1406) ([orpiske](https://github.com/orpiske))
+- \(chores\) Multiple test fixes and improvements [\#1405](https://github.com/apache/camel-kafka-connector/pull/1405) ([orpiske](https://github.com/orpiske))
+- Bump actions/upload-artifact from 2 to 3 [\#1404](https://github.com/apache/camel-kafka-connector/pull/1404) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump peter-evans/create-pull-request from 2.4.1 to 4.0.4 [\#1403](https://github.com/apache/camel-kafka-connector/pull/1403) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 2.4.0 to 3.0.2 [\#1402](https://github.com/apache/camel-kafka-connector/pull/1402) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/cache from 1 to 3 [\#1401](https://github.com/apache/camel-kafka-connector/pull/1401) ([dependabot[bot]](https://github.com/apps/dependabot))
+- \(chores\) ci: Added support for the deps review when updating deps in PRs [\#1400](https://github.com/apache/camel-kafka-connector/pull/1400) ([orpiske](https://github.com/orpiske))
+- Bump postgresql from 42.2.14 to 42.3.3 in /parent [\#1399](https://github.com/apache/camel-kafka-connector/pull/1399) ([dependabot[bot]](https://github.com/apps/dependabot))
+- \(chores\) support Java 17 in the Maven Plugins IT job [\#1398](https://github.com/apache/camel-kafka-connector/pull/1398) ([orpiske](https://github.com/orpiske))
+- \(chores\) ci: bump Java next builds to 18 [\#1397](https://github.com/apache/camel-kafka-connector/pull/1397) ([orpiske](https://github.com/orpiske))
+- \(chores\) ci: enable Java 17 builds on Github PRs [\#1396](https://github.com/apache/camel-kafka-connector/pull/1396) ([orpiske](https://github.com/orpiske))
+- \(chores\) JDK 17: bump Groovy versions to allow build to work with JDK 17 [\#1395](https://github.com/apache/camel-kafka-connector/pull/1395) ([orpiske](https://github.com/orpiske))
+- Apache CI fixes / improvements [\#1394](https://github.com/apache/camel-kafka-connector/pull/1394) ([orpiske](https://github.com/orpiske))
 - Updating Kafka terminology in doc [\#1367](https://github.com/apache/camel-kafka-connector/pull/1367) ([valathsu](https://github.com/valathsu))
 - Issue/1360 [\#1362](https://github.com/apache/camel-kafka-connector/pull/1362) ([valdar](https://github.com/valdar))
 - Could org.apache.camel.kafkaconnector:camel-kafka-connector-catalog-descriptor-maven-plugin:1.1.0-SNAPSHOT drop off redundant dependencies? [\#1352](https://github.com/apache/camel-kafka-connector/pull/1352) ([Celebrate-future](https://github.com/Celebrate-future))
