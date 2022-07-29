@@ -16,6 +16,7 @@
 
 **Merged pull requests:**
 
+- Upgrade to Camel 3.18.0 [\#1408](https://github.com/apache/camel-kafka-connector/pull/1408) ([orpiske](https://github.com/orpiske))
 - \(chores\) More minor test fixes [\#1407](https://github.com/apache/camel-kafka-connector/pull/1407) ([orpiske](https://github.com/orpiske))
 - \(chores\) itests-aws2: use the default test infra container [\#1406](https://github.com/apache/camel-kafka-connector/pull/1406) ([orpiske](https://github.com/orpiske))
 - \(chores\) Multiple test fixes and improvements [\#1405](https://github.com/apache/camel-kafka-connector/pull/1405) ([orpiske](https://github.com/orpiske))
