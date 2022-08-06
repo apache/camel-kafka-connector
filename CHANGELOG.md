@@ -10,6 +10,7 @@
 - Payload is base64 encoded CAMEL-GOOGLE-PUBSUB-SOURCE-KAFKA-CONNECTOR SOURCE 1.0.0 [\#1390](https://github.com/apache/camel-kafka-connector/issues/1390)
 - ignoreFileNotFoundOrPermissionError on camel-sftp-source 1.0.x [\#1385](https://github.com/apache/camel-kafka-connector/issues/1385)
 - Upgrade to Camel-Kamelets 0.8.0 and Camel 3.16.0 [\#1360](https://github.com/apache/camel-kafka-connector/issues/1360)
+- camel kafka connector - s3 Sink [\#1357](https://github.com/apache/camel-kafka-connector/issues/1357)
 - camel-aws-s3-sink-kafka-connector is showing class error and not pushing data to s3 [\#1347](https://github.com/apache/camel-kafka-connector/issues/1347)
 - camel-salesforce cosumer: message id not in sequence for platform events [\#1343](https://github.com/apache/camel-kafka-connector/issues/1343)
 - SalesforceConsumer : java.lang.IllegalStateException: Queue full  [\#1342](https://github.com/apache/camel-kafka-connector/issues/1342)
