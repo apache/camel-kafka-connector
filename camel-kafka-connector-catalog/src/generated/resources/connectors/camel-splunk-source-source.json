@@ -1,0 +1,117 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.splunksource.CamelSplunksourceSourceConnector",
+		"artifactId": "camel-splunk-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-splunk-source-source",
+		"type": "source",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Retrieve data from Splunk and outputs in json format.\n\nFor the fields accepting time specifiers like `earliestTime`, it accepts a wide variety of formats, please check https:\/\/docs.splunk.com\/Documentation\/Splunk\/9.0.0\/Search\/Specifytimemodifiersinyoursearch[Splunk documentation] for more information."
+	},
+	"properties": {
+		"camel.kamelet.splunk-source.serverHostname": {
+			"name": "camel.kamelet.splunk-source.serverHostname",
+			"description": "The address of your Splunk server. Example: my_server_splunk.com",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-source.serverPort": {
+			"name": "camel.kamelet.splunk-source.serverPort",
+			"description": "The address of your Splunk server.",
+			"defaultValue": "8089",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.username": {
+			"name": "camel.kamelet.splunk-source.username",
+			"description": "The username to authenticate to Splunk Server.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-source.password": {
+			"name": "camel.kamelet.splunk-source.password",
+			"description": "The password to authenticate to Splunk Server.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-source.index": {
+			"name": "camel.kamelet.splunk-source.index",
+			"description": "Splunk index to write to.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.protocol": {
+			"name": "camel.kamelet.splunk-source.protocol",
+			"description": "Connection Protocol to Splunk server.",
+			"defaultValue": "\"https\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.source": {
+			"name": "camel.kamelet.splunk-source.source",
+			"description": "The source named field of the data.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.sourceType": {
+			"name": "camel.kamelet.splunk-source.sourceType",
+			"description": "The source named field of the data.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.app": {
+			"name": "camel.kamelet.splunk-source.app",
+			"description": "The app name in Splunk.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.connectionTimeout": {
+			"name": "camel.kamelet.splunk-source.connectionTimeout",
+			"description": "Timeout in milliseconds when connecting to Splunk server",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.count": {
+			"name": "camel.kamelet.splunk-source.count",
+			"description": "The maximum number of entities to return.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.repeat": {
+			"name": "camel.kamelet.splunk-source.repeat",
+			"description": "The maximum number of fires.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.delay": {
+			"name": "camel.kamelet.splunk-source.delay",
+			"description": "The number of milliseconds before the next poll.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.query": {
+			"name": "camel.kamelet.splunk-source.query",
+			"description": "The Splunk query to run.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-source.earliestTime": {
+			"name": "camel.kamelet.splunk-source.earliestTime",
+			"description": "Earliest time of the search time window. Example: 05\/17\/22 08:35:46:456",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.initEarliestTime": {
+			"name": "camel.kamelet.splunk-source.initEarliestTime",
+			"description": "Initial start offset of the first search. Example: 05\/17\/22 08:35:46:456",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-source.latestTime": {
+			"name": "camel.kamelet.splunk-source.latestTime",
+			"description": "Latest time of the search time window. Example: 05\/17\/22 08:35:46:456",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurefunctionssink.CamelAzurefunctionssinkSinkConnector",
+		"artifactId": "camel-azure-functions-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-functions-sink-sink",
+		"type": "sink",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Forward data to an Azure Function."
+	},
+	"properties": {
+		"camel.kamelet.azure-functions-sink.url": {
+			"name": "camel.kamelet.azure-functions-sink.url",
+			"description": "The Azure Functions URL you want to send the data to. Example: https:\/\/azure-function-demo-12234.azurewebsites.net\/api\/httpexample",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-functions-sink.method": {
+			"name": "camel.kamelet.azure-functions-sink.method",
+			"description": "The HTTP method to use.",
+			"defaultValue": "\"POST\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-functions-sink.key": {
+			"name": "camel.kamelet.azure-functions-sink.key",
+			"description": "A function-specific API key is required, if the authLevel of the function is FUNCTION or master key if the authLevel is ADMIN.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

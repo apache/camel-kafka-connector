@@ -1,0 +1,57 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awseventbridgesink.CamelAwseventbridgesinkSinkConnector",
+		"artifactId": "camel-aws-eventbridge-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-eventbridge-sink-sink",
+		"type": "sink",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Send events to an Amazon Eventbridge Eventbus.\n\nThe basic authentication method for the Eventbridge service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the Eventbridge client loads the credentials through this provider and doesn't use the basic authentication method.\n\nIn the headers, you need to set the `resources-arn` \/ `ce-resources-arn` property to specify the ARN of resources related to the event.\n\nIn the headers, you need to set the `detail-type` \/ `ce-detail-type` property to specify the detail type related to the event.\n\nIn the headers, you need to set the `event-source` \/ `ce-event-source` property to specify the event source related to the event.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the file name."
+	},
+	"properties": {
+		"camel.kamelet.aws-eventbridge-sink.eventbusNameOrArn": {
+			"name": "camel.kamelet.aws-eventbridge-sink.eventbusNameOrArn",
+			"description": "The Eventbridge Eventbus name or Amazon Resource Name (ARN).",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-eventbridge-sink.accessKey": {
+			"name": "camel.kamelet.aws-eventbridge-sink.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-eventbridge-sink.secretKey": {
+			"name": "camel.kamelet.aws-eventbridge-sink.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-eventbridge-sink.region": {
+			"name": "camel.kamelet.aws-eventbridge-sink.region",
+			"description": "The AWS region to access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-eventbridge-sink.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-eventbridge-sink.useDefaultCredentialsProvider",
+			"description": "If true, the Eventbridge client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-eventbridge-sink.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-eventbridge-sink.uriEndpointOverride",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-eventbridge-sink.overrideEndpoint": {
+			"name": "camel.kamelet.aws-eventbridge-sink.overrideEndpoint",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

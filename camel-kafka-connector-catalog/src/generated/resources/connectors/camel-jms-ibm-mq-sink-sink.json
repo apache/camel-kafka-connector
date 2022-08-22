@@ -1,0 +1,69 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jmsibmmqsink.CamelJmsibmmqsinkSinkConnector",
+		"artifactId": "camel-jms-ibm-mq-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jms-ibm-mq-sink-sink",
+		"type": "sink",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "A Kamelet that can produce events to an IBM MQ message queue using JMS.\n\nIn your KameletBinding file, you must explicitly declare the IBM MQ Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.ibm.mq:com.ibm.mq.allclient:<version>\""
+	},
+	"properties": {
+		"camel.kamelet.jms-ibm-mq-sink.serverName": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.serverName",
+			"description": "IBM MQ Server name or address",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.serverPort": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.serverPort",
+			"description": "IBM MQ Server port",
+			"defaultValue": "1414",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.destinationType": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.destinationType",
+			"description": "The JMS destination type (queue or topic)",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.destinationName": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.destinationName",
+			"description": "The destination name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.queueManager": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.queueManager",
+			"description": "Name of the IBM MQ Queue Manager",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.channel": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.channel",
+			"description": "Name of the IBM MQ Channel",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.clientId": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.clientId",
+			"description": "Name of the IBM MQ Client ID",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.username": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.username",
+			"description": "Username to authenticate to IBM MQ server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-sink.password": {
+			"name": "camel.kamelet.jms-ibm-mq-sink.password",
+			"description": "Password to authenticate to IBM MQ server",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}
