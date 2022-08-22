@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.azureeventhubssource;
+ */
+package org.apache.camel.kafkaconnector.azureeventhubssource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,25 +27,25 @@ public class CamelAzureeventhubssourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_NAMESPACE_NAME_CONF = "camel.kamelet.azure-eventhubs-source.namespaceName";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_NAMESPACE_NAME_DOC = "The eventhubs namespace";
+    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_NAMESPACE_NAME_DOC = "The Event Hubs namespace.";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_NAMESPACE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_EVENTHUB_NAME_CONF = "camel.kamelet.azure-eventhubs-source.eventhubName";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_EVENTHUB_NAME_DOC = "The eventhub name";
+    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_EVENTHUB_NAME_DOC = "The Event Hub name.";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_EVENTHUB_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_NAME_CONF = "camel.kamelet.azure-eventhubs-source.sharedAccessName";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_NAME_DOC = "EventHubs SAS key name";
+    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_NAME_DOC = "The Event Hubs SAS key name.";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_KEY_CONF = "camel.kamelet.azure-eventhubs-source.sharedAccessKey";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_KEY_DOC = "The key for EventHubs SAS key name";
+    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_KEY_DOC = "The key for the Event Hubs SAS key name.";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_SHARED_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCOUNT_NAME_CONF = "camel.kamelet.azure-eventhubs-source.blobAccountName";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCOUNT_NAME_DOC = "The name of the storage blob account to be use";
+    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCOUNT_NAME_DOC = "The name of the Storage Blob account.";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCOUNT_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_CONTAINER_NAME_CONF = "camel.kamelet.azure-eventhubs-source.blobContainerName";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_CONTAINER_NAME_DOC = "The name of the storage blob container to be use";
+    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_CONTAINER_NAME_DOC = "The name of the Storage Blob container.";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_CONTAINER_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCESS_KEY_CONF = "camel.kamelet.azure-eventhubs-source.blobAccessKey";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCESS_KEY_DOC = "The key for Azure Storage Blob service associated with the Blob account name";
+    public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCESS_KEY_DOC = "The key for the Azure Storage Blob service that is associated with the Storage Blob account name.";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBSSOURCE_KAMELET_BLOB_ACCESS_KEY_DEFAULT = null;
 
     public CamelAzureeventhubssourceSourceConnectorConfig(

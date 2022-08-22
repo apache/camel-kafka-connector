@@ -6,58 +6,65 @@
 		"id": "camel-sftp-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Receive data from an SFTP Server."
+		"description": "Receive data from an SFTP server."
 	},
 	"properties": {
 		"camel.kamelet.sftp-source.connectionHost": {
 			"name": "camel.kamelet.sftp-source.connectionHost",
-			"description": "Hostname of the SFTP server",
+			"description": "The hostname of the SFTP server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sftp-source.connectionPort": {
 			"name": "camel.kamelet.sftp-source.connectionPort",
-			"description": "Port of the FTP server",
+			"description": "The port of the FTP server.",
 			"defaultValue": "\"22\"",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sftp-source.username": {
 			"name": "camel.kamelet.sftp-source.username",
-			"description": "The username to access the SFTP server",
+			"description": "The username to access the SFTP server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sftp-source.password": {
 			"name": "camel.kamelet.sftp-source.password",
-			"description": "The password to access the SFTP server",
+			"description": "The password to access the SFTP server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sftp-source.directoryName": {
 			"name": "camel.kamelet.sftp-source.directoryName",
-			"description": "The starting directory",
+			"description": "The starting directory.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sftp-source.passiveMode": {
 			"name": "camel.kamelet.sftp-source.passiveMode",
-			"description": "Sets passive mode connection",
+			"description": "Sets the passive mode connection.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.sftp-source.recursive": {
 			"name": "camel.kamelet.sftp-source.recursive",
-			"description": "If a directory, will look for files in all the sub-directories as well.",
+			"description": "If a directory, look for files in all sub-directories as well.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.sftp-source.idempotent": {
 			"name": "camel.kamelet.sftp-source.idempotent",
-			"description": "Skip already processed files.",
+			"description": "Skip already-processed files.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.ignoreFileNotFoundOrPermissionError": {
+			"name": "camel.kamelet.sftp-source.ignoreFileNotFoundOrPermissionError",
+			"description": "Whether to ignore when (trying to list files in directories or when downloading a file), which does not exist or due to permission error. By default when a directory or file does not exists or insufficient permission, then an exception is thrown. Setting this option to true allows to ignore that instead.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

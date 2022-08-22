@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.elasticsearchsearchsource;
+ */
+package org.apache.camel.kafkaconnector.elasticsearchsearchsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -47,7 +48,7 @@ public class CamelElasticsearchsearchsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_INDEX_NAME_DOC = "The name of the index to act against.";
     public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_INDEX_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_CONF = "camel.kamelet.elasticsearch-search-source.clusterName";
-    public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_DOC = "Name of the cluster.";
+    public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_DOC = "The name of the cluster.";
     public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_DEFAULT = null;
 
     public CamelElasticsearchsearchsourceSourceConnectorConfig(

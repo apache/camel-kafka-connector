@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.cassandrasink;
+ */
+package org.apache.camel.kafkaconnector.cassandrasink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,28 +27,28 @@ public class CamelCassandrasinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.cassandra-sink.connectionHost";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_DOC = "Hostname(s) cassandra server(s). Multiple hosts can be separated by comma. Example: localhost";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_DOC = "The hostname(s) for the Cassandra server(s). Use a comma to separate multiple hostnames. Example: localhost";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_HOST_DEFAULT = null;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.cassandra-sink.connectionPort";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_DOC = "Port number of cassandra server(s) Example: 9042";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_DOC = "The port number(s) of the cassandra server(s). Use a comma to separate multiple port numbers. Example: 9042";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONNECTION_PORT_DEFAULT = null;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_CONF = "camel.kamelet.cassandra-sink.keyspace";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_DOC = "Keyspace to use Example: customers";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_DOC = "The keyspace to use. Example: customers";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_KEYSPACE_DEFAULT = null;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_USERNAME_CONF = "camel.kamelet.cassandra-sink.username";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_USERNAME_DOC = "The username to use for accessing a secured Cassandra Cluster";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_USERNAME_DOC = "The username for accessing a secured Cassandra cluster.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_CONF = "camel.kamelet.cassandra-sink.password";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_DOC = "The password to use for accessing a secured Cassandra Cluster";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_DOC = "The password for accessing a secured Cassandra cluster.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_CONF = "camel.kamelet.cassandra-sink.consistencyLevel";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DOC = "Consistency level to use. The value can be one of ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, LOCAL_ONE";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DOC = "The consistency level to use. Set the value to one of these options - ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, or LOCAL_ONE.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DEFAULT = "ANY";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_CONF = "camel.kamelet.cassandra-sink.prepareStatements";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DOC = "Whether to use PreparedStatements or regular Statements as the query.";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DOC = "If true, specifies to use PreparedStatements as the query. If false, specifies to use regular Statements as the query.";
     public static final Boolean CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DEFAULT = true;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_CONF = "camel.kamelet.cassandra-sink.query";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DOC = "The query to execute against the Cassandra cluster table";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DOC = "The query to execute against the Cassandra cluster table.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DEFAULT = null;
 
     public CamelCassandrasinkSinkConnectorConfig(

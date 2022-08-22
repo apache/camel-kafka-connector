@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.awsddbstreamssource;
+ */
+package org.apache.camel.kafkaconnector.awsddbstreamssource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,32 +27,32 @@ public class CamelAwsddbstreamssourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_TABLE_CONF = "camel.kamelet.aws-ddb-streams-source.table";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_TABLE_DOC = "Name of the DynamoDB table to look at";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_TABLE_DOC = "The name of the DynamoDB table.";
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_TABLE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-ddb-streams-source.accessKey";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SECRET_KEY_CONF = "camel.kamelet.aws-ddb-streams-source.secretKey";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS.";
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SECRET_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_REGION_CONF = "camel.kamelet.aws-ddb-streams-source.region";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_REGION_DOC = "The AWS region to connect to Example: eu-west-1";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_REGION_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ITERATOR_TYPE_CONF = "camel.kamelet.aws-ddb-streams-source.iteratorType";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ITERATOR_TYPE_DOC = "Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. There are 4 enums and the value can be one of TRIM_HORIZON, LATEST, AT_SEQUENCE_NUMBER, AFTER_SEQUENCE_NUMBER";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ITERATOR_TYPE_DEFAULT = "LATEST";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SEQUENCE_NUMBER_PROVIDER_CONF = "camel.kamelet.aws-ddb-streams-source.sequenceNumberProvider";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SEQUENCE_NUMBER_PROVIDER_DOC = "Provider for the sequence number when using one of the two ShardIteratorType AT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. Example: 900000000005745712447";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SEQUENCE_NUMBER_PROVIDER_DEFAULT = "000000000000000000000";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_STREAM_ITERATOR_TYPE_CONF = "camel.kamelet.aws-ddb-streams-source.streamIteratorType";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_STREAM_ITERATOR_TYPE_DOC = "Defines where in the DynamoDB stream to start getting records. There are two enums and the value can be one of FROM_LATEST and FROM_START. Note that using FROM_START can cause a significant delay before the stream has caught up to real-time.";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_STREAM_ITERATOR_TYPE_DEFAULT = "FROM_LATEST";
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-ddb-streams-source.useDefaultCredentialsProvider";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the AWS DynamoDB Streams client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the DynamoDB client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";
     public static final Boolean CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-ddb-streams-source.uriEndpointOverride";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.";
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-ddb-streams-source.overrideEndpoint";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC = "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC = "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.";
     public static final Boolean CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.aws-ddb-streams-source.delay";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll from the database.";
+    public static final Integer CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_DELAY_DEFAULT = 500;
 
     public CamelAwsddbstreamssourceSourceConnectorConfig(
             ConfigDef config,
@@ -70,11 +71,11 @@ public class CamelAwsddbstreamssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_REGION_DOC);
-        conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ITERATOR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ITERATOR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_ITERATOR_TYPE_DOC);
-        conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SEQUENCE_NUMBER_PROVIDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SEQUENCE_NUMBER_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_SEQUENCE_NUMBER_PROVIDER_DOC);
+        conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_STREAM_ITERATOR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_STREAM_ITERATOR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_STREAM_ITERATOR_TYPE_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC);
+        conf.define(CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAMSSOURCE_KAMELET_DELAY_DOC);
         return conf;
     }
 }

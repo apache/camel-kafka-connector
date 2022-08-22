@@ -42,13 +42,13 @@
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
     <dependency>
-      <groupId>org.apache.camel.kamelets</groupId>
-      <artifactId>camel-kamelets-utils</artifactId>
-      <version>0.8.0</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.kamelets</groupId>
+      <artifactId>camel-kamelets-utils</artifactId>
+      <version>0.9.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>

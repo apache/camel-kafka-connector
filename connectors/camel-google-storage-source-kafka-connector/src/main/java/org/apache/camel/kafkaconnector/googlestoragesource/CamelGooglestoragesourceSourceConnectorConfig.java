@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.googlestoragesource;
+ */
+package org.apache.camel.kafkaconnector.googlestoragesource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,16 +27,16 @@ public class CamelGooglestoragesourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_BUCKET_NAME_OR_ARN_CONF = "camel.kamelet.google-storage-source.bucketNameOrArn";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The Bucket Name or Bucket ARN";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The Google Cloud Storage bucket name or Bucket Amazon Resource Name (ARN).";
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_CONF = "camel.kamelet.google-storage-source.serviceAccountKey";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The Service account key that can be used as credentials for the Google Cloud Storage access.";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "TThe service account key to use as credentials for Google Cloud Storage access. You must encode this value in base64.";
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_DELETE_AFTER_READ_CONF = "camel.kamelet.google-storage-source.deleteAfterRead";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Delete objects after consuming them";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Specifies to delete objects after consuming them.";
     public static final Boolean CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_DELETE_AFTER_READ_DEFAULT = true;
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.google-storage-source.autoCreateBucket";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the Google Cloud Storage bucket bucketNameOrArn.";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Specifies to automatically create the Google Cloud Storage bucket.";
     public static final Boolean CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_AUTO_CREATE_BUCKET_DEFAULT = false;
 
     public CamelGooglestoragesourceSourceConnectorConfig(

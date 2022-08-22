@@ -6,43 +6,43 @@
 		"id": "camel-elasticsearch-index-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "This sink stores documents into ElasticSearch.\n\nInput data must have JSON format according to the index used.\n\n- `indexId` \/ `ce-indexid`: as the index ID for Elasticsearch\n\nIf the header won't be set the exchange ID will be used as index.\n\n- `indexName` \/ `ce-indexname`: as the index Name for Elasticsearch\n\nIf the header won't be set the exchange ID will be used as index name."
+		"description": "Stores JSON-formatted data into ElasticSearch.\n\nThe input data must be formatted in JSON according to the requirements of the index. \n\nIn the header, you can set the following properties:\n\n- `indexId` \/ `ce-indexid`: The index ID for ElasticSearch.\n\n- `indexName` \/ `ce-indexname`: The index name for ElasticSearch.\n\nIf you do not set a property in the header, the Kamelet uses the exchange ID for the index setting."
 	},
 	"properties": {
 		"camel.kamelet.elasticsearch-index-sink.user": {
 			"name": "camel.kamelet.elasticsearch-index-sink.user",
-			"description": "Username to connect to ElasticSearch.",
+			"description": "The username to connect to ElasticSearch.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.elasticsearch-index-sink.password": {
 			"name": "camel.kamelet.elasticsearch-index-sink.password",
-			"description": "Password to connect to ElasticSearch.",
+			"description": "The password to connect to ElasticSearch.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.elasticsearch-index-sink.enableSSL": {
 			"name": "camel.kamelet.elasticsearch-index-sink.enableSSL",
-			"description": "Do we want to connect using SSL?",
+			"description": "Specifies to connect by using SSL.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.elasticsearch-index-sink.hostAddresses": {
 			"name": "camel.kamelet.elasticsearch-index-sink.hostAddresses",
-			"description": "Comma separated list with ip:port formatted remote transport addresses to use. Example: quickstart-es-http:9200",
+			"description": "A comma-separated list of remote transport addresses in `ip:port format`. Example: quickstart-es-http:9200",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.elasticsearch-index-sink.clusterName": {
 			"name": "camel.kamelet.elasticsearch-index-sink.clusterName",
-			"description": "Name of the cluster. Example: quickstart",
+			"description": "The name of the ElasticSearch cluster. Example: quickstart",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.elasticsearch-index-sink.indexName": {
 			"name": "camel.kamelet.elasticsearch-index-sink.indexName",
-			"description": "The name of the index to act against. Example: data",
+			"description": "The name of the ElasticSearch index. Example: data",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

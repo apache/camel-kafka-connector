@@ -6,7 +6,7 @@
 		"id": "camel-azure-storage-blob-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Upload data to Azure Storage Blob.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+		"description": "Upload data to Azure Storage Blob.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename."
 	},
 	"properties": {
 		"camel.kamelet.azure-storage-blob-sink.accountName": {
@@ -23,7 +23,7 @@
 		},
 		"camel.kamelet.azure-storage-blob-sink.accessKey": {
 			"name": "camel.kamelet.azure-storage-blob-sink.accessKey",
-			"description": "The Azure Storage Blob access Key.",
+			"description": "The Azure Storage Blob access key.",
 			"priority": "HIGH",
 			"required": "true"
 		},

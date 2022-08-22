@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.slacksink;
+ */
+package org.apache.camel.kafkaconnector.slacksink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -35,10 +36,10 @@ public class CamelSlacksinkSinkConnectorConfig
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_DOC = "Use a Slack emoji as an avatar.";
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_DEFAULT = null;
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_CONF = "camel.kamelet.slack-sink.iconUrl";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_DOC = "The avatar that the component will use when sending message to a channel or user.";
+    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_DOC = "The avatar to use when sending a message to a channel or user.";
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_DEFAULT = null;
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_CONF = "camel.kamelet.slack-sink.username";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_DOC = "This is the username that the bot will have when sending messages to a channel or user.";
+    public static final String CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_DOC = "The username for the bot when it sends messages to a channel or user.";
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_DEFAULT = null;
 
     public CamelSlacksinkSinkConnectorConfig(

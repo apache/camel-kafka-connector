@@ -6,18 +6,18 @@
 		"id": "camel-rest-openapi-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Load OpenAPI specification from URI and call an operation on the HTTP service. The request is generated respecting the rules given in the OpenAPI specification (e.g. path parameters, Content-Type)."
+		"description": "Load an OpenAPI specification from a URI and call an operation on a HTTP service. The request that is generated respects the rules given in the OpenAPI specification (for example, path parameters and Content-Type)."
 	},
 	"properties": {
 		"camel.kamelet.rest-openapi-sink.specification": {
 			"name": "camel.kamelet.rest-openapi-sink.specification",
-			"description": "URI to the OpenApi specification file Example: https:\/\/api.example.com\/openapi.json",
+			"description": "The URI to the OpenApi specification file. Example: https:\/\/api.example.com\/openapi.json",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.rest-openapi-sink.operation": {
 			"name": "camel.kamelet.rest-openapi-sink.operation",
-			"description": "The operation to call",
+			"description": "The operation to call.",
 			"priority": "HIGH",
 			"required": "true"
 		}

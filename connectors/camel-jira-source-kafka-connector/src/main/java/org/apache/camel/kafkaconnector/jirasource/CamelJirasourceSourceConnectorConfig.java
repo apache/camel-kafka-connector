@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.jirasource;
+ */
+package org.apache.camel.kafkaconnector.jirasource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,16 +27,16 @@ public class CamelJirasourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JIRA_URL_CONF = "camel.kamelet.jira-source.jiraUrl";
-    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JIRA_URL_DOC = "The URL of your instance of Jira Example: http://my_jira.com:8081";
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JIRA_URL_DOC = "The URL of your instance of Jira. Example: http://my_jira.com:8081";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JIRA_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.jira-source.username";
-    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DOC = "The username to access Jira";
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DOC = "The username to access Jira.";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.jira-source.password";
-    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DOC = "The password to access Jira";
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DOC = "The password or the API Token to access Jira.";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_CONF = "camel.kamelet.jira-source.jql";
-    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_DOC = "A query to filter issues Example: project=MyProject";
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_DOC = "A query to filter issues. Example: project=MyProject";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_DEFAULT = null;
 
     public CamelJirasourceSourceConnectorConfig(

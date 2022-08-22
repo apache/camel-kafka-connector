@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.azurestoragequeuesink;
+ */
+package org.apache.camel.kafkaconnector.azurestoragequeuesink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -32,7 +33,7 @@ public class CamelAzurestoragequeuesinkSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEQUEUESINK_KAMELET_QUEUE_NAME_DOC = "The Azure Storage Queue container name.";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUESINK_KAMELET_QUEUE_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUESINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.azure-storage-queue-sink.accessKey";
-    public static final String CAMEL_SINK_AZURESTORAGEQUEUESINK_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Queue access Key.";
+    public static final String CAMEL_SINK_AZURESTORAGEQUEUESINK_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Queue access key.";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUESINK_KAMELET_ACCESS_KEY_DEFAULT = null;
 
     public CamelAzurestoragequeuesinkSinkConnectorConfig(

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.jmsapacheartemissink;
+ */
+package org.apache.camel.kafkaconnector.jmsapacheartemissink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,13 +27,13 @@ public class CamelJmsapacheartemissinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_TYPE_CONF = "camel.kamelet.jms-apache-artemis-sink.destinationType";
-    public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (i.e.: queue or topic)";
+    public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (queue or topic).";
     public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_TYPE_DEFAULT = "queue";
     public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_NAME_CONF = "camel.kamelet.jms-apache-artemis-sink.destinationName";
-    public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name Example: person";
+    public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name. Example: person";
     public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_BROKER_URLCONF = "camel.kamelet.jms-apache-artemis-sink.brokerURL";
-    public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_BROKER_URLDOC = "The JMS URL Example: tcp://my-host:61616";
+    public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_BROKER_URLDOC = "The JMS URL. Example: tcp://my-host:61616";
     public static final String CAMEL_SINK_JMSAPACHEARTEMISSINK_KAMELET_BROKER_URLDEFAULT = null;
 
     public CamelJmsapacheartemissinkSinkConnectorConfig(

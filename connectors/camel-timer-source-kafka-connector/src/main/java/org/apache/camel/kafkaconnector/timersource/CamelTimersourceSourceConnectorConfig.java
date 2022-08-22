@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.timersource;
+ */
+package org.apache.camel.kafkaconnector.timersource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,13 +27,13 @@ public class CamelTimersourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_PERIOD_CONF = "camel.kamelet.timer-source.period";
-    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_PERIOD_DOC = "The interval between two events in milliseconds";
+    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_PERIOD_DOC = "The interval (in milliseconds) to wait between producing the next message.";
     public static final Integer CAMEL_SOURCE_TIMERSOURCE_KAMELET_PERIOD_DEFAULT = 1000;
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_MESSAGE_CONF = "camel.kamelet.timer-source.message";
-    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_MESSAGE_DOC = "The message to generate Example: hello world";
+    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_MESSAGE_DOC = "The message to generate. Example: hello world";
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_MESSAGE_DEFAULT = null;
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_CONF = "camel.kamelet.timer-source.contentType";
-    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_DOC = "The content type of the message being generated";
+    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_DOC = "The content type of the generated message.";
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_DEFAULT = "text/plain";
 
     public CamelTimersourceSourceConnectorConfig(

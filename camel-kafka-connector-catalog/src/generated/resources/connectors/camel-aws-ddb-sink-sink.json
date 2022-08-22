@@ -6,63 +6,63 @@
 		"id": "camel-aws-ddb-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send data to AWS DynamoDB service. The sent data will insert\/update\/delete an item on the given AWS DynamoDB table.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS DynamoDB service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the AWS DynamoDB client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThis Kamelet expects a JSON as body. The mapping between the JSON fields and table attribute values is done by key, so if you have the input:\n\n'{\"username\":\"oscerd\", \"city\":\"Rome\"}'\n\nThe Kamelet will insert\/update an item in the given AWS DynamoDB table and set the attributes 'username' and 'city' respectively. Please note that the JSON object must include the primary key values that define the item."
+		"description": "Send data to Amazon DynamoDB. The sent data inserts, updates, or deletes an item on the specified AWS DynamoDB table.\n\nThe basic authentication method for the AWS DynamoDB service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the DynamoDB client loads the credentials through this provider and doesn't use the basic authentication method.\n\nThis Kamelet expects a JSON-formatted body and it must include the primary key values that define the DynamoDB item. The mapping between the JSON fields and table attribute values is done by key. For example, for  '{\"username\":\"oscerd\", \"city\":\"Rome\"}' input, the Kamelet inserts or update an item in the specified AWS DynamoDB table and sets the values for the 'username' and 'city' attributes. "
 	},
 	"properties": {
 		"camel.kamelet.aws-ddb-sink.table": {
 			"name": "camel.kamelet.aws-ddb-sink.table",
-			"description": "Name of the DynamoDB table to look at",
+			"description": "The name of the DynamoDB table.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-ddb-sink.accessKey": {
 			"name": "camel.kamelet.aws-ddb-sink.accessKey",
-			"description": "The access key obtained from AWS",
+			"description": "The access key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-sink.secretKey": {
 			"name": "camel.kamelet.aws-ddb-sink.secretKey",
-			"description": "The secret key obtained from AWS",
+			"description": "The secret key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-sink.region": {
 			"name": "camel.kamelet.aws-ddb-sink.region",
-			"description": "The AWS region to connect to Example: eu-west-1",
+			"description": "The AWS region to access.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-ddb-sink.operation": {
 			"name": "camel.kamelet.aws-ddb-sink.operation",
-			"description": "The operation to perform (one of PutItem, UpdateItem, DeleteItem) Example: PutItem",
+			"description": "The operation to perform. The options are PutItem, UpdateItem, or DeleteItem. Example: PutItem",
 			"defaultValue": "\"PutItem\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-sink.writeCapacity": {
 			"name": "camel.kamelet.aws-ddb-sink.writeCapacity",
-			"description": "The provisioned throughput to reserved for writing resources to your table",
+			"description": "The provisioned throughput to reserve for writing resources to your table.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-sink.useDefaultCredentialsProvider": {
 			"name": "camel.kamelet.aws-ddb-sink.useDefaultCredentialsProvider",
-			"description": "Set whether the DynamoDB client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"description": "If true, the DynamoDB client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-sink.uriEndpointOverride": {
 			"name": "camel.kamelet.aws-ddb-sink.uriEndpointOverride",
-			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-ddb-sink.overrideEndpoint": {
 			"name": "camel.kamelet.aws-ddb-sink.overrideEndpoint",
-			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

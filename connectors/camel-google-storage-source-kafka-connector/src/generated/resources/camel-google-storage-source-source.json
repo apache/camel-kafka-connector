@@ -6,31 +6,31 @@
 		"id": "camel-google-storage-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Consume Objects from Google Storage.\n\nThe serviceAccountKey property needs to be encoded in base64, so when you pass it as parameter, don't forget to encode it."
+		"description": "Consume objects from Google Cloud Storage.\n\nYou must encode the `serviceAccountKey` property before you pass it as a parameter."
 	},
 	"properties": {
 		"camel.kamelet.google-storage-source.bucketNameOrArn": {
 			"name": "camel.kamelet.google-storage-source.bucketNameOrArn",
-			"description": "The Bucket Name or Bucket ARN",
+			"description": "The Google Cloud Storage bucket name or Bucket Amazon Resource Name (ARN).",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-storage-source.serviceAccountKey": {
 			"name": "camel.kamelet.google-storage-source.serviceAccountKey",
-			"description": "The Service account key that can be used as credentials for the Google Cloud Storage access.",
+			"description": "TThe service account key to use as credentials for Google Cloud Storage access. You must encode this value in base64.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-storage-source.deleteAfterRead": {
 			"name": "camel.kamelet.google-storage-source.deleteAfterRead",
-			"description": "Delete objects after consuming them",
+			"description": "Specifies to delete objects after consuming them.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.google-storage-source.autoCreateBucket": {
 			"name": "camel.kamelet.google-storage-source.autoCreateBucket",
-			"description": "Setting the autocreation of the Google Cloud Storage bucket bucketNameOrArn.",
+			"description": "Specifies to automatically create the Google Cloud Storage bucket.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

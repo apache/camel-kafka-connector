@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.azurestoragequeuesource;
+ */
+package org.apache.camel.kafkaconnector.azurestoragequeuesource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -32,10 +33,10 @@ public class CamelAzurestoragequeuesourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_QUEUE_NAME_DOC = "The Azure Storage Queue container name.";
     public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_QUEUE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.azure-storage-queue-source.accessKey";
-    public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Queue access Key.";
+    public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Queue access key.";
     public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_CONF = "camel.kamelet.azure-storage-queue-source.maxMessages";
-    public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_DOC = "Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. By default it will consider 1 message to be retrieved, the allowed range is 1 to 32 messages.";
+    public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_DOC = "The maximum number of messages to get. You can specify a value between 1 and 32. The default is 1 (one message). If there are fewer than the maximum number of messages in the queue, then all the messages are returned.";
     public static final Integer CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_DEFAULT = 1;
 
     public CamelAzurestoragequeuesourceSourceConnectorConfig(

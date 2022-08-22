@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.awssqssink;
+ */
+package org.apache.camel.kafkaconnector.awssqssink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,34 +27,34 @@ public class CamelAwssqssinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_QUEUE_NAME_OR_ARN_CONF = "camel.kamelet.aws-sqs-sink.queueNameOrArn";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_QUEUE_NAME_OR_ARN_DOC = "The SQS Queue name or ARN";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_QUEUE_NAME_OR_ARN_DOC = "The SQS Queue name or or Amazon Resource Name (ARN).";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_QUEUE_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-sqs-sink.accessKey";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_CONF = "camel.kamelet.aws-sqs-sink.secretKey";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS.";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_SECRET_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_REGION_CONF = "camel.kamelet.aws-sqs-sink.region";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_REGION_DOC = "The AWS region to connect to Example: eu-west-1";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_CONF = "camel.kamelet.aws-sqs-sink.autoCreateQueue";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the SQS queue.";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_DOC = "Automatically create the SQS queue.";
     public static final Boolean CAMEL_SINK_AWSSQSSINK_KAMELET_AUTO_CREATE_QUEUE_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_CONF = "camel.kamelet.aws-sqs-sink.amazonAWSHost";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_DOC = "The hostname of the Amazon AWS cloud.";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_AMAZON_AWSHOST_DEFAULT = "amazonaws.com";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_CONF = "camel.kamelet.aws-sqs-sink.protocol";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS Example: http or https";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS. Example: http or https";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_PROTOCOL_DEFAULT = "https";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-sqs-sink.useDefaultCredentialsProvider";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SQS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the SQS client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";
     public static final Boolean CAMEL_SINK_AWSSQSSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-sqs-sink.uriEndpointOverride";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.";
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-sqs-sink.overrideEndpoint";
-    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.";
+    public static final String CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.";
     public static final Boolean CAMEL_SINK_AWSSQSSINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
 
     public CamelAwssqssinkSinkConnectorConfig(

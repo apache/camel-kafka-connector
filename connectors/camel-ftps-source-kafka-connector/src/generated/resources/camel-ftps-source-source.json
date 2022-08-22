@@ -6,57 +6,57 @@
 		"id": "camel-ftps-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Receive data from an FTPS Server."
+		"description": "Receive data from an FTPS server."
 	},
 	"properties": {
 		"camel.kamelet.ftps-source.connectionHost": {
 			"name": "camel.kamelet.ftps-source.connectionHost",
-			"description": "Hostname of the FTPS server",
+			"description": "The hostname of the FTPS server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.ftps-source.connectionPort": {
 			"name": "camel.kamelet.ftps-source.connectionPort",
-			"description": "Port of the FTPS server",
+			"description": "The port of the FTPS server.",
 			"defaultValue": "\"21\"",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.ftps-source.username": {
 			"name": "camel.kamelet.ftps-source.username",
-			"description": "The username to access the FTPS server",
+			"description": "The username to access the FTPS server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.ftps-source.password": {
 			"name": "camel.kamelet.ftps-source.password",
-			"description": "The password to access the FTPS server",
+			"description": "The password to access the FTPS server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.ftps-source.directoryName": {
 			"name": "camel.kamelet.ftps-source.directoryName",
-			"description": "The starting directory",
+			"description": "The starting directory.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.ftps-source.passiveMode": {
 			"name": "camel.kamelet.ftps-source.passiveMode",
-			"description": "Sets passive mode connection",
+			"description": "Specifies to use passive mode connection.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.ftps-source.recursive": {
 			"name": "camel.kamelet.ftps-source.recursive",
-			"description": "If a directory, will look for files in all the sub-directories as well.",
+			"description": "If a directory, look for files in all sub-directories as well.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.ftps-source.idempotent": {
 			"name": "camel.kamelet.ftps-source.idempotent",
-			"description": "Skip already processed files.",
+			"description": "Skip already-processed files.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

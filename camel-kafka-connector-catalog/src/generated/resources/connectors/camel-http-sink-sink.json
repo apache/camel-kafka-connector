@@ -6,18 +6,18 @@
 		"id": "camel-http-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Forwards an event to a HTTP endpoint"
+		"description": "Forward data to a HTTP or HTTPS endpoint."
 	},
 	"properties": {
 		"camel.kamelet.http-sink.url": {
 			"name": "camel.kamelet.http-sink.url",
-			"description": "The URL to send data to Example: https:\/\/my-service\/path",
+			"description": "The URL to which you want to send data. Example: https:\/\/my-service\/path",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.http-sink.method": {
 			"name": "camel.kamelet.http-sink.method",
-			"description": "The HTTP method to use",
+			"description": "The HTTP method to use.",
 			"defaultValue": "\"POST\"",
 			"priority": "MEDIUM",
 			"required": "false"

@@ -11,19 +11,19 @@
 	"properties": {
 		"camel.kamelet.slack-source.channel": {
 			"name": "camel.kamelet.slack-source.channel",
-			"description": "The Slack channel to receive messages from Example: #myroom",
+			"description": "The Slack channel to receive messages from. Example: #myroom",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.slack-source.token": {
 			"name": "camel.kamelet.slack-source.token",
-			"description": "The token to access Slack. A Slack app is needed. The token to access Slack. This app needs to have channels:history, groups:history, im:history, mpim:history, channels:read, groups:read, im:read and mpim:read permissions. The User OAuth Token is the kind of token needed.",
+			"description": "The Bot User OAuth Access Token to access Slack. A Slack app that has the following permissions is required: `channels:history`, `groups:history`, `im:history`, `mpim:history`, `channels:read`, `groups:read`, `im:read`, and `mpim:read`.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.slack-source.delay": {
 			"name": "camel.kamelet.slack-source.delay",
-			"description": "The delay between polls Example: 1s",
+			"description": "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

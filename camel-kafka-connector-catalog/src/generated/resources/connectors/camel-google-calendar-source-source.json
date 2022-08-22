@@ -6,68 +6,68 @@
 		"id": "camel-google-calendar-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Receive data from Google Calendar."
+		"description": "Receive event data from Google Calendar."
 	},
 	"properties": {
 		"camel.kamelet.google-calendar-source.index": {
 			"name": "camel.kamelet.google-calendar-source.index",
-			"description": "An index for the google calendar endpoint",
+			"description": "An index for the Google Calendar endpoint.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-calendar-source.calendarId": {
 			"name": "camel.kamelet.google-calendar-source.calendarId",
-			"description": "The calendar ID to be used as events source",
+			"description": "The calendar ID to use as the source of event data.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-calendar-source.clientId": {
 			"name": "camel.kamelet.google-calendar-source.clientId",
-			"description": "Client ID of the calendar application",
+			"description": "The Client ID of the Google Calendar application.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-calendar-source.clientSecret": {
 			"name": "camel.kamelet.google-calendar-source.clientSecret",
-			"description": "Client Secret of the calendar application",
+			"description": "The Client secret of the Google Calendar application.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-calendar-source.accessToken": {
 			"name": "camel.kamelet.google-calendar-source.accessToken",
-			"description": "OAuth 2 access token for google calendar application. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"description": "The OAuth 2 access token for the Google Calendar application. This token typically expires after an hour. For long term usage, set the `refreshToken` property.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-calendar-source.refreshToken": {
 			"name": "camel.kamelet.google-calendar-source.refreshToken",
-			"description": "OAuth 2 refresh token for google calendar application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"description": "The OAuth 2 refresh token for the Google Calendar application. The Google Calendar component can obtain a new `accessToken` whenever the current one expires. Set this value for long term usage.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-calendar-source.delay": {
 			"name": "camel.kamelet.google-calendar-source.delay",
-			"description": "Milliseconds before the next poll",
+			"description": "The number of milliseconds before the next poll.",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.google-calendar-source.applicationName": {
 			"name": "camel.kamelet.google-calendar-source.applicationName",
-			"description": "Google Calendar application name",
+			"description": "The Google Calendar application name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-calendar-source.syncFlow": {
 			"name": "camel.kamelet.google-calendar-source.syncFlow",
-			"description": "Sync events for incremental synchronization",
+			"description": "Specifies to sync events for incremental synchronization.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.google-calendar-source.consumeFromNow": {
 			"name": "camel.kamelet.google-calendar-source.consumeFromNow",
-			"description": "Consume events in the selected calendar from now on",
+			"description": "Specfies to consume events in the calendar from now on.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

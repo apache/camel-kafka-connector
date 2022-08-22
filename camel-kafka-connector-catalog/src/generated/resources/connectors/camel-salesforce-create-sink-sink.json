@@ -6,43 +6,43 @@
 		"id": "camel-salesforce-create-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Creates an object in Salesforce. The body of the message must contain\nthe JSON of the salesforce object.\n\nExample body: { \"Phone\": \"555\", \"Name\": \"Antonia\", \"LastName\": \"Garcia\" }"
+		"description": "Create an object in Salesforce. \n\nThe body of the message must contain the JSON of the Salesforce object, for example: `{ \"Phone\": \"555\", \"Name\": \"Antonia\", \"LastName\": \"Garcia\" }`."
 	},
 	"properties": {
 		"camel.kamelet.salesforce-create-sink.sObjectName": {
 			"name": "camel.kamelet.salesforce-create-sink.sObjectName",
-			"description": "Type of the object Example: Contact",
+			"description": "The type of the object. Example: Contact",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.salesforce-create-sink.loginUrl": {
 			"name": "camel.kamelet.salesforce-create-sink.loginUrl",
-			"description": "The Salesforce instance login URL",
+			"description": "The Salesforce instance login URL.",
 			"defaultValue": "\"https:\/\/login.salesforce.com\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.salesforce-create-sink.clientId": {
 			"name": "camel.kamelet.salesforce-create-sink.clientId",
-			"description": "The Salesforce application consumer key",
+			"description": "The Salesforce application consumer key.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-create-sink.clientSecret": {
 			"name": "camel.kamelet.salesforce-create-sink.clientSecret",
-			"description": "The Salesforce application consumer secret",
+			"description": "The Salesforce application consumer secret.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-create-sink.userName": {
 			"name": "camel.kamelet.salesforce-create-sink.userName",
-			"description": "The Salesforce username",
+			"description": "The Salesforce username.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-create-sink.password": {
 			"name": "camel.kamelet.salesforce-create-sink.password",
-			"description": "The Salesforce user password",
+			"description": "The Salesforce user password.",
 			"priority": "HIGH",
 			"required": "true"
 		}

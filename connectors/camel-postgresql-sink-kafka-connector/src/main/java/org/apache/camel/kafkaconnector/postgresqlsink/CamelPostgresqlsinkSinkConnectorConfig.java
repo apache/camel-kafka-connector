@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.postgresqlsink;
+ */
+package org.apache.camel.kafkaconnector.postgresqlsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,22 +27,22 @@ public class CamelPostgresqlsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_NAME_CONF = "camel.kamelet.postgresql-sink.serverName";
-    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_NAME_DOC = "Server Name for the data source Example: localhost";
+    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_NAME_DOC = "The server name for the data source. Example: localhost";
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_PORT_CONF = "camel.kamelet.postgresql-sink.serverPort";
-    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_PORT_DOC = "Server Port for the data source";
+    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_PORT_DOC = "The server port for the data source.";
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_SERVER_PORT_DEFAULT = "5432";
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_USERNAME_CONF = "camel.kamelet.postgresql-sink.username";
-    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_USERNAME_DOC = "The username to use for accessing a secured PostgreSQL Database";
+    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_USERNAME_DOC = "The username to access a secured PostgreSQL Database.";
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_PASSWORD_CONF = "camel.kamelet.postgresql-sink.password";
-    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_PASSWORD_DOC = "The password to use for accessing a secured PostgreSQL Database";
+    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_PASSWORD_DOC = "The password to access a secured PostgreSQL Database.";
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_QUERY_CONF = "camel.kamelet.postgresql-sink.query";
-    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_QUERY_DOC = "The Query to execute against the PostgreSQL Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)";
+    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_QUERY_DOC = "The query to execute against the PostgreSQL Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)";
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_QUERY_DEFAULT = null;
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_DATABASE_NAME_CONF = "camel.kamelet.postgresql-sink.databaseName";
-    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_DATABASE_NAME_DOC = "The Database Name we are pointing";
+    public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_DATABASE_NAME_DOC = "The name of the PostgreSQL Database.";
     public static final String CAMEL_SINK_POSTGRESQLSINK_KAMELET_DATABASE_NAME_DEFAULT = null;
 
     public CamelPostgresqlsinkSinkConnectorConfig(

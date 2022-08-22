@@ -23,7 +23,7 @@
 		},
 		"camel.kamelet.pulsar-sink.topicType": {
 			"name": "camel.kamelet.pulsar-sink.topicType",
-			"description": "The topic type. Possible values are: persistent or non-persistent",
+			"description": "The topic type. Possible values are persistent or non-persistent.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -68,7 +68,7 @@
 		"camel.kamelet.pulsar-sink.batchingMaxPublishDelayMicros": {
 			"name": "camel.kamelet.pulsar-sink.batchingMaxPublishDelayMicros",
 			"description": "The maximum time period within which the messages sent will be batched if batchingEnabled is true.",
-			"defaultValue": "1000L",
+			"defaultValue": "1000",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -81,7 +81,7 @@
 		},
 		"camel.kamelet.pulsar-sink.compressionType": {
 			"name": "camel.kamelet.pulsar-sink.compressionType",
-			"description": "Compression type to use. Possible values are: NONE, LZ4, ZLIB, ZSTD, SNAPPY",
+			"description": "Compression type to use. Possible values are NONE, LZ4, ZLIB, ZSTD, or SNAPPY.",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -89,7 +89,7 @@
 		"camel.kamelet.pulsar-sink.initialSequenceId": {
 			"name": "camel.kamelet.pulsar-sink.initialSequenceId",
 			"description": "The first message published will have a sequence Id of initialSequenceId 1.",
-			"defaultValue": "-1L",
+			"defaultValue": "-1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

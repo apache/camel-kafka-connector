@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.salesforcedeletesink;
+ */
+package org.apache.camel.kafkaconnector.salesforcedeletesink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,19 +27,19 @@ public class CamelSalesforcedeletesinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_LOGIN_URL_CONF = "camel.kamelet.salesforce-delete-sink.loginUrl";
-    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_LOGIN_URL_DOC = "The Salesforce instance login URL";
+    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_LOGIN_URL_DOC = "The Salesforce instance login URL.";
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_LOGIN_URL_DEFAULT = "https://login.salesforce.com";
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_ID_CONF = "camel.kamelet.salesforce-delete-sink.clientId";
-    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_ID_DOC = "The Salesforce application consumer key";
+    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_ID_DOC = "The Salesforce application consumer key.";
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_SECRET_CONF = "camel.kamelet.salesforce-delete-sink.clientSecret";
-    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_SECRET_DOC = "The Salesforce application consumer secret";
+    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_SECRET_DOC = "The Salesforce application consumer secret.";
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_CLIENT_SECRET_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_USER_NAME_CONF = "camel.kamelet.salesforce-delete-sink.userName";
-    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_USER_NAME_DOC = "The Salesforce username";
+    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_USER_NAME_DOC = "The Salesforce username.";
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_USER_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_PASSWORD_CONF = "camel.kamelet.salesforce-delete-sink.password";
-    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_PASSWORD_DOC = "The Salesforce user password";
+    public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_PASSWORD_DOC = "The Salesforce user password.";
     public static final String CAMEL_SINK_SALESFORCEDELETESINK_KAMELET_PASSWORD_DEFAULT = null;
 
     public CamelSalesforcedeletesinkSinkConnectorConfig(

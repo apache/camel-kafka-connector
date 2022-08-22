@@ -6,30 +6,30 @@
 		"id": "camel-aws-sns-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send message to an AWS SNS Topic.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SNS Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SNS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThe Kamelet expects the following headers to be set:\n\n- `subject` \/ `ce-subject`: the subject of the message"
+		"description": "Send message to an Amazon Simple Notification Service (SNS) topic.\n\nThe basic authentication method for the SNS service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the SNS client loads the credentials through this provider and doesn't use the basic authentication method.\n\nIn the header, you can optionally set the `subject` \/ `ce-subject` property to specify the subject of the message."
 	},
 	"properties": {
 		"camel.kamelet.aws-sns-sink.topicNameOrArn": {
 			"name": "camel.kamelet.aws-sns-sink.topicNameOrArn",
-			"description": "The SQS Topic name or ARN",
+			"description": "The SNS topic name name or Amazon Resource Name (ARN).",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-sns-sink.accessKey": {
 			"name": "camel.kamelet.aws-sns-sink.accessKey",
-			"description": "The access key obtained from AWS",
+			"description": "The access key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sns-sink.secretKey": {
 			"name": "camel.kamelet.aws-sns-sink.secretKey",
-			"description": "The secret key obtained from AWS",
+			"description": "The secret key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sns-sink.region": {
 			"name": "camel.kamelet.aws-sns-sink.region",
-			"description": "The AWS region to connect to Example: eu-west-1",
+			"description": "The AWS region to access.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -42,20 +42,20 @@
 		},
 		"camel.kamelet.aws-sns-sink.useDefaultCredentialsProvider": {
 			"name": "camel.kamelet.aws-sns-sink.useDefaultCredentialsProvider",
-			"description": "Set whether the SNS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"description": "If true, the SNS client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sns-sink.uriEndpointOverride": {
 			"name": "camel.kamelet.aws-sns-sink.uriEndpointOverride",
-			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sns-sink.overrideEndpoint": {
 			"name": "camel.kamelet.aws-sns-sink.overrideEndpoint",
-			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

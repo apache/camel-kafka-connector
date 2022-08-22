@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.ftpsource;
+ */
+package org.apache.camel.kafkaconnector.ftpsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,28 +27,28 @@ public class CamelFtpsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.ftp-source.connectionHost";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_DOC = "Hostname of the FTP server";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_DOC = "The hostname of the FTP server.";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_HOST_DEFAULT = null;
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.ftp-source.connectionPort";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_DOC = "Port of the FTP server";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_DOC = "The port of the FTP server.";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_CONNECTION_PORT_DEFAULT = "21";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.ftp-source.username";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_DOC = "The username to access the FTP server";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_DOC = "The username to access the FTP server.";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.ftp-source.password";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSWORD_DOC = "The password to access the FTP server";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSWORD_DOC = "The password to access the FTP server.";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_DIRECTORY_NAME_CONF = "camel.kamelet.ftp-source.directoryName";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_DIRECTORY_NAME_DOC = "The starting directory";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_DIRECTORY_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSIVE_MODE_CONF = "camel.kamelet.ftp-source.passiveMode";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSIVE_MODE_DOC = "Sets passive mode connection";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSIVE_MODE_DOC = "Specifes to use passive mode connection.";
     public static final Boolean CAMEL_SOURCE_FTPSOURCE_KAMELET_PASSIVE_MODE_DEFAULT = false;
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_RECURSIVE_CONF = "camel.kamelet.ftp-source.recursive";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_RECURSIVE_DOC = "If a directory, will look for files in all the sub-directories as well.";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_RECURSIVE_DOC = "If a directory, look for files in all the sub-directories as well.";
     public static final Boolean CAMEL_SOURCE_FTPSOURCE_KAMELET_RECURSIVE_DEFAULT = false;
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_IDEMPOTENT_CONF = "camel.kamelet.ftp-source.idempotent";
-    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_IDEMPOTENT_DOC = "Skip already processed files.";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_IDEMPOTENT_DOC = "Skip already-processed files.";
     public static final Boolean CAMEL_SOURCE_FTPSOURCE_KAMELET_IDEMPOTENT_DEFAULT = true;
 
     public CamelFtpsourceSourceConnectorConfig(

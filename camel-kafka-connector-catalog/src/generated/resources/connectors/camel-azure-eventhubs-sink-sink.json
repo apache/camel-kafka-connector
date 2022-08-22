@@ -6,30 +6,30 @@
 		"id": "camel-azure-eventhubs-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send Events to Azure Eventhubs.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `partition` \/ `ce-partition`: as the time to live of the message in the queue.\n\nIf the header won't be set then the partition will be assigned by Eventhubs"
+		"description": "Send events to Azure Event Hubs.\n\nThe Kamelet checks for the `partition` \/ `ce-partition` header to determine how long an event remains in the Azure Storage queue. Use `PnDTnHnMn.nS.` format. For example, `PT20.345S`\u2009parses as 20.345 seconds and `P2D`\u2009parses as 2 days.\n   \nA header is optional. If the header is not set, the partition is assigned by Event Hubs."
 	},
 	"properties": {
 		"camel.kamelet.azure-eventhubs-sink.namespaceName": {
 			"name": "camel.kamelet.azure-eventhubs-sink.namespaceName",
-			"description": "The eventhubs namespace",
+			"description": "The Event Hubs namespace.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-sink.eventhubName": {
 			"name": "camel.kamelet.azure-eventhubs-sink.eventhubName",
-			"description": "The eventhub name",
+			"description": "The Event Hub name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-sink.sharedAccessName": {
 			"name": "camel.kamelet.azure-eventhubs-sink.sharedAccessName",
-			"description": "EventHubs SAS key name",
+			"description": "The Event Hubs SAS key name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-sink.sharedAccessKey": {
 			"name": "camel.kamelet.azure-eventhubs-sink.sharedAccessKey",
-			"description": "The key for EventHubs SAS key name",
+			"description": "The key for the Event Hubs SAS key name.",
 			"priority": "HIGH",
 			"required": "true"
 		}

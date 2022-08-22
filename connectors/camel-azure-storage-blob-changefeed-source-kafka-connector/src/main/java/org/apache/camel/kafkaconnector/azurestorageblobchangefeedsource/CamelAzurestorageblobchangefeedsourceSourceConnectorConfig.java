@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.azurestorageblobchangefeedsource;
+ */
+package org.apache.camel.kafkaconnector.azurestorageblobchangefeedsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,7 +27,7 @@ public class CamelAzurestorageblobchangefeedsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_PERIOD_CONF = "camel.kamelet.azure-storage-blob-changefeed-source.period";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_PERIOD_DOC = "The interval between fetches to the Azure Storage Changefeed in milliseconds";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_PERIOD_DOC = "The interval (in milliseconds) between fetches to the Azure Storage change feed.";
     public static final Integer CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_PERIOD_DEFAULT = 10000;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCOUNT_NAME_CONF = "camel.kamelet.azure-storage-blob-changefeed-source.accountName";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCOUNT_NAME_DOC = "The Azure Storage Blob account name.";

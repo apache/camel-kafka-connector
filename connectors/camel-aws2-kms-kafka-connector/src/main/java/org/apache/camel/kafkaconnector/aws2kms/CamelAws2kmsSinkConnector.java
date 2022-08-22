@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.aws2kms;
+ */
+package org.apache.camel.kafkaconnector.aws2kms;
 
 import javax.annotation.Generated;
 import org.apache.camel.kafkaconnector.CamelSinkConnector;

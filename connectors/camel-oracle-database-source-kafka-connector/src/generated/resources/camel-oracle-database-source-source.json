@@ -6,49 +6,49 @@
 		"id": "camel-oracle-database-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Query data from a Oracle Database.\n\nIn your KameletBinding file you'll need to explicitly declare the Oracle Database driver dependency in spec->integration->dependencies\n\n- \"mvn:com.oracle.database.jdbc:ojdbc11:<version>\""
+		"description": "Query data from an Oracle Database.\n\nIn your KameletBinding file, you must explicitly declare the Oracle Database driver dependency in spec->integration->dependencies.\n\n- \"mvn:com.oracle.database.jdbc:ojdbc11:<version>\""
 	},
 	"properties": {
 		"camel.kamelet.oracle-database-source.serverName": {
 			"name": "camel.kamelet.oracle-database-source.serverName",
-			"description": "Server Name for the data source Example: localhost",
+			"description": "The server name for the data source. Example: localhost",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.oracle-database-source.serverPort": {
 			"name": "camel.kamelet.oracle-database-source.serverPort",
-			"description": "Server Port for the data source",
+			"description": "The server port for the data source.",
 			"defaultValue": "\"1521\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.oracle-database-source.username": {
 			"name": "camel.kamelet.oracle-database-source.username",
-			"description": "The username to use for accessing a secured Oracle Database",
+			"description": "The username to access a secured Oracle Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.oracle-database-source.password": {
 			"name": "camel.kamelet.oracle-database-source.password",
-			"description": "The password to use for accessing a secured Oracle Database",
+			"description": "The password to access a secured Oracle Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.oracle-database-source.query": {
 			"name": "camel.kamelet.oracle-database-source.query",
-			"description": "The Query to execute against the Oracle Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"description": "The query to execute against the Oracle Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.oracle-database-source.databaseName": {
 			"name": "camel.kamelet.oracle-database-source.databaseName",
-			"description": "The Database Name we are pointing",
+			"description": "The name of the Oracle Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.oracle-database-source.consumedQuery": {
 			"name": "camel.kamelet.oracle-database-source.consumedQuery",
-			"description": "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id",
+			"description": "A query to run on a tuple consumed. Example: DELETE FROM accounts where user_id = :#user_id",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

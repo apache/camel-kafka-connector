@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.azureeventhubssink;
+ */
+package org.apache.camel.kafkaconnector.azureeventhubssink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,16 +27,16 @@ public class CamelAzureeventhubssinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_NAMESPACE_NAME_CONF = "camel.kamelet.azure-eventhubs-sink.namespaceName";
-    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_NAMESPACE_NAME_DOC = "The eventhubs namespace";
+    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_NAMESPACE_NAME_DOC = "The Event Hubs namespace.";
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_NAMESPACE_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_EVENTHUB_NAME_CONF = "camel.kamelet.azure-eventhubs-sink.eventhubName";
-    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_EVENTHUB_NAME_DOC = "The eventhub name";
+    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_EVENTHUB_NAME_DOC = "The Event Hub name.";
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_EVENTHUB_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_NAME_CONF = "camel.kamelet.azure-eventhubs-sink.sharedAccessName";
-    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_NAME_DOC = "EventHubs SAS key name";
+    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_NAME_DOC = "The Event Hubs SAS key name.";
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_KEY_CONF = "camel.kamelet.azure-eventhubs-sink.sharedAccessKey";
-    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_KEY_DOC = "The key for EventHubs SAS key name";
+    public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_KEY_DOC = "The key for the Event Hubs SAS key name.";
     public static final String CAMEL_SINK_AZUREEVENTHUBSSINK_KAMELET_SHARED_ACCESS_KEY_DEFAULT = null;
 
     public CamelAzureeventhubssinkSinkConnectorConfig(

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.jmsamqp10source;
+ */
+package org.apache.camel.kafkaconnector.jmsamqp10source;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,13 +27,13 @@ public class CamelJmsamqp10sourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_TYPE_CONF = "camel.kamelet.jms-amqp-10-source.destinationType";
-    public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (i.e.: queue or topic)";
+    public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (queue or topic).";
     public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_TYPE_DEFAULT = "queue";
     public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_NAME_CONF = "camel.kamelet.jms-amqp-10-source.destinationName";
-    public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name";
+    public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name.";
     public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_REMOTE_URICONF = "camel.kamelet.jms-amqp-10-source.remoteURI";
-    public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_REMOTE_URIDOC = "The JMS URL Example: amqp://my-host:31616";
+    public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_REMOTE_URIDOC = "The JMS URL. Example: amqp://my-host:31616";
     public static final String CAMEL_SOURCE_JMSAMQP10SOURCE_KAMELET_REMOTE_URIDEFAULT = null;
 
     public CamelJmsamqp10sourceSourceConnectorConfig(

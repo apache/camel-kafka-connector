@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.awss3streaminguploadsink;
+ */
+package org.apache.camel.kafkaconnector.awss3streaminguploadsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,7 +27,7 @@ public class CamelAwss3streaminguploadsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.bucketNameOrArn";
-    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The S3 Bucket name or ARN.";
+    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The S3 Bucket name or Amazon Resource Name (ARN)..";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.accessKey";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
@@ -35,7 +36,7 @@ public class CamelAwss3streaminguploadsinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS.";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_SECRET_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_REGION_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.region";
-    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_REGION_DOC = "The AWS region to connect to. Example: eu-west-1";
+    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.autoCreateBucket";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName.";
@@ -54,7 +55,7 @@ public class CamelAwss3streaminguploadsinkSinkConnectorConfig
     public static final Integer CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BATCH_SIZE_DEFAULT = 1000000;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadTimeout";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_DOC = "While streaming upload mode is true, this option set the timeout to complete upload";
-    public static final Long CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_DEFAULT = null;
+    public static final Integer CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_DEFAULT = null;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_NAMING_STRATEGY_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.namingStrategy";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_NAMING_STRATEGY_DOC = "The naming strategy to use in streaming upload mode. There are 2 enums and the value can be one of progressive, random";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_NAMING_STRATEGY_DEFAULT = "progressive";
@@ -65,10 +66,10 @@ public class CamelAwss3streaminguploadsinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
     public static final Boolean CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.uriEndpointOverride";
-    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.";
+    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.overrideEndpoint";
-    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.";
+    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.";
     public static final Boolean CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
 
     public CamelAwss3streaminguploadsinkSinkConnectorConfig(
@@ -93,7 +94,7 @@ public class CamelAwss3streaminguploadsinkSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_RESTARTING_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_RESTARTING_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_RESTARTING_POLICY_DOC);
         conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BATCH_MESSAGE_NUMBER_CONF, ConfigDef.Type.INT, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BATCH_MESSAGE_NUMBER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BATCH_MESSAGE_NUMBER_DOC);
         conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BATCH_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BATCH_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BATCH_SIZE_DOC);
-        conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_STREAMING_UPLOAD_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_NAMING_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_NAMING_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_NAMING_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_KEY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_KEY_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_KEY_NAME_DOC);
         conf.define(CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);

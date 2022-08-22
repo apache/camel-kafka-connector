@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cephsink.CamelCephsinkSinkConnector",
+		"artifactId": "camel-ceph-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ceph-sink-sink",
+		"type": "sink",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Upload data to an Ceph Bucket managed by a Object Storage Gateway.\n\nIn the header, you can optionally set the `file` \/ `ce-file` property to specify the name of the file to upload.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the file name."
+	},
+	"properties": {
+		"camel.kamelet.ceph-sink.bucketName": {
+			"name": "camel.kamelet.ceph-sink.bucketName",
+			"description": "The Ceph Bucket name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-sink.accessKey": {
+			"name": "camel.kamelet.ceph-sink.accessKey",
+			"description": "The access key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-sink.secretKey": {
+			"name": "camel.kamelet.ceph-sink.secretKey",
+			"description": "The secret key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-sink.zoneGroup": {
+			"name": "camel.kamelet.ceph-sink.zoneGroup",
+			"description": "The bucket zone group.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-sink.autoCreateBucket": {
+			"name": "camel.kamelet.ceph-sink.autoCreateBucket",
+			"description": "Specifies to automatically create the bucket.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ceph-sink.cephUrl": {
+			"name": "camel.kamelet.ceph-sink.cephUrl",
+			"description": "Set the Ceph Object Storage Address Url. Example: http:\/\/ceph-storage-address.com",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-sink.keyName": {
+			"name": "camel.kamelet.ceph-sink.keyName",
+			"description": "The key name for saving an element in the bucket.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

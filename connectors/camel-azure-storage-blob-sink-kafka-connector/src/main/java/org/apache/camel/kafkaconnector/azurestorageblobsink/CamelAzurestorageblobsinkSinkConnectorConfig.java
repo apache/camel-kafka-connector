@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.azurestorageblobsink;
+ */
+package org.apache.camel.kafkaconnector.azurestorageblobsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -32,7 +33,7 @@ public class CamelAzurestorageblobsinkSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CONTAINER_NAME_DOC = "The Azure Storage Blob container name.";
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CONTAINER_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.azure-storage-blob-sink.accessKey";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Blob access Key.";
+    public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Blob access key.";
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_CONF = "camel.kamelet.azure-storage-blob-sink.operation";
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_DOC = "The operation to perform.";
