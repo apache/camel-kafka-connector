@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-create-sink-sink",
 		"type": "sink",
-		"version": "1.1.0-SNAPSHOT",
+		"version": "3.18.1-SNAPSHOT",
 		"description": "Creates an object in Salesforce. The body of the message must contain\nthe JSON of the salesforce object.\n\nExample body: { \"Phone\": \"555\", \"Name\": \"Antonia\", \"LastName\": \"Garcia\" }"
 	},
 	"properties": {
