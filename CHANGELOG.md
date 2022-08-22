@@ -18,6 +18,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1420](https://github.com/apache/camel-kafka-connector/pull/1420) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1419](https://github.com/apache/camel-kafka-connector/pull/1419) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Upgrade to Camel 3.18.0 [\#1408](https://github.com/apache/camel-kafka-connector/pull/1408) ([orpiske](https://github.com/orpiske))
 - \(chores\) More minor test fixes [\#1407](https://github.com/apache/camel-kafka-connector/pull/1407) ([orpiske](https://github.com/orpiske))
