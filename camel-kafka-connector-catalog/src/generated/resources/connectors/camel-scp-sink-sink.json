@@ -1,0 +1,37 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.scpsink.CamelScpsinkSinkConnector",
+		"artifactId": "camel-scp-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-scp-sink-sink",
+		"type": "sink",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Send file to an FTP Server through Secure Copy Protocol"
+	},
+	"properties": {
+		"camel.kamelet.scp-sink.serverName": {
+			"name": "camel.kamelet.scp-sink.serverName",
+			"description": "The hostname of the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.scp-sink.serverPort": {
+			"name": "camel.kamelet.scp-sink.serverPort",
+			"description": "The port of the FTP server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.scp-sink.username": {
+			"name": "camel.kamelet.scp-sink.username",
+			"description": "Username for accessing FTP Server",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.scp-sink.password": {
+			"name": "camel.kamelet.scp-sink.password",
+			"description": "Password for accessing FTP Server",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

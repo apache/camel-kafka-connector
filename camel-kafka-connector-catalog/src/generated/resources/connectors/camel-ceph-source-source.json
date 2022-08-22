@@ -1,0 +1,84 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cephsource.CamelCephsourceSourceConnector",
+		"artifactId": "camel-ceph-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ceph-source-source",
+		"type": "source",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Receive data from an Ceph Bucket, managed by a Object Storage Gateway."
+	},
+	"properties": {
+		"camel.kamelet.ceph-source.bucketName": {
+			"name": "camel.kamelet.ceph-source.bucketName",
+			"description": "The Ceph Bucket name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-source.deleteAfterRead": {
+			"name": "camel.kamelet.ceph-source.deleteAfterRead",
+			"description": "Specifies to delete objects after consuming them.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ceph-source.accessKey": {
+			"name": "camel.kamelet.ceph-source.accessKey",
+			"description": "The access key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-source.secretKey": {
+			"name": "camel.kamelet.ceph-source.secretKey",
+			"description": "The secret key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-source.zoneGroup": {
+			"name": "camel.kamelet.ceph-source.zoneGroup",
+			"description": "The bucket zone group.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-source.autoCreateBucket": {
+			"name": "camel.kamelet.ceph-source.autoCreateBucket",
+			"description": "Specifies to automatically create the bucket.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ceph-source.includeBody": {
+			"name": "camel.kamelet.ceph-source.includeBody",
+			"description": "If true, the exchange is consumed and put into the body and closed. If false, the Object stream is put raw into the body and the headers are set with the object metadata.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ceph-source.prefix": {
+			"name": "camel.kamelet.ceph-source.prefix",
+			"description": "The bucket prefix to consider while searching. Example: folder\/",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ceph-source.ignoreBody": {
+			"name": "camel.kamelet.ceph-source.ignoreBody",
+			"description": "If true, the Object body is ignored. Setting this to true overrides any behavior defined by the `includeBody` option. If false, the object is put in the body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ceph-source.cephUrl": {
+			"name": "camel.kamelet.ceph-source.cephUrl",
+			"description": "Set the Ceph Object Storage Address Url. Example: http:\/\/ceph-storage-address.com",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ceph-source.delay": {
+			"name": "camel.kamelet.ceph-source.delay",
+			"description": "The number of milliseconds before the next poll of the selected bucket.",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

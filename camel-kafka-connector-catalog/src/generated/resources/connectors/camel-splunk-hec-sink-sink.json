@@ -1,0 +1,83 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.splunkhecsink.CamelSplunkhecsinkSinkConnector",
+		"artifactId": "camel-splunk-hec-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-splunk-hec-sink-sink",
+		"type": "sink",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "The Splunk HEC sink allows to send data to Splunk using the https:\/\/docs.splunk.com\/Documentation\/Splunk\/latest\/Data\/UsetheHTTPEventCollector[HTTP Event Collector]."
+	},
+	"properties": {
+		"camel.kamelet.splunk-hec-sink.splunkUrl": {
+			"name": "camel.kamelet.splunk-hec-sink.splunkUrl",
+			"description": "The URL of your Splunk server. No need to set the protocol prefix. Example: my_server.splunkcloud.com:8088",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-hec-sink.token": {
+			"name": "camel.kamelet.splunk-hec-sink.token",
+			"description": "The Token of the HEC. Note it is not the user's authentication token.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-hec-sink.hostPayload": {
+			"name": "camel.kamelet.splunk-hec-sink.hostPayload",
+			"description": "The host field set in the data sent to Splunk, it is not related to the Splunk URL or the connection to Splunk server.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.bodyOnly": {
+			"name": "camel.kamelet.splunk-hec-sink.bodyOnly",
+			"description": "Send to Splunk only data contained in the body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.headersOnly": {
+			"name": "camel.kamelet.splunk-hec-sink.headersOnly",
+			"description": "Send to Splunk only data contained in the headers.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.index": {
+			"name": "camel.kamelet.splunk-hec-sink.index",
+			"description": "Splunk index to write to.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.source": {
+			"name": "camel.kamelet.splunk-hec-sink.source",
+			"description": "The source named field of the data.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.sourceType": {
+			"name": "camel.kamelet.splunk-hec-sink.sourceType",
+			"description": "The source named field of the data.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.skipTlsVerify": {
+			"name": "camel.kamelet.splunk-hec-sink.skipTlsVerify",
+			"description": "Skip TLS verification.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.https": {
+			"name": "camel.kamelet.splunk-hec-sink.https",
+			"description": "Use a secure HTTPS connection.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-hec-sink.time": {
+			"name": "camel.kamelet.splunk-hec-sink.time",
+			"description": "Time this even occurred. By default, the time will be when this event hits the splunk server.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

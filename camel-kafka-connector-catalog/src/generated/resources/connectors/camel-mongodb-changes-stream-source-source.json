@@ -1,0 +1,49 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mongodbchangesstreamsource.CamelMongodbchangesstreamsourceSourceConnector",
+		"artifactId": "camel-mongodb-changes-stream-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mongodb-changes-stream-source-source",
+		"type": "source",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Consume Changes from MongoDB Collection in streaming mode."
+	},
+	"properties": {
+		"camel.kamelet.mongodb-changes-stream-source.hosts": {
+			"name": "camel.kamelet.mongodb-changes-stream-source.hosts",
+			"description": "Comma separated list of MongoDB Host Addresses in host:port format.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-changes-stream-source.collection": {
+			"name": "camel.kamelet.mongodb-changes-stream-source.collection",
+			"description": "Sets the name of the MongoDB collection to bind to this endpoint.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-changes-stream-source.password": {
+			"name": "camel.kamelet.mongodb-changes-stream-source.password",
+			"description": "User password for accessing MongoDB.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mongodb-changes-stream-source.username": {
+			"name": "camel.kamelet.mongodb-changes-stream-source.username",
+			"description": "Username for accessing MongoDB. The username must be present in the MongoDB's authentication database (authenticationDatabase). By default, the MongoDB authenticationDatabase is 'admin'.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mongodb-changes-stream-source.database": {
+			"name": "camel.kamelet.mongodb-changes-stream-source.database",
+			"description": "Sets the name of the MongoDB database to target.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.mongodb-changes-stream-source.streamFilter": {
+			"name": "camel.kamelet.mongodb-changes-stream-source.streamFilter",
+			"description": "Filter condition for change streams consumer. Example: { '$match':{'$or':[{'fullDocument.stringValue': 'specificValue'}]} }",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
