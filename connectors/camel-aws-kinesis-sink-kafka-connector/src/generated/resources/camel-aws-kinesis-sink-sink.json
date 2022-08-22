@@ -6,49 +6,49 @@
 		"id": "camel-aws-kinesis-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send data to AWS Kinesis.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS Kinesis Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the Kinesis client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThe Kamelet expects the following header:\n\n- `partition` \/ `ce-partition`: to set the Kinesis partition key\n\nIf the header won't be set the exchange ID will be used.\n\nThe Kamelet is also able to recognize the following header:\n\n- `sequence-number` \/ `ce-sequencenumber`: to set the Sequence number\n\nThis header is optional."
+		"description": "Send data to AWS Kinesis.\n\nThe basic authentication method for the Kinesis service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the Kinesis client loads the credentials through this provider and doesn't use the basic authentication method.\n\nIn the header, you can optionally set the `file` \/ `ce-partition` property to set the Kinesis partition key.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the partition key.\n\nYou can also set the `sequence-number` \/ `ce-sequencenumber` property in the header to specify the Sequence number."
 	},
 	"properties": {
 		"camel.kamelet.aws-kinesis-sink.stream": {
 			"name": "camel.kamelet.aws-kinesis-sink.stream",
-			"description": "The Kinesis stream that you want to access (needs to be created in advance)",
+			"description": "The Kinesis stream that you want to access. The Kinesis stream that you specify must already exist.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-kinesis-sink.accessKey": {
 			"name": "camel.kamelet.aws-kinesis-sink.accessKey",
-			"description": "The access key obtained from AWS",
+			"description": "The access key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-kinesis-sink.secretKey": {
 			"name": "camel.kamelet.aws-kinesis-sink.secretKey",
-			"description": "The secret key obtained from AWS",
+			"description": "The secret key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-kinesis-sink.region": {
 			"name": "camel.kamelet.aws-kinesis-sink.region",
-			"description": "The AWS region to connect to Example: eu-west-1",
+			"description": "The AWS region to access.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-kinesis-sink.useDefaultCredentialsProvider": {
 			"name": "camel.kamelet.aws-kinesis-sink.useDefaultCredentialsProvider",
-			"description": "Set whether the Kinesis client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"description": "If true, the Kinesis client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-kinesis-sink.uriEndpointOverride": {
 			"name": "camel.kamelet.aws-kinesis-sink.uriEndpointOverride",
-			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-kinesis-sink.overrideEndpoint": {
 			"name": "camel.kamelet.aws-kinesis-sink.overrideEndpoint",
-			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

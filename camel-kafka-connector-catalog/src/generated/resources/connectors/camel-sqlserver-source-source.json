@@ -6,43 +6,43 @@
 		"id": "camel-sqlserver-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Query data from a Microsoft SQL Server Database.\n\nIn your KameletBinding file you'll need to explicitly declare the SQL Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.microsoft.sqlserver:mssql-jdbc:<version>\""
+		"description": "Query data from a Microsoft SQL Server Database.\n\nIn your KameletBinding file, you must explicitly declare the SQL Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.microsoft.sqlserver:mssql-jdbc:<version>\""
 	},
 	"properties": {
 		"camel.kamelet.sqlserver-source.serverName": {
 			"name": "camel.kamelet.sqlserver-source.serverName",
-			"description": "Server Name for the data source Example: localhost",
+			"description": "The server name for the data source. Example: localhost",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sqlserver-source.serverPort": {
 			"name": "camel.kamelet.sqlserver-source.serverPort",
-			"description": "Server Port for the data source",
+			"description": "The server port for the data source.",
 			"defaultValue": "\"1433\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.sqlserver-source.username": {
 			"name": "camel.kamelet.sqlserver-source.username",
-			"description": "The username to use for accessing a secured SQL Server Database",
+			"description": "The username to access a secured SQL Server Database",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sqlserver-source.password": {
 			"name": "camel.kamelet.sqlserver-source.password",
-			"description": "The password to use for accessing a secured SQL Server Database",
+			"description": "The password to access a secured SQL Server Database",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sqlserver-source.query": {
 			"name": "camel.kamelet.sqlserver-source.query",
-			"description": "The Query to execute against the SQL Server Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"description": "The query to execute against the SQL Server Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sqlserver-source.databaseName": {
 			"name": "camel.kamelet.sqlserver-source.databaseName",
-			"description": "The Database Name we are pointing",
+			"description": "The name of the Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},

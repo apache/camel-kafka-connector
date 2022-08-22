@@ -6,43 +6,43 @@
 		"id": "camel-mariadb-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send data to a MariaDB Database.\n\nIn your KameletBinding file you'll need to explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies\n\n- \"mvn:org.mariadb.jdbc:mariadb-java-client:<version>\"\n\nThis Kamelet expects a JSON as body. The mapping between the JSON fields and parameters is done by key, so if you have the following query:\n\n'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'\n\nThe Kamelet needs to receive as input something like:\n\n'{ \"username\":\"oscerd\", \"city\":\"Rome\"}'"
+		"description": "Send data to a MariaDB Database.\n\nIn your KameletBinding file, you must explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies.\n\n- \"mvn:org.mariadb.jdbc:mariadb-java-client:<version>\"\n\nThis Kamelet expects a JSON-formatted body. Use key:value pairs to map the JSON fields and parameters. For example, here is a query:\n\n'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'\n\nHere is example input for the example query:\n\n'{ \"username\":\"oscerd\", \"city\":\"Rome\"}'"
 	},
 	"properties": {
 		"camel.kamelet.mariadb-sink.serverName": {
 			"name": "camel.kamelet.mariadb-sink.serverName",
-			"description": "Server Name for the data source Example: localhost",
+			"description": "The server name for the data source. Example: localhost",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mariadb-sink.serverPort": {
 			"name": "camel.kamelet.mariadb-sink.serverPort",
-			"description": "Server Port for the data source",
+			"description": "The server port for the data source.",
 			"defaultValue": "\"3306\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.mariadb-sink.username": {
 			"name": "camel.kamelet.mariadb-sink.username",
-			"description": "The username to use for accessing a secured MariaDB Database",
+			"description": "The username to access a secured MariaDB Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mariadb-sink.password": {
 			"name": "camel.kamelet.mariadb-sink.password",
-			"description": "The password to use for accessing a secured MariaDB Database",
+			"description": "The password to access a secured MariaDB Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mariadb-sink.query": {
 			"name": "camel.kamelet.mariadb-sink.query",
-			"description": "The Query to execute against the MariaDB Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"description": "The query to execute against the MariaDB Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mariadb-sink.databaseName": {
 			"name": "camel.kamelet.mariadb-sink.databaseName",
-			"description": "The Database Name we are pointing",
+			"description": "The name of the MariaDB Database.",
 			"priority": "HIGH",
 			"required": "true"
 		}

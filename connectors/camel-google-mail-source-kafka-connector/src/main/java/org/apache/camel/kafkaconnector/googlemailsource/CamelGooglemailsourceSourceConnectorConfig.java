@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.googlemailsource;
+ */
+package org.apache.camel.kafkaconnector.googlemailsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -41,7 +42,7 @@ public class CamelGooglemailsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_REFRESH_TOKEN_DOC = "OAuth 2 refresh token for google mail application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_REFRESH_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.google-mail-source.delay";
-    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_DELAY_DOC = "Milliseconds before the next poll";
+    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll";
     public static final Integer CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_DELAY_DEFAULT = 500;
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_APPLICATION_NAME_CONF = "camel.kamelet.google-mail-source.applicationName";
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_APPLICATION_NAME_DOC = "Google Mail application name";

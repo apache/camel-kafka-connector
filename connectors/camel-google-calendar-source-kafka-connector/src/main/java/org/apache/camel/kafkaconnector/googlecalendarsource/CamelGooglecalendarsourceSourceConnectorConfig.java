@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.googlecalendarsource;
+ */
+package org.apache.camel.kafkaconnector.googlecalendarsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,34 +27,34 @@ public class CamelGooglecalendarsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_INDEX_CONF = "camel.kamelet.google-calendar-source.index";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_INDEX_DOC = "An index for the google calendar endpoint";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_INDEX_DOC = "An index for the Google Calendar endpoint.";
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_INDEX_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CALENDAR_ID_CONF = "camel.kamelet.google-calendar-source.calendarId";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CALENDAR_ID_DOC = "The calendar ID to be used as events source";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CALENDAR_ID_DOC = "The calendar ID to use as the source of event data.";
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CALENDAR_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_ID_CONF = "camel.kamelet.google-calendar-source.clientId";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_ID_DOC = "Client ID of the calendar application";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_ID_DOC = "The Client ID of the Google Calendar application.";
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_SECRET_CONF = "camel.kamelet.google-calendar-source.clientSecret";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_SECRET_DOC = "Client Secret of the calendar application";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_SECRET_DOC = "The Client secret of the Google Calendar application.";
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CLIENT_SECRET_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_ACCESS_TOKEN_CONF = "camel.kamelet.google-calendar-source.accessToken";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_ACCESS_TOKEN_DOC = "OAuth 2 access token for google calendar application. This typically expires after an hour so refreshToken is recommended for long term usage.";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_ACCESS_TOKEN_DOC = "The OAuth 2 access token for the Google Calendar application. This token typically expires after an hour. For long term usage, set the `refreshToken` property.";
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_ACCESS_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_REFRESH_TOKEN_CONF = "camel.kamelet.google-calendar-source.refreshToken";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_REFRESH_TOKEN_DOC = "OAuth 2 refresh token for google calendar application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_REFRESH_TOKEN_DOC = "The OAuth 2 refresh token for the Google Calendar application. The Google Calendar component can obtain a new `accessToken` whenever the current one expires. Set this value for long term usage.";
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_REFRESH_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.google-calendar-source.delay";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_DELAY_DOC = "Milliseconds before the next poll";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll.";
     public static final Integer CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_DELAY_DEFAULT = 500;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_APPLICATION_NAME_CONF = "camel.kamelet.google-calendar-source.applicationName";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_APPLICATION_NAME_DOC = "Google Calendar application name";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_APPLICATION_NAME_DOC = "The Google Calendar application name.";
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_APPLICATION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_SYNC_FLOW_CONF = "camel.kamelet.google-calendar-source.syncFlow";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_SYNC_FLOW_DOC = "Sync events for incremental synchronization";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_SYNC_FLOW_DOC = "Specifies to sync events for incremental synchronization.";
     public static final Boolean CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_SYNC_FLOW_DEFAULT = false;
     public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CONSUME_FROM_NOW_CONF = "camel.kamelet.google-calendar-source.consumeFromNow";
-    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CONSUME_FROM_NOW_DOC = "Consume events in the selected calendar from now on";
+    public static final String CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CONSUME_FROM_NOW_DOC = "Specfies to consume events in the calendar from now on.";
     public static final Boolean CAMEL_SOURCE_GOOGLECALENDARSOURCE_KAMELET_CONSUME_FROM_NOW_DEFAULT = true;
 
     public CamelGooglecalendarsourceSourceConnectorConfig(

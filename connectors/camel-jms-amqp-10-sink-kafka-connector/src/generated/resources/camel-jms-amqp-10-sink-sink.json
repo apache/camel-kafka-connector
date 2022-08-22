@@ -6,25 +6,25 @@
 		"id": "camel-jms-amqp-10-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "A Kamelet that can produce events to any AMQP 1.0 compliant message broker using the Apache Qpid JMS client"
+		"description": "Send data to any AMQP 1.0 compliant message broker by using the Apache Qpid JMS client."
 	},
 	"properties": {
 		"camel.kamelet.jms-amqp-10-sink.destinationType": {
 			"name": "camel.kamelet.jms-amqp-10-sink.destinationType",
-			"description": "The JMS destination type (i.e.: queue or topic)",
+			"description": "The JMS destination type (queue or topic).",
 			"defaultValue": "\"queue\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.jms-amqp-10-sink.destinationName": {
 			"name": "camel.kamelet.jms-amqp-10-sink.destinationName",
-			"description": "The JMS destination name",
+			"description": "The JMS destination name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.jms-amqp-10-sink.remoteURI": {
 			"name": "camel.kamelet.jms-amqp-10-sink.remoteURI",
-			"description": "The JMS URL Example: amqp:\/\/my-host:31616",
+			"description": "The JMS URL. Example: amqp:\/\/my-host:31616",
 			"priority": "HIGH",
 			"required": "true"
 		}

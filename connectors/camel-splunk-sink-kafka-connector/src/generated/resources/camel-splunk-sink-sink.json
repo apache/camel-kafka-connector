@@ -1,0 +1,83 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.splunksink.CamelSplunksinkSinkConnector",
+		"artifactId": "camel-splunk-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-splunk-sink-sink",
+		"type": "sink",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "Send data to Splunk either by using \"submit\" or \"stream\" mode.\n\nThe payload MUST be in json format."
+	},
+	"properties": {
+		"camel.kamelet.splunk-sink.serverHostname": {
+			"name": "camel.kamelet.splunk-sink.serverHostname",
+			"description": "The address of your Splunk server. Example: my_server_splunk.com",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-sink.serverPort": {
+			"name": "camel.kamelet.splunk-sink.serverPort",
+			"description": "The address of your Splunk server.",
+			"defaultValue": "8089",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-sink.username": {
+			"name": "camel.kamelet.splunk-sink.username",
+			"description": "The username to authenticate to Splunk Server.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-sink.password": {
+			"name": "camel.kamelet.splunk-sink.password",
+			"description": "The password to authenticate to Splunk Server.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.splunk-sink.index": {
+			"name": "camel.kamelet.splunk-sink.index",
+			"description": "Splunk index to write to.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-sink.protocol": {
+			"name": "camel.kamelet.splunk-sink.protocol",
+			"description": "Connection Protocol to Splunk server.",
+			"defaultValue": "\"https\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-sink.source": {
+			"name": "camel.kamelet.splunk-sink.source",
+			"description": "The source named field of the data.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-sink.sourceType": {
+			"name": "camel.kamelet.splunk-sink.sourceType",
+			"description": "The source named field of the data.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-sink.app": {
+			"name": "camel.kamelet.splunk-sink.app",
+			"description": "The app name in Splunk.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-sink.connectionTimeout": {
+			"name": "camel.kamelet.splunk-sink.connectionTimeout",
+			"description": "Timeout in milliseconds when connecting to Splunk server",
+			"defaultValue": "5000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.splunk-sink.mode": {
+			"name": "camel.kamelet.splunk-sink.mode",
+			"description": "The mode to publish events to Splunk.",
+			"defaultValue": "\"stream\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.jmsapacheartemissource;
+ */
+package org.apache.camel.kafkaconnector.jmsapacheartemissource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,13 +27,13 @@ public class CamelJmsapacheartemissourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_TYPE_CONF = "camel.kamelet.jms-apache-artemis-source.destinationType";
-    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (i.e.: queue or topic)";
+    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (queue or topic).";
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_TYPE_DEFAULT = "queue";
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_NAME_CONF = "camel.kamelet.jms-apache-artemis-source.destinationName";
-    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name";
+    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name.";
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLCONF = "camel.kamelet.jms-apache-artemis-source.brokerURL";
-    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLDOC = "The JMS URL Example: tcp://k3s-node-master.usersys.redhat.com:31616";
+    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLDOC = "The JMS URL. Example: tcp://k3s-node-master.usersys.redhat.com:31616";
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLDEFAULT = null;
 
     public CamelJmsapacheartemissourceSourceConnectorConfig(

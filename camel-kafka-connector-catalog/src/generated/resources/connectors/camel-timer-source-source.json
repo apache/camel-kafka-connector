@@ -6,25 +6,25 @@
 		"id": "camel-timer-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Produces periodic events with a custom payload."
+		"description": "Produces periodic messages with a custom payload."
 	},
 	"properties": {
 		"camel.kamelet.timer-source.period": {
 			"name": "camel.kamelet.timer-source.period",
-			"description": "The interval between two events in milliseconds",
+			"description": "The interval (in milliseconds) to wait between producing the next message.",
 			"defaultValue": "1000",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.timer-source.message": {
 			"name": "camel.kamelet.timer-source.message",
-			"description": "The message to generate Example: hello world",
+			"description": "The message to generate. Example: hello world",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.timer-source.contentType": {
 			"name": "camel.kamelet.timer-source.contentType",
-			"description": "The content type of the message being generated",
+			"description": "The content type of the generated message.",
 			"defaultValue": "\"text\/plain\"",
 			"priority": "MEDIUM",
 			"required": "false"

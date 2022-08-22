@@ -6,30 +6,30 @@
 		"id": "camel-google-functions-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send messages to Google Functions.\n\nThe serviceAccountKey property needs to be a path to a service account key file."
+		"description": "Send data to Google Functions."
 	},
 	"properties": {
 		"camel.kamelet.google-functions-sink.projectId": {
 			"name": "camel.kamelet.google-functions-sink.projectId",
-			"description": "The Google Cloud Functions Project Id",
+			"description": "The Google Cloud Functions Project ID.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-functions-sink.region": {
 			"name": "camel.kamelet.google-functions-sink.region",
-			"description": "The Region where the Google Cloud Functions has been deployed",
+			"description": "The region where Google Cloud Functions has been deployed.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-functions-sink.functionName": {
 			"name": "camel.kamelet.google-functions-sink.functionName",
-			"description": "The Function Name",
+			"description": "The Function name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-functions-sink.serviceAccountKey": {
 			"name": "camel.kamelet.google-functions-sink.serviceAccountKey",
-			"description": "The Service account key that can be used as credentials for the Google Cloud Functions platform",
+			"description": "The path to the service account key file that provides credentials for the Google Cloud Functions platform.",
 			"priority": "HIGH",
 			"required": "true"
 		}

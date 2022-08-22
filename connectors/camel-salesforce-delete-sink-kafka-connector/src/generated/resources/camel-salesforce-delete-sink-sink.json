@@ -6,37 +6,37 @@
 		"id": "camel-salesforce-delete-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Removes an object from Salesforce. The body received must be a json\ncontaining two keys: sObjectId and sObjectName.\n\nExample body: { \"sObjectId\": \"XXXXX0\", \"sObjectName\": \"Contact\" }"
+		"description": "Remove an object from Salesforce. \n\nThe data body must be JSON-formatted and it must\ncontain two keys: `sObjectId` and `sObjectName`. For example: `{ \"sObjectId\": \"XXXXX0\", \"sObjectName\": \"Contact\" }`"
 	},
 	"properties": {
 		"camel.kamelet.salesforce-delete-sink.loginUrl": {
 			"name": "camel.kamelet.salesforce-delete-sink.loginUrl",
-			"description": "The Salesforce instance login URL",
+			"description": "The Salesforce instance login URL.",
 			"defaultValue": "\"https:\/\/login.salesforce.com\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.salesforce-delete-sink.clientId": {
 			"name": "camel.kamelet.salesforce-delete-sink.clientId",
-			"description": "The Salesforce application consumer key",
+			"description": "The Salesforce application consumer key.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-delete-sink.clientSecret": {
 			"name": "camel.kamelet.salesforce-delete-sink.clientSecret",
-			"description": "The Salesforce application consumer secret",
+			"description": "The Salesforce application consumer secret.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-delete-sink.userName": {
 			"name": "camel.kamelet.salesforce-delete-sink.userName",
-			"description": "The Salesforce username",
+			"description": "The Salesforce username.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-delete-sink.password": {
 			"name": "camel.kamelet.salesforce-delete-sink.password",
-			"description": "The Salesforce user password",
+			"description": "The Salesforce user password.",
 			"priority": "HIGH",
 			"required": "true"
 		}

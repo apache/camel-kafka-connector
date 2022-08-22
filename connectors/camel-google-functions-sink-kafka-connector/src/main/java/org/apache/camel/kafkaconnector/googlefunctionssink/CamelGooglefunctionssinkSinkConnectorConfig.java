@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.googlefunctionssink;
+ */
+package org.apache.camel.kafkaconnector.googlefunctionssink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,16 +27,16 @@ public class CamelGooglefunctionssinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_PROJECT_ID_CONF = "camel.kamelet.google-functions-sink.projectId";
-    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_PROJECT_ID_DOC = "The Google Cloud Functions Project Id";
+    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_PROJECT_ID_DOC = "The Google Cloud Functions Project ID.";
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_PROJECT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_REGION_CONF = "camel.kamelet.google-functions-sink.region";
-    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_REGION_DOC = "The Region where the Google Cloud Functions has been deployed";
+    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_REGION_DOC = "The region where Google Cloud Functions has been deployed.";
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_FUNCTION_NAME_CONF = "camel.kamelet.google-functions-sink.functionName";
-    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_FUNCTION_NAME_DOC = "The Function Name";
+    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_FUNCTION_NAME_DOC = "The Function name.";
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_FUNCTION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_CONF = "camel.kamelet.google-functions-sink.serviceAccountKey";
-    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The Service account key that can be used as credentials for the Google Cloud Functions platform";
+    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The path to the service account key file that provides credentials for the Google Cloud Functions platform.";
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT = null;
 
     public CamelGooglefunctionssinkSinkConnectorConfig(

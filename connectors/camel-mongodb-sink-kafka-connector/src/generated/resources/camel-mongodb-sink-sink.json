@@ -6,48 +6,48 @@
 		"id": "camel-mongodb-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send documents to MongoDB.\n\nThis Kamelet expects a JSON as body.\n\nProperties you can as headers:\n\n`db-upsert` \/ `ce-dbupsert` If the database should create the element if it does not exist. Boolean value."
+		"description": "Send data to MongoDB.\n\nThis Kamelet expects a JSON-formatted body.\n\nIn the header, you can set the `db-upsert` \/ `ce-dbupsert` property, a boolean value that specifies whether the database should create an element if it does not exist."
 	},
 	"properties": {
 		"camel.kamelet.mongodb-sink.hosts": {
 			"name": "camel.kamelet.mongodb-sink.hosts",
-			"description": "Comma separated list of MongoDB Host Addresses in host:port format.",
+			"description": "A comma-separated list of MongoDB host addresses in `host:port` format.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mongodb-sink.collection": {
 			"name": "camel.kamelet.mongodb-sink.collection",
-			"description": "Sets the name of the MongoDB collection to bind to this endpoint.",
+			"description": "The name of the MongoDB collection to bind to this endpoint.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mongodb-sink.password": {
 			"name": "camel.kamelet.mongodb-sink.password",
-			"description": "User password for accessing MongoDB.",
+			"description": "A user password for accessing MongoDB.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.mongodb-sink.username": {
 			"name": "camel.kamelet.mongodb-sink.username",
-			"description": "Username for accessing MongoDB.",
+			"description": "A username for accessing MongoDB.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.mongodb-sink.database": {
 			"name": "camel.kamelet.mongodb-sink.database",
-			"description": "Sets the name of the MongoDB database to target.",
+			"description": "The name of the MongoDB database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mongodb-sink.writeConcern": {
 			"name": "camel.kamelet.mongodb-sink.writeConcern",
-			"description": "Configure the level of acknowledgment requested from MongoDB for write operations, possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, MAJORITY.",
+			"description": "The level of acknowledgment requested from MongoDB for write operations. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, or MAJORITY.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.mongodb-sink.createCollection": {
 			"name": "camel.kamelet.mongodb-sink.createCollection",
-			"description": "Create collection during initialisation if it doesn't exist.",
+			"description": "Create a collection during initialization if it doesn't exist.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

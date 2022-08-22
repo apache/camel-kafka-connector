@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.googlebigquerysink;
+ */
+package org.apache.camel.kafkaconnector.googlebigquerysink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,16 +27,16 @@ public class CamelGooglebigquerysinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_PROJECT_ID_CONF = "camel.kamelet.google-bigquery-sink.projectId";
-    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_PROJECT_ID_DOC = "Google Cloud Project id";
+    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_PROJECT_ID_DOC = "The Google Cloud Project ID.";
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_PROJECT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_DATASET_CONF = "camel.kamelet.google-bigquery-sink.dataset";
-    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_DATASET_DOC = "The Big Query Dataset Id";
+    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_DATASET_DOC = "The Big Query Dataset ID.";
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_DATASET_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_CONF = "camel.kamelet.google-bigquery-sink.table";
-    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_DOC = "The Big Query Table Id";
+    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_DOC = "The Big Query Table ID.";
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_CONF = "camel.kamelet.google-bigquery-sink.credentialsFileLocation";
-    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_DOC = "The credential to access Google Cloud Platform api services";
+    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_DOC = "The credential for accessing Google Cloud Platform API services. This value must be a path to a service account key file.";
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_DEFAULT = null;
 
     public CamelGooglebigquerysinkSinkConnectorConfig(

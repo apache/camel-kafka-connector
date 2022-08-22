@@ -6,44 +6,44 @@
 		"id": "camel-google-pubsub-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Consume messages from Google Pubsub.\n\nThe serviceAccountKey property needs to be encoded in base64, so when you pass it as parameter, don't forget to encode it."
+		"description": "Consume messages from Google Cloud Pub\/Sub."
 	},
 	"properties": {
 		"camel.kamelet.google-pubsub-source.projectId": {
 			"name": "camel.kamelet.google-pubsub-source.projectId",
-			"description": "The Google Cloud PubSub Project Id",
+			"description": "The Google Cloud Pub\/Sub Project ID.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-pubsub-source.subscriptionName": {
 			"name": "camel.kamelet.google-pubsub-source.subscriptionName",
-			"description": "The Subscription Name",
+			"description": "The subscription name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-pubsub-source.serviceAccountKey": {
 			"name": "camel.kamelet.google-pubsub-source.serviceAccountKey",
-			"description": "The Service account key that can be used as credentials for the PubSub publisher\/subscriber",
+			"description": "The service account key to use as credentials for the Pub\/Sub publisher\/subscriber. You must encode this value in base64.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-pubsub-source.synchronousPull": {
 			"name": "camel.kamelet.google-pubsub-source.synchronousPull",
-			"description": "If Synchronously pull batches of messages is enabled or not",
+			"description": "Specifies to synchronously pull batches of messages.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.google-pubsub-source.maxMessagesPerPoll": {
 			"name": "camel.kamelet.google-pubsub-source.maxMessagesPerPoll",
-			"description": "The max number of messages to receive from the server in a single API call",
+			"description": "The maximum number of messages to receive from the server in a single API call.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.google-pubsub-source.concurrentConsumers": {
 			"name": "camel.kamelet.google-pubsub-source.concurrentConsumers",
-			"description": "The number of parallel streams consuming from the subscription",
+			"description": "The number of parallel streams to consume from the subscription.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"

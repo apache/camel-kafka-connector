@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.httpsink;
+ */
+package org.apache.camel.kafkaconnector.httpsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,10 +27,10 @@ public class CamelHttpsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_HTTPSINK_KAMELET_URL_CONF = "camel.kamelet.http-sink.url";
-    public static final String CAMEL_SINK_HTTPSINK_KAMELET_URL_DOC = "The URL to send data to Example: https://my-service/path";
+    public static final String CAMEL_SINK_HTTPSINK_KAMELET_URL_DOC = "The URL to which you want to send data. Example: https://my-service/path";
     public static final String CAMEL_SINK_HTTPSINK_KAMELET_URL_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPSINK_KAMELET_METHOD_CONF = "camel.kamelet.http-sink.method";
-    public static final String CAMEL_SINK_HTTPSINK_KAMELET_METHOD_DOC = "The HTTP method to use";
+    public static final String CAMEL_SINK_HTTPSINK_KAMELET_METHOD_DOC = "The HTTP method to use.";
     public static final String CAMEL_SINK_HTTPSINK_KAMELET_METHOD_DEFAULT = "POST";
 
     public CamelHttpsinkSinkConnectorConfig(

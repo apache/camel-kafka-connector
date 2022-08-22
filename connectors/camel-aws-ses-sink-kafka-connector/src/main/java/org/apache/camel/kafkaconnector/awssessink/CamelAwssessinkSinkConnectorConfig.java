@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.awssessink;
+ */
+package org.apache.camel.kafkaconnector.awssessink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -35,10 +36,10 @@ public class CamelAwssessinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSESSINK_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS.";
     public static final String CAMEL_SINK_AWSSESSINK_KAMELET_SECRET_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSESSINK_KAMELET_REGION_CONF = "camel.kamelet.aws-ses-sink.region";
-    public static final String CAMEL_SINK_AWSSESSINK_KAMELET_REGION_DOC = "The AWS region to connect to. Example: eu-west-1";
+    public static final String CAMEL_SINK_AWSSESSINK_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SINK_AWSSESSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSESSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-ses-sink.useDefaultCredentialsProvider";
-    public static final String CAMEL_SINK_AWSSESSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SES client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final String CAMEL_SINK_AWSSESSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the SES client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";
     public static final Boolean CAMEL_SINK_AWSSESSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
 
     public CamelAwssessinkSinkConnectorConfig(

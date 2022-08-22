@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.slacksource;
+ */
+package org.apache.camel.kafkaconnector.slacksource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,13 +27,13 @@ public class CamelSlacksourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_CONF = "camel.kamelet.slack-source.channel";
-    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DOC = "The Slack channel to receive messages from Example: #myroom";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DOC = "The Slack channel to receive messages from. Example: #myroom";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_CONF = "camel.kamelet.slack-source.token";
-    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DOC = "The token to access Slack. A Slack app is needed. The token to access Slack. This app needs to have channels:history, groups:history, im:history, mpim:history, channels:read, groups:read, im:read and mpim:read permissions. The User OAuth Token is the kind of token needed.";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DOC = "The Bot User OAuth Access Token to access Slack. A Slack app that has the following permissions is required: `channels:history`, `groups:history`, `im:history`, `mpim:history`, `channels:read`, `groups:read`, `im:read`, and `mpim:read`.";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.slack-source.delay";
-    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC = "The delay between polls Example: 1s";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC = "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DEFAULT = null;
 
     public CamelSlacksourceSourceConnectorConfig(

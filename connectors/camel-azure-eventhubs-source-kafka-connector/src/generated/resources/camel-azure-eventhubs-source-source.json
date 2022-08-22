@@ -6,48 +6,48 @@
 		"id": "camel-azure-eventhubs-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Receive events from Azure Eventhubs."
+		"description": "Receive events from Azure Event Hubs."
 	},
 	"properties": {
 		"camel.kamelet.azure-eventhubs-source.namespaceName": {
 			"name": "camel.kamelet.azure-eventhubs-source.namespaceName",
-			"description": "The eventhubs namespace",
+			"description": "The Event Hubs namespace.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-source.eventhubName": {
 			"name": "camel.kamelet.azure-eventhubs-source.eventhubName",
-			"description": "The eventhub name",
+			"description": "The Event Hub name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-source.sharedAccessName": {
 			"name": "camel.kamelet.azure-eventhubs-source.sharedAccessName",
-			"description": "EventHubs SAS key name",
+			"description": "The Event Hubs SAS key name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-source.sharedAccessKey": {
 			"name": "camel.kamelet.azure-eventhubs-source.sharedAccessKey",
-			"description": "The key for EventHubs SAS key name",
+			"description": "The key for the Event Hubs SAS key name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-source.blobAccountName": {
 			"name": "camel.kamelet.azure-eventhubs-source.blobAccountName",
-			"description": "The name of the storage blob account to be use",
+			"description": "The name of the Storage Blob account.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-source.blobContainerName": {
 			"name": "camel.kamelet.azure-eventhubs-source.blobContainerName",
-			"description": "The name of the storage blob container to be use",
+			"description": "The name of the Storage Blob container.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-eventhubs-source.blobAccessKey": {
 			"name": "camel.kamelet.azure-eventhubs-source.blobAccessKey",
-			"description": "The key for Azure Storage Blob service associated with the Blob account name",
+			"description": "The key for the Azure Storage Blob service that is associated with the Storage Blob account name.",
 			"priority": "HIGH",
 			"required": "true"
 		}

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.mongodbsink;
+ */
+package org.apache.camel.kafkaconnector.mongodbsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,25 +27,25 @@ public class CamelMongodbsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_HOSTS_CONF = "camel.kamelet.mongodb-sink.hosts";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_HOSTS_DOC = "Comma separated list of MongoDB Host Addresses in host:port format.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_HOSTS_DOC = "A comma-separated list of MongoDB host addresses in `host:port` format.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_HOSTS_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_COLLECTION_CONF = "camel.kamelet.mongodb-sink.collection";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_COLLECTION_DOC = "Sets the name of the MongoDB collection to bind to this endpoint.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_COLLECTION_DOC = "The name of the MongoDB collection to bind to this endpoint.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_COLLECTION_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_PASSWORD_CONF = "camel.kamelet.mongodb-sink.password";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_PASSWORD_DOC = "User password for accessing MongoDB.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_PASSWORD_DOC = "A user password for accessing MongoDB.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_CONF = "camel.kamelet.mongodb-sink.username";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DOC = "Username for accessing MongoDB.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DOC = "A username for accessing MongoDB.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_CONF = "camel.kamelet.mongodb-sink.database";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DOC = "Sets the name of the MongoDB database to target.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DOC = "The name of the MongoDB database.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_CONF = "camel.kamelet.mongodb-sink.writeConcern";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DOC = "Configure the level of acknowledgment requested from MongoDB for write operations, possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, MAJORITY.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DOC = "The level of acknowledgment requested from MongoDB for write operations. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, or MAJORITY.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_CONF = "camel.kamelet.mongodb-sink.createCollection";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_DOC = "Create collection during initialisation if it doesn't exist.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_DOC = "Create a collection during initialization if it doesn't exist.";
     public static final Boolean CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_DEFAULT = false;
 
     public CamelMongodbsinkSinkConnectorConfig(

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.azurestorageblobsource;
+ */
+package org.apache.camel.kafkaconnector.azurestorageblobsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,7 +27,7 @@ public class CamelAzurestorageblobsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_CONF = "camel.kamelet.azure-storage-blob-source.period";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_DOC = "The interval between fetches to the Azure Storage Container in milliseconds";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_DOC = "The interval (in milliseconds) between fetches to the Azure Storage Container.";
     public static final Integer CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_DEFAULT = 10000;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_CONF = "camel.kamelet.azure-storage-blob-source.accountName";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_DOC = "The Azure Storage Blob account name.";
@@ -35,7 +36,7 @@ public class CamelAzurestorageblobsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CONTAINER_NAME_DOC = "The Azure Storage Blob container name.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CONTAINER_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.azure-storage-blob-source.accessKey";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Blob access Key.";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Blob access key.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCESS_KEY_DEFAULT = null;
 
     public CamelAzurestorageblobsourceSourceConnectorConfig(

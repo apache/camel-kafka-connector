@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.mysqlsource;
+ */
+package org.apache.camel.kafkaconnector.mysqlsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,25 +27,25 @@ public class CamelMysqlsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_NAME_CONF = "camel.kamelet.mysql-source.serverName";
-    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_NAME_DOC = "Server Name for the data source Example: localhost";
+    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_NAME_DOC = "The server name for the data source. Example: localhost";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_PORT_CONF = "camel.kamelet.mysql-source.serverPort";
-    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_PORT_DOC = "Server Port for the data source";
+    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_PORT_DOC = "The server port for the data source.";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_SERVER_PORT_DEFAULT = "3306";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.mysql-source.username";
-    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_USERNAME_DOC = "The username to use for accessing a secured MySQL Database";
+    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_USERNAME_DOC = "The username to access a secured MySQL Database.";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.mysql-source.password";
-    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_PASSWORD_DOC = "The password to use for accessing a secured MySQL Database";
+    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_PASSWORD_DOC = "The password to access a secured MySQL Database.";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_QUERY_CONF = "camel.kamelet.mysql-source.query";
-    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_QUERY_DOC = "The Query to execute against the MySQL Database Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)";
+    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_QUERY_DOC = "The query to execute against the MySQL Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_QUERY_DEFAULT = null;
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_DATABASE_NAME_CONF = "camel.kamelet.mysql-source.databaseName";
-    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_DATABASE_NAME_DOC = "The Database Name we are pointing";
+    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_DATABASE_NAME_DOC = "The name of the MySQL Database.";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_DATABASE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_CONSUMED_QUERY_CONF = "camel.kamelet.mysql-source.consumedQuery";
-    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_CONSUMED_QUERY_DOC = "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id";
+    public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_CONSUMED_QUERY_DOC = "A query to run on a tuple consumed. Example: DELETE FROM accounts where user_id = :#user_id";
     public static final String CAMEL_SOURCE_MYSQLSOURCE_KAMELET_CONSUMED_QUERY_DEFAULT = null;
 
     public CamelMysqlsourceSourceConnectorConfig(

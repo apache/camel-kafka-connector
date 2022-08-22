@@ -6,7 +6,7 @@
 		"id": "camel-aws-sns-fifo-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send message to an AWS SNS FIFO Topic.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SNS Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SNS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThe Kamelet expects the following headers to be set:\n\n- `subject` \/ `ce-subject`: the subject of the message"
+		"description": "Send message to an AWS SNS FIFO Topic.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SNS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SNS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThe Kamelet expects the following headers to be set:\n\n- `subject` \/ `ce-subject`: the subject of the message"
 	},
 	"properties": {
 		"camel.kamelet.aws-sns-fifo-sink.topicNameOrArn": {
@@ -17,19 +17,19 @@
 		},
 		"camel.kamelet.aws-sns-fifo-sink.accessKey": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.accessKey",
-			"description": "The access key obtained from AWS",
+			"description": "The access key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sns-fifo-sink.secretKey": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.secretKey",
-			"description": "The secret key obtained from AWS",
+			"description": "The secret key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sns-fifo-sink.region": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.region",
-			"description": "The AWS region to connect to Example: eu-west-1",
+			"description": "The AWS region to access.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -56,13 +56,13 @@
 		},
 		"camel.kamelet.aws-sns-fifo-sink.uriEndpointOverride": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.uriEndpointOverride",
-			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sns-fifo-sink.overrideEndpoint": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.overrideEndpoint",
-			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

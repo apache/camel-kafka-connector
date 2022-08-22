@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.couchbasesink;
+ */
+package org.apache.camel.kafkaconnector.couchbasesink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -45,7 +46,7 @@ public class CamelCouchbasesinkSinkConnectorConfig
     public static final String CAMEL_SINK_COUCHBASESINK_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_CONF = "camel.kamelet.couchbase-sink.startingId";
     public static final String CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_DOC = "The starting id";
-    public static final Long CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_DEFAULT = 1L;
+    public static final Integer CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_DEFAULT = 1;
     public static final String CAMEL_SINK_COUCHBASESINK_KAMELET_AUTO_START_ID_CONF = "camel.kamelet.couchbase-sink.autoStartId";
     public static final String CAMEL_SINK_COUCHBASESINK_KAMELET_AUTO_START_ID_DOC = "Auto Start Id or not";
     public static final Boolean CAMEL_SINK_COUCHBASESINK_KAMELET_AUTO_START_ID_DEFAULT = true;
@@ -69,7 +70,7 @@ public class CamelCouchbasesinkSinkConnectorConfig
         conf.define(CAMEL_SINK_COUCHBASESINK_KAMELET_BUCKET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_COUCHBASESINK_KAMELET_BUCKET_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_COUCHBASESINK_KAMELET_BUCKET_DOC);
         conf.define(CAMEL_SINK_COUCHBASESINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_COUCHBASESINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASESINK_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SINK_COUCHBASESINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_COUCHBASESINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASESINK_KAMELET_PASSWORD_DOC);
-        conf.define(CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_CONF, ConfigDef.Type.LONG, CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_DOC);
+        conf.define(CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_CONF, ConfigDef.Type.INT, CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASESINK_KAMELET_STARTING_ID_DOC);
         conf.define(CAMEL_SINK_COUCHBASESINK_KAMELET_AUTO_START_ID_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_COUCHBASESINK_KAMELET_AUTO_START_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASESINK_KAMELET_AUTO_START_ID_DOC);
         return conf;
     }

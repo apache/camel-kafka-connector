@@ -25,7 +25,7 @@
 		},
 		"camel.kamelet.websocket-source.resourceUri": {
 			"name": "camel.kamelet.websocket-source.resourceUri",
-			"description": "Name of the websocket channel to use.",
+			"description": "The name of the websocket channel to use.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -39,14 +39,14 @@
 		"camel.kamelet.websocket-source.bridgeErrorHandler": {
 			"name": "camel.kamelet.websocket-source.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler",
-			"defaultValue": "\"false\"",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.websocket-source.sessionSupport": {
 			"name": "camel.kamelet.websocket-source.sessionSupport",
 			"description": "Whether to enable session support which enables HttpSession for each http request.",
-			"defaultValue": "\"false\"",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -60,7 +60,7 @@
 		"camel.kamelet.websocket-source.lazyStartProducer": {
 			"name": "camel.kamelet.websocket-source.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message).",
-			"defaultValue": "\"false\"",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -95,7 +95,7 @@
 		"camel.kamelet.websocket-source.crossOriginFilterOn": {
 			"name": "camel.kamelet.websocket-source.crossOriginFilterOn",
 			"description": "Whether to enable CORS.",
-			"defaultValue": "\"false\"",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -109,7 +109,7 @@
 		"camel.kamelet.websocket-source.enableJmx": {
 			"name": "camel.kamelet.websocket-source.enableJmx",
 			"description": "Enable JMX support.",
-			"defaultValue": "\"false\"",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

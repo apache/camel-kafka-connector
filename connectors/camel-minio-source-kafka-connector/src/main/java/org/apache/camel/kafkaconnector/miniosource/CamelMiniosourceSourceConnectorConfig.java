@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.miniosource;
+ */
+package org.apache.camel.kafkaconnector.miniosource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,22 +27,22 @@ public class CamelMiniosourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_BUCKET_NAME_CONF = "camel.kamelet.minio-source.bucketName";
-    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_BUCKET_NAME_DOC = "The Minio Bucket name";
+    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_BUCKET_NAME_DOC = "The MinIO Bucket name.";
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_BUCKET_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_DELETE_AFTER_READ_CONF = "camel.kamelet.minio-source.deleteAfterRead";
-    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Delete objects after consuming them";
+    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Delete objects after consuming them.";
     public static final Boolean CAMEL_SOURCE_MINIOSOURCE_KAMELET_DELETE_AFTER_READ_DEFAULT = true;
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.minio-source.accessKey";
-    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ACCESS_KEY_DOC = "The access key obtained from Minio";
+    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ACCESS_KEY_DOC = "The access key obtained from MinIO.";
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_SECRET_KEY_CONF = "camel.kamelet.minio-source.secretKey";
-    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_SECRET_KEY_DOC = "The secret key obtained from Minio";
+    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_SECRET_KEY_DOC = "The secret key obtained from MinIO.";
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_SECRET_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ENDPOINT_CONF = "camel.kamelet.minio-source.endpoint";
-    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ENDPOINT_DOC = "The Minio Endpoint, it can be an URL, domain name, IPv4 address or IPv6 address. Example: http://localhost:9000";
+    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ENDPOINT_DOC = "The MinIO Endpoint. You can specify an URL, domain name, IPv4 address, or IPv6 address. Example: http://localhost:9000";
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_ENDPOINT_DEFAULT = null;
     public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.minio-source.autoCreateBucket";
-    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the Minio bucket bucketName.";
+    public static final String CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Specifies to automatically create the MinIO bucket.";
     public static final Boolean CAMEL_SOURCE_MINIOSOURCE_KAMELET_AUTO_CREATE_BUCKET_DEFAULT = false;
 
     public CamelMiniosourceSourceConnectorConfig(

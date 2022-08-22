@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.awss3source;
+ */
+package org.apache.camel.kafkaconnector.awss3source;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,41 +27,44 @@ public class CamelAwss3sourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_BUCKET_NAME_OR_ARN_CONF = "camel.kamelet.aws-s3-source.bucketNameOrArn";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The S3 Bucket name or ARN";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The S3 Bucket name or Amazon Resource Name (ARN).";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELETE_AFTER_READ_CONF = "camel.kamelet.aws-s3-source.deleteAfterRead";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Delete objects after consuming them";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Specifies to delete objects after consuming them.";
     public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELETE_AFTER_READ_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-s3-source.accessKey";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_SECRET_KEY_CONF = "camel.kamelet.aws-s3-source.secretKey";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS.";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_SECRET_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_REGION_CONF = "camel.kamelet.aws-s3-source.region";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_REGION_DOC = "The AWS region to connect to Example: eu-west-1";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.aws-s3-source.autoCreateBucket";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName.";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_AUTO_CREATE_BUCKET_DOC = "Specifies to automatically create the S3 bucket.";
     public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_AUTO_CREATE_BUCKET_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_CONF = "camel.kamelet.aws-s3-source.includeBody";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_DOC = "If it is true, the exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata.";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_DOC = "If true, the exchange is consumed and put into the body and closed. If false, the S3Object stream is put raw into the body and the headers are set with the S3 object metadata.";
     public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_INCLUDE_BODY_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_CONF = "camel.kamelet.aws-s3-source.prefix";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_DOC = "The AWS S3 bucket prefix to consider while searching Example: folder/";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_DOC = "The AWS S3 bucket prefix to consider while searching. Example: folder/";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_PREFIX_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_CONF = "camel.kamelet.aws-s3-source.ignoreBody";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_DOC = "If it is true, the S3 Object Body will be ignored completely, if it is set to false the S3 Object will be put in the body. Setting this to true, will override any behavior defined by includeBody option.";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_DOC = "If true, the S3 Object body is ignored. Setting this to true overrides any behavior defined by the `includeBody` option. If false, the S3 object is put in the body.";
     public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_IGNORE_BODY_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-s3-source.useDefaultCredentialsProvider";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the S3 client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";
     public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-s3-source.uriEndpointOverride";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-s3-source.overrideEndpoint";
-    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC = "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC = "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.";
     public static final Boolean CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_CONF = "camel.kamelet.aws-s3-source.delay";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll of the selected bucket.";
+    public static final Integer CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DEFAULT = 500;
 
     public CamelAwss3sourceSourceConnectorConfig(
             ConfigDef config,
@@ -87,6 +91,7 @@ public class CamelAwss3sourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC);
+        conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DOC);
         return conf;
     }
 }

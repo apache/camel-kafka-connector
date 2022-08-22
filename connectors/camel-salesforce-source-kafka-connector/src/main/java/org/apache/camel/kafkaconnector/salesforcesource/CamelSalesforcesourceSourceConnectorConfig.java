@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.salesforcesource;
+ */
+package org.apache.camel.kafkaconnector.salesforcesource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,28 +27,28 @@ public class CamelSalesforcesourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_QUERY_CONF = "camel.kamelet.salesforce-source.query";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_QUERY_DOC = "The query to execute on Salesforce Example: SELECT Id, Name, Email, Phone FROM Contact";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_QUERY_DOC = "The query to execute on Salesforce. Example: SELECT Id, Name, Email, Phone FROM Contact";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_QUERY_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_TOPIC_NAME_CONF = "camel.kamelet.salesforce-source.topicName";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_TOPIC_NAME_DOC = "The name of the topic/channel to use Example: ContactTopic";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_TOPIC_NAME_DOC = "The name of the topic or channel. Example: ContactTopic";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_TOPIC_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_LOGIN_URL_CONF = "camel.kamelet.salesforce-source.loginUrl";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_LOGIN_URL_DOC = "The Salesforce instance login URL";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_LOGIN_URL_DOC = "The Salesforce instance login URL.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_LOGIN_URL_DEFAULT = "https://login.salesforce.com";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_CONF = "camel.kamelet.salesforce-source.notifyForFields";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_DOC = "Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_DOC = "Notify for fields. Possible values are ALL, REFERENCED, SELECT, or WHERE.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_DEFAULT = "ALL";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_ID_CONF = "camel.kamelet.salesforce-source.clientId";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_ID_DOC = "The Salesforce application consumer key";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_ID_DOC = "The Salesforce application consumer key.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_SECRET_CONF = "camel.kamelet.salesforce-source.clientSecret";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_SECRET_DOC = "The Salesforce application consumer secret";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_SECRET_DOC = "The Salesforce application consumer secret.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_SECRET_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_USER_NAME_CONF = "camel.kamelet.salesforce-source.userName";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_USER_NAME_DOC = "The Salesforce username";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_USER_NAME_DOC = "The Salesforce username.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_USER_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.salesforce-source.password";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_PASSWORD_DOC = "The Salesforce user password";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_PASSWORD_DOC = "The Salesforce user password.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_PASSWORD_DEFAULT = null;
 
     public CamelSalesforcesourceSourceConnectorConfig(

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.restopenapisink;
+ */
+package org.apache.camel.kafkaconnector.restopenapisink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,10 +27,10 @@ public class CamelRestopenapisinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_SPECIFICATION_CONF = "camel.kamelet.rest-openapi-sink.specification";
-    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_SPECIFICATION_DOC = "URI to the OpenApi specification file Example: https://api.example.com/openapi.json";
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_SPECIFICATION_DOC = "The URI to the OpenApi specification file. Example: https://api.example.com/openapi.json";
     public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_SPECIFICATION_DEFAULT = null;
     public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_CONF = "camel.kamelet.rest-openapi-sink.operation";
-    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_DOC = "The operation to call";
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_DOC = "The operation to call.";
     public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_DEFAULT = null;
 
     public CamelRestopenapisinkSinkConnectorConfig(

@@ -6,36 +6,36 @@
 		"id": "camel-aws-lambda-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send a payload to an AWS Lambda function.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS Lambda Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the Lambda client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
+		"description": "Send a payload to an AWS Lambda function.\n\nThe basic authentication method for the Lambda service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the Lambda client loads the credentials through this provider and doesn't use the basic authentication method."
 	},
 	"properties": {
 		"camel.kamelet.aws-lambda-sink.function": {
 			"name": "camel.kamelet.aws-lambda-sink.function",
-			"description": "The Lambda Function name",
+			"description": "The Lambda Function name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-lambda-sink.accessKey": {
 			"name": "camel.kamelet.aws-lambda-sink.accessKey",
-			"description": "The access key obtained from AWS",
+			"description": "The access key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-lambda-sink.secretKey": {
 			"name": "camel.kamelet.aws-lambda-sink.secretKey",
-			"description": "The secret key obtained from AWS",
+			"description": "The secret key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-lambda-sink.region": {
 			"name": "camel.kamelet.aws-lambda-sink.region",
-			"description": "The AWS region to connect to Example: eu-west-1",
+			"description": "The AWS region to access.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-lambda-sink.useDefaultCredentialsProvider": {
 			"name": "camel.kamelet.aws-lambda-sink.useDefaultCredentialsProvider",
-			"description": "Set whether the Lambda client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"description": "If true, the Lambda client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

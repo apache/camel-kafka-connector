@@ -6,84 +6,91 @@
 		"id": "camel-aws-s3-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Receive data from AWS S3 Bucket.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS S3 Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the S3 client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
+		"description": "Receive data from an Amazon S3 Bucket.\n\nThe basic authentication method for the S3 service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the S3 client loads the credentials through this provider and doesn't use the basic authentication method."
 	},
 	"properties": {
 		"camel.kamelet.aws-s3-source.bucketNameOrArn": {
 			"name": "camel.kamelet.aws-s3-source.bucketNameOrArn",
-			"description": "The S3 Bucket name or ARN",
+			"description": "The S3 Bucket name or Amazon Resource Name (ARN).",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-s3-source.deleteAfterRead": {
 			"name": "camel.kamelet.aws-s3-source.deleteAfterRead",
-			"description": "Delete objects after consuming them",
+			"description": "Specifies to delete objects after consuming them.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.accessKey": {
 			"name": "camel.kamelet.aws-s3-source.accessKey",
-			"description": "The access key obtained from AWS",
+			"description": "The access key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.secretKey": {
 			"name": "camel.kamelet.aws-s3-source.secretKey",
-			"description": "The secret key obtained from AWS",
+			"description": "The secret key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.region": {
 			"name": "camel.kamelet.aws-s3-source.region",
-			"description": "The AWS region to connect to Example: eu-west-1",
+			"description": "The AWS region to access.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-s3-source.autoCreateBucket": {
 			"name": "camel.kamelet.aws-s3-source.autoCreateBucket",
-			"description": "Setting the autocreation of the S3 bucket bucketName.",
+			"description": "Specifies to automatically create the S3 bucket.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.includeBody": {
 			"name": "camel.kamelet.aws-s3-source.includeBody",
-			"description": "If it is true, the exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata.",
+			"description": "If true, the exchange is consumed and put into the body and closed. If false, the S3Object stream is put raw into the body and the headers are set with the S3 object metadata.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.prefix": {
 			"name": "camel.kamelet.aws-s3-source.prefix",
-			"description": "The AWS S3 bucket prefix to consider while searching Example: folder\/",
+			"description": "The AWS S3 bucket prefix to consider while searching. Example: folder\/",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.ignoreBody": {
 			"name": "camel.kamelet.aws-s3-source.ignoreBody",
-			"description": "If it is true, the S3 Object Body will be ignored completely, if it is set to false the S3 Object will be put in the body. Setting this to true, will override any behavior defined by includeBody option.",
+			"description": "If true, the S3 Object body is ignored. Setting this to true overrides any behavior defined by the `includeBody` option. If false, the S3 object is put in the body.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.useDefaultCredentialsProvider": {
 			"name": "camel.kamelet.aws-s3-source.useDefaultCredentialsProvider",
-			"description": "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"description": "If true, the S3 client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.uriEndpointOverride": {
 			"name": "camel.kamelet.aws-s3-source.uriEndpointOverride",
-			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-source.overrideEndpoint": {
 			"name": "camel.kamelet.aws-s3-source.overrideEndpoint",
-			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.delay": {
+			"name": "camel.kamelet.aws-s3-source.delay",
+			"description": "The number of milliseconds before the next poll of the selected bucket.",
+			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

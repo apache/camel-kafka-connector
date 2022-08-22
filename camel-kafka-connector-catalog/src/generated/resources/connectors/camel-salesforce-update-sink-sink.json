@@ -6,49 +6,49 @@
 		"id": "camel-salesforce-update-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Updates an object in  Salesforce. The body received must contain a\nJSON key-value pair for each property to update and sObjectName and\nsObjectId must be provided as parameters.\n\nExample of key-value pair: { \"Phone\": \"1234567890\", \"Name\": \"Antonia\" }"
+		"description": "Update an object in Salesforce. \n\nThe body received must contain a JSON key-value pair for each property to update, for example: `{ \"Phone\": \"1234567890\", \"Name\": \"Antonia\" }`\n\nThe body received must include the `sObjectName` and `sObjectId` properties."
 	},
 	"properties": {
 		"camel.kamelet.salesforce-update-sink.sObjectName": {
 			"name": "camel.kamelet.salesforce-update-sink.sObjectName",
-			"description": "Type of the object. Only required if using key-value pair. Example: Contact",
+			"description": "The type of the Salesforce object. Required if using a key-value pair. Example: Contact",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-update-sink.sObjectId": {
 			"name": "camel.kamelet.salesforce-update-sink.sObjectId",
-			"description": "Id of the object. Only required if using key-value pair.",
+			"description": "The ID of the Salesforce object. Required if using a key-value pair.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-update-sink.loginUrl": {
 			"name": "camel.kamelet.salesforce-update-sink.loginUrl",
-			"description": "The Salesforce instance login URL",
+			"description": "The Salesforce instance login URL.",
 			"defaultValue": "\"https:\/\/login.salesforce.com\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.salesforce-update-sink.clientId": {
 			"name": "camel.kamelet.salesforce-update-sink.clientId",
-			"description": "The Salesforce application consumer key",
+			"description": "The Salesforce application consumer key.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-update-sink.clientSecret": {
 			"name": "camel.kamelet.salesforce-update-sink.clientSecret",
-			"description": "The Salesforce application consumer secret",
+			"description": "The Salesforce application consumer secret.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-update-sink.userName": {
 			"name": "camel.kamelet.salesforce-update-sink.userName",
-			"description": "The Salesforce username",
+			"description": "The Salesforce username.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.salesforce-update-sink.password": {
 			"name": "camel.kamelet.salesforce-update-sink.password",
-			"description": "The Salesforce user password",
+			"description": "The Salesforce user password.",
 			"priority": "HIGH",
 			"required": "true"
 		}

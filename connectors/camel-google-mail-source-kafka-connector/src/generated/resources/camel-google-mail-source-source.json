@@ -41,7 +41,7 @@
 		},
 		"camel.kamelet.google-mail-source.delay": {
 			"name": "camel.kamelet.google-mail-source.delay",
-			"description": "Milliseconds before the next poll",
+			"description": "The number of milliseconds before the next poll",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"

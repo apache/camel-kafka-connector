@@ -49,7 +49,7 @@
 		"camel.kamelet.couchbase-sink.startingId": {
 			"name": "camel.kamelet.couchbase-sink.startingId",
 			"description": "The starting id",
-			"defaultValue": "1L",
+			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

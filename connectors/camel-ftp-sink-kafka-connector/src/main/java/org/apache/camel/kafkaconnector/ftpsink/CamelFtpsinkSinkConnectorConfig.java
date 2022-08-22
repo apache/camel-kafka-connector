@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.ftpsink;
+ */
+package org.apache.camel.kafkaconnector.ftpsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -24,25 +25,25 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelFtpsinkSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.ftp-sink.connectionHost";
-    public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_HOST_DOC = "Hostname of the FTP server";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_HOST_DOC = "The hostname of the FTP server.";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_HOST_DEFAULT = null;
     public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.ftp-sink.connectionPort";
-    public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_PORT_DOC = "Port of the FTP server";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_PORT_DOC = "The port of the FTP server.";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_CONNECTION_PORT_DEFAULT = "21";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_USERNAME_CONF = "camel.kamelet.ftp-sink.username";
-    public static final String CAMEL_SINK_FTPSINK_KAMELET_USERNAME_DOC = "The username to access the FTP server";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_USERNAME_DOC = "The username to access the FTP server.";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SINK_FTPSINK_KAMELET_PASSWORD_CONF = "camel.kamelet.ftp-sink.password";
-    public static final String CAMEL_SINK_FTPSINK_KAMELET_PASSWORD_DOC = "The password to access the FTP server";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_PASSWORD_DOC = "The password to access the FTP server.";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_FTPSINK_KAMELET_DIRECTORY_NAME_CONF = "camel.kamelet.ftp-sink.directoryName";
-    public static final String CAMEL_SINK_FTPSINK_KAMELET_DIRECTORY_NAME_DOC = "The starting directory";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_DIRECTORY_NAME_DOC = "The starting directory.";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_DIRECTORY_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_FTPSINK_KAMELET_PASSIVE_MODE_CONF = "camel.kamelet.ftp-sink.passiveMode";
-    public static final String CAMEL_SINK_FTPSINK_KAMELET_PASSIVE_MODE_DOC = "Sets passive mode connection";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_PASSIVE_MODE_DOC = "Specifies to use passive mode connection.";
     public static final Boolean CAMEL_SINK_FTPSINK_KAMELET_PASSIVE_MODE_DEFAULT = false;
     public static final String CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_CONF = "camel.kamelet.ftp-sink.fileExist";
-    public static final String CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_DOC = "How to behave in case of file already existent. There are 4 enums and the value can be one of Override, Append, Fail or Ignore";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_DOC = "How to behave in case of file already existent. There are 4 enums. Possible values are Override, Append, Fail, or Ignore.";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_DEFAULT = "Override";
 
     public CamelFtpsinkSinkConnectorConfig(

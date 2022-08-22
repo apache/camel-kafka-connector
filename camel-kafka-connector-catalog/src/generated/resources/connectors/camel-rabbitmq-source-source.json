@@ -6,7 +6,7 @@
 		"id": "camel-rabbitmq-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Receive data from an RabbitMQ Brokers."
+		"description": "Receive data from a RabbitMQ Broker."
 	},
 	"properties": {
 		"camel.kamelet.rabbitmq-source.addresses": {

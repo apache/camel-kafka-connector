@@ -6,36 +6,36 @@
 		"id": "camel-aws-sqs-sink-sink",
 		"type": "sink",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Send message to an AWS SQS Queue.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SQS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
+		"description": "Send messages to an Amazon Simple Queue Service (SQS) queue.\n\nThe basic authentication method for the SQS service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the SQS client loads the credentials through this provider and doesn't use the basic authentication method."
 	},
 	"properties": {
 		"camel.kamelet.aws-sqs-sink.queueNameOrArn": {
 			"name": "camel.kamelet.aws-sqs-sink.queueNameOrArn",
-			"description": "The SQS Queue name or ARN",
+			"description": "The SQS Queue name or or Amazon Resource Name (ARN).",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-sqs-sink.accessKey": {
 			"name": "camel.kamelet.aws-sqs-sink.accessKey",
-			"description": "The access key obtained from AWS",
+			"description": "The access key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sqs-sink.secretKey": {
 			"name": "camel.kamelet.aws-sqs-sink.secretKey",
-			"description": "The secret key obtained from AWS",
+			"description": "The secret key obtained from AWS.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sqs-sink.region": {
 			"name": "camel.kamelet.aws-sqs-sink.region",
-			"description": "The AWS region to connect to Example: eu-west-1",
+			"description": "The AWS region to access.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-sqs-sink.autoCreateQueue": {
 			"name": "camel.kamelet.aws-sqs-sink.autoCreateQueue",
-			"description": "Setting the autocreation of the SQS queue.",
+			"description": "Automatically create the SQS queue.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -49,27 +49,27 @@
 		},
 		"camel.kamelet.aws-sqs-sink.protocol": {
 			"name": "camel.kamelet.aws-sqs-sink.protocol",
-			"description": "The underlying protocol used to communicate with SQS Example: http or https",
+			"description": "The underlying protocol used to communicate with SQS. Example: http or https",
 			"defaultValue": "\"https\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sqs-sink.useDefaultCredentialsProvider": {
 			"name": "camel.kamelet.aws-sqs-sink.useDefaultCredentialsProvider",
-			"description": "Set whether the SQS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
+			"description": "If true, the SQS client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sqs-sink.uriEndpointOverride": {
 			"name": "camel.kamelet.aws-sqs-sink.uriEndpointOverride",
-			"description": "Set the overriding endpoint URI. This option needs to be used in combination with overrideEndpoint option.",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sqs-sink.overrideEndpoint": {
 			"name": "camel.kamelet.aws-sqs-sink.overrideEndpoint",
-			"description": "Set the need for overiding the endpoint URI. This option needs to be used in combination with uriEndpointOverride setting.",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.googlepubsubsink;
+ */
+package org.apache.camel.kafkaconnector.googlepubsubsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,13 +27,13 @@ public class CamelGooglepubsubsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_PROJECT_ID_CONF = "camel.kamelet.google-pubsub-sink.projectId";
-    public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_PROJECT_ID_DOC = "The Google Cloud PubSub Project Id";
+    public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_PROJECT_ID_DOC = "The Google Cloud Pub/Sub Project ID.";
     public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_PROJECT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_DESTINATION_NAME_CONF = "camel.kamelet.google-pubsub-sink.destinationName";
-    public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_DESTINATION_NAME_DOC = "The Destination Name";
+    public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_DESTINATION_NAME_DOC = "The destination name.";
     public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_SERVICE_ACCOUNT_KEY_CONF = "camel.kamelet.google-pubsub-sink.serviceAccountKey";
-    public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The Service account key that can be used as credentials for the PubSub publisher/subscriber";
+    public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The service account key to use as credentials for the Pub/Sub publisher/subscriber. You must encode this value in base64.";
     public static final String CAMEL_SINK_GOOGLEPUBSUBSINK_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT = null;
 
     public CamelGooglepubsubsinkSinkConnectorConfig(

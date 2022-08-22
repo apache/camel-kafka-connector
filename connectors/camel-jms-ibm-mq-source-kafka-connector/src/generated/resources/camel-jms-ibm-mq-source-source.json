@@ -1,0 +1,69 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jmsibmmqsource.CamelJmsibmmqsourceSourceConnector",
+		"artifactId": "camel-jms-ibm-mq-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jms-ibm-mq-source-source",
+		"type": "source",
+		"version": "3.18.1-SNAPSHOT",
+		"description": "A Kamelet that can read events from an IBM MQ message queue using JMS.\n\nIn your KameletBinding file, you must explicitly declare the IBM MQ Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.ibm.mq:com.ibm.mq.allclient:<version>\""
+	},
+	"properties": {
+		"camel.kamelet.jms-ibm-mq-source.serverName": {
+			"name": "camel.kamelet.jms-ibm-mq-source.serverName",
+			"description": "IBM MQ Server name or address",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-source.serverPort": {
+			"name": "camel.kamelet.jms-ibm-mq-source.serverPort",
+			"description": "IBM MQ Server port",
+			"defaultValue": "1414",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-source.destinationType": {
+			"name": "camel.kamelet.jms-ibm-mq-source.destinationType",
+			"description": "The JMS destination type (queue or topic)",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-ibm-mq-source.destinationName": {
+			"name": "camel.kamelet.jms-ibm-mq-source.destinationName",
+			"description": "The destination name",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-source.queueManager": {
+			"name": "camel.kamelet.jms-ibm-mq-source.queueManager",
+			"description": "Name of the IBM MQ Queue Manager",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-source.channel": {
+			"name": "camel.kamelet.jms-ibm-mq-source.channel",
+			"description": "Name of the IBM MQ Channel",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-source.clientId": {
+			"name": "camel.kamelet.jms-ibm-mq-source.clientId",
+			"description": "Name of the IBM MQ Client ID",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-ibm-mq-source.username": {
+			"name": "camel.kamelet.jms-ibm-mq-source.username",
+			"description": "Username to authenticate to IBM MQ server",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-ibm-mq-source.password": {
+			"name": "camel.kamelet.jms-ibm-mq-source.password",
+			"description": "Password to authenticate to IBM MQ server",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

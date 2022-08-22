@@ -6,7 +6,7 @@
 		"id": "camel-azure-storage-queue-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Receive Messages from Azure Storage queues."
+		"description": "Receive events from Azure Storage queues."
 	},
 	"properties": {
 		"camel.kamelet.azure-storage-queue-source.accountName": {
@@ -23,13 +23,13 @@
 		},
 		"camel.kamelet.azure-storage-queue-source.accessKey": {
 			"name": "camel.kamelet.azure-storage-queue-source.accessKey",
-			"description": "The Azure Storage Queue access Key.",
+			"description": "The Azure Storage Queue access key.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.azure-storage-queue-source.maxMessages": {
 			"name": "camel.kamelet.azure-storage-queue-source.maxMessages",
-			"description": "Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. By default it will consider 1 message to be retrieved, the allowed range is 1 to 32 messages.",
+			"description": "The maximum number of messages to get. You can specify a value between 1 and 32. The default is 1 (one message). If there are fewer than the maximum number of messages in the queue, then all the messages are returned.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"

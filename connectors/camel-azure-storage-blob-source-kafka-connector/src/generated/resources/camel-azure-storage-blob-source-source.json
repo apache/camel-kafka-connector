@@ -6,12 +6,12 @@
 		"id": "camel-azure-storage-blob-source-source",
 		"type": "source",
 		"version": "3.18.1-SNAPSHOT",
-		"description": "Consume Files from Azure Storage Blob."
+		"description": "Consume files from Azure Storage Blob."
 	},
 	"properties": {
 		"camel.kamelet.azure-storage-blob-source.period": {
 			"name": "camel.kamelet.azure-storage-blob-source.period",
-			"description": "The interval between fetches to the Azure Storage Container in milliseconds",
+			"description": "The interval (in milliseconds) between fetches to the Azure Storage Container.",
 			"defaultValue": "10000",
 			"priority": "HIGH",
 			"required": "true"
@@ -30,7 +30,7 @@
 		},
 		"camel.kamelet.azure-storage-blob-source.accessKey": {
 			"name": "camel.kamelet.azure-storage-blob-source.accessKey",
-			"description": "The Azure Storage Blob access Key.",
+			"description": "The Azure Storage Blob access key.",
 			"priority": "HIGH",
 			"required": "true"
 		}

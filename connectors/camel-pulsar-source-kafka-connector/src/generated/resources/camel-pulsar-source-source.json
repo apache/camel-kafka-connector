@@ -23,7 +23,7 @@
 		},
 		"camel.kamelet.pulsar-source.topicType": {
 			"name": "camel.kamelet.pulsar-source.topicType",
-			"description": "The topic type. Possible values are: persistent or non-persistent",
+			"description": "The topic type. Possible values are persistent or non-persistent.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -80,7 +80,7 @@
 		"camel.kamelet.pulsar-source.negativeAckRedeliveryDelayMicros": {
 			"name": "camel.kamelet.pulsar-source.negativeAckRedeliveryDelayMicros",
 			"description": "Set the negative acknowledgement delay.",
-			"defaultValue": "60000000L",
+			"defaultValue": "60000000",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -114,7 +114,7 @@
 		},
 		"camel.kamelet.pulsar-source.subscriptionInitialPosition": {
 			"name": "camel.kamelet.pulsar-source.subscriptionInitialPosition",
-			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message.Possible values: EARLIEST or LATEST",
+			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. Possible values are EARLIEST or LATEST.",
 			"defaultValue": "\"LATEST\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -128,14 +128,14 @@
 		},
 		"camel.kamelet.pulsar-source.subscriptionTopicsMode": {
 			"name": "camel.kamelet.pulsar-source.subscriptionTopicsMode",
-			"description": "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions.Possible values: PersistentOnly, NonPersistentOnly, AllTopics",
+			"description": "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions.Possible values are PersistentOnly, NonPersistentOnly, or AllTopics.",
 			"defaultValue": "\"PersistentOnly\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.pulsar-source.subscriptionType": {
 			"name": "camel.kamelet.pulsar-source.subscriptionType",
-			"description": "Type of the subscription. Possible values: EXCLUSIVE, SHARED, FAILOVER, KEY_SHARED",
+			"description": "Type of the subscription. Possible values are EXCLUSIVE, SHARED, FAILOVER, KEY_SHARED.",
 			"defaultValue": "\"EXCLUSIVE\"",
 			"priority": "MEDIUM",
 			"required": "false"

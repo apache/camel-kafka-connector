@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.sftpsource;
+ */
+package org.apache.camel.kafkaconnector.sftpsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,29 +27,32 @@ public class CamelSftpsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.sftp-source.connectionHost";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_HOST_DOC = "Hostname of the SFTP server";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_HOST_DOC = "The hostname of the SFTP server.";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_HOST_DEFAULT = null;
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.sftp-source.connectionPort";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_PORT_DOC = "Port of the FTP server";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_PORT_DOC = "The port of the FTP server.";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_CONNECTION_PORT_DEFAULT = "22";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.sftp-source.username";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_USERNAME_DOC = "The username to access the SFTP server";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_USERNAME_DOC = "The username to access the SFTP server.";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.sftp-source.password";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSWORD_DOC = "The password to access the SFTP server";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSWORD_DOC = "The password to access the SFTP server.";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DIRECTORY_NAME_CONF = "camel.kamelet.sftp-source.directoryName";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DIRECTORY_NAME_DOC = "The starting directory";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DIRECTORY_NAME_DOC = "The starting directory.";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DIRECTORY_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSIVE_MODE_CONF = "camel.kamelet.sftp-source.passiveMode";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSIVE_MODE_DOC = "Sets passive mode connection";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSIVE_MODE_DOC = "Sets the passive mode connection.";
     public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSIVE_MODE_DEFAULT = false;
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_RECURSIVE_CONF = "camel.kamelet.sftp-source.recursive";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_RECURSIVE_DOC = "If a directory, will look for files in all the sub-directories as well.";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_RECURSIVE_DOC = "If a directory, look for files in all sub-directories as well.";
     public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_RECURSIVE_DEFAULT = false;
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_IDEMPOTENT_CONF = "camel.kamelet.sftp-source.idempotent";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_IDEMPOTENT_DOC = "Skip already processed files.";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_IDEMPOTENT_DOC = "Skip already-processed files.";
     public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_IDEMPOTENT_DEFAULT = true;
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_IGNORE_FILE_NOT_FOUND_OR_PERMISSION_ERROR_CONF = "camel.kamelet.sftp-source.ignoreFileNotFoundOrPermissionError";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_IGNORE_FILE_NOT_FOUND_OR_PERMISSION_ERROR_DOC = "Whether to ignore when (trying to list files in directories or when downloading a file), which does not exist or due to permission error. By default when a directory or file does not exists or insufficient permission, then an exception is thrown. Setting this option to true allows to ignore that instead.";
+    public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_IGNORE_FILE_NOT_FOUND_OR_PERMISSION_ERROR_DEFAULT = false;
 
     public CamelSftpsourceSourceConnectorConfig(
             ConfigDef config,
@@ -70,6 +74,7 @@ public class CamelSftpsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSIVE_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSIVE_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_PASSIVE_MODE_DOC);
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_RECURSIVE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_RECURSIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_RECURSIVE_DOC);
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_IDEMPOTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_IDEMPOTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_IDEMPOTENT_DOC);
+        conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_IGNORE_FILE_NOT_FOUND_OR_PERMISSION_ERROR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_IGNORE_FILE_NOT_FOUND_OR_PERMISSION_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_IGNORE_FILE_NOT_FOUND_OR_PERMISSION_ERROR_DOC);
         return conf;
     }
 }

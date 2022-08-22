@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.awssecretsmanagersink;
+ */
+package org.apache.camel.kafkaconnector.awssecretsmanagersink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -32,7 +33,7 @@ public class CamelAwssecretsmanagersinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_SECRET_KEY_DOC = "The secret key obtained from AWS.";
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_SECRET_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_REGION_CONF = "camel.kamelet.aws-secrets-manager-sink.region";
-    public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_REGION_DOC = "The AWS region to connect to. Example: eu-west-1";
+    public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-secrets-manager-sink.useDefaultCredentialsProvider";
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the Secrets Manager client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.";
