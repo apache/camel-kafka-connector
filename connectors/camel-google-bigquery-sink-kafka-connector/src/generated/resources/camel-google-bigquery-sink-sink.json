@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-bigquery-sink-sink",
 		"type": "sink",
-		"version": "1.1.0-SNAPSHOT",
+		"version": "3.18.1-SNAPSHOT",
 		"description": "Send data to a Google Big Query table.\n\nIt is expected the body is in Json format representing an object or an array of objects.\n\nThe credentialsFileLocation property needs to be a path to a service account key file."
 	},
 	"properties": {

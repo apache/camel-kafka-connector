@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-queue-sink-sink",
 		"type": "sink",
-		"version": "1.1.0-SNAPSHOT",
+		"version": "3.18.1-SNAPSHOT",
 		"description": "Send Messages to Azure Storage queues.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `expiration` \/ `ce-expiration`: as the time to live of the message in the queue.\n\nIf the header won't be set the default of 7 days will be used.\n\nThe format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S\u2009\u2014\u2009parses as 20.345 seconds, P2D\u2009\u2014\u2009parses as 2 days."
 	},
 	"properties": {

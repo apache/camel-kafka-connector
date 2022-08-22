@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-delete-sink-sink",
 		"type": "sink",
-		"version": "1.1.0-SNAPSHOT",
+		"version": "3.18.1-SNAPSHOT",
 		"description": "Removes an object from Salesforce. The body received must be a json\ncontaining two keys: sObjectId and sObjectName.\n\nExample body: { \"sObjectId\": \"XXXXX0\", \"sObjectName\": \"Contact\" }"
 	},
 	"properties": {

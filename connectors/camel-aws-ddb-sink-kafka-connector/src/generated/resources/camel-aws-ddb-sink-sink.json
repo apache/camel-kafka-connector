@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-ddb-sink-sink",
 		"type": "sink",
-		"version": "1.1.0-SNAPSHOT",
+		"version": "3.18.1-SNAPSHOT",
 		"description": "Send data to AWS DynamoDB service. The sent data will insert\/update\/delete an item on the given AWS DynamoDB table.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS DynamoDB service. These parameters are optional, because the Kamelet provide also the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the AWS DynamoDB client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThis Kamelet expects a JSON as body. The mapping between the JSON fields and table attribute values is done by key, so if you have the input:\n\n'{\"username\":\"oscerd\", \"city\":\"Rome\"}'\n\nThe Kamelet will insert\/update an item in the given AWS DynamoDB table and set the attributes 'username' and 'city' respectively. Please note that the JSON object must include the primary key values that define the item."
 	},
 	"properties": {

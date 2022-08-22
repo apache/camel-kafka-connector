@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-queue-source-source",
 		"type": "source",
-		"version": "1.1.0-SNAPSHOT",
+		"version": "3.18.1-SNAPSHOT",
 		"description": "Receive Messages from Azure Storage queues."
 	},
 	"properties": {

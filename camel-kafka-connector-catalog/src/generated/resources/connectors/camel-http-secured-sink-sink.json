@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-http-secured-sink-sink",
 		"type": "sink",
-		"version": "1.1.0-SNAPSHOT",
+		"version": "3.18.1-SNAPSHOT",
 		"description": "Forwards an event to a secured HTTP endpoint"
 	},
 	"properties": {
