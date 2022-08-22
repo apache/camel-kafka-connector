@@ -29,7 +29,7 @@
 
         <kafka.version>2.8.0</kafka.version>
         <camel.version>3.18.1</camel.version>
-        <camel.kamelet.catalog.version>0.8.0</camel.kamelet.catalog.version>
+        <camel.kamelet.catalog.version>0.9.0</camel.kamelet.catalog.version>
         <apicurio.registry.version>1.3.2.Final</apicurio.registry.version>
         <resteasy.version>4.5.6.Final</resteasy.version>
         <version.java>11</version.java>
@@ -76,6 +76,17 @@
             </snapshots>
             <releases>
                 <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>apache.staging.camel.kamelets</id>
+            <url>https://repository.apache.org/content/repositories/orgapachecamel-1458/</url>
+            <name>Apache Camel Kamelets 0.9.0</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
             </releases>
         </repository>
     </repositories>
