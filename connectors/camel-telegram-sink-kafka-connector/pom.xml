@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>3.18.1-SNAPSHOT</version>
   </parent>
   <artifactId>camel-telegram-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: telegram-sink</name>
