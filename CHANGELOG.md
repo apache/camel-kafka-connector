@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Proposal: Align released version to the underline Camel release [\#1421](https://github.com/apache/camel-kafka-connector/issues/1421)
 - AWS Kinesis source connector: error  [\#1391](https://github.com/apache/camel-kafka-connector/issues/1391)
 - Payload is base64 encoded CAMEL-GOOGLE-PUBSUB-SOURCE-KAFKA-CONNECTOR SOURCE 1.0.0 [\#1390](https://github.com/apache/camel-kafka-connector/issues/1390)
 - ignoreFileNotFoundOrPermissionError on camel-sftp-source 1.0.x [\#1385](https://github.com/apache/camel-kafka-connector/issues/1385)
@@ -18,8 +19,13 @@
 
 **Merged pull requests:**
 
+- Point to Kamelets catalog 0.9.0 by using staging repository [\#1423](https://github.com/apache/camel-kafka-connector/pull/1423) ([oscerd](https://github.com/oscerd))
+- Align released version to the underline Camel release 3.18.1 [\#1422](https://github.com/apache/camel-kafka-connector/pull/1422) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1420](https://github.com/apache/camel-kafka-connector/pull/1420) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1419](https://github.com/apache/camel-kafka-connector/pull/1419) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Bump postgresql from 42.3.3 to 42.4.1 in /parent [\#1414](https://github.com/apache/camel-kafka-connector/pull/1414) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump postgresql from 42.3.3 to 42.4.1 in /connectors/camel-postgresql-sink-kafka-connector [\#1413](https://github.com/apache/camel-kafka-connector/pull/1413) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump postgresql from 42.3.3 to 42.4.1 in /connectors/camel-postgresql-source-kafka-connector [\#1412](https://github.com/apache/camel-kafka-connector/pull/1412) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to Camel 3.18.0 [\#1408](https://github.com/apache/camel-kafka-connector/pull/1408) ([orpiske](https://github.com/orpiske))
 - \(chores\) More minor test fixes [\#1407](https://github.com/apache/camel-kafka-connector/pull/1407) ([orpiske](https://github.com/orpiske))
 - \(chores\) itests-aws2: use the default test infra container [\#1406](https://github.com/apache/camel-kafka-connector/pull/1406) ([orpiske](https://github.com/orpiske))
