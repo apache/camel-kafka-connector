@@ -19,6 +19,7 @@
 
 **Merged pull requests:**
 
+- Bump peter-evans/create-pull-request from 4.0.4 to 4.1.1 [\#1424](https://github.com/apache/camel-kafka-connector/pull/1424) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Point to Kamelets catalog 0.9.0 by using staging repository [\#1423](https://github.com/apache/camel-kafka-connector/pull/1423) ([oscerd](https://github.com/oscerd))
 - Align released version to the underline Camel release 3.18.1 [\#1422](https://github.com/apache/camel-kafka-connector/pull/1422) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1420](https://github.com/apache/camel-kafka-connector/pull/1420) ([github-actions[bot]](https://github.com/apps/github-actions))
