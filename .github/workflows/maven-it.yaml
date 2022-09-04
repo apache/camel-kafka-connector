@@ -14,15 +14,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-name: Daily Maven Plugins IT
+name: Maven Plugins IT
 
 env:
   MAVEN_ARGS: -V -ntp
 
 on:
-  schedule:
-    # Run at 0 during night
-    - cron:  '0 0 * * *'
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - SECURITY.md
+      - Jenkinsfile
+      - Jenkinsfile.*
+      - NOTICE.txt
   workflow_dispatch:
 
 jobs:
