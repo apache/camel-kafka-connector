@@ -70,7 +70,7 @@ jobs:
             clean verify
       - name: Archive test results
         uses: actions/upload-artifact@v3
-        if: always()
+        if: ${{ failure() }}
         with:
           name: maven-it-java-${{ matrix.java }}
           path: |
