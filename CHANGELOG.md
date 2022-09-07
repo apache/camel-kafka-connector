@@ -19,6 +19,7 @@
 
 **Merged pull requests:**
 
+- Change Maven IT CI from daily to per pull request [\#1428](https://github.com/apache/camel-kafka-connector/pull/1428) ([tadayosi](https://github.com/tadayosi))
 - Bump peter-evans/create-pull-request from 4.0.4 to 4.1.1 [\#1424](https://github.com/apache/camel-kafka-connector/pull/1424) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Point to Kamelets catalog 0.9.0 by using staging repository [\#1423](https://github.com/apache/camel-kafka-connector/pull/1423) ([oscerd](https://github.com/oscerd))
 - Align released version to the underline Camel release 3.18.1 [\#1422](https://github.com/apache/camel-kafka-connector/pull/1422) ([oscerd](https://github.com/oscerd))
