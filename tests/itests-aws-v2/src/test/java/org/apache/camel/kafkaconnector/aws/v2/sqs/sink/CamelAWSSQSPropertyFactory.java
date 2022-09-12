@@ -35,8 +35,8 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
         SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-sqs-sink.accessKey");
         SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-sqs-sink.secretKey");
         SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-sqs-sink.region");
-        SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.component.aws2-sqs.protocol");
-        SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.component.aws2-sqs.amazonAWSHost");
+        SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.kamelet.aws-sqs-sink.protocol");
+        SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.kamelet.aws-sqs-sink.amazonAWSHost");
     }
 
     private CamelAWSSQSPropertyFactory() {

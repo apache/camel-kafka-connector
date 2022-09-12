@@ -18,6 +18,9 @@ package org.apache.camel.kafkaconnector.rabbitmq.source;
 
 import java.util.concurrent.ExecutionException;
 
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
@@ -25,7 +28,6 @@ import org.apache.camel.kafkaconnector.rabbitmq.clients.RabbitMQClient;
 import org.apache.camel.test.infra.rabbitmq.services.RabbitMQService;
 import org.apache.camel.test.infra.rabbitmq.services.RabbitMQServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -34,8 +36,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-@Disabled("Until https://github.com/apache/camel-kamelets/pull/502 is merged and published")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RabbitMQSourceITCase extends CamelSourceTestSupport {
     @RegisterExtension
@@ -56,9 +58,33 @@ public class RabbitMQSourceITCase extends CamelSourceTestSupport {
     @BeforeEach
     public void setUp() {
         topicName = getTopicForTest(this);
-        rabbitMQClient =  new RabbitMQClient(rabbitmqService.getAmqpUrl());
+        Connection connection = null;
+        try {
+            LOG.debug("Creating the connection");
+            ConnectionFactory factory = new ConnectionFactory();
+            factory.setUri(rabbitmqService.getAmqpUrl());
+            connection = factory.newConnection();
+            LOG.debug("Connection created successfully");
 
-        rabbitMQClient.createQueue(DEFAULT_RABBITMQ_QUEUE);
+            LOG.debug("Creating the Channel");
+            Channel channel = connection.createChannel();
+            LOG.debug("Channel created successfully");
+            channel.queueDeclare(DEFAULT_RABBITMQ_QUEUE, true, false, true, null);
+        } catch (Throwable t) {
+            LOG.trace("Something wrong happened while initializing the RabbitMQ client: {}", t.getMessage(), t);
+            fail();
+        } finally {
+            if (connection != null) {
+                LOG.debug("Closing the connection");
+                try {
+                    connection.close();
+                } catch (Throwable nestedT) {
+                    LOG.warn("Error closing the {}: {}", "connection", nestedT.getMessage(), nestedT);
+                }
+            }
+        }
+
+        rabbitMQClient =  new RabbitMQClient(rabbitmqService.getAmqpUrl());
     }
 
     @Override
@@ -83,7 +109,8 @@ public class RabbitMQSourceITCase extends CamelSourceTestSupport {
                 .withAddresses(rabbitmqService.connectionProperties().hostname() + ":" + rabbitmqService.connectionProperties().port())
                 .withPassword(rabbitmqService.connectionProperties().password())
                 .withUsername(rabbitmqService.connectionProperties().username())
-                .withExchangeName("default");
+                .withExchangeName("default")
+                .withQueue(DEFAULT_RABBITMQ_QUEUE);
 
         runTest(factory, topicName, expect);
     }

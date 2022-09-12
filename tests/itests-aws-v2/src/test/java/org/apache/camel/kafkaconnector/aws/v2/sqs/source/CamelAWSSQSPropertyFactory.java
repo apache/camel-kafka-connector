@@ -35,8 +35,8 @@ final class CamelAWSSQSPropertyFactory extends SourceConnectorPropertyFactory<Ca
         SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.kamelet.aws-sqs-source.accessKey");
         SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.kamelet.aws-sqs-source.secretKey");
         SPRING_STYLE.put(AWSConfigs.REGION, "camel.kamelet.aws-sqs-source.region");
-        SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.component.aws2-sqs.protocol");
-        SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.component.aws2-sqs.amazonAWSHost");
+        SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.kamelet.aws-sqs-source.protocol");
+        SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.kamelet.aws-sqs-source.amazonAWSHost");
     }
 
     private CamelAWSSQSPropertyFactory() {

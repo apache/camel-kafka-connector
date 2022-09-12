@@ -31,7 +31,6 @@ import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.mongodb.services.MongoDBService;
 import org.bson.Document;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -42,13 +41,14 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Disabled("Waiting for https://github.com/apache/camel-kamelets/pull/485 to be merged and published.")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
-    @RegisterExtension
-    public static MongoDBService mongoDBService = MongoDBEnvVarServiceFactory.createService("root", "password");
-
     private static final Logger LOG = LoggerFactory.getLogger(CamelMongoDBPropertyFactory.class);
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "password";
+
+    @RegisterExtension
+    public static MongoDBService mongoDBService = MongoDBEnvVarServiceFactory.createService(USERNAME, PASSWORD);
 
     private MongoClient mongoClient;
     private String topicName;
@@ -78,6 +78,8 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
     public void setUp() {
         topicName = getTopicForTest(this);
         mongoClient = MongoClients.create(mongoDBService.getReplicaSetUrl());
+
+        mongoClient.getDatabase(databaseName).createCollection(collectionName);
     }
 
     @Override
@@ -96,8 +98,6 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
     @Override
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
         if (latch.await(15, TimeUnit.SECONDS)) {
-            String databaseName = "testDB";
-            String collectionName = "testRecords";
 
             verifyDocuments(databaseName, collectionName);
         } else {
@@ -123,10 +123,10 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
 
         CamelMongoDBPropertyFactory factory = CamelMongoDBPropertyFactory.basic()
                 .withTopics(topicName)
-                .withDatabase("testDB")
-                .withCollection("testRecords")
-                .withUsername("root")
-                .withPassword("password")
+                .withDatabase(databaseName)
+                .withCollection(collectionName)
+                .withUsername(USERNAME)
+                .withPassword(PASSWORD)
                 .withHosts(mongoDBService.getConnectionAddress());
 
         runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));

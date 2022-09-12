@@ -45,7 +45,7 @@ public final class CamelSqlPropertyFactory extends SinkConnectorPropertyFactory<
     }
 
     public CamelSqlPropertyFactory withPort(String port) {
-        return setProperty("camel.kamelet.postgresql-source.port", port);
+        return setProperty("camel.kamelet.postgresql-source.serverPort", port);
     }
 
     public static CamelSqlPropertyFactory basic() {

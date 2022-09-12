@@ -34,7 +34,6 @@ import org.apache.camel.test.infra.mongodb.services.MongoDBService;
 import org.bson.Document;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -42,11 +41,13 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Disabled("Waiting for https://github.com/apache/camel-kamelets/pull/486 to be merged and published.")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceMongoDBITCase extends CamelSourceTestSupport {
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "password";
+
     @RegisterExtension
-    public static MongoDBService mongoDBService = MongoDBEnvVarServiceFactory.createService("root", "password");
+    public static MongoDBService mongoDBService = MongoDBEnvVarServiceFactory.createService(USERNAME, PASSWORD);
 
     private MongoClient mongoClient;
     private String topicName;
@@ -113,8 +114,8 @@ public class CamelSourceMongoDBITCase extends CamelSourceTestSupport {
                 .withKafkaTopic(topicName)
                 .withDatabase("testDatabase")
                 .withCollection("testCollection")
-                .withUsername("root")
-                .withPassword("password")
+                .withUsername(USERNAME)
+                .withPassword(PASSWORD)
                 .withHosts(mongoDBService.getConnectionAddress());
 
         runTest(factory, topicName, expect);

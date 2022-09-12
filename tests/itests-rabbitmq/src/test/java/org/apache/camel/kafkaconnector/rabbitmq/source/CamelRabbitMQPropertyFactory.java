@@ -40,6 +40,10 @@ public class CamelRabbitMQPropertyFactory extends SourceConnectorPropertyFactory
         return setProperty("camel.kamelet.rabbitmq-source.exchangeName", value);
     }
 
+    public CamelRabbitMQPropertyFactory withQueue(String queue) {
+        return setProperty("camel.kamelet.rabbitmq-source.queue", queue);
+    }
+
     public static CamelRabbitMQPropertyFactory basic() {
         return new CamelRabbitMQPropertyFactory()
                     .withTasksMax(1)

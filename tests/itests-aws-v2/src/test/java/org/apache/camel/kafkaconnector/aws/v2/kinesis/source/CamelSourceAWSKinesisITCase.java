@@ -30,7 +30,6 @@ import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -43,7 +42,6 @@ import static org.apache.camel.kafkaconnector.aws.v2.kinesis.common.KinesisUtils
 import static org.apache.camel.kafkaconnector.aws.v2.kinesis.common.KinesisUtils.putRecords;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Disabled("Until https://github.com/apache/camel-kamelets/issues/908 is resolved")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {

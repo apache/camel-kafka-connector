@@ -14,18 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.kafkaconnector.mongodb.common;
+package org.apache.camel.kafkaconnector.syslog.converters;
 
-public class MongoDBLocalContainerEnvVarService extends CkcMongoDBLocalContainerService {
-    public MongoDBLocalContainerEnvVarService(String username, String password) {
-        super(username, password);
+import java.io.IOException;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
+import io.netty.buffer.ByteBufOutputStream;
+import org.apache.camel.Converter;
+import org.apache.camel.StreamCache;
+
+@Converter(generateLoader = true)
+public final class CamelStreamCacheConverter {
+    private CamelStreamCacheConverter() {
+
     }
 
-    public MongoDBLocalContainerEnvVarService() {
-        super();
-    }
-
-    public void addEnvProperty(String property, String value) {
-        getContainer().addEnv(property, value);
+    @Converter
+    public static ByteBuf toByteBuf(StreamCache streamCache) throws IOException {
+        ByteBufOutputStream buf = new ByteBufOutputStream(ByteBufAllocator.DEFAULT.buffer((int) streamCache.length()));
+        streamCache.writeTo(buf);
+        buf.close();
+        return buf.buffer();
     }
 }

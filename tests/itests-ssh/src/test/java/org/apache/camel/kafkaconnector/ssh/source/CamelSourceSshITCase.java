@@ -29,13 +29,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
-        disabledReason = "Hangs when running with the embedded Kafka Connect instance")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceSshITCase extends CamelSourceTestSupport {
     @RegisterExtension

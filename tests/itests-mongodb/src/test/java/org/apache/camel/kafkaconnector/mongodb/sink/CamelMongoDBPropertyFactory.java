@@ -41,8 +41,8 @@ final class CamelMongoDBPropertyFactory extends SinkConnectorPropertyFactory<Cam
         return setProperty("camel.kamelet.mongodb-sink.database", database);
     }
 
-    public CamelMongoDBPropertyFactory withCollection(String connection) {
-        return setProperty("camel.kamelet.mongodb-sink.collection", connection);
+    public CamelMongoDBPropertyFactory withCollection(String collection) {
+        return setProperty("camel.kamelet.mongodb-sink.collection", collection);
     }
 
     public static CamelMongoDBPropertyFactory basic() {

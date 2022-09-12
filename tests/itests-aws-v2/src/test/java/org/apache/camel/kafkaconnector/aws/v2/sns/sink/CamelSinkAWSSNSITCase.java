@@ -135,7 +135,6 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
                 .withName("CamelAWSSNSSinkConnectorDefault")
                 .withTopics(topicName)
                 .withTopicOrArn(queueName)
-//                .withSubscribeSNStoSQS(sqsQueueUrl)
                 .withConfiguration(TestSnsConfiguration.class.getName())
                 .withAutoCreateTopic(true)
                 .withAmazonConfig(amazonProperties);
