@@ -44,7 +44,7 @@ final class CamelSshPropertyFactory extends SinkConnectorPropertyFactory<CamelSs
     public static CamelSshPropertyFactory basic() {
         return new CamelSshPropertyFactory().withName("CamelSshSourceConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.sshsink.CamelSshsinkSinkonnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.sshsink.CamelSshsinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .setProperty("camel.component.kamelet.location", "kamelets")

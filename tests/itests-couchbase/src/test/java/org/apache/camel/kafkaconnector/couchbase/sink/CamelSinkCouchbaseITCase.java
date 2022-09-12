@@ -40,12 +40,9 @@ import org.apache.camel.test.infra.couchbase.services.CouchbaseService;
 import org.apache.camel.test.infra.couchbase.services.CouchbaseServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +57,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
  Therefore, this test is marked as flaky and only runs if specifically enabled.
  */
-@EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true")
+//@EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
     @RegisterExtension
@@ -99,7 +96,7 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-couchbase-kafka-connector"};
+        return new String[] {"camel-couchbase-sink-kafka-connector"};
     }
 
     @BeforeEach
@@ -204,7 +201,6 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
         LOG.debug("Received record: {}", results.get(0));
     }
 
-    @Disabled("Not formatting the URL correctly - issue #629")
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
@@ -216,25 +212,6 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
                 .withPort(service.getPort())
                 .withUsername(service.getUsername())
                 .withPassword(service.getPassword());
-
-        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
-    }
-
-    @RepeatedTest(10)
-    @Timeout(90)
-    public void testBasicSendReceiveUsingUrl() throws Exception {
-        ConnectorPropertyFactory factory = CamelCouchbasePropertyFactory.basic()
-                .withTopics(topic)
-                .withUrl("http", service.getHostname(), service.getPort())
-                    .append("bucket", bucketName)
-                    .append("username", service.getUsername())
-                    .append("password", service.getPassword())
-                    .append("connectTimeout", 5000)
-                    .append("queryTimeout", 5000)
-                    .append("producerRetryAttempts", 10)
-                    .append("producerRetryPause", 7500)
-                    .buildUrl();
-
 
         runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
     }

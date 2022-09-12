@@ -24,13 +24,13 @@ import org.apache.camel.kafkaconnector.cassandra.clients.CassandraClient;
 import org.apache.camel.kafkaconnector.cassandra.clients.dao.TestDataDao;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.test.infra.cassandra.services.CassandraService;
 import org.apache.camel.test.infra.cassandra.services.CassandraServiceFactory;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -42,7 +42,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@Disabled("TODO: Enable and convert once https://github.com/apache/camel-kamelets/pull/636 is published in kamelet-catalog")
 public class CamelSinkCassandraITCase extends CamelSinkTestSupport {
     @RegisterExtension
     public static CassandraService cassandraService = CassandraServiceFactory.createService();
@@ -58,7 +57,7 @@ public class CamelSinkCassandraITCase extends CamelSinkTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-cql-kafka-connector"};
+        return new String[] {"camel-cassandra-sink-kafka-connector"};
     }
 
     @BeforeAll
@@ -127,21 +126,20 @@ public class CamelSinkCassandraITCase extends CamelSinkTestSupport {
                 .withHosts(cassandraService.getCassandraHost())
                 .withPort(cassandraService.getCQL3Port())
                 .withKeySpace(TestDataDao.KEY_SPACE)
-                .withCql(testDataDao.getInsertStatement());
+                .withQuery(testDataDao.getInsertStatement());
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, new CassandraStringMessageProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 
-    @Timeout(90)
-    @Test
-    public void testFetchFromCassandraWithUrl() throws Exception {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelCassandraPropertyFactory
-                .basic()
-                    .withTopics(topicName)
-                    .withUrl(cassandraService.getCQL3Endpoint(), TestDataDao.KEY_SPACE)
-                    .append("cql", testDataDao.getInsertStatement())
-                    .buildUrl();
+    private class CassandraStringMessageProducer extends StringMessageProducer {
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        public CassandraStringMessageProducer(String bootStrapServer, String topicName, int count) {
+            super(bootStrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return "[{ \"message\": " + current + " }]";
+        }
     }
 }

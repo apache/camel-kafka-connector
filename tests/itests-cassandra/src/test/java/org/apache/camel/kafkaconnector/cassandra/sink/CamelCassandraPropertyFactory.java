@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.cassandra.sink;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 final class CamelCassandraPropertyFactory extends SinkConnectorPropertyFactory<CamelCassandraPropertyFactory> {
@@ -26,17 +25,15 @@ final class CamelCassandraPropertyFactory extends SinkConnectorPropertyFactory<C
     }
 
     public CamelCassandraPropertyFactory withKeySpace(String keySpace) {
-        return setProperty("camel.sink.path.keyspace", keySpace);
+        return setProperty("camel.kamelet.cassandra-sink.keyspace", keySpace);
     }
 
-    public CamelCassandraPropertyFactory withCql(String cql) {
-        // RAW is required as the endpoint URI builder encodes the URI
-        // TODO: remove once https://issues.apache.org/jira/browse/CAMEL-15722 get fixed
-        return setProperty("camel.sink.endpoint.cql", "RAW(" + cql + ")");
+    public CamelCassandraPropertyFactory withQuery(String query) {
+        return setProperty("camel.kamelet.cassandra-sink.query", query);
     }
 
     public CamelCassandraPropertyFactory withHosts(String hosts) {
-        return setProperty("camel.sink.path.hosts", hosts);
+        return setProperty("camel.kamelet.cassandra-sink.connectionHost", hosts);
     }
 
     public CamelCassandraPropertyFactory withPort(int port) {
@@ -44,26 +41,17 @@ final class CamelCassandraPropertyFactory extends SinkConnectorPropertyFactory<C
     }
 
     public CamelCassandraPropertyFactory withPort(String port) {
-        return setProperty("camel.sink.path.port", port);
+        return setProperty("camel.kamelet.cassandra-sink.connectionPort", port);
     }
-
-    public CamelCassandraPropertyFactory withCluster(String cluster) {
-        return setProperty("camel.sink.endpoint.cluster", cluster);
-    }
-
-    public EndpointUrlBuilder<CamelCassandraPropertyFactory> withUrl(String host, String keySpace) {
-        String queueUrl = String.format("cql://%s/%s", host, keySpace);
-
-        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
-    }
-
 
     public static CamelCassandraPropertyFactory basic() {
         return new CamelCassandraPropertyFactory()
-                .withName("CamelCqlSinkConnector")
+                .withName("CamelCassandraSinkConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.cql.CamelCqlSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.cassandrasink.CamelCassandrasinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.kamelet.cassandra-sink.prepareStatements", "false")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

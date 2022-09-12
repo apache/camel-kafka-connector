@@ -68,7 +68,7 @@
                     <!--
                     These tests are flaky and depend on some fragile timeout logic on Couchbase
                      -->
-                    <rerunFailingTestsCount>2</rerunFailingTestsCount>
+                    <rerunFailingTestsCount>1</rerunFailingTestsCount>
                 </configuration>
             </plugin>
         </plugins>

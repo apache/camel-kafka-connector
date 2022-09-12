@@ -35,13 +35,14 @@ public final class MongoDBEnvVarServiceFactory {
     }
 
     public static MongoDBService createService(Supplier<MongoDBService> localMapping) {
-        return (MongoDBService)builder().addLocalMapping(localMapping).addRemoteMapping(MongoDBRemoteService::new).build();
+        return builder().addLocalMapping(localMapping).addRemoteMapping(MongoDBRemoteService::new).build();
     }
 
     public static MongoDBService createService(String username, String password) {
-        MongoDBLocalContainerEnvVarService mongoDBLocalContainerEnvVarService = new MongoDBLocalContainerEnvVarService();
+        MongoDBLocalContainerEnvVarService mongoDBLocalContainerEnvVarService = new MongoDBLocalContainerEnvVarService(username, password);
         mongoDBLocalContainerEnvVarService.addEnvProperty("MONGO_INITDB_ROOT_USERNAME", username);
         mongoDBLocalContainerEnvVarService.addEnvProperty("MONGO_INITDB_ROOT_PASSWORD", password);
+        mongoDBLocalContainerEnvVarService.addEnvProperty("MONGO_INITDB_DATABASE", "test");
         return createService(() -> mongoDBLocalContainerEnvVarService);
     }
 }

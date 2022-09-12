@@ -17,7 +17,7 @@
 
 package org.apache.camel.kafkaconnector.cassandra.source;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
+
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 
 final class CamelCassandraPropertyFactory extends SourceConnectorPropertyFactory<CamelCassandraPropertyFactory> {
@@ -26,12 +26,12 @@ final class CamelCassandraPropertyFactory extends SourceConnectorPropertyFactory
 
     }
 
-    public CamelCassandraPropertyFactory withCql(String cql) {
-        return setProperty("camel.source.endpoint.cql", cql);
+    public CamelCassandraPropertyFactory withQuery(String query) {
+        return setProperty("camel.kamelet.cassandra-source.query", query);
     }
 
     public CamelCassandraPropertyFactory withHosts(String hosts) {
-        return setProperty("camel.source.path.hosts", hosts);
+        return setProperty("camel.kamelet.cassandra-source.connectionHost", hosts);
     }
 
     public CamelCassandraPropertyFactory withPort(int port) {
@@ -39,29 +39,25 @@ final class CamelCassandraPropertyFactory extends SourceConnectorPropertyFactory
     }
 
     public CamelCassandraPropertyFactory withPort(String port) {
-        return setProperty("camel.source.path.port", port);
+        return setProperty("camel.kamelet.cassandra-source.connectionPort", port);
     }
 
     public CamelCassandraPropertyFactory withKeySpace(String value) {
-        return setProperty("camel.source.path.keyspace", value);
+        return setProperty("camel.kamelet.cassandra-source.keyspace", value);
     }
 
     public CamelCassandraPropertyFactory withResultSetConversionStrategy(String value) {
-        return setProperty("camel.source.endpoint.resultSetConversionStrategy", value);
-    }
-
-    public EndpointUrlBuilder<CamelCassandraPropertyFactory> withUrl(String host, String keySpace) {
-        String url = String.format("cql://%s/%s", host, keySpace);
-
-        return new EndpointUrlBuilder<>(this::withSourceUrl, url);
+        return setProperty("camel.endpoint.cql.resultSetConversionStrategy", value);
     }
 
     public static CamelCassandraPropertyFactory basic() {
         return new CamelCassandraPropertyFactory()
-                .withName("CamelCassandraQLSourceConnector")
+                .withName("CamelCassandraSourceConnector")
                 .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.cql.CamelCqlSourceConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.cassandrasource.CamelCassandrasourceSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .setProperty("camel.kamelet.cassandra-source.consistencyLevel", "ONE")
+                .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

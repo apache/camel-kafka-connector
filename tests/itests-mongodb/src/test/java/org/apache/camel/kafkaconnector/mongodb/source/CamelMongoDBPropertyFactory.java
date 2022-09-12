@@ -42,8 +42,8 @@ final class CamelMongoDBPropertyFactory extends SourceConnectorPropertyFactory<C
         return setProperty("camel.kamelet.mongodb-source.database", database);
     }
 
-    public CamelMongoDBPropertyFactory withCollection(String connection) {
-        return setProperty("camel.source.endpoint.collection", connection);
+    public CamelMongoDBPropertyFactory withCollection(String collection) {
+        return setProperty("camel.kamelet.mongodb-source.collection", collection);
     }
 
     public static CamelMongoDBPropertyFactory basic() {

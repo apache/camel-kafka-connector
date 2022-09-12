@@ -17,55 +17,41 @@
 
 package org.apache.camel.kafkaconnector.couchbase.sink;
 
-import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 public class CamelCouchbasePropertyFactory extends SinkConnectorPropertyFactory<CamelCouchbasePropertyFactory> {
 
     public CamelCouchbasePropertyFactory withProtocol(String value) {
-        return setProperty("camel.sink.path.protocol", value);
+        return setProperty("camel.kamelet.couchbase-sink.protocol", value);
     }
 
     public CamelCouchbasePropertyFactory withHostname(String value) {
-        return setProperty("camel.sink.path.hostname", value);
+        return setProperty("camel.kamelet.couchbase-sink.couchbaseHostname", value);
     }
 
     public CamelCouchbasePropertyFactory withPort(int value) {
-        return setProperty("camel.sink.path.port", value);
+        return setProperty("camel.kamelet.couchbase-sink.couchbasePort", value);
     }
 
     public CamelCouchbasePropertyFactory withBucket(String value) {
-        return setProperty("camel.sink.endpoint.bucket", value);
-    }
-
-    public CamelCouchbasePropertyFactory withCollection(String value) {
-        return setProperty("camel.sink.endpoint.collection", value);
-    }
-
-    public CamelCouchbasePropertyFactory withOperation(String value) {
-        return setProperty("camel.sink.endpoint.operation", value);
+        return setProperty("camel.kamelet.couchbase-sink.bucket", value);
     }
 
     public CamelCouchbasePropertyFactory withUsername(String value) {
-        return setProperty("camel.sink.endpoint.username", value);
+        return setProperty("camel.kamelet.couchbase-sink.username", value);
     }
 
     public CamelCouchbasePropertyFactory withPassword(String value) {
-        return setProperty("camel.sink.endpoint.password", value);
-    }
-
-    public EndpointUrlBuilder<CamelCouchbasePropertyFactory> withUrl(String protocol, String hostname, int port) {
-        String sinkUrl = String.format("couchbase:%s://%s:%d", protocol, hostname, port);
-
-        return new EndpointUrlBuilder<>(this::withSinkUrl, sinkUrl);
+        return setProperty("camel.kamelet.couchbase-sink.password", value);
     }
 
     public static CamelCouchbasePropertyFactory basic() {
         return new CamelCouchbasePropertyFactory()
                     .withTasksMax(1)
-                    .withName("CamelCouchbaseSinkConnector")
-                    .withConnectorClass("org.apache.camel.kafkaconnector.couchbase.CamelCouchbaseSinkConnector")
+                    .withName("CamelCouchbasesinkSinkConnector")
+                    .withConnectorClass("org.apache.camel.kafkaconnector.couchbasesink.CamelCouchbasesinkSinkConnector")
                     .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+                    .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                    .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

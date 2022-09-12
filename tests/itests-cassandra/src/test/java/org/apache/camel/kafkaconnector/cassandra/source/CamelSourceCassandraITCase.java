@@ -30,7 +30,6 @@ import org.apache.camel.test.infra.cassandra.services.CassandraServiceFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -42,7 +41,6 @@ import static org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFacto
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@Disabled("TODO: Enable and convert once https://github.com/apache/camel-kamelets/pull/636 is published in kamelet-catalog")
 public class CamelSourceCassandraITCase extends CamelSourceTestSupport {
     @RegisterExtension
     public static CassandraService cassandraService = CassandraServiceFactory.createService();
@@ -57,7 +55,7 @@ public class CamelSourceCassandraITCase extends CamelSourceTestSupport {
 
     @Override
     protected String[] getConnectorsInTest() {
-        return new String[] {"camel-cql-kafka-connector"};
+        return new String[] {"camel-cassandra-source-kafka-connector"};
     }
 
     @BeforeAll
@@ -113,7 +111,7 @@ public class CamelSourceCassandraITCase extends CamelSourceTestSupport {
                 .withPort(cassandraService.getCQL3Port())
                 .withKeySpace(TestDataDao.KEY_SPACE)
                 .withResultSetConversionStrategy("ONE")
-                .withCql(testDataDao.getSelectStatement());
+                .withQuery(testDataDao.getSelectStatement());
 
         runTest(connectorPropertyFactory, topicName, expect);
     }
@@ -128,7 +126,7 @@ public class CamelSourceCassandraITCase extends CamelSourceTestSupport {
                 .withPort(cassandraService.getCQL3Port())
                 .withKeySpace(TestDataDao.KEY_SPACE)
                 .withResultSetConversionStrategy(classRef(TestResultSetConversionStrategy.class.getName()))
-                .withCql(testDataDao.getSelectStatement());
+                .withQuery(testDataDao.getSelectStatement());
 
         runTest(connectorPropertyFactory, topicName, expect);
     }
