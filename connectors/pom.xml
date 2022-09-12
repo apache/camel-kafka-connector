@@ -164,6 +164,9 @@
                            <resource>
                                <directory>src/generated/resources</directory>
                                <filtering>true</filtering>
+                               <includes>
+                                   <include>*.json</include>
+                               </includes>
                            </resource>
                        </resources>              
                   </configuration>            
