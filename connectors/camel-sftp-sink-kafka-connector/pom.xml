@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.18.1</version>
+    <version>3.18.2-SNAPSHOT</version>
   </parent>
   <artifactId>camel-sftp-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: sftp-sink</name>
