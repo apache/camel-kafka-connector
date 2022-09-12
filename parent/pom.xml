@@ -78,17 +78,6 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
-        <repository>
-            <id>apache.staging.camel.kamelets</id>
-            <url>https://repository.apache.org/content/repositories/orgapachecamel-1458/</url>
-            <name>Apache Camel Kamelets 0.9.0</name>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
