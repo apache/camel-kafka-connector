@@ -2,23 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.11.5...HEAD)
-
-**Closed issues:**
-
-- Proposal: Align released version to the underline Camel release [\#1421](https://github.com/apache/camel-kafka-connector/issues/1421)
-- AWS Kinesis source connector: error  [\#1391](https://github.com/apache/camel-kafka-connector/issues/1391)
-- Payload is base64 encoded CAMEL-GOOGLE-PUBSUB-SOURCE-KAFKA-CONNECTOR SOURCE 1.0.0 [\#1390](https://github.com/apache/camel-kafka-connector/issues/1390)
-- ignoreFileNotFoundOrPermissionError on camel-sftp-source 1.0.x [\#1385](https://github.com/apache/camel-kafka-connector/issues/1385)
-- Upgrade to Camel-Kamelets 0.8.0 and Camel 3.16.0 [\#1360](https://github.com/apache/camel-kafka-connector/issues/1360)
-- camel kafka connector - s3 Sink [\#1357](https://github.com/apache/camel-kafka-connector/issues/1357)
-- camel-aws-s3-sink-kafka-connector is showing class error and not pushing data to s3 [\#1347](https://github.com/apache/camel-kafka-connector/issues/1347)
-- camel-salesforce cosumer: message id not in sequence for platform events [\#1343](https://github.com/apache/camel-kafka-connector/issues/1343)
-- SalesforceConsumer : java.lang.IllegalStateException: Queue full  [\#1342](https://github.com/apache/camel-kafka-connector/issues/1342)
-- Dead loop for connector state [\#1341](https://github.com/apache/camel-kafka-connector/issues/1341)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.18.1...HEAD)
 
 **Merged pull requests:**
 
+- Test reenable [\#1432](https://github.com/apache/camel-kafka-connector/pull/1432) ([valdar](https://github.com/valdar))
 - Change Maven IT CI from daily to per pull request [\#1428](https://github.com/apache/camel-kafka-connector/pull/1428) ([tadayosi](https://github.com/tadayosi))
 - Bump peter-evans/create-pull-request from 4.0.4 to 4.1.1 [\#1424](https://github.com/apache/camel-kafka-connector/pull/1424) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Point to Kamelets catalog 0.9.0 by using staging repository [\#1423](https://github.com/apache/camel-kafka-connector/pull/1423) ([oscerd](https://github.com/oscerd))
@@ -383,6 +371,23 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-3.18.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.18.1) (2022-09-12)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.11.5...camel-kafka-connector-3.18.1)
+
+**Closed issues:**
+
+- Proposal: Align released version to the underline Camel release [\#1421](https://github.com/apache/camel-kafka-connector/issues/1421)
+- AWS Kinesis source connector: error  [\#1391](https://github.com/apache/camel-kafka-connector/issues/1391)
+- Payload is base64 encoded CAMEL-GOOGLE-PUBSUB-SOURCE-KAFKA-CONNECTOR SOURCE 1.0.0 [\#1390](https://github.com/apache/camel-kafka-connector/issues/1390)
+- ignoreFileNotFoundOrPermissionError on camel-sftp-source 1.0.x [\#1385](https://github.com/apache/camel-kafka-connector/issues/1385)
+- Upgrade to Camel-Kamelets 0.8.0 and Camel 3.16.0 [\#1360](https://github.com/apache/camel-kafka-connector/issues/1360)
+- camel kafka connector - s3 Sink [\#1357](https://github.com/apache/camel-kafka-connector/issues/1357)
+- camel-aws-s3-sink-kafka-connector is showing class error and not pushing data to s3 [\#1347](https://github.com/apache/camel-kafka-connector/issues/1347)
+- camel-salesforce cosumer: message id not in sequence for platform events [\#1343](https://github.com/apache/camel-kafka-connector/issues/1343)
+- SalesforceConsumer : java.lang.IllegalStateException: Queue full  [\#1342](https://github.com/apache/camel-kafka-connector/issues/1342)
+- Dead loop for connector state [\#1341](https://github.com/apache/camel-kafka-connector/issues/1341)
 
 ## [camel-kafka-connector-0.11.5](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.11.5) (2022-02-23)
 
