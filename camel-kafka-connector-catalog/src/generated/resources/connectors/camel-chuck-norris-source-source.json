@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-chuck-norris-source-source",
 		"type": "source",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.18.2-SNAPSHOT",
 		"description": "Gets periodically Chuck Norris jokes from http:\/\/www.icndb.com\/"
 	},
 	"properties": {

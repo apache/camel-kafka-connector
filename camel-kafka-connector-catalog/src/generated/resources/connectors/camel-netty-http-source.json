@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-http-source",
 		"type": "source",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.18.2-SNAPSHOT",
 		"description": "Netty HTTP server and client using the Netty 4.x."
 	},
 	"properties": {
