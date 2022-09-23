@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-ibm-mq-sink-sink",
 		"type": "sink",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.18.2-SNAPSHOT",
 		"description": "A Kamelet that can produce events to an IBM MQ message queue using JMS.\n\nIn your KameletBinding file, you must explicitly declare the IBM MQ Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.ibm.mq:com.ibm.mq.allclient:<version>\""
 	},
 	"properties": {

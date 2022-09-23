@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-lambda-sink-sink",
 		"type": "sink",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.18.2-SNAPSHOT",
 		"description": "Send a payload to an AWS Lambda function.\n\nThe basic authentication method for the Lambda service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the Lambda client loads the credentials through this provider and doesn't use the basic authentication method."
 	},
 	"properties": {

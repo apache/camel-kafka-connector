@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-apache-activemq-sink-sink",
 		"type": "sink",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.18.2-SNAPSHOT",
 		"description": "A Kamelet that can produce events to an Apache ActiveMQ Classic message broker using JMS"
 	},
 	"properties": {

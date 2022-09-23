@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-ssl-source-source",
 		"type": "source",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.18.2-SNAPSHOT",
 		"description": "Receive data from Kafka topics with SSL\/TLS support"
 	},
 	"properties": {
