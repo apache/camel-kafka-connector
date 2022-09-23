@@ -19,3 +19,4 @@
 
 name: camel-kafka-connector
 version: 3.18.x
+display_version: 3.18.x (LTS)
