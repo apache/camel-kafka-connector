@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-https-sink",
 		"type": "sink",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.19.0-SNAPSHOT",
 		"description": "Send requests to external HTTP servers using Apache HTTP Client 4.x."
 	},
 	"properties": {
@@ -114,6 +114,13 @@
 		"camel.sink.endpoint.deleteWithBody": {
 			"name": "camel.sink.endpoint.deleteWithBody",
 			"description": "Whether the HTTP DELETE should include the message body or not. By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.followRedirects": {
+			"name": "camel.sink.endpoint.followRedirects",
+			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -369,6 +376,13 @@
 			"name": "camel.component.https.responsePayloadStreamingThreshold",
 			"description": "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.",
 			"defaultValue": "8192",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.followRedirects": {
+			"name": "camel.component.https.followRedirects",
+			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

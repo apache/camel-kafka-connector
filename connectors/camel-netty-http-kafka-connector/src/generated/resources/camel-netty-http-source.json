@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-http-source",
 		"type": "source",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.19.0-SNAPSHOT",
 		"description": "Netty HTTP server and client using the Netty 4.x."
 	},
 	"properties": {
@@ -191,10 +191,24 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.maxChunkSize": {
+			"name": "camel.source.endpoint.maxChunkSize",
+			"description": "The maximum length of the content or each chunk. If the content length (or the length of each chunk) exceeds this value, the content or chunk will be split into multiple io.netty.handler.codec.http.HttpContents whose length is maxChunkSize at maximum. See io.netty.handler.codec.http.HttpObjectDecoder",
+			"defaultValue": "8192",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.maxHeaderSize": {
 			"name": "camel.source.endpoint.maxHeaderSize",
 			"description": "The maximum length of all headers. If the sum of the length of each header exceeds this value, a io.netty.handler.codec.TooLongFrameException will be raised.",
 			"defaultValue": "8192",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.maxInitialLineLength": {
+			"name": "camel.source.endpoint.maxInitialLineLength",
+			"description": "The maximum length of the initial line (e.g. {code GET \/ HTTP\/1.0} or {code HTTP\/1.0 200 OK}) If the length of the initial line exceeds this value, a TooLongFrameException will be raised. See io.netty.handler.codec.http.HttpObjectDecoder",
+			"defaultValue": "4096",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -408,7 +422,7 @@
 		"camel.source.endpoint.enabledProtocols": {
 			"name": "camel.source.endpoint.enabledProtocols",
 			"description": "Which protocols to enable when using SSL",
-			"defaultValue": "\"TLSv1,TLSv1.1,TLSv1.2\"",
+			"defaultValue": "\"TLSv1.2,TLSv1.3\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -855,7 +869,7 @@
 		"camel.component.netty-http.enabledProtocols": {
 			"name": "camel.component.netty-http.enabledProtocols",
 			"description": "Which protocols to enable when using SSL",
-			"defaultValue": "\"TLSv1,TLSv1.1,TLSv1.2\"",
+			"defaultValue": "\"TLSv1.2,TLSv1.3\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
