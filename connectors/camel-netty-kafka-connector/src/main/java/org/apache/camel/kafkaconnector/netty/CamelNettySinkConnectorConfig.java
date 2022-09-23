@@ -155,7 +155,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_TEXTLINE_DEFAULT = false;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_CONF = "camel.sink.endpoint.enabledProtocols";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DOC = "Which protocols to enable when using SSL";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1,TLSv1.1,TLSv1.2";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.3";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_CONF = "camel.sink.endpoint.keyStoreFile";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DEFAULT = null;
@@ -314,7 +314,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_TEXTLINE_DEFAULT = false;
     public static final String CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_CONF = "camel.component.netty.enabledProtocols";
     public static final String CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DOC = "Which protocols to enable when using SSL";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1,TLSv1.1,TLSv1.2";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.3";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_CONF = "camel.component.netty.keyStoreFile";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DEFAULT = null;

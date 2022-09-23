@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-sink",
 		"type": "sink",
-		"version": "3.18.1-SNAPSHOT",
+		"version": "3.19.0-SNAPSHOT",
 		"description": "Socket level networking using TCP or UDP with Netty 4.x."
 	},
 	"properties": {
@@ -306,7 +306,7 @@
 		"camel.sink.endpoint.enabledProtocols": {
 			"name": "camel.sink.endpoint.enabledProtocols",
 			"description": "Which protocols to enable when using SSL",
-			"defaultValue": "\"TLSv1,TLSv1.1,TLSv1.2\"",
+			"defaultValue": "\"TLSv1.2,TLSv1.3\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -659,7 +659,7 @@
 		"camel.component.netty.enabledProtocols": {
 			"name": "camel.component.netty.enabledProtocols",
 			"description": "Which protocols to enable when using SSL",
-			"defaultValue": "\"TLSv1,TLSv1.1,TLSv1.2\"",
+			"defaultValue": "\"TLSv1.2,TLSv1.3\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -69,6 +69,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_DELETE_WITH_BODY_CONF = "camel.sink.endpoint.deleteWithBody";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_DELETE_WITH_BODY_DOC = "Whether the HTTP DELETE should include the message body or not. By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the message body.";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_DELETE_WITH_BODY_DEFAULT = false;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_FOLLOW_REDIRECTS_CONF = "camel.sink.endpoint.followRedirects";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_FOLLOW_REDIRECTS_DOC = "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects";
+    public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_FOLLOW_REDIRECTS_DEFAULT = false;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_GET_WITH_BODY_CONF = "camel.sink.endpoint.getWithBody";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_GET_WITH_BODY_DOC = "Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body.";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_GET_WITH_BODY_DEFAULT = false;
@@ -183,6 +186,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_CONF = "camel.component.https.responsePayloadStreamingThreshold";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DOC = "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.";
     public static final Integer CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DEFAULT = 8192;
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_CONF = "camel.component.https.followRedirects";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_DOC = "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects";
+    public static final Boolean CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_DEFAULT = false;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_CONF = "camel.component.https.skipRequestHeaders";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_DOC = "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.";
     public static final Boolean CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_DEFAULT = false;
@@ -310,6 +316,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_STORE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_STORE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_STORE_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_DELETE_WITH_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_DELETE_WITH_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_DELETE_WITH_BODY_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_FOLLOW_REDIRECTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_FOLLOW_REDIRECTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_FOLLOW_REDIRECTS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_GET_WITH_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_GET_WITH_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_GET_WITH_BODY_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OK_STATUS_CODE_RANGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_OK_STATUS_CODE_RANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OK_STATUS_CODE_RANGE_DOC);
@@ -348,6 +355,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DOC);
+        conf.define(CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);

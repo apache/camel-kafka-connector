@@ -104,9 +104,15 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAP_HEADERS_CONF = "camel.source.endpoint.mapHeaders";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAP_HEADERS_DOC = "If this option is enabled, then during binding from Netty to Camel Message then the headers will be mapped as well (eg added as header to the Camel Message as well). You can turn off this option to disable this. The headers can still be accessed from the org.apache.camel.component.netty.http.NettyHttpMessage message with the method getHttpRequest() that returns the Netty HTTP request io.netty.handler.codec.http.HttpRequest instance.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAP_HEADERS_DEFAULT = true;
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_CHUNK_SIZE_CONF = "camel.source.endpoint.maxChunkSize";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_CHUNK_SIZE_DOC = "The maximum length of the content or each chunk. If the content length (or the length of each chunk) exceeds this value, the content or chunk will be split into multiple io.netty.handler.codec.http.HttpContents whose length is maxChunkSize at maximum. See io.netty.handler.codec.http.HttpObjectDecoder";
+    public static final Integer CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_CHUNK_SIZE_DEFAULT = 8192;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_HEADER_SIZE_CONF = "camel.source.endpoint.maxHeaderSize";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_HEADER_SIZE_DOC = "The maximum length of all headers. If the sum of the length of each header exceeds this value, a io.netty.handler.codec.TooLongFrameException will be raised.";
     public static final Integer CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_HEADER_SIZE_DEFAULT = 8192;
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_INITIAL_LINE_LENGTH_CONF = "camel.source.endpoint.maxInitialLineLength";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_INITIAL_LINE_LENGTH_DOC = "The maximum length of the initial line (e.g. {code GET / HTTP/1.0} or {code HTTP/1.0 200 OK}) If the length of the initial line exceeds this value, a TooLongFrameException will be raised. See io.netty.handler.codec.http.HttpObjectDecoder";
+    public static final Integer CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_INITIAL_LINE_LENGTH_DEFAULT = 4096;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SERVER_BOOTSTRAP_FACTORY_CONF = "camel.source.endpoint.nettyServerBootstrapFactory";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SERVER_BOOTSTRAP_FACTORY_DOC = "To use a custom NettyServerBootstrapFactory";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SERVER_BOOTSTRAP_FACTORY_DEFAULT = null;
@@ -193,7 +199,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENCODERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_CONF = "camel.source.endpoint.enabledProtocols";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DOC = "Which protocols to enable when using SSL";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1,TLSv1.1,TLSv1.2";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.3";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_CONF = "camel.source.endpoint.keyStoreFile";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DEFAULT = null;
@@ -385,7 +391,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_TEXTLINE_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_CONF = "camel.component.netty-http.enabledProtocols";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_DOC = "Which protocols to enable when using SSL";
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1,TLSv1.1,TLSv1.2";
+    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.3";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_CONF = "camel.component.netty-http.keyStoreFile";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DEFAULT = null;
@@ -467,7 +473,9 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HTTP_METHOD_RESTRICT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HTTP_METHOD_RESTRICT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HTTP_METHOD_RESTRICT_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_LOG_WARN_ON_BAD_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_LOG_WARN_ON_BAD_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_LOG_WARN_ON_BAD_REQUEST_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAP_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAP_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAP_HEADERS_DOC);
+        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_CHUNK_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_CHUNK_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_CHUNK_SIZE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_HEADER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_HEADER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_HEADER_SIZE_DOC);
+        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_INITIAL_LINE_LENGTH_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_INITIAL_LINE_LENGTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MAX_INITIAL_LINE_LENGTH_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SERVER_BOOTSTRAP_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SERVER_BOOTSTRAP_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SERVER_BOOTSTRAP_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SHARED_HTTP_SERVER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SHARED_HTTP_SERVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NETTY_SHARED_HTTP_SERVER_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NO_REPLY_LOG_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NO_REPLY_LOG_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NO_REPLY_LOG_LEVEL_DOC);
