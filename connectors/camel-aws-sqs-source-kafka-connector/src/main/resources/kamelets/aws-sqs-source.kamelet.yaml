@@ -132,7 +132,6 @@ spec:
   dependencies:
     - "camel:aws2-sqs"
     - "camel:kamelet"
-    - "mvn:software.amazon.awssdk:utils:2.17.223"
   template:
     from:
       uri: "aws2-sqs:{{queueNameOrArn}}"

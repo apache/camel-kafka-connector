@@ -108,7 +108,6 @@ spec:
   dependencies:
     - "camel:aws2-s3"
     - "camel:kamelet"
-    - "mvn:software.amazon.awssdk:utils:2.17.223"
   template:
     from:
       uri: "aws2-s3:{{bucketNameOrArn}}"
