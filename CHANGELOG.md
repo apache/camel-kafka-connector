@@ -6,6 +6,8 @@
 
 **Merged pull requests:**
 
+- Bump actions/checkout from 3.0.2 to 3.1.0 [\#1446](https://github.com/apache/camel-kafka-connector/pull/1446) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump peter-evans/create-pull-request from 4.1.1 to 4.1.3 [\#1441](https://github.com/apache/camel-kafka-connector/pull/1441) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Next is 3.19.0 [\#1437](https://github.com/apache/camel-kafka-connector/pull/1437) ([oscerd](https://github.com/oscerd))
 - Test reenable [\#1432](https://github.com/apache/camel-kafka-connector/pull/1432) ([valdar](https://github.com/valdar))
 - Change Maven IT CI from daily to per pull request [\#1428](https://github.com/apache/camel-kafka-connector/pull/1428) ([tadayosi](https://github.com/tadayosi))
