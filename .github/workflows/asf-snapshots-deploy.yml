@@ -32,7 +32,7 @@ jobs:
       matrix:
         java: [ '11' ]
     steps:
-      - uses: actions/checkout@v3.0.2
+      - uses: actions/checkout@v3.1.0
       - name: Set up JDK ${{ matrix.java }}
         uses: AdoptOpenJDK/install-jdk@v1
         with:
@@ -52,7 +52,7 @@ jobs:
       NEXUS_DEPLOY_USERNAME: ${{ secrets.NEXUS_USER }}
       NEXUS_DEPLOY_PASSWORD: ${{ secrets.NEXUS_PW }}
     steps:
-    - uses: actions/checkout@v3.0.2
+    - uses: actions/checkout@v3.1.0
     - name: Set up JDK 11
       uses: AdoptOpenJDK/install-jdk@v1
       with:
