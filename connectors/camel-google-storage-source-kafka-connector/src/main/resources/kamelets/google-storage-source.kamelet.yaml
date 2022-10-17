@@ -44,7 +44,7 @@ spec:
         type: string
       serviceAccountKey:
         title: Service Account Key
-        description: TThe service account key to use as credentials for Google Cloud Storage access. You must encode this value in base64.
+        description: The service account key to use as credentials for Google Cloud Storage access. You must encode this value in base64.
         type: binary
         x-descriptors:
         - urn:camel:group:credentials
