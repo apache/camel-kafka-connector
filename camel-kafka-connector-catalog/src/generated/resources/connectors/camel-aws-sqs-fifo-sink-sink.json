@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-sqs-fifo-sink-sink",
 		"type": "sink",
-		"version": "3.18.2-SNAPSHOT",
+		"version": "3.18.2",
 		"description": "\nSend message to an AWS SQS FIFO Queue.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SQS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
 	},
 	"properties": {

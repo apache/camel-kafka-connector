@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-oracle-database-source-source",
 		"type": "source",
-		"version": "3.18.2-SNAPSHOT",
+		"version": "3.18.2",
 		"description": "Query data from an Oracle Database.\n\nIn your KameletBinding file, you must explicitly declare the Oracle Database driver dependency in spec->integration->dependencies.\n\n- \"mvn:com.oracle.database.jdbc:ojdbc11:<version>\""
 	},
 	"properties": {

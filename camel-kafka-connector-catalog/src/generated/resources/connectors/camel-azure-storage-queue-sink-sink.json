@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-queue-sink-sink",
 		"type": "sink",
-		"version": "3.18.2-SNAPSHOT",
+		"version": "3.18.2",
 		"description": "Send events to Azure Storage queues.\n\nIn the header, you can set the `partition` \/ `ce-partition` property to determine how long an event remains in the Azure Storage queue. Use `PnDTnHnMn.nS.` format. For example, `PT20.345S`\u2009parses as 20.345 seconds and `P2D`\u2009parses as 2 days. If you not set the property in the header, the Kamelet uses the default of `P27D` (7 days)."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-apache-activemq-source-source",
 		"type": "source",
-		"version": "3.18.2-SNAPSHOT",
+		"version": "3.18.2",
 		"description": "A Kamelet that can consume events from an Apache ActiveMQ Classic message broker using JMS"
 	},
 	"properties": {
