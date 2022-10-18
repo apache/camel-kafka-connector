@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.18.2-SNAPSHOT</version>
+    <version>3.18.2</version>
   </parent>
   <artifactId>camel-exec-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: exec-sink</name>

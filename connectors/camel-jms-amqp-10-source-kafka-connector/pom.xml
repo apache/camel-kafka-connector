@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.18.2-SNAPSHOT</version>
+    <version>3.18.2</version>
   </parent>
   <artifactId>camel-jms-amqp-10-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jms-amqp-10-source</name>
