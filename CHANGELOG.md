@@ -4,8 +4,14 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.18.1...HEAD)
 
+**Closed issues:**
+
+- CamelSinkTask throws NPE on schemeless header [\#1447](https://github.com/apache/camel-kafka-connector/issues/1447)
+
 **Merged pull requests:**
 
+- Align main branch to Camel 3.19.0 [\#1450](https://github.com/apache/camel-kafka-connector/pull/1450) ([oscerd](https://github.com/oscerd))
+- fix \#1447 Fixed NPE error during SinkTask header mapping [\#1448](https://github.com/apache/camel-kafka-connector/pull/1448) ([jakubmalek](https://github.com/jakubmalek))
 - Bump actions/checkout from 3.0.2 to 3.1.0 [\#1446](https://github.com/apache/camel-kafka-connector/pull/1446) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 4.1.1 to 4.1.3 [\#1441](https://github.com/apache/camel-kafka-connector/pull/1441) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Next is 3.19.0 [\#1437](https://github.com/apache/camel-kafka-connector/pull/1437) ([oscerd](https://github.com/oscerd))
