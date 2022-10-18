@@ -44,6 +44,13 @@
 			"description": "The queue to receive messages from",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.rabbitmq-source.vhost": {
+			"name": "camel.kamelet.rabbitmq-source.vhost",
+			"description": "The vhost for the channel",
+			"defaultValue": "\"\/\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

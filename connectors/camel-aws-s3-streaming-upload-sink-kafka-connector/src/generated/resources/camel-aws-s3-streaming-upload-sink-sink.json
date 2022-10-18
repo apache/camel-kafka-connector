@@ -40,13 +40,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadMode": {
-			"name": "camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadMode",
-			"description": "Setting the Streaming Upload Mode",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.restartingPolicy": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.restartingPolicy",
 			"description": "The restarting policy to use in streaming upload mode. There are 2 enums and the value can be one of override, lastPart",

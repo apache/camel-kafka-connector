@@ -34,9 +34,9 @@ public class CamelGooglebigquerysinkSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_CONF = "camel.kamelet.google-bigquery-sink.table";
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_DOC = "The Big Query Table ID.";
     public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_DEFAULT = null;
-    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_CONF = "camel.kamelet.google-bigquery-sink.credentialsFileLocation";
-    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_DOC = "The credential for accessing Google Cloud Platform API services. This value must be a path to a service account key file.";
-    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_SERVICE_ACCOUNT_KEY_CONF = "camel.kamelet.google-bigquery-sink.serviceAccountKey";
+    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The service account key to use as credentials for the BigQuery Service. You must encode this value in base64.";
+    public static final String CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT = null;
 
     public CamelGooglebigquerysinkSinkConnectorConfig(
             ConfigDef config,
@@ -54,7 +54,7 @@ public class CamelGooglebigquerysinkSinkConnectorConfig
         conf.define(CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_PROJECT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_PROJECT_ID_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_PROJECT_ID_DOC);
         conf.define(CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_DATASET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_DATASET_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_DATASET_DOC);
         conf.define(CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_TABLE_DOC);
-        conf.define(CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_CREDENTIALS_FILE_LOCATION_DOC);
+        conf.define(CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_SERVICE_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEBIGQUERYSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC);
         return conf;
     }
 }
