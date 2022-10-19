@@ -41,7 +41,7 @@
 		},
 		"camel.kamelet.mongodb-source.persistentTailTracking": {
 			"name": "camel.kamelet.mongodb-source.persistentTailTracking",
-			"description": "Specifies to enable persistent tail tracking, which is a mechanism to keep track of the last consumed data across system restarts. The next time the system is up, the endpoint recovers the cursor from the point where it last stopped consuimg data. This option will only work on capped collections.",
+			"description": "Specifies to enable persistent tail tracking, which is a mechanism to keep track of the last consumed data across system restarts. The next time the system is up, the endpoint recovers the cursor from the point where it last stopped consuimg data.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

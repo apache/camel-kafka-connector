@@ -52,7 +52,7 @@ spec:
       parameters:
         period: "{{period}}"
       steps:
-        - to: "https://api.chucknorris.io/jokes/random"
+        - to: "http://api.icndb.com/jokes/random?exclude=[explicit]"
         - set-body:
-            jsonpath: "$.value"
+            jsonpath: "$.value.joke"
         - to: "kamelet:sink"

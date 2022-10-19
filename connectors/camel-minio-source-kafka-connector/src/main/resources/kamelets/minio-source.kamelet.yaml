@@ -77,7 +77,11 @@ spec:
         x-descriptors:
         - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
         default: false
+  types:
+    out:
+      mediaType: application/json
   dependencies:
+  - "camel:jackson"
   - "camel:minio"
   - "camel:kamelet"
   template:
@@ -90,4 +94,6 @@ spec:
         endpoint: "{{endpoint}}"
         deleteAfterRead: "{{deleteAfterRead}}"
       steps:
+      - marshal:
+          json: {}
       - to: "kamelet:sink"
