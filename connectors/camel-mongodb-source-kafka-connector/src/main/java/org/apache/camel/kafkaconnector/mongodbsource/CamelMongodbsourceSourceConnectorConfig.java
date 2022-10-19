@@ -42,7 +42,7 @@ public class CamelMongodbsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_DOC = "The name of the MongoDB database.";
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_DEFAULT = null;
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PERSISTENT_TAIL_TRACKING_CONF = "camel.kamelet.mongodb-source.persistentTailTracking";
-    public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PERSISTENT_TAIL_TRACKING_DOC = "Specifies to enable persistent tail tracking, which is a mechanism to keep track of the last consumed data across system restarts. The next time the system is up, the endpoint recovers the cursor from the point where it last stopped consuimg data. This option will only work on capped collections.";
+    public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PERSISTENT_TAIL_TRACKING_DOC = "Specifies to enable persistent tail tracking, which is a mechanism to keep track of the last consumed data across system restarts. The next time the system is up, the endpoint recovers the cursor from the point where it last stopped consuimg data.";
     public static final Boolean CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PERSISTENT_TAIL_TRACKING_DEFAULT = false;
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_TAIL_TRACK_INCREASING_FIELD_CONF = "camel.kamelet.mongodb-source.tailTrackIncreasingField";
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_TAIL_TRACK_INCREASING_FIELD_DOC = "The correlation field in the incoming data which is of increasing nature and is used to position the tailing cursor every time it is generated.";
