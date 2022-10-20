@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1454](https://github.com/apache/camel-kafka-connector/pull/1454) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Align main branch to Camel 3.19.0 [\#1450](https://github.com/apache/camel-kafka-connector/pull/1450) ([oscerd](https://github.com/oscerd))
 - fix \#1447 Fixed NPE error during SinkTask header mapping [\#1448](https://github.com/apache/camel-kafka-connector/pull/1448) ([jakubmalek](https://github.com/jakubmalek))
 - Bump actions/checkout from 3.0.2 to 3.1.0 [\#1446](https://github.com/apache/camel-kafka-connector/pull/1446) ([dependabot[bot]](https://github.com/apps/dependabot))
