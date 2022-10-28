@@ -115,7 +115,7 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
 
     protected void consumeMessages(CountDownLatch latch) {
         try {
-            awsSqsClient.receive(sqsQueueUrl, this::checkMessages);
+            awsSqsClient.receive(queueName, this::checkMessages);
         } catch (Throwable t) {
             LOG.error("Failed to consume messages: {}", t.getMessage(), t);
             fail(t.getMessage());

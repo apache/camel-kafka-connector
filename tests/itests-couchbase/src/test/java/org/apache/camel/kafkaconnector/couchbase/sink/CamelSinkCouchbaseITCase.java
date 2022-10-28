@@ -43,6 +43,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,13 +52,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /*
- This test is slow and flaky. It tends to fail on systems with limited resources and slow I/O. Therefore, it is
- disabled by default. Also, suffers from bugs in the couchbase test container:
+ This test is slow and potentially flaky. It might fail on systems with limited resources and slow I/O.
+ Most probably due to this bug in the couchbase test container:
  - https://github.com/testcontainers/testcontainers-java/issues/2993
 
- Therefore, this test is marked as flaky and only runs if specifically enabled.
+ Therefore, it is marked as slow test and must be explicitly enabled to be run.
  */
-//@EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true")
+@EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
     @RegisterExtension
@@ -116,13 +117,8 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
 
         topic = getTopicForTest(this);
 
-        try {
-            String startDelay = System.getProperty("couchbase.test.start.delay", "1000");
-
-            int delay = Integer.parseInt(startDelay);
-            Thread.sleep(delay);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupted();
+        if (!TestUtils.waitFor(this::isQueryServiceUp)) {
+            fail("Query Service failed to become ready in 30 seconds.");
         }
     }
 
@@ -189,6 +185,19 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
         }
 
         return false;
+    }
+
+    private boolean isQueryServiceUp() {
+        try {
+            String query = String.format("select count(*) as count from `%s`", bucketName);
+            QueryResult queryResult = cluster.query(query);
+            queryResult.rowsAsObject();
+
+            return true;
+        } catch (Exception e) {
+            LOG.warn("Exception while checking if Query service is up: {}", e.getMessage(), e);
+            return false;
+        }
     }
 
     private void verifyRecords() {

@@ -62,6 +62,8 @@ public class AWSSQSClient {
                 .queueName(queue)
                 .build();
 
+        LOG.debug("Queue: {} QueueName: {} createFifoQueueRequest: {}", queue, createFifoQueueRequest.queueName(), createFifoQueueRequest);
+
         CreateQueueResponse response = sqs.createQueue(createFifoQueueRequest);
 
         if (response.sdkHttpResponse().isSuccessful()) {
