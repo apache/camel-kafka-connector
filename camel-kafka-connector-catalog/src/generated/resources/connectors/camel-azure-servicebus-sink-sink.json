@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-servicebus-sink-sink",
 		"type": "sink",
-		"version": "3.18.2-SNAPSHOT",
+		"version": "3.18.3-SNAPSHOT",
 		"description": "Send Messages to Azure Servicebus."
 	},
 	"properties": {
