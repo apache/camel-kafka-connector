@@ -48,7 +48,7 @@
     <dependency>
       <groupId>org.apache.camel.kamelets</groupId>
       <artifactId>camel-kamelets-utils</artifactId>
-      <version>0.9.0</version>
+      <version>0.9.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>

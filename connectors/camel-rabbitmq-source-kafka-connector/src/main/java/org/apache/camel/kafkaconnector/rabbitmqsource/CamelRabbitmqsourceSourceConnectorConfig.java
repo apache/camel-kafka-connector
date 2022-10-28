@@ -44,6 +44,9 @@ public class CamelRabbitmqsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_CONF = "camel.kamelet.rabbitmq-source.queue";
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DOC = "The queue to receive messages from";
     public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_VHOST_CONF = "camel.kamelet.rabbitmq-source.vhost";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_VHOST_DOC = "The vhost for the channel";
+    public static final String CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_VHOST_DEFAULT = "/";
 
     public CamelRabbitmqsourceSourceConnectorConfig(
             ConfigDef config,
@@ -64,6 +67,7 @@ public class CamelRabbitmqsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_QUEUE_DOC);
+        conf.define(CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_VHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_VHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQSOURCE_KAMELET_VHOST_DOC);
         return conf;
     }
 }

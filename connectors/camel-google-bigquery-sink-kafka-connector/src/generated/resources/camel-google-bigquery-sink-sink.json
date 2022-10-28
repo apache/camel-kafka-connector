@@ -27,9 +27,9 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.google-bigquery-sink.credentialsFileLocation": {
-			"name": "camel.kamelet.google-bigquery-sink.credentialsFileLocation",
-			"description": "The credential for accessing Google Cloud Platform API services. This value must be a path to a service account key file.",
+		"camel.kamelet.google-bigquery-sink.serviceAccountKey": {
+			"name": "camel.kamelet.google-bigquery-sink.serviceAccountKey",
+			"description": "The service account key to use as credentials for the BigQuery Service. You must encode this value in base64.",
 			"priority": "HIGH",
 			"required": "true"
 		}
