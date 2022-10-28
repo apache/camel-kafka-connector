@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mariadb-sink-sink",
 		"type": "sink",
-		"version": "3.18.2-SNAPSHOT",
+		"version": "3.18.3-SNAPSHOT",
 		"description": "Send data to a MariaDB Database.\n\nIn your KameletBinding file, you must explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies.\n\n- \"mvn:org.mariadb.jdbc:mariadb-java-client:<version>\"\n\nThis Kamelet expects a JSON-formatted body. Use key:value pairs to map the JSON fields and parameters. For example, here is a query:\n\n'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'\n\nHere is example input for the example query:\n\n'{ \"username\":\"oscerd\", \"city\":\"Rome\"}'"
 	},
 	"properties": {

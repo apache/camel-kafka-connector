@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-source-source",
 		"type": "source",
-		"version": "3.18.2-SNAPSHOT",
+		"version": "3.18.3-SNAPSHOT",
 		"description": "Receive data from Kafka topics."
 	},
 	"properties": {
