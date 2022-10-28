@@ -33,6 +33,13 @@
 			"defaultValue": "\"uploadBlockBlob\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-sink.credentialType": {
+			"name": "camel.kamelet.azure-storage-blob-sink.credentialType",
+			"description": "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

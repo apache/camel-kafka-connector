@@ -30,7 +30,7 @@ public class CamelGooglestoragesourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The Google Cloud Storage bucket name or Bucket Amazon Resource Name (ARN).";
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_CONF = "camel.kamelet.google-storage-source.serviceAccountKey";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "TThe service account key to use as credentials for Google Cloud Storage access. You must encode this value in base64.";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The service account key to use as credentials for Google Cloud Storage access. You must encode this value in base64.";
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_DELETE_AFTER_READ_CONF = "camel.kamelet.google-storage-source.deleteAfterRead";
     public static final String CAMEL_SOURCE_GOOGLESTORAGESOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Specifies to delete objects after consuming them.";

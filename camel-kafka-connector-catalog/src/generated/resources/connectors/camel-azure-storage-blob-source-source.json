@@ -33,6 +33,13 @@
 			"description": "The Azure Storage Blob access key.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-blob-source.credentialType",
+			"description": "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }
