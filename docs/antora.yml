@@ -28,9 +28,9 @@ asciidoc:
   attributes:
     requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
     LTS: September 2023
-    camel-version: 3.18.1
+    camel-version: 3.18.2
     camel-docs-version: 3.18.x
-    camel-kamelets-version: 0.9.0
+    camel-kamelets-version: 0.9.1
     camel-kamelets-docs-version: 0.9.x
     kafka-version: 2.8.0
     kafka-docs-version: 28
