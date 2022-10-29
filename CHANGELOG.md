@@ -4,8 +4,13 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.18.2...HEAD)
 
+**Closed issues:**
+
+- Upgrade to Camel 3.18.2 and Camel-Kamelets-catalog 0.9.1 [\#1449](https://github.com/apache/camel-kafka-connector/issues/1449)
+
 **Merged pull requests:**
 
+- Doc changes [\#1460](https://github.com/apache/camel-kafka-connector/pull/1460) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1454](https://github.com/apache/camel-kafka-connector/pull/1454) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Align main branch to Camel 3.19.0 [\#1450](https://github.com/apache/camel-kafka-connector/pull/1450) ([oscerd](https://github.com/oscerd))
 - fix \#1447 Fixed NPE error during SinkTask header mapping [\#1448](https://github.com/apache/camel-kafka-connector/pull/1448) ([jakubmalek](https://github.com/jakubmalek))
