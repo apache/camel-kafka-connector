@@ -11,6 +11,7 @@
 **Merged pull requests:**
 
 - Doc changes [\#1460](https://github.com/apache/camel-kafka-connector/pull/1460) ([valdar](https://github.com/valdar))
+- Bump peter-evans/create-pull-request from 4.1.3 to 4.2.0 [\#1459](https://github.com/apache/camel-kafka-connector/pull/1459) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1454](https://github.com/apache/camel-kafka-connector/pull/1454) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Align main branch to Camel 3.19.0 [\#1450](https://github.com/apache/camel-kafka-connector/pull/1450) ([oscerd](https://github.com/oscerd))
 - fix \#1447 Fixed NPE error during SinkTask header mapping [\#1448](https://github.com/apache/camel-kafka-connector/pull/1448) ([jakubmalek](https://github.com/jakubmalek))
