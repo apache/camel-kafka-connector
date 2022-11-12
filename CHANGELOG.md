@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - Upgrade to Camel 3.18.2 and Camel-Kamelets-catalog 0.9.1 [\#1449](https://github.com/apache/camel-kafka-connector/issues/1449)
+- camel-rabbitmq-source-kafka-connector: Unable to specify vhost [\#1442](https://github.com/apache/camel-kafka-connector/issues/1442)
 
 **Merged pull requests:**
 
