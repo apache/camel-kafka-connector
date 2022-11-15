@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Bump actions/dependency-review-action from 2 to 3 [\#1468](https://github.com/apache/camel-kafka-connector/pull/1468) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Doc changes [\#1460](https://github.com/apache/camel-kafka-connector/pull/1460) ([valdar](https://github.com/valdar))
 - Bump peter-evans/create-pull-request from 4.1.3 to 4.2.0 [\#1459](https://github.com/apache/camel-kafka-connector/pull/1459) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1454](https://github.com/apache/camel-kafka-connector/pull/1454) ([github-actions[bot]](https://github.com/apps/github-actions))
