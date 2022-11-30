@@ -6,6 +6,8 @@
 
 **Closed issues:**
 
+- SCP / SFTP connectors do not allow setting private keys for SSH authentication [\#1470](https://github.com/apache/camel-kafka-connector/issues/1470)
+- FTP/SFTP sink connectors do not allow setting binary mode for transferring files [\#1469](https://github.com/apache/camel-kafka-connector/issues/1469)
 - Upgrade to Camel 3.18.2 and Camel-Kamelets-catalog 0.9.1 [\#1449](https://github.com/apache/camel-kafka-connector/issues/1449)
 - camel-rabbitmq-source-kafka-connector: Unable to specify vhost [\#1442](https://github.com/apache/camel-kafka-connector/issues/1442)
 
