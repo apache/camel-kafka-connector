@@ -6,7 +6,7 @@
 		"id": "camel-azure-eventhubs-sink-sink",
 		"type": "sink",
 		"version": "3.19.0-SNAPSHOT",
-		"description": "Send events to Azure Event Hubs.\n\nThe Kamelet checks for the `partition` \/ `ce-partition` header to determine how long an event remains in the Azure Storage queue. Use `PnDTnHnMn.nS.` format. For example, `PT20.345S`\u2009parses as 20.345 seconds and `P2D`\u2009parses as 2 days.\n   \nA header is optional. If the header is not set, the partition is assigned by Event Hubs."
+		"description": "Send events to Azure Event Hubs.\n\nThe Kamelet checks for the `partition-id` \/ `ce-partition-id` header which is an identifier of the Event Hub partition that the event will be sent to. If the identifier is not specified, the Event Hubs service will be responsible for routing events that are sent to an available partition.\n   \nA header is optional. If the header is not set, the partition is assigned by Event Hubs."
 	},
 	"properties": {
 		"camel.kamelet.azure-eventhubs-sink.namespaceName": {

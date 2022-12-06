@@ -29,7 +29,7 @@
 		},
 		"camel.kamelet.google-functions-sink.serviceAccountKey": {
 			"name": "camel.kamelet.google-functions-sink.serviceAccountKey",
-			"description": "The path to the service account key file that provides credentials for the Google Cloud Functions platform.",
+			"description": "The path to the service account key file that provides credentials for the Google Cloud Functions platform. You must encode this value in base64.",
 			"priority": "HIGH",
 			"required": "true"
 		}

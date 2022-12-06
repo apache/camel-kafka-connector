@@ -51,6 +51,27 @@
 			"description": "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.sqlserver-source.encrypt": {
+			"name": "camel.kamelet.sqlserver-source.encrypt",
+			"description": "Encrypt the connection to SQL Server.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sqlserver-source.trustServerCertificate": {
+			"name": "camel.kamelet.sqlserver-source.trustServerCertificate",
+			"description": "Trust Server Ceritificate",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sqlserver-source.delay": {
+			"name": "camel.kamelet.sqlserver-source.delay",
+			"description": "The number of milliseconds before the next poll",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

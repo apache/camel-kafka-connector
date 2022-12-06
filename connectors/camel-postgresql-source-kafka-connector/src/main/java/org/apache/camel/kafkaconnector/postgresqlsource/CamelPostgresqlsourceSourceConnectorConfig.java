@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.postgresqlsource;
+ */package org.apache.camel.kafkaconnector.postgresqlsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -47,6 +46,9 @@ public class CamelPostgresqlsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_CONSUMED_QUERY_CONF = "camel.kamelet.postgresql-source.consumedQuery";
     public static final String CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_CONSUMED_QUERY_DOC = "A query to run on a tuple consumed. Example: DELETE FROM accounts where user_id = :#user_id";
     public static final String CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_CONSUMED_QUERY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.postgresql-source.delay";
+    public static final String CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll";
+    public static final Integer CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DELAY_DEFAULT = 500;
 
     public CamelPostgresqlsourceSourceConnectorConfig(
             ConfigDef config,
@@ -68,6 +70,7 @@ public class CamelPostgresqlsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_QUERY_DOC);
         conf.define(CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DATABASE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DATABASE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DATABASE_NAME_DOC);
         conf.define(CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_CONSUMED_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_CONSUMED_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_CONSUMED_QUERY_DOC);
+        conf.define(CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_POSTGRESQLSOURCE_KAMELET_DELAY_DOC);
         return conf;
     }
 }

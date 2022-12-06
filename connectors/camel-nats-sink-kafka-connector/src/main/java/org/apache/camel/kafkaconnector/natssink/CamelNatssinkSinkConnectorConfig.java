@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.natssink;
+ */package org.apache.camel.kafkaconnector.natssink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -46,7 +45,7 @@ public class CamelNatssinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_NATSSINK_KAMELET_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATSSINK_KAMELET_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_NATSSINK_KAMELET_TOPIC_DOC);
-        conf.define(CAMEL_SINK_NATSSINK_KAMELET_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DOC);
+        conf.define(CAMEL_SINK_NATSSINK_KAMELET_SERVERS_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DOC);
         return conf;
     }
 }

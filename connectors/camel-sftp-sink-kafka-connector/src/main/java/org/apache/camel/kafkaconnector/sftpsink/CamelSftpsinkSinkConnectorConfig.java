@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.sftpsink;
+ */package org.apache.camel.kafkaconnector.sftpsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -47,6 +46,24 @@ public class CamelSftpsinkSinkConnectorConfig
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_FILE_EXIST_CONF = "camel.kamelet.sftp-sink.fileExist";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_FILE_EXIST_DOC = "How to behave in case of file already existent. There are 4 enums. Possible values are Override, Append, Fail, or Ignore.";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_FILE_EXIST_DEFAULT = "Override";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_BINARY_CONF = "camel.kamelet.sftp-sink.binary";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_BINARY_DOC = "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).";
+    public static final Boolean CAMEL_SINK_SFTPSINK_KAMELET_BINARY_DEFAULT = false;
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_FILE_CONF = "camel.kamelet.sftp-sink.privateKeyFile";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_FILE_DOC = "Set the private key file so that the SFTP endpoint can do private key verification.";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_FILE_DEFAULT = null;
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_CONF = "camel.kamelet.sftp-sink.privateKeyPassphrase";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_DOC = "Set the private key file passphrase so that the SFTP endpoint can do private key verification.";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_DEFAULT = null;
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_URI_CONF = "camel.kamelet.sftp-sink.privateKeyUri";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_URI_DOC = "Set the private key file (loaded from classpath by default) so that the SFTP endpoint can do private key verification.";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_URI_DEFAULT = null;
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_CONF = "camel.kamelet.sftp-sink.strictHostKeyChecking";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_DOC = "Sets whether to use strict host key checking.";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_DEFAULT = "false";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_USE_USER_KNOWN_HOSTS_FILE_CONF = "camel.kamelet.sftp-sink.useUserKnownHostsFile";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DOC = "If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)/.ssh/known_hosts.";
+    public static final Boolean CAMEL_SINK_SFTPSINK_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DEFAULT = true;
 
     public CamelSftpsinkSinkConnectorConfig(
             ConfigDef config,
@@ -62,11 +79,17 @@ public class CamelSftpsinkSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DOC);
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DOC);
-        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DOC);
-        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_DIRECTORY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_DIRECTORY_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SFTPSINK_KAMELET_DIRECTORY_NAME_DOC);
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PASSIVE_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SFTPSINK_KAMELET_PASSIVE_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_PASSIVE_MODE_DOC);
         conf.define(CAMEL_SINK_SFTPSINK_KAMELET_FILE_EXIST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_FILE_EXIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_FILE_EXIST_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_BINARY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SFTPSINK_KAMELET_BINARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_BINARY_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_FILE_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_PRIVATE_KEY_URI_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_DOC);
+        conf.define(CAMEL_SINK_SFTPSINK_KAMELET_USE_USER_KNOWN_HOSTS_FILE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SFTPSINK_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTPSINK_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DOC);
         return conf;
     }
 }

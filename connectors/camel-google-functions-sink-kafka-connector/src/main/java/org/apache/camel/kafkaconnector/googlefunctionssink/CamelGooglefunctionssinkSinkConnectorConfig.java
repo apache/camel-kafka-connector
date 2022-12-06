@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.googlefunctionssink;
+ */package org.apache.camel.kafkaconnector.googlefunctionssink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -36,7 +35,7 @@ public class CamelGooglefunctionssinkSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_FUNCTION_NAME_DOC = "The Function name.";
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_FUNCTION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_CONF = "camel.kamelet.google-functions-sink.serviceAccountKey";
-    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The path to the service account key file that provides credentials for the Google Cloud Functions platform.";
+    public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC = "The path to the service account key file that provides credentials for the Google Cloud Functions platform. You must encode this value in base64.";
     public static final String CAMEL_SINK_GOOGLEFUNCTIONSSINK_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT = null;
 
     public CamelGooglefunctionssinkSinkConnectorConfig(

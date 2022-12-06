@@ -9,13 +9,6 @@
 		"description": "Send mails to given SMTP server."
 	},
 	"properties": {
-		"camel.kamelet.mail-sink.protocol": {
-			"name": "camel.kamelet.mail-sink.protocol",
-			"description": "The mail protocol to use",
-			"defaultValue": "\"smtp\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.kamelet.mail-sink.connectionHost": {
 			"name": "camel.kamelet.mail-sink.connectionHost",
 			"description": "The mail server host Example: smtp.gmail.com",

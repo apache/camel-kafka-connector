@@ -25,14 +25,14 @@
 		"camel.kamelet.sftp-source.username": {
 			"name": "camel.kamelet.sftp-source.username",
 			"description": "The username to access the SFTP server.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.sftp-source.password": {
 			"name": "camel.kamelet.sftp-source.password",
 			"description": "The password to access the SFTP server.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.sftp-source.directoryName": {
 			"name": "camel.kamelet.sftp-source.directoryName",
@@ -65,6 +65,45 @@
 			"name": "camel.kamelet.sftp-source.ignoreFileNotFoundOrPermissionError",
 			"description": "Whether to ignore when (trying to list files in directories or when downloading a file), which does not exist or due to permission error. By default when a directory or file does not exists or insufficient permission, then an exception is thrown. Setting this option to true allows to ignore that instead.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.binary": {
+			"name": "camel.kamelet.sftp-source.binary",
+			"description": "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.privateKeyFile": {
+			"name": "camel.kamelet.sftp-source.privateKeyFile",
+			"description": "Set the private key file so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.privateKeyPassphrase": {
+			"name": "camel.kamelet.sftp-source.privateKeyPassphrase",
+			"description": "Set the private key file passphrase so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.privateKeyUri": {
+			"name": "camel.kamelet.sftp-source.privateKeyUri",
+			"description": "Set the private key file (loaded from classpath by default) so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.strictHostKeyChecking": {
+			"name": "camel.kamelet.sftp-source.strictHostKeyChecking",
+			"description": "Sets whether to use strict host key checking.",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.useUserKnownHostsFile": {
+			"name": "camel.kamelet.sftp-source.useUserKnownHostsFile",
+			"description": "If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)\/.ssh\/known_hosts.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

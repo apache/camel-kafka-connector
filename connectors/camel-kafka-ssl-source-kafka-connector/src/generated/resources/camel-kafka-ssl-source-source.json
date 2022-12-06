@@ -85,8 +85,8 @@
 		"camel.kamelet.kafka-ssl-source.sslKeystorePassword": {
 			"name": "camel.kamelet.kafka-ssl-source.sslKeystorePassword",
 			"description": "The store password for the key store file.This is optional for client and only needed if ssl.keystore.location is configured.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.kafka-ssl-source.sslProtocol": {
 			"name": "camel.kamelet.kafka-ssl-source.sslProtocol",
@@ -98,8 +98,8 @@
 		"camel.kamelet.kafka-ssl-source.sslKeystoreLocation": {
 			"name": "camel.kamelet.kafka-ssl-source.sslKeystoreLocation",
 			"description": "The location of the key store file. This is optional for client and can be used for two-way authentication for client.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.kafka-ssl-source.sslTruststoreLocation": {
 			"name": "camel.kamelet.kafka-ssl-source.sslTruststoreLocation",
@@ -111,6 +111,12 @@
 			"name": "camel.kamelet.kafka-ssl-source.sslEnabledProtocols",
 			"description": "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.",
 			"defaultValue": "\"TLSv1.2,TLSv1.1,TLSv1\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-ssl-source.saslJaasConfig": {
+			"name": "camel.kamelet.kafka-ssl-source.saslJaasConfig",
+			"description": "Java Authentication and Authorization Service (JAAS) for Simple Authentication and Security Layer (SASL) configuration.",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

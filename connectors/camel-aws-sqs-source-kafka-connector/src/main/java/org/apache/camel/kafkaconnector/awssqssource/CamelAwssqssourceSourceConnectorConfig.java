@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.awssqssource;
+ */package org.apache.camel.kafkaconnector.awssqssource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -65,6 +64,9 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.aws-sqs-source.delay";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll of the selected stream";
     public static final Integer CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DEFAULT = 500;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_CONF = "camel.kamelet.aws-sqs-source.greedy";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DOC = "If greedy is enabled, then the polling will happen immediately again, if the previous run polled 1 or more messages.";
+    public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DEFAULT = false;
 
     public CamelAwssqssourceSourceConnectorConfig(
             ConfigDef config,
@@ -92,6 +94,7 @@ public class CamelAwssqssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DOC);
         return conf;
     }
 }

@@ -46,6 +46,15 @@
       <artifactId>camel-azure-storage-queue</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.kamelets</groupId>
+      <artifactId>camel-kamelets-utils</artifactId>
+      <version>0.10.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>

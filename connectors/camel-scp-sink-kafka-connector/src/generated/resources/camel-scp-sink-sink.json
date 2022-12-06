@@ -32,6 +32,32 @@
 			"description": "Password for accessing FTP Server",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.scp-sink.privateKeyFile": {
+			"name": "camel.kamelet.scp-sink.privateKeyFile",
+			"description": "Set the private key file so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.scp-sink.privateKeyPassphrase": {
+			"name": "camel.kamelet.scp-sink.privateKeyPassphrase",
+			"description": "Set the private key file passphrase so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.scp-sink.strictHostKeyChecking": {
+			"name": "camel.kamelet.scp-sink.strictHostKeyChecking",
+			"description": "Sets whether to use strict host key checking.",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.scp-sink.useUserKnownHostsFile": {
+			"name": "camel.kamelet.scp-sink.useUserKnownHostsFile",
+			"description": "If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)\/.ssh\/known_hosts.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

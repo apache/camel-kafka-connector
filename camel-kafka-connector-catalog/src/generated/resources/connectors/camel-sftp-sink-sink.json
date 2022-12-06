@@ -25,14 +25,14 @@
 		"camel.kamelet.sftp-sink.username": {
 			"name": "camel.kamelet.sftp-sink.username",
 			"description": "The username to access the FTP server.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.sftp-sink.password": {
 			"name": "camel.kamelet.sftp-sink.password",
 			"description": "The password to access the FTP server.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.sftp-sink.directoryName": {
 			"name": "camel.kamelet.sftp-sink.directoryName",
@@ -51,6 +51,45 @@
 			"name": "camel.kamelet.sftp-sink.fileExist",
 			"description": "How to behave in case of file already existent. There are 4 enums. Possible values are Override, Append, Fail, or Ignore.",
 			"defaultValue": "\"Override\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.binary": {
+			"name": "camel.kamelet.sftp-sink.binary",
+			"description": "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.privateKeyFile": {
+			"name": "camel.kamelet.sftp-sink.privateKeyFile",
+			"description": "Set the private key file so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.privateKeyPassphrase": {
+			"name": "camel.kamelet.sftp-sink.privateKeyPassphrase",
+			"description": "Set the private key file passphrase so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.privateKeyUri": {
+			"name": "camel.kamelet.sftp-sink.privateKeyUri",
+			"description": "Set the private key file (loaded from classpath by default) so that the SFTP endpoint can do private key verification.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.strictHostKeyChecking": {
+			"name": "camel.kamelet.sftp-sink.strictHostKeyChecking",
+			"description": "Sets whether to use strict host key checking.",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.useUserKnownHostsFile": {
+			"name": "camel.kamelet.sftp-sink.useUserKnownHostsFile",
+			"description": "If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)\/.ssh\/known_hosts.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

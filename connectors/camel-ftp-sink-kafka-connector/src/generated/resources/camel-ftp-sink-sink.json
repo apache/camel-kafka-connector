@@ -53,6 +53,13 @@
 			"defaultValue": "\"Override\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.ftp-sink.binary": {
+			"name": "camel.kamelet.ftp-sink.binary",
+			"description": "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

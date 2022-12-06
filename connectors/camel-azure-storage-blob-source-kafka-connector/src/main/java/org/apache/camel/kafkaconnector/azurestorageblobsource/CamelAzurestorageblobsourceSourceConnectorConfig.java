@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.azurestorageblobsource;
+ */package org.apache.camel.kafkaconnector.azurestorageblobsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,9 +25,6 @@ public class CamelAzurestorageblobsourceSourceConnectorConfig
         extends
             CamelSourceConnectorConfig {
 
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_CONF = "camel.kamelet.azure-storage-blob-source.period";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_DOC = "The interval (in milliseconds) between fetches to the Azure Storage Container.";
-    public static final Integer CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_DEFAULT = 10000;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_CONF = "camel.kamelet.azure-storage-blob-source.accountName";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_DOC = "The Azure Storage Blob account name.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_DEFAULT = null;
@@ -41,6 +37,12 @@ public class CamelAzurestorageblobsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CREDENTIAL_TYPE_CONF = "camel.kamelet.azure-storage-blob-source.credentialType";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT = "SHARED_ACCOUNT_KEY";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.azure-storage-blob-source.delay";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll of the selected blob.";
+    public static final Integer CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELAY_DEFAULT = 500;
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELETE_AFTER_READ_CONF = "camel.kamelet.azure-storage-blob-source.deleteAfterRead";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Specifies to delete blobs after consuming them";
+    public static final Boolean CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELETE_AFTER_READ_DEFAULT = false;
 
     public CamelAzurestorageblobsourceSourceConnectorConfig(
             ConfigDef config,
@@ -55,11 +57,12 @@ public class CamelAzurestorageblobsourceSourceConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
-        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_PERIOD_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCOUNT_NAME_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CONTAINER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CONTAINER_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CONTAINER_NAME_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CREDENTIAL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_CREDENTIAL_TYPE_DOC);
+        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELAY_DOC);
+        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELETE_AFTER_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELETE_AFTER_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOBSOURCE_KAMELET_DELETE_AFTER_READ_DOC);
         return conf;
     }
 }

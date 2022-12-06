@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.ftpssource;
+ */package org.apache.camel.kafkaconnector.ftpssource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -50,6 +49,9 @@ public class CamelFtpssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_CONF = "camel.kamelet.ftps-source.idempotent";
     public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DOC = "Skip already-processed files.";
     public static final Boolean CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DEFAULT = true;
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_CONF = "camel.kamelet.ftps-source.binary";
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DOC = "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).";
+    public static final Boolean CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DEFAULT = false;
 
     public CamelFtpssourceSourceConnectorConfig(
             ConfigDef config,
@@ -71,6 +73,7 @@ public class CamelFtpssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_PASSIVE_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_PASSIVE_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_PASSIVE_MODE_DOC);
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_DOC);
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DOC);
+        conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DOC);
         return conf;
     }
 }

@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.azurestorageblobchangefeedsource;
+ */package org.apache.camel.kafkaconnector.azurestorageblobchangefeedsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -35,6 +34,9 @@ public class CamelAzurestorageblobchangefeedsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.azure-storage-blob-changefeed-source.accessKey";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Blob access Key.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCESS_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_CREDENTIAL_TYPE_CONF = "camel.kamelet.azure-storage-blob-changefeed-source.credentialType";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT = "SHARED_ACCOUNT_KEY";
 
     public CamelAzurestorageblobchangefeedsourceSourceConnectorConfig(
             ConfigDef config,
@@ -52,6 +54,7 @@ public class CamelAzurestorageblobchangefeedsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_PERIOD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_PERIOD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_PERIOD_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCOUNT_NAME_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_CREDENTIAL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOBCHANGEFEEDSOURCE_KAMELET_CREDENTIAL_TYPE_DOC);
         return conf;
     }
 }

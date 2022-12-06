@@ -1,0 +1,64 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awscloudtrailsource.CamelAwscloudtrailsourceSourceConnector",
+		"artifactId": "camel-aws-cloudtrail-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-cloudtrail-source-source",
+		"type": "source",
+		"version": "3.19.0-SNAPSHOT",
+		"description": "Receive data from an AWS Cloudtrail.\n\nThe basic authentication method for the Cloudtrail service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider."
+	},
+	"properties": {
+		"camel.kamelet.aws-cloudtrail-source.accessKey": {
+			"name": "camel.kamelet.aws-cloudtrail-source.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-cloudtrail-source.secretKey": {
+			"name": "camel.kamelet.aws-cloudtrail-source.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-cloudtrail-source.region": {
+			"name": "camel.kamelet.aws-cloudtrail-source.region",
+			"description": "The AWS region to access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-cloudtrail-source.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-cloudtrail-source.useDefaultCredentialsProvider",
+			"description": "If true, the Cloudtrail client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-cloudtrail-source.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-cloudtrail-source.uriEndpointOverride",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-cloudtrail-source.overrideEndpoint": {
+			"name": "camel.kamelet.aws-cloudtrail-source.overrideEndpoint",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-cloudtrail-source.maxResults": {
+			"name": "camel.kamelet.aws-cloudtrail-source.maxResults",
+			"description": "Maximum number of records that will be fetched in each poll.",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-cloudtrail-source.eventSource": {
+			"name": "camel.kamelet.aws-cloudtrail-source.eventSource",
+			"description": "Specify an event source to select events. Example: secretsmanager.amazonaws.com",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
