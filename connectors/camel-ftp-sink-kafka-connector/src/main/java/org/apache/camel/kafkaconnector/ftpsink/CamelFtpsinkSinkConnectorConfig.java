@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.ftpsink;
+ */package org.apache.camel.kafkaconnector.ftpsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -45,6 +44,9 @@ public class CamelFtpsinkSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_CONF = "camel.kamelet.ftp-sink.fileExist";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_DOC = "How to behave in case of file already existent. There are 4 enums. Possible values are Override, Append, Fail, or Ignore.";
     public static final String CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_DEFAULT = "Override";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_BINARY_CONF = "camel.kamelet.ftp-sink.binary";
+    public static final String CAMEL_SINK_FTPSINK_KAMELET_BINARY_DOC = "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).";
+    public static final Boolean CAMEL_SINK_FTPSINK_KAMELET_BINARY_DEFAULT = false;
 
     public CamelFtpsinkSinkConnectorConfig(
             ConfigDef config,
@@ -65,6 +67,7 @@ public class CamelFtpsinkSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_FTPSINK_KAMELET_DIRECTORY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FTPSINK_KAMELET_DIRECTORY_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_FTPSINK_KAMELET_DIRECTORY_NAME_DOC);
         conf.define(CAMEL_SINK_FTPSINK_KAMELET_PASSIVE_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FTPSINK_KAMELET_PASSIVE_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FTPSINK_KAMELET_PASSIVE_MODE_DOC);
         conf.define(CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FTPSINK_KAMELET_FILE_EXIST_DOC);
+        conf.define(CAMEL_SINK_FTPSINK_KAMELET_BINARY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FTPSINK_KAMELET_BINARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FTPSINK_KAMELET_BINARY_DOC);
         return conf;
     }
 }

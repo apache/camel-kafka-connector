@@ -28,6 +28,12 @@
 			"defaultValue": "\"text\/plain\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.timer-source.repeatCount": {
+			"name": "camel.kamelet.timer-source.repeatCount",
+			"description": "Specifies a maximum limit of number of fires",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

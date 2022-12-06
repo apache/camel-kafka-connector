@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.sqlserversink;
+ */package org.apache.camel.kafkaconnector.sqlserversink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -44,6 +43,12 @@ public class CamelSqlserversinkSinkConnectorConfig
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_DATABASE_NAME_CONF = "camel.kamelet.sqlserver-sink.databaseName";
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_DATABASE_NAME_DOC = "The name of the SQL Server Database.";
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_DATABASE_NAME_DEFAULT = null;
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_CONF = "camel.kamelet.sqlserver-sink.encrypt";
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_DOC = "Encrypt the connection to SQL Server.";
+    public static final Boolean CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_DEFAULT = false;
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_CONF = "camel.kamelet.sqlserver-sink.trustServerCertificate";
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_DOC = "Trust Server Ceritificate";
+    public static final Boolean CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_DEFAULT = true;
 
     public CamelSqlserversinkSinkConnectorConfig(
             ConfigDef config,
@@ -64,6 +69,8 @@ public class CamelSqlserversinkSinkConnectorConfig
         conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SQLSERVERSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQLSERVERSINK_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQLSERVERSINK_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQLSERVERSINK_KAMELET_QUERY_DOC);
         conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_DATABASE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SQLSERVERSINK_KAMELET_DATABASE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SQLSERVERSINK_KAMELET_DATABASE_NAME_DOC);
+        conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_DOC);
+        conf.define(CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_DOC);
         return conf;
     }
 }

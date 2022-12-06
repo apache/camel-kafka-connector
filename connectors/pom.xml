@@ -211,7 +211,9 @@
         </profile>
     </profiles>
     <modules>
+        <module>camel-aws-cloudtrail-source-kafka-connector</module>
         <module>camel-aws-cloudwatch-sink-kafka-connector</module>
+        <module>camel-aws-ddb-experimental-sink-kafka-connector</module>
         <module>camel-aws-ddb-sink-kafka-connector</module>
         <module>camel-aws-ddb-streams-source-kafka-connector</module>
         <module>camel-aws-ec2-sink-kafka-connector</module>
@@ -222,6 +224,8 @@
         <module>camel-aws-lambda-sink-kafka-connector</module>
         <module>camel-aws-redshift-sink-kafka-connector</module>
         <module>camel-aws-redshift-source-kafka-connector</module>
+        <module>camel-aws-s3-cdc-source-kafka-connector</module>
+        <module>camel-aws-s3-experimental-source-kafka-connector</module>
         <module>camel-aws-s3-sink-kafka-connector</module>
         <module>camel-aws-s3-source-kafka-connector</module>
         <module>camel-aws-s3-streaming-upload-sink-kafka-connector</module>
@@ -241,6 +245,7 @@
         <module>camel-azure-functions-sink-kafka-connector</module>
         <module>camel-azure-servicebus-sink-kafka-connector</module>
         <module>camel-azure-servicebus-source-kafka-connector</module>
+        <module>camel-azure-storage-blob-cdc-source-kafka-connector</module>
         <module>camel-azure-storage-blob-changefeed-source-kafka-connector</module>
         <module>camel-azure-storage-blob-sink-kafka-connector</module>
         <module>camel-azure-storage-blob-source-kafka-connector</module>
@@ -282,6 +287,7 @@
         <module>camel-google-pubsub-sink-kafka-connector</module>
         <module>camel-google-pubsub-source-kafka-connector</module>
         <module>camel-google-sheets-source-kafka-connector</module>
+        <module>camel-google-storage-cdc-source-kafka-connector</module>
         <module>camel-google-storage-sink-kafka-connector</module>
         <module>camel-google-storage-source-kafka-connector</module>
         <module>camel-hdfs-kafka-connector</module>
@@ -330,6 +336,7 @@
         <module>camel-mqtt-source-kafka-connector</module>
         <module>camel-mqtt5-sink-kafka-connector</module>
         <module>camel-mqtt5-source-kafka-connector</module>
+        <module>camel-ms-exchange-online-imap-oauth-source-kafka-connector</module>
         <module>camel-mysql-sink-kafka-connector</module>
         <module>camel-mysql-source-kafka-connector</module>
         <module>camel-nats-sink-kafka-connector</module>

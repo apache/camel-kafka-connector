@@ -45,6 +45,20 @@
 			"description": "The name of the SQL Server Database.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.sqlserver-sink.encrypt": {
+			"name": "camel.kamelet.sqlserver-sink.encrypt",
+			"description": "Encrypt the connection to SQL Server.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sqlserver-sink.trustServerCertificate": {
+			"name": "camel.kamelet.sqlserver-sink.trustServerCertificate",
+			"description": "Trust Server Ceritificate",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

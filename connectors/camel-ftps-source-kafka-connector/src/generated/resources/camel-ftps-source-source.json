@@ -60,6 +60,13 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.ftps-source.binary": {
+			"name": "camel.kamelet.ftps-source.binary",
+			"description": "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

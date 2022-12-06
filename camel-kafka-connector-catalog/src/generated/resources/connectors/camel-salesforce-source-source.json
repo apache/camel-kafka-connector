@@ -58,6 +58,41 @@
 			"description": "The Salesforce user password.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.salesforce-source.notifyForOperationCreate": {
+			"name": "camel.kamelet.salesforce-source.notifyForOperationCreate",
+			"description": "Notify for create operation.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.salesforce-source.notifyForOperationUpdate": {
+			"name": "camel.kamelet.salesforce-source.notifyForOperationUpdate",
+			"description": "Notify for update operation.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.salesforce-source.notifyForOperationDelete": {
+			"name": "camel.kamelet.salesforce-source.notifyForOperationDelete",
+			"description": "Notify for delete operation.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.salesforce-source.notifyForOperationUndelete": {
+			"name": "camel.kamelet.salesforce-source.notifyForOperationUndelete",
+			"description": "Notify for undelete operation.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.salesforce-source.operation": {
+			"name": "camel.kamelet.salesforce-source.operation",
+			"description": "The operation to use",
+			"defaultValue": "\"subscribe\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

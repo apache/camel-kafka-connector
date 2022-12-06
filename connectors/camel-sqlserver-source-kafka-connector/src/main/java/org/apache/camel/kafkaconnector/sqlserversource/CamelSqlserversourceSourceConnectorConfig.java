@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.sqlserversource;
+ */package org.apache.camel.kafkaconnector.sqlserversource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -47,6 +46,15 @@ public class CamelSqlserversourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_CONSUMED_QUERY_CONF = "camel.kamelet.sqlserver-source.consumedQuery";
     public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_CONSUMED_QUERY_DOC = "A query to run on a tuple consumed Example: DELETE FROM accounts where user_id = :#user_id";
     public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_CONSUMED_QUERY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_CONF = "camel.kamelet.sqlserver-source.encrypt";
+    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_DOC = "Encrypt the connection to SQL Server.";
+    public static final Boolean CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_CONF = "camel.kamelet.sqlserver-source.trustServerCertificate";
+    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_DOC = "Trust Server Ceritificate";
+    public static final Boolean CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.sqlserver-source.delay";
+    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll";
+    public static final Integer CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_DEFAULT = 500;
 
     public CamelSqlserversourceSourceConnectorConfig(
             ConfigDef config,
@@ -68,6 +76,9 @@ public class CamelSqlserversourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_QUERY_DOC);
         conf.define(CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DATABASE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DATABASE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DATABASE_NAME_DOC);
         conf.define(CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_CONSUMED_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_CONSUMED_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_CONSUMED_QUERY_DOC);
+        conf.define(CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_DOC);
+        conf.define(CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_DOC);
+        conf.define(CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_DOC);
         return conf;
     }
 }

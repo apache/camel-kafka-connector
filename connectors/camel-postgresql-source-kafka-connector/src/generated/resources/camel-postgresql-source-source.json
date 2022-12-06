@@ -51,6 +51,13 @@
 			"description": "A query to run on a tuple consumed. Example: DELETE FROM accounts where user_id = :#user_id",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.postgresql-source.delay": {
+			"name": "camel.kamelet.postgresql-source.delay",
+			"description": "The number of milliseconds before the next poll",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

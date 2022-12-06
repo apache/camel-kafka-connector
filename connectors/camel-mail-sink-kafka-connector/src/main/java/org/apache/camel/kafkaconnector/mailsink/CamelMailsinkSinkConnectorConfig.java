@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.mailsink;
+ */package org.apache.camel.kafkaconnector.mailsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -26,9 +25,6 @@ public class CamelMailsinkSinkConnectorConfig
         extends
             CamelSinkConnectorConfig {
 
-    public static final String CAMEL_SINK_MAILSINK_KAMELET_PROTOCOL_CONF = "camel.kamelet.mail-sink.protocol";
-    public static final String CAMEL_SINK_MAILSINK_KAMELET_PROTOCOL_DOC = "The mail protocol to use";
-    public static final String CAMEL_SINK_MAILSINK_KAMELET_PROTOCOL_DEFAULT = "smtp";
     public static final String CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.mail-sink.connectionHost";
     public static final String CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_HOST_DOC = "The mail server host Example: smtp.gmail.com";
     public static final String CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_HOST_DEFAULT = null;
@@ -63,7 +59,6 @@ public class CamelMailsinkSinkConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
-        conf.define(CAMEL_SINK_MAILSINK_KAMELET_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MAILSINK_KAMELET_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MAILSINK_KAMELET_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_HOST_DOC);
         conf.define(CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MAILSINK_KAMELET_CONNECTION_PORT_DOC);
         conf.define(CAMEL_SINK_MAILSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MAILSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MAILSINK_KAMELET_USERNAME_DOC);

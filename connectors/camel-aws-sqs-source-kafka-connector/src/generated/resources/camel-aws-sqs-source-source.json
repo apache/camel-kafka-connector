@@ -6,7 +6,7 @@
 		"id": "camel-aws-sqs-source-source",
 		"type": "source",
 		"version": "3.19.0-SNAPSHOT",
-		"description": "Receive data from AWS SQS.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SQS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
+		"description": "Receive data from AWS SQS.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SQS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nTwo headers will be duplicated with different names for clarity at sink level, CamelAwsSqsMessageId will be duplicated into aws.sqs.message.id and CamelAwsSqsReceiptHandle will be duplicated in aws.sqs.receipt.handle"
 	},
 	"properties": {
 		"camel.kamelet.aws-sqs-source.queueNameOrArn": {
@@ -91,6 +91,13 @@
 			"name": "camel.kamelet.aws-sqs-source.delay",
 			"description": "The number of milliseconds before the next poll of the selected stream",
 			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-source.greedy": {
+			"name": "camel.kamelet.aws-sqs-source.greedy",
+			"description": "If greedy is enabled, then the polling will happen immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

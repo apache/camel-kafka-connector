@@ -6,16 +6,9 @@
 		"id": "camel-azure-storage-blob-source-source",
 		"type": "source",
 		"version": "3.19.0-SNAPSHOT",
-		"description": "Consume files from Azure Storage Blob."
+		"description": "Consume files from Azure Storage Blob.\n\nTwo headers will be duplicated with different names for clarity at sink level, CamelAzureStorageBlobETag will be duplicated into azure.storage.blob.e.tag and CamelAzureStorageBlobBlobSize will be duplicated in azure.storage.blob.blob.size"
 	},
 	"properties": {
-		"camel.kamelet.azure-storage-blob-source.period": {
-			"name": "camel.kamelet.azure-storage-blob-source.period",
-			"description": "The interval (in milliseconds) between fetches to the Azure Storage Container.",
-			"defaultValue": "10000",
-			"priority": "HIGH",
-			"required": "true"
-		},
 		"camel.kamelet.azure-storage-blob-source.accountName": {
 			"name": "camel.kamelet.azure-storage-blob-source.accountName",
 			"description": "The Azure Storage Blob account name.",
@@ -38,6 +31,20 @@
 			"name": "camel.kamelet.azure-storage-blob-source.credentialType",
 			"description": "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY",
 			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-source.delay": {
+			"name": "camel.kamelet.azure-storage-blob-source.delay",
+			"description": "The number of milliseconds before the next poll of the selected blob.",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-source.deleteAfterRead": {
+			"name": "camel.kamelet.azure-storage-blob-source.deleteAfterRead",
+			"description": "Specifies to delete blobs after consuming them",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

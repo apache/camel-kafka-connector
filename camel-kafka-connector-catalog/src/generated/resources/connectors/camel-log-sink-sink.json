@@ -9,9 +9,78 @@
 		"description": "A sink that logs all data that it receives, useful for debugging purposes."
 	},
 	"properties": {
+		"camel.kamelet.log-sink.loggerName": {
+			"name": "camel.kamelet.log-sink.loggerName",
+			"description": "Name of the logging category to use",
+			"defaultValue": "\"log-sink\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.level": {
+			"name": "camel.kamelet.log-sink.level",
+			"description": "Logging level to use",
+			"defaultValue": "\"INFO\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.logMask": {
+			"name": "camel.kamelet.log-sink.logMask",
+			"description": "Mask sensitive information like password or passphrase in the log",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.marker": {
+			"name": "camel.kamelet.log-sink.marker",
+			"description": "An optional Marker name to use",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.multiline": {
+			"name": "camel.kamelet.log-sink.multiline",
+			"description": "If enabled then each information is outputted on a newline",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.showAllProperties": {
+			"name": "camel.kamelet.log-sink.showAllProperties",
+			"description": "Show all of the exchange properties (both internal and custom)",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.showBody": {
+			"name": "camel.kamelet.log-sink.showBody",
+			"description": "Show the message body",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.showBodyType": {
+			"name": "camel.kamelet.log-sink.showBodyType",
+			"description": "Show the body Java type",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.showExchangePattern": {
+			"name": "camel.kamelet.log-sink.showExchangePattern",
+			"description": "Shows the Message Exchange Pattern (or MEP for short)",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.log-sink.showHeaders": {
 			"name": "camel.kamelet.log-sink.showHeaders",
 			"description": "Show the headers received",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.log-sink.showProperties": {
+			"name": "camel.kamelet.log-sink.showProperties",
+			"description": "Show the exchange properties (only custom). Use showAllProperties to show both internal and custom properties.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

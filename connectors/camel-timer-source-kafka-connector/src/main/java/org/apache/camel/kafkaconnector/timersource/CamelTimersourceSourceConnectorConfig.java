@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.timersource;
+ */package org.apache.camel.kafkaconnector.timersource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -35,6 +34,9 @@ public class CamelTimersourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_CONF = "camel.kamelet.timer-source.contentType";
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_DOC = "The content type of the generated message.";
     public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_DEFAULT = "text/plain";
+    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_REPEAT_COUNT_CONF = "camel.kamelet.timer-source.repeatCount";
+    public static final String CAMEL_SOURCE_TIMERSOURCE_KAMELET_REPEAT_COUNT_DOC = "Specifies a maximum limit of number of fires";
+    public static final Integer CAMEL_SOURCE_TIMERSOURCE_KAMELET_REPEAT_COUNT_DEFAULT = null;
 
     public CamelTimersourceSourceConnectorConfig(
             ConfigDef config,
@@ -52,6 +54,7 @@ public class CamelTimersourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_TIMERSOURCE_KAMELET_PERIOD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_TIMERSOURCE_KAMELET_PERIOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TIMERSOURCE_KAMELET_PERIOD_DOC);
         conf.define(CAMEL_SOURCE_TIMERSOURCE_KAMELET_MESSAGE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TIMERSOURCE_KAMELET_MESSAGE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_TIMERSOURCE_KAMELET_MESSAGE_DOC);
         conf.define(CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TIMERSOURCE_KAMELET_CONTENT_TYPE_DOC);
+        conf.define(CAMEL_SOURCE_TIMERSOURCE_KAMELET_REPEAT_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_TIMERSOURCE_KAMELET_REPEAT_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TIMERSOURCE_KAMELET_REPEAT_COUNT_DOC);
         return conf;
     }
 }
