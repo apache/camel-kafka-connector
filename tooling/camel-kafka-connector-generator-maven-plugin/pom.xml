@@ -36,6 +36,104 @@
         <classgraph.version>4.8.110</classgraph.version>
     </properties>
 
+    <repositories>
+        <!-- camel-jira -->
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven-external</url>
+            <name>Atlassian Public Repo</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <!-- camel-ipfs and camel-weka -->
+        <repository>
+            <id>jboss.thirdparty</id>
+            <name>JBoss Thirdparty Repository</name>
+            <url>https://repository.jboss.org/nexus/service/local/repositories/thirdparty-releases/content/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>apache.snapshots</id>
+            <url>https://repository.apache.org/snapshots/</url>
+            <name>Apache Snapshot Repo</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>apache.camel.kamelets</id>
+            <url>https://repository.apache.org/content/repositories/orgapachecamel-1500</url>
+            <name>Apache Camel Kamelet Staging Repo</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <!-- camel-jira -->
+        <pluginRepository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven-external</url>
+            <name>Atlassian Public Repo</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+        <!-- camel-ipfs and camel-weka -->
+        <pluginRepository>
+            <id>jboss.thirdparty</id>
+            <name>JBoss Thirdparty Repository</name>
+            <url>https://repository.jboss.org/nexus/service/local/repositories/thirdparty-releases/content/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache.snapshots</id>
+            <url>https://repository.apache.org/snapshots/</url>
+            <name>Apache Snapshot Repo</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache.camel.kamelets</id>
+            <url>https://repository.apache.org/content/repositories/orgapachecamel-1500</url>
+            <name>Apache Camel Kamelet Staging Repo</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
     <dependencyManagement>
         <dependencies>
             <dependency>

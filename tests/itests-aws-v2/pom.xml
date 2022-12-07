@@ -102,6 +102,12 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-gson</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId> org.apache.camel.kamelets</groupId>
+            <artifactId>camel-kamelets-utils</artifactId>
+            <version>${camel.kamelet.catalog.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

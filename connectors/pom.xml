@@ -336,7 +336,6 @@
         <module>camel-mqtt-source-kafka-connector</module>
         <module>camel-mqtt5-sink-kafka-connector</module>
         <module>camel-mqtt5-source-kafka-connector</module>
-        <module>camel-ms-exchange-online-imap-oauth-source-kafka-connector</module>
         <module>camel-mysql-sink-kafka-connector</module>
         <module>camel-mysql-source-kafka-connector</module>
         <module>camel-nats-sink-kafka-connector</module>

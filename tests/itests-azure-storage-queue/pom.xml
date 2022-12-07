@@ -60,6 +60,12 @@
             <artifactId>camel-azure-storage-queue</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId> org.apache.camel.kamelets</groupId>
+            <artifactId>camel-kamelets-utils</artifactId>
+            <version>${camel.kamelet.catalog.version}</version>
+        </dependency>
+
         <!-- test infra -->
         <dependency>
             <groupId>org.apache.camel</groupId>
