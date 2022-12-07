@@ -149,6 +149,12 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
     private List excludedComponents = Collections.EMPTY_LIST;
 
     /**
+     * The Camel Kamelets Exclusion List to select for which kamelet must be skipped while generating kafka connector.
+     */
+    @Parameter(defaultValue = "", readonly = true)
+    private List excludedKamelets = Collections.EMPTY_LIST;
+
+    /**
      * The Exclusion List of connectors that must be skipped while deleting kafka connector.
      */
     @Parameter(defaultValue = "", readonly = true)
@@ -187,8 +193,8 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                     .collect(Collectors.joining("\n"));
             KameletModel kameletModel = YamlKameletMapper.parseKameletYaml(kamelet);
 
-            // filter all kamelets with type not in {source,sink}
-            if ("source".equals(kameletModel.getType()) || "sink".equals(kameletModel.getType())) {
+            // filter all kamelets with type not in {source,sink} and not excluded
+            if (("source".equals(kameletModel.getType()) || "sink".equals(kameletModel.getType())) && !excludedKamelets.contains(kameletModel.getName())) {
                 kameletsResources.put(kameletModel.getName(), kamelet);
                 camelComponentsUsedInKamelets.addAll(
                         kameletModel.getDependencies().stream()
@@ -197,9 +203,9 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                                 .collect(Collectors.toSet())
                 );
             }
-            //TODO: add include (filter) / exclude mechanism
-            getLog().info("Kamelets found to be used to generate/update a kafka connector: " + kameletsResources.keySet());
+            //TODO: add include (filter)
         }
+        getLog().info("Kamelets found to be used to generate/update a kafka connector: " + kameletsResources.keySet());
 
         for (String kamelet : kameletsResources.keySet()) {
             executeMojo(

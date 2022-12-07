@@ -115,6 +115,9 @@
                         ${project.build.testOutputDirectory}/camel-kafka-connector-template-example-sink-properties.template
                     </exampleSinkPropertiesFileTemplate>
                     <removeMissingComponents>true</removeMissingComponents>
+                    <excludedKamelets>
+                        <param>ms-exchange-online-imap-oauth-source</param>
+                    </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
                         <param>bean-validator</param>
