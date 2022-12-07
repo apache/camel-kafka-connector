@@ -1,0 +1,105 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awss3experimentalsource.CamelAwss3experimentalsourceSourceConnector",
+		"artifactId": "camel-aws-s3-experimental-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-s3-experimental-source-source",
+		"type": "source",
+		"version": "3.19.0-SNAPSHOT",
+		"description": "Receive data from an Amazon S3 Bucket.\n\nThe basic authentication method for the S3 service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the S3 client loads the credentials through this provider and doesn't use the basic authentication method.\n\nTwo headers will be duplicated with different names for clarity at sink level, CamelAwsS3Key will be duplicated into aws.s3.key and CamelAwsS3BucketName will be duplicated in aws.s3.bucket.name.\n\nThis Kamelet supports experimental output format to specify the data type produced by this source. Users of the Kamelet are able to choose from different output types."
+	},
+	"properties": {
+		"camel.kamelet.aws-s3-experimental-source.bucketNameOrArn": {
+			"name": "camel.kamelet.aws-s3-experimental-source.bucketNameOrArn",
+			"description": "The S3 Bucket name or Amazon Resource Name (ARN).",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-experimental-source.deleteAfterRead": {
+			"name": "camel.kamelet.aws-s3-experimental-source.deleteAfterRead",
+			"description": "Specifies to delete objects after consuming them.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.accessKey": {
+			"name": "camel.kamelet.aws-s3-experimental-source.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.secretKey": {
+			"name": "camel.kamelet.aws-s3-experimental-source.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.region": {
+			"name": "camel.kamelet.aws-s3-experimental-source.region",
+			"description": "The AWS region to access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-experimental-source.autoCreateBucket": {
+			"name": "camel.kamelet.aws-s3-experimental-source.autoCreateBucket",
+			"description": "Specifies to automatically create the S3 bucket.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.includeBody": {
+			"name": "camel.kamelet.aws-s3-experimental-source.includeBody",
+			"description": "If true, the exchange is consumed and put into the body and closed. If false, the S3Object stream is put raw into the body and the headers are set with the S3 object metadata.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.prefix": {
+			"name": "camel.kamelet.aws-s3-experimental-source.prefix",
+			"description": "The AWS S3 bucket prefix to consider while searching. Example: folder\/",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.ignoreBody": {
+			"name": "camel.kamelet.aws-s3-experimental-source.ignoreBody",
+			"description": "If true, the S3 Object body is ignored. Setting this to true overrides any behavior defined by the `includeBody` option. If false, the S3 object is put in the body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-s3-experimental-source.useDefaultCredentialsProvider",
+			"description": "If true, the S3 client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-s3-experimental-source.uriEndpointOverride",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.overrideEndpoint": {
+			"name": "camel.kamelet.aws-s3-experimental-source.overrideEndpoint",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.delay": {
+			"name": "camel.kamelet.aws-s3-experimental-source.delay",
+			"description": "The number of milliseconds before the next poll of the selected bucket.",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-experimental-source.outputFormat": {
+			"name": "camel.kamelet.aws-s3-experimental-source.outputFormat",
+			"description": "Choose the output type for this Kamelet. The Kamelet supports different output types and performs automatic message conversion according to this data type. Example: binary",
+			"defaultValue": "\"binary\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

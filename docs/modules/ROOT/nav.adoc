@@ -276,8 +276,6 @@
 **** xref:reference/connectors/camel-mqtt5-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-mqtt5-source-kafka-connector
 **** xref:reference/connectors/camel-mqtt5-source-kafka-source-connector.adoc[Source Docs]
-*** camel-ms-exchange-online-imap-oauth-source-kafka-connector
-**** xref:reference/connectors/camel-ms-exchange-online-imap-oauth-source-kafka-source-connector.adoc[Source Docs]
 *** camel-mysql-sink-kafka-connector
 **** xref:reference/connectors/camel-mysql-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-mysql-source-kafka-connector
