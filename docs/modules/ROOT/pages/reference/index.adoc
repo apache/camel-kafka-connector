@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 171 
+Number of Camel Kafka connectors: 170 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -132,7 +132,6 @@ Number of Camel Kafka connectors: 171
 | *camel-mqtt-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-mqtt-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-mqtt-source-kafka-connector/3.18.2/camel-mqtt-source-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-mqtt5-sink-kafka-connector* | true | false | xref:reference/connectors/camel-mqtt5-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-mqtt5-sink-kafka-connector/3.18.2/camel-mqtt5-sink-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-mqtt5-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-mqtt5-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-mqtt5-source-kafka-connector/3.18.2/camel-mqtt5-source-kafka-connector-3.18.2-package.tar.gz[Download]
-| *camel-ms-exchange-online-imap-oauth-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-ms-exchange-online-imap-oauth-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-ms-exchange-online-imap-oauth-source-kafka-connector/3.18.2/camel-ms-exchange-online-imap-oauth-source-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-mysql-sink-kafka-connector* | true | false | xref:reference/connectors/camel-mysql-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-mysql-sink-kafka-connector/3.18.2/camel-mysql-sink-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-mysql-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-mysql-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-mysql-source-kafka-connector/3.18.2/camel-mysql-source-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-nats-sink-kafka-connector* | true | false | xref:reference/connectors/camel-nats-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-nats-sink-kafka-connector/3.18.2/camel-nats-sink-kafka-connector-3.18.2-package.tar.gz[Download]
