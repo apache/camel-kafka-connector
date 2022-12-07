@@ -104,6 +104,9 @@
                     <exampleSinkPropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-sink-properties.template</exampleSinkPropertiesFileTemplate>
                     <!-- WARNING: connectors not in catalog will be removed -->
                     <removeMissingComponents>true</removeMissingComponents>
+                    <excludedKamelets>
+                        <param>ms-exchange-online-imap-oauth-source</param>
+                    </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
                         <param>bean-validator</param>
