@@ -10,6 +10,10 @@
 - FTP/SFTP sink connectors do not allow setting binary mode for transferring files [\#1469](https://github.com/apache/camel-kafka-connector/issues/1469)
 - Upgrade to Camel 3.18.2 and Camel-Kamelets-catalog 0.9.1 [\#1449](https://github.com/apache/camel-kafka-connector/issues/1449)
 - camel-rabbitmq-source-kafka-connector: Unable to specify vhost [\#1442](https://github.com/apache/camel-kafka-connector/issues/1442)
+- Azure authentication erros on 3.18.x [\#1440](https://github.com/apache/camel-kafka-connector/issues/1440)
+- Release 1.1.0 [\#1373](https://github.com/apache/camel-kafka-connector/issues/1373)
+- Re-enable SSH Sink Test [\#1295](https://github.com/apache/camel-kafka-connector/issues/1295)
+- Define the excluded Components list [\#279](https://github.com/apache/camel-kafka-connector/issues/279)
 
 **Merged pull requests:**
 
