@@ -17,6 +17,7 @@
 
 **Merged pull requests:**
 
+- Added exlusion of kamelets generation. [\#1483](https://github.com/apache/camel-kafka-connector/pull/1483) ([valdar](https://github.com/valdar))
 - Bump actions/dependency-review-action from 2 to 3 [\#1468](https://github.com/apache/camel-kafka-connector/pull/1468) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Doc changes [\#1460](https://github.com/apache/camel-kafka-connector/pull/1460) ([valdar](https://github.com/valdar))
 - Bump peter-evans/create-pull-request from 4.1.3 to 4.2.0 [\#1459](https://github.com/apache/camel-kafka-connector/pull/1459) ([dependabot[bot]](https://github.com/apps/dependabot))
