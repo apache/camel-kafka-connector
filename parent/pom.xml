@@ -78,32 +78,11 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
-        <repository>
-            <id>apache.camel.kamelets</id>
-            <url>https://repository.apache.org/content/repositories/orgapachecamel-1500</url>
-            <name>Apache Camel Kamelet Staging Repo</name>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
             <id>apache.snapshots</id>
             <url>https://repository.apache.org/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
-            <id>apache.camel.kamelets</id>
-            <url>https://repository.apache.org/content/repositories/orgapachecamel-1500</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
