@@ -2,22 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.18.2...HEAD)
-
-**Closed issues:**
-
-- Upgrade Camel to version 3.19.0 and Kameles 0.10.0 [\#1481](https://github.com/apache/camel-kafka-connector/issues/1481)
-- SCP / SFTP connectors do not allow setting private keys for SSH authentication [\#1470](https://github.com/apache/camel-kafka-connector/issues/1470)
-- FTP/SFTP sink connectors do not allow setting binary mode for transferring files [\#1469](https://github.com/apache/camel-kafka-connector/issues/1469)
-- Upgrade to Camel 3.18.2 and Camel-Kamelets-catalog 0.9.1 [\#1449](https://github.com/apache/camel-kafka-connector/issues/1449)
-- camel-rabbitmq-source-kafka-connector: Unable to specify vhost [\#1442](https://github.com/apache/camel-kafka-connector/issues/1442)
-- Azure authentication erros on 3.18.x [\#1440](https://github.com/apache/camel-kafka-connector/issues/1440)
-- Release 1.1.0 [\#1373](https://github.com/apache/camel-kafka-connector/issues/1373)
-- Re-enable SSH Sink Test [\#1295](https://github.com/apache/camel-kafka-connector/issues/1295)
-- Define the excluded Components list [\#279](https://github.com/apache/camel-kafka-connector/issues/279)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.19.0...HEAD)
 
 **Merged pull requests:**
 
+- Removed staging repositories after Camel 3.19 release. [\#1488](https://github.com/apache/camel-kafka-connector/pull/1488) ([valdar](https://github.com/valdar))
 - Added exlusion of kamelets generation. [\#1483](https://github.com/apache/camel-kafka-connector/pull/1483) ([valdar](https://github.com/valdar))
 - Upgrade Camel to version 3.19.0 and Kameles 0.10.0 [\#1482](https://github.com/apache/camel-kafka-connector/pull/1482) ([oscerd](https://github.com/oscerd))
 - Bump actions/dependency-review-action from 2 to 3 [\#1468](https://github.com/apache/camel-kafka-connector/pull/1468) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -394,6 +383,22 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-3.19.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.19.0) (2022-12-13)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.18.2...camel-kafka-connector-3.19.0)
+
+**Closed issues:**
+
+- Upgrade Camel to version 3.19.0 and Kameles 0.10.0 [\#1481](https://github.com/apache/camel-kafka-connector/issues/1481)
+- SCP / SFTP connectors do not allow setting private keys for SSH authentication [\#1470](https://github.com/apache/camel-kafka-connector/issues/1470)
+- FTP/SFTP sink connectors do not allow setting binary mode for transferring files [\#1469](https://github.com/apache/camel-kafka-connector/issues/1469)
+- Upgrade to Camel 3.18.2 and Camel-Kamelets-catalog 0.9.1 [\#1449](https://github.com/apache/camel-kafka-connector/issues/1449)
+- camel-rabbitmq-source-kafka-connector: Unable to specify vhost [\#1442](https://github.com/apache/camel-kafka-connector/issues/1442)
+- Azure authentication erros on 3.18.x [\#1440](https://github.com/apache/camel-kafka-connector/issues/1440)
+- Release 1.1.0 [\#1373](https://github.com/apache/camel-kafka-connector/issues/1373)
+- Re-enable SSH Sink Test [\#1295](https://github.com/apache/camel-kafka-connector/issues/1295)
+- Define the excluded Components list [\#279](https://github.com/apache/camel-kafka-connector/issues/279)
 
 ## [camel-kafka-connector-3.18.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.18.2) (2022-10-18)
 
