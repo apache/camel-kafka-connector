@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-github-tag-source-source",
 		"type": "source",
-		"version": "3.19.0-SNAPSHOT",
+		"version": "3.19.0",
 		"description": "Receive Tags From a Github Repository."
 	},
 	"properties": {

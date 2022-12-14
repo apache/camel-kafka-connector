@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-amqp-10-sink-sink",
 		"type": "sink",
-		"version": "3.19.0-SNAPSHOT",
+		"version": "3.19.0",
 		"description": "Send data to any AMQP 1.0 compliant message broker by using the Apache Qpid JMS client."
 	},
 	"properties": {
