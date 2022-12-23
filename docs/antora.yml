@@ -27,7 +27,7 @@ nav:
 asciidoc:
   attributes:
     requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
-    LTS: September 2023
+    LTS: July 2023
     camel-version: 3.18.2
     camel-docs-version: 3.18.x
     camel-kamelets-version: 0.9.1
