@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-ddb-streams-source-source",
 		"type": "source",
-		"version": "3.19.0-SNAPSHOT",
+		"version": "3.20.0-SNAPSHOT",
 		"description": "Receive events from Amazon DynamoDB Streams.\n\nThe basic authentication method for the AWS DynamoDB Streams service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the DynamoDB Streams client loads the credentials through this provider and doesn't use the basic authentication method."
 	},
 	"properties": {

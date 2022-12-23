@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-pubsub-sink-sink",
 		"type": "sink",
-		"version": "3.19.0-SNAPSHOT",
+		"version": "3.20.0-SNAPSHOT",
 		"description": "Send messages to Google Cloud Pub\/Sub.\n\nYou must encode the `serviceAccountKey` property before you pass it as a parameter."
 	},
 	"properties": {

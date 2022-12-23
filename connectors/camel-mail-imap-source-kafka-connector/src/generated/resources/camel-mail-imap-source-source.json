@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mail-imap-source-source",
 		"type": "source",
-		"version": "3.19.0-SNAPSHOT",
+		"version": "3.20.0-SNAPSHOT",
 		"description": "Receive unread emails from an IMAP mail server, marking them as read once they are received.\n\nThe Kamelet generates the following headers:\n\n- `subject` \/ `ce-subject`: the subject of the incoming mail\n\n- `from` \/ `ce-from`: the `from` field of the incoming mail\n\n- `to` \/ `ce-to`: the `to` field of the incoming mail\n\n- `cc` \/ `ce-cc`: the `cc` field of the incoming mail"
 	},
 	"properties": {
