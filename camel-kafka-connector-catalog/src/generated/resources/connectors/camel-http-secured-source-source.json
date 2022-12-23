@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-http-secured-source-source",
 		"type": "source",
-		"version": "3.19.0-SNAPSHOT",
+		"version": "3.20.0-SNAPSHOT",
 		"description": "Periodically fetches a secured HTTP resource and provides the content as output."
 	},
 	"properties": {
