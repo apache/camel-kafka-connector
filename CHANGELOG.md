@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1489](https://github.com/apache/camel-kafka-connector/pull/1489) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Removed staging repositories after Camel 3.19 release. [\#1488](https://github.com/apache/camel-kafka-connector/pull/1488) ([valdar](https://github.com/valdar))
 - Added exlusion of kamelets generation. [\#1483](https://github.com/apache/camel-kafka-connector/pull/1483) ([valdar](https://github.com/valdar))
 - Upgrade Camel to version 3.19.0 and Kameles 0.10.0 [\#1482](https://github.com/apache/camel-kafka-connector/pull/1482) ([oscerd](https://github.com/oscerd))
