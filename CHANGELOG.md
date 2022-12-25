@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.19.0...HEAD)
 
+**Closed issues:**
+
+- Unable to set `password` for `camel-sjms2-kafka-connector` [\#1491](https://github.com/apache/camel-kafka-connector/issues/1491)
+
 **Merged pull requests:**
 
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1489](https://github.com/apache/camel-kafka-connector/pull/1489) ([github-actions[bot]](https://github.com/apps/github-actions))
