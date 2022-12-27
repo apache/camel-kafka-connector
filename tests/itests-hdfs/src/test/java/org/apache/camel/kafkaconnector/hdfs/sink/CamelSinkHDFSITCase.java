@@ -47,7 +47,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkHDFSITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static HDFSService hdfsService = HDFSServiceFactory.createService();
+    public static HDFSService hdfsService = HDFSServiceFactory.createSingletonService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkHDFSITCase.class);
 

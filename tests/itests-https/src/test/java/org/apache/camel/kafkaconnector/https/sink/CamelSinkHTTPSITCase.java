@@ -112,12 +112,12 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
     @Timeout(60)
     public void testBasicSendReceive() throws Exception {
         mockWebService.enqueueResponses(expect);
-
+        LOG.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX: {}", toPath("client-truststore.jks"));
         String uri = mockServer.getHostName() + ":" + mockServer.getPort() + "/ckc";
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
                 .withTopics(topicName)
                 .withHttpUri(uri)
-                .withSslContextParameters("scp", toPath("client-truststore.jks"), "secret")
+                .withSslContextParameters("scp", "file:" + toPath("client-truststore.jks"), "secret")
                 // let's skip host verification as hostname may vary depending on test env
                 .withX509HostnameVerifier("x509HostnameVerifier", NoopHostnameVerifier.class);
 
@@ -134,7 +134,7 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withHttpUri(uri)
                 .withHttpMethod("POST")
-                .withSslContextParameters("scp", toPath("client-truststore.jks"), "secret")
+                .withSslContextParameters("scp", "file:" + toPath("client-truststore.jks"), "secret")
                 // let's skip host verification as hostname may vary depending on test env
                 .withX509HostnameVerifier("x509HostnameVerifier", NoopHostnameVerifier.class);
 
@@ -148,7 +148,7 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
                 .withTopics(topicName)
-                .withSslContextParameters("scp", toPath("client-truststore.jks"), "secret")
+                .withSslContextParameters("scp", "file:" + toPath("client-truststore.jks"), "secret")
                 // let's skip host verification as hostname may vary depending on test env
                 .withX509HostnameVerifier("x509HostnameVerifier", NoopHostnameVerifier.class)
                 .withUrl(mockServer.getHostName(), mockServer.getPort(), "ckc")

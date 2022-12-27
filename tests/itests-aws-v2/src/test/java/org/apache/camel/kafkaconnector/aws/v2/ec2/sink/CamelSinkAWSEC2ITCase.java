@@ -31,7 +31,7 @@ import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
-import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
+import org.apache.camel.test.infra.aws2.services.AWSServiceFactoryWithTimeout;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -54,7 +54,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkAWSEC2ITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static AWSService awsService = AWSServiceFactory.createEC2Service();
+    public static AWSService awsService = AWSServiceFactoryWithTimeout.createEC2Service();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSEC2ITCase.class);
 
     private Ec2Client client;
