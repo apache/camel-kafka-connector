@@ -119,7 +119,7 @@
                     <!-- Properties needed for the test:
                     - com.amazonaws.sdk.disableCbor is used to ensure the AWS Kinesis reply is parseable
                      -->
-                    <argLine>${common.failsafe.args} -Daws.cborEnabled=false</argLine>
+                    <argLine>${common.failsafe.args} -Daws.cborEnabled=false -Daws.container.startup.timeout=480</argLine>
                     <skipTests>${skipIntegrationTests}</skipTests>
                 </configuration>
             </plugin>

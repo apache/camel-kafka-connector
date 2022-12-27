@@ -26,7 +26,7 @@ import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
-import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
+import org.apache.camel.test.infra.aws2.services.AWSServiceFactoryWithTimeout;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,7 +45,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSourceAWSSQSITCase extends CamelSourceTestSupport {
     @RegisterExtension
-    public static AWSService service = AWSServiceFactory.createSQSService();
+    public static AWSService service = AWSServiceFactoryWithTimeout.createSQSService();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
 
     private AWSSQSClient awssqsClient;

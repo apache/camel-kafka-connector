@@ -26,7 +26,7 @@ import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
-import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
+import org.apache.camel.test.infra.aws2.services.AWSServiceFactoryWithTimeout;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,7 +46,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {
     @RegisterExtension
-    public static AWSService awsService = AWSServiceFactory.createKinesisService();
+    public static AWSService awsService = AWSServiceFactoryWithTimeout.createKinesisService();
 
     private String streamName;
     private KinesisClient kinesisClient;
