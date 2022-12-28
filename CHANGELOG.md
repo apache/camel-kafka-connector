@@ -7,13 +7,16 @@
 **Closed issues:**
 
 - Unable to set `password` for `camel-sjms2-kafka-connector` [\#1491](https://github.com/apache/camel-kafka-connector/issues/1491)
+- Upgrade to Camel-Kamelets 0.8.1 [\#1372](https://github.com/apache/camel-kafka-connector/issues/1372)
 
 **Merged pull requests:**
 
+- Bump actions/checkout from 3.1.0 to 3.2.0 [\#1494](https://github.com/apache/camel-kafka-connector/pull/1494) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1489](https://github.com/apache/camel-kafka-connector/pull/1489) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Removed staging repositories after Camel 3.19 release. [\#1488](https://github.com/apache/camel-kafka-connector/pull/1488) ([valdar](https://github.com/valdar))
 - Added exlusion of kamelets generation. [\#1483](https://github.com/apache/camel-kafka-connector/pull/1483) ([valdar](https://github.com/valdar))
 - Upgrade Camel to version 3.19.0 and Kameles 0.10.0 [\#1482](https://github.com/apache/camel-kafka-connector/pull/1482) ([oscerd](https://github.com/oscerd))
+- Bump peter-evans/create-pull-request from 4.2.0 to 4.2.3 [\#1478](https://github.com/apache/camel-kafka-connector/pull/1478) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/dependency-review-action from 2 to 3 [\#1468](https://github.com/apache/camel-kafka-connector/pull/1468) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Doc changes [\#1460](https://github.com/apache/camel-kafka-connector/pull/1460) ([valdar](https://github.com/valdar))
 - Bump peter-evans/create-pull-request from 4.1.3 to 4.2.0 [\#1459](https://github.com/apache/camel-kafka-connector/pull/1459) ([dependabot[bot]](https://github.com/apps/dependabot))
