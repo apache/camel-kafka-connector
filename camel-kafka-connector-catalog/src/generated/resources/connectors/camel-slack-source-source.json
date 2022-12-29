@@ -24,6 +24,7 @@
 		"camel.kamelet.slack-source.delay": {
 			"name": "camel.kamelet.slack-source.delay",
 			"description": "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m",
+			"defaultValue": "\"60000\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

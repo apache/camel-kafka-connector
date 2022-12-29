@@ -91,6 +91,13 @@
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.log-sink.showCachedStreams": {
+			"name": "camel.kamelet.log-sink.showCachedStreams",
+			"description": "Whether Camel should show cached stream bodies or not.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

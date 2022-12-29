@@ -560,6 +560,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.https.proxyAuthScheme": {
+			"name": "camel.component.https.proxyAuthScheme",
+			"description": "Proxy authentication protocol scheme One of: [http] [https]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"http",
+				"https"
+			]
+		},
 		"camel.component.https.proxyAuthUsername": {
 			"name": "camel.component.https.proxyAuthUsername",
 			"description": "Proxy authentication username",

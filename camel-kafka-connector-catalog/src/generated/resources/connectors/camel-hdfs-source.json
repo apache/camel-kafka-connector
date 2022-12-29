@@ -189,14 +189,17 @@
 		},
 		"camel.source.endpoint.compressionCodec": {
 			"name": "camel.source.endpoint.compressionCodec",
-			"description": "The compression codec to use One of: [DEFAULT] [GZIP] [BZIP2]",
+			"description": "The compression codec to use One of: [DEFAULT] [GZIP] [BZIP2] [SNAPPY] [LZ4] [ZSTANDARD]",
 			"defaultValue": "\"DEFAULT\"",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"DEFAULT",
 				"GZIP",
-				"BZIP2"
+				"BZIP2",
+				"SNAPPY",
+				"LZ4",
+				"ZSTANDARD"
 			]
 		},
 		"camel.source.endpoint.compressionType": {

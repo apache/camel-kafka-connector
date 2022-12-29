@@ -138,6 +138,8 @@
 **** xref:reference/connectors/camel-elasticsearch-search-source-kafka-source-connector.adoc[Source Docs]
 *** camel-exec-sink-kafka-connector
 **** xref:reference/connectors/camel-exec-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-fhir-sink-kafka-connector
+**** xref:reference/connectors/camel-fhir-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-fhir-source-kafka-connector
 **** xref:reference/connectors/camel-fhir-source-kafka-source-connector.adoc[Source Docs]
 *** camel-file-kafka-connector

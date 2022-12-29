@@ -89,6 +89,9 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_CONF = "camel.sink.endpoint.properties";
     public static final String CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_DOC = "To set additional CXF options using the key/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true";
     public static final String CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_DEFAULT = null;
+    public static final String CAMEL_SINK_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_CONF = "camel.sink.endpoint.schemaValidationEnabled";
+    public static final String CAMEL_SINK_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DOC = "Enable schema validation for request and response. Disabled by default for performance reason";
+    public static final String CAMEL_SINK_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DEFAULT = "false";
     public static final String CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF = "camel.sink.endpoint.skipPayloadMessagePartCheck";
     public static final String CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC = "Sets whether SOAP message validation should be disabled.";
     public static final Boolean CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT = false;
@@ -175,6 +178,7 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CXF_ENDPOINT_MERGE_PROTOCOL_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_MERGE_PROTOCOL_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_MERGE_PROTOCOL_HEADERS_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_MTOM_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_MTOM_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_MTOM_ENABLED_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_DOC);
+        conf.define(CAMEL_SINK_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SINK_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DOC);
