@@ -89,7 +89,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_CHUNK_SIZE_DOC = "When reading a normal file, this is split into chunks producing a message per chunk.";
     public static final Integer CAMEL_SOURCE_HDFS_ENDPOINT_CHUNK_SIZE_DEFAULT = 4096;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_COMPRESSION_CODEC_CONF = "camel.source.endpoint.compressionCodec";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_COMPRESSION_CODEC_DOC = "The compression codec to use One of: [DEFAULT] [GZIP] [BZIP2]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_COMPRESSION_CODEC_DOC = "The compression codec to use One of: [DEFAULT] [GZIP] [BZIP2] [SNAPPY] [LZ4] [ZSTANDARD]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_COMPRESSION_CODEC_DEFAULT = "DEFAULT";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_COMPRESSION_TYPE_CONF = "camel.source.endpoint.compressionType";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_COMPRESSION_TYPE_DOC = "The compression type to use (is default not in use) One of: [NONE] [RECORD] [BLOCK]";

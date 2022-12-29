@@ -156,6 +156,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.schemaValidationEnabled": {
+			"name": "camel.sink.endpoint.schemaValidationEnabled",
+			"description": "Enable schema validation for request and response. Disabled by default for performance reason",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.skipPayloadMessagePartCheck": {
 			"name": "camel.sink.endpoint.skipPayloadMessagePartCheck",
 			"description": "Sets whether SOAP message validation should be disabled.",

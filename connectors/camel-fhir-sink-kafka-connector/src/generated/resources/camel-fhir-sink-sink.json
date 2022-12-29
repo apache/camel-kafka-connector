@@ -1,0 +1,108 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.fhirsink.CamelFhirsinkSinkConnector",
+		"artifactId": "camel-fhir-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-fhir-sink-sink",
+		"type": "sink",
+		"version": "3.20.0-SNAPSHOT",
+		"description": "Forward data to a Fhir endpoint."
+	},
+	"properties": {
+		"camel.kamelet.fhir-sink.apiName": {
+			"name": "camel.kamelet.fhir-sink.apiName",
+			"description": "What kind of operation to perform",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.methodName": {
+			"name": "camel.kamelet.fhir-sink.methodName",
+			"description": "What sub operation to use for the selected operation.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.fhir-sink.encoding": {
+			"name": "camel.kamelet.fhir-sink.encoding",
+			"description": "Encoding to use for all request. One of: [JSON] [XML].",
+			"defaultValue": "\"JSON\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.fhirVersion": {
+			"name": "camel.kamelet.fhir-sink.fhirVersion",
+			"description": "The FHIR Version to use.",
+			"defaultValue": "\"R4\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.log": {
+			"name": "camel.kamelet.fhir-sink.log",
+			"description": "Will log every requests and responses.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.prettyPrint": {
+			"name": "camel.kamelet.fhir-sink.prettyPrint",
+			"description": "Pretty print all request.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.serverUrl": {
+			"name": "camel.kamelet.fhir-sink.serverUrl",
+			"description": "The FHIR server base URL.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.fhir-sink.lazyStartProducer": {
+			"name": "camel.kamelet.fhir-sink.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel\u2019s routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.proxyHost": {
+			"name": "camel.kamelet.fhir-sink.proxyHost",
+			"description": "The proxy host.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.proxyPassword": {
+			"name": "camel.kamelet.fhir-sink.proxyPassword",
+			"description": "The proxy password.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.proxyPort": {
+			"name": "camel.kamelet.fhir-sink.proxyPort",
+			"description": "The proxy port.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.proxyUser": {
+			"name": "camel.kamelet.fhir-sink.proxyUser",
+			"description": "The proxy username.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.accessToken": {
+			"name": "camel.kamelet.fhir-sink.accessToken",
+			"description": "OAuth access token.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.username": {
+			"name": "camel.kamelet.fhir-sink.username",
+			"description": "Username to use for basic authentication.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.fhir-sink.password": {
+			"name": "camel.kamelet.fhir-sink.password",
+			"description": "Password to use for basic authentication.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

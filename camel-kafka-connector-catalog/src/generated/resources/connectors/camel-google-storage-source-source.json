@@ -6,7 +6,7 @@
 		"id": "camel-google-storage-source-source",
 		"type": "source",
 		"version": "3.20.0-SNAPSHOT",
-		"description": "Consume objects from Google Cloud Storage.\n\nYou must encode the `serviceAccountKey` property before you pass it as a parameter."
+		"description": "Consume objects from Google Cloud Storage.\n\nIf you specify the `serviceAccountKey` property, you must base64 encode it before you pass it as a parameter."
 	},
 	"properties": {
 		"camel.kamelet.google-storage-source.bucketNameOrArn": {
@@ -18,8 +18,8 @@
 		"camel.kamelet.google-storage-source.serviceAccountKey": {
 			"name": "camel.kamelet.google-storage-source.serviceAccountKey",
 			"description": "The service account key to use as credentials for Google Cloud Storage access. You must encode this value in base64.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.google-storage-source.deleteAfterRead": {
 			"name": "camel.kamelet.google-storage-source.deleteAfterRead",

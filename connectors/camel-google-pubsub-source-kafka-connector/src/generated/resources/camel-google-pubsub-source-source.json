@@ -6,7 +6,7 @@
 		"id": "camel-google-pubsub-source-source",
 		"type": "source",
 		"version": "3.20.0-SNAPSHOT",
-		"description": "Consume messages from Google Cloud Pub\/Sub."
+		"description": "Consume messages from Google Cloud Pub\/Sub.\n\nIf you specify the `serviceAccountKey` property, you must base64 encode it before you pass it as a parameter."
 	},
 	"properties": {
 		"camel.kamelet.google-pubsub-source.projectId": {
@@ -24,8 +24,8 @@
 		"camel.kamelet.google-pubsub-source.serviceAccountKey": {
 			"name": "camel.kamelet.google-pubsub-source.serviceAccountKey",
 			"description": "The service account key to use as credentials for the Pub\/Sub publisher\/subscriber. You must encode this value in base64.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.google-pubsub-source.synchronousPull": {
 			"name": "camel.kamelet.google-pubsub-source.synchronousPull",
