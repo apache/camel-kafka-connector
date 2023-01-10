@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Bump actions/checkout from 3.2.0 to 3.3.0 [\#1499](https://github.com/apache/camel-kafka-connector/pull/1499) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.1.0 to 3.2.0 [\#1494](https://github.com/apache/camel-kafka-connector/pull/1494) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1489](https://github.com/apache/camel-kafka-connector/pull/1489) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Removed staging repositories after Camel 3.19 release. [\#1488](https://github.com/apache/camel-kafka-connector/pull/1488) ([valdar](https://github.com/valdar))
