@@ -91,6 +91,9 @@ spec:
     in:
       mediaType: application/json
   dependencies:
+  - 'camel:core'
+  - "camel:jsonpath"
+  - "camel:jackson"
   - "camel:salesforce"
   - "camel:kamelet"
   template:
@@ -106,9 +109,14 @@ spec:
     from:
       uri: kamelet:source
       steps:
-        - to:
-            uri: "{{local-salesforce}}:updateSObject"
-            parameters:
-              sObjectId: "{{sObjectId}}"
-              sObjectName: "{{sObjectName}}"
-              rawPayload: "true"
+        - set-property:
+            name: sObjectId
+            jsonpath: "$['sObjectId']"
+        - set-property:
+            name: sObjectName
+            jsonpath: "$['sObjectName']"
+        - transform:
+            jsonpath: "$.payload"
+        - marshal:
+            json: {}
+        - toD: "{{local-salesforce}}:updateSObject?sObjectId=${exchangeProperty.sObjectId}&sObjectName=${exchangeProperty.sObjectName}&rawPayload=true"
