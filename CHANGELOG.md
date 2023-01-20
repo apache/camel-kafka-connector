@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Salesforce sink update [\#1500](https://github.com/apache/camel-kafka-connector/issues/1500)
 - Unable to set `password` for `camel-sjms2-kafka-connector` [\#1491](https://github.com/apache/camel-kafka-connector/issues/1491)
 - Upgrade to Camel-Kamelets 0.8.1 [\#1372](https://github.com/apache/camel-kafka-connector/issues/1372)
 
