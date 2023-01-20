@@ -356,6 +356,7 @@
         <module>camel-salesforce-delete-sink-kafka-connector</module>
         <module>camel-salesforce-source-kafka-connector</module>
         <module>camel-salesforce-update-sink-kafka-connector</module>
+        <module>camel-salesforce-bulk-upsert-sink-kafka-connector</module>
         <module>camel-scp-sink-kafka-connector</module>
         <module>camel-sftp-sink-kafka-connector</module>
         <module>camel-sftp-source-kafka-connector</module>

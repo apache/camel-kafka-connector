@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.salesforcebulkupsertsink.CamelSalesforceBulkUpsertSinkConnector",
+		"artifactId": "camel-salesforce-bulk-upsert-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-salesforce-bulk-upsert-sink-sink",
+		"type": "sink",
+		"version": "3.20.0-SNAPSHOT",
+		"description": "Create or update (upsert) up to 200 records based on an external ID field. \n\nThe body received must be a list of the sObjects to be upserted."
+	},
+	"properties": {
+		"camel.kamelet.salesforce-bulk-upsert-sink.sObjectName": {
+			"name": "camel.kamelet.salesforce-bulk-upsert-sink.sObjectName",
+			"description": "The type of the Salesforce object. Example: Contact",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-bulk-upsert-sink.sObjectIdName": {
+			"name": "camel.kamelet.salesforce-bulk-upsert-sink.sObjectIdName",
+			"description": "The name of the key from de id Salesforce object field.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-bulk-upsert-sink.loginUrl": {
+			"name": "camel.kamelet.salesforce-bulk-upsert-sink.loginUrl",
+			"description": "The Salesforce instance login URL.",
+			"defaultValue": "\"https:\/\/login.salesforce.com\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.salesforce-bulk-upsert-sink.clientId": {
+			"name": "camel.kamelet.salesforce-bulk-upsert-sink.clientId",
+			"description": "The Salesforce application consumer key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-bulk-upsert-sink.clientSecret": {
+			"name": "camel.kamelet.salesforce-bulk-upsert-sink.clientSecret",
+			"description": "The Salesforce application consumer secret.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-bulk-upsert-sink.userName": {
+			"name": "camel.kamelet.salesforce-bulk-upsert-sink.userName",
+			"description": "The Salesforce username.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.salesforce-bulk-upsert-sink.password": {
+			"name": "camel.kamelet.salesforce-bulk-upsert-sink.password",
+			"description": "The Salesforce user password.",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}
