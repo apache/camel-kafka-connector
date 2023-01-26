@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jira-add-issue-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.0",
 		"description": "Add a new issue to Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `projectKey` \/ `ce-projectKey`: as the Jira project key.\n\n- `issueTypeName` \/ `ce-issueTypeName`: as the name of the issue type (example: Bug, Enhancement).\n\n- `issueSummary` \/ `ce-issueSummary`: as the title or summary of the issue.\n\n- `issueAssignee` \/ `ce-issueAssignee`: as the user assigned to the issue (Optional).\n\n- `issuePriorityName` \/ `ce-issuePriorityName`: as the priority name of the issue (example: Critical, Blocker, Trivial) (Optional).\n\n- `issueComponents` \/ `ce-issueComponents`: as list of string with the valid component names (Optional).\n\n- `issueDescription` \/ `ce-issueDescription`: as the issue description (Optional).\n\nThe issue description can be set from the body of the message or the `issueDescription`\/`ce-issueDescription` in the header, however the body takes precedence."
 	},
 	"properties": {
