@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>parent</artifactId>
-        <version>3.20.0-SNAPSHOT</version>
+        <version>3.20.0</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -94,4 +94,8 @@
         </plugins>
     </build>
 
+
+  <scm>
+    <tag>camel-kafka-connector-3.20.0</tag>
+  </scm>
 </project>
