@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.0</version>
+    <version>3.20.1-SNAPSHOT</version>
   </parent>
   <artifactId>camel-elasticsearch-index-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: elasticsearch-index-sink</name>
@@ -128,9 +128,6 @@
       </plugin>
     </plugins>
   </build>
-  <scm>
-    <tag>camel-kafka-connector-3.20.0</tag>
-  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->
