@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.0...HEAD)
 
+**Closed issues:**
+
+- Consume JSON string for Cassandra sink connector [\#1487](https://github.com/apache/camel-kafka-connector/issues/1487)
+
 **Merged pull requests:**
 
 - Bump actions/checkout from 3.2.0 to 3.3.0 [\#1499](https://github.com/apache/camel-kafka-connector/pull/1499) ([dependabot[bot]](https://github.com/apps/dependabot))
