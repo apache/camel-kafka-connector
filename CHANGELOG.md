@@ -18,6 +18,7 @@
 - Added exlusion of kamelets generation. [\#1483](https://github.com/apache/camel-kafka-connector/pull/1483) ([valdar](https://github.com/valdar))
 - Upgrade Camel to version 3.19.0 and Kameles 0.10.0 [\#1482](https://github.com/apache/camel-kafka-connector/pull/1482) ([oscerd](https://github.com/oscerd))
 - Bump peter-evans/create-pull-request from 4.2.0 to 4.2.3 [\#1478](https://github.com/apache/camel-kafka-connector/pull/1478) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump postgresql from 42.4.1 to 42.4.3 in /parent [\#1475](https://github.com/apache/camel-kafka-connector/pull/1475) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/dependency-review-action from 2 to 3 [\#1468](https://github.com/apache/camel-kafka-connector/pull/1468) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Doc changes [\#1460](https://github.com/apache/camel-kafka-connector/pull/1460) ([valdar](https://github.com/valdar))
 - Bump peter-evans/create-pull-request from 4.1.3 to 4.2.0 [\#1459](https://github.com/apache/camel-kafka-connector/pull/1459) ([dependabot[bot]](https://github.com/apps/dependabot))
