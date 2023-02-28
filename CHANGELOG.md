@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- camel https sink connector 3.18.2 NoSuchMethodError  [\#1509](https://github.com/apache/camel-kafka-connector/issues/1509)
 - Consume JSON string for Cassandra sink connector [\#1487](https://github.com/apache/camel-kafka-connector/issues/1487)
 
 **Merged pull requests:**
