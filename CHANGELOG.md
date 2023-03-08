@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- amqps issue [\#1511](https://github.com/apache/camel-kafka-connector/issues/1511)
 - camel https sink connector 3.18.2 NoSuchMethodError  [\#1509](https://github.com/apache/camel-kafka-connector/issues/1509)
 - Consume JSON string for Cassandra sink connector [\#1487](https://github.com/apache/camel-kafka-connector/issues/1487)
 - The pre-release salesforce source connector, the received messages are in the format that different from Salesforce document. [\#1290](https://github.com/apache/camel-kafka-connector/issues/1290)
