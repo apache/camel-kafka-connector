@@ -32,9 +32,9 @@ The following examples show how to use FieldsToHeaders.
 [source,java-properties]
 ----
 transforms=FieldsToHeadersTransform
-transforms.fieldsToHeadersTransform.type=org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Value
-transforms.fieldsToHeadersTransform.fields=FROM,TO,CC,SUBJECT
-transforms.fieldsToHeadersTransform.headers=from,to,cc,subject
+transforms.FieldsToHeadersTransform.type=org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Value
+transforms.FieldsToHeadersTransform.fields=FROM,TO,CC,SUBJECT
+transforms.FieldsToHeadersTransform.headers=from,to,cc,subject
 ----
 and the following message:
 
@@ -67,8 +67,8 @@ subject: "Needs Attention!"
 [source,java-properties]
 ----
 transforms=FieldsToHeadersTransform
-transforms.fieldsToHeadersTransform.type=org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Key
-transforms.fieldsToHeadersTransform.headers=camel.kafka.KEY
+transforms.FieldsToHeadersTransform.type=org.apache.camel.kafkaconnector.transforms.FieldsToHeadersTransform$Key
+transforms.FieldsToHeadersTransform.headers=camel.kafka.KEY
 ----
 and the following message:
 
