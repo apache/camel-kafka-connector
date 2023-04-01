@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Transformer not printing the custom headers set in Processor [\#1520](https://github.com/apache/camel-kafka-connector/issues/1520)
 - NoSuchMethodError: org.apache.camel.util.StringHelper.replaceAll [\#1513](https://github.com/apache/camel-kafka-connector/issues/1513)
 - amqps issue [\#1511](https://github.com/apache/camel-kafka-connector/issues/1511)
 - camel https sink connector 3.18.2 NoSuchMethodError  [\#1509](https://github.com/apache/camel-kafka-connector/issues/1509)
