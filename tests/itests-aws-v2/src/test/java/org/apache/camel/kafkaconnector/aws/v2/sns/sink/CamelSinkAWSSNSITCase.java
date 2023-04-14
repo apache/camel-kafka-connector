@@ -29,7 +29,7 @@ import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
-import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
+import org.apache.camel.test.infra.aws2.services.AWSServiceFactoryWithTimeout;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,7 +48,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static AWSService service = AWSServiceFactory.createSNSService();
+    public static AWSService service = AWSServiceFactoryWithTimeout.createSNSService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
 

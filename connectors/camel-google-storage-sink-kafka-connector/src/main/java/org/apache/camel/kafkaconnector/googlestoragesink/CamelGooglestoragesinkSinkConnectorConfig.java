@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.googlestoragesink;
+ */
+package org.apache.camel.kafkaconnector.googlestoragesink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -49,7 +50,7 @@ public class CamelGooglestoragesinkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_BUCKET_NAME_OR_ARN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_BUCKET_NAME_OR_ARN_DOC);
-        conf.define(CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_SERVICE_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC);
+        conf.define(CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_SERVICE_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_SERVICE_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_SERVICE_ACCOUNT_KEY_DOC);
         conf.define(CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLESTORAGESINK_KAMELET_AUTO_CREATE_BUCKET_DOC);
         return conf;
     }

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.cxf;
+ */
+package org.apache.camel.kafkaconnector.cxf;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -74,6 +75,9 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_CONF = "camel.source.endpoint.properties";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DOC = "To set additional CXF options using the key/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_CONF = "camel.source.endpoint.schemaValidationEnabled";
+    public static final String CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DOC = "Enable schema validation for request and response. Disabled by default for performance reason";
+    public static final String CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DEFAULT = "false";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF = "camel.source.endpoint.skipPayloadMessagePartCheck";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC = "Sets whether SOAP message validation should be disabled.";
     public static final Boolean CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT = false;
@@ -155,6 +159,7 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_MERGE_PROTOCOL_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_MERGE_PROTOCOL_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_MERGE_PROTOCOL_HEADERS_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DOC);
+        conf.define(CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DOC);

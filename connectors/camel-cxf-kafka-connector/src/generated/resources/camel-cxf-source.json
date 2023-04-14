@@ -129,6 +129,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.schemaValidationEnabled": {
+			"name": "camel.source.endpoint.schemaValidationEnabled",
+			"description": "Enable schema validation for request and response. Disabled by default for performance reason",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.skipPayloadMessagePartCheck": {
 			"name": "camel.source.endpoint.skipPayloadMessagePartCheck",
 			"description": "Sets whether SOAP message validation should be disabled.",

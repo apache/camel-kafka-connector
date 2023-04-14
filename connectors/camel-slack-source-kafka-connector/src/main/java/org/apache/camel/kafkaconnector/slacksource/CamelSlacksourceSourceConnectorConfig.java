@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.slacksource;
+ */
+package org.apache.camel.kafkaconnector.slacksource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -33,7 +34,7 @@ public class CamelSlacksourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.slack-source.delay";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC = "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m";
-    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DEFAULT = "60000";
 
     public CamelSlacksourceSourceConnectorConfig(
             ConfigDef config,

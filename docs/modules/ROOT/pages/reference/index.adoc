@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 170 
+Number of Camel Kafka connectors: 171 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -64,6 +64,7 @@ Number of Camel Kafka connectors: 170
 | *camel-elasticsearch-index-sink-kafka-connector* | true | false | xref:reference/connectors/camel-elasticsearch-index-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-elasticsearch-index-sink-kafka-connector/3.18.2/camel-elasticsearch-index-sink-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-elasticsearch-search-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-elasticsearch-search-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-elasticsearch-search-source-kafka-connector/3.18.2/camel-elasticsearch-search-source-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-exec-sink-kafka-connector* | true | false | xref:reference/connectors/camel-exec-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-exec-sink-kafka-connector/3.18.2/camel-exec-sink-kafka-connector-3.18.2-package.tar.gz[Download]
+| *camel-fhir-sink-kafka-connector* | true | false | xref:reference/connectors/camel-fhir-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-fhir-sink-kafka-connector/3.18.2/camel-fhir-sink-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-fhir-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-fhir-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-fhir-source-kafka-connector/3.18.2/camel-fhir-source-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-file-kafka-connector* | true | true | xref:reference/connectors/camel-file-kafka-sink-connector.adoc[Sink Docs] | xref:reference/connectors/camel-file-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-file-kafka-connector/3.18.2/camel-file-kafka-connector-3.18.2-package.tar.gz[Download]
 | *camel-file-watch-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-file-watch-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-file-watch-source-kafka-connector/3.18.2/camel-file-watch-source-kafka-connector-3.18.2-package.tar.gz[Download]

@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.0-SNAPSHOT</version>
+    <version>3.20.1-SNAPSHOT</version>
   </parent>
   <artifactId>camel-jms-apache-artemis-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jms-apache-artemis-sink</name>
@@ -42,17 +42,17 @@
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
     <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>artemis-jms-client-all</artifactId>
-      <version>2.27.0</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-jms</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>artemis-jms-client-all</artifactId>
+      <version>2.27.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

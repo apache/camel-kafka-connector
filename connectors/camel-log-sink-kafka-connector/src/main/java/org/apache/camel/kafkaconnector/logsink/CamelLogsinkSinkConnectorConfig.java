@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.logsink;
+ */
+package org.apache.camel.kafkaconnector.logsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -59,6 +60,9 @@ public class CamelLogsinkSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_LOGSINK_KAMELET_SHOW_STREAMS_CONF = "camel.kamelet.log-sink.showStreams";
     public static final String CAMEL_SINK_LOGSINK_KAMELET_SHOW_STREAMS_DOC = "Show the stream bodies (they may not be available in following steps)";
     public static final Boolean CAMEL_SINK_LOGSINK_KAMELET_SHOW_STREAMS_DEFAULT = false;
+    public static final String CAMEL_SINK_LOGSINK_KAMELET_SHOW_CACHED_STREAMS_CONF = "camel.kamelet.log-sink.showCachedStreams";
+    public static final String CAMEL_SINK_LOGSINK_KAMELET_SHOW_CACHED_STREAMS_DOC = "Whether Camel should show cached stream bodies or not.";
+    public static final Boolean CAMEL_SINK_LOGSINK_KAMELET_SHOW_CACHED_STREAMS_DEFAULT = true;
 
     public CamelLogsinkSinkConnectorConfig(
             ConfigDef config,
@@ -84,6 +88,7 @@ public class CamelLogsinkSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_LOGSINK_KAMELET_SHOW_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOGSINK_KAMELET_SHOW_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOGSINK_KAMELET_SHOW_HEADERS_DOC);
         conf.define(CAMEL_SINK_LOGSINK_KAMELET_SHOW_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOGSINK_KAMELET_SHOW_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOGSINK_KAMELET_SHOW_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_LOGSINK_KAMELET_SHOW_STREAMS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOGSINK_KAMELET_SHOW_STREAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOGSINK_KAMELET_SHOW_STREAMS_DOC);
+        conf.define(CAMEL_SINK_LOGSINK_KAMELET_SHOW_CACHED_STREAMS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOGSINK_KAMELET_SHOW_CACHED_STREAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOGSINK_KAMELET_SHOW_CACHED_STREAMS_DOC);
         return conf;
     }
 }

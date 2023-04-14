@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.0-SNAPSHOT</version>
+    <version>3.20.1-SNAPSHOT</version>
   </parent>
   <artifactId>camel-azure-storage-blob-changefeed-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: azure-storage-blob-changefeed-source</name>
@@ -41,6 +41,15 @@
     </dependency>
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.13.4</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
@@ -64,6 +73,11 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-yaml-dsl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-blob-changefeed</artifactId>
+      <version>12.0.0-beta.17</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

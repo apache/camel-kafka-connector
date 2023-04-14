@@ -38,7 +38,7 @@ import org.apache.camel.kafkaconnector.common.test.AbstractTestMessageProducer;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
-import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
+import org.apache.camel.test.infra.aws2.services.AWSServiceFactoryWithTimeout;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.kafka.common.utils.Bytes;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,7 +60,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkLambdaITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static AWSService awsService = AWSServiceFactory.createLambdaService();
+    public static AWSService awsService = AWSServiceFactoryWithTimeout.createLambdaService();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkLambdaITCase.class);
 
     private LambdaClient client;
