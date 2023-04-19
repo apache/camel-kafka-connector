@@ -42,7 +42,7 @@ public class CamelMongodbsinkSinkConnectorConfig
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DOC = "The name of the MongoDB database.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_CONF = "camel.kamelet.mongodb-sink.writeConcern";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DOC = "The level of acknowledgment requested from MongoDB for write operations. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, or MAJORITY.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DOC = "The level of acknowledgment requested from MongoDB for write operations.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_CONF = "camel.kamelet.mongodb-sink.createCollection";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_DOC = "Create a collection during initialization if it doesn't exist.";

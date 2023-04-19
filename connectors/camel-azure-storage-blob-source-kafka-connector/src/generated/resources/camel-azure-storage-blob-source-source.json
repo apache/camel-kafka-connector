@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-source-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Consume files from Azure Storage Blob.\n\nTwo headers will be duplicated with different names for clarity at sink level, CamelAzureStorageBlobETag will be duplicated into azure.storage.blob.e.tag and CamelAzureStorageBlobBlobSize will be duplicated in azure.storage.blob.blob.size"
 	},
 	"properties": {
@@ -26,13 +26,6 @@
 			"description": "The Azure Storage Blob access key.",
 			"priority": "HIGH",
 			"required": "true"
-		},
-		"camel.kamelet.azure-storage-blob-source.credentialType": {
-			"name": "camel.kamelet.azure-storage-blob-source.credentialType",
-			"description": "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY",
-			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.kamelet.azure-storage-blob-source.delay": {
 			"name": "camel.kamelet.azure-storage-blob-source.delay",

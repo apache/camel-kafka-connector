@@ -61,7 +61,7 @@ public class CamelKafkasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_CONF = "camel.kamelet.kafka-source.deserializeHeaders";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DOC = "When enabled the Kamelet source will deserialize all message headers to String representation.";
-    public static final Boolean CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT = false;
+    public static final Boolean CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT = true;
 
     public CamelKafkasourceSourceConnectorConfig(
             ConfigDef config,

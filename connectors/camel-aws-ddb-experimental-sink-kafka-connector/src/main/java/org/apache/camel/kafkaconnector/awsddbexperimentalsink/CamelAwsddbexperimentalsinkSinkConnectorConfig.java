@@ -39,7 +39,7 @@ public class CamelAwsddbexperimentalsinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_OPERATION_CONF = "camel.kamelet.aws-ddb-experimental-sink.operation";
-    public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_OPERATION_DOC = "The operation to perform. The options are PutItem, UpdateItem, or DeleteItem. Example: PutItem";
+    public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_OPERATION_DOC = "The operation to perform. Example: PutItem";
     public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_OPERATION_DEFAULT = "PutItem";
     public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_WRITE_CAPACITY_CONF = "camel.kamelet.aws-ddb-experimental-sink.writeCapacity";
     public static final String CAMEL_SINK_AWSDDBEXPERIMENTALSINK_KAMELET_WRITE_CAPACITY_DOC = "The provisioned throughput to reserve for writing resources to your table.";

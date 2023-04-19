@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-fhir-source-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Receive data from Fhir server."
 	},
 	"properties": {
@@ -24,14 +24,14 @@
 		},
 		"camel.kamelet.fhir-source.encoding": {
 			"name": "camel.kamelet.fhir-source.encoding",
-			"description": "Encoding to use for all request. Possible values are JSON and XML",
+			"description": "Encoding to use for all request.",
 			"defaultValue": "\"JSON\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.fhir-source.fhirVersion": {
 			"name": "camel.kamelet.fhir-source.fhirVersion",
-			"description": "The FHIR Version to use. There are 6 enums and the value can be one of DSTU2, DSTU2_HL7ORG, DSTU2_1, DSTU3, R4, R5",
+			"description": "The FHIR Version to use.",
 			"defaultValue": "\"R4\"",
 			"priority": "MEDIUM",
 			"required": "false"

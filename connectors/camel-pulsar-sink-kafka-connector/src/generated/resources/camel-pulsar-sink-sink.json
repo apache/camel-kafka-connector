@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-pulsar-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Send documents to Pulsar."
 	},
 	"properties": {
@@ -23,7 +23,7 @@
 		},
 		"camel.kamelet.pulsar-sink.topicType": {
 			"name": "camel.kamelet.pulsar-sink.topicType",
-			"description": "The topic type. Possible values are persistent or non-persistent.",
+			"description": "The topic type.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -81,7 +81,7 @@
 		},
 		"camel.kamelet.pulsar-sink.compressionType": {
 			"name": "camel.kamelet.pulsar-sink.compressionType",
-			"description": "Compression type to use. Possible values are NONE, LZ4, ZLIB, ZSTD, or SNAPPY.",
+			"description": "Compression type to use.",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -116,7 +116,7 @@
 		},
 		"camel.kamelet.pulsar-sink.messageRoutingMode": {
 			"name": "camel.kamelet.pulsar-sink.messageRoutingMode",
-			"description": "Message Routing Mode to use. Possible values are SinglePartition, RoundRobinPartition, CustomPartition",
+			"description": "Message Routing Mode to use.",
 			"defaultValue": "\"RoundRobinPartition\"",
 			"priority": "MEDIUM",
 			"required": "false"

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ftps-source-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Receive data from an FTPS server."
 	},
 	"properties": {
@@ -65,6 +65,13 @@
 			"name": "camel.kamelet.ftps-source.binary",
 			"description": "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ftps-source.autoCreate": {
+			"name": "camel.kamelet.ftps-source.autoCreate",
+			"description": "Automatically create starting directory.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		}
