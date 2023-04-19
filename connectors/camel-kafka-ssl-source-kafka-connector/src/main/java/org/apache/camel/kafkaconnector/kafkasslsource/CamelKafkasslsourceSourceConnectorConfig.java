@@ -55,7 +55,7 @@ public class CamelKafkasslsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_CONSUMER_GROUP_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_DESERIALIZE_HEADERS_CONF = "camel.kamelet.kafka-ssl-source.deserializeHeaders";
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_DESERIALIZE_HEADERS_DOC = "When enabled the Kamelet source will deserialize all message headers to String representation.";
-    public static final Boolean CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT = false;
+    public static final Boolean CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT = true;
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_KEY_PASSWORD_CONF = "camel.kamelet.kafka-ssl-source.sslKeyPassword";
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_KEY_PASSWORD_DOC = "The password of the private key in the key store file.";
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_KEY_PASSWORD_DEFAULT = null;

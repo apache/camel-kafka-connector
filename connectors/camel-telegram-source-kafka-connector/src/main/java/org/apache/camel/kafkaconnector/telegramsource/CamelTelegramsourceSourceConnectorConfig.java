@@ -27,7 +27,7 @@ public class CamelTelegramsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_CONF = "camel.kamelet.telegram-source.authorizationToken";
-    public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_DOC = "The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather.";
+    public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_DOC = "The token to access your bot on Telegram. You can obtain it from the Telegram @botfather.";
     public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_DEFAULT = null;
 
     public CamelTelegramsourceSourceConnectorConfig(

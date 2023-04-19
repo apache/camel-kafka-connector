@@ -33,10 +33,10 @@ public class CamelFhirsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_URL_DOC = "The Fhir resource type url";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_URL_DEFAULT = "/Patient";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_ENCODING_CONF = "camel.kamelet.fhir-source.encoding";
-    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_ENCODING_DOC = "Encoding to use for all request. Possible values are JSON and XML";
+    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_ENCODING_DOC = "Encoding to use for all request.";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_ENCODING_DEFAULT = "JSON";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_FHIR_VERSION_CONF = "camel.kamelet.fhir-source.fhirVersion";
-    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_FHIR_VERSION_DOC = "The FHIR Version to use. There are 6 enums and the value can be one of DSTU2, DSTU2_HL7ORG, DSTU2_1, DSTU3, R4, R5";
+    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_FHIR_VERSION_DOC = "The FHIR Version to use.";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_FHIR_VERSION_DEFAULT = "R4";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.fhir-source.username";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_USERNAME_DOC = "The username to access the Fhir server";
