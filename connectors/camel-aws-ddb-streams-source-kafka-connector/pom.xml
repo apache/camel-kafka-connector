@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.1-SNAPSHOT</version>
+    <version>3.20.3</version>
   </parent>
   <artifactId>camel-aws-ddb-streams-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-ddb-streams-source</name>
@@ -116,6 +116,9 @@
       </plugin>
     </plugins>
   </build>
+  <scm>
+    <tag>camel-kafka-connector-3.20.3</tag>
+  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->
