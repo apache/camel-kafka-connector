@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.3</version>
+    <version>3.20.4-SNAPSHOT</version>
   </parent>
   <artifactId>camel-kafka-ssl-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: kafka-ssl-sink</name>
@@ -116,9 +116,6 @@
       </plugin>
     </plugins>
   </build>
-  <scm>
-    <tag>camel-kafka-connector-3.20.3</tag>
-  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->
