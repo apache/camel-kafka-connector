@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-calendar-source-source",
 		"type": "source",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "3.20.3",
 		"description": "Receive event data from Google Calendar."
 	},
 	"properties": {
