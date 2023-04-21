@@ -2,16 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.0...HEAD)
-
-**Closed issues:**
-
-- Transformer not printing the custom headers set in Processor [\#1520](https://github.com/apache/camel-kafka-connector/issues/1520)
-- NoSuchMethodError: org.apache.camel.util.StringHelper.replaceAll [\#1513](https://github.com/apache/camel-kafka-connector/issues/1513)
-- amqps issue [\#1511](https://github.com/apache/camel-kafka-connector/issues/1511)
-- camel https sink connector 3.18.2 NoSuchMethodError  [\#1509](https://github.com/apache/camel-kafka-connector/issues/1509)
-- Consume JSON string for Cassandra sink connector [\#1487](https://github.com/apache/camel-kafka-connector/issues/1487)
-- The pre-release salesforce source connector, the received messages are in the format that different from Salesforce document. [\#1290](https://github.com/apache/camel-kafka-connector/issues/1290)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.3...HEAD)
 
 **Merged pull requests:**
 
@@ -400,6 +391,19 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-3.20.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.20.3) (2023-04-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.0...camel-kafka-connector-3.20.3)
+
+**Closed issues:**
+
+- Transformer not printing the custom headers set in Processor [\#1520](https://github.com/apache/camel-kafka-connector/issues/1520)
+- NoSuchMethodError: org.apache.camel.util.StringHelper.replaceAll [\#1513](https://github.com/apache/camel-kafka-connector/issues/1513)
+- amqps issue [\#1511](https://github.com/apache/camel-kafka-connector/issues/1511)
+- camel https sink connector 3.18.2 NoSuchMethodError  [\#1509](https://github.com/apache/camel-kafka-connector/issues/1509)
+- Consume JSON string for Cassandra sink connector [\#1487](https://github.com/apache/camel-kafka-connector/issues/1487)
+- The pre-release salesforce source connector, the received messages are in the format that different from Salesforce document. [\#1290](https://github.com/apache/camel-kafka-connector/issues/1290)
 
 ## [camel-kafka-connector-3.20.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.20.0) (2023-01-26)
 
