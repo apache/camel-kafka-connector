@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.3...HEAD)
 
+**Closed issues:**
+
+- CKC 3.20.x release [\#1492](https://github.com/apache/camel-kafka-connector/issues/1492)
+
 **Merged pull requests:**
 
 - Bump actions/checkout from 3.3.0 to 3.4.0 [\#1516](https://github.com/apache/camel-kafka-connector/pull/1516) ([dependabot[bot]](https://github.com/apps/dependabot))
