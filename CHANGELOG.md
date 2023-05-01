@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Unable to use camel-netty-http connector: Error binding property pollingConsumerBlockTimeout=0 [\#1526](https://github.com/apache/camel-kafka-connector/issues/1526)
 - CKC 3.20.x release [\#1492](https://github.com/apache/camel-kafka-connector/issues/1492)
 
 **Merged pull requests:**
