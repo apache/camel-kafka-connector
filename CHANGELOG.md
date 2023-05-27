@@ -6,7 +6,10 @@
 
 **Closed issues:**
 
+- \[ERROR\] DynamoDB sink connector - default credential provider with environment variables not working [\#1533](https://github.com/apache/camel-kafka-connector/issues/1533)
+- \[ERROR\] DynamoDB sink connector - No type converter available [\#1532](https://github.com/apache/camel-kafka-connector/issues/1532)
 - Unable to use camel-netty-http connector: Error binding property pollingConsumerBlockTimeout=0 [\#1526](https://github.com/apache/camel-kafka-connector/issues/1526)
+- \[Question\] Can I use connectors with Kafka 2.8.1 on Amazon MSK? [\#1525](https://github.com/apache/camel-kafka-connector/issues/1525)
 - CKC 3.20.x release [\#1492](https://github.com/apache/camel-kafka-connector/issues/1492)
 
 **Merged pull requests:**
