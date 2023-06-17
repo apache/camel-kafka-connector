@@ -6,14 +6,18 @@
 
 **Closed issues:**
 
+- NoClassDefFoundError when using S3 source connector with STS jar. [\#1536](https://github.com/apache/camel-kafka-connector/issues/1536)
 - \[ERROR\] DynamoDB sink connector - default credential provider with environment variables not working [\#1533](https://github.com/apache/camel-kafka-connector/issues/1533)
 - \[ERROR\] DynamoDB sink connector - No type converter available [\#1532](https://github.com/apache/camel-kafka-connector/issues/1532)
+- Configs for CamelAzurestorageblobsinkSinkConnector [\#1530](https://github.com/apache/camel-kafka-connector/issues/1530)
 - Unable to use camel-netty-http connector: Error binding property pollingConsumerBlockTimeout=0 [\#1526](https://github.com/apache/camel-kafka-connector/issues/1526)
 - \[Question\] Can I use connectors with Kafka 2.8.1 on Amazon MSK? [\#1525](https://github.com/apache/camel-kafka-connector/issues/1525)
 - CKC 3.20.x release [\#1492](https://github.com/apache/camel-kafka-connector/issues/1492)
 
 **Merged pull requests:**
 
+- Bump actions/checkout from 3.4.0 to 3.5.3 [\#1534](https://github.com/apache/camel-kafka-connector/pull/1534) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump peter-evans/create-pull-request from 4.2.4 to 5.0.1 [\#1529](https://github.com/apache/camel-kafka-connector/pull/1529) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.3.0 to 3.4.0 [\#1516](https://github.com/apache/camel-kafka-connector/pull/1516) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 4.2.3 to 4.2.4 [\#1515](https://github.com/apache/camel-kafka-connector/pull/1515) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.2.0 to 3.3.0 [\#1499](https://github.com/apache/camel-kafka-connector/pull/1499) ([dependabot[bot]](https://github.com/apps/dependabot))
