@@ -347,7 +347,6 @@
         <module>camel-postgresql-source-kafka-connector</module>
         <module>camel-pulsar-sink-kafka-connector</module>
         <module>camel-pulsar-source-kafka-connector</module>
-        <module>camel-rabbitmq-source-kafka-connector</module>
         <module>camel-redis-sink-kafka-connector</module>
         <module>camel-redis-source-kafka-connector</module>
         <module>camel-rest-openapi-sink-kafka-connector</module>
