@@ -57,8 +57,6 @@
         <module>itests-jdbc</module>
         <module>itests-azure-storage-blob</module>
         <module>itests-azure-storage-queue</module>
-        <module>perf-tests-rabbitmq</module>
-        <module>itests-rabbitmq</module>
         <module>itests-couchbase</module>
         <module>itests-ssh</module>
         <module>itests-sql</module>
