@@ -20,7 +20,7 @@
     <parent>
         <artifactId>tests</artifactId>
         <groupId>org.apache.camel.kafkaconnector</groupId>
-        <version>3.21.1-SNAPSHOT</version>
+        <version>4.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -37,7 +37,7 @@
         <failsafe.args.jul>-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager</failsafe.args.jul>
         <failsafe.args.strimzi>-Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</failsafe.args.strimzi>
 
-        <common.failsafe.args>${failsafe.args.jul} ${failsafe.args.basedir} ${failsafe.args.strimzi} -Dmongodb.container=mongo:7.0.0</common.failsafe.args>
+        <common.failsafe.args>${failsafe.args.jul} ${failsafe.args.basedir} ${failsafe.args.strimzi} -Dmongodb.container=mongo:5.0.11</common.failsafe.args>
     </properties>
 
     <dependencies>

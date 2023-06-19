@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.21.1-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>camel-azure-storage-queue-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: azure-storage-queue-source</name>
@@ -56,7 +56,7 @@
     <dependency>
       <groupId>org.apache.camel.kamelets</groupId>
       <artifactId>camel-kamelets-utils</artifactId>
-      <version>3.21.0</version>
+      <version>3.20.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
