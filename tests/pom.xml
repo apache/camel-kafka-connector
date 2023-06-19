@@ -44,7 +44,6 @@
         <module>itests-common-http</module>
         <module>itests-aws-v2</module>
         <module>itests-sjms2</module>
-        <module>itests-elasticsearch</module>
         <module>itests-cassandra</module>
         <module>itests-syslog</module>
         <module>itests-file</module>
