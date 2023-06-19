@@ -373,7 +373,6 @@
         <module>camel-twitter-search-source-kafka-connector</module>
         <module>camel-twitter-timeline-source-kafka-connector</module>
         <module>camel-webhook-source-kafka-connector</module>
-        <module>camel-websocket-source-kafka-connector</module>
         <module>camel-wttrin-source-kafka-connector</module>
     </modules>
 </project>
