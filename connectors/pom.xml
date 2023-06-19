@@ -306,8 +306,6 @@
         <module>camel-jira-update-issue-sink-kafka-connector</module>
         <module>camel-jms-amqp-10-sink-kafka-connector</module>
         <module>camel-jms-amqp-10-source-kafka-connector</module>
-        <module>camel-jms-apache-activemq-sink-kafka-connector</module>
-        <module>camel-jms-apache-activemq-source-kafka-connector</module>
         <module>camel-jms-apache-artemis-sink-kafka-connector</module>
         <module>camel-jms-apache-artemis-source-kafka-connector</module>
         <module>camel-jms-ibm-mq-sink-kafka-connector</module>
