@@ -40,7 +40,7 @@
     </modules>
 
     <properties>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>17</jdk.version>
         <compiler.fork>false</compiler.fork>
 
         <asciidoctorj-version>2.1.0</asciidoctorj-version>
@@ -60,8 +60,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${version.maven.compiler}</version>
                 <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
+                    <release>${jdk.version}</release>
                     <maxmem>512M</maxmem>
                     <fork>${compiler.fork}</fork>
                 </configuration>
