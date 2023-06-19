@@ -224,7 +224,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
             camelMain.configure().setAutoConfigurationLogSummary(false);
             //TODO: make it configurable
-            camelMain.configure().setDumpRoutes(true);
+            camelMain.configure().setDumpRoutes(Boolean.TRUE.toString());
 
             Properties camelProperties = new Properties();
             camelProperties.putAll(props);
