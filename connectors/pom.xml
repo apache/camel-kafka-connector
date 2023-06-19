@@ -265,8 +265,6 @@
         <module>camel-dropbox-sink-kafka-connector</module>
         <module>camel-dropbox-source-kafka-connector</module>
         <module>camel-earthquake-source-kafka-connector</module>
-        <module>camel-elasticsearch-index-sink-kafka-connector</module>
-        <module>camel-elasticsearch-search-source-kafka-connector</module>
         <module>camel-exec-sink-kafka-connector</module>
         <module>camel-fhir-sink-kafka-connector</module>
         <module>camel-fhir-source-kafka-connector</module>
