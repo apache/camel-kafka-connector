@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>parent</artifactId>
-        <version>3.21.1-SNAPSHOT</version>
+        <version>4.0.0-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -249,8 +249,6 @@
         <module>camel-azure-storage-blob-changefeed-source-kafka-connector</module>
         <module>camel-azure-storage-blob-sink-kafka-connector</module>
         <module>camel-azure-storage-blob-source-kafka-connector</module>
-        <module>camel-azure-storage-datalake-sink-kafka-connector</module>
-        <module>camel-azure-storage-datalake-source-kafka-connector</module>
         <module>camel-azure-storage-queue-sink-kafka-connector</module>
         <module>camel-azure-storage-queue-source-kafka-connector</module>
         <module>camel-beer-source-kafka-connector</module>
@@ -318,8 +316,6 @@
         <module>camel-jms-ibm-mq-source-kafka-connector</module>
         <module>camel-kafka-not-secured-sink-kafka-connector</module>
         <module>camel-kafka-not-secured-source-kafka-connector</module>
-        <module>camel-kafka-scram-sink-kafka-connector</module>
-        <module>camel-kafka-scram-source-kafka-connector</module>
         <module>camel-kafka-sink-kafka-connector</module>
         <module>camel-kafka-source-kafka-connector</module>
         <module>camel-kafka-ssl-sink-kafka-connector</module>
