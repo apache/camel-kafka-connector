@@ -24,7 +24,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.spi.EndpointUriFactory;
 import org.apache.kafka.connect.connector.ConnectRecord;
@@ -55,7 +54,7 @@ public final class TaskHelper {
                 Map.Entry::getValue
             ));
 
-        EndpointUriFactory factory = camelContext.adapt(ExtendedCamelContext.class).getEndpointUriFactory(componentSchema);
+        EndpointUriFactory factory = camelContext.getCamelContextExtension().getEndpointUriFactory(componentSchema);
         if (factory == null) {
             throw new IllegalStateException("Unable to compute endpoint uri. Reason: uri factory for schema `" + componentSchema + "` not found");
         }
