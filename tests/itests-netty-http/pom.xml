@@ -72,6 +72,7 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <scope>test</scope>
+            <version>${httpclient4-version}</version>
         </dependency>
     </dependencies>
 </project>
