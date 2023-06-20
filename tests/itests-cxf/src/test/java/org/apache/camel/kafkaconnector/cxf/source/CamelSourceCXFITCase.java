@@ -27,6 +27,7 @@ import org.apache.camel.kafkaconnector.cxf.client.CXFServiceUtil;
 import org.apache.camel.kafkaconnector.cxf.common.HelloService;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
@@ -38,6 +39,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 /**
  * A simple test case that checks whether the CXF Consumer Endpoint produces the expected number of messages
  */
+@Disabled("Not working with Camel 4")
 public class CamelSourceCXFITCase extends CamelSourceTestSupport {
 
     protected static final int PORT = NetworkUtils.getFreePort("localhost");

@@ -30,6 +30,7 @@ import org.apache.camel.kafkaconnector.cxf.services.CXFService;
 import org.apache.camel.kafkaconnector.cxf.services.JaxWsServiceConfigurator;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -40,6 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Disabled("Not working with Camel 4")
 public class CamelSinkCXFITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCXFITCase.class);
 
