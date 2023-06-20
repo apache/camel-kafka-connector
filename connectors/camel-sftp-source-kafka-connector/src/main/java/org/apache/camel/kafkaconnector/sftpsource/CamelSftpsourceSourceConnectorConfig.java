@@ -71,6 +71,9 @@ public class CamelSftpsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_CONF = "camel.kamelet.sftp-source.useUserKnownHostsFile";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DOC = "If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)/.ssh/known_hosts.";
     public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_CONF = "camel.kamelet.sftp-source.autoCreate";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DOC = "Automatically create starting directory.";
+    public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DEFAULT = true;
 
     public CamelSftpsourceSourceConnectorConfig(
             ConfigDef config,
@@ -99,6 +102,7 @@ public class CamelSftpsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_PRIVATE_KEY_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SFTPSOURCE_KAMELET_PRIVATE_KEY_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_PRIVATE_KEY_URI_DOC);
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_STRICT_HOST_KEY_CHECKING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SFTPSOURCE_KAMELET_STRICT_HOST_KEY_CHECKING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_STRICT_HOST_KEY_CHECKING_DOC);
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DOC);
+        conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DOC);
         return conf;
     }
 }

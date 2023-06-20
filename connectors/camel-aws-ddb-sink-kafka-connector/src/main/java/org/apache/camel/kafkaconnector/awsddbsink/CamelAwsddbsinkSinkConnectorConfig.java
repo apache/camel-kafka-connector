@@ -39,11 +39,8 @@ public class CamelAwsddbsinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_OPERATION_CONF = "camel.kamelet.aws-ddb-sink.operation";
-    public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_OPERATION_DOC = "The operation to perform. The options are PutItem, UpdateItem, or DeleteItem. Example: PutItem";
+    public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_OPERATION_DOC = "The operation to perform. Example: PutItem";
     public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_OPERATION_DEFAULT = "PutItem";
-    public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_WRITE_CAPACITY_CONF = "camel.kamelet.aws-ddb-sink.writeCapacity";
-    public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_WRITE_CAPACITY_DOC = "The provisioned throughput to reserve for writing resources to your table.";
-    public static final Integer CAMEL_SINK_AWSDDBSINK_KAMELET_WRITE_CAPACITY_DEFAULT = 1;
     public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-ddb-sink.useDefaultCredentialsProvider";
     public static final String CAMEL_SINK_AWSDDBSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the DynamoDB client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";
     public static final Boolean CAMEL_SINK_AWSDDBSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
@@ -71,7 +68,6 @@ public class CamelAwsddbsinkSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSDDBSINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AWSDDBSINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDBSINK_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSDDBSINK_KAMELET_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDBSINK_KAMELET_REGION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSDDBSINK_KAMELET_REGION_DOC);
         conf.define(CAMEL_SINK_AWSDDBSINK_KAMELET_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDBSINK_KAMELET_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDBSINK_KAMELET_OPERATION_DOC);
-        conf.define(CAMEL_SINK_AWSDDBSINK_KAMELET_WRITE_CAPACITY_CONF, ConfigDef.Type.INT, CAMEL_SINK_AWSDDBSINK_KAMELET_WRITE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDBSINK_KAMELET_WRITE_CAPACITY_DOC);
         conf.define(CAMEL_SINK_AWSDDBSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSDDBSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDBSINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWSDDBSINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDBSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDBSINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWSDDBSINK_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSDDBSINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDBSINK_KAMELET_OVERRIDE_ENDPOINT_DOC);

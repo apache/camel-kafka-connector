@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-http-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Netty HTTP server and client using the Netty 4.x."
 	},
 	"properties": {
@@ -162,13 +162,12 @@
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
-			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"InOnly",
-				"InOut",
-				"InOptionalOut"
+				"InOut"
 			]
 		},
 		"camel.source.endpoint.httpMethodRestrict": {
@@ -392,6 +391,12 @@
 			"name": "camel.source.endpoint.transferExchange",
 			"description": "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.unixDomainSocketPath": {
+			"name": "camel.source.endpoint.unixDomainSocketPath",
+			"description": "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -794,6 +799,12 @@
 			"name": "camel.component.netty-http.udpByteArrayCodec",
 			"description": "For UDP only. If enabled the using byte array codec instead of Java serialization protocol.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.netty-http.unixDomainSocketPath": {
+			"name": "camel.component.netty-http.unixDomainSocketPath",
+			"description": "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

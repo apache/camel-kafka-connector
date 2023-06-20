@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Socket level networking using TCP or UDP with Netty 4.x."
 	},
 	"properties": {
@@ -142,13 +142,12 @@
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
-			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"InOnly",
-				"InOut",
-				"InOptionalOut"
+				"InOut"
 			]
 		},
 		"camel.source.endpoint.nettyServerBootstrapFactory": {
@@ -292,6 +291,12 @@
 			"name": "camel.source.endpoint.udpByteArrayCodec",
 			"description": "For UDP only. If enabled the using byte array codec instead of Java serialization protocol.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.unixDomainSocketPath": {
+			"name": "camel.source.endpoint.unixDomainSocketPath",
+			"description": "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -708,6 +713,12 @@
 			"name": "camel.component.netty.udpByteArrayCodec",
 			"description": "For UDP only. If enabled the using byte array codec instead of Java serialization protocol.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.netty.unixDomainSocketPath": {
+			"name": "camel.component.netty.unixDomainSocketPath",
+			"description": "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

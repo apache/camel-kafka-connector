@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-sqs-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Send messages to an Amazon Simple Queue Service (SQS) queue.\n\nThe basic authentication method for the SQS service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the SQS client loads the credentials through this provider and doesn't use the basic authentication method."
 	},
 	"properties": {

@@ -33,7 +33,7 @@ public class CamelAzurestorageblobcdcsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_CONNECTION_STRING_DOC = "Connection String for Azure Servicebus instance";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_CONNECTION_STRING_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_CONF = "camel.kamelet.azure-storage-blob-cdc-source.serviceBusReceiveMode";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_DOC = "Sets the receive mode for the receiver, possible values are PEEK_LOCK and RECEIVE_AND_DELETE";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_DOC = "Sets the receive mode for the receiver.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_DEFAULT = "RECEIVE_AND_DELETE";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_SUBSCRIPTION_NAME_CONF = "camel.kamelet.azure-storage-blob-cdc-source.subscriptionName";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_SUBSCRIPTION_NAME_DOC = "Sets the name of the subscription in the topic to listen to. This parameter is mandatory in case of topic.";
@@ -48,7 +48,7 @@ public class CamelAzurestorageblobcdcsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Blob access key.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_CREDENTIAL_TYPE_CONF = "camel.kamelet.azure-storage-blob-cdc-source.credentialType";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT = "SHARED_ACCOUNT_KEY";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_GET_BLOB_CONF = "camel.kamelet.azure-storage-blob-cdc-source.getBlob";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBCDCSOURCE_KAMELET_GET_BLOB_DOC = "If getBlob is enabled, then the file created in the container will be get and returned as body, if not only the event will be returned as body.";

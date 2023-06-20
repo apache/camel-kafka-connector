@@ -53,6 +53,9 @@ public class CamelFtpssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_CONF = "camel.kamelet.ftps-source.binary";
     public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DOC = "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).";
     public static final Boolean CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DEFAULT = false;
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_CONF = "camel.kamelet.ftps-source.autoCreate";
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DOC = "Automatically create starting directory.";
+    public static final Boolean CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DEFAULT = true;
 
     public CamelFtpssourceSourceConnectorConfig(
             ConfigDef config,
@@ -75,6 +78,7 @@ public class CamelFtpssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_DOC);
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DOC);
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DOC);
+        conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DOC);
         return conf;
     }
 }

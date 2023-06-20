@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sftp-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Send data to an SFTP Server.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the filename."
 	},
 	"properties": {
@@ -49,7 +49,7 @@
 		},
 		"camel.kamelet.sftp-sink.fileExist": {
 			"name": "camel.kamelet.sftp-sink.fileExist",
-			"description": "How to behave in case of file already existent. There are 4 enums. Possible values are Override, Append, Fail, or Ignore.",
+			"description": "How to behave in case of file already existent.",
 			"defaultValue": "\"Override\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -89,6 +89,13 @@
 		"camel.kamelet.sftp-sink.useUserKnownHostsFile": {
 			"name": "camel.kamelet.sftp-sink.useUserKnownHostsFile",
 			"description": "If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)\/.ssh\/known_hosts.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-sink.autoCreate": {
+			"name": "camel.kamelet.sftp-sink.autoCreate",
+			"description": "Automatically create the directory the files should be written to.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

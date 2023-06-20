@@ -1,0 +1,51 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kafkascramsink.CamelKafkascramsinkSinkConnector",
+		"artifactId": "camel-kafka-scram-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kafka-scram-sink-sink",
+		"type": "sink",
+		"version": "4.0.0-SNAPSHOT",
+		"description": "Send data to Kafka topics through SCRAM login module.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partitionkey`: as message partition key\n\nBoth the headers are optional."
+	},
+	"properties": {
+		"camel.kamelet.kafka-scram-sink.topic": {
+			"name": "camel.kamelet.kafka-scram-sink.topic",
+			"description": "Comma separated list of Kafka topic names",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-scram-sink.bootstrapServers": {
+			"name": "camel.kamelet.kafka-scram-sink.bootstrapServers",
+			"description": "Comma separated list of Kafka Broker URLs",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-scram-sink.securityProtocol": {
+			"name": "camel.kamelet.kafka-scram-sink.securityProtocol",
+			"description": "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported",
+			"defaultValue": "\"SASL_SSL\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-scram-sink.saslMechanism": {
+			"name": "camel.kamelet.kafka-scram-sink.saslMechanism",
+			"description": "The Simple Authentication and Security Layer (SASL) Mechanism used.",
+			"defaultValue": "\"SCRAM-SHA-512\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-scram-sink.user": {
+			"name": "camel.kamelet.kafka-scram-sink.user",
+			"description": "Username to authenticate to Kafka",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-scram-sink.password": {
+			"name": "camel.kamelet.kafka-scram-sink.password",
+			"description": "Password to authenticate to kafka",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

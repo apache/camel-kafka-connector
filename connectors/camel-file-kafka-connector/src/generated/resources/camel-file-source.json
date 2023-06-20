@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-file-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Read and write files."
 	},
 	"properties": {
@@ -102,13 +102,12 @@
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
-			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"InOnly",
-				"InOut",
-				"InOptionalOut"
+				"InOut"
 			]
 		},
 		"camel.source.endpoint.extendedAttributes": {

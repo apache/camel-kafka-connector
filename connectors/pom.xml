@@ -213,7 +213,6 @@
     <modules>
         <module>camel-aws-cloudtrail-source-kafka-connector</module>
         <module>camel-aws-cloudwatch-sink-kafka-connector</module>
-        <module>camel-aws-ddb-experimental-sink-kafka-connector</module>
         <module>camel-aws-ddb-sink-kafka-connector</module>
         <module>camel-aws-ddb-streams-source-kafka-connector</module>
         <module>camel-aws-ec2-sink-kafka-connector</module>
@@ -225,7 +224,6 @@
         <module>camel-aws-redshift-sink-kafka-connector</module>
         <module>camel-aws-redshift-source-kafka-connector</module>
         <module>camel-aws-s3-cdc-source-kafka-connector</module>
-        <module>camel-aws-s3-experimental-source-kafka-connector</module>
         <module>camel-aws-s3-sink-kafka-connector</module>
         <module>camel-aws-s3-source-kafka-connector</module>
         <module>camel-aws-s3-streaming-upload-sink-kafka-connector</module>

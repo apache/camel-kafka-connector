@@ -45,7 +45,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_FILE_TYPE_DOC = "The file type to use. For more details see Hadoop HDFS documentation about the various files types. One of: [NORMAL_FILE] [SEQUENCE_FILE] [MAP_FILE] [BLOOMMAP_FILE] [ARRAY_FILE]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_FILE_TYPE_DEFAULT = "NORMAL_FILE";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_CONF = "camel.source.endpoint.keyType";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_DOC = "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_DOC = "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [SHORT] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_DEFAULT = "NULL";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_NAMED_NODES_CONF = "camel.source.endpoint.namedNodes";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_NAMED_NODES_DOC = "A comma separated list of named nodes (e.g. srv11.example.com:8020,srv12.example.com:8020)";
@@ -54,7 +54,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_OWNER_DOC = "The file owner must match this owner for the consumer to pickup the file. Otherwise the file is skipped.";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_OWNER_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_CONF = "camel.source.endpoint.valueType";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DOC = "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DOC = "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [SHORT] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DEFAULT = "BYTES";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_CONF = "camel.source.endpoint.pattern";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_DOC = "The pattern used for scanning the directory";
@@ -72,7 +72,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";

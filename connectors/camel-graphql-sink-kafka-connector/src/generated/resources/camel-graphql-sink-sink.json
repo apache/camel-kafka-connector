@@ -1,0 +1,25 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.graphqlsink.CamelGraphqlsinkSinkConnector",
+		"artifactId": "camel-graphql-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-graphql-sink-sink",
+		"type": "sink",
+		"version": "4.0.0-SNAPSHOT",
+		"description": "Forward data to a GraphQL endpoint."
+	},
+	"properties": {
+		"camel.kamelet.graphql-sink.url": {
+			"name": "camel.kamelet.graphql-sink.url",
+			"description": "The URL to which you want to send data. Example: http:\/\/example.com\/graphql",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.graphql-sink.accessToken": {
+			"name": "camel.kamelet.graphql-sink.accessToken",
+			"description": "The access Token to use to access GraphQL server",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

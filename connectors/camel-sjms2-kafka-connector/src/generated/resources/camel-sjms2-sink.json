@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sjms2-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Send and receive messages to\/from a JMS Queue or Topic using plain JMS 2.x API."
 	},
 	"properties": {
@@ -67,7 +67,7 @@
 		},
 		"camel.sink.endpoint.deliveryMode": {
 			"name": "camel.sink.endpoint.deliveryMode",
-			"description": "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
+			"description": "Specifies the delivery mode to be used. Possible values are those defined by jakarta.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -219,14 +219,14 @@
 		},
 		"camel.sink.endpoint.mapJmsMessage": {
 			"name": "camel.sink.endpoint.mapJmsMessage",
-			"description": "Specifies whether Camel should auto map the received JMS message to a suited payload type, such as javax.jms.TextMessage to a String etc. See section about how mapping works below for more details.",
+			"description": "Specifies whether Camel should auto map the received JMS message to a suited payload type, such as jakarta.jms.TextMessage to a String etc. See section about how mapping works below for more details.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.messageCreatedStrategy": {
 			"name": "camel.sink.endpoint.messageCreatedStrategy",
-			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
+			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of jakarta.jms.Message objects when Camel is sending a JMS message.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -246,7 +246,7 @@
 		},
 		"camel.sink.endpoint.transferException": {
 			"name": "camel.sink.endpoint.transferException",
-			"description": "If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side, then the caused Exception will be send back in response as a javax.jms.ObjectMessage. If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge in your routing - for example, using persistent queues to enable robust routing. Notice that if you also have transferExchange enabled, this option takes precedence. The caught exception is required to be serializable. The original Exception on the consumer side can be wrapped in an outer exception such as org.apache.camel.RuntimeCamelException when returned to the producer. Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level, which forces a strong coupling between the producers and consumer!",
+			"description": "If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side, then the caused Exception will be send back in response as a jakarta.jms.ObjectMessage. If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge in your routing - for example, using persistent queues to enable robust routing. Notice that if you also have transferExchange enabled, this option takes precedence. The caught exception is required to be serializable. The original Exception on the consumer side can be wrapped in an outer exception such as org.apache.camel.RuntimeCamelException when returned to the producer. Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level, which forces a strong coupling between the producers and consumer!",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -298,7 +298,7 @@
 		},
 		"camel.component.sjms2.messageCreatedStrategy": {
 			"name": "camel.component.sjms2.messageCreatedStrategy",
-			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
+			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of jakarta.jms.Message objects when Camel is sending a JMS message.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

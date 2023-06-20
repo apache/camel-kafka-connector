@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-https-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
-		"description": "Send requests to external HTTP servers using Apache HTTP Client 4.x."
+		"version": "4.0.0-SNAPSHOT",
+		"description": "Send requests to external HTTP servers using Apache HTTP Client 5.x."
 	},
 	"properties": {
 		"camel.sink.path.httpUri": {
@@ -35,13 +35,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.clearExpiredCookies": {
-			"name": "camel.sink.endpoint.clearExpiredCookies",
-			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.connectionClose": {
 			"name": "camel.sink.endpoint.connectionClose",
 			"description": "Specifies whether a Connection Close header must be added to HTTP Request. By default connectionClose is false.",
@@ -49,16 +42,10 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.copyHeaders": {
-			"name": "camel.sink.endpoint.copyHeaders",
-			"description": "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.customHostHeader": {
-			"name": "camel.sink.endpoint.customHostHeader",
-			"description": "To use custom host header for producer. When not set in query will be ignored. When set will override host header derived from url.",
+		"camel.sink.endpoint.followRedirects": {
+			"name": "camel.sink.endpoint.followRedirects",
+			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -78,23 +65,16 @@
 				"PATCH"
 			]
 		},
-		"camel.sink.endpoint.ignoreResponseBody": {
-			"name": "camel.sink.endpoint.ignoreResponseBody",
-			"description": "If this option is true, The http producer won't read response body and cache the input stream",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.preserveHostHeader": {
-			"name": "camel.sink.endpoint.preserveHostHeader",
-			"description": "If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.throwExceptionOnFailure": {
 			"name": "camel.sink.endpoint.throwExceptionOnFailure",
 			"description": "Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server. This allows you to get all responses regardless of the HTTP status code.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.clearExpiredCookies": {
+			"name": "camel.sink.endpoint.clearExpiredCookies",
+			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -111,6 +91,19 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.copyHeaders": {
+			"name": "camel.sink.endpoint.copyHeaders",
+			"description": "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.customHostHeader": {
+			"name": "camel.sink.endpoint.customHostHeader",
+			"description": "To use custom host header for producer. When not set in query will be ignored. When set will override host header derived from url.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.deleteWithBody": {
 			"name": "camel.sink.endpoint.deleteWithBody",
 			"description": "Whether the HTTP DELETE should include the message body or not. By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
@@ -118,16 +111,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.followRedirects": {
-			"name": "camel.sink.endpoint.followRedirects",
-			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
+		"camel.sink.endpoint.getWithBody": {
+			"name": "camel.sink.endpoint.getWithBody",
+			"description": "Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.getWithBody": {
-			"name": "camel.sink.endpoint.getWithBody",
-			"description": "Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
+		"camel.sink.endpoint.ignoreResponseBody": {
+			"name": "camel.sink.endpoint.ignoreResponseBody",
+			"description": "If this option is true, The http producer won't read response body and cache the input stream",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -143,6 +136,13 @@
 			"name": "camel.sink.endpoint.okStatusCodeRange",
 			"description": "The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included.",
 			"defaultValue": "\"200-299\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.preserveHostHeader": {
+			"name": "camel.sink.endpoint.preserveHostHeader",
+			"description": "If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -200,6 +200,12 @@
 		"camel.sink.endpoint.httpClientOptions": {
 			"name": "camel.sink.endpoint.httpClientOptions",
 			"description": "To configure the HttpClient using the key\/values from the Map.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.httpConnectionOptions": {
+			"name": "camel.sink.endpoint.httpConnectionOptions",
+			"description": "To configure the connection and the socket using the key\/values from the Map.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -352,16 +358,10 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.https.cookieStore": {
-			"name": "camel.component.https.cookieStore",
-			"description": "To use a custom org.apache.http.client.CookieStore. By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.https.copyHeaders": {
-			"name": "camel.component.https.copyHeaders",
-			"description": "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).",
-			"defaultValue": "true",
+		"camel.component.https.followRedirects": {
+			"name": "camel.component.https.followRedirects",
+			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -372,17 +372,23 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.https.cookieStore": {
+			"name": "camel.component.https.cookieStore",
+			"description": "To use a custom org.apache.hc.client5.http.cookie.CookieStore. By default the org.apache.hc.client5.http.cookie.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.copyHeaders": {
+			"name": "camel.component.https.copyHeaders",
+			"description": "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.https.responsePayloadStreamingThreshold": {
 			"name": "camel.component.https.responsePayloadStreamingThreshold",
 			"description": "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.",
 			"defaultValue": "8192",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.https.followRedirects": {
-			"name": "camel.component.https.followRedirects",
-			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -495,7 +501,7 @@
 		},
 		"camel.component.https.httpContext": {
 			"name": "camel.component.https.httpContext",
-			"description": "To use a custom org.apache.http.protocol.HttpContext when executing requests.",
+			"description": "To use a custom org.apache.hc.core5.http.protocol.HttpContext when executing requests.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -597,22 +603,29 @@
 		},
 		"camel.component.https.connectionRequestTimeout": {
 			"name": "camel.component.https.connectionRequestTimeout",
-			"description": "The timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
-			"defaultValue": "-1",
+			"description": "Returns the connection lease request timeout used when requesting a connection from the connection manager. A timeout value of zero is interpreted as a disabled timeout.",
+			"defaultValue": "\"3 minutes\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.connectTimeout": {
 			"name": "camel.component.https.connectTimeout",
-			"description": "Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
-			"defaultValue": "-1",
+			"description": "Determines the timeout until a new connection is fully established. A timeout value of zero is interpreted as an infinite timeout.",
+			"defaultValue": "\"3 minutes\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.https.socketTimeout": {
-			"name": "camel.component.https.socketTimeout",
-			"description": "Defines the socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets). A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
-			"defaultValue": "-1",
+		"camel.component.https.responseTimeout": {
+			"name": "camel.component.https.responseTimeout",
+			"description": "Determines the timeout until arrival of a response from the opposite endpoint. A timeout value of zero is interpreted as an infinite timeout. Please note that response timeout may be unsupported by HTTP transports with message multiplexing.",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.soTimeout": {
+			"name": "camel.component.https.soTimeout",
+			"description": "Determines the default socket timeout value for blocking I\/O operations.",
+			"defaultValue": "\"3 minutes\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

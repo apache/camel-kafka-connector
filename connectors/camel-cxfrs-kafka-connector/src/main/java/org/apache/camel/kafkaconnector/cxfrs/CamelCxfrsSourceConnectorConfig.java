@@ -69,7 +69,7 @@ public class CamelCxfrsSourceConnectorConfig
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_CONF = "camel.source.endpoint.serviceBeans";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_DOC = "The service beans (the bean ids to lookup in the registry) which you want to export as REST service. Multiple beans can be separated by comma";

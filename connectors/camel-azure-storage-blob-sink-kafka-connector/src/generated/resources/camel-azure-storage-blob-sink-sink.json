@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Upload data to Azure Storage Blob.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename."
 	},
 	"properties": {
@@ -26,20 +26,6 @@
 			"description": "The Azure Storage Blob access key.",
 			"priority": "HIGH",
 			"required": "true"
-		},
-		"camel.kamelet.azure-storage-blob-sink.operation": {
-			"name": "camel.kamelet.azure-storage-blob-sink.operation",
-			"description": "The operation to perform.",
-			"defaultValue": "\"uploadBlockBlob\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.kamelet.azure-storage-blob-sink.credentialType": {
-			"name": "camel.kamelet.azure-storage-blob-sink.credentialType",
-			"description": "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY",
-			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
-			"priority": "MEDIUM",
-			"required": "false"
 		}
 	}
 }
