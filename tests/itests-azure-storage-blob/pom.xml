@@ -29,7 +29,7 @@
     <artifactId>itests-azure-storage-blob</artifactId>
 
     <properties>
-        <version.netty.azure>4.1.54.Final</version.netty.azure>
+        <version.netty.azure>4.1.94.Final</version.netty.azure>
     </properties>
 
     <dependencies>
