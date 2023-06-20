@@ -16,6 +16,7 @@
 
 **Merged pull requests:**
 
+- Bump peter-evans/create-pull-request from 5.0.1 to 5.0.2 [\#1537](https://github.com/apache/camel-kafka-connector/pull/1537) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.4.0 to 3.5.3 [\#1534](https://github.com/apache/camel-kafka-connector/pull/1534) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 4.2.4 to 5.0.1 [\#1529](https://github.com/apache/camel-kafka-connector/pull/1529) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.3.0 to 3.4.0 [\#1516](https://github.com/apache/camel-kafka-connector/pull/1516) ([dependabot[bot]](https://github.com/apps/dependabot))
