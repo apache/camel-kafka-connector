@@ -20,15 +20,15 @@ package org.apache.camel.kafkaconnector.sjms2.clients;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.DeliveryMode;
-import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
+import jakarta.jms.Connection;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.DeliveryMode;
+import jakarta.jms.Destination;
+import jakarta.jms.JMSException;
+import jakarta.jms.Message;
+import jakarta.jms.MessageConsumer;
+import jakarta.jms.MessageProducer;
+import jakarta.jms.Session;
 
 import org.junit.jupiter.api.Assertions;
 import org.slf4j.Logger;
@@ -318,10 +318,6 @@ public class JMSClient {
 
         if (jmsClientType == null || jmsClientType.isEmpty() || jmsClientType.equals("qpid")) {
             return new JMSClient(org.apache.qpid.jms.JmsConnectionFactory::new, endpoint);
-        }
-
-        if (jmsClientType.equals("openwire")) {
-            return new JMSClient(org.apache.activemq.ActiveMQConnectionFactory::new, endpoint);
         }
 
         throw new UnsupportedOperationException("Invalid JMS transport protocol");
