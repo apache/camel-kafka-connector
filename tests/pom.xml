@@ -47,8 +47,6 @@
         <module>itests-cassandra</module>
         <module>itests-syslog</module>
         <module>itests-file</module>
-        <module>itests-http</module>
-        <module>itests-https</module>
         <module>itests-timer</module>
         <module>itests-slack</module>
         <module>itests-salesforce</module>
