@@ -6,7 +6,9 @@
 
 **Closed issues:**
 
+- S3 source connector writing duplicate messages for one S3 payload. [\#1541](https://github.com/apache/camel-kafka-connector/issues/1541)
 - NoClassDefFoundError when using S3 source connector with STS jar. [\#1536](https://github.com/apache/camel-kafka-connector/issues/1536)
+- Delete file in ftp after processed [\#1535](https://github.com/apache/camel-kafka-connector/issues/1535)
 - \[ERROR\] DynamoDB sink connector - default credential provider with environment variables not working [\#1533](https://github.com/apache/camel-kafka-connector/issues/1533)
 - \[ERROR\] DynamoDB sink connector - No type converter available [\#1532](https://github.com/apache/camel-kafka-connector/issues/1532)
 - Configs for CamelAzurestorageblobsinkSinkConnector [\#1530](https://github.com/apache/camel-kafka-connector/issues/1530)
