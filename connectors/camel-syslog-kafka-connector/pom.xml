@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.4-SNAPSHOT</version>
+    <version>3.20.6</version>
   </parent>
   <artifactId>camel-syslog-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: syslog</name>
@@ -176,4 +176,8 @@
     </repository>
   </repositories>
   <!--END OF GENERATED CODE-->
+
+  <scm>
+    <tag>camel-kafka-connector-3.20.6</tag>
+  </scm>
 </project>

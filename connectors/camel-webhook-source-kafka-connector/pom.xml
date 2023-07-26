@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.4-SNAPSHOT</version>
+    <version>3.20.6</version>
   </parent>
   <artifactId>camel-webhook-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: webhook-source</name>
@@ -112,6 +112,9 @@
       </plugin>
     </plugins>
   </build>
+  <scm>
+    <tag>camel-kafka-connector-3.20.6</tag>
+  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->
