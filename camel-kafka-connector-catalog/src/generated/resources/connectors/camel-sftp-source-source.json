@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sftp-source-source",
 		"type": "source",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "3.20.4-SNAPSHOT",
 		"description": "Receive data from an SFTP server."
 	},
 	"properties": {
@@ -111,6 +111,13 @@
 			"name": "camel.kamelet.sftp-source.autoCreate",
 			"description": "Automatically create starting directory.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.sftp-source.delete": {
+			"name": "camel.kamelet.sftp-source.delete",
+			"description": "If true, the file will be deleted after it is processed successfully.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

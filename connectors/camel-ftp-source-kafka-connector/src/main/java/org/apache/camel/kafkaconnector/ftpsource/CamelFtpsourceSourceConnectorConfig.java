@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.ftpsource;
+ */
+package org.apache.camel.kafkaconnector.ftpsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -55,6 +56,9 @@ public class CamelFtpsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_AUTO_CREATE_CONF = "camel.kamelet.ftp-source.autoCreate";
     public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_AUTO_CREATE_DOC = "Automatically create starting directory.";
     public static final Boolean CAMEL_SOURCE_FTPSOURCE_KAMELET_AUTO_CREATE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_DELETE_CONF = "camel.kamelet.ftp-source.delete";
+    public static final String CAMEL_SOURCE_FTPSOURCE_KAMELET_DELETE_DOC = "If true, the file will be deleted after it is processed successfully.";
+    public static final Boolean CAMEL_SOURCE_FTPSOURCE_KAMELET_DELETE_DEFAULT = false;
 
     public CamelFtpsourceSourceConnectorConfig(
             ConfigDef config,
@@ -78,6 +82,7 @@ public class CamelFtpsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_IDEMPOTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSOURCE_KAMELET_IDEMPOTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSOURCE_KAMELET_IDEMPOTENT_DOC);
         conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_BINARY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSOURCE_KAMELET_BINARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSOURCE_KAMELET_BINARY_DOC);
         conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSOURCE_KAMELET_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSOURCE_KAMELET_AUTO_CREATE_DOC);
+        conf.define(CAMEL_SOURCE_FTPSOURCE_KAMELET_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSOURCE_KAMELET_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSOURCE_KAMELET_DELETE_DOC);
         return conf;
     }
 }

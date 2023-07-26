@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-kinesis-source-source",
 		"type": "source",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "3.20.4-SNAPSHOT",
 		"description": "Receive data from AWS Kinesis.\n\nThe basic authentication method for the Kinesis service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the Kinesis client loads the credentials through this provider and doesn't use the basic authentication method.\n\nTwo headers will be duplicated with different names for clarity at sink level, CamelAwsKinesisPartitionKey will be duplicated into aws.kinesis.partition.key and CamelAwsKinesisSequenceNumber will be duplicated in aws.kinesis.sequence.number"
 	},
 	"properties": {

@@ -13,7 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package org.apache.camel.kafkaconnector.sftpsource;
+ */
+package org.apache.camel.kafkaconnector.sftpsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -73,6 +74,9 @@ public class CamelSftpsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_CONF = "camel.kamelet.sftp-source.autoCreate";
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DOC = "Automatically create starting directory.";
     public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_CONF = "camel.kamelet.sftp-source.delete";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_DOC = "If true, the file will be deleted after it is processed successfully.";
+    public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_DEFAULT = false;
 
     public CamelSftpsourceSourceConnectorConfig(
             ConfigDef config,
@@ -102,6 +106,7 @@ public class CamelSftpsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_STRICT_HOST_KEY_CHECKING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SFTPSOURCE_KAMELET_STRICT_HOST_KEY_CHECKING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_STRICT_HOST_KEY_CHECKING_DOC);
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_USE_USER_KNOWN_HOSTS_FILE_DOC);
         conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DOC);
+        conf.define(CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_DOC);
         return conf;
     }
 }

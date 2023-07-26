@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-postgresql-source-source",
 		"type": "source",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "3.20.4-SNAPSHOT",
 		"description": "Query data from a PostgreSQL Database."
 	},
 	"properties": {

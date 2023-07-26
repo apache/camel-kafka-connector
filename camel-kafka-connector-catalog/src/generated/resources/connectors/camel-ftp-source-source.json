@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ftp-source-source",
 		"type": "source",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "3.20.4-SNAPSHOT",
 		"description": "Receive data from an FTP server."
 	},
 	"properties": {
@@ -72,6 +72,13 @@
 			"name": "camel.kamelet.ftp-source.autoCreate",
 			"description": "Automatically create starting directory.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ftp-source.delete": {
+			"name": "camel.kamelet.ftp-source.delete",
+			"description": "If true, the file will be deleted after it is processed successfully.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}
