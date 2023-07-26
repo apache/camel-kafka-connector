@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-github-pullrequest-comment-source-source",
 		"type": "source",
-		"version": "3.20.4-SNAPSHOT",
+		"version": "3.20.6",
 		"description": "Receive pull request Comments From Github."
 	},
 	"properties": {

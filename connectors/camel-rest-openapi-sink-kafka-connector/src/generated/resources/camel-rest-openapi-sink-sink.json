@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-rest-openapi-sink-sink",
 		"type": "sink",
-		"version": "3.20.4-SNAPSHOT",
+		"version": "3.20.6",
 		"description": "Load an OpenAPI specification from a URI and call an operation on a HTTP service. The request that is generated respects the rules given in the OpenAPI specification (for example, path parameters and Content-Type)."
 	},
 	"properties": {
