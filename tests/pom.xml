@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>parent</artifactId>
-        <version>3.20.6</version>
+        <version>3.20.7-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -69,8 +69,4 @@
         <module>itests-netty-http</module>
         <module>itests-google-pubsub</module>
     </modules>
-
-  <scm>
-    <tag>camel-kafka-connector-3.20.6</tag>
-  </scm>
 </project>

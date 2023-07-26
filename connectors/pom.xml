@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>parent</artifactId>
-        <version>3.20.6</version>
+        <version>3.20.7-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -383,8 +383,4 @@
         <module>camel-websocket-source-kafka-connector</module>
         <module>camel-wttrin-source-kafka-connector</module>
     </modules>
-
-  <scm>
-    <tag>camel-kafka-connector-3.20.6</tag>
-  </scm>
 </project>
