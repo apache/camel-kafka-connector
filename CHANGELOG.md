@@ -2,19 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.3...HEAD)
-
-**Closed issues:**
-
-- S3 source connector writing duplicate messages for one S3 payload. [\#1541](https://github.com/apache/camel-kafka-connector/issues/1541)
-- NoClassDefFoundError when using S3 source connector with STS jar. [\#1536](https://github.com/apache/camel-kafka-connector/issues/1536)
-- Delete file in ftp after processed [\#1535](https://github.com/apache/camel-kafka-connector/issues/1535)
-- \[ERROR\] DynamoDB sink connector - default credential provider with environment variables not working [\#1533](https://github.com/apache/camel-kafka-connector/issues/1533)
-- \[ERROR\] DynamoDB sink connector - No type converter available [\#1532](https://github.com/apache/camel-kafka-connector/issues/1532)
-- Configs for CamelAzurestorageblobsinkSinkConnector [\#1530](https://github.com/apache/camel-kafka-connector/issues/1530)
-- Unable to use camel-netty-http connector: Error binding property pollingConsumerBlockTimeout=0 [\#1526](https://github.com/apache/camel-kafka-connector/issues/1526)
-- \[Question\] Can I use connectors with Kafka 2.8.1 on Amazon MSK? [\#1525](https://github.com/apache/camel-kafka-connector/issues/1525)
-- CKC 3.20.x release [\#1492](https://github.com/apache/camel-kafka-connector/issues/1492)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.6...HEAD)
 
 **Merged pull requests:**
 
@@ -406,6 +394,22 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-3.20.6](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.20.6) (2023-07-26)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.3...camel-kafka-connector-3.20.6)
+
+**Closed issues:**
+
+- S3 source connector writing duplicate messages for one S3 payload. [\#1541](https://github.com/apache/camel-kafka-connector/issues/1541)
+- NoClassDefFoundError when using S3 source connector with STS jar. [\#1536](https://github.com/apache/camel-kafka-connector/issues/1536)
+- Delete file in ftp after processed [\#1535](https://github.com/apache/camel-kafka-connector/issues/1535)
+- \[ERROR\] DynamoDB sink connector - default credential provider with environment variables not working [\#1533](https://github.com/apache/camel-kafka-connector/issues/1533)
+- \[ERROR\] DynamoDB sink connector - No type converter available [\#1532](https://github.com/apache/camel-kafka-connector/issues/1532)
+- Configs for CamelAzurestorageblobsinkSinkConnector [\#1530](https://github.com/apache/camel-kafka-connector/issues/1530)
+- Unable to use camel-netty-http connector: Error binding property pollingConsumerBlockTimeout=0 [\#1526](https://github.com/apache/camel-kafka-connector/issues/1526)
+- \[Question\] Can I use connectors with Kafka 2.8.1 on Amazon MSK? [\#1525](https://github.com/apache/camel-kafka-connector/issues/1525)
+- CKC 3.20.x release [\#1492](https://github.com/apache/camel-kafka-connector/issues/1492)
 
 ## [camel-kafka-connector-3.20.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.20.3) (2023-04-20)
 
