@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.6...HEAD)
 
+**Closed issues:**
+
+- \[Question\] Amazon Opensearch Compatibility? [\#1546](https://github.com/apache/camel-kafka-connector/issues/1546)
+
 **Merged pull requests:**
 
 - Bump peter-evans/create-pull-request from 5.0.1 to 5.0.2 [\#1537](https://github.com/apache/camel-kafka-connector/pull/1537) ([dependabot[bot]](https://github.com/apps/dependabot))
