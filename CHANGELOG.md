@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - \[Question\] Amazon Opensearch Compatibility? [\#1546](https://github.com/apache/camel-kafka-connector/issues/1546)
+- Upgrade to Camel 3.20.6 [\#1531](https://github.com/apache/camel-kafka-connector/issues/1531)
 
 **Merged pull requests:**
 
