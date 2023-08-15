@@ -32,7 +32,7 @@
     <name>Camel-Kafka-Connector :: Generator Maven Plugin</name>
 
     <properties>
-        <maven-version>3.6.3</maven-version>
+        <maven-version>3.8.1</maven-version>
         <classgraph.version>4.8.110</classgraph.version>
     </properties>
 
