@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.telegramsource;
+ */package org.apache.camel.kafkaconnector.telegramsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -27,7 +26,7 @@ public class CamelTelegramsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_CONF = "camel.kamelet.telegram-source.authorizationToken";
-    public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_DOC = "The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather.";
+    public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_DOC = "The token to access your bot on Telegram. You can obtain it from the Telegram @botfather.";
     public static final String CAMEL_SOURCE_TELEGRAMSOURCE_KAMELET_AUTHORIZATION_TOKEN_DEFAULT = null;
 
     public CamelTelegramsourceSourceConnectorConfig(

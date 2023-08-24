@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-cdc-source-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Receive data from Azure Service Bus subscribed to Azure Eventgrid reporting events related to a Azure Storage Blob account.\n\nConnection string is the basic method for authenticating to the Azure Servicebus Queue.\n\nTo use this Kamelet you'll need to set up Events on your Azure Storage Blob account and select as an endpoint an Azure Servicebus Queue."
 	},
 	"properties": {
@@ -23,7 +23,7 @@
 		},
 		"camel.kamelet.azure-storage-blob-cdc-source.serviceBusReceiveMode": {
 			"name": "camel.kamelet.azure-storage-blob-cdc-source.serviceBusReceiveMode",
-			"description": "Sets the receive mode for the receiver, possible values are PEEK_LOCK and RECEIVE_AND_DELETE",
+			"description": "Sets the receive mode for the receiver.",
 			"defaultValue": "\"RECEIVE_AND_DELETE\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -54,7 +54,7 @@
 		},
 		"camel.kamelet.azure-storage-blob-cdc-source.credentialType": {
 			"name": "camel.kamelet.azure-storage-blob-cdc-source.credentialType",
-			"description": "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY",
+			"description": "Determines the credential strategy to adopt.",
 			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
 			"priority": "MEDIUM",
 			"required": "false"

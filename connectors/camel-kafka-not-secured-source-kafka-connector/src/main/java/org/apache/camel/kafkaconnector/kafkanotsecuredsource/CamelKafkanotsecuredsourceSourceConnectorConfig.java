@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.kafkanotsecuredsource;
+ */package org.apache.camel.kafkaconnector.kafkanotsecuredsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -47,6 +46,9 @@ public class CamelKafkanotsecuredsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_CONF = "camel.kamelet.kafka-not-secured-source.consumerGroup";
     public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DOC = "A string that uniquely identifies the group of consumers to which this source belongs Example: my-group-id";
     public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_DESERIALIZE_HEADERS_CONF = "camel.kamelet.kafka-not-secured-source.deserializeHeaders";
+    public static final String CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_DESERIALIZE_HEADERS_DOC = "When enabled the Kamelet source will deserialize all message headers to String representation.";
+    public static final Boolean CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT = true;
 
     public CamelKafkanotsecuredsourceSourceConnectorConfig(
             ConfigDef config,
@@ -68,6 +70,7 @@ public class CamelKafkanotsecuredsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_POLL_ON_ERROR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_POLL_ON_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_POLL_ON_ERROR_DOC);
         conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_AUTO_OFFSET_RESET_DOC);
         conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_CONSUMER_GROUP_DOC);
+        conf.define(CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_DESERIALIZE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKANOTSECUREDSOURCE_KAMELET_DESERIALIZE_HEADERS_DOC);
         return conf;
     }
 }

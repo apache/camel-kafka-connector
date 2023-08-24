@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.azurestorageblobsink;
+ */package org.apache.camel.kafkaconnector.azurestorageblobsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -35,11 +34,8 @@ public class CamelAzurestorageblobsinkSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.azure-storage-blob-sink.accessKey";
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DOC = "The Azure Storage Blob access key.";
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_CONF = "camel.kamelet.azure-storage-blob-sink.operation";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_DOC = "The operation to perform.";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_DEFAULT = "uploadBlockBlob";
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CREDENTIAL_TYPE_CONF = "camel.kamelet.azure-storage-blob-sink.credentialType";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY";
+    public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt.";
     public static final String CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CREDENTIAL_TYPE_DEFAULT = "SHARED_ACCOUNT_KEY";
 
     public CamelAzurestorageblobsinkSinkConnectorConfig(
@@ -57,8 +53,7 @@ public class CamelAzurestorageblobsinkSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCOUNT_NAME_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CONTAINER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CONTAINER_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CONTAINER_NAME_DOC);
-        conf.define(CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DOC);
-        conf.define(CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CREDENTIAL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CREDENTIAL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOBSINK_KAMELET_CREDENTIAL_TYPE_DOC);
         return conf;
     }

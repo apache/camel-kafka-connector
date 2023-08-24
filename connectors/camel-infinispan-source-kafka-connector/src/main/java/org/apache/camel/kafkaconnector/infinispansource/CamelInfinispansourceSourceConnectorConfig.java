@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.infinispansource;
+ */package org.apache.camel.kafkaconnector.infinispansource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -51,7 +50,7 @@ public class CamelInfinispansourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_INFINISPANSOURCE_KAMELET_SECURITY_SERVER_NAME_DOC = "Define the security server name to access the infinispan instance";
     public static final String CAMEL_SOURCE_INFINISPANSOURCE_KAMELET_SECURITY_SERVER_NAME_DEFAULT = "infinispan";
     public static final String CAMEL_SOURCE_INFINISPANSOURCE_KAMELET_EVENT_TYPES_CONF = "camel.kamelet.infinispan-source.eventTypes";
-    public static final String CAMEL_SOURCE_INFINISPANSOURCE_KAMELET_EVENT_TYPES_DOC = "Specifies the set of event types to register by the consumer. Multiple event can be separated by comma without spaces. The possible event types are CLIENT_CACHE_ENTRY_CREATED, CLIENT_CACHE_ENTRY_MODIFIED, CLIENT_CACHE_ENTRY_REMOVED, CLIENT_CACHE_ENTRY_EXPIRED, CLIENT_CACHE_FAILOVER Example: CLIENT_CACHE_ENTRY_CREATED,CLIENT_CACHE_ENTRY_MODIFIED";
+    public static final String CAMEL_SOURCE_INFINISPANSOURCE_KAMELET_EVENT_TYPES_DOC = "Specifies the set of event types to register by the consumer. Multiple event can be separated by comma without spaces. Example: CLIENT_CACHE_ENTRY_CREATED,CLIENT_CACHE_ENTRY_MODIFIED";
     public static final String CAMEL_SOURCE_INFINISPANSOURCE_KAMELET_EVENT_TYPES_DEFAULT = "CLIENT_CACHE_ENTRY_CREATED,CLIENT_CACHE_ENTRY_MODIFIED,CLIENT_CACHE_ENTRY_REMOVED,CLIENT_CACHE_ENTRY_EXPIRED,CLIENT_CACHE_FAILOVER";
 
     public CamelInfinispansourceSourceConnectorConfig(

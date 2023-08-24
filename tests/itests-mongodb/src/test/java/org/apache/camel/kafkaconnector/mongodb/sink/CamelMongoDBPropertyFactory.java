@@ -45,6 +45,14 @@ final class CamelMongoDBPropertyFactory extends SinkConnectorPropertyFactory<Cam
         return setProperty("camel.kamelet.mongodb-sink.collection", collection);
     }
 
+    public CamelMongoDBPropertyFactory withSslValidationEnabled(String sslValidationEnabled) {
+        return setProperty("camel.kamelet.mongodb-sink.sslValidationEnabled", sslValidationEnabled);
+    }
+
+    public CamelMongoDBPropertyFactory withSsl(String ssl) {
+        return setProperty("camel.kamelet.mongodb-sink.ssl", ssl);
+    }
+
     public static CamelMongoDBPropertyFactory basic() {
         return new CamelMongoDBPropertyFactory()
                 .withName("CamelMongoDBSinkConnector")
@@ -52,6 +60,7 @@ final class CamelMongoDBPropertyFactory extends SinkConnectorPropertyFactory<Cam
                 .withConnectorClass("org.apache.camel.kafkaconnector.mongodbsink.CamelMongodbsinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withSsl("false")
                 .setProperty("camel.component.kamelet.location", "kamelets");
     }
 }

@@ -46,6 +46,14 @@ final class CamelMongoDBPropertyFactory extends SourceConnectorPropertyFactory<C
         return setProperty("camel.kamelet.mongodb-source.collection", collection);
     }
 
+    public CamelMongoDBPropertyFactory withSslValidationEnabled(String sslValidationEnabled) {
+        return setProperty("camel.kamelet.mongodb-source.sslValidationEnabled", sslValidationEnabled);
+    }
+
+    public CamelMongoDBPropertyFactory withSsl(String ssl) {
+        return setProperty("camel.kamelet.mongodb-source.ssl", ssl);
+    }
+
     public static CamelMongoDBPropertyFactory basic() {
         return new CamelMongoDBPropertyFactory()
                 .withName("CamelMongoDBSourceConnector")
@@ -53,6 +61,7 @@ final class CamelMongoDBPropertyFactory extends SourceConnectorPropertyFactory<C
                 .withConnectorClass("org.apache.camel.kafkaconnector.mongodbsource.CamelMongodbsourceSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withSsl("false")
                 .setProperty("camel.component.kamelet.location", "kamelets");
     }
 

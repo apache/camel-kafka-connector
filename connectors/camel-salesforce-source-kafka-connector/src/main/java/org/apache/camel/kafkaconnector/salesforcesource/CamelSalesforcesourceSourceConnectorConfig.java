@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.salesforcesource;
+ */package org.apache.camel.kafkaconnector.salesforcesource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -36,7 +35,7 @@ public class CamelSalesforcesourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_LOGIN_URL_DOC = "The Salesforce instance login URL.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_LOGIN_URL_DEFAULT = "https://login.salesforce.com";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_CONF = "camel.kamelet.salesforce-source.notifyForFields";
-    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_DOC = "Notify for fields. Possible values are ALL, REFERENCED, SELECT, or WHERE.";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_DOC = "Notify for fields.";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_FIELDS_DEFAULT = "ALL";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_ID_CONF = "camel.kamelet.salesforce-source.clientId";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_CLIENT_ID_DOC = "The Salesforce application consumer key.";

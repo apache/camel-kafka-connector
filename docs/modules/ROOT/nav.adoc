@@ -98,6 +98,10 @@
 **** xref:reference/connectors/camel-azure-storage-blob-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-storage-blob-source-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-blob-source-kafka-source-connector.adoc[Source Docs]
+*** camel-azure-storage-datalake-sink-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-datalake-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-storage-datalake-source-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-datalake-source-kafka-source-connector.adoc[Source Docs]
 *** camel-azure-storage-queue-sink-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-queue-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-storage-queue-source-kafka-connector
@@ -236,6 +240,10 @@
 **** xref:reference/connectors/camel-kafka-not-secured-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-kafka-not-secured-source-kafka-connector
 **** xref:reference/connectors/camel-kafka-not-secured-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-scram-sink-kafka-connector
+**** xref:reference/connectors/camel-kafka-scram-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-kafka-scram-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-scram-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-sink-kafka-connector
 **** xref:reference/connectors/camel-kafka-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-kafka-source-kafka-connector

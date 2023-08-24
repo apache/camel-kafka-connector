@@ -5,13 +5,13 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-telegram-source-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Receive all messages that people send to your Telegram bot.\n\nTo create a bot, contact the @botfather account by using the Telegram app.\n\nThe source attaches the following header to the messages:\n\n- `chat-id` \/ `ce-chatid`: The ID of the chat where the message comes from."
 	},
 	"properties": {
 		"camel.kamelet.telegram-source.authorizationToken": {
 			"name": "camel.kamelet.telegram-source.authorizationToken",
-			"description": "The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather.",
+			"description": "The token to access your bot on Telegram. You can obtain it from the Telegram @botfather.",
 			"priority": "HIGH",
 			"required": "true"
 		}

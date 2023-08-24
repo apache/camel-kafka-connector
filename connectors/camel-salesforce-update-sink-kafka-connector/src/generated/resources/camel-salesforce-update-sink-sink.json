@@ -5,22 +5,10 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-update-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
-		"description": "Update an object in Salesforce. \n\nThe body received must contain a JSON key-value pair for each property to update, for example: `{ \"Phone\": \"1234567890\", \"Name\": \"Antonia\" }`\n\nThe body received must include the `sObjectName` and `sObjectId` properties."
+		"version": "3.20.1-SNAPSHOT",
+		"description": "Update an object in Salesforce. \n\nThe body received must contain a JSON key-value pair for each property to update inside the payload attribute, for example: \n\n`{ \"payload\": { \"Phone\": \"1234567890\", \"Name\": \"Antonia\" } }`\n\nThe body received must include the `sObjectName` and `sObjectId` properties, for example:\n\n`{ \"payload\": { \"Phone\": \"1234567890\", \"Name\": \"Antonia\" }, \"sObjectId\": \"sObjectId\", \"sObjectName\": \"sObjectName\" }`"
 	},
 	"properties": {
-		"camel.kamelet.salesforce-update-sink.sObjectName": {
-			"name": "camel.kamelet.salesforce-update-sink.sObjectName",
-			"description": "The type of the Salesforce object. Required if using a key-value pair. Example: Contact",
-			"priority": "HIGH",
-			"required": "true"
-		},
-		"camel.kamelet.salesforce-update-sink.sObjectId": {
-			"name": "camel.kamelet.salesforce-update-sink.sObjectId",
-			"description": "The ID of the Salesforce object. Required if using a key-value pair.",
-			"priority": "HIGH",
-			"required": "true"
-		},
 		"camel.kamelet.salesforce-update-sink.loginUrl": {
 			"name": "camel.kamelet.salesforce-update-sink.loginUrl",
 			"description": "The Salesforce instance login URL.",

@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.netty;
+ */package org.apache.camel.kafkaconnector.netty;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -69,6 +68,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_CONF = "camel.sink.endpoint.producerPoolBlockWhenExhausted";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DOC = "Sets the value for the blockWhenExhausted configuration attribute. It determines whether to block when the borrowObject() method is invoked when the pool is exhausted (the maximum number of active objects has been reached).";
+    public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DEFAULT = true;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_ENABLED_CONF = "camel.sink.endpoint.producerPoolEnabled";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_ENABLED_DOC = "Whether producer pool is enabled or not. Important: If you turn this off then a single shared connection is used for the producer, also if you are doing request/reply. That means there is a potential issue with interleaved responses if replies comes back out-of-order. Therefore you need to have a correlation id in both the request and reply messages so you can properly correlate the replies to the Camel callback that is responsible for continue processing the message in Camel. To do this you need to implement NettyCamelStateCorrelationManager as correlation manager and configure it via the correlationManager option. See also the correlationManager option for more details.";
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_ENABLED_DEFAULT = true;
@@ -78,6 +80,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_TOTAL_CONF = "camel.sink.endpoint.producerPoolMaxTotal";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_TOTAL_DOC = "Sets the cap on the number of objects that can be allocated by the pool (checked out to clients, or idle awaiting checkout) at a given time. Use a negative value for no limit.";
     public static final Integer CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_TOTAL_DEFAULT = -1;
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_WAIT_CONF = "camel.sink.endpoint.producerPoolMaxWait";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_WAIT_DOC = "Sets the maximum duration (value in millis) the borrowObject() method should block before throwing an exception when the pool is exhausted and producerPoolBlockWhenExhausted is true. When less than 0, the borrowObject() method may block indefinitely.";
+    public static final Long CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_WAIT_DEFAULT = -1L;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_CONF = "camel.sink.endpoint.producerPoolMinEvictableIdle";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DOC = "Sets the minimum amount of time (value in millis) an object may sit idle in the pool before it is eligible for eviction by the idle object evictor.";
     public static final Long CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DEFAULT = 300000L;
@@ -123,6 +128,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_UDP_BYTE_ARRAY_CODEC_CONF = "camel.sink.endpoint.udpByteArrayCodec";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_UDP_BYTE_ARRAY_CODEC_DOC = "For UDP only. If enabled the using byte array codec instead of Java serialization protocol.";
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_UDP_BYTE_ARRAY_CODEC_DEFAULT = false;
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_CONF = "camel.sink.endpoint.unixDomainSocketPath";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DOC = "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_WORKER_COUNT_CONF = "camel.sink.endpoint.workerCount";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_WORKER_COUNT_DOC = "When netty works on nio mode, it uses default workerCount parameter from Netty (which is cpu_core_threads x 2). User can use this option to override the default workerCount from Netty.";
     public static final Integer CAMEL_SINK_NETTY_ENDPOINT_WORKER_COUNT_DEFAULT = null;
@@ -228,6 +236,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_LAZY_CHANNEL_CREATION_CONF = "camel.component.netty.lazyChannelCreation";
     public static final String CAMEL_SINK_NETTY_COMPONENT_LAZY_CHANNEL_CREATION_DOC = "Channels can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.";
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_LAZY_CHANNEL_CREATION_DEFAULT = true;
+    public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_CONF = "camel.component.netty.producerPoolBlockWhenExhausted";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DOC = "Sets the value for the blockWhenExhausted configuration attribute. It determines whether to block when the borrowObject() method is invoked when the pool is exhausted (the maximum number of active objects has been reached).";
+    public static final Boolean CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DEFAULT = true;
     public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_ENABLED_CONF = "camel.component.netty.producerPoolEnabled";
     public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_ENABLED_DOC = "Whether producer pool is enabled or not. Important: If you turn this off then a single shared connection is used for the producer, also if you are doing request/reply. That means there is a potential issue with interleaved responses if replies comes back out-of-order. Therefore you need to have a correlation id in both the request and reply messages so you can properly correlate the replies to the Camel callback that is responsible for continue processing the message in Camel. To do this you need to implement NettyCamelStateCorrelationManager as correlation manager and configure it via the correlationManager option. See also the correlationManager option for more details.";
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_ENABLED_DEFAULT = true;
@@ -237,6 +248,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_TOTAL_CONF = "camel.component.netty.producerPoolMaxTotal";
     public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_TOTAL_DOC = "Sets the cap on the number of objects that can be allocated by the pool (checked out to clients, or idle awaiting checkout) at a given time. Use a negative value for no limit.";
     public static final Integer CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_TOTAL_DEFAULT = -1;
+    public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_WAIT_CONF = "camel.component.netty.producerPoolMaxWait";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_WAIT_DOC = "Sets the maximum duration (value in millis) the borrowObject() method should block before throwing an exception when the pool is exhausted and producerPoolBlockWhenExhausted is true. When less than 0, the borrowObject() method may block indefinitely.";
+    public static final Long CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_WAIT_DEFAULT = -1L;
     public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_CONF = "camel.component.netty.producerPoolMinEvictableIdle";
     public static final String CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DOC = "Sets the minimum amount of time (value in millis) an object may sit idle in the pool before it is eligible for eviction by the idle object evictor.";
     public static final Long CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DEFAULT = 300000L;
@@ -282,6 +296,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_UDP_BYTE_ARRAY_CODEC_CONF = "camel.component.netty.udpByteArrayCodec";
     public static final String CAMEL_SINK_NETTY_COMPONENT_UDP_BYTE_ARRAY_CODEC_DOC = "For UDP only. If enabled the using byte array codec instead of Java serialization protocol.";
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_UDP_BYTE_ARRAY_CODEC_DEFAULT = false;
+    public static final String CAMEL_SINK_NETTY_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_CONF = "camel.component.netty.unixDomainSocketPath";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DOC = "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_COMPONENT_WORKER_COUNT_CONF = "camel.component.netty.workerCount";
     public static final String CAMEL_SINK_NETTY_COMPONENT_WORKER_COUNT_DOC = "When netty works on nio mode, it uses default workerCount parameter from Netty (which is cpu_core_threads x 2). User can use this option to override the default workerCount from Netty.";
     public static final Integer CAMEL_SINK_NETTY_COMPONENT_WORKER_COUNT_DEFAULT = null;
@@ -379,9 +396,11 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_CORRELATION_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_CORRELATION_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_CORRELATION_MANAGER_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_LAZY_CHANNEL_CREATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_LAZY_CHANNEL_CREATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_LAZY_CHANNEL_CREATION_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_ENABLED_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_IDLE_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_TOTAL_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_TOTAL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_TOTAL_DOC);
+        conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_WAIT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_WAIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MAX_WAIT_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_CONF, ConfigDef.Type.LONG, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_IDLE_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_DOC);
@@ -397,6 +416,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_TRANSFER_EXCHANGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_TRANSFER_EXCHANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_TRANSFER_EXCHANGE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_UDP_BYTE_ARRAY_CODEC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_UDP_BYTE_ARRAY_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_UDP_BYTE_ARRAY_CODEC_DOC);
+        conf.define(CAMEL_SINK_NETTY_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_WORKER_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_ENDPOINT_WORKER_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_WORKER_COUNT_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_WORKER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_WORKER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_WORKER_GROUP_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_ALLOW_DEFAULT_CODEC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_ALLOW_DEFAULT_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_ALLOW_DEFAULT_CODEC_DOC);
@@ -432,9 +452,11 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_COMPONENT_CLIENT_INITIALIZER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_CLIENT_INITIALIZER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_CLIENT_INITIALIZER_FACTORY_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_CORRELATION_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_CORRELATION_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_CORRELATION_MANAGER_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_LAZY_CHANNEL_CREATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_LAZY_CHANNEL_CREATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_LAZY_CHANNEL_CREATION_DOC);
+        conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_BLOCK_WHEN_EXHAUSTED_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_ENABLED_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_IDLE_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_TOTAL_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_TOTAL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_TOTAL_DOC);
+        conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_WAIT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_WAIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MAX_WAIT_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_CONF, ConfigDef.Type.LONG, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_EVICTABLE_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_IDLE_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_DOC);
@@ -450,6 +472,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_COMPONENT_SEND_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_COMPONENT_SEND_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_SEND_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_TRANSFER_EXCHANGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_TRANSFER_EXCHANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_TRANSFER_EXCHANGE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_UDP_BYTE_ARRAY_CODEC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_UDP_BYTE_ARRAY_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_UDP_BYTE_ARRAY_CODEC_DOC);
+        conf.define(CAMEL_SINK_NETTY_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_WORKER_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_COMPONENT_WORKER_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_WORKER_COUNT_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_WORKER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_WORKER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_WORKER_GROUP_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_ALLOW_DEFAULT_CODEC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_ALLOW_DEFAULT_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_ALLOW_DEFAULT_CODEC_DOC);

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-changefeed-source-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Consume events from an Azure Storage Blob change feed."
 	},
 	"properties": {
@@ -27,13 +27,6 @@
 			"description": "The Azure Storage Blob access Key.",
 			"priority": "HIGH",
 			"required": "true"
-		},
-		"camel.kamelet.azure-storage-blob-changefeed-source.credentialType": {
-			"name": "camel.kamelet.azure-storage-blob-changefeed-source.credentialType",
-			"description": "Determines the credential strategy to adopt. Possible values are SHARED_ACCOUNT_KEY, SHARED_KEY_CREDENTIAL and AZURE_IDENTITY",
-			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
-			"priority": "MEDIUM",
-			"required": "false"
 		}
 	}
 }
