@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.pulsarsink;
+ */package org.apache.camel.kafkaconnector.pulsarsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -33,7 +32,7 @@ public class CamelPulsarsinkSinkConnectorConfig
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TENANT_DOC = "The Tenant Name";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TENANT_DEFAULT = null;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_TYPE_CONF = "camel.kamelet.pulsar-sink.topicType";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_TYPE_DOC = "The topic type. Possible values are persistent or non-persistent.";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_TYPE_DOC = "The topic type.";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_TYPE_DEFAULT = null;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_NAMESPACE_NAME_CONF = "camel.kamelet.pulsar-sink.namespaceName";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_NAMESPACE_NAME_DOC = "The Pulsar Namespace Name";
@@ -60,7 +59,7 @@ public class CamelPulsarsinkSinkConnectorConfig
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_BLOCK_IF_QUEUE_FULL_DOC = "Whether to block the producing thread if pending messages queue is full or to throw a ProducerQueueIsFullError.";
     public static final Boolean CAMEL_SINK_PULSARSINK_KAMELET_BLOCK_IF_QUEUE_FULL_DEFAULT = false;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_COMPRESSION_TYPE_CONF = "camel.kamelet.pulsar-sink.compressionType";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_COMPRESSION_TYPE_DOC = "Compression type to use. Possible values are NONE, LZ4, ZLIB, ZSTD, or SNAPPY.";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_COMPRESSION_TYPE_DOC = "Compression type to use.";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_COMPRESSION_TYPE_DEFAULT = "NONE";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_INITIAL_SEQUENCE_ID_CONF = "camel.kamelet.pulsar-sink.initialSequenceId";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_INITIAL_SEQUENCE_ID_DOC = "The first message published will have a sequence Id of initialSequenceId 1.";
@@ -75,7 +74,7 @@ public class CamelPulsarsinkSinkConnectorConfig
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_ACROSS_PARTITIONS_DOC = "The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition.";
     public static final Integer CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_ACROSS_PARTITIONS_DEFAULT = 50000;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_MESSAGE_ROUTING_MODE_CONF = "camel.kamelet.pulsar-sink.messageRoutingMode";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_MESSAGE_ROUTING_MODE_DOC = "Message Routing Mode to use. Possible values are SinglePartition, RoundRobinPartition, CustomPartition";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_MESSAGE_ROUTING_MODE_DOC = "Message Routing Mode to use.";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_MESSAGE_ROUTING_MODE_DEFAULT = "RoundRobinPartition";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_PRODUCER_NAME_CONF = "camel.kamelet.pulsar-sink.producerName";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_PRODUCER_NAME_DOC = "Name of the producer. If unset, lets Pulsar select a unique identifier.";

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ftps-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Send data to an FTPS server.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the filename."
 	},
 	"properties": {
@@ -49,7 +49,7 @@
 		},
 		"camel.kamelet.ftps-sink.fileExist": {
 			"name": "camel.kamelet.ftps-sink.fileExist",
-			"description": "Specifies how the Kamelet behaves if the file already exists. Possible values are Override, Append, Fail, or Ignore.",
+			"description": "Specifies how the Kamelet behaves if the file already exists.",
 			"defaultValue": "\"Override\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -58,6 +58,13 @@
 			"name": "camel.kamelet.ftps-sink.binary",
 			"description": "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ftps-sink.autoCreate": {
+			"name": "camel.kamelet.ftps-sink.autoCreate",
+			"description": "Automatically create the directory the files should be written to.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

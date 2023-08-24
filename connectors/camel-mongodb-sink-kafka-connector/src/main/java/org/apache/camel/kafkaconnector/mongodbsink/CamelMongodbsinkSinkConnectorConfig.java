@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.mongodbsink;
+ */package org.apache.camel.kafkaconnector.mongodbsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -38,11 +37,17 @@ public class CamelMongodbsinkSinkConnectorConfig
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_CONF = "camel.kamelet.mongodb-sink.username";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DOC = "A username for accessing MongoDB.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_CONF = "camel.kamelet.mongodb-sink.ssl";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_DOC = "whether to enable ssl connection to mongodb";
+    public static final Boolean CAMEL_SINK_MONGODBSINK_KAMELET_SSL_DEFAULT = true;
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_CONF = "camel.kamelet.mongodb-sink.sslValidationEnabled";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_DOC = "IMPORTANT this should be disabled only in test environment since can pose security issues.";
+    public static final Boolean CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_CONF = "camel.kamelet.mongodb-sink.database";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DOC = "The name of the MongoDB database.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_CONF = "camel.kamelet.mongodb-sink.writeConcern";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DOC = "The level of acknowledgment requested from MongoDB for write operations. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, or MAJORITY.";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DOC = "The level of acknowledgment requested from MongoDB for write operations.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_CONF = "camel.kamelet.mongodb-sink.createCollection";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_DOC = "Create a collection during initialization if it doesn't exist.";
@@ -64,6 +69,8 @@ public class CamelMongodbsinkSinkConnectorConfig
         conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_COLLECTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODBSINK_KAMELET_COLLECTION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MONGODBSINK_KAMELET_COLLECTION_DOC);
         conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_MONGODBSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODBSINK_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_SSL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODBSINK_KAMELET_SSL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODBSINK_KAMELET_SSL_DOC);
+        conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_DOC);
         conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MONGODBSINK_KAMELET_DATABASE_DOC);
         conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODBSINK_KAMELET_WRITE_CONCERN_DOC);
         conf.define(CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODBSINK_KAMELET_CREATE_COLLECTION_DOC);

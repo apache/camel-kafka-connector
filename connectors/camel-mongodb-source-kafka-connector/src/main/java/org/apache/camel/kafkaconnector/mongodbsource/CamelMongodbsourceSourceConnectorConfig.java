@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.mongodbsource;
+ */package org.apache.camel.kafkaconnector.mongodbsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -38,6 +37,12 @@ public class CamelMongodbsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.mongodb-source.username";
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_USERNAME_DOC = "The username for accessing MongoDB. The username must be present in the MongoDB's authentication database (`authenticationDatabase`). By default, the MongoDB `authenticationDatabase` is 'admin'.";
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_CONF = "camel.kamelet.mongodb-source.ssl";
+    public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_DOC = "whether to enable ssl connection to mongodb";
+    public static final Boolean CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_DEFAULT = true;
+    public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_VALIDATION_ENABLED_CONF = "camel.kamelet.mongodb-source.sslValidationEnabled";
+    public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_VALIDATION_ENABLED_DOC = "IMPORTANT this should be disabled only in test environment since can pose security issues.";
+    public static final Boolean CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_VALIDATION_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_CONF = "camel.kamelet.mongodb-source.database";
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_DOC = "The name of the MongoDB database.";
     public static final String CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_DEFAULT = null;
@@ -65,6 +70,8 @@ public class CamelMongodbsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_COLLECTION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_COLLECTION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_COLLECTION_DOC);
         conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_DOC);
+        conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_VALIDATION_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_VALIDATION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_SSL_VALIDATION_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_DATABASE_DOC);
         conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PERSISTENT_TAIL_TRACKING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PERSISTENT_TAIL_TRACKING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_PERSISTENT_TAIL_TRACKING_DOC);
         conf.define(CAMEL_SOURCE_MONGODBSOURCE_KAMELET_TAIL_TRACK_INCREASING_FIELD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_TAIL_TRACK_INCREASING_FIELD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODBSOURCE_KAMELET_TAIL_TRACK_INCREASING_FIELD_DOC);

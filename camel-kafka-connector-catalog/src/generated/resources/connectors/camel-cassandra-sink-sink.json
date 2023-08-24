@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cassandra-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Send data to an Apache Cassandra cluster.\n\nThis Kamelet expects JSON Array formatted data. The content of the JSON Array is used as input for the CQL Prepared Statement set in the query parameter."
 	},
 	"properties": {
@@ -41,7 +41,7 @@
 		},
 		"camel.kamelet.cassandra-sink.consistencyLevel": {
 			"name": "camel.kamelet.cassandra-sink.consistencyLevel",
-			"description": "The consistency level to use. Set the value to one of these options - ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, or LOCAL_ONE.",
+			"description": "The consistency level to use.",
 			"defaultValue": "\"ANY\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -58,6 +58,12 @@
 			"description": "The query to execute against the Cassandra cluster table.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.cassandra-sink.extraTypeCodecs": {
+			"name": "camel.kamelet.cassandra-sink.extraTypeCodecs",
+			"description": "To use a specific comma separated list of Extra Type codecs.",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

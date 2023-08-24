@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.hdfs;
+ */package org.apache.camel.kafkaconnector.hdfs;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -45,7 +44,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_FILE_TYPE_DOC = "The file type to use. For more details see Hadoop HDFS documentation about the various files types. One of: [NORMAL_FILE] [SEQUENCE_FILE] [MAP_FILE] [BLOOMMAP_FILE] [ARRAY_FILE]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_FILE_TYPE_DEFAULT = "NORMAL_FILE";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_CONF = "camel.source.endpoint.keyType";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_DOC = "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_DOC = "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [SHORT] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KEY_TYPE_DEFAULT = "NULL";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_NAMED_NODES_CONF = "camel.source.endpoint.namedNodes";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_NAMED_NODES_DOC = "A comma separated list of named nodes (e.g. srv11.example.com:8020,srv12.example.com:8020)";
@@ -54,7 +53,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_OWNER_DOC = "The file owner must match this owner for the consumer to pickup the file. Otherwise the file is skipped.";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_OWNER_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_CONF = "camel.source.endpoint.valueType";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DOC = "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DOC = "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [SHORT] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_VALUE_TYPE_DEFAULT = "BYTES";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_CONF = "camel.source.endpoint.pattern";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_PATTERN_DOC = "The pattern used for scanning the directory";

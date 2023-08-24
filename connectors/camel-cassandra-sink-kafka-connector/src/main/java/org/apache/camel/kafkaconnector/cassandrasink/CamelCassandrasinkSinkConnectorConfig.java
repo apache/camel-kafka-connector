@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.cassandrasink;
+ */package org.apache.camel.kafkaconnector.cassandrasink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -42,7 +41,7 @@ public class CamelCassandrasinkSinkConnectorConfig
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_DOC = "The password for accessing a secured Cassandra cluster.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_CONF = "camel.kamelet.cassandra-sink.consistencyLevel";
-    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DOC = "The consistency level to use. Set the value to one of these options - ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, or LOCAL_ONE.";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DOC = "The consistency level to use.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DEFAULT = "ANY";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_CONF = "camel.kamelet.cassandra-sink.prepareStatements";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DOC = "If true, specifies to use PreparedStatements as the query. If false, specifies to use regular Statements as the query.";
@@ -50,6 +49,9 @@ public class CamelCassandrasinkSinkConnectorConfig
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_CONF = "camel.kamelet.cassandra-sink.query";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DOC = "The query to execute against the Cassandra cluster table.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DEFAULT = null;
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_CONF = "camel.kamelet.cassandra-sink.extraTypeCodecs";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DOC = "To use a specific comma separated list of Extra Type codecs.";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DEFAULT = null;
 
     public CamelCassandrasinkSinkConnectorConfig(
             ConfigDef config,
@@ -72,6 +74,7 @@ public class CamelCassandrasinkSinkConnectorConfig
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CASSANDRASINK_KAMELET_CONSISTENCY_LEVEL_DOC);
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DOC);
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DOC);
+        conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DOC);
         return conf;
     }
 }

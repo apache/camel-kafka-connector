@@ -22,6 +22,7 @@ import org.apache.camel.test.infra.mongodb.services.MongoDBService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
 
 public class CkcMongoDBLocalContainerService implements MongoDBService, ContainerService<GenericContainer> {
     private static final Logger LOG = LoggerFactory.getLogger(MongoDBLocalContainerService.class);
@@ -79,6 +80,7 @@ public class CkcMongoDBLocalContainerService implements MongoDBService, Containe
 
     public void initialize() {
         LOG.info("Trying to start the MongoDB service");
+        this.container.waitingFor(Wait.forLogMessage("(?i).*waiting for connections.*", 1));
         this.container.start();
         this.registerProperties();
         LOG.info("MongoDB service running at {}", getReplicaSetUrl());

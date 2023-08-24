@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.pulsarsource;
+ */package org.apache.camel.kafkaconnector.pulsarsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -33,7 +32,7 @@ public class CamelPulsarsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TENANT_DOC = "The Tenant Name";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TENANT_DEFAULT = null;
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TOPIC_TYPE_CONF = "camel.kamelet.pulsar-source.topicType";
-    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TOPIC_TYPE_DOC = "The topic type. Possible values are persistent or non-persistent.";
+    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TOPIC_TYPE_DOC = "The topic type.";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TOPIC_TYPE_DEFAULT = null;
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_NAMESPACE_NAME_CONF = "camel.kamelet.pulsar-source.namespaceName";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_NAMESPACE_NAME_DOC = "The Pulsar Namespace Name";
@@ -75,16 +74,16 @@ public class CamelPulsarsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_READ_COMPACTED_DOC = "Enable compacted topic reading.";
     public static final Boolean CAMEL_SOURCE_PULSARSOURCE_KAMELET_READ_COMPACTED_DEFAULT = false;
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_INITIAL_POSITION_CONF = "camel.kamelet.pulsar-source.subscriptionInitialPosition";
-    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_INITIAL_POSITION_DOC = "Control the initial position in the topic of a newly created subscription. Default is latest message. Possible values are EARLIEST or LATEST.";
+    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_INITIAL_POSITION_DOC = "Control the initial position in the topic of a newly created subscription. Default is latest message.";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_INITIAL_POSITION_DEFAULT = "LATEST";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_NAME_CONF = "camel.kamelet.pulsar-source.subscriptionName";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_NAME_DOC = "Name of the subscription to use.";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_NAME_DEFAULT = "subs";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TOPICS_MODE_CONF = "camel.kamelet.pulsar-source.subscriptionTopicsMode";
-    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TOPICS_MODE_DOC = "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions.Possible values are PersistentOnly, NonPersistentOnly, or AllTopics.";
+    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TOPICS_MODE_DOC = "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions.";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TOPICS_MODE_DEFAULT = "PersistentOnly";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TYPE_CONF = "camel.kamelet.pulsar-source.subscriptionType";
-    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TYPE_DOC = "Type of the subscription. Possible values are EXCLUSIVE, SHARED, FAILOVER, KEY_SHARED.";
+    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TYPE_DOC = "Type of the subscription.";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_SUBSCRIPTION_TYPE_DEFAULT = "EXCLUSIVE";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TOPICS_PATTERN_CONF = "camel.kamelet.pulsar-source.topicsPattern";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_TOPICS_PATTERN_DOC = "Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace.";

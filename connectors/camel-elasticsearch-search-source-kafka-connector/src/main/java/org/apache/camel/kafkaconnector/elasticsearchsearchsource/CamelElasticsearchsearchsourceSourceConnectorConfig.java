@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.elasticsearchsearchsource;
+ */package org.apache.camel.kafkaconnector.elasticsearchsearchsource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -50,6 +49,9 @@ public class CamelElasticsearchsearchsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_CONF = "camel.kamelet.elasticsearch-search-source.clusterName";
     public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_DOC = "The name of the cluster.";
     public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CERTIFICATE_CONF = "camel.kamelet.elasticsearch-search-source.certificate";
+    public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CERTIFICATE_DOC = "The Certificate for accessing the Elasticsearch cluster. You must encode this value in base64.";
+    public static final String CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CERTIFICATE_DEFAULT = null;
 
     public CamelElasticsearchsearchsourceSourceConnectorConfig(
             ConfigDef config,
@@ -72,6 +74,7 @@ public class CamelElasticsearchsearchsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_HOST_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_HOST_ADDRESSES_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_HOST_ADDRESSES_DOC);
         conf.define(CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_INDEX_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_INDEX_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_INDEX_NAME_DOC);
         conf.define(CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CLUSTER_NAME_DOC);
+        conf.define(CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CERTIFICATE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CERTIFICATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ELASTICSEARCHSEARCHSOURCE_KAMELET_CERTIFICATE_DOC);
         return conf;
     }
 }

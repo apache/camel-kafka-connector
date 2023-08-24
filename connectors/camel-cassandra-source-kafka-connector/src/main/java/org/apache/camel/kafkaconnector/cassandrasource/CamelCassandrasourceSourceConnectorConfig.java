@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.cassandrasource;
+ */package org.apache.camel.kafkaconnector.cassandrasource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -42,14 +41,17 @@ public class CamelCassandrasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PASSWORD_DOC = "The password for accessing a secured Cassandra cluster.";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_CONF = "camel.kamelet.cassandra-source.resultStrategy";
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_DOC = "The strategy to convert the result set of the query. Possible values are ALL, ONE, LIMIT_10, or LIMIT_100.";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_DOC = "The strategy to convert the result set of the query.";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_DEFAULT = "ALL";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_CONF = "camel.kamelet.cassandra-source.consistencyLevel";
-    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DOC = "The consistency level to use. Possible values are ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, SERIAL, LOCAL_SERIAL, or LOCAL_ONE.";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DOC = "The consistency level to use.";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DEFAULT = "QUORUM";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_CONF = "camel.kamelet.cassandra-source.query";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_DOC = "The query to execute against the Cassandra cluster table.";
     public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_EXTRA_TYPE_CODECS_CONF = "camel.kamelet.cassandra-source.extraTypeCodecs";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_EXTRA_TYPE_CODECS_DOC = "To use a specific comma separated list of Extra Type codecs.";
+    public static final String CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_EXTRA_TYPE_CODECS_DEFAULT = null;
 
     public CamelCassandrasourceSourceConnectorConfig(
             ConfigDef config,
@@ -72,6 +74,7 @@ public class CamelCassandrasourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_RESULT_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_CONSISTENCY_LEVEL_DOC);
         conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_QUERY_DOC);
+        conf.define(CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_EXTRA_TYPE_CODECS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_EXTRA_TYPE_CODECS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CASSANDRASOURCE_KAMELET_EXTRA_TYPE_CODECS_DOC);
         return conf;
     }
 }

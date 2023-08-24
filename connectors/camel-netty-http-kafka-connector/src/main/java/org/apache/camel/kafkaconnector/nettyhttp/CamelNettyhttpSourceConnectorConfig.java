@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.nettyhttp;
+ */package org.apache.camel.kafkaconnector.nettyhttp;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -185,6 +184,9 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCHANGE_CONF = "camel.source.endpoint.transferExchange";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCHANGE_DOC = "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCHANGE_DEFAULT = false;
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_CONF = "camel.source.endpoint.unixDomainSocketPath";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DOC = "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_COUNT_CONF = "camel.source.endpoint.workerCount";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_COUNT_DOC = "When netty works on nio mode, it uses default workerCount parameter from Netty (which is cpu_core_threads x 2). User can use this option to override the default workerCount from Netty.";
     public static final Integer CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_COUNT_DEFAULT = null;
@@ -359,6 +361,9 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_UDP_BYTE_ARRAY_CODEC_CONF = "camel.component.netty-http.udpByteArrayCodec";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_UDP_BYTE_ARRAY_CODEC_DOC = "For UDP only. If enabled the using byte array codec instead of Java serialization protocol.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_UDP_BYTE_ARRAY_CODEC_DEFAULT = false;
+    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_CONF = "camel.component.netty-http.unixDomainSocketPath";
+    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DOC = "Path to unix domain socket to use instead of inet socket. Host and port parameters will not be used, however required. It is ok to set dummy values for them. Must be used with nativeTransport=true and clientMode=false.";
+    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_COUNT_CONF = "camel.component.netty-http.workerCount";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_COUNT_DOC = "When netty works on nio mode, it uses default workerCount parameter from Netty (which is cpu_core_threads x 2). User can use this option to override the default workerCount from Netty.";
     public static final Integer CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_COUNT_DEFAULT = null;
@@ -500,6 +505,7 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCEPTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCEPTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCEPTION_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCHANGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCHANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCHANGE_DOC);
+        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_UNIX_DOMAIN_SOCKET_PATH_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_COUNT_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_WORKER_GROUP_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DECODERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DECODERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_DECODERS_DOC);
@@ -558,6 +564,7 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_SEND_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SEND_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SEND_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRANSFER_EXCHANGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRANSFER_EXCHANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRANSFER_EXCHANGE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_UDP_BYTE_ARRAY_CODEC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_UDP_BYTE_ARRAY_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_UDP_BYTE_ARRAY_CODEC_DOC);
+        conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_UNIX_DOMAIN_SOCKET_PATH_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_COUNT_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_WORKER_GROUP_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_ALLOW_DEFAULT_CODEC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_ALLOW_DEFAULT_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_ALLOW_DEFAULT_CODEC_DOC);

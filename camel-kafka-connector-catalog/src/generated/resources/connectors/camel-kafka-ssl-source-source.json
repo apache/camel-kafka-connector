@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-ssl-source-source",
 		"type": "source",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Receive data from Kafka topics with SSL\/TLS support"
 	},
 	"properties": {
@@ -72,7 +72,7 @@
 		"camel.kamelet.kafka-ssl-source.deserializeHeaders": {
 			"name": "camel.kamelet.kafka-ssl-source.deserializeHeaders",
 			"description": "When enabled the Kamelet source will deserialize all message headers to String representation.",
-			"defaultValue": "false",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

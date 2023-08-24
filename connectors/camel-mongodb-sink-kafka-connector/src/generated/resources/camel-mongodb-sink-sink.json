@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mongodb-sink-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Send data to MongoDB.\n\nThis Kamelet expects a JSON-formatted body.\n\nIn the header, you can set the `db-upsert` \/ `ce-dbupsert` property, a boolean value that specifies whether the database should create an element if it does not exist."
 	},
 	"properties": {
@@ -33,6 +33,20 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.mongodb-sink.ssl": {
+			"name": "camel.kamelet.mongodb-sink.ssl",
+			"description": "whether to enable ssl connection to mongodb",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.mongodb-sink.sslValidationEnabled": {
+			"name": "camel.kamelet.mongodb-sink.sslValidationEnabled",
+			"description": "IMPORTANT this should be disabled only in test environment since can pose security issues.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.mongodb-sink.database": {
 			"name": "camel.kamelet.mongodb-sink.database",
 			"description": "The name of the MongoDB database.",
@@ -41,7 +55,7 @@
 		},
 		"camel.kamelet.mongodb-sink.writeConcern": {
 			"name": "camel.kamelet.mongodb-sink.writeConcern",
-			"description": "The level of acknowledgment requested from MongoDB for write operations. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED, or MAJORITY.",
+			"description": "The level of acknowledgment requested from MongoDB for write operations.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

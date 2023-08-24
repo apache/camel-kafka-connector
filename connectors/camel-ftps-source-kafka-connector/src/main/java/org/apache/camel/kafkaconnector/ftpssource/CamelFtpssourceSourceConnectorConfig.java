@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.ftpssource;
+ */package org.apache.camel.kafkaconnector.ftpssource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -53,6 +52,12 @@ public class CamelFtpssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_CONF = "camel.kamelet.ftps-source.binary";
     public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DOC = "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).";
     public static final Boolean CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DEFAULT = false;
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_CONF = "camel.kamelet.ftps-source.autoCreate";
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DOC = "Automatically create starting directory.";
+    public static final Boolean CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_DELETE_CONF = "camel.kamelet.ftps-source.delete";
+    public static final String CAMEL_SOURCE_FTPSSOURCE_KAMELET_DELETE_DOC = "If true, the file will be deleted after it is processed successfully.";
+    public static final Boolean CAMEL_SOURCE_FTPSSOURCE_KAMELET_DELETE_DEFAULT = false;
 
     public CamelFtpssourceSourceConnectorConfig(
             ConfigDef config,
@@ -75,6 +80,8 @@ public class CamelFtpssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_RECURSIVE_DOC);
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_IDEMPOTENT_DOC);
         conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_BINARY_DOC);
+        conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_AUTO_CREATE_DOC);
+        conf.define(CAMEL_SOURCE_FTPSSOURCE_KAMELET_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPSSOURCE_KAMELET_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPSSOURCE_KAMELET_DELETE_DOC);
         return conf;
     }
 }

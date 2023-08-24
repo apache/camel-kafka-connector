@@ -18,6 +18,7 @@
 package org.apache.camel.kafkaconnector.elasticsearch.sink;
 
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
 
 final class CamelElasticSearchPropertyFactory extends SinkConnectorPropertyFactory<CamelElasticSearchPropertyFactory> {
 
@@ -44,10 +45,11 @@ final class CamelElasticSearchPropertyFactory extends SinkConnectorPropertyFacto
                 .withConnectorClass("org.apache.camel.kafkaconnector.elasticsearchindexsink.CamelElasticsearchindexsinkSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .setProperty("camel.kamelet.elasticsearch-index-sink.username", "dummy")
-                .setProperty("camel.kamelet.elasticsearch-index-sink.password", "dummy")
+                .setProperty("camel.kamelet.elasticsearch-index-sink.user", ElasticSearchCommon.USERNAME)
+                .setProperty("camel.kamelet.elasticsearch-index-sink.password", ElasticSearchCommon.PASSWORD)
                 .setProperty("camel.kamelet.elasticsearch-index-sink.enableSSL", "false")
-                .setProperty("camel.component.kamelet.location", "kamelets");
+                .setProperty("camel.component.kamelet.location", "kamelets")
+                .setProperty("camel.component.properties.environment-variable-mode", "1");
     }
 
 }

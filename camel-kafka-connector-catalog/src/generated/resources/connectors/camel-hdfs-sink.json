@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hdfs-sink",
 		"type": "sink",
-		"version": "3.20.0-SNAPSHOT",
+		"version": "3.20.1-SNAPSHOT",
 		"description": "Read and write from\/to an HDFS filesystem using Hadoop 2.x."
 	},
 	"properties": {
@@ -62,7 +62,7 @@
 		},
 		"camel.sink.endpoint.keyType": {
 			"name": "camel.sink.endpoint.keyType",
-			"description": "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
+			"description": "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [SHORT] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
 			"defaultValue": "\"NULL\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -70,6 +70,7 @@
 				"NULL",
 				"BOOLEAN",
 				"BYTE",
+				"SHORT",
 				"INT",
 				"FLOAT",
 				"LONG",
@@ -92,7 +93,7 @@
 		},
 		"camel.sink.endpoint.valueType": {
 			"name": "camel.sink.endpoint.valueType",
-			"description": "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
+			"description": "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [SHORT] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
 			"defaultValue": "\"BYTES\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -100,6 +101,7 @@
 				"NULL",
 				"BOOLEAN",
 				"BYTE",
+				"SHORT",
 				"INT",
 				"FLOAT",
 				"LONG",

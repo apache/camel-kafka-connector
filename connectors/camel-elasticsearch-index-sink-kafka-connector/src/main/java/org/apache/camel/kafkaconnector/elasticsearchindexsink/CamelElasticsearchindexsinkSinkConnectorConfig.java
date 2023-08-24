@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.elasticsearchindexsink;
+ */package org.apache.camel.kafkaconnector.elasticsearchindexsink;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -44,6 +43,9 @@ public class CamelElasticsearchindexsinkSinkConnectorConfig
     public static final String CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_INDEX_NAME_CONF = "camel.kamelet.elasticsearch-index-sink.indexName";
     public static final String CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_INDEX_NAME_DOC = "The name of the ElasticSearch index. Example: data";
     public static final String CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_INDEX_NAME_DEFAULT = null;
+    public static final String CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CERTIFICATE_CONF = "camel.kamelet.elasticsearch-index-sink.certificate";
+    public static final String CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CERTIFICATE_DOC = "The Certificate for accessing the Elasticsearch cluster. You must encode this value in base64.";
+    public static final String CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CERTIFICATE_DEFAULT = null;
 
     public CamelElasticsearchindexsinkSinkConnectorConfig(
             ConfigDef config,
@@ -64,6 +66,7 @@ public class CamelElasticsearchindexsinkSinkConnectorConfig
         conf.define(CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_HOST_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_HOST_ADDRESSES_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_HOST_ADDRESSES_DOC);
         conf.define(CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CLUSTER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CLUSTER_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CLUSTER_NAME_DOC);
         conf.define(CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_INDEX_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_INDEX_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_INDEX_NAME_DOC);
+        conf.define(CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CERTIFICATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CERTIFICATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELASTICSEARCHINDEXSINK_KAMELET_CERTIFICATE_DOC);
         return conf;
     }
 }

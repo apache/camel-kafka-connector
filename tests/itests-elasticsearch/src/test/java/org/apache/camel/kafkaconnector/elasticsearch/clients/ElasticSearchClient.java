@@ -18,19 +18,27 @@
 package org.apache.camel.kafkaconnector.elasticsearch.clients;
 
 import java.io.IOException;
+import java.util.List;
 
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
+import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.elasticsearch.indices.ExistsRequest;
+import co.elastic.clients.json.jackson.JacksonJsonpMapper;
+import co.elastic.clients.transport.ElasticsearchTransport;
+import co.elastic.clients.transport.rest_client.RestClientTransport;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.http.HttpHost;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.client.RequestOptions;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.client.indices.GetIndexRequest;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.SearchHit;
-import org.elasticsearch.search.SearchHits;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.client.RestClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,22 +46,42 @@ import org.slf4j.LoggerFactory;
 public class ElasticSearchClient {
     private static final Logger LOG = LoggerFactory.getLogger(ElasticSearchClient.class);
 
-    private final RestHighLevelClient client;
+    private final ElasticsearchClient client;
     private final String index;
 
     public ElasticSearchClient(String host, int port, String index) {
-        client = new RestHighLevelClient(
-                RestClient.builder(
-                        new HttpHost(host, port, "http")));
 
+        final CredentialsProvider credentialsProvider =
+                new BasicCredentialsProvider();
+        credentialsProvider.setCredentials(AuthScope.ANY,
+                new UsernamePasswordCredentials(ElasticSearchCommon.USERNAME, ElasticSearchCommon.PASSWORD));
+
+        RestClientBuilder builder = RestClient.builder(
+                        new HttpHost(host, port, "http"))
+                .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
+                    @Override
+                    public HttpAsyncClientBuilder customizeHttpClient(
+                            HttpAsyncClientBuilder httpClientBuilder) {
+                        return httpClientBuilder
+                                .setDefaultCredentialsProvider(credentialsProvider);
+                    }
+                });
+
+        RestClient httpClient = builder.build();
+        ElasticsearchTransport transport = new RestClientTransport(
+                httpClient,
+                new JacksonJsonpMapper()
+        );
+
+        client = new ElasticsearchClient(transport);
         this.index = index;
     }
 
     public boolean indexExists() {
         try {
-            GetIndexRequest indexRequest = new GetIndexRequest(index);
+            ExistsRequest indexRequest = new ExistsRequest.Builder().index(index).build();
 
-            return client.indices().exists(indexRequest, RequestOptions.DEFAULT);
+            return client.indices().exists(indexRequest).value();
         } catch (IOException e) {
             /*
                   It may return if failed to parse the response, on timeout or no response from the ES instance.
@@ -66,19 +94,14 @@ public class ElasticSearchClient {
         return false;
     }
 
-    public SearchHits getData() {
+    public List<Hit<ObjectNode>> getData() {
         try {
-            SearchRequest searchRequest = new SearchRequest(index);
-            SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+            SearchResponse<ObjectNode> response = client.search(s ->
+                            s.index(index)
+                            .query(QueryBuilders.matchAll().build()._toQuery()),
+                    ObjectNode.class);
 
-            searchSourceBuilder.query(QueryBuilders.matchAllQuery());
-
-            searchRequest.source(searchSourceBuilder);
-
-            SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
-
-            return response.getHits();
-
+            return response.hits().hits();
         } catch (IOException e) {
             /*
               It may return if failed to parse the response, on timeout or no response from the ES instance.
@@ -94,7 +117,7 @@ public class ElasticSearchClient {
     }
 
     private boolean hasData(int expect) {
-        SearchHits searchHits = getData();
+        List<Hit<ObjectNode>> searchHits = getData();
 
         if (searchHits == null) {
             LOG.debug("There are not search hit to return");
@@ -102,14 +125,7 @@ public class ElasticSearchClient {
             return false;
         }
 
-        SearchHit[] hits = searchHits.getHits();
-        if (hits == null) {
-            LOG.debug("Empty data set");
-
-            return false;
-        }
-
-        int count = hits.length;
+        int count = searchHits.size();
 
         if (count != expect) {
             LOG.debug("Not enough records: {} available, but {} expected", count, expect);

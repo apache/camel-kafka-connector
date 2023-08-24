@@ -13,8 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.camel.kafkaconnector.azureservicebussource;
+ */package org.apache.camel.kafkaconnector.azureservicebussource;
 
 import java.util.Map;
 import javax.annotation.Generated;
@@ -33,7 +32,7 @@ public class CamelAzureservicebussourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_CONNECTION_STRING_DOC = "Connection String for Azure Servicebus instance";
     public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_CONNECTION_STRING_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_CONF = "camel.kamelet.azure-servicebus-source.serviceBusReceiveMode";
-    public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_DOC = "Sets the receive mode for the receiver, possible values are PEEK_LOCK and RECEIVE_AND_DELETE";
+    public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_DOC = "Sets the receive mode for the receiver";
     public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_SERVICE_BUS_RECEIVE_MODE_DEFAULT = "PEEK_LOCK";
     public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_SUBSCRIPTION_NAME_CONF = "camel.kamelet.azure-servicebus-source.subscriptionName";
     public static final String CAMEL_SOURCE_AZURESERVICEBUSSOURCE_KAMELET_SUBSCRIPTION_NAME_DOC = "Sets the name of the subscription in the topic to listen to. This parameter is mandatory in case of topic.";

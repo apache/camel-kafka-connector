@@ -16,6 +16,8 @@
  */
 package org.apache.camel.kafkaconnector.elasticsearch.common;
 
+import org.testcontainers.elasticsearch.ElasticsearchContainer;
+
 public final class ElasticSearchCommon {
     /**
      * The default ElasticSearch cluster name for usage during the tests
@@ -26,6 +28,16 @@ public final class ElasticSearchCommon {
      * The default ElasticSearch index for usage during the tests
      */
     public static final String DEFAULT_ELASTICSEARCH_INDEX = "ckc-index";
+
+    /**
+     * The default ElasticSearch container username
+     */
+    public static final String USERNAME = "elastic";
+
+    /**
+     * The default ElasticSearch container password
+     */
+    public static final String PASSWORD = ElasticsearchContainer.ELASTICSEARCH_DEFAULT_PASSWORD;
 
     private ElasticSearchCommon() {
 
