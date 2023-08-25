@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>3.20.1-SNAPSHOT</version>
+    <version>3.21.0</version>
   </parent>
   <artifactId>camel-aws2-kms-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws2-kms</name>
@@ -108,6 +108,9 @@
       </plugin>
     </plugins>
   </build>
+  <scm>
+    <tag>camel-kafka-connector-3.21.0</tag>
+  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->

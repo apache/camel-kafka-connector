@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>tooling</artifactId>
-        <version>3.20.1-SNAPSHOT</version>
+        <version>3.21.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -38,4 +38,8 @@
             <version>${camel.version}</version>
         </dependency>
     </dependencies>
+
+  <scm>
+    <tag>camel-kafka-connector-3.21.0</tag>
+  </scm>
 </project>
