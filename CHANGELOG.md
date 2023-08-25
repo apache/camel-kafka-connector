@@ -6,11 +6,13 @@
 
 **Closed issues:**
 
+- Not able to connect to kafka cluster using camel-kafka-ssl-source-kafka-connector plugin [\#1555](https://github.com/apache/camel-kafka-connector/issues/1555)
 - \[Question\] Amazon Opensearch Compatibility? [\#1546](https://github.com/apache/camel-kafka-connector/issues/1546)
 - Upgrade to Camel 3.20.6 [\#1531](https://github.com/apache/camel-kafka-connector/issues/1531)
 
 **Merged pull requests:**
 
+- Updated to camel 3.21.x [\#1556](https://github.com/apache/camel-kafka-connector/pull/1556) ([valdar](https://github.com/valdar))
 - Bump peter-evans/create-pull-request from 5.0.1 to 5.0.2 [\#1537](https://github.com/apache/camel-kafka-connector/pull/1537) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.4.0 to 3.5.3 [\#1534](https://github.com/apache/camel-kafka-connector/pull/1534) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 4.2.4 to 5.0.1 [\#1529](https://github.com/apache/camel-kafka-connector/pull/1529) ([dependabot[bot]](https://github.com/apps/dependabot))
