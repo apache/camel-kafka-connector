@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-dropbox-sink-sink",
 		"type": "sink",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "3.21.0",
 		"description": "Upload Files to Dropbox.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
 	},
 	"properties": {
