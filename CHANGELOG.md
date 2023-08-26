@@ -2,13 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.6...HEAD)
-
-**Closed issues:**
-
-- Not able to connect to kafka cluster using camel-kafka-ssl-source-kafka-connector plugin [\#1555](https://github.com/apache/camel-kafka-connector/issues/1555)
-- \[Question\] Amazon Opensearch Compatibility? [\#1546](https://github.com/apache/camel-kafka-connector/issues/1546)
-- Upgrade to Camel 3.20.6 [\#1531](https://github.com/apache/camel-kafka-connector/issues/1531)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.21.0...HEAD)
 
 **Merged pull requests:**
 
@@ -401,6 +395,16 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-3.21.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.21.0) (2023-08-25)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.20.6...camel-kafka-connector-3.21.0)
+
+**Closed issues:**
+
+- Not able to connect to kafka cluster using camel-kafka-ssl-source-kafka-connector plugin [\#1555](https://github.com/apache/camel-kafka-connector/issues/1555)
+- \[Question\] Amazon Opensearch Compatibility? [\#1546](https://github.com/apache/camel-kafka-connector/issues/1546)
+- Upgrade to Camel 3.20.6 [\#1531](https://github.com/apache/camel-kafka-connector/issues/1531)
 
 ## [camel-kafka-connector-3.20.6](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.20.6) (2023-07-26)
 
