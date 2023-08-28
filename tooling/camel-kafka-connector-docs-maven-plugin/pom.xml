@@ -95,6 +95,7 @@
         <dependency>
             <groupId>org.sonatype.plexus</groupId>
             <artifactId>plexus-build-api</artifactId>
+            <version>${version.plexus.build.api}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
