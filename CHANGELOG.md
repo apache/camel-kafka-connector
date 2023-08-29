@@ -4,8 +4,14 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.21.0...HEAD)
 
+**Closed issues:**
+
+- SNS Sink Connector failure - java.lang.NoClassDefFoundError: software/amazon/awssdk/utils/cache/CachedSupplier$StaleValueBehavior [\#1548](https://github.com/apache/camel-kafka-connector/issues/1548)
+- syslog connector failure [\#1528](https://github.com/apache/camel-kafka-connector/issues/1528)
+
 **Merged pull requests:**
 
+- Bump actions/checkout from 3.5.3 to 3.6.0 [\#1559](https://github.com/apache/camel-kafka-connector/pull/1559) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Updated to camel 3.21.x [\#1556](https://github.com/apache/camel-kafka-connector/pull/1556) ([valdar](https://github.com/valdar))
 - Bump peter-evans/create-pull-request from 5.0.1 to 5.0.2 [\#1537](https://github.com/apache/camel-kafka-connector/pull/1537) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3.4.0 to 3.5.3 [\#1534](https://github.com/apache/camel-kafka-connector/pull/1534) ([dependabot[bot]](https://github.com/apps/dependabot))
