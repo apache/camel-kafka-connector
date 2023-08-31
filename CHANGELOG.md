@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- How to create an object in s3 bucket using camle-minio-sink plugin [\#1560](https://github.com/apache/camel-kafka-connector/issues/1560)
 - camel-minio-sink-connector giving library issue [\#1557](https://github.com/apache/camel-kafka-connector/issues/1557)
 - SNS Sink Connector failure - java.lang.NoClassDefFoundError: software/amazon/awssdk/utils/cache/CachedSupplier$StaleValueBehavior [\#1548](https://github.com/apache/camel-kafka-connector/issues/1548)
 - syslog connector failure [\#1528](https://github.com/apache/camel-kafka-connector/issues/1528)
