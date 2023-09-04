@@ -59,6 +59,13 @@
             <artifactId>camel-mongodb</artifactId>
         </dependency>
 
+        <!-- XXX: remove when https://github.com/apache/camel-kamelets/issues/1602 is released -->
+        <dependency>
+            <groupId>org.apache.camel.kamelets</groupId>
+            <artifactId>camel-kamelets-utils</artifactId>
+            <version>${camel.kamelet.catalog.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver-legacy</artifactId>

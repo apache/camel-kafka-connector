@@ -25,6 +25,7 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.hdfs.utils.HDFSEasy;
+import org.apache.camel.test.AvailablePortFinder;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.camel.test.infra.hdfs.v2.services.HDFSService;
 import org.apache.camel.test.infra.hdfs.v2.services.HDFSServiceFactory;
@@ -47,7 +48,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkHDFSITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static HDFSService hdfsService = HDFSServiceFactory.createSingletonService();
+    public static HDFSService hdfsService = HDFSServiceFactory.createSingletonService(AvailablePortFinder.getNextAvailable());
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkHDFSITCase.class);
 

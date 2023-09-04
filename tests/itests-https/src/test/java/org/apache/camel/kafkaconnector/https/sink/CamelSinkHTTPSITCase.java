@@ -31,7 +31,7 @@ import okhttp3.mockwebserver.RecordedRequest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.services.mockweb.MockWebService;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
-import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.hc.client5.http.ssl.NoopHostnameVerifier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -112,7 +112,7 @@ public class CamelSinkHTTPSITCase extends CamelSinkTestSupport {
     @Timeout(60)
     public void testBasicSendReceive() throws Exception {
         mockWebService.enqueueResponses(expect);
-        LOG.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX: {}", toPath("client-truststore.jks"));
+        LOG.info("Trusted store path: {}", toPath("client-truststore.jks"));
         String uri = mockServer.getHostName() + ":" + mockServer.getPort() + "/ckc";
         ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPSPropertyFactory.basic()
                 .withTopics(topicName)
