@@ -52,6 +52,9 @@ public class CamelJmsibmmqsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.jms-ibm-mq-source.password";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_DOC = "Password to authenticate to IBM MQ server";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_CONF = "camel.kamelet.jms-ibm-mq-source.sslCipherSuite";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_DOC = "CipherSuite to use for enabling TLS";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_DEFAULT = null;
 
     public CamelJmsibmmqsourceSourceConnectorConfig(
             ConfigDef config,
@@ -75,6 +78,7 @@ public class CamelJmsibmmqsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CLIENT_ID_DOC);
         conf.define(CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_DOC);
+        conf.define(CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_DOC);
         return conf;
     }
 }

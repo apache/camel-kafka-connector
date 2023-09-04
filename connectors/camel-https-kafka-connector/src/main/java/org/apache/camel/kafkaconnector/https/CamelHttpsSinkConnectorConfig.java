@@ -107,6 +107,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_OPTIONS_CONF = "camel.sink.endpoint.httpClientOptions";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_OPTIONS_DOC = "To configure the HttpClient using the key/values from the Map.";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_OPTIONS_DEFAULT = null;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONNECTION_OPTIONS_CONF = "camel.sink.endpoint.httpConnectionOptions";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONNECTION_OPTIONS_DOC = "To configure the connection and the socket using the key/values from the Map.";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONNECTION_OPTIONS_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_CONF = "camel.sink.endpoint.httpContext";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_DOC = "To use a custom HttpContext instance";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_DEFAULT = null;
@@ -180,7 +183,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_HTTPS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_CONF = "camel.component.https.cookieStore";
-    public static final String CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_DOC = "To use a custom org.apache.http.client.CookieStore. By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_DOC = "To use a custom org.apache.hc.client5.http.cookie.CookieStore. By default the org.apache.hc.client5.http.cookie.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_CONF = "camel.component.https.copyHeaders";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_DOC = "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).";
@@ -237,7 +240,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_COMPONENT_HTTP_CONFIGURATION_DOC = "To use the shared HttpConfiguration as base configuration.";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_HTTP_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_HTTP_CONTEXT_CONF = "camel.component.https.httpContext";
-    public static final String CAMEL_SINK_HTTPS_COMPONENT_HTTP_CONTEXT_DOC = "To use a custom org.apache.http.protocol.HttpContext when executing requests.";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_HTTP_CONTEXT_DOC = "To use a custom org.apache.hc.core5.http.protocol.HttpContext when executing requests.";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_HTTP_CONTEXT_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_MAX_TOTAL_CONNECTIONS_CONF = "camel.component.https.maxTotalConnections";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_MAX_TOTAL_CONNECTIONS_DOC = "The maximum number of connections.";
@@ -282,14 +285,17 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_COMPONENT_X509HOSTNAME_VERIFIER_DOC = "To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier.";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_X509HOSTNAME_VERIFIER_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_CONF = "camel.component.https.connectionRequestTimeout";
-    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DOC = "The timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).";
-    public static final Integer CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DEFAULT = -1;
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DOC = "Returns the connection lease request timeout used when requesting a connection from the connection manager. A timeout value of zero is interpreted as a disabled timeout.";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DEFAULT = "3 minutes";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_CONF = "camel.component.https.connectTimeout";
-    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DOC = "Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).";
-    public static final Integer CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DEFAULT = -1;
-    public static final String CAMEL_SINK_HTTPS_COMPONENT_SOCKET_TIMEOUT_CONF = "camel.component.https.socketTimeout";
-    public static final String CAMEL_SINK_HTTPS_COMPONENT_SOCKET_TIMEOUT_DOC = "Defines the socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets). A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).";
-    public static final Integer CAMEL_SINK_HTTPS_COMPONENT_SOCKET_TIMEOUT_DEFAULT = -1;
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DOC = "Determines the timeout until a new connection is fully established. A timeout value of zero is interpreted as an infinite timeout.";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DEFAULT = "3 minutes";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_TIMEOUT_CONF = "camel.component.https.responseTimeout";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_TIMEOUT_DOC = "Determines the timeout until arrival of a response from the opposite endpoint. A timeout value of zero is interpreted as an infinite timeout. Please note that response timeout may be unsupported by HTTP transports with message multiplexing.";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_TIMEOUT_DEFAULT = "0";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_SO_TIMEOUT_CONF = "camel.component.https.soTimeout";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_SO_TIMEOUT_DOC = "Determines the default socket timeout value for blocking I/O operations.";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_SO_TIMEOUT_DEFAULT = "3 minutes";
 
     public CamelHttpsSinkConnectorConfig(
             ConfigDef config,
@@ -331,6 +337,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_CONFIGURER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_CONFIGURER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_CONFIGURER_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CLIENT_OPTIONS_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONNECTION_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONNECTION_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONNECTION_OPTIONS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_MAX_TOTAL_CONNECTIONS_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTPS_ENDPOINT_MAX_TOTAL_CONNECTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_MAX_TOTAL_CONNECTIONS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_DOC);
@@ -389,9 +396,10 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_X509HOSTNAME_VERIFIER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_X509HOSTNAME_VERIFIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_X509HOSTNAME_VERIFIER_DOC);
-        conf.define(CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DOC);
-        conf.define(CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DOC);
-        conf.define(CAMEL_SINK_HTTPS_COMPONENT_SOCKET_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTPS_COMPONENT_SOCKET_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SOCKET_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_CONNECTION_REQUEST_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_CONNECT_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_RESPONSE_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_HTTPS_COMPONENT_SO_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_SO_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SO_TIMEOUT_DOC);
         return conf;
     }
 }

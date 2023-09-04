@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-https-sink",
 		"type": "sink",
-		"version": "3.20.1-SNAPSHOT",
-		"description": "Send requests to external HTTP servers using Apache HTTP Client 4.x."
+		"version": "4.0.0-SNAPSHOT",
+		"description": "Send requests to external HTTP servers using Apache HTTP Client 5.x."
 	},
 	"properties": {
 		"camel.sink.path.httpUri": {
@@ -203,6 +203,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.httpConnectionOptions": {
+			"name": "camel.sink.endpoint.httpConnectionOptions",
+			"description": "To configure the connection and the socket using the key\/values from the Map.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.httpContext": {
 			"name": "camel.sink.endpoint.httpContext",
 			"description": "To use a custom HttpContext instance",
@@ -368,7 +374,7 @@
 		},
 		"camel.component.https.cookieStore": {
 			"name": "camel.component.https.cookieStore",
-			"description": "To use a custom org.apache.http.client.CookieStore. By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).",
+			"description": "To use a custom org.apache.hc.client5.http.cookie.CookieStore. By default the org.apache.hc.client5.http.cookie.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -495,7 +501,7 @@
 		},
 		"camel.component.https.httpContext": {
 			"name": "camel.component.https.httpContext",
-			"description": "To use a custom org.apache.http.protocol.HttpContext when executing requests.",
+			"description": "To use a custom org.apache.hc.core5.http.protocol.HttpContext when executing requests.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -597,22 +603,29 @@
 		},
 		"camel.component.https.connectionRequestTimeout": {
 			"name": "camel.component.https.connectionRequestTimeout",
-			"description": "The timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
-			"defaultValue": "-1",
+			"description": "Returns the connection lease request timeout used when requesting a connection from the connection manager. A timeout value of zero is interpreted as a disabled timeout.",
+			"defaultValue": "\"3 minutes\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.connectTimeout": {
 			"name": "camel.component.https.connectTimeout",
-			"description": "Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
-			"defaultValue": "-1",
+			"description": "Determines the timeout until a new connection is fully established. A timeout value of zero is interpreted as an infinite timeout.",
+			"defaultValue": "\"3 minutes\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.https.socketTimeout": {
-			"name": "camel.component.https.socketTimeout",
-			"description": "Defines the socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets). A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
-			"defaultValue": "-1",
+		"camel.component.https.responseTimeout": {
+			"name": "camel.component.https.responseTimeout",
+			"description": "Determines the timeout until arrival of a response from the opposite endpoint. A timeout value of zero is interpreted as an infinite timeout. Please note that response timeout may be unsupported by HTTP transports with message multiplexing.",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.soTimeout": {
+			"name": "camel.component.https.soTimeout",
+			"description": "Determines the default socket timeout value for blocking I\/O operations.",
+			"defaultValue": "\"3 minutes\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

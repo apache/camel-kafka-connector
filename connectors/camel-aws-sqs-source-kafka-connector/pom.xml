@@ -56,7 +56,7 @@
     <dependency>
       <groupId>org.apache.camel.kamelets</groupId>
       <artifactId>camel-kamelets-utils</artifactId>
-      <version>3.20.0</version>
+      <version>4.0.0-RC1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

@@ -58,9 +58,8 @@
       <artifactId>camel-kamelet</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.qpid</groupId>
-      <artifactId>qpid-jms-client</artifactId>
-      <version>1.0.0</version>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-amqp</artifactId>
     </dependency>
     <!--END OF GENERATED CODE-->
   </dependencies>

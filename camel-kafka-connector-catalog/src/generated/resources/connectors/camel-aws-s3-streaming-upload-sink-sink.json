@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-streaming-upload-sink-sink",
 		"type": "sink",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Upload data to AWS S3 in streaming upload mode.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS S3 Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the S3 client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
 	},
 	"properties": {

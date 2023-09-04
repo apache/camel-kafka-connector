@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-http-source",
 		"type": "source",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Netty HTTP server and client using the Netty 4.x."
 	},
 	"properties": {
@@ -162,13 +162,12 @@
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
-			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"InOnly",
-				"InOut",
-				"InOptionalOut"
+				"InOut"
 			]
 		},
 		"camel.source.endpoint.httpMethodRestrict": {

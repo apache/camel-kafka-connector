@@ -105,7 +105,10 @@
                     <!-- WARNING: connectors not in catalog will be removed -->
                     <removeMissingComponents>true</removeMissingComponents>
                     <excludedKamelets>
+                        <!-- XXX: remove datalake exclusions after https://github.com/apache/camel-kamelets/issues/1597  is released -->
                         <param>ms-exchange-online-imap-oauth-source</param>
+                        <param>azure-storage-datalake-sink</param>
+                        <param>azure-storage-datalake-source</param>
                     </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
@@ -213,7 +216,6 @@
     <modules>
         <module>camel-aws-cloudtrail-source-kafka-connector</module>
         <module>camel-aws-cloudwatch-sink-kafka-connector</module>
-        <module>camel-aws-ddb-experimental-sink-kafka-connector</module>
         <module>camel-aws-ddb-sink-kafka-connector</module>
         <module>camel-aws-ddb-streams-source-kafka-connector</module>
         <module>camel-aws-ec2-sink-kafka-connector</module>
@@ -225,7 +227,6 @@
         <module>camel-aws-redshift-sink-kafka-connector</module>
         <module>camel-aws-redshift-source-kafka-connector</module>
         <module>camel-aws-s3-cdc-source-kafka-connector</module>
-        <module>camel-aws-s3-experimental-source-kafka-connector</module>
         <module>camel-aws-s3-sink-kafka-connector</module>
         <module>camel-aws-s3-source-kafka-connector</module>
         <module>camel-aws-s3-streaming-upload-sink-kafka-connector</module>
@@ -239,6 +240,7 @@
         <module>camel-aws-sqs-source-kafka-connector</module>
         <module>camel-aws2-iam-kafka-connector</module>
         <module>camel-aws2-kms-kafka-connector</module>
+        <module>camel-azure-cosmosdb-sink-kafka-connector</module>
         <module>camel-azure-cosmosdb-source-kafka-connector</module>
         <module>camel-azure-eventhubs-sink-kafka-connector</module>
         <module>camel-azure-eventhubs-source-kafka-connector</module>
@@ -265,6 +267,8 @@
         <module>camel-dropbox-sink-kafka-connector</module>
         <module>camel-dropbox-source-kafka-connector</module>
         <module>camel-earthquake-source-kafka-connector</module>
+        <module>camel-elasticsearch-index-sink-kafka-connector</module>
+        <module>camel-elasticsearch-search-source-kafka-connector</module>
         <module>camel-exec-sink-kafka-connector</module>
         <module>camel-fhir-sink-kafka-connector</module>
         <module>camel-fhir-source-kafka-connector</module>
@@ -289,6 +293,7 @@
         <module>camel-google-storage-cdc-source-kafka-connector</module>
         <module>camel-google-storage-sink-kafka-connector</module>
         <module>camel-google-storage-source-kafka-connector</module>
+        <module>camel-graphql-sink-kafka-connector</module>
         <module>camel-hdfs-kafka-connector</module>
         <module>camel-http-secured-sink-kafka-connector</module>
         <module>camel-http-secured-source-kafka-connector</module>
@@ -312,6 +317,8 @@
         <module>camel-jms-ibm-mq-source-kafka-connector</module>
         <module>camel-kafka-not-secured-sink-kafka-connector</module>
         <module>camel-kafka-not-secured-source-kafka-connector</module>
+        <module>camel-kafka-scram-sink-kafka-connector</module>
+        <module>camel-kafka-scram-source-kafka-connector</module>
         <module>camel-kafka-sink-kafka-connector</module>
         <module>camel-kafka-source-kafka-connector</module>
         <module>camel-kafka-ssl-sink-kafka-connector</module>

@@ -52,6 +52,9 @@ public class CamelJmsibmmqsinkSinkConnectorConfig
     public static final String CAMEL_SINK_JMSIBMMQSINK_KAMELET_PASSWORD_CONF = "camel.kamelet.jms-ibm-mq-sink.password";
     public static final String CAMEL_SINK_JMSIBMMQSINK_KAMELET_PASSWORD_DOC = "Password to authenticate to IBM MQ server";
     public static final String CAMEL_SINK_JMSIBMMQSINK_KAMELET_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SINK_JMSIBMMQSINK_KAMELET_SSL_CIPHER_SUITE_CONF = "camel.kamelet.jms-ibm-mq-sink.sslCipherSuite";
+    public static final String CAMEL_SINK_JMSIBMMQSINK_KAMELET_SSL_CIPHER_SUITE_DOC = "CipherSuite to use for enabling TLS";
+    public static final String CAMEL_SINK_JMSIBMMQSINK_KAMELET_SSL_CIPHER_SUITE_DEFAULT = null;
 
     public CamelJmsibmmqsinkSinkConnectorConfig(
             ConfigDef config,
@@ -74,6 +77,7 @@ public class CamelJmsibmmqsinkSinkConnectorConfig
         conf.define(CAMEL_SINK_JMSIBMMQSINK_KAMELET_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMSIBMMQSINK_KAMELET_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMSIBMMQSINK_KAMELET_CLIENT_ID_DOC);
         conf.define(CAMEL_SINK_JMSIBMMQSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMSIBMMQSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_JMSIBMMQSINK_KAMELET_USERNAME_DOC);
         conf.define(CAMEL_SINK_JMSIBMMQSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_JMSIBMMQSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_JMSIBMMQSINK_KAMELET_PASSWORD_DOC);
+        conf.define(CAMEL_SINK_JMSIBMMQSINK_KAMELET_SSL_CIPHER_SUITE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMSIBMMQSINK_KAMELET_SSL_CIPHER_SUITE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMSIBMMQSINK_KAMELET_SSL_CIPHER_SUITE_DOC);
         return conf;
     }
 }

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-redis-sink-sink",
 		"type": "sink",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Write object to a Redis cache."
 	},
 	"properties": {

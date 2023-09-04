@@ -47,11 +47,6 @@
     <!--START OF GENERATED CODE-->
     <dependency>
       <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-client</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
       <artifactId>artemis-jms-client</artifactId>
       <scope>runtime</scope>
     </dependency>
