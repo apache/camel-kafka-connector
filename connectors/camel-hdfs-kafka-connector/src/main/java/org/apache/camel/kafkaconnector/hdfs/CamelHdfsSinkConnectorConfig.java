@@ -107,6 +107,12 @@ public class CamelHdfsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HDFS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.hdfs.autowiredEnabled";
     public static final String CAMEL_SINK_HDFS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_HDFS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_CONF = "camel.component.hdfs.healthCheckConsumerEnabled";
+    public static final String CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DOC = "Used for enabling or disabling all consumer based health checks from this component";
+    public static final Boolean CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_CONF = "camel.component.hdfs.healthCheckProducerEnabled";
+    public static final String CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DOC = "Used for enabling or disabling all producer based health checks from this component. Notice: Camel has by default disabled all producer based health-checks. You can turn on producer checks globally by setting camel.health.producersEnabled=true.";
+    public static final Boolean CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_CONF = "camel.component.hdfs.jAASConfiguration";
     public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DOC = "To use the given configuration for security with JAAS.";
     public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT = null;
@@ -154,6 +160,8 @@ public class CamelHdfsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_DOC);
         conf.define(CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HDFS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DOC);
+        conf.define(CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DOC);
         conf.define(CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DOC);
         conf.define(CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC);
         return conf;

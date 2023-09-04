@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-file-sink",
 		"type": "sink",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Read and write files."
 	},
 	"properties": {
@@ -184,6 +184,20 @@
 		"camel.component.file.autowiredEnabled": {
 			"name": "camel.component.file.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.file.healthCheckConsumerEnabled": {
+			"name": "camel.component.file.healthCheckConsumerEnabled",
+			"description": "Used for enabling or disabling all consumer based health checks from this component",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.file.healthCheckProducerEnabled": {
+			"name": "camel.component.file.healthCheckProducerEnabled",
+			"description": "Used for enabling or disabling all producer based health checks from this component. Notice: Camel has by default disabled all producer based health-checks. You can turn on producer checks globally by setting camel.health.producersEnabled=true.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

@@ -1,0 +1,43 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurecosmosdbsink.CamelAzurecosmosdbsinkSinkConnector",
+		"artifactId": "camel-azure-cosmosdb-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-cosmosdb-sink-sink",
+		"type": "sink",
+		"version": "4.0.0-SNAPSHOT",
+		"description": "Send Data to an Azure CosmosDB instance\n\nIn the headers, you can optionally set the `itemPartitionKey` \/ `ce-itemPartitionKey` property to specify the partition key for a specific item.\n\nIf you do not set the property in the header, you'll need to use the static property itemPartitonKey."
+	},
+	"properties": {
+		"camel.kamelet.azure-cosmosdb-sink.databaseName": {
+			"name": "camel.kamelet.azure-cosmosdb-sink.databaseName",
+			"description": "The Azure Cosmos database name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-cosmosdb-sink.containerName": {
+			"name": "camel.kamelet.azure-cosmosdb-sink.containerName",
+			"description": "The Azure Cosmos container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-cosmosdb-sink.accountKey": {
+			"name": "camel.kamelet.azure-cosmosdb-sink.accountKey",
+			"description": "The Azure Cosmos account Key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-cosmosdb-sink.databaseEndpoint": {
+			"name": "camel.kamelet.azure-cosmosdb-sink.databaseEndpoint",
+			"description": "Sets the Azure Cosmos database endpoint the component will connect to.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-cosmosdb-sink.itemPartitionKey": {
+			"name": "camel.kamelet.azure-cosmosdb-sink.itemPartitionKey",
+			"description": "Represents a partition key value in the Azure Cosmos DB database service. A partition key identifies the partition where the item is stored in.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

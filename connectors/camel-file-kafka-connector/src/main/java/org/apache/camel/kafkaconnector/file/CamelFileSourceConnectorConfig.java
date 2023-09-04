@@ -68,11 +68,14 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_CONF = "camel.source.endpoint.extendedAttributes";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_DOC = "To define which file attributes of interest. Like posix:permissions,posix:owner,basic:lastAccessTime, it supports basic wildcard like posix:, basic:lastAccessTime";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_DEFAULT = null;
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_CONF = "camel.source.endpoint.includeHiddenFiles";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_DOC = "Whether to accept hidden files. Files which names starts with dot is regarded as a hidden file, and by default not included. Set this option to true to include hidden files in the file consumer.";
+    public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IN_PROGRESS_REPOSITORY_CONF = "camel.source.endpoint.inProgressRepository";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IN_PROGRESS_REPOSITORY_DOC = "A pluggable in-progress repository org.apache.camel.spi.IdempotentRepository. The in-progress repository is used to account the current in progress files being consumed. By default a memory based repository is used.";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IN_PROGRESS_REPOSITORY_DEFAULT = null;
@@ -268,6 +271,12 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.file.autowiredEnabled";
     public static final String CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_CONF = "camel.component.file.healthCheckConsumerEnabled";
+    public static final String CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DOC = "Used for enabling or disabling all consumer based health checks from this component";
+    public static final Boolean CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_CONF = "camel.component.file.healthCheckProducerEnabled";
+    public static final String CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DOC = "Used for enabling or disabling all producer based health checks from this component. Notice: Camel has by default disabled all producer based health-checks. You can turn on producer checks globally by setting camel.health.producersEnabled=true.";
+    public static final Boolean CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DEFAULT = true;
 
     public CamelFileSourceConnectorConfig(
             ConfigDef config,
@@ -297,6 +306,7 @@ public class CamelFileSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_DOC);
+        conf.define(CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_IN_PROGRESS_REPOSITORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_IN_PROGRESS_REPOSITORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_IN_PROGRESS_REPOSITORY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_LOCAL_WORK_DIRECTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_LOCAL_WORK_DIRECTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_LOCAL_WORK_DIRECTORY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_ON_COMPLETION_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_ON_COMPLETION_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_ON_COMPLETION_EXCEPTION_HANDLER_DOC);
@@ -362,6 +372,8 @@ public class CamelFileSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_SORTER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_SORTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_SORTER_DOC);
         conf.define(CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DOC);
         return conf;
     }
 }

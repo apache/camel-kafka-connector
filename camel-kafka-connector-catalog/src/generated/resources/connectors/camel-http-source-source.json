@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-http-source-source",
 		"type": "source",
-		"version": "3.20.1-SNAPSHOT",
+		"version": "4.0.0-SNAPSHOT",
 		"description": "Periodically fetches an HTTP resource and provides the content as output."
 	},
 	"properties": {

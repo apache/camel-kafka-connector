@@ -71,7 +71,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut]";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";
@@ -166,6 +166,12 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.hdfs.autowiredEnabled";
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_HDFS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_CONF = "camel.component.hdfs.healthCheckConsumerEnabled";
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DOC = "Used for enabling or disabling all consumer based health checks from this component";
+    public static final Boolean CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_CONF = "camel.component.hdfs.healthCheckProducerEnabled";
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DOC = "Used for enabling or disabling all producer based health checks from this component. Notice: Camel has by default disabled all producer based health-checks. You can turn on producer checks globally by setting camel.health.producersEnabled=true.";
+    public static final Boolean CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_CONF = "camel.component.hdfs.jAASConfiguration";
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DOC = "To use the given configuration for security with JAAS.";
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT = null;
@@ -232,6 +238,8 @@ public class CamelHdfsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_DOC);
         conf.define(CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HDFS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_CONSUMER_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_HEALTH_CHECK_PRODUCER_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC);
         return conf;
