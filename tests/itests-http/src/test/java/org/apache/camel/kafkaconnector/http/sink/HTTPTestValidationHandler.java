@@ -27,14 +27,15 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpEntityEnclosingRequest;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.protocol.HttpContext;
-import org.apache.http.protocol.HttpRequestHandler;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.ClassicHttpResponse;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.HttpException;
+import org.apache.hc.core5.http.HttpStatus;
+import org.apache.hc.core5.http.io.HttpRequestHandler;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.protocol.HttpContext;
+
 
 class HTTPTestValidationHandler implements HttpRequestHandler {
     private final List<String> replies = new ArrayList<>();
@@ -45,25 +46,6 @@ class HTTPTestValidationHandler implements HttpRequestHandler {
 
     HTTPTestValidationHandler(int expected) {
         this.expected = expected;
-    }
-
-
-    @Override
-    public void handle(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws IOException {
-        lock.lock();
-        try {
-            HttpEntity entity = ((HttpEntityEnclosingRequest) httpRequest).getEntity();
-            String content = EntityUtils.toString(entity);
-
-            replies.add(content);
-            if (replies.size() == expected) {
-                receivedExpectedMessages.signal();
-            }
-
-            httpResponse.setStatusCode(HttpStatus.SC_OK);
-        } finally {
-            lock.unlock();
-        }
     }
 
     public Future<List<String>> getReplies() throws InterruptedException {
@@ -79,5 +61,23 @@ class HTTPTestValidationHandler implements HttpRequestHandler {
         }
 
 
+    }
+
+    @Override
+    public void handle(ClassicHttpRequest classicHttpRequest, ClassicHttpResponse classicHttpResponse, HttpContext httpContext) throws HttpException, IOException {
+        lock.lock();
+        try {
+            HttpEntity entity = classicHttpRequest.getEntity();
+            String content = EntityUtils.toString(entity);
+
+            replies.add(content);
+            if (replies.size() == expected) {
+                receivedExpectedMessages.signal();
+            }
+
+            classicHttpResponse.setCode(HttpStatus.SC_OK);
+        } finally {
+            lock.unlock();
+        }
     }
 }

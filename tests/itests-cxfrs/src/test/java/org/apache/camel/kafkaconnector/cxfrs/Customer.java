@@ -16,8 +16,9 @@
  */
 package org.apache.camel.kafkaconnector.cxfrs;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
+
+import jakarta.xml.bind.annotation.XmlRootElement;
 import org.apache.camel.util.ObjectHelper;
 
 /**

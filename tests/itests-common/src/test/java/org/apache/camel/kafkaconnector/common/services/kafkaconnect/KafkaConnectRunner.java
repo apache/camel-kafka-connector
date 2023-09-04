@@ -37,13 +37,13 @@ import org.apache.kafka.connect.runtime.Herder;
 import org.apache.kafka.connect.runtime.Worker;
 import org.apache.kafka.connect.runtime.WorkerInfo;
 import org.apache.kafka.connect.runtime.isolation.Plugins;
+import org.apache.kafka.connect.runtime.rest.RestClient;
 import org.apache.kafka.connect.runtime.rest.RestServer;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorInfo;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 import org.apache.kafka.connect.runtime.standalone.StandaloneHerder;
 import org.apache.kafka.connect.storage.FileOffsetBackingStore;
-import org.apache.kafka.connect.util.ConnectUtils;
 import org.apache.kafka.connect.util.FutureCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -127,10 +127,11 @@ class KafkaConnectRunner {
         Plugins plugins = new Plugins(standAloneProperties);
 
         StandaloneConfig config = new StandaloneConfig(standAloneProperties);
-        String kafkaClusterId = ConnectUtils.lookupKafkaClusterId(config);
+        String kafkaClusterId = config.kafkaClusterId();
         AllConnectorClientConfigOverridePolicy allConnectorClientConfigOverridePolicy = new AllConnectorClientConfigOverridePolicy();
 
-        RestServer rest = new RestServer(config);
+        RestClient restClient = new RestClient(config);
+        RestServer rest = new RestServer(config, restClient);
         rest.initializeServer();
 
         /*

@@ -17,7 +17,6 @@
 package org.apache.camel.kafkaconnector.cxf.sink;
 
 import jakarta.xml.ws.Endpoint;
-
 import org.apache.camel.kafkaconnector.cxf.services.JaxWsServiceConfigurator;
 import org.apache.cxf.jaxws.EndpointImpl;
 

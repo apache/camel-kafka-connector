@@ -28,8 +28,9 @@ import java.util.concurrent.TimeoutException;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
-import org.apache.http.impl.bootstrap.HttpServer;
-import org.apache.http.impl.bootstrap.ServerBootstrap;
+import org.apache.hc.core5.http.impl.bootstrap.HttpServer;
+import org.apache.hc.core5.http.impl.bootstrap.ServerBootstrap;
+import org.apache.hc.core5.io.CloseMode;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,7 +69,7 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
         localServer = ServerBootstrap.bootstrap()
                 .setLocalAddress(localhost)
                 .setListenerPort(NetworkUtils.getFreePort())
-                .registerHandler("/ckc", validationHandler)
+                .register("/ckc", validationHandler)
                 .create();
 
         localServer.start();
@@ -79,7 +80,7 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
         try {
             localServer.stop();
         } finally {
-            localServer.shutdown(2, TimeUnit.SECONDS);
+            localServer.close(CloseMode.IMMEDIATE, org.apache.hc.core5.util.Timeout.ofSeconds(2L));
         }
     }
 
