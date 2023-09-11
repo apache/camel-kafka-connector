@@ -62,7 +62,7 @@ pipeline {
                 }
             }
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Pdeploy,apache-snapshots -Dquickly clean deploy"
+                sh "./mvnw $MAVEN_PARAMS -Pdeploy,apache-snapshots -DskipTests clean deploy"
             }
         }
 
