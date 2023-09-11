@@ -454,11 +454,11 @@ public class CamelSourceTaskTest {
 
             for (int i = 0; i < size / chunkSize; i++) {
                 assertThat(records)
-                    .element(i)
-                    .hasFieldOrPropertyWithValue(
-                        "value",
-                        IntStream.range(i * chunkSize, (i * chunkSize) + chunkSize).mapToObj(Integer::toString).collect(Collectors.joining("|"))
-                    );
+                .element(i)
+                .hasFieldOrPropertyWithValue(
+                    "value",
+                    IntStream.range(i * chunkSize, (i * chunkSize) + chunkSize).mapToObj(Integer::toString).collect(Collectors.joining("|"))
+                );
             }
 
         } finally {

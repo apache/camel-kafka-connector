@@ -33,8 +33,6 @@ public class CamelSjms2SourceTask extends CamelSourceTask {
     protected Map<String, String> getDefaultConfig() {
         return new HashMap<String, String>() {{
             put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "sjms2");
-            put("camel.component.sjms2.connection-factory", "#class:org.apache.activemq.ActiveMQConnectionFactory");
-            put("camel.component.sjms2.connection-factory.brokerURL", "tcp://localhost:61616");
         }};
     }
 }

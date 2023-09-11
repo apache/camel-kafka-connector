@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 
 import com.soebes.itf.jupiter.extension.MavenGoal;
 import com.soebes.itf.jupiter.extension.MavenJupiterExtension;
+import com.soebes.itf.jupiter.extension.MavenOption;
 import com.soebes.itf.jupiter.extension.MavenProject;
 import com.soebes.itf.jupiter.extension.MavenRepository;
 import com.soebes.itf.jupiter.extension.MavenTest;
@@ -53,7 +54,7 @@ class GenerateCamelKafkaConnectorsMojoIT {
     @Order(10)
     @MavenGoal("clean")
     @MavenGoal("verify")
-//    @MavenOption("--no-snapshot-updates")
+    @MavenOption("--no-snapshot-updates")
 //    @MavenOption(MavenCLIOptions.DEBUG)
     public void test_generate(MavenExecutionResult result) throws IOException {
         assertThat(result).isSuccessful();
@@ -91,9 +92,9 @@ class GenerateCamelKafkaConnectorsMojoIT {
     }
 
     @MavenTest
-    @Order(20)
+    @Order(30)
     @MavenGoal("package")
-//    @MavenOption("--no-snapshot-updates")
+    @MavenOption("--no-snapshot-updates")
 //    @MavenOption(MavenCLIOptions.DEBUG)
     public void test_build(MavenExecutionResult result) throws IOException {
         assertThat(result).isSuccessful();
