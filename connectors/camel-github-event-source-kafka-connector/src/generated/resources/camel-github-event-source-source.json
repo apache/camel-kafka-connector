@@ -6,12 +6,12 @@
 		"id": "camel-github-event-source-source",
 		"type": "source",
 		"version": "4.0.0-SNAPSHOT",
-		"description": "Receive Events From a Github Repository."
+		"description": "Receive Events From a GitHub Repository."
 	},
 	"properties": {
 		"camel.kamelet.github-event-source.repoName": {
 			"name": "camel.kamelet.github-event-source.repoName",
-			"description": "The Github Repository name",
+			"description": "The GitHub Repository name",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -23,7 +23,7 @@
 		},
 		"camel.kamelet.github-event-source.oauthToken": {
 			"name": "camel.kamelet.github-event-source.oauthToken",
-			"description": "Oauth token",
+			"description": "OAuth token",
 			"priority": "HIGH",
 			"required": "true"
 		}

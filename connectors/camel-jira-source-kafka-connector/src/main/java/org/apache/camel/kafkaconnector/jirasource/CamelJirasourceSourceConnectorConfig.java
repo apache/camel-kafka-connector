@@ -32,8 +32,11 @@ public class CamelJirasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DOC = "The username to access Jira.";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.jira-source.password";
-    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DOC = "The password or the API Token to access Jira.";
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DOC = "The password to access Jira.";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PERSONALTOKEN_CONF = "camel.kamelet.jira-source.personal-token";
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PERSONALTOKEN_DOC = "Personal Token";
+    public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_PERSONALTOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_CONF = "camel.kamelet.jira-source.jql";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_DOC = "A query to filter issues. Example: project=MyProject";
     public static final String CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_DEFAULT = null;
@@ -51,8 +54,9 @@ public class CamelJirasourceSourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JIRASOURCE_KAMELET_JIRA_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRASOURCE_KAMELET_JIRA_URL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JIRASOURCE_KAMELET_JIRA_URL_DOC);
-        conf.define(CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DOC);
-        conf.define(CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DOC);
+        conf.define(CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRASOURCE_KAMELET_USERNAME_DOC);
+        conf.define(CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRASOURCE_KAMELET_PASSWORD_DOC);
+        conf.define(CAMEL_SOURCE_JIRASOURCE_KAMELET_PERSONALTOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRASOURCE_KAMELET_PERSONALTOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRASOURCE_KAMELET_PERSONALTOKEN_DOC);
         conf.define(CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRASOURCE_KAMELET_JQL_DOC);
         return conf;
     }

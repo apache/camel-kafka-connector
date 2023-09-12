@@ -6,7 +6,7 @@
 		"id": "camel-jira-transition-issue-sink-sink",
 		"type": "sink",
 		"version": "4.0.0-SNAPSHOT",
-		"description": "Sets a new status (transition to) of an existing issue in Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `issueKey` \/ `ce-issueKey`: as the issue unique code.\n\n- `issueTransitionId` \/ `ce-issueTransitionId`: as the new status (transition) code. You should carefully check the project workflow as each transition may have conditions to check before the transition is made.\n\nThe comment of the transition is set in the body of the message."
+		"description": "Sets a new status (transition to) of an existing issue in Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `issueKey` \/ `ce-issueKey`: as the issue unique code.\n\n- `issueTransitionId` \/ `ce-issueTransitionId`: as the new status (transition) code. You should carefully check the project workflow as each transition may have conditions to check before the transition is made.\n\nThe comment of the transition is set in the body of the message.\n\nTo authenticate a username\/password or personal token must be defined. We recommend to use personal token as it is a safer way to get access to Jira."
 	},
 	"properties": {
 		"camel.kamelet.jira-transition-issue-sink.jiraUrl": {
@@ -18,14 +18,20 @@
 		"camel.kamelet.jira-transition-issue-sink.username": {
 			"name": "camel.kamelet.jira-transition-issue-sink.username",
 			"description": "The username to access Jira",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.jira-transition-issue-sink.password": {
 			"name": "camel.kamelet.jira-transition-issue-sink.password",
-			"description": "The password or the API Token to access Jira",
-			"priority": "HIGH",
-			"required": "true"
+			"description": "The password to access Jira",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jira-transition-issue-sink.personal-token": {
+			"name": "camel.kamelet.jira-transition-issue-sink.personal-token",
+			"description": "Personal Token",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

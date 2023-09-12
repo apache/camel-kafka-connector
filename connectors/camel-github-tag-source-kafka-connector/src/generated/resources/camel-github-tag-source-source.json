@@ -6,12 +6,12 @@
 		"id": "camel-github-tag-source-source",
 		"type": "source",
 		"version": "4.0.0-SNAPSHOT",
-		"description": "Receive Tags From a Github Repository."
+		"description": "Receive Tags From a GitHub Repository."
 	},
 	"properties": {
 		"camel.kamelet.github-tag-source.repoName": {
 			"name": "camel.kamelet.github-tag-source.repoName",
-			"description": "The Github Repository name",
+			"description": "The GitHub Repository name",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -23,7 +23,7 @@
 		},
 		"camel.kamelet.github-tag-source.oauthToken": {
 			"name": "camel.kamelet.github-tag-source.oauthToken",
-			"description": "Oauth token",
+			"description": "OAuth token",
 			"priority": "HIGH",
 			"required": "true"
 		}

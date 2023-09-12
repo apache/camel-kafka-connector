@@ -6,7 +6,7 @@
 		"id": "camel-jira-add-issue-sink-sink",
 		"type": "sink",
 		"version": "4.0.0-SNAPSHOT",
-		"description": "Add a new issue to Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `projectKey` \/ `ce-projectKey`: as the Jira project key.\n\n- `issueTypeName` \/ `ce-issueTypeName`: as the name of the issue type (example: Bug, Enhancement).\n\n- `issueSummary` \/ `ce-issueSummary`: as the title or summary of the issue.\n\n- `issueAssignee` \/ `ce-issueAssignee`: as the user assigned to the issue (Optional).\n\n- `issuePriorityName` \/ `ce-issuePriorityName`: as the priority name of the issue (example: Critical, Blocker, Trivial) (Optional).\n\n- `issueComponents` \/ `ce-issueComponents`: as list of string with the valid component names (Optional).\n\n- `issueDescription` \/ `ce-issueDescription`: as the issue description (Optional).\n\nThe issue description can be set from the body of the message or the `issueDescription`\/`ce-issueDescription` in the header, however the body takes precedence."
+		"description": "Add a new issue to Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `projectKey` \/ `ce-projectKey`: as the Jira project key.\n\n- `issueTypeName` \/ `ce-issueTypeName`: as the name of the issue type (example: Bug, Enhancement).\n\n- `issueSummary` \/ `ce-issueSummary`: as the title or summary of the issue.\n\n- `issueAssignee` \/ `ce-issueAssignee`: as the user assigned to the issue (Optional).\n\n- `issuePriorityName` \/ `ce-issuePriorityName`: as the priority name of the issue (example: Critical, Blocker, Trivial) (Optional).\n\n- `issueComponents` \/ `ce-issueComponents`: as list of string with the valid component names (Optional).\n\n- `issueDescription` \/ `ce-issueDescription`: as the issue description (Optional).\n\nThe issue description can be set from the body of the message or the `issueDescription`\/`ce-issueDescription` in the header, however the body takes precedence.\n\nTo authenticate a username\/password or personal token must be defined. We recommend to use personal token as it is a safer way to get access to Jira."
 	},
 	"properties": {
 		"camel.kamelet.jira-add-issue-sink.jiraUrl": {
@@ -18,14 +18,20 @@
 		"camel.kamelet.jira-add-issue-sink.username": {
 			"name": "camel.kamelet.jira-add-issue-sink.username",
 			"description": "The username to access Jira",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.jira-add-issue-sink.password": {
 			"name": "camel.kamelet.jira-add-issue-sink.password",
-			"description": "The password or the API Token to access Jira",
-			"priority": "HIGH",
-			"required": "true"
+			"description": "The password to access Jira",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jira-add-issue-sink.personal-token": {
+			"name": "camel.kamelet.jira-add-issue-sink.personal-token",
+			"description": "Personal Token",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

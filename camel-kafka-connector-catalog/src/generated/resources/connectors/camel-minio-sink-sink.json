@@ -39,6 +39,12 @@
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.minio-sink.keyName": {
+			"name": "camel.kamelet.minio-sink.keyName",
+			"description": "The key name for saving an element in the bucket.",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

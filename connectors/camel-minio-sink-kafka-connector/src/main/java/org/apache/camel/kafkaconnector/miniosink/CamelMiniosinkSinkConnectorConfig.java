@@ -40,6 +40,9 @@ public class CamelMiniosinkSinkConnectorConfig
     public static final String CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_CONF = "camel.kamelet.minio-sink.autoCreateBucket";
     public static final String CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_DOC = "Specify to automatically create the MinIO bucket.";
     public static final Boolean CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_DEFAULT = false;
+    public static final String CAMEL_SINK_MINIOSINK_KAMELET_KEY_NAME_CONF = "camel.kamelet.minio-sink.keyName";
+    public static final String CAMEL_SINK_MINIOSINK_KAMELET_KEY_NAME_DOC = "The key name for saving an element in the bucket.";
+    public static final String CAMEL_SINK_MINIOSINK_KAMELET_KEY_NAME_DEFAULT = null;
 
     public CamelMiniosinkSinkConnectorConfig(
             ConfigDef config,
@@ -58,6 +61,7 @@ public class CamelMiniosinkSinkConnectorConfig
         conf.define(CAMEL_SINK_MINIOSINK_KAMELET_SECRET_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_MINIOSINK_KAMELET_SECRET_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MINIOSINK_KAMELET_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_MINIOSINK_KAMELET_ENDPOINT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIOSINK_KAMELET_ENDPOINT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MINIOSINK_KAMELET_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIOSINK_KAMELET_AUTO_CREATE_BUCKET_DOC);
+        conf.define(CAMEL_SINK_MINIOSINK_KAMELET_KEY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIOSINK_KAMELET_KEY_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIOSINK_KAMELET_KEY_NAME_DOC);
         return conf;
     }
 }

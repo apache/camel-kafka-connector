@@ -26,13 +26,13 @@ public class CamelGithubcommitsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_REPO_NAME_CONF = "camel.kamelet.github-commit-source.repoName";
-    public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_REPO_NAME_DOC = "The Github Repository name";
+    public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_REPO_NAME_DOC = "The GitHub Repository name";
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_REPO_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_REPO_OWNER_CONF = "camel.kamelet.github-commit-source.repoOwner";
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_REPO_OWNER_DOC = "The repository owner";
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_REPO_OWNER_DEFAULT = null;
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_OAUTH_TOKEN_CONF = "camel.kamelet.github-commit-source.oauthToken";
-    public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_OAUTH_TOKEN_DOC = "Oauth token";
+    public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_OAUTH_TOKEN_DOC = "OAuth token";
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_OAUTH_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_STARTING_SHA_CONF = "camel.kamelet.github-commit-source.startingSha";
     public static final String CAMEL_SOURCE_GITHUBCOMMITSOURCE_KAMELET_STARTING_SHA_DOC = "The SHA from which we want to consume, possible values beginning, last or a specific SHA";

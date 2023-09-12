@@ -6,7 +6,7 @@
 		"id": "camel-jira-source-source",
 		"type": "source",
 		"version": "4.0.0-SNAPSHOT",
-		"description": "Receive notifications about new issues from Jira."
+		"description": "Receive notifications about new issues from Jira.\n\nTo authenticate a username\/password or personal token must be defined. We recommend to use personal token as it is a safer way to get access to Jira."
 	},
 	"properties": {
 		"camel.kamelet.jira-source.jiraUrl": {
@@ -18,14 +18,20 @@
 		"camel.kamelet.jira-source.username": {
 			"name": "camel.kamelet.jira-source.username",
 			"description": "The username to access Jira.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.jira-source.password": {
 			"name": "camel.kamelet.jira-source.password",
-			"description": "The password or the API Token to access Jira.",
-			"priority": "HIGH",
-			"required": "true"
+			"description": "The password to access Jira.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jira-source.personal-token": {
+			"name": "camel.kamelet.jira-source.personal-token",
+			"description": "Personal Token",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.jira-source.jql": {
 			"name": "camel.kamelet.jira-source.jql",

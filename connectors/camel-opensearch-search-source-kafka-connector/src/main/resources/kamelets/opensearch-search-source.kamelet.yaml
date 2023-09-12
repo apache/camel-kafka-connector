@@ -1,0 +1,126 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: opensearch-search-source
+  labels:
+    camel.apache.org/kamelet.type: "source"
+  annotations:
+    camel.apache.org/kamelet.support.level: "Stable"
+    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/kamelet.group: "OpenSearch"
+    camel.apache.org/kamelet.namespace: "Search"
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzNzIgNzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cjx0aXRsZT5PcGVuU2VhcmNoIGxvZ288L3RpdGxlPgo8ZGVzYz5TZWFyY2ggZW5naW5lIHNvZnR3YXJlIGZvcmsgb2YgRWxhc3RpY3NlYXJjaDwvZGVzYz4KIDxwYXRoIGQ9Im02MS43Mzc0IDI2LjVjLTEuMjQ5NiAwLTIuMjYyNiAxLjAxMy0yLjI2MjYgMi4yNjI2IDAgMTguNjE4OC0xNS4wOTM0IDMzLjcxMjItMzMuNzEyMiAzMy43MTIyLTEuMjQ5NiAwLTIuMjYyNiAxLjAxMy0yLjI2MjYgMi4yNjI2czEuMDEzIDIuMjYyNiAyLjI2MjYgMi4yNjI2YzIxLjExNzkgMCAzOC4yMzc0LTE3LjExOTUgMzguMjM3NC0zOC4yMzc0IDAtMS4yNDk2LTEuMDEzLTIuMjYyNi0yLjI2MjYtMi4yNjI2eiIgZmlsbD0iIzAwQTNFMCIvPgogPHBhdGggZD0ibTQ4LjA4MTQgNDFjMi4xNzU4LTMuNTQ5NSA0LjI4MDEtOC4yODIyIDMuODY2MS0xNC45MDc5LTAuODU3Ni0xMy43MjQ4LTEzLjI4ODYtMjQuMTM2NzMtMjUuMDI2OS0yMy4wMDgzNy00LjU5NTMgMC40NDE3NC05LjMxMzggNC4xODc0Ny04Ljg5NDYgMTAuODk2NzcgMC4xODIyIDIuOTE1NiAxLjYwOTIgNC42MzY0IDMuOTI4NCA1Ljk1OTQgMi4yMDc0IDEuMjU5MyA1LjA0MzQgMi4wNTcgOC4yNTg0IDIuOTYxMiAzLjg4MzQgMS4wOTIzIDguMzg4MSAyLjMxOTIgMTEuODUwMyA0Ljg3MDYgNC4xNDk0IDMuMDU3OSA2Ljk4NiA2LjYwMjYgNi4wMTgzIDEzLjIyODN6IiBmaWxsPSIjQjlEOUVCIi8+CiA8cGF0aCBkPSJtMy45MTg2MSAxN2MtMi4xNzU4NSAzLjU0OTUtNC4yODAxMTYgOC4yODIyLTMuODY2MTE3IDE0LjkwNzkgMC44NTc1Nzg5IDEzLjcyNDggMTMuMjg4NjEgMjQuMTM2NyAyNS4wMjY5MSAyMy4wMDg0IDQuNTk1My0wLjQ0MTggOS4zMTM4LTQuMTg3NSA4Ljg5NDYtMTAuODk2OC0wLjE4MjItMi45MTU2LTEuNjA5My00LjYzNjQtMy45Mjg0LTUuOTU5NC0yLjIwNzQtMS4yNTkzLTUuMDQzNC0yLjA1Ny04LjI1ODQtMi45NjEyLTMuODgzNC0xLjA5MjMtOC4zODgxLTIuMzE5Mi0xMS44NTAyNS00Ljg3MDYtNC4xNDk0OC0zLjA1NzktNi45ODYwMy02LjYwMjYtNi4wMTgzNC0xMy4yMjgzeiIgZmlsbD0iIzAwQTNFMCIvPgogPHBhdGggZD0ibTM2Mi41IDMxdjIzaDl2LTI1YzAtNC42MDczLTAuOS04LjA4NzktMi43MDEtMTAuNDQ4OS0xLjgwMS0yLjM4MzktNC41MTctMy41NTExLTguMDQ5LTMuNTUxMS0zLjgzMiAwLTYuOTAzIDIuMjQwOC04Ljc1IDZoLTAuNWMwLjEzNi0xLjk0MDkgMC4yNi0zLjA1MjggMC4zNS0zLjg2NDcgMC4wOTMtMC44MzczIDAuMTUtMS4zNTU2IDAuMTUtMi4xMzUzdi0xNC41aC05djUzLjVoOS41di0xOC41YzAtNC4xNDg5IDAuMTM5LTcuMjE4NSAwLjk5My05LjQxOSAwLjg1NC0yLjIyMzUgMi4zNDMtMy4zMzUyIDQuNDY3LTMuMzM1MiAyLjgzOSAwIDQuNTQgMi42MzgzIDQuNTQgOC4yNTQyem0tMTMwLjY0OCAyMC4yMjg5YzIuNDMyLTIuNTE0MSAzLjY0OC02LjEzNTMgMy42NDgtMTAuODYzNiAwLTIuOTUyNC0wLjY2Ni01LjU4MTgtMS45OTktNy44ODgzLTEuMzEtMi4zMDY1LTMuNjM2LTQuNTY2OC02Ljk4LTYuNzgxMS0yLjQ3OS0xLjYxNDUtNC4yMjEtMy4wNTYxLTUuMjI3LTQuMzI0Ni0wLjk4Mi0xLjI2ODYtMS40NzMtMi43NTYzLTEuNDczLTQuNDYzMSAwLTEuNzI5OSAwLjQwOS0zLjA5MDcgMS4yMjgtNC4wODI1IDAuODQyLTEuMDE0OSAyLjAzNC0xLjUyMjMgMy41NzgtMS41MjIzIDEuNDAzIDAgMi43MTIgMC4yNTM3IDMuOTI4IDAuNzYxMSAxLjIzOSAwLjUwNzUgMi40MiAxLjA4NDEgMy41NDMgMS43Mjk5bDMuMTU2LTcuNTQyMjRjLTMuNjI0LTIuMTY4MTEtNy40LTMuMjUyMTYtMTEuMzI5LTMuMjUyMTYtNC4xMTYgMC03LjQwMSAxLjI2ODU3LTkuODU2IDMuODA1NzItMi40MzIgMi41MzcxNS0zLjY0OCA1Ljk3Mzg4LTMuNjQ4IDEwLjMxMDA4IDAgMi4yNjAzIDAuMzA0IDQuMjQzOSAwLjkxMiA1Ljk1MDcgMC42MzEgMS43MDY4IDEuNTA4IDMuMjUyMiAyLjYzMSA0LjYzNjEgMS4xNDUgMS4zNjA4IDIuODE3IDIuNzkwOSA1LjAxNSA0LjI5MDEgMi41MjYgMS43MDY4IDQuMzM4IDMuMjYzNyA1LjQzNyA0LjY3MDYgMS4wOTkgMS4zODM5IDEuNjQ5IDIuOTE3OCAxLjY0OSA0LjYwMTUgMCAxLjcwNjgtMC40NjggMy4wNTYxLTEuNDAzIDQuMDQ3OS0wLjkxMiAwLjk5MTgtMi4yOCAxLjQ4NzctNC4xMDQgMS40ODc3LTMuMjA0IDAtNi43MjMtMS4yMzQtMTAuNTU4LTMuNzAxOXY5LjMwNjdjMy4xMzMgMS43Mjk5IDYuOTMzIDIuNTk0OCAxMS40IDIuNTk0OCA0LjU1OSAwIDguMDQ0LTEuMjU3IDEwLjQ1Mi0zLjc3MTF6bTkuODIyLTEuMzU0NGMyLjgwNiAzLjQxNyA2LjYzMiA1LjEyNTUgMTEuNDc4IDUuMTI1NSA0LjE1MSAwIDcuNzEtMC44ODg5IDEwLjY3OC0yLjY2Njd2LTcuNTg0NGMtMy4xNTMgMS44NzAxLTYuMjM3IDIuODA1Mi05LjI1MiAyLjgwNTItMi4zNjUgMC00LjIyLTAuODMxMi01LjU2NS0yLjQ5MzUtMS4zNDUtMS42ODU0LTEuOTQzLTQuMTIwNS0yLjAxMy03LjU2MDZoMTguNXYtNS4wNDU1YzAtNS41MTgtMS4yMTctOS44MDA4LTMuNjUyLTEyLjg0ODQtMi40MzUtMy4wNzA3LTUuNzYyLTQuNjA2MS05Ljk4My00LjYwNjEtNC41MjIgMC04LjA0NiAxLjc4OTMtMTAuNTc0IDUuMzY4LTIuNTI3IDMuNTc4Ni0zLjc5MSA4LjU1NDEtMy43OTEgMTQuOTI2NCAwIDYuMjc5OSAxLjM5MSAxMS4xMzk5IDQuMTc0IDE0LjU4MDF6bTYuODUyLTI1LjY2MjRjMC44NTgtMS40MDgzIDEuOTQ4LTIuMTEyNSAzLjI3LTIuMTEyNSAxLjQxNCAwIDIuNTI3IDAuNzI3MiAzLjMzOSAyLjE4MTggMC44MTEgMS40NTQ1IDEuMzE5IDMuOTAxOSAxLjM2NSA2LjcxODZoLTkuNWMwLjEzOS0yLjkzMjIgMC42NjgtNS40MDI2IDEuNTI2LTYuNzg3OXptMzkuNDc0IDI5Ljc4NzktMS41LTVoLTAuNWMtMS4zNzggMi4yNTg3LTIuNzA1IDMuODY4LTQuMTc2IDQuNzIwOC0xLjQ3MiAwLjg1MjgtMy4zMyAxLjI3OTItNS41NzIgMS4yNzkyLTIuODc0IDAtNS4xNC0xLjA2MDItNi43OTktMy4xODA2LTEuNjM1LTIuMTIwNS0yLjQ1My01LjA3MDYtMi40NTMtOC44NTA1IDAtNC4wNTY1IDEuMTIxLTcuMDY0MyAzLjM2NC05LjAyMzQgMi4yNjYtMS45ODIxIDUuNjQyLTMuMDc2OSAxMC4xMjgtMy4yODQzbDUuMTg2LTAuMjA3NHYtMi43NjU4YzAtMy41OTU1LTEuNTc3LTUuMzkzMy00LjczMS01LjM5MzMtMi4zMzYgMC01LjAyMyAwLjg5ODktOC4wNiAyLjY5NjdsLTMuMjI0LTYuMzYxM2MzLjg3OC0yLjQyMDEgOC4wMzEtMy42MzAxIDEyLjU4Ny0zLjYzMDEgNC4xMzUgMCA3LjM0MiAxLjE3NTUgOS40OTEgMy41MjY0IDIuMTczIDIuMzI3OCAzLjI1OSA1LjYzNTIgMy4yNTkgOS45MjIydjI1LjU1MTRoLTd6bS03LjkyOS02LjE5MWMxLjcwNiAwIDMuMDYxLTAuNzQ5MSA0LjA2NS0yLjI0NzIgMS4wMjgtMS41MjEyIDEuNTQyLTMuNTM3OSAxLjU0Mi02LjA1MDF2LTMuMjQ5OGwtMi44NzMgMC4xMzgzYy0yLjEyNiAwLjExNTItMy42OTIgMC43MTQ1LTQuNjk2IDEuNzk3Ny0wLjk4MSAxLjA4MzMtMS40NzIgMi42OTY3LTEuNDcyIDQuODQwMSAwIDMuMTgwNyAxLjE0NSA0Ljc3MSAzLjQzNCA0Ljc3MXptMzcuOTI5LTMyLjA1OWMtMS4wNy0wLjM0NS0yLjY2My0wLjc1LTMuNzc4LTAuNzUtMS41NzEgMC0yLjk0OSAwLjUxNzQtNC4xMzMgMS41NTIzcy0yLjA4NyAyLjAzMy0zLjA4OSA0LjQ0NzdoLTAuNWwtMS41LTVoLTd2MzhoOS40NjN2LTIwYzAtMy4zNTc2IDAuMjEzLTUuNTIzNyAxLjM5Ny03LjI3MTUgMS4xODQtMS43NzA4IDIuODgtMi42NTYyIDUuMDg4LTIuNjU2MiAxLjAyNSAwIDEuOTE1IDAuMTk3NyAyLjU1MiAwLjQyNzdsMS41LTguNzV6bTE0IDM5LjI1Yy00LjU1NyAwLTguMDQ2LTEuNTIyLTEwLjQyNy00Ljg2OTgtMi4zODItMy4zNDc4LTMuNTczLTguMjY1NS0zLjU3My0xNC43NTMyIDAtNi43ODc5IDEuMTIyLTExLjg1NTcgMy4zNjYtMTUuMjAzNSAyLjI2OC0zLjM0NzggNS42NTEtNS4xNzM1IDEwLjM2OS01LjE3MzUgMS40MTkgMCAzLjAxNyAwLjM1OTYgNC41NzQgMC43NzUyczMuNDU0IDAuOTM5OCA0LjY5MSAxLjcyNDhsLTMuMTExIDcuMjQ0OWMtMS45LTEuMTMxMy0zLjU4NC0xLjY5NjktNS4wNDktMS42OTY5LTEuOTQ3IDAtMy4zNTUgMS4wMjc0LTQuMjI2IDMuMDgyMi0wLjg0NyAyLjAzMTgtMS4yNyA1LjA5MDktMS4yNyA5LjE3NzUgMCAzLjk5NDIgMC40MjMgNi45ODQxIDEuMjcgOC45Njk3IDAuODQ4IDEuOTYyNSAyLjIzMyAyLjk0MzcgNC4xNTcgMi45NDM3IDIuMjkgMCA0LjY4My0wLjgwODEgNy4xNzktMi40MjQydjguMTAzOWMtMi40MDQgMS41MDA3LTUuMDQyIDIuMDk5Mi03Ljk1IDIuMDk5MnoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0I5RDlFQiIgZmlsbC1ydWxlPSJldmVub2RkIi8+CiA8cGF0aCBkPSJtMTA3Ljc3NyA0OC4yNjI1YzMuMTQ5LTQuNDkxNyA0LjcyMy0xMC45MTgzIDQuNzIzLTE5LjI3OTggMC04LjM2MTQtMS41NjMtMTQuNzc2NS00LjY4OC0xOS4yNDUxNi0zLjEyNi00LjQ5MTY5LTcuNjE4LTYuNzM3NTQtMTMuNDc1Mi02LjczNzU0LTUuOTI3IDAtMTAuNDY0OSAyLjIzNDMzLTEzLjYxMzcgNi43MDI5OS0zLjE0ODcgNC40NDU2MS00LjcyMzEgMTAuODQ5MjEtNC43MjMxIDE5LjIxMDYxIDAgOC40MzA2IDEuNTc0NCAxNC44OTE3IDQuNzIzMSAxOS4zODM0IDMuMTQ4OCA0LjQ2ODcgNy42NjM1IDYuNzAzIDEzLjU0NDMgNi43MDMgNS44NTc2IDAgMTAuMzYwNi0yLjI0NTggMTMuNTA5Ni02LjczNzV6bS0xOS45MzQ1LTYuMTE1N2MtMS40NTg2LTMuMDE3NS0yLjE4NzktNy40MDU1LTIuMTg3OS0xMy4xNjQxIDAtNS43ODE2IDAuNzI5My0xMC4xNjk2IDIuMTg3OS0xMy4xNjQxIDEuNDU4Ni0zLjAxNzUgMy42MjM0LTQuNTI2MiA2LjQ5NDMtNC41MjYyIDUuNjQ5MiAwIDguNDc0MiA1Ljg5NjcgOC40NzQyIDE3LjY5MDNzLTIuODQ4MSAxNy42OTA0LTguNTQzNiAxNy42OTA0Yy0yLjgyNDYgMC00Ljk2NjMtMS41MDg4LTYuNDI0OS00LjUyNjN6bTQwLjM0MzUgMTEuODUxMWMxLjI4MyAwLjc0MDggMi42NjQgMS4wMDIxIDQuMzE0IDEuMDAyMSAzLjUzIDAgNi40LTEuNjczNSA4LjQ0LTUuMjM4OCAyLjA0LTMuNTY1MiAzLjA2LTguNDg0OCAzLjA2LTE0Ljc1ODcgMC02LjM2NjYtMC45ODYtMTEuMjg2MS0yLjk1Ny0xNC43NTg4LTEuOTcxLTMuNDk1OC00LjY5OC01LjI0MzctOC4xODItNS4yNDM3LTMuNjIxIDAtNi40NTkgMi4xNTY5LTguMzYxIDZoLTAuNWwtMS41LTVoLTd2NTUuNWg5di0xNi41YzAtMC42NDgyLTAuMTMzLTIuODUxNS0wLjUtNmgwLjVjMC43NSAyLjI1IDIuNDI1IDQuMjMzOSAzLjY4NiA0Ljk5Nzl6bS0yLjMwNC0yOC42MTQ3YzAuODAzLTEuNjkgMi4wOTctMi41MzUgMy44ODUtMi41MzUgMS42NzMgMCAyLjg5OSAwLjk5NTUgMy42NzkgMi45ODY1IDAuODAyIDEuOTkxIDEuMjAzIDUuMDAwNiAxLjIwMyA5LjAyODkgMCA4LjE5NTQtMS42MDQgMTIuMjkzMS00LjgxMyAxMi4yOTMxLTEuODU3IDAtMy4xODYtMC45NzIzLTMuOTg4LTIuOTE3cy0xLjIwMy01LjA0NjktMS4yMDMtOS4zMDY3di0xLjIxNTRjMC4wNDYtMy44ODk0IDAuNDU4LTYuNjY3NSAxLjIzNy04LjMzNDR6bTM1Ljc3IDI5LjYxNjhjLTQuODQ2IDAtOC42NzItMS43MDg1LTExLjQ3OC01LjEyNTUtMi43ODMtMy40NDAyLTQuMTc0LTguMzAwMi00LjE3NC0xNC41ODAxIDAtNi4zNzIzIDEuMjY0LTExLjM0NzggMy43OTEtMTQuOTI2NCAyLjUyOC0zLjU3ODcgNi4wNTItNS4zNjggMTAuNTc0LTUuMzY4IDQuMjIgMCA3LjU0OCAxLjUzNTQgOS45ODMgNC42MDYxIDIuNDM1IDMuMDQ3NiAzLjY1MiA3LjMzMDQgMy42NTIgMTIuODQ4NHY1LjA0NTVoLTE4LjVjMC4wNyAzLjQ0MDEgMC42NjggNS44NzUyIDIuMDEzIDcuNTYwNiAxLjM0NSAxLjY2MjMgMy4yIDIuNDkzNSA1LjU2NSAyLjQ5MzUgMy4wMTUgMCA2LjA5OS0wLjkzNTEgOS4yNTItMi44MDUydjcuNTg0NGMtMi45NjggMS43Nzc4LTYuNTI3IDIuNjY2Ny0xMC42NzggMi42NjY3em0tMS4zNTYtMzIuOTAwNGMtMS4zMjIgMC0yLjQxMiAwLjcwNDItMy4yNyAyLjExMjUtMC44NTggMS4zODUzLTEuMzg3IDMuODU1Ny0xLjUyNiA2Ljc4NzloOS41Yy0wLjA0Ni0yLjgxNjctMC41NTQtNS4yNjQxLTEuMzY1LTYuNzE4Ni0wLjgxMi0xLjQ1NDYtMS45MjUtMi4xODE4LTMuMzM5LTIuMTgxOHptMzYuMjA0IDguOTAwNHYyM2g5di0yNC44MDA5YzAtNC42NDAyLTAuODc3LTguMTY2OC0yLjYzMi0xMC41Nzk3LTEuNzMxLTIuNDEyOS00LjM1Mi0zLjYxOTQtNy44NjEtMy42MTk0LTIuMDc3IDAtMy44OSAwLjUxMDQtNS40MzcgMS41MzEzLTEuNTQ2IDAuOTk3Ni0yLjczOSAyLjY4MjItMy41NyA0LjQ2ODdoLTAuNWwtMS4yNS01aC03LjI1djM4aDkuNXYtMTguMjVjMC00LjcwOTggMC4xNzMtNy45MTk4IDEuMDk3LTkuODkxOCAwLjkyMy0xLjk5NTQgMi4zNzctMi45OTMgNC4zNjMtMi45OTMgMS41IDAgMi41ODYgMC43MTkyIDMuMjU1IDIuMTU3NyAwLjY3IDEuNDM4NSAxLjI4NSAzLjE2OTggMS4yODUgNS45NzcxeiIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjMDBBM0UwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KPC9zdmc+"
+spec:
+  definition:
+    title: "OpenSearch Search Source"
+    description: |-
+      Search data on OpenSearch
+      
+      The `query` parameter must be formatted in JSON.
+
+      If you specify the `certificate` property, you must base64 encode it before you pass it as a parameter.
+    required:
+      - query
+      - clusterName
+      - indexName
+      - hostAddresses
+    type: object
+    properties:
+      period:
+        title: Period
+        description: The time interval between two searches
+        type: integer
+        default: 1000
+      query:
+        title: Query
+        description: The query we want to use to search on OpenSearch.
+        type: string
+      user:
+        title: Username
+        description: Username to connect to OpenSearch.
+        type: string
+        x-descriptors:
+        - urn:camel:group:credentials
+      password:
+        title: Password
+        description: Password to connect to OpenSearch.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:password
+        - urn:camel:group:credentials
+      enableSSL:
+        title: Enable SSL
+        description: Do we want to connect using SSL?
+        type: boolean
+        default: false
+        x-descriptors:
+        - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
+      hostAddresses:
+        title: Host Addresses
+        description: Comma separated list with ip:port formatted remote transport addresses to use.
+        type: string
+      indexName:
+        title: Index in OpenSearch
+        description: The name of the index to act against.
+        type: string
+      clusterName:
+        title: OpenSearch Cluster Name
+        description: The name of the cluster.
+        type: string
+      certificate:
+        title: Certificate 
+        description: The Certificate for accessing the Opensearch cluster. You must encode this value in base64.
+        type: string
+  types:
+    out:
+      mediaType: application/json
+  dependencies:
+      - "camel:core"
+      - "camel:kamelet"
+      - "camel:timer"
+      - "camel:opensearch"
+      - "camel:gson"
+  template:
+    beans:
+      - name: local-opensearch
+        type: "#class:org.apache.camel.component.opensearch.OpensearchComponent"
+        properties:
+            user: "{{?user}}"
+            password: "{{?password}}"
+    from:
+      uri: timer:tick
+      parameters:
+        period: "{{period}}"
+      steps:
+        - set-body:
+            constant: "{{query?nested=false}}"
+        - to:
+            uri: "{{local-opensearch}}:{{clusterName}}"
+            parameters:
+              operation: "SEARCH"
+              indexName: "{{indexName}}"
+              hostAddresses: "{{hostAddresses}}"
+              enableSSL: "{{enableSSL}}"
+              certificatePath: "base64:{{?certificate}}"
+        - marshal:
+            json:
+              library: Gson
+        - to: kamelet:sink

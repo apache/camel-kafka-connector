@@ -26,13 +26,13 @@ public class CamelGithubtagsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_REPO_NAME_CONF = "camel.kamelet.github-tag-source.repoName";
-    public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_REPO_NAME_DOC = "The Github Repository name";
+    public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_REPO_NAME_DOC = "The GitHub Repository name";
     public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_REPO_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_REPO_OWNER_CONF = "camel.kamelet.github-tag-source.repoOwner";
     public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_REPO_OWNER_DOC = "The repository owner";
     public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_REPO_OWNER_DEFAULT = null;
     public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_OAUTH_TOKEN_CONF = "camel.kamelet.github-tag-source.oauthToken";
-    public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_OAUTH_TOKEN_DOC = "Oauth token";
+    public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_OAUTH_TOKEN_DOC = "OAuth token";
     public static final String CAMEL_SOURCE_GITHUBTAGSOURCE_KAMELET_OAUTH_TOKEN_DEFAULT = null;
 
     public CamelGithubtagsourceSourceConnectorConfig(

@@ -47,7 +47,7 @@ public class CamelSqlserversinkSinkConnectorConfig
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_DOC = "Encrypt the connection to SQL Server.";
     public static final Boolean CAMEL_SINK_SQLSERVERSINK_KAMELET_ENCRYPT_DEFAULT = false;
     public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_CONF = "camel.kamelet.sqlserver-sink.trustServerCertificate";
-    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_DOC = "Trust Server Ceritificate";
+    public static final String CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_DOC = "Trust Server Certificate";
     public static final Boolean CAMEL_SINK_SQLSERVERSINK_KAMELET_TRUST_SERVER_CERTIFICATE_DEFAULT = true;
 
     public CamelSqlserversinkSinkConnectorConfig(

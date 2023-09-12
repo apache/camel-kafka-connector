@@ -50,7 +50,7 @@ public class CamelSqlserversourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_DOC = "Encrypt the connection to SQL Server.";
     public static final Boolean CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_ENCRYPT_DEFAULT = false;
     public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_CONF = "camel.kamelet.sqlserver-source.trustServerCertificate";
-    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_DOC = "Trust Server Ceritificate";
+    public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_DOC = "Trust Server Certificate";
     public static final Boolean CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_TRUST_SERVER_CERTIFICATE_DEFAULT = true;
     public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.sqlserver-source.delay";
     public static final String CAMEL_SOURCE_SQLSERVERSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll";

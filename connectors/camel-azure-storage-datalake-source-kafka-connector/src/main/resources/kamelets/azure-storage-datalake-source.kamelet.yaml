@@ -1,0 +1,100 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: azure-storage-datalake-source
+  annotations:
+    camel.apache.org/kamelet.support.level: "Stable"
+    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNi4wLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4wIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMTU4LjIgODYwLjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDExNTguMiA4NjAuNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzA5NUNBMjt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZmlsbDojMzJCRUVEO30NCgkuc3Qze2ZpbGw6IzFCMUIyMDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTkyNy43LDE5Ny44SDYwOC44Yy0zLjQsMC4xLTYuOC0wLjktOS41LTNsLTkxLjItNjAuN2MtMi45LTEuNy02LjEtMi42LTkuNS0yLjZIMjMwLjVjLTkuMywwLTE3LDcuNC0xNy4yLDE2LjgNCgl2NTYzLjdjMC4yLDkuMyw3LjksMTYuOCwxNy4yLDE2LjhoNjk3LjFjOS4zLDAsMTctNy41LDE3LjItMTYuOHYtNDk3Qzk0NC45LDIwNS42LDkzNy4yLDE5Ny44LDkyNy43LDE5Ny44TDkyNy43LDE5Ny44eiIvPg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTQzOS4zLDE2NC4zSDI4Ni45Yy0zLjgsMC02LjksMy4xLTYuOSw2Ljl2MTkuNGMwLDMuOCwzLjEsNi45LDYuOSw2LjloMTUyLjNjMy44LDAsNi45LTMuMSw2LjktNi45DQoJYzAsMCwwLDAsMCwwdi0xOS40QzQ0Ni4xLDE2Ny4zLDQ0My4xLDE2NC4zLDQzOS4zLDE2NC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MiIgZD0iTTMwOC40LDE2NC4zaC0yMy43Yy0yLjYsMC00LjcsMi4xLTQuNyw0Ljd2MjMuN2MwLDIuNiwyLjEsNC43LDQuNyw0LjdoMjMuN2MyLjYsMCw0LjctMi4xLDQuNy00LjdWMTY5DQoJQzMxMy4yLDE2Ni40LDMxMS4xLDE2NC4zLDMwOC40LDE2NC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MyIgZD0iTTkyNy43LDE5N0g1NzkuMWMtNC42LTAuMS05LDEuOC0xMiw1LjJMNTA5LDI1OC4xYy0zLjMsMy03LjYsNC43LTEyLDQuN0gyMzAuNWMtOS41LDAtMTcuMiw3LjctMTcuMiwxNy4ybDAsMA0KCXY0MzAuM2MwLjIsOS4zLDcuOSwxNi44LDE3LjIsMTYuOGg2OTcuMWM5LjMsMCwxNy03LjQsMTcuMi0xNi44VjIxNWMwLjEtMi4zLTAuMy00LjctMS4xLTYuOUM5NDEuMywyMDEuNCw5MzQuOSwxOTcsOTI3LjcsMTk3eiIvPg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTYyOS45LDI4OC4yYy0xLjEtMC4zLTIuMy0wLjMtMy41LDBjMCwwLTMuOSwwLTUuNiwzbC0xMzYsMTk3LjVjLTEuMiwyLjEtMS4yLDQuOCwwLDYuOWMxLjMsMi40LDMuNyw0LDYuNSw0LjMNCgloODAuNWwtMzUuNiwxMTkuNmMtMC40LDAuNy0wLjYsMS41LTAuNiwyLjJjMCwwLjgsMC4xLDEuNiwwLjQsMi4zYzAuMywwLjcsMC43LDEuNCwxLjMsMS45YzAuNiwwLjYsMS4zLDEsMiwxLjNjMSwwLjQsMiwwLjQsMywwDQoJYzIuNiwwLDMuOSwwLDUuNi0zTDY4OCw0MjMuN3YtNC4zYy0wLjItMy45LTMuNC02LjktNy4zLTYuOWgtODYuMWwzNC45LTExNy41QzYzMS4yLDI5My4yLDYzMS4zLDI5MC4zLDYyOS45LDI4OC4yTDYyOS45LDI4OC4yeiIvPg0KPC9zdmc+DQo="
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.group: "Azure Storage Blob Data Lake"
+    camel.apache.org/kamelet.namespace: "Azure"
+  labels:
+    camel.apache.org/kamelet.type: "source"
+spec:
+  definition:
+    title: "Azure Storage Blob Data Lake Source"
+    description: |-
+      Consume files from Azure Storage Blob Data Lake.
+    required:
+      - accountName
+      - clientId
+      - clientSecret
+      - tenantId
+      - fileSystemName
+    type: object
+    properties:
+      accountName:
+        title: Account Name
+        description: The Azure Storage Blob Data lake account name.
+        type: string
+        x-descriptors:
+        - urn:camel:group:credentials
+      clientId:
+        title: Client Id
+        description: The Azure Storage Blob Data lake client Id.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:password
+        - urn:camel:group:credentials
+      clientSecret:
+        title: Client Secret
+        description: The Azure Storage Blob Data lake client secret.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:password
+        - urn:camel:group:credentials
+      tenantId:
+        title: Tenant Id
+        description: The Azure Storage Blob Data lake tenant id.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:password
+        - urn:camel:group:credentials
+      fileSystemName:
+        title: File System Name
+        description: The Azure Storage Blob Data lake File system name.
+        type: string
+        x-descriptors:
+        - urn:camel:group:credentials
+      delay:
+        title: Delay
+        description: The number of milliseconds before the next poll of the selected blob.
+        type: integer
+        default: 500
+  dependencies:
+    - "camel:azure-storage-datalake"
+    - "camel:kamelet"
+    - "camel:core"
+    - "camel:timer"
+    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.0.0"
+  template:
+    from:
+      uri: "azure-storage-datalake:{{accountName}}/{{fileSystemName}}"
+      parameters:
+        clientId: "{{clientId}}"
+        clientSecret: "{{clientSecret}}"
+        tenantId: "{{tenantId}}"
+        delay: "{{delay}}"
+      steps:
+        - to: "kamelet:sink"
