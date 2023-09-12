@@ -109,10 +109,7 @@
                     <!-- WARNING: connectors not in catalog will be removed -->
                     <removeMissingComponents>true</removeMissingComponents>
                     <excludedKamelets>
-                        <!-- XXX: remove datalake exclusions after https://github.com/apache/camel-kamelets/issues/1597  is released -->
                         <param>ms-exchange-online-imap-oauth-source</param>
-                        <param>azure-storage-datalake-sink</param>
-                        <param>azure-storage-datalake-source</param>
                     </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
@@ -240,6 +237,8 @@
         <module>camel-azure-storage-blob-changefeed-source-kafka-connector</module>
         <module>camel-azure-storage-blob-sink-kafka-connector</module>
         <module>camel-azure-storage-blob-source-kafka-connector</module>
+        <module>camel-azure-storage-datalake-sink-kafka-connector</module>
+        <module>camel-azure-storage-datalake-source-kafka-connector</module>
         <module>camel-azure-storage-queue-sink-kafka-connector</module>
         <module>camel-azure-storage-queue-source-kafka-connector</module>
         <module>camel-beer-source-kafka-connector</module>
@@ -335,6 +334,8 @@
         <module>camel-nats-source-kafka-connector</module>
         <module>camel-netty-http-kafka-connector</module>
         <module>camel-netty-kafka-connector</module>
+        <module>camel-opensearch-index-sink-kafka-connector</module>
+        <module>camel-opensearch-search-source-kafka-connector</module>
         <module>camel-oracle-database-sink-kafka-connector</module>
         <module>camel-oracle-database-source-kafka-connector</module>
         <module>camel-postgresql-sink-kafka-connector</module>
@@ -344,6 +345,7 @@
         <module>camel-redis-sink-kafka-connector</module>
         <module>camel-redis-source-kafka-connector</module>
         <module>camel-rest-openapi-sink-kafka-connector</module>
+        <module>camel-salesforce-composite-upsert-sink-kafka-connector</module>
         <module>camel-salesforce-create-sink-kafka-connector</module>
         <module>camel-salesforce-delete-sink-kafka-connector</module>
         <module>camel-salesforce-source-kafka-connector</module>

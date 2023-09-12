@@ -565,7 +565,7 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
         String replacement = "$1_";
 
         String propertyPrefix = "CAMEL_" + ct + "_" + sanitizedName.replace("-", "").toUpperCase() + "_" + propertyQualifier.toUpperCase() + "_"
-                                + StringUtils.capitalize(propertyName).replaceAll(regex, replacement).toUpperCase();
+                                + StringUtils.capitalize(propertyName.replace("-", "")).replaceAll(regex, replacement).toUpperCase();
         String propertyValue = "camel.kamelet." + name + "." + propertyName;
 
         String confFieldName = propertyPrefix + "CONF";
