@@ -33,6 +33,13 @@
 			"description": "Sets the name of the subscription in the topic to listen to. This parameter is mandatory in case of topic.",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.azure-servicebus-source.serviceBusType": {
+			"name": "camel.kamelet.azure-servicebus-source.serviceBusType",
+			"description": "The service bus type of connection to execute. Queue is for typical queue option and topic for subscription based model.",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

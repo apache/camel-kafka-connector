@@ -31,6 +31,9 @@ public class CamelAzureservicebussinkSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_CONNECTION_STRING_CONF = "camel.kamelet.azure-servicebus-sink.connectionString";
     public static final String CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_CONNECTION_STRING_DOC = "Connection String for Azure Servicebus instance";
     public static final String CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_CONNECTION_STRING_DEFAULT = null;
+    public static final String CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_SERVICE_BUS_TYPE_CONF = "camel.kamelet.azure-servicebus-sink.serviceBusType";
+    public static final String CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_SERVICE_BUS_TYPE_DOC = "The service bus type of connection to execute. Queue is for typical queue option and topic for subscription based model.";
+    public static final String CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_SERVICE_BUS_TYPE_DEFAULT = "queue";
 
     public CamelAzureservicebussinkSinkConnectorConfig(
             ConfigDef config,
@@ -47,6 +50,7 @@ public class CamelAzureservicebussinkSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_TOPIC_OR_QUEUE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_TOPIC_OR_QUEUE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_TOPIC_OR_QUEUE_NAME_DOC);
         conf.define(CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_CONNECTION_STRING_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_CONNECTION_STRING_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_CONNECTION_STRING_DOC);
+        conf.define(CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_SERVICE_BUS_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_SERVICE_BUS_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESERVICEBUSSINK_KAMELET_SERVICE_BUS_TYPE_DOC);
         return conf;
     }
 }

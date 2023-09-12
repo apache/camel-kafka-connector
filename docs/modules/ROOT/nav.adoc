@@ -96,6 +96,10 @@
 **** xref:reference/connectors/camel-azure-storage-blob-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-storage-blob-source-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-blob-source-kafka-source-connector.adoc[Source Docs]
+*** camel-azure-storage-datalake-sink-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-datalake-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-storage-datalake-source-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-datalake-source-kafka-source-connector.adoc[Source Docs]
 *** camel-azure-storage-queue-sink-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-queue-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-storage-queue-source-kafka-connector
@@ -292,6 +296,10 @@
 *** camel-netty-kafka-connector
 **** xref:reference/connectors/camel-netty-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-netty-kafka-sink-connector.adoc[Sink Docs]
+*** camel-opensearch-index-sink-kafka-connector
+**** xref:reference/connectors/camel-opensearch-index-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-opensearch-search-source-kafka-connector
+**** xref:reference/connectors/camel-opensearch-search-source-kafka-source-connector.adoc[Source Docs]
 *** camel-oracle-database-sink-kafka-connector
 **** xref:reference/connectors/camel-oracle-database-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-oracle-database-source-kafka-connector
@@ -310,6 +318,8 @@
 **** xref:reference/connectors/camel-redis-source-kafka-source-connector.adoc[Source Docs]
 *** camel-rest-openapi-sink-kafka-connector
 **** xref:reference/connectors/camel-rest-openapi-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-salesforce-composite-upsert-sink-kafka-connector
+**** xref:reference/connectors/camel-salesforce-composite-upsert-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-salesforce-create-sink-kafka-connector
 **** xref:reference/connectors/camel-salesforce-create-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-salesforce-delete-sink-kafka-connector

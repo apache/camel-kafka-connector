@@ -6,7 +6,7 @@
 		"id": "camel-jira-add-comment-sink-sink",
 		"type": "sink",
 		"version": "4.0.0-SNAPSHOT",
-		"description": "Add a new comment to an existing issue in Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `issueKey` \/ `ce-issueKey`: as the issue code.\n\nThe comment is set in the body of the message."
+		"description": "Add a new comment to an existing issue in Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `issueKey` \/ `ce-issueKey`: as the issue code.\n\nThe comment is set in the body of the message.\n\nTo authenticate a username\/password or personal token must be defined. We recommend to use personal token as it is a safer way to get access to Jira."
 	},
 	"properties": {
 		"camel.kamelet.jira-add-comment-sink.jiraUrl": {
@@ -18,14 +18,20 @@
 		"camel.kamelet.jira-add-comment-sink.username": {
 			"name": "camel.kamelet.jira-add-comment-sink.username",
 			"description": "The username to access Jira",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.jira-add-comment-sink.password": {
 			"name": "camel.kamelet.jira-add-comment-sink.password",
-			"description": "The password or the API Token to access Jira",
-			"priority": "HIGH",
-			"required": "true"
+			"description": "The password to access Jira",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jira-add-comment-sink.personal-token": {
+			"name": "camel.kamelet.jira-add-comment-sink.personal-token",
+			"description": "Personal Token",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

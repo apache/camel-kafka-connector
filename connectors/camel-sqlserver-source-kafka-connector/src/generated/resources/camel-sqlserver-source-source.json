@@ -61,7 +61,7 @@
 		},
 		"camel.kamelet.sqlserver-source.trustServerCertificate": {
 			"name": "camel.kamelet.sqlserver-source.trustServerCertificate",
-			"description": "Trust Server Ceritificate",
+			"description": "Trust Server Certificate",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

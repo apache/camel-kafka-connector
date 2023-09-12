@@ -55,7 +55,7 @@
 		},
 		"camel.kamelet.sqlserver-sink.trustServerCertificate": {
 			"name": "camel.kamelet.sqlserver-sink.trustServerCertificate",
-			"description": "Trust Server Ceritificate",
+			"description": "Trust Server Certificate",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

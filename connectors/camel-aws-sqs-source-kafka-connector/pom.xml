@@ -42,6 +42,11 @@
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
     <dependency>
+      <groupId>org.apache.camel.kamelets</groupId>
+      <artifactId>camel-kamelets-utils</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-aws2-sqs</artifactId>
     </dependency>
@@ -52,11 +57,6 @@
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel.kamelets</groupId>
-      <artifactId>camel-kamelets-utils</artifactId>
-      <version>4.0.0-RC1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

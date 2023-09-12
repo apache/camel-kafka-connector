@@ -20,6 +20,13 @@
 			"description": "Connection String for Azure Servicebus instance",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.azure-servicebus-sink.serviceBusType": {
+			"name": "camel.kamelet.azure-servicebus-sink.serviceBusType",
+			"description": "The service bus type of connection to execute. Queue is for typical queue option and topic for subscription based model.",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

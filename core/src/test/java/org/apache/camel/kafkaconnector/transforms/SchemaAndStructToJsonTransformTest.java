@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 
-import org.apache.camel.kafkaconnector.transforms.SlackMessage.Attachment;
+import org.apache.camel.component.slack.helper.SlackMessage;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.json.JsonConverterConfig;
@@ -40,17 +40,17 @@ public class SchemaAndStructToJsonTransformTest {
 
         SlackMessage sm = new SlackMessage();
 
-        Attachment at1 = new Attachment();
-        Attachment.Field at1f1 = new Attachment.Field();
+        SlackMessage.Attachment at1 = new SlackMessage.Attachment();
+        SlackMessage.Attachment.Field at1f1 = new SlackMessage.Attachment.Field();
         at1f1.setTitle("ciao");
         at1f1.setShortValue(true);
-        at1.setFields(new ArrayList<Attachment.Field>(Collections.singleton(at1f1)));
+        at1.setFields(new ArrayList<SlackMessage.Attachment.Field>(Collections.singleton(at1f1)));
         at1.setAuthorName("Andrea");
 
-        Attachment at2 = new Attachment();
+        SlackMessage.Attachment at2 = new SlackMessage.Attachment();
         at2.setColor("green");
 
-        ArrayList<Attachment> attachments = new ArrayList<>();
+        ArrayList<SlackMessage.Attachment> attachments = new ArrayList<>();
         attachments.add(at1);
         attachments.add(at2);
 
