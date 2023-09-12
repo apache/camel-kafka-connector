@@ -171,10 +171,7 @@
                     </exampleSinkPropertiesFileTemplate>
                     <removeMissingComponents>true</removeMissingComponents>
                     <excludedKamelets>
-                        <!-- XXX: remove datalake exclusions after https://github.com/apache/camel-kamelets/issues/1597  is released -->
                         <param>ms-exchange-online-imap-oauth-source</param>
-                        <param>azure-storage-datalake-sink</param>
-                        <param>azure-storage-datalake-source</param>
                     </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
