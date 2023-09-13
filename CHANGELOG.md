@@ -13,6 +13,7 @@
 
 **Merged pull requests:**
 
+- Kamelets4 [\#1566](https://github.com/apache/camel-kafka-connector/pull/1566) ([valdar](https://github.com/valdar))
 - Bumped PMD version to 8.29 [\#1564](https://github.com/apache/camel-kafka-connector/pull/1564) ([valdar](https://github.com/valdar))
 - Camel 4 [\#1563](https://github.com/apache/camel-kafka-connector/pull/1563) ([valdar](https://github.com/valdar))
 - Bump actions/checkout from 3.6.0 to 4.0.0 [\#1562](https://github.com/apache/camel-kafka-connector/pull/1562) ([dependabot[bot]](https://github.com/apps/dependabot))
