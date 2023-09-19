@@ -96,7 +96,7 @@
                     <filter>netty,https,netty-http,couchbase,cxf,cxfrs,file,hdfs,jdbc,sjms2,sql,aws2-iam,aws2-kms,cassandraql</filter>
                     <!-- Regenerate connector pom file completely even if one already exists -->
                     <!-- WARNING: you may lose some changes done to the pom. -->
-                    <!-- <overridePomFile>false</overridePomFile> -->
+                    <!-- <overridePomFile>true</overridePomFile>-->
                     <initialPomTemplate>${project.basedir}/template-connector-pom.xml</initialPomTemplate>
                     <initialKameletPomTemplate>${project.basedir}/template-connecotr-kamelet-pom.xml</initialKameletPomTemplate>
                     <noticeTemplate>${project.basedir}/camel-kafka-connector-NOTICE.txt</noticeTemplate>

@@ -31,10 +31,6 @@
     <packaging>maven-plugin</packaging>
     <name>Camel-Kafka-Connector :: Tooling :: Docs Maven Plugin</name>
 
-    <properties>
-        <maven-version>3.6.3</maven-version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>

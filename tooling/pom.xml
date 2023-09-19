@@ -40,8 +40,9 @@
     </modules>
 
     <properties>
-        <jdk.version>17</jdk.version>
         <compiler.fork>false</compiler.fork>
+
+        <maven-version>3.8.8</maven-version>
 
         <asciidoctorj-version>2.1.0</asciidoctorj-version>
         <freemarker-version>2.3.29</freemarker-version>
@@ -60,7 +61,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${version.maven.compiler}</version>
                 <configuration>
-                    <release>${jdk.version}</release>
+                    <release>${version.java}</release>
                     <maxmem>512M</maxmem>
                     <fork>${compiler.fork}</fork>
                 </configuration>
@@ -70,7 +71,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <attach>true</attach>
-                    <source>${jdk.version}</source>
+                    <source>${version.java}</source>
                     <quiet>true</quiet>
                     <bottom>Apache Camel</bottom>
                     <detectOfflineLinks>false</detectOfflineLinks>

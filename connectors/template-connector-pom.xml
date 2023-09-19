@@ -79,16 +79,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
+                <version><#noparse>${version.maven.compiler}</#noparse></version>
                 <inherited>true</inherited>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source><#noparse>${version.java}</#noparse></source>
+                    <target><#noparse>${version.java}</#noparse></target>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.5.3</version>
+                <version>3.3.0</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/package.xml</descriptor>
