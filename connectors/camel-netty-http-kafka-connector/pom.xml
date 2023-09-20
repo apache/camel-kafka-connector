@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.0.0</version>
   </parent>
   <artifactId>camel-netty-http-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: netty-http</name>
@@ -108,6 +108,9 @@
       </plugin>
     </plugins>
   </build>
+  <scm>
+    <tag>camel-kafka-connector-4.0.0</tag>
+  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->
