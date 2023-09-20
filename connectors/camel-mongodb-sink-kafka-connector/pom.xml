@@ -42,13 +42,13 @@
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
     <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-mongodb</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel.kamelets</groupId>
       <artifactId>camel-kamelets-utils</artifactId>
       <version>4.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-mongodb</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -98,11 +98,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.5.1</version>
+        <version>${version.maven.compiler}</version>
         <inherited>true</inherited>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
         </configuration>
       </plugin>
       <plugin>

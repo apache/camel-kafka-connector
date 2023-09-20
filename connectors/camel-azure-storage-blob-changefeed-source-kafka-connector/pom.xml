@@ -111,11 +111,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.5.1</version>
+        <version>${version.maven.compiler}</version>
         <inherited>true</inherited>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
         </configuration>
       </plugin>
       <plugin>
