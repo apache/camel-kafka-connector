@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>tooling</artifactId>
-        <version>4.0.0</version>
+        <version>4.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>camel-kafka-connector-generator-maven-plugin</artifactId>
@@ -417,8 +417,4 @@
             </build>
         </profile>
     </profiles>
-
-  <scm>
-    <tag>camel-kafka-connector-4.0.0</tag>
-  </scm>
 </project>

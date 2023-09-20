@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.0.0</version>
+    <version>4.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>camel-github-pullrequest-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: github-pullrequest-source</name>
@@ -116,9 +116,6 @@
       </plugin>
     </plugins>
   </build>
-  <scm>
-    <tag>camel-kafka-connector-4.0.0</tag>
-  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->
