@@ -2,14 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.21.0...HEAD)
-
-**Closed issues:**
-
-- How to create an object in s3 bucket using camle-minio-sink plugin [\#1560](https://github.com/apache/camel-kafka-connector/issues/1560)
-- camel-minio-sink-connector giving library issue [\#1557](https://github.com/apache/camel-kafka-connector/issues/1557)
-- SNS Sink Connector failure - java.lang.NoClassDefFoundError: software/amazon/awssdk/utils/cache/CachedSupplier$StaleValueBehavior [\#1548](https://github.com/apache/camel-kafka-connector/issues/1548)
-- syslog connector failure [\#1528](https://github.com/apache/camel-kafka-connector/issues/1528)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.0.0...HEAD)
 
 **Merged pull requests:**
 
@@ -407,6 +400,17 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-4.0.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.0.0) (2023-09-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.21.0...camel-kafka-connector-4.0.0)
+
+**Closed issues:**
+
+- How to create an object in s3 bucket using camle-minio-sink plugin [\#1560](https://github.com/apache/camel-kafka-connector/issues/1560)
+- camel-minio-sink-connector giving library issue [\#1557](https://github.com/apache/camel-kafka-connector/issues/1557)
+- SNS Sink Connector failure - java.lang.NoClassDefFoundError: software/amazon/awssdk/utils/cache/CachedSupplier$StaleValueBehavior [\#1548](https://github.com/apache/camel-kafka-connector/issues/1548)
+- syslog connector failure [\#1528](https://github.com/apache/camel-kafka-connector/issues/1528)
 
 ## [camel-kafka-connector-3.21.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-3.21.0) (2023-08-25)
 
