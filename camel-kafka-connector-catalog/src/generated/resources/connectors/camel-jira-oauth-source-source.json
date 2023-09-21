@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jira-oauth-source-source",
 		"type": "source",
-		"version": "4.0.0-SNAPSHOT",
+		"version": "4.0.0",
 		"description": "Receive notifications about new issues from Jira through OAuth authentication."
 	},
 	"properties": {
