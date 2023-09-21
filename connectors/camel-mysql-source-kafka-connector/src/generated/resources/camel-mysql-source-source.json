@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mysql-source-source",
 		"type": "source",
-		"version": "3.20.4-SNAPSHOT",
+		"version": "3.20.7-SNAPSHOT",
 		"description": "Query data from a MySQL Database.\n\nIn your KameletBinding file, you must explicitly declare the SQL Server driver dependency in spec->integration->dependencies.\n\n- \"mvn:mysql:mysql-connector-java:<version>\""
 	},
 	"properties": {

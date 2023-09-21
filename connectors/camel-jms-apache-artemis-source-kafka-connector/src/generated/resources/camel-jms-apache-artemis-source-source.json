@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-apache-artemis-source-source",
 		"type": "source",
-		"version": "3.20.4-SNAPSHOT",
+		"version": "3.20.7-SNAPSHOT",
 		"description": "Receive data from an Apache Artemis message broker by using JMS."
 	},
 	"properties": {

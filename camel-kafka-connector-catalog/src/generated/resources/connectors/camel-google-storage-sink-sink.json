@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-storage-sink-sink",
 		"type": "sink",
-		"version": "3.20.4-SNAPSHOT",
+		"version": "3.20.7-SNAPSHOT",
 		"description": "Upload objects to Google Cloud Storage.\n\nIf you specify the `serviceAccountKey` property, you must base64 encode it before you pass it as a parameter.\n \nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename."
 	},
 	"properties": {
