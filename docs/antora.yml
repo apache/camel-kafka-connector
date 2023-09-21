@@ -28,7 +28,7 @@ asciidoc:
   attributes:
     requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
     prerelease: true
-    camel-version: 3.20.3
+    camel-version: 3.20.6
     camel-docs-version: 3.20.x
     camel-kamelets-version: 3.20.3
     camel-kamelets-docs-version: 3.20.x
