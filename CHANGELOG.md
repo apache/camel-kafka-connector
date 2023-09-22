@@ -401,7 +401,7 @@
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
 
-## [camel-kafka-connector-4.0.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.0.0) (2023-09-20)
+## [camel-kafka-connector-4.0.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.0.0) (2023-09-21)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-3.21.0...camel-kafka-connector-4.0.0)
 
