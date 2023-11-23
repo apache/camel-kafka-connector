@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.0.0...HEAD)
 
+**Closed issues:**
+
+- GroupID for HTTP sink [\#1574](https://github.com/apache/camel-kafka-connector/issues/1574)
+
 **Merged pull requests:**
 
 - Bump actions/checkout from 4.1.0 to 4.1.1 [\#1572](https://github.com/apache/camel-kafka-connector/pull/1572) ([dependabot[bot]](https://github.com/apps/dependabot))
