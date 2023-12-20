@@ -95,7 +95,7 @@ jobs:
             -pl '!:camel-kafka-connector-generator-maven-plugin' \
             clean test
       - name: archive logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-logs-java-${{ matrix.java }}
