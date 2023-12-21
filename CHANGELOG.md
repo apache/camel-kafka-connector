@@ -10,6 +10,8 @@
 
 **Merged pull requests:**
 
+- Bump actions/upload-artifact from 3 to 4 [\#1580](https://github.com/apache/camel-kafka-connector/pull/1580) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/setup-java from 3 to 4 [\#1578](https://github.com/apache/camel-kafka-connector/pull/1578) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 4.1.0 to 4.1.1 [\#1572](https://github.com/apache/camel-kafka-connector/pull/1572) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 4.0.0 to 4.1.0 [\#1567](https://github.com/apache/camel-kafka-connector/pull/1567) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Kamelets4 [\#1566](https://github.com/apache/camel-kafka-connector/pull/1566) ([valdar](https://github.com/valdar))
