@@ -44,6 +44,7 @@
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <maven-checksum-maven-plugin.version>1.7</maven-checksum-maven-plugin.version>
+        <cyclonedx-maven-plugin-version>2.7.10</cyclonedx-maven-plugin-version>
     </properties>
 
     <modules>
@@ -368,6 +369,48 @@
                                     </descriptors>
                                     <tarLongFileMode>gnu</tarLongFileMode>
                                 </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.cyclonedx</groupId>
+                        <artifactId>cyclonedx-maven-plugin</artifactId>
+                        <version>${cyclonedx-maven-plugin-version}</version>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>makeAggregateBom</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <outputName>${project.artifactId}-${project.version}-sbom</outputName>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>sbom</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.cyclonedx</groupId>
+                        <artifactId>cyclonedx-maven-plugin</artifactId>
+                        <version>${cyclonedx-maven-plugin-version}</version>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <outputName>camel-sbom</outputName>
+                            <outputDirectory>${project.basedir}/camel-sbom/</outputDirectory>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>makeAggregateBom</goal>
+                                </goals>
                             </execution>
                         </executions>
                     </plugin>
