@@ -403,7 +403,7 @@
                         <inherited>false</inherited>
                         <configuration>
                             <outputName>camel-sbom</outputName>
-                            <outputDirectory>${project.basedir}/camel-sbom/</outputDirectory>
+                            <outputDirectory>${project.basedir}/camel-kafka-connector-sbom/</outputDirectory>
                         </configuration>
                         <executions>
                             <execution>
