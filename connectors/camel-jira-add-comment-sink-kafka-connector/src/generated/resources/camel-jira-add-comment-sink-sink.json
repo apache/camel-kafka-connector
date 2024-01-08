@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jira-add-comment-sink-sink",
 		"type": "sink",
-		"version": "4.0.0-SNAPSHOT",
+		"version": "4.0.1-SNAPSHOT",
 		"description": "Add a new comment to an existing issue in Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `issueKey` \/ `ce-issueKey`: as the issue code.\n\nThe comment is set in the body of the message.\n\nTo authenticate a username\/password or personal token must be defined. We recommend to use personal token as it is a safer way to get access to Jira."
 	},
 	"properties": {

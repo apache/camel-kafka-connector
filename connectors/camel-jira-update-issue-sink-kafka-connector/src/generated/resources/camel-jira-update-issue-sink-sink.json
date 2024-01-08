@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jira-update-issue-sink-sink",
 		"type": "sink",
-		"version": "4.0.0-SNAPSHOT",
+		"version": "4.0.1-SNAPSHOT",
 		"description": "Update fields of an existing issue in Jira.\n\nThe Kamelet expects the following headers to be set:\n\n- `issueKey` \/ `ce-issueKey`: as the issue code in Jira.\n\n- `issueTypeName` \/ `ce-issueTypeName`: as the name of the issue type (example: Bug, Enhancement).\n\n- `issueSummary` \/ `ce-issueSummary`: as the title or summary of the issue.\n\n- `issueAssignee` \/ `ce-issueAssignee`: as the user assigned to the issue (Optional).\n\n- `issuePriorityName` \/ `ce-issuePriorityName`: as the priority name of the issue (example: Critical, Blocker, Trivial) (Optional).\n\n- `issueComponents` \/ `ce-issueComponents`: as list of string with the valid component names (Optional).\n\n- `issueDescription` \/ `ce-issueDescription`: as the issue description (Optional).\n\nThe issue description can be set from the body of the message or the `issueDescription`\/`ce-issueDescription` in the header, however the body takes precedence.\n\nTo authenticate a username\/password or personal token must be defined. We recommend to use personal token as it is a safer way to get access to Jira."
 	},
 	"properties": {
