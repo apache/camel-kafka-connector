@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-functions-sink-sink",
 		"type": "sink",
-		"version": "4.0.0-SNAPSHOT",
+		"version": "4.0.1-SNAPSHOT",
 		"description": "Forward data to an Azure Function."
 	},
 	"properties": {

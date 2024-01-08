@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ceph-sink-sink",
 		"type": "sink",
-		"version": "4.0.0-SNAPSHOT",
+		"version": "4.0.1-SNAPSHOT",
 		"description": "Upload data to an Ceph Bucket managed by a Object Storage Gateway.\n\nIn the header, you can optionally set the `file` \/ `ce-file` property to specify the name of the file to upload.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the file name."
 	},
 	"properties": {
