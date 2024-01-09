@@ -6,10 +6,12 @@
 
 **Closed issues:**
 
+- Add SBOM generation profile and add it to release [\#1575](https://github.com/apache/camel-kafka-connector/issues/1575)
 - GroupID for HTTP sink [\#1574](https://github.com/apache/camel-kafka-connector/issues/1574)
 
 **Merged pull requests:**
 
+- Add SBOM generation profile and add it to release [\#1582](https://github.com/apache/camel-kafka-connector/pull/1582) ([oscerd](https://github.com/oscerd))
 - Bump actions/upload-artifact from 3 to 4 [\#1580](https://github.com/apache/camel-kafka-connector/pull/1580) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/setup-java from 3 to 4 [\#1578](https://github.com/apache/camel-kafka-connector/pull/1578) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 4.1.0 to 4.1.1 [\#1572](https://github.com/apache/camel-kafka-connector/pull/1572) ([dependabot[bot]](https://github.com/apps/dependabot))
