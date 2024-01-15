@@ -97,6 +97,21 @@ $ ./mvnw -Prelease -Dusername=<your_apache_username> -Dpassword=<your_apache_pas
 
 There will be some checks done by nexus, wiat tho see that they complete successfully.
 
+== Upload the staging sources to Apache dev server
+
+Upload the files:
+
+ * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip`
+ * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip.asc`
+ * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip.sha512`
+
+to apache dist svn:
+
+[source,shell]
+----
+$ release-utils/scripts/upload-source.sh <the_version_you_released> <the_version_you_released>
+----
+
 == Open the vote
 
 Send an email to dev@camel.apache.org with object: `[VOTE] Release Camel-Kafka-connector <the_version_you_want_to_release>` you can select 48 or 72 hours for the vote. The message can be something like:
@@ -157,6 +172,7 @@ Regards.
 * release it
 
 == Upload the sources to Apache dist server
+
 Upload the files:
 
  * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip`
@@ -167,10 +183,7 @@ to apache dist svn:
 
 [source,shell]
 ----
-$ cd distribution/target
-$ mkdir releases
-$ cp camel-kafka-connector-<the_version_you_released>-src.zip camel-kafka-connector-<the_version_you_released>-src.zip.asc camel-kafka-connector-<the_version_you_released>-src.zip.sha512 releses/
-$ svn import release/ https://dist.apache.org/repos/dist/release/camel/camel-kafka-connector/<the_version_you_released> -m"Camel Kafka Connector <the_version_you_released> import."
+$ release-utils/scripts/promote-release.sh <the_version_you_released>
 ----
 
 == Create a release note
