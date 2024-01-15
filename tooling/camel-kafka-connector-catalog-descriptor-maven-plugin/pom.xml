@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>tooling</artifactId>
-        <version>4.0.1-SNAPSHOT</version>
+        <version>4.0.3</version>
     </parent>
 
     <artifactId>camel-kafka-connector-catalog-descriptor-maven-plugin</artifactId>
@@ -139,4 +139,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+  <scm>
+    <tag>camel-kafka-connector-4.0.3</tag>
+  </scm>
 </project>

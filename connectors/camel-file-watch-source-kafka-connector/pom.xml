@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.0.1-SNAPSHOT</version>
+    <version>4.0.3</version>
   </parent>
   <artifactId>camel-file-watch-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: file-watch-source</name>
@@ -112,6 +112,9 @@
       </plugin>
     </plugins>
   </build>
+  <scm>
+    <tag>camel-kafka-connector-4.0.3</tag>
+  </scm>
   <!--START OF GENERATED CODE-->
   <repositories>
     <!-- camel-jira -->
