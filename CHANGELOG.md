@@ -6,11 +6,13 @@
 
 **Closed issues:**
 
+- Add release script for source and SBOM [\#1584](https://github.com/apache/camel-kafka-connector/issues/1584)
 - Add SBOM generation profile and add it to release [\#1575](https://github.com/apache/camel-kafka-connector/issues/1575)
 - GroupID for HTTP sink [\#1574](https://github.com/apache/camel-kafka-connector/issues/1574)
 
 **Merged pull requests:**
 
+- Added release automation for dist/dev svn and SBOM [\#1585](https://github.com/apache/camel-kafka-connector/pull/1585) ([oscerd](https://github.com/oscerd))
 - Add SBOM generation profile and add it to release [\#1582](https://github.com/apache/camel-kafka-connector/pull/1582) ([oscerd](https://github.com/oscerd))
 - Bump actions/upload-artifact from 3 to 4 [\#1580](https://github.com/apache/camel-kafka-connector/pull/1580) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/setup-java from 3 to 4 [\#1578](https://github.com/apache/camel-kafka-connector/pull/1578) ([dependabot[bot]](https://github.com/apps/dependabot))
