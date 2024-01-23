@@ -9,6 +9,7 @@
 - Add release script for source and SBOM [\#1584](https://github.com/apache/camel-kafka-connector/issues/1584)
 - Add SBOM generation profile and add it to release [\#1575](https://github.com/apache/camel-kafka-connector/issues/1575)
 - GroupID for HTTP sink [\#1574](https://github.com/apache/camel-kafka-connector/issues/1574)
+- Upgrade to Camel 4.0.1 and Camel-Kamelets-catalog 4.0.1 [\#1569](https://github.com/apache/camel-kafka-connector/issues/1569)
 
 **Merged pull requests:**
 
