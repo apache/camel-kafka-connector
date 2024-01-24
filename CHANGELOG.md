@@ -13,6 +13,8 @@
 
 **Merged pull requests:**
 
+- Bump actions/cache from 3 to 4 [\#1591](https://github.com/apache/camel-kafka-connector/pull/1591) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/dependency-review-action from 3 to 4 [\#1590](https://github.com/apache/camel-kafka-connector/pull/1590) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Added release automation for dist/dev svn and SBOM [\#1585](https://github.com/apache/camel-kafka-connector/pull/1585) ([oscerd](https://github.com/oscerd))
 - Add SBOM generation profile and add it to release [\#1582](https://github.com/apache/camel-kafka-connector/pull/1582) ([oscerd](https://github.com/oscerd))
 - Bump actions/upload-artifact from 3 to 4 [\#1580](https://github.com/apache/camel-kafka-connector/pull/1580) ([dependabot[bot]](https://github.com/apps/dependabot))
