@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Request to provide the KafkaConnect image for these packages [\#1593](https://github.com/apache/camel-kafka-connector/issues/1593)
 - Add release script for source and SBOM [\#1584](https://github.com/apache/camel-kafka-connector/issues/1584)
 - Add SBOM generation profile and add it to release [\#1575](https://github.com/apache/camel-kafka-connector/issues/1575)
 - GroupID for HTTP sink [\#1574](https://github.com/apache/camel-kafka-connector/issues/1574)
