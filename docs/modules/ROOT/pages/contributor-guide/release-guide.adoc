@@ -109,7 +109,8 @@ to apache dist svn:
 
 [source,shell]
 ----
-$ release-utils/scripts/upload-source.sh <the_version_you_released> <the_version_you_released>
+$ cd release-utils/scripts
+$ ./upload-source.sh <the_version_you_released> <the_version_you_released>
 ----
 
 == Open the vote
@@ -183,7 +184,7 @@ to apache dist svn:
 
 [source,shell]
 ----
-$ release-utils/scripts/promote-release.sh <the_version_you_released>
+$ ./release-utils/scripts/promote-release.sh <the_version_you_released>
 ----
 
 == Create a release note

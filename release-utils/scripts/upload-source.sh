@@ -28,12 +28,9 @@ version=$1
 mkdir $1/
 cd $1/
 
-distribution/target
 cp ../../../distribution/target/camel-kafka-connector-$1-src.zip .
-cp ../../../distribution/target/camel-kafka-connector-$1-src.zip.asc .
-cp ../../../distribution/target/camel-kafka-connector-$1-src.zip.sha512 .
-cp ../../../target/camel-kafka-connector-$1.json camel-kafka-connector-$1-sbom.json
-cp ../../../target/camel-kafka-connector-$1.xml camel-kafka-connector-$1-sbom.xml
+cp ../../../target/camel-kafka-connector-aggregator-$1-sbom.json camel-kafka-connector-$1-sbom.json
+cp ../../../target/camel-kafka-connector-aggregator-$1-sbom.xml camel-kafka-connector-$1-sbom.xml
 cd ../
 ./sign.sh $1/
 svn import $1/ https://dist.apache.org/repos/dist/dev/camel/camel-kafka-connector/$2/ -m "Import camel-kafka-connector release"
