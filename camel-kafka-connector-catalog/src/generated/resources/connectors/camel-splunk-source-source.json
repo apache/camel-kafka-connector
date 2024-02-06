@@ -104,8 +104,8 @@
 		"camel.kamelet.splunk-source.initEarliestTime": {
 			"name": "camel.kamelet.splunk-source.initEarliestTime",
 			"description": "Initial start offset of the first search. Example: 05\/17\/22 08:35:46:456",
-			"priority": "MEDIUM",
-			"required": "false"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.kamelet.splunk-source.latestTime": {
 			"name": "camel.kamelet.splunk-source.latestTime",

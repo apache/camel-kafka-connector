@@ -46,11 +46,6 @@
       <artifactId>camel-mongodb</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.camel.kamelets</groupId>
-      <artifactId>camel-kamelets-utils</artifactId>
-      <version>4.0.0</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-jackson</artifactId>
     </dependency>
@@ -61,6 +56,11 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-yaml-dsl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.kamelets</groupId>
+      <artifactId>camel-kamelets-utils</artifactId>
+      <version>4.0.3</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

@@ -6,7 +6,7 @@
 		"id": "camel-aws2-kms-sink",
 		"type": "sink",
 		"version": "4.0.1-SNAPSHOT",
-		"description": "Manage keys stored in AWS KMS instances using AWS SDK version 2.x."
+		"description": "Manage keys stored in AWS KMS instances."
 	},
 	"properties": {
 		"camel.sink.path.label": {

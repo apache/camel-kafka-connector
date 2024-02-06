@@ -6,7 +6,7 @@
 		"id": "camel-aws2-iam-sink",
 		"type": "sink",
 		"version": "4.0.1-SNAPSHOT",
-		"description": "Manage AWS IAM instances using AWS SDK version 2.x."
+		"description": "Manage AWS IAM instances."
 	},
 	"properties": {
 		"camel.sink.path.label": {

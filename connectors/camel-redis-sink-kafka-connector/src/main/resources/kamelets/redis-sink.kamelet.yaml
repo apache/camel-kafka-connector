@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "sink"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.0.3"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Redis"
     camel.apache.org/kamelet.namespace: "Cache"

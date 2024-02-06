@@ -86,6 +86,13 @@
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.maxMessagesPerPoll": {
+			"name": "camel.kamelet.aws-s3-source.maxMessagesPerPoll",
+			"description": "Gets the maximum number of messages as a limit to poll at each polling. Gets the maximum number of messages as a limit to poll at each polling. The default value is 10. Use 0 or a negative number to set it as unlimited.",
+			"defaultValue": "10",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

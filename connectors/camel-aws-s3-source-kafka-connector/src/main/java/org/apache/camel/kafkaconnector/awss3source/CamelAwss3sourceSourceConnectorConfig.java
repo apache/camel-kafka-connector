@@ -62,6 +62,9 @@ public class CamelAwss3sourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_CONF = "camel.kamelet.aws-s3-source.delay";
     public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll of the selected bucket.";
     public static final Integer CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DEFAULT = 500;
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_MAX_MESSAGES_PER_POLL_CONF = "camel.kamelet.aws-s3-source.maxMessagesPerPoll";
+    public static final String CAMEL_SOURCE_AWSS3SOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DOC = "Gets the maximum number of messages as a limit to poll at each polling. Gets the maximum number of messages as a limit to poll at each polling. The default value is 10. Use 0 or a negative number to set it as unlimited.";
+    public static final Integer CAMEL_SOURCE_AWSS3SOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DEFAULT = 10;
 
     public CamelAwss3sourceSourceConnectorConfig(
             ConfigDef config,
@@ -88,6 +91,7 @@ public class CamelAwss3sourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_DELAY_DOC);
+        conf.define(CAMEL_SOURCE_AWSS3SOURCE_KAMELET_MAX_MESSAGES_PER_POLL_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3SOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DOC);
         return conf;
     }
 }
