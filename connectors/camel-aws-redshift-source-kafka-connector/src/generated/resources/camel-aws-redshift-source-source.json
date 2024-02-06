@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-redshift-source-source",
 		"type": "source",
-		"version": "4.0.1-SNAPSHOT",
+		"version": "4.0.3",
 		"description": "Query data from an AWS RedShift Database."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mqtt5-source-source",
 		"type": "source",
-		"version": "4.0.1-SNAPSHOT",
+		"version": "4.0.3",
 		"description": "Allows receiving messages from any endpoint that supports the MQTT v5 protocol, such as a message broker."
 	},
 	"properties": {

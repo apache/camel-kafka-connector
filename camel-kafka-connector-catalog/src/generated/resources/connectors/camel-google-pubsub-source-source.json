@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-pubsub-source-source",
 		"type": "source",
-		"version": "4.0.1-SNAPSHOT",
+		"version": "4.0.3",
 		"description": "Consume messages from Google Cloud Pub\/Sub.\n\nIf you specify the `serviceAccountKey` property, you must base64 encode it before you pass it as a parameter."
 	},
 	"properties": {

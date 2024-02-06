@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-graphql-sink-sink",
 		"type": "sink",
-		"version": "4.0.1-SNAPSHOT",
+		"version": "4.0.3",
 		"description": "Forward data to a GraphQL endpoint."
 	},
 	"properties": {

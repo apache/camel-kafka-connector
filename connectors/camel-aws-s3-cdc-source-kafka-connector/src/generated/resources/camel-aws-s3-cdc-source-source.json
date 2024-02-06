@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-cdc-source-source",
 		"type": "source",
-		"version": "4.0.1-SNAPSHOT",
+		"version": "4.0.3",
 		"description": "Receive data from AWS SQS subscribed to Eventbridge Bus reporting events related to an S3 bucket or multiple buckets.\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service.\nTo use this Kamelet you'll need to set up Eventbridge on your bucket and subscribe Eventbridge bus to an SQS Queue.\nFor doing this you'll need to enable Evenbridge notification on your bucket and creating a rule on Eventbridge console related to all the events on S3 bucket and pointing to the SQS Queue specified as parameter in this Kamelet."
 	},
 	"properties": {
