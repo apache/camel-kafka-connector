@@ -37,13 +37,14 @@ import org.apache.kafka.connect.runtime.Herder;
 import org.apache.kafka.connect.runtime.Worker;
 import org.apache.kafka.connect.runtime.WorkerInfo;
 import org.apache.kafka.connect.runtime.isolation.Plugins;
+import org.apache.kafka.connect.runtime.rest.ConnectRestServer;
 import org.apache.kafka.connect.runtime.rest.RestClient;
-import org.apache.kafka.connect.runtime.rest.RestServer;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorInfo;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 import org.apache.kafka.connect.runtime.standalone.StandaloneHerder;
 import org.apache.kafka.connect.storage.FileOffsetBackingStore;
+import org.apache.kafka.connect.storage.StringConverter;
 import org.apache.kafka.connect.util.FutureCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -131,14 +132,14 @@ class KafkaConnectRunner {
         AllConnectorClientConfigOverridePolicy allConnectorClientConfigOverridePolicy = new AllConnectorClientConfigOverridePolicy();
 
         RestClient restClient = new RestClient(config);
-        RestServer rest = new RestServer(config, restClient);
+        ConnectRestServer rest = new ConnectRestServer(10, restClient, standAloneProperties);
         rest.initializeServer();
 
         /*
          According to the Kafka source code "... Worker runs a (dynamic) set of tasks
          in a set of threads, doing the work of actually moving data to/from Kafka ..."
          */
-        Worker worker = new Worker(bootstrapServer, time, plugins, config, new FileOffsetBackingStore(), allConnectorClientConfigOverridePolicy);
+        Worker worker = new Worker(bootstrapServer, time, plugins, config, new FileOffsetBackingStore(new StringConverter()), allConnectorClientConfigOverridePolicy);
 
         /*
         From Kafka source code: " ... The herder interface tracks and manages workers

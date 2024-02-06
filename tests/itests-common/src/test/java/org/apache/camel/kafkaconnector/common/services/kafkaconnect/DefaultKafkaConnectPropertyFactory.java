@@ -21,6 +21,7 @@ import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.common.PluginPathHelper;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
+import org.apache.kafka.connect.runtime.rest.RestServerConfig;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,7 +57,7 @@ class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory 
 
         String address = NetworkUtils.getAddress("http");
         LOG.info("Using the following address for  the listener configuration: {}", address);
-        props.put(StandaloneConfig.LISTENERS_CONFIG, address);
+        props.put(RestServerConfig.LISTENERS_CONFIG, address);
 
         String pluginPaths = PluginPathHelper.getInstance().pluginPaths();
         props.put(StandaloneConfig.PLUGIN_PATH_CONFIG, pluginPaths);
