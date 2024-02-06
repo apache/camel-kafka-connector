@@ -14,6 +14,7 @@
 
 **Merged pull requests:**
 
+- Bump peter-evans/create-pull-request from 5.0.2 to 6.0.0 [\#1597](https://github.com/apache/camel-kafka-connector/pull/1597) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Removed CulpritsRecipientProvider and use DevelopersRecipientProvider… [\#1596](https://github.com/apache/camel-kafka-connector/pull/1596) ([oscerd](https://github.com/oscerd))
 - Bump actions/cache from 3 to 4 [\#1591](https://github.com/apache/camel-kafka-connector/pull/1591) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/dependency-review-action from 3 to 4 [\#1590](https://github.com/apache/camel-kafka-connector/pull/1590) ([dependabot[bot]](https://github.com/apps/dependabot))
