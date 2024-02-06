@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>itests-parent</artifactId>
-        <version>4.0.3</version>
+        <version>4.0.4-SNAPSHOT</version>
         <relativePath>../itests-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -75,8 +75,4 @@
             <version>${httpclient4-version}</version>
         </dependency>
     </dependencies>
-
-  <scm>
-    <tag>camel-kafka-connector-4.0.3</tag>
-  </scm>
 </project>

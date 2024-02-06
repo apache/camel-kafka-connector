@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>archetypes</artifactId>
-        <version>4.0.3</version>
+        <version>4.0.4-SNAPSHOT</version>
     </parent>
 
     <groupId>org.apache.camel.kafkaconnector.archetypes</groupId>
@@ -69,8 +69,4 @@
             </resource>
         </resources>
     </build>
-
-  <scm>
-    <tag>camel-kafka-connector-4.0.3</tag>
-  </scm>
 </project>
