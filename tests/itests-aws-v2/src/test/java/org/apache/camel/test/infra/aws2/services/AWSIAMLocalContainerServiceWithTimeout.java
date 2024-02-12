@@ -18,6 +18,6 @@ package org.apache.camel.test.infra.aws2.services;
 
 public class AWSIAMLocalContainerServiceWithTimeout extends AWSLocalContainerService {
     public AWSIAMLocalContainerServiceWithTimeout() {
-        super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:1.3.0"), new Service[]{Service.IAM}));
+        super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:3.0.2"), new Service[]{Service.IAM}));
     }
 }

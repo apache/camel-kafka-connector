@@ -27,9 +27,12 @@ import software.amazon.awssdk.services.sqs.model.CreateQueueRequest;
 import software.amazon.awssdk.services.sqs.model.CreateQueueResponse;
 import software.amazon.awssdk.services.sqs.model.DeleteQueueRequest;
 import software.amazon.awssdk.services.sqs.model.DeleteQueueResponse;
+import software.amazon.awssdk.services.sqs.model.GetQueueAttributesRequest;
+import software.amazon.awssdk.services.sqs.model.GetQueueAttributesResponse;
 import software.amazon.awssdk.services.sqs.model.GetQueueUrlRequest;
 import software.amazon.awssdk.services.sqs.model.GetQueueUrlResponse;
 import software.amazon.awssdk.services.sqs.model.Message;
+import software.amazon.awssdk.services.sqs.model.QueueAttributeName;
 import software.amazon.awssdk.services.sqs.model.QueueDoesNotExistException;
 import software.amazon.awssdk.services.sqs.model.ReceiveMessageRequest;
 import software.amazon.awssdk.services.sqs.model.ReceiveMessageResponse;
@@ -55,7 +58,6 @@ public class AWSSQSClient {
 
         return getQueueUrlResult.queueUrl();
     }
-
 
     public String createQueue(String queue) {
         final CreateQueueRequest createFifoQueueRequest = CreateQueueRequest.builder()
@@ -160,5 +162,14 @@ public class AWSSQSClient {
         }
 
         return queueUrl;
+    }
+
+    public String getQueueArnFromUrl(String queueUrl) {
+        GetQueueAttributesRequest getQueueAttributesRequest = GetQueueAttributesRequest.builder()
+                .queueUrl(queueUrl)
+                .attributeNames(QueueAttributeName.QUEUE_ARN).build();
+        GetQueueAttributesResponse getQueueAttributesResponse = sqs.getQueueAttributes(getQueueAttributesRequest);
+
+        return getQueueAttributesResponse.attributes().get(QueueAttributeName.QUEUE_ARN);
     }
 }

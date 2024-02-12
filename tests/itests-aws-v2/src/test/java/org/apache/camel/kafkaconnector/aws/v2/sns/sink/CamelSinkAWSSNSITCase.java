@@ -74,7 +74,7 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
         awsSnsClient = new AWSSNSClient(AWSSDKClientUtils.newSNSClient());
 
         queueName = AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS + "-" + TestUtils.randomWithRange(0, 1000);
-        sqsQueueUrl = awsSqsClient.createQueue(queueName);
+        sqsQueueUrl = awsSqsClient.getOrCreateQueue(queueName);
 
         LOG.info("Created SQS queue {}", sqsQueueUrl);
 
@@ -82,7 +82,7 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
 
         LOG.info("Created SNS topic {}", snsTopicUrl);
 
-        awsSnsClient.subscribeSQS(snsTopicUrl, sqsQueueUrl);
+        awsSnsClient.subscribeSQS(snsTopicUrl, awsSqsClient.getQueueArnFromUrl(sqsQueueUrl));
 
         LOG.info("Created subscription between SQS queue {} and SNS topic {}", sqsQueueUrl, snsTopicUrl);
 

@@ -24,7 +24,7 @@ public class AWSKinesisLocalContainerServiceWithTimeout extends AWSLocalContaine
     private static final Logger LOG = LoggerFactory.getLogger(AWSKinesisLocalContainerService.class);
 
     public AWSKinesisLocalContainerServiceWithTimeout() {
-        super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:1.3.0"), new Service[]{Service.KINESIS}));
+        super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:3.0.2"), new Service[]{Service.KINESIS}));
     }
 
     static {

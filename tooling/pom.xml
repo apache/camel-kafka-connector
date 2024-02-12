@@ -50,7 +50,7 @@
         <itf-jupiter-extension-version>0.9.0</itf-jupiter-extension-version>
         <jakarta-jaxb-version>2.3.2</jakarta-jaxb-version>
         <jandex-version>2.1.1.Final</jandex-version>
-        <mvel-version>2.4.12.Final</mvel-version>
+        <mvel-version>2.5.2.Final</mvel-version>
         <roaster-version>2.20.1.Final</roaster-version>
     </properties>
 

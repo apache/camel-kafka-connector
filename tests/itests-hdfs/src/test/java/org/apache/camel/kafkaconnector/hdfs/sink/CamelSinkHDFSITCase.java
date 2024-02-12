@@ -31,6 +31,7 @@ import org.apache.camel.test.infra.hdfs.v2.services.HDFSService;
 import org.apache.camel.test.infra.hdfs.v2.services.HDFSServiceFactory;
 import org.apache.hadoop.fs.LocatedFileStatus;
 import org.apache.hadoop.fs.Path;
+import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -45,6 +46,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Ignore("Waiting forhttps://issues.apache.org/jira/browse/CAMEL-20399 to be released i.e. camel 4.4.0")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkHDFSITCase extends CamelSinkTestSupport {
     @RegisterExtension

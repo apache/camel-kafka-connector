@@ -67,7 +67,7 @@ public class CamelSourceAWSSQSITCase extends CamelSourceTestSupport {
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
 
         // TODO: this is a work-around for CAMEL-15833
-        awssqsClient.createQueue(queueName);
+        awssqsClient.getOrCreateQueue(queueName);
     }
 
     @AfterEach

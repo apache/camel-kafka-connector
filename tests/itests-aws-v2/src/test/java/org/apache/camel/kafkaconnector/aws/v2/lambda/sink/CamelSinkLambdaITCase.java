@@ -29,7 +29,7 @@ import java.util.zip.ZipOutputStream;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.clients.kafka.ByteProducerPropertyFactory;
+import org.apache.camel.kafkaconnector.common.clients.kafka.ByteArrayProducerPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.ConsumerPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.DefaultConsumerPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
@@ -40,7 +40,6 @@ import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactoryWithTimeout;
 import org.apache.camel.test.infra.common.TestUtils;
-import org.apache.kafka.common.utils.Bytes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -70,32 +69,33 @@ public class CamelSinkLambdaITCase extends CamelSinkTestSupport {
     private final int expect = 1;
 
 
-    private static class CustomProducer extends AbstractTestMessageProducer<Bytes> {
+    private static class CustomProducer extends AbstractTestMessageProducer<byte[]> {
         public CustomProducer(String bootstrapServer, String topicName, int count) {
             super(bootstrapServer, topicName, count);
         }
 
         @Override
-        protected KafkaClient<String, Bytes> createKafkaClient(String bootstrapServer) {
+        protected KafkaClient<String, byte[]> createKafkaClient(String bootstrapServer) {
             ConsumerPropertyFactory consumerPropertyFactory = new DefaultConsumerPropertyFactory(bootstrapServer);
-            ProducerPropertyFactory producerPropertyFactory = new ByteProducerPropertyFactory(bootstrapServer);
+            ProducerPropertyFactory producerPropertyFactory = new ByteArrayProducerPropertyFactory(bootstrapServer);
 
             return new KafkaClient<>(consumerPropertyFactory, producerPropertyFactory);
         }
 
         @Override
-        public Bytes testMessageContent(int current) {
+        public byte[] testMessageContent(int current) {
 
             try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
                 ZipOutputStream zip = new ZipOutputStream(out);
 
-                ZipEntry entry = new ZipEntry("test");
+                ZipEntry entry = new ZipEntry("test.class");
                 zip.putNextEntry(entry);
                 zip.write("hello test".getBytes());
                 zip.closeEntry();
                 zip.finish();
 
-                return Bytes.wrap(out.toByteArray());
+//                return Bytes.wrap(out.toByteArray());
+                return out.toByteArray();
             } catch (IOException e) {
                 LOG.error("I/O error writing zip entry: {}", e.getMessage(), e);
                 fail("I/O error writing zip entry");
@@ -105,16 +105,16 @@ public class CamelSinkLambdaITCase extends CamelSinkTestSupport {
         }
 
         @Override
-        public Map<String, String> messageHeaders(Bytes text, int current) {
+        public Map<String, String> messageHeaders(byte[] text, int current) {
             Map<String, String> headers = new HashMap<>();
 
             headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsLambdaOperation",
                     "createFunction");
 
             headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsLambdaRole",
-                    "admin");
+                    "arn:aws:iam::123456789012:role/admin");
             headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsLambdaRuntime",
-                    "java8");
+                    software.amazon.awssdk.services.lambda.model.Runtime.JAVA8.toString());
             headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsLambdaHandler",
                     "org.apache.camel.kafkaconnector.SomeHandler");
 
