@@ -20,7 +20,7 @@ metadata:
   name: google-sheets-source
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA2NCA4OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNjQgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojMERDNTRDO30KCS5zdDF7ZmlsbDojMDg5NjJEO30KCS5zdDJ7ZmlsbDojRkRGRkZGO30KPC9zdHlsZT4KPGcgaWQ9IkxheWVyXzQiPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU4LDg4SDZjLTMuMywwLTYtMi43LTYtNlY2YzAtMy4zLDIuNy02LDYtNmgzNmwyMiwyMnY2MEM2NCw4NS4zLDYxLjMsODgsNTgsODh6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDIsMGwyMiwyMkg0MlYweiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTEyLDM0LjV2MjhoNDB2LTI4SDEyeiBNMTcsMzkuNWgxMi41VjQ2SDE3VjM5LjV6IE0xNyw1MWgxMi41djYuNUgxN1Y1MXogTTQ3LDU3LjVIMzQuNVY1MUg0N1Y1Ny41eiBNNDcsNDYKCQlIMzQuNXYtNi41SDQ3VjQ2eiIvPgo8L2c+Cjwvc3ZnPgo="
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Google Sheets"
@@ -50,7 +50,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       clientSecret:
         title: Client Secret
@@ -58,7 +57,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       accessToken:
         title: Access Token
@@ -66,7 +64,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       refreshToken:
         title: Refresh Token
@@ -74,7 +71,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       delay:
         title: Delay
@@ -91,20 +87,73 @@ spec:
         type: string
       splitResults:
         title: Split Results
-        description: True if value range result should be split into rows or columns to process each of them individually. 
+        description: True if value range result should be split into rows or columns to process each of them individually.
         type: boolean
         x-descriptors:
-        - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
         default: true
       range:
-        title: Cells Range to get Data from
-        description: the range of rows and columns in a sheet to get data from.
+        title: Cells Range
+        description: The range of rows and columns in a sheet to get data from.
         type: string
         example: "A1:B3"
-  types:
+      majorDimension:
+        title: Major Dimension
+        description: Specifies the major dimension that the given values should use (ROWS or COLUMNS).
+        type: string
+        enum: [ "COLUMNS", "ROWS" ]
+        default: "ROWS"
+        example: "ROWS"
+      columnNames:
+        title: Column Names
+        description: Optional custom column names that map to cell coordinates based on their position.
+        type: string
+        default: "A"
+  dataTypes:
+    default:
     out:
-      mediaType: application/json
+      default: json
+      headers:
+        CamelGoogleSheets.range:
+          title: Range
+          description: Cells range to write data to.
+          default: A:A
+          type: string
+        CamelGoogleSheets.spreadsheetId:
+          title: Spreadsheet id
+          description: The Spreadsheet ID to be used as identifier.
+          type: string
+        CamelGoogleSheets.majorDimension:
+          title: Major dimension
+          description: Specifies the major dimension that the given values should use (ROWS or COLUMNS).
+          default: ROWS
+          type: string
+        CamelGoogleSheets.columnNames:
+          title: Column Names
+          description: Optional custom column names that map to cell coordinates based on their position.
+          default: A
+          type: string
+        CamelGoogleSheets.splitResults:
+          title: Split Results
+          description: True if value range result should be split into rows or columns to process each of them individually.
+          default: "true"
+          type: boolean
+      types:
+        json:
+          format: "application-json"
+          description: |-
+            Json representation of a GoogleSheets ValueRange object that holds all values for the given cell range. 
+            Or Json array of values for a single row/column in the range when 'splitResults' mode is enabled.
+          mediaType: application/json
+        json-struct:
+          format: "google-sheets:application-x-struct"
+          description: |-
+            Special Json representation of Google Sheets ValueRange object with just row and column values as a generic JsonNode.
+            Each cell value is represented by a Json property named after the respective row (A-Z) or column (1-n) depending on the given majorDimension.
+            Custom column names are supported in order to use custom property names instead of generic row (A-Z) or column (1-n) coordinates.
+            The produced Json struct is ready to be transformed back into a proper Google Sheets ValueRange object that can be used in an update/append values operation.
+          mediaType: application/json
   dependencies:
+  - "camel:core"
   - "camel:jackson"
   - "camel:kamelet"
   - "camel:google-sheets"
@@ -124,4 +173,19 @@ spec:
       steps:
       - marshal:
           json: {}
+      - setHeader:
+          name: CamelGoogleSheets.spreadsheetId
+          simple: "{{spreadsheetId}}"
+      - setHeader:
+          name: CamelGoogleSheets.range
+          simple: "{{?range}}"
+      - setHeader:
+          name: CamelGoogleSheets.majorDimension
+          simple: "{{?majorDimension}}"
+      - setHeader:
+          name: CamelGoogleSheets.columnNames
+          simple: "{{?columnNames}}"
+      - setHeader:
+          name: CamelGoogleSheets.splitResults
+          simple: "{{?splitResults}}"
       - to: "kamelet:sink"

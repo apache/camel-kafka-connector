@@ -346,6 +346,24 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.oauth2ClientId": {
+			"name": "camel.sink.endpoint.oauth2ClientId",
+			"description": "OAuth2 client id",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.oauth2ClientSecret": {
+			"name": "camel.sink.endpoint.oauth2ClientSecret",
+			"description": "OAuth2 client secret",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.oauth2TokenEndpoint": {
+			"name": "camel.sink.endpoint.oauth2TokenEndpoint",
+			"description": "OAuth2 Token endpoint",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters. Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent. If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.",

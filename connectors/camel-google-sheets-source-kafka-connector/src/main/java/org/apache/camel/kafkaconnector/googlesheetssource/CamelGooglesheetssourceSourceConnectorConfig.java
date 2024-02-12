@@ -53,8 +53,14 @@ public class CamelGooglesheetssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_SPLIT_RESULTS_DOC = "True if value range result should be split into rows or columns to process each of them individually.";
     public static final Boolean CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_SPLIT_RESULTS_DEFAULT = true;
     public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_RANGE_CONF = "camel.kamelet.google-sheets-source.range";
-    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_RANGE_DOC = "the range of rows and columns in a sheet to get data from. Example: A1:B3";
+    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_RANGE_DOC = "The range of rows and columns in a sheet to get data from. Example: A1:B3";
     public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_RANGE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_MAJOR_DIMENSION_CONF = "camel.kamelet.google-sheets-source.majorDimension";
+    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_MAJOR_DIMENSION_DOC = "Specifies the major dimension that the given values should use (ROWS or COLUMNS). Example: ROWS";
+    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_MAJOR_DIMENSION_DEFAULT = "ROWS";
+    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_COLUMN_NAMES_CONF = "camel.kamelet.google-sheets-source.columnNames";
+    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_COLUMN_NAMES_DOC = "Optional custom column names that map to cell coordinates based on their position.";
+    public static final String CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_COLUMN_NAMES_DEFAULT = "A";
 
     public CamelGooglesheetssourceSourceConnectorConfig(
             ConfigDef config,
@@ -79,6 +85,8 @@ public class CamelGooglesheetssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_APPLICATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_APPLICATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_APPLICATION_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_SPLIT_RESULTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_SPLIT_RESULTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_SPLIT_RESULTS_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_RANGE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_RANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_RANGE_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_MAJOR_DIMENSION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_MAJOR_DIMENSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_MAJOR_DIMENSION_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_COLUMN_NAMES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_COLUMN_NAMES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETSSOURCE_KAMELET_COLUMN_NAMES_DOC);
         return conf;
     }
 }

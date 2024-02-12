@@ -67,7 +67,21 @@
 		},
 		"camel.kamelet.google-sheets-source.range": {
 			"name": "camel.kamelet.google-sheets-source.range",
-			"description": "the range of rows and columns in a sheet to get data from. Example: A1:B3",
+			"description": "The range of rows and columns in a sheet to get data from. Example: A1:B3",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-sheets-source.majorDimension": {
+			"name": "camel.kamelet.google-sheets-source.majorDimension",
+			"description": "Specifies the major dimension that the given values should use (ROWS or COLUMNS). Example: ROWS",
+			"defaultValue": "\"ROWS\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-sheets-source.columnNames": {
+			"name": "camel.kamelet.google-sheets-source.columnNames",
+			"description": "Optional custom column names that map to cell coordinates based on their position.",
+			"defaultValue": "\"A\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

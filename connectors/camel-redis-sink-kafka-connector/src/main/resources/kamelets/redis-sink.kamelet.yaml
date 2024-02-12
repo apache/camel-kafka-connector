@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "sink"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Redis"
     camel.apache.org/kamelet.namespace: "Cache"
@@ -72,54 +72,54 @@ spec:
           when:
           - simple: "${header[key]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Key
                 simple: "${header[key]}"
           - simple: "${header[ce-key]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Key
                 simple: "${header[ce-key]}"
       - choice:
           when:
           - simple: "${header[value]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Value
                 simple: "${header[value]}"
           - simple: "${header[ce-value]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Value
                 simple: "${header[ce-value]}"
       - choice:
           when:
           - simple: "${header[message]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Message
                 simple: "${header[message]}"
           - simple: "${header[ce-message]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Message
                 simple: "${header[ce-message]}"
       - choice:
           when:
           - simple: "${header[channel]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Channel
                 simple: "${header[channel]}"
           - simple: "${header[ce-channel]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelRedis.Channel
                 simple: "${header[ce-channell]}"
-      - set-header:
+      - setHeader:
           name: CamelRedis.Message
           simple: "${body}"
-      - set-header:
+      - setHeader:
           name: CamelRedis.Value
           simple: "${body}"
       - to:

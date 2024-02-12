@@ -1,0 +1,38 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestorageblobappendsink.CamelAzurestorageblobappendsinkSinkConnector",
+		"artifactId": "camel-azure-storage-blob-append-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-blob-append-sink-sink",
+		"type": "sink",
+		"version": "4.1.0-SNAPSHOT",
+		"description": "Upload data in append mode to Azure Storage Blob.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-blob-append-sink.accountName": {
+			"name": "camel.kamelet.azure-storage-blob-append-sink.accountName",
+			"description": "The Azure Storage Blob account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-append-sink.containerName": {
+			"name": "camel.kamelet.azure-storage-blob-append-sink.containerName",
+			"description": "The Azure Storage Blob container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-append-sink.accessKey": {
+			"name": "camel.kamelet.azure-storage-blob-append-sink.accessKey",
+			"description": "The Azure Storage Blob access key.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-append-sink.credentialType": {
+			"name": "camel.kamelet.azure-storage-blob-append-sink.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

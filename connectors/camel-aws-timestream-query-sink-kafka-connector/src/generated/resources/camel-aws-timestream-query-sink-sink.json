@@ -1,0 +1,51 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awstimestreamquerysink.CamelAwstimestreamquerysinkSinkConnector",
+		"artifactId": "camel-aws-timestream-query-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-timestream-query-sink-sink",
+		"type": "sink",
+		"version": "4.1.0-SNAPSHOT",
+		"description": "Query an AWS Timestream Database\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS Timestream Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the Timestream client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThe Kamelet expects the following headers to be set:\n\n- `query` \/ `ce-query`: as a Timestream Query"
+	},
+	"properties": {
+		"camel.kamelet.aws-timestream-query-sink.accessKey": {
+			"name": "camel.kamelet.aws-timestream-query-sink.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-timestream-query-sink.secretKey": {
+			"name": "camel.kamelet.aws-timestream-query-sink.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-timestream-query-sink.region": {
+			"name": "camel.kamelet.aws-timestream-query-sink.region",
+			"description": "The AWS region to access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-timestream-query-sink.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-timestream-query-sink.useDefaultCredentialsProvider",
+			"description": "If true, the CloudWatch client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-timestream-query-sink.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-timestream-query-sink.uriEndpointOverride",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-timestream-query-sink.overrideEndpoint": {
+			"name": "camel.kamelet.aws-timestream-query-sink.overrideEndpoint",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

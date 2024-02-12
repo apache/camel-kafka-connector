@@ -1,0 +1,20 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.coffeesource.CamelCoffeesourceSourceConnector",
+		"artifactId": "camel-coffee-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-coffee-source-source",
+		"type": "source",
+		"version": "4.1.0-SNAPSHOT",
+		"description": "Produces periodic events about coffees!"
+	},
+	"properties": {
+		"camel.kamelet.coffee-source.period": {
+			"name": "camel.kamelet.coffee-source.period",
+			"description": "The time interval between two events",
+			"defaultValue": "5000",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

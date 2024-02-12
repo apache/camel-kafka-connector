@@ -20,7 +20,7 @@ metadata:
   name: http-secured-sink
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MjAiCmhlaWdodD0iNDIwIiBzdHJva2U9IiMwMDAiIGZpbGw9Im5vbmUiPgo8cGF0aCBzdHJva2Utd2lkdGg9IjI2IgpkPSJNMjA5LDE1YTE5NSwxOTUgMCAxLDAgMiwweiIvPgo8cGF0aCBzdHJva2Utd2lkdGg9IjE4IgpkPSJtMjEwLDE1djM5MG0xOTUtMTk1SDE1TTU5LDkwYTI2MCwyNjAgMCAwLDAgMzAyLDAgbTAsMjQwIGEyNjAsMjYwIDAgMCwwLTMwMiwwTTE5NSwyMGEyNTAsMjUwIDAgMCwwIDAsMzgyIG0zMCwwIGEyNTAsMjUwIDAgMCwwIDAtMzgyIi8+Cjwvc3ZnPg=="
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "HTTP"
@@ -57,7 +57,6 @@ spec:
         description: If this option is true, camel-http sends preemptive basic authentication to the server.
         type: boolean
         x-descriptors:
-        - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
         default: false
       authUsername:
         title: Authentication Username
@@ -71,7 +70,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
   dependencies:
   - "camel:http"
@@ -81,9 +79,9 @@ spec:
     from:
       uri: kamelet:source
       steps:
-      - remove-header:
+      - removeHeader:
           name: CamelHttpUri
-      - set-header:
+      - setHeader:
           name: CamelHttpMethod
           constant: "{{method}}"
       - to:

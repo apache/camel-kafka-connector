@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "sink"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/kamelet.group: "ElasticSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"
@@ -61,7 +61,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       enableSSL:
         title: Enable SSL
@@ -69,7 +68,6 @@ spec:
         type: boolean
         default: true
         x-descriptors:
-          - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
       hostAddresses:
         title: Host Addresses
         description: A comma-separated list of remote transport addresses in `ip:port format`.
@@ -115,24 +113,24 @@ spec:
           when:
           - simple: "${header[indexId]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: "indexId"
                 simple: "${header[indexId]}"
           - simple: "${header[ce-indexid]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: "indexId"
                 simple: "${header[ce-indexid]}"
       - choice:
           when:
           - simple: "${header[indexName]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: "indexName"
                 simple: "${header[indexName]}"
           - simple: "${header[ce-indexname]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: "indexName"
                 simple: "${header[ce-indexname]}"
       - unmarshal:

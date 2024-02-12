@@ -1,0 +1,184 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: google-sheets-sink
+  annotations:
+    camel.apache.org/kamelet.support.level: "Stable"
+    camel.apache.org/catalog.version: "4.3.0"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA2NCA4OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNjQgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojMERDNTRDO30KCS5zdDF7ZmlsbDojMDg5NjJEO30KCS5zdDJ7ZmlsbDojRkRGRkZGO30KPC9zdHlsZT4KPGcgaWQ9IkxheWVyXzQiPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU4LDg4SDZjLTMuMywwLTYtMi43LTYtNlY2YzAtMy4zLDIuNy02LDYtNmgzNmwyMiwyMnY2MEM2NCw4NS4zLDYxLjMsODgsNTgsODh6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDIsMGwyMiwyMkg0MlYweiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTEyLDM0LjV2MjhoNDB2LTI4SDEyeiBNMTcsMzkuNWgxMi41VjQ2SDE3VjM5LjV6IE0xNyw1MWgxMi41djYuNUgxN1Y1MXogTTQ3LDU3LjVIMzQuNVY1MUg0N1Y1Ny41eiBNNDcsNDYKCQlIMzQuNXYtNi41SDQ3VjQ2eiIvPgo8L2c+Cjwvc3ZnPgo="
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.group: "Google Sheets"
+    camel.apache.org/kamelet.namespace: "GCP"
+  labels:
+    camel.apache.org/kamelet.type: "sink"
+spec:
+  definition:
+    title: "Google Sheets Sink"
+    description: |-
+      Send data to Google Sheets and update/append values on a spreadsheet.
+    required:
+      - spreadsheetId
+      - clientId
+      - accessToken
+      - refreshToken
+      - clientSecret
+    type: object
+    properties:
+      spreadsheetId:
+        title: Spreadsheet ID
+        description: The Spreadsheet ID to be used as identifier
+        type: string
+      clientId:
+        title: Client Id
+        description: Client ID of the sheets application
+        type: string
+        format: password
+        x-descriptors:
+          - urn:camel:group:credentials
+      clientSecret:
+        title: Client Secret
+        description: Client Secret of the sheets application
+        type: string
+        format: password
+        x-descriptors:
+          - urn:camel:group:credentials
+      accessToken:
+        title: Access Token
+        description: OAuth 2 access token for google sheets application. This typically expires after an hour so refreshToken is recommended for long term usage.
+        type: string
+        format: password
+        x-descriptors:
+          - urn:camel:group:credentials
+      refreshToken:
+        title: Refresh Token
+        description: OAuth 2 refresh token for google sheets application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.
+        type: string
+        format: password
+        x-descriptors:
+          - urn:camel:group:credentials
+      applicationName:
+        title: Application Name
+        description: Google Sheets application name
+        type: string
+      operation:
+        title: Operation Mode
+        description: Operation to execute (update or append)
+        type: string
+        enum: [ "update", "append" ]
+        default: append
+        example: append
+      range:
+        title: Cells Range
+        description: The cell range of rows and columns to write data to.
+        type: string
+        example: "A1:B3"
+      majorDimension:
+        title: Major Dimension
+        description: Specifies the major dimension that the given values should use (ROWS or COLUMNS).
+        type: string
+        enum: [ "COLUMNS", "ROWS" ]
+        default: "ROWS"
+        example: "ROWS"
+      columnNames:
+        title: Column Names
+        description: Optional custom column names that map to cell coordinates based on their position.
+        type: string
+        default: "A"
+      valueInputOption:
+        title: Value Input Option
+        description: Controls how the entered values should be be interpreted when adding them.
+        type: string
+        enum: [ "USER_ENTERED", "RAW" ]
+        default: "USER_ENTERED"
+        example: "USER_ENTERED"
+  dataTypes:
+    in:
+      default: json-struct
+      types:
+        json-struct:
+          format: "google-sheets:application-x-struct"
+          description: |-
+            Special Json representation of Google Sheets ValueRange object with just row and column values as a generic JsonNode.
+            Each cell value is represented by a Json property named after the respective row (A-Z) or column (1-n) depending on the given majorDimension.
+            Custom column names are supported in order to use custom property names instead of generic row (A-Z) or column (1-n) coordinates.
+            The given Json struct is ready to be transformed into a proper Google Sheets ValueRange object that can be used in the update/append values operation.
+            The data type uses a set of header entries to determine properties such as spreadsheetId, the target cell range, the majorDimension and so on.
+          headers:
+            CamelGoogleSheets.range:
+              title: Range
+              description: Cells range to write data to.
+              default: A:A
+              type: string
+            CamelGoogleSheets.spreadsheetId:
+              title: Spreadsheet id
+              description: The Spreadsheet ID to be used as identifier.
+              type: string
+            CamelGoogleSheets.majorDimension:
+              title: Major dimension
+              description: Specifies the major dimension that the given values should use (ROWS or COLUMNS).
+              default: ROWS
+              type: string
+            CamelGoogleSheets.columnNames:
+              title: Column Names
+              description: Optional custom column names that map to cell coordinates based on their position.
+              default: A
+              type: string
+            CamelGoogleSheets.valueInputOption:
+              title: Value Input Option
+              description: Controls how the entered values should be be interpreted when adding them.
+              default: USER_ENTERED
+              type: string
+          mediaType: application/json
+  dependencies:
+    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.3.0"
+    - "camel:core"
+    - "camel:jackson"
+    - "camel:kamelet"
+    - "camel:google-sheets"
+  template:
+    from:
+      uri: "kamelet:source"
+      steps:
+        - setHeader:
+            name: CamelGoogleSheets.spreadsheetId
+            simple: "{{spreadsheetId}}"
+        - setHeader:
+            name: CamelGoogleSheets.range
+            simple: "{{?range}}"
+        - setHeader:
+            name: CamelGoogleSheets.majorDimension
+            simple: "{{?majorDimension}}"
+        - setHeader:
+            name: CamelGoogleSheets.columnNames
+            simple: "{{?columnNames}}"
+        - setHeader:
+            name: CamelGoogleSheets.valueInputOption
+            simple: "{{?valueInputOption}}"
+        - transform:
+            toType: "google-sheets:application-x-struct"
+        - to:
+            uri: "google-sheets:data/{{operation}}"
+            parameters:
+              spreadsheetId: "{{spreadsheetId}}"
+              clientId: "{{clientId}}"
+              accessToken: "{{accessToken}}"
+              refreshToken: "{{refreshToken}}"
+              clientSecret: "{{clientSecret}}"
+              applicationName: "{{?applicationName}}"
+              range: "{{?range}}"

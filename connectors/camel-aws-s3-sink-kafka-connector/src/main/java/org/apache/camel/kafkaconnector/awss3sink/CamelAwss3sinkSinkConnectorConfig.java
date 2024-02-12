@@ -49,6 +49,9 @@ public class CamelAwss3sinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_CONF = "camel.kamelet.aws-s3-sink.overrideEndpoint";
     public static final String CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DOC = "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.";
     public static final Boolean CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_FORCE_PATH_STYLE_CONF = "camel.kamelet.aws-s3-sink.forcePathStyle";
+    public static final String CAMEL_SINK_AWSS3SINK_KAMELET_FORCE_PATH_STYLE_DOC = "Forces path style when accessing AWS S3 buckets.";
+    public static final Boolean CAMEL_SINK_AWSS3SINK_KAMELET_FORCE_PATH_STYLE_DEFAULT = false;
     public static final String CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_CONF = "camel.kamelet.aws-s3-sink.keyName";
     public static final String CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DOC = "The key name for saving an element in the bucket.";
     public static final String CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DEFAULT = null;
@@ -73,6 +76,7 @@ public class CamelAwss3sinkSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_OVERRIDE_ENDPOINT_DOC);
+        conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_FORCE_PATH_STYLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3SINK_KAMELET_FORCE_PATH_STYLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_FORCE_PATH_STYLE_DOC);
         conf.define(CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3SINK_KAMELET_KEY_NAME_DOC);
         return conf;
     }

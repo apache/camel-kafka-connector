@@ -80,10 +80,24 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.aws-s3-source.forcePathStyle": {
+			"name": "camel.kamelet.aws-s3-source.forcePathStyle",
+			"description": "Forces path style when accessing AWS S3 buckets.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.aws-s3-source.delay": {
 			"name": "camel.kamelet.aws-s3-source.delay",
 			"description": "The number of milliseconds before the next poll of the selected bucket.",
 			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.maxMessagesPerPoll": {
+			"name": "camel.kamelet.aws-s3-source.maxMessagesPerPoll",
+			"description": "Gets the maximum number of messages as a limit to poll at each polling. Gets the maximum number of messages as a limit to poll at each polling. The default value is 10. Use 0 or a negative number to set it as unlimited.",
+			"defaultValue": "10",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

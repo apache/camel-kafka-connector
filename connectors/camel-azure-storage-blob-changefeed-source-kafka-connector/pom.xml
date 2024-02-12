@@ -46,11 +46,6 @@
       <artifactId>camel-jackson</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-jsr310</artifactId>
-      <version>2.13.4</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
     </dependency>
@@ -73,11 +68,6 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-yaml-dsl</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-storage-blob-changefeed</artifactId>
-      <version>12.0.0-beta.17</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

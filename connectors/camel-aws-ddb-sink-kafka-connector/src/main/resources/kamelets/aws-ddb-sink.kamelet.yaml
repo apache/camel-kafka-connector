@@ -21,7 +21,7 @@ metadata:
   name: aws-ddb-sink
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjMkQ3MkI4IiBkPSJNNzQuMTc0IDMxLjgwN2w3LjQzNyA1LjM2N3YtNy42MDJsLTcuNDgtOC43NjV2MTAuOTU3bC4wNDMuMDE1eiIvPjxwYXRoIGZpbGw9IiM1Mjk0Q0YiIGQ9Ik01OS44MzggODUuNjY2bDE0LjI5My03LjE0NlYyMC43OTFsLTE0LjMwMy03LjEyNHoiLz48cGF0aCBmaWxsPSIjMjA1Qjk4IiBkPSJNMzkuNDk2IDg1LjY2NkwyNS4yMDMgNzguNTJWMjAuNzkxbDE0LjMwMy03LjEyNHoiLz48cGF0aCBmaWxsPSIjMkQ3MkI4IiBkPSJNMzkuNTA2IDEzLjY2N2gyMC4zMjF2NzEuOTk5SDM5LjUwNnpNNzQuMTMxIDY3LjU2NFY3OC41Mmw3LjQ4LTguNzY0di03LjYwMmwtNy40MzcgNS4zOTd6TTc0LjEzMSA2Mi45MzZsLjA0My0uMDEgNy40MzctNHYtNy42NDlsLTcuNDguNjg4ek03NC4xNzQgMzYuNDI5bC0uMDQzLS4wMVY0Ny4zNWw3LjQ4LjY5OXYtNy42NDV6Ii8+PHBhdGggZmlsbD0iIzFBNDc2RiIgZD0iTTgxLjYxMSA0OC4wNDlsLTcuNDgtLjY5OS0xNC4zMDMtLjU3MkgzOS41MDZsLTE0LjMwMy41NzJWMzYuNDQzbC0uMDE1LjAwOC4wMTUtLjAzMiAxNC4zMDMtMy4zMTRINTkuODI4bDE0LjMwMyAzLjMxNCA1LjI1OCAyLjc5NXYtMS43OTdsMi4yMjItLjI0My03LjQ4LTUuNDEtMTQuMzAzLTQuNDMySDM5LjUwNmwtMTQuMzAzIDQuNDMyVjIwLjgwN2wtNy40OCA4Ljc2M3Y3LjY1M2wuMDU4LS4wNDIgMi4xNjQuMjM2djEuODM0bC0yLjIyMiAxLjE4OXY3LjYxNWwuMDU4LS4wMDYgMi4xNjQuMDMydjMuMTk2bC0xLjg2Ny4wMjgtLjM1NS0uMDM0djcuNjE4bDIuMjIyIDEuMTk1djEuODU1bC0yLjEyOS4yMzUtLjA5My0uMDd2Ny42NTJsNy40OCA4Ljc2NFY2Ny41NjRsMTQuMzAzIDQuNDMySDU5LjgyOGwxNC4zNDUtNC40NDUgNy40MzgtNS4zNjctMi4yMjItLjI0NXYtMS44MThsLTUuMjE2IDIuODA1LTE0LjM0NSAzLjI5NXYuMDA0SDM5LjUwNnYtLjAwNGwtMTQuMzQ4LTMuMjk1LS4wMjUtLjA1MS4wNy4wMzdWNTEuOTY1bDE0LjMwMy41N3YuMDE0SDU5LjgyOHYtLjAxNGwxNC4zMDMtLjU3IDcuNDgtLjY1Ni0yLjIyMi0uMDMydi0zLjE5NnoiLz48L3N2Zz4="
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "AWS DynamoDB Streams"
@@ -44,10 +44,11 @@ spec:
       For DeleteItem operation the Json body defines only the primary key attributes that identify the item to delete.
       For UpdateItem operation the Json body defines both key attributes to identify the item to be updated and all item attributes tht get updated on the item.
       
-      The given Json body can use "key" and "item" as top level properties. Both define a Json object that will be mapped to respective attribute value maps
+      The given Json body can use "operation", "key" and "item" as top level properties that will be mapped to respective attribute value maps.
       {
-          "key": {},
-          "item": {}
+        "operation": "PutItem"
+        "key": {},
+        "item": {}
       }
     required:
       - table
@@ -64,7 +65,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       secretKey:
         title: Secret Key
@@ -72,7 +72,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       region:
         title: AWS Region
@@ -91,7 +90,6 @@ spec:
         description: If true, the DynamoDB client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).
         type: boolean
         x-descriptors:
-          - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
         default: false
       uriEndpointOverride:
         title: Overwrite Endpoint URI
@@ -102,13 +100,47 @@ spec:
         description: Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.
         type: boolean
         x-descriptors:
-          - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
         default: false
-  types:
+  dataTypes:
     in:
-      mediaType: application/json
+      default: json
+      types:
+        json:
+          format: "aws2-ddb:application-json"
+          description: |-
+            Json representation of a DDB operation. The input type supports the operations: PutItem, UpdateItem, DeleteItem
+            
+            For PutItem operation the Json body defines all item attributes.
+            For DeleteItem operation the Json body defines only the primary key attributes that identify the item to delete.
+            For UpdateItem operation the Json body defines both key attributes to identify the item to be updated and all item attributes tht get updated on the item.
+  
+            The given Json body can use "operation", "key" and "item" as top level properties that will be mapped to respective attribute value maps.
+          headers:
+            CamelAwsDdbOperation:
+              title: Operation
+              description: The operation to perform. Overwrites the operation given in the Json body. One of PutItem, UpdateItem, DeleteItem.
+              default: PutItem
+              type: string
+            CamelAwsDdbReturnValues:
+              title: Return Values
+              description: Use this parameter if you want to get the attribute name-value pairs before or after they are modified. Possible values are NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
+              type: string
+          mediaType: application/json
+          schema:
+            type: object
+            required: [ "key" ]
+            properties:
+              operation:
+                type: string
+                description: The operator to perform. One of PutItem, UpdateItem, DeleteItem
+              key:
+                type: object
+                description: The primary key specifies the selection criteria for the query.
+              item:
+                type: object
+                description: Attribute value map specifies all attributes to change with the given operation.
   dependencies:
-  - mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.0.0
+  - mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.3.0
   - "camel:core"
   - "camel:jackson"
   - "camel:aws2-ddb"
@@ -117,11 +149,11 @@ spec:
     from:
       uri: "kamelet:source"
       steps:
-      - set-property:
+      - setProperty:
           name: operation
           constant: "{{operation}}"
       - transform:
-          to-type: "aws2-ddb:application-json"
+          toType: "aws2-ddb:application-json"
       - to:
           uri: "aws2-ddb:{{table}}"
           parameters:

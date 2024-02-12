@@ -6,7 +6,7 @@
 		"id": "camel-mariadb-source-source",
 		"type": "source",
 		"version": "4.1.0-SNAPSHOT",
-		"description": "Query data from a MariaDB Database.\n\nIn your KameletBinding file, you must explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies\n\n- \"mvn:org.mariadb.jdbc:mariadb-java-client:<version>\""
+		"description": "Query data from a MariaDB Database.\n\nIn your Pipe file, you must explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies\n\n- \"mvn:org.mariadb.jdbc:mariadb-java-client:<version>\""
 	},
 	"properties": {
 		"camel.kamelet.mariadb-source.serverName": {

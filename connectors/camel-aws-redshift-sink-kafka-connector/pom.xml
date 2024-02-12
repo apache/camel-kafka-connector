@@ -42,13 +42,13 @@
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
     <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-jackson</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.amazon.redshift</groupId>
       <artifactId>redshift-jdbc42</artifactId>
-      <version>2.1.0.18</version>
+      <version>2.1.0.24</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-jackson</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
@@ -59,17 +59,17 @@
       <artifactId>camel-sql</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.11.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-yaml-dsl</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-kamelet</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-dbcp2</artifactId>
-      <version>2.10.0</version>
     </dependency>
     <!--END OF GENERATED CODE-->
   </dependencies>

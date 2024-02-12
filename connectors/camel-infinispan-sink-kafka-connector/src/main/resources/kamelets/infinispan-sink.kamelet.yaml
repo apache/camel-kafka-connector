@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "sink"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Infinispan"
     camel.apache.org/kamelet.namespace: "Cache"
@@ -59,7 +59,6 @@ spec:
         type: boolean
         default: true
         x-descriptors:
-        - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
       username:
         title: Username
         description: Username to connect to Infinispan.
@@ -72,7 +71,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       saslMechanism:
         title: SASL Mechanism
@@ -104,20 +102,20 @@ spec:
           when:
           - simple: "${header[key]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelInfinispanKey
                 simple: "${header[key]}"
           - simple: "${header[ce-key]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelInfinispanKey
                 simple: "${header[ce-key]}"
           otherwise:
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelInfinispanKey
                 simple: "${exchangeId}"
-      - set-header:
+      - setHeader:
           name: CamelInfinispanValue
           simple: "${body}"
       - to:

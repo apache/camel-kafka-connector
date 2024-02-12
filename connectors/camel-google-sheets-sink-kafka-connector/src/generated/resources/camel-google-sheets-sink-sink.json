@@ -1,0 +1,83 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlesheetssink.CamelGooglesheetssinkSinkConnector",
+		"artifactId": "camel-google-sheets-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-sheets-sink-sink",
+		"type": "sink",
+		"version": "4.1.0-SNAPSHOT",
+		"description": "Send data to Google Sheets and update\/append values on a spreadsheet."
+	},
+	"properties": {
+		"camel.kamelet.google-sheets-sink.spreadsheetId": {
+			"name": "camel.kamelet.google-sheets-sink.spreadsheetId",
+			"description": "The Spreadsheet ID to be used as identifier",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-sheets-sink.clientId": {
+			"name": "camel.kamelet.google-sheets-sink.clientId",
+			"description": "Client ID of the sheets application",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-sheets-sink.clientSecret": {
+			"name": "camel.kamelet.google-sheets-sink.clientSecret",
+			"description": "Client Secret of the sheets application",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-sheets-sink.accessToken": {
+			"name": "camel.kamelet.google-sheets-sink.accessToken",
+			"description": "OAuth 2 access token for google sheets application. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-sheets-sink.refreshToken": {
+			"name": "camel.kamelet.google-sheets-sink.refreshToken",
+			"description": "OAuth 2 refresh token for google sheets application. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-sheets-sink.applicationName": {
+			"name": "camel.kamelet.google-sheets-sink.applicationName",
+			"description": "Google Sheets application name",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-sheets-sink.operation": {
+			"name": "camel.kamelet.google-sheets-sink.operation",
+			"description": "Operation to execute (update or append) Example: append",
+			"defaultValue": "\"append\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-sheets-sink.range": {
+			"name": "camel.kamelet.google-sheets-sink.range",
+			"description": "The cell range of rows and columns to write data to. Example: A1:B3",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-sheets-sink.majorDimension": {
+			"name": "camel.kamelet.google-sheets-sink.majorDimension",
+			"description": "Specifies the major dimension that the given values should use (ROWS or COLUMNS). Example: ROWS",
+			"defaultValue": "\"ROWS\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-sheets-sink.columnNames": {
+			"name": "camel.kamelet.google-sheets-sink.columnNames",
+			"description": "Optional custom column names that map to cell coordinates based on their position.",
+			"defaultValue": "\"A\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-sheets-sink.valueInputOption": {
+			"name": "camel.kamelet.google-sheets-sink.valueInputOption",
+			"description": "Controls how the entered values should be be interpreted when adding them. Example: USER_ENTERED",
+			"defaultValue": "\"USER_ENTERED\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

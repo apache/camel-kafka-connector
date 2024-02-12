@@ -60,6 +60,13 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.kamelet.kafka-ssl-sink.sslEndpointAlgorithm": {
+			"name": "camel.kamelet.kafka-ssl-sink.sslEndpointAlgorithm",
+			"description": "The endpoint identification algorithm to validate server hostname using server certificate. Use none or false to disable server hostname verification.",
+			"defaultValue": "\"https\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.kafka-ssl-sink.topic": {
 			"name": "camel.kamelet.kafka-ssl-sink.topic",
 			"description": "Comma separated list of Kafka topic names",

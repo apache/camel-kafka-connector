@@ -21,7 +21,7 @@ metadata:
   name: aws-cloudwatch-sink
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIwNyIgaGVpZ2h0PSIyNTAwIiB2aWV3Qm94PSIwIDAgMjU2IDI5MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZD0iTTI1NiAxOTkuMzA1bC0xMjcuOTU3LTE4Ljc5N0wwIDE5OS4zMjlsMTI4LjAxIDQ3LjQzOUwyNTYgMTk5LjMwNSIgZmlsbD0iI0I3Q0E5RCIvPjxwYXRoIGQ9Ik0yNS42MjEgMTk3LjExM2wyMS42MyA2Ljc2MSAxLjk3MS0yLjIzOFY1MC4yODRsLTEuOTcxLTIuNTg1LTIxLjYzIDguMjc0djE0MS4xNCIgZmlsbD0iIzRCNjEyQyIvPjxwYXRoIGQ9Ik0xMjMuODMyIDE5MC40MjNsLTc2LjU4MSAxMy40NTFWNDcuNzAzbDc2LjU4MSAxNy4yMjJ2MTI1LjQ5OCIgZmlsbD0iIzc1OUMzRSIvPjxwYXRoIGQ9Ik04OS42ODYgMjE2Ljg4OWwtMjkuODQ4LTkuMjAxVjE0LjkyOEw4OS42ODYuMDA0bDIuNjEyIDIuODQ1djIxMC44NThsLTIuNjEyIDMuMTgyIiBmaWxsPSIjNEI2MTJDIi8+PHBhdGggZD0iTTE5MS45NjcgMTkyLjg5NEw4OS42ODYgMjE2Ljg4OVYwbDEwMi4yODEgMzkuODY2djE1My4wMjgiIGZpbGw9IiM3NTlDM0UiLz48cGF0aCBkPSJNMTI3Ljk2NSAyNDQuNzE0TDAgMTk5LjMyOXYyNi4zMjRsMTI3Ljk2NSA2My45ODN2LTQ0LjkyMiIgZmlsbD0iIzRCNjEyQyIvPjxwYXRoIGQ9Ik0yNTYgMjI1LjYyMmwtMTI4LjAzNSA2NC4wMTR2LTQ0LjkyMkwyNTYgMTk5LjMwNXYyNi4zMTciIGZpbGw9IiM3NTlDM0UiLz48cGF0aCBkPSJNMjIwLjAzOSAxNTUuNjkyaC0zMS4wMjZsLTg4LjQ0NSA2LjAyNkwxMjggMTY2Ljc3NWw5Mi4wMzktMTEuMDgzIiBmaWxsPSIjQjdDQTlEIi8+PHBhdGggZD0iTTEwMC41NjggMjE5LjkwNmwyNy40MiA4LjIyNi43ODktLjg0OS0uMDIzLTYxLjg0OS0uNzg5LS43NTgtMjcuMzk3LTIuOTU4djU4LjE4OCIgZmlsbD0iIzRCNjEyQyIvPjxwYXRoIGQ9Ik0yMjAuMDM5IDE1NS42OTJsLTkyLjA3NCA4Ljk4LjAyMyA2My40NiA5Mi4wNTEtMjcuNzExdi00NC43MjkiIGZpbGw9IiM3NTlDM0UiLz48L3N2Zz4K"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "AWS Cloudwatch"
@@ -61,7 +61,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       secretKey:
         title: Secret Key
@@ -69,7 +68,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       region:
         title: AWS Region
@@ -80,8 +78,6 @@ spec:
         title: Default Credentials Provider
         description: If true, the CloudWatch client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).
         type: boolean
-        x-descriptors:
-        - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
         default: false
       uriEndpointOverride:
         title: Overwrite Endpoint URI
@@ -91,8 +87,6 @@ spec:
         title: Endpoint Overwrite
         description: Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.
         type: boolean
-        x-descriptors:
-          - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
         default: false
   dependencies:
     - "camel:core"
@@ -106,72 +100,72 @@ spec:
           when:
           - simple: "${header[metric-name]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricName
                 simple: "${header[metric-name]}"             
           - simple: "${header[ce-metricname]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricName
                 simple: "${header[ce-metricname]}"
       - choice:
           when:                
           - simple: "${header[metric-value]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricValue
                 simple: "${header[metric-value]}"              
           - simple: "${header[ce-metricvalue]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricValue
                 simple: "${header[ce-metricvalue]}"
       - choice:
           when:                
           - simple: "${header[metric-unit]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricUnit
                 simple: "${header[metric-unit]}"              
           - simple: "${header[ce-metricunit]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricUnit
                 simple: "${header[ce-metricunit]}"
       - choice:
           when:                
           - simple: "${header[metric-timestamp]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricTimestamp
                 simple: "${header[metric-timestamp]}"               
           - simple: "${header[ce-metrictimestamp]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricTimestamp
                 simple: "${header[ce-metrictimestamp]}"
       - choice:
           when:                
           - simple: "${header[metric-dimension-name]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricDimensionName
                 simple: "${header[metric-dimension-name]}"
           - simple: "${header[ce-metricdimensionname]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricDimensionName
                 simple: "${header[ce-metricdimensionname]}"
       - choice:
           when:                
           - simple: "${header[metric-dimension-value]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricDimensionValue
                 simple: "${header[metric-dimension-value]}"
           - simple: "${header[ce-metricdimensionvalue]}"
             steps:
-            - set-header:
+            - setHeader:
                 name: CamelAwsCwMetricDimensionValue
                 simple: "${header[ce-metricdimensionvalue]}"
       - to:

@@ -1,0 +1,64 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kafkaazureschemaregistrysink.CamelKafkaazureschemaregistrysinkSinkConnector",
+		"artifactId": "camel-kafka-azure-schema-registry-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kafka-azure-schema-registry-sink-sink",
+		"type": "sink",
+		"version": "4.1.0-SNAPSHOT",
+		"description": "Send data to Kafka topics on Azure Eventhubs combined with Azure Schema Registry.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partitionkey`: as message partition key\n\nBoth the headers are optional."
+	},
+	"properties": {
+		"camel.kamelet.kafka-azure-schema-registry-sink.topic": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.topic",
+			"description": "Comma separated list of Kafka topic names",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-azure-schema-registry-sink.bootstrapServers": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.bootstrapServers",
+			"description": "Comma separated list of Kafka Broker URLs",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-azure-schema-registry-sink.securityProtocol": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.securityProtocol",
+			"description": "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported",
+			"defaultValue": "\"SASL_SSL\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-azure-schema-registry-sink.saslMechanism": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.saslMechanism",
+			"description": "The Simple Authentication and Security Layer (SASL) Mechanism used.",
+			"defaultValue": "\"PLAIN\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-azure-schema-registry-sink.password": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.password",
+			"description": "Password to authenticate to kafka",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-azure-schema-registry-sink.valueSerializer": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.valueSerializer",
+			"description": "Deserializer class for value that implements the Deserializer interface.",
+			"defaultValue": "\"com.microsoft.azure.schemaregistry.kafka.avro.KafkaAvroSerializer\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-azure-schema-registry-sink.azureRegistryUrl": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.azureRegistryUrl",
+			"description": "The Apicurio Schema Registry URL",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-azure-schema-registry-sink.specificAvroValueType": {
+			"name": "camel.kamelet.kafka-azure-schema-registry-sink.specificAvroValueType",
+			"description": "The Specific Type Avro will have to deal with Example: com.example.Order",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

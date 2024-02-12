@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "source"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.0.0"
+    camel.apache.org/catalog.version: "4.3.0"
     camel.apache.org/kamelet.group: "OpenSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"
@@ -64,7 +64,6 @@ spec:
         type: string
         format: password
         x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:password
         - urn:camel:group:credentials
       enableSSL:
         title: Enable SSL
@@ -72,7 +71,6 @@ spec:
         type: boolean
         default: false
         x-descriptors:
-        - 'urn:alm:descriptor:com.tectonic.ui:checkbox'
       hostAddresses:
         title: Host Addresses
         description: Comma separated list with ip:port formatted remote transport addresses to use.
@@ -110,7 +108,7 @@ spec:
       parameters:
         period: "{{period}}"
       steps:
-        - set-body:
+        - setBody:
             constant: "{{query?nested=false}}"
         - to:
             uri: "{{local-opensearch}}:{{clusterName}}"

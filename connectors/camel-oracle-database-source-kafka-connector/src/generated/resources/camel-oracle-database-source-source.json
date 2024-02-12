@@ -6,7 +6,7 @@
 		"id": "camel-oracle-database-source-source",
 		"type": "source",
 		"version": "4.1.0-SNAPSHOT",
-		"description": "Query data from an Oracle Database.\n\nIn your KameletBinding file, you must explicitly declare the Oracle Database driver dependency in spec->integration->dependencies.\n\n- \"mvn:com.oracle.database.jdbc:ojdbc11:<version>\""
+		"description": "Query data from an Oracle Database.\n\nIn your Pipe file, you must explicitly declare the Oracle Database driver dependency in spec->integration->dependencies.\n\n- \"mvn:com.oracle.database.jdbc:ojdbc11:<version>\""
 	},
 	"properties": {
 		"camel.kamelet.oracle-database-source.serverName": {

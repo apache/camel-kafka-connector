@@ -60,6 +60,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.aws-s3-sink.forcePathStyle": {
+			"name": "camel.kamelet.aws-s3-sink.forcePathStyle",
+			"description": "Forces path style when accessing AWS S3 buckets.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.aws-s3-sink.keyName": {
 			"name": "camel.kamelet.aws-s3-sink.keyName",
 			"description": "The key name for saving an element in the bucket.",

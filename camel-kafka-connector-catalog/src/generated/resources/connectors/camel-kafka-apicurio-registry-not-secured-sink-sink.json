@@ -1,0 +1,45 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kafkaapicurioregistrynotsecuredsink.CamelKafkaapicurioregistrynotsecuredsinkSinkConnector",
+		"artifactId": "camel-kafka-apicurio-registry-not-secured-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kafka-apicurio-registry-not-secured-sink-sink",
+		"type": "sink",
+		"version": "4.1.0-SNAPSHOT",
+		"description": "Send data to Kafka topics on an insecure broker with Apicurio Registry.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partitionkey`: as message partition key\n\nBoth the headers are optional.\n\nThree headers, if specified, will be deduplicated with different names, kafka.key will be duplicated into kafka.KEY, kafka.topic into kafka.TOPIC and kafka.override_topic into kafka.OVERRIDE_TOPIC"
+	},
+	"properties": {
+		"camel.kamelet.kafka-apicurio-registry-not-secured-sink.topic": {
+			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-sink.topic",
+			"description": "Comma separated list of Kafka topic names",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-apicurio-registry-not-secured-sink.bootstrapServers": {
+			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-sink.bootstrapServers",
+			"description": "Comma separated list of Kafka Broker URLs",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-apicurio-registry-not-secured-sink.valueSerializer": {
+			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-sink.valueSerializer",
+			"description": "Serliazer class for value that implements the Serializer interface.",
+			"defaultValue": "\"io.apicurio.registry.serde.avro.AvroKafkaSerializer\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-apicurio-registry-not-secured-sink.apicurioRegistryUrl": {
+			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-sink.apicurioRegistryUrl",
+			"description": "The Apicurio Schema Registry URL",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-apicurio-registry-not-secured-sink.avroDatumProvider": {
+			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-sink.avroDatumProvider",
+			"description": "How to write data with Avro",
+			"defaultValue": "\"io.apicurio.registry.serde.avro.ReflectAvroDatumProvider\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
