@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.0.3...HEAD)
 
+**Closed issues:**
+
+- ERROR Exchange delivery has failed! Azure Gen2 Data Lake Sink Connector [\#1602](https://github.com/apache/camel-kafka-connector/issues/1602)
+
 **Merged pull requests:**
 
 - Bump peter-evans/create-pull-request from 6.0.0 to 6.0.1 [\#1603](https://github.com/apache/camel-kafka-connector/pull/1603) ([dependabot[bot]](https://github.com/apps/dependabot))
