@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.1.0-SNAPSHOT</version>
+    <version>4.4.2-SNAPSHOT</version>
   </parent>
   <artifactId>camel-aws-s3-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-s3-source</name>
@@ -54,17 +54,17 @@
       <artifactId>camel-yaml-dsl</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.camel.kamelets</groupId>
+      <artifactId>camel-kamelets-utils</artifactId>
+      <version>4.4.2</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-aws2-s3</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-kamelet</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel.kamelets</groupId>
-      <artifactId>camel-kamelets-utils</artifactId>
-      <version>4.3.0</version>
     </dependency>
     <!--END OF GENERATED CODE-->
   </dependencies>

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-scram-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Receive data from Kafka topics through SCRAM login module."
 	},
 	"properties": {
@@ -85,6 +85,13 @@
 			"name": "camel.kamelet.kafka-scram-source.deserializeHeaders",
 			"description": "When enabled the Kamelet source will deserialize all message headers to String representation.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-scram-source.topicIsPattern": {
+			"name": "camel.kamelet.kafka-scram-source.topicIsPattern",
+			"description": "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

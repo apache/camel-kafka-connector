@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-slack-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Receive messages from a Slack channel."
 	},
 	"properties": {
@@ -25,6 +25,13 @@
 			"name": "camel.kamelet.slack-source.delay",
 			"description": "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m",
 			"defaultValue": "\"60000\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.slack-source.naturalOrder": {
+			"name": "camel.kamelet.slack-source.naturalOrder",
+			"description": "Create exchanges in natural order (oldest to newest) or not.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

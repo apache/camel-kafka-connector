@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-sink-sink",
 		"type": "sink",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Upload data to an Amazon S3 Bucket.\n\nThe basic authentication method for the S3 service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the S3 client loads the credentials through this provider and doesn't use the basic authentication method.\n\nIn the header, you can optionally set the `file` \/ `ce-partition` property to specify the name of the file to upload.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the file name."
 	},
 	"properties": {

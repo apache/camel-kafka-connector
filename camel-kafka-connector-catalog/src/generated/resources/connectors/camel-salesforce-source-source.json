@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Receive updates from Salesforce."
 	},
 	"properties": {
@@ -91,6 +91,13 @@
 			"name": "camel.kamelet.salesforce-source.operation",
 			"description": "The operation to use",
 			"defaultValue": "\"subscribe\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.salesforce-source.rawPayload": {
+			"name": "camel.kamelet.salesforce-source.rawPayload",
+			"description": "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

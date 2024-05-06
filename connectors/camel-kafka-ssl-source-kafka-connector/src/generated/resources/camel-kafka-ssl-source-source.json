@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-ssl-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Receive data from Kafka topics with SSL\/TLS support"
 	},
 	"properties": {
@@ -124,6 +124,13 @@
 		"camel.kamelet.kafka-ssl-source.saslJaasConfig": {
 			"name": "camel.kamelet.kafka-ssl-source.saslJaasConfig",
 			"description": "Java Authentication and Authorization Service (JAAS) for Simple Authentication and Security Layer (SASL) configuration.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-ssl-source.topicIsPattern": {
+			"name": "camel.kamelet.kafka-ssl-source.topicIsPattern",
+			"description": "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-ibm-mq-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
-		"description": "A Kamelet that can read events from an IBM MQ message queue using JMS.\n\nIn your Pipe file, you must explicitly declare the IBM MQ Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.ibm.mq:com.ibm.mq.allclient:<version>\""
+		"version": "4.4.2-SNAPSHOT",
+		"description": "A Kamelet that can read events from an IBM MQ message queue using JMS.\n\nIn your Pipe file, you must explicitly declare the IBM MQ Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.ibm.mq:com.ibm.mq.jakarta.client:<version>\""
 	},
 	"properties": {
 		"camel.kamelet.jms-ibm-mq-source.serverName": {

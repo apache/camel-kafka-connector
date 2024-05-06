@@ -1,0 +1,45 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestoragefilessink.CamelAzurestoragefilessinkSinkConnector",
+		"artifactId": "camel-azure-storage-files-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-files-sink-sink",
+		"type": "sink",
+		"version": "4.4.2-SNAPSHOT",
+		"description": "Upload data to Azure Storage Files Share.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-files-sink.accountName": {
+			"name": "camel.kamelet.azure-storage-files-sink.accountName",
+			"description": "The Azure Storage Blob account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-files-sink.shareName": {
+			"name": "camel.kamelet.azure-storage-files-sink.shareName",
+			"description": "The Azure Storage File Share share name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-files-sink.sharedKey": {
+			"name": "camel.kamelet.azure-storage-files-sink.sharedKey",
+			"description": "The Azure Storage Blob access key.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-files-sink.credentialType": {
+			"name": "camel.kamelet.azure-storage-files-sink.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-files-sink.directoryName": {
+			"name": "camel.kamelet.azure-storage-files-sink.directoryName",
+			"description": "The directory from where the producer will upload the file.",
+			"defaultValue": "\".\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

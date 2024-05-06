@@ -1,0 +1,62 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.springrabbitmqsource.CamelSpringrabbitmqsourceSourceConnector",
+		"artifactId": "camel-spring-rabbitmq-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-spring-rabbitmq-source-source",
+		"type": "source",
+		"version": "4.4.2-SNAPSHOT",
+		"description": "Receive data from a RabbitMQ Broker."
+	},
+	"properties": {
+		"camel.kamelet.spring-rabbitmq-source.host": {
+			"name": "camel.kamelet.spring-rabbitmq-source.host",
+			"description": "RabbitMQ broker address Example: localhost",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.spring-rabbitmq-source.port": {
+			"name": "camel.kamelet.spring-rabbitmq-source.port",
+			"description": "RabbitMQ broker port Example: 5672",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.spring-rabbitmq-source.routingKey": {
+			"name": "camel.kamelet.spring-rabbitmq-source.routingKey",
+			"description": "The routing key to use when binding a consumer queue to the exchange",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-source.username": {
+			"name": "camel.kamelet.spring-rabbitmq-source.username",
+			"description": "The username to access the RabbitMQ server",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-source.password": {
+			"name": "camel.kamelet.spring-rabbitmq-source.password",
+			"description": "The password to access the RabbitMQ server",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-source.exchangeName": {
+			"name": "camel.kamelet.spring-rabbitmq-source.exchangeName",
+			"description": "The exchange name determines the exchange the queue will be bound to",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.spring-rabbitmq-source.queues": {
+			"name": "camel.kamelet.spring-rabbitmq-source.queues",
+			"description": "The queue to receive messages from",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-source.autoDeclare": {
+			"name": "camel.kamelet.spring-rabbitmq-source.autoDeclare",
+			"description": "The routing key to use when binding a consumer queue to the exchange",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -104,6 +104,10 @@
 **** xref:reference/connectors/camel-azure-storage-datalake-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-storage-datalake-source-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-datalake-source-kafka-source-connector.adoc[Source Docs]
+*** camel-azure-storage-files-sink-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-files-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-azure-storage-files-source-kafka-connector
+**** xref:reference/connectors/camel-azure-storage-files-source-kafka-source-connector.adoc[Source Docs]
 *** camel-azure-storage-queue-sink-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-queue-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-storage-queue-source-kafka-connector
@@ -197,9 +201,6 @@
 **** xref:reference/connectors/camel-google-storage-source-kafka-source-connector.adoc[Source Docs]
 *** camel-graphql-sink-kafka-connector
 **** xref:reference/connectors/camel-graphql-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-hdfs-kafka-connector
-**** xref:reference/connectors/camel-hdfs-kafka-source-connector.adoc[Source Docs]
-**** xref:reference/connectors/camel-hdfs-kafka-sink-connector.adoc[Sink Docs]
 *** camel-http-secured-sink-kafka-connector
 **** xref:reference/connectors/camel-http-secured-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-http-secured-source-kafka-connector
@@ -248,6 +249,18 @@
 **** xref:reference/connectors/camel-kafka-azure-schema-registry-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-kafka-azure-schema-registry-source-kafka-connector
 **** xref:reference/connectors/camel-kafka-azure-schema-registry-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-batch-apicurio-registry-not-secured-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-batch-apicurio-registry-not-secured-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-batch-azure-schema-registry-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-batch-azure-schema-registry-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-batch-not-secured-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-batch-not-secured-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-batch-scram-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-batch-scram-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-batch-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-batch-source-kafka-source-connector.adoc[Source Docs]
+*** camel-kafka-batch-ssl-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-batch-ssl-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-not-secured-sink-kafka-connector
 **** xref:reference/connectors/camel-kafka-not-secured-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-kafka-not-secured-source-kafka-connector
@@ -357,12 +370,20 @@
 **** xref:reference/connectors/camel-slack-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-slack-source-kafka-connector
 **** xref:reference/connectors/camel-slack-source-kafka-source-connector.adoc[Source Docs]
+*** camel-snowflake-sink-kafka-connector
+**** xref:reference/connectors/camel-snowflake-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-snowflake-source-kafka-connector
+**** xref:reference/connectors/camel-snowflake-source-kafka-source-connector.adoc[Source Docs]
 *** camel-splunk-hec-sink-kafka-connector
 **** xref:reference/connectors/camel-splunk-hec-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-splunk-sink-kafka-connector
 **** xref:reference/connectors/camel-splunk-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-splunk-source-kafka-connector
 **** xref:reference/connectors/camel-splunk-source-kafka-source-connector.adoc[Source Docs]
+*** camel-spring-rabbitmq-sink-kafka-connector
+**** xref:reference/connectors/camel-spring-rabbitmq-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-spring-rabbitmq-source-kafka-connector
+**** xref:reference/connectors/camel-spring-rabbitmq-source-kafka-source-connector.adoc[Source Docs]
 *** camel-sqlserver-sink-kafka-connector
 **** xref:reference/connectors/camel-sqlserver-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-sqlserver-source-kafka-connector

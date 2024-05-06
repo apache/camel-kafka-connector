@@ -79,6 +79,9 @@ public class CamelKafkasslsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SASL_JAAS_CONFIG_CONF = "camel.kamelet.kafka-ssl-source.saslJaasConfig";
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SASL_JAAS_CONFIG_DOC = "Java Authentication and Authorization Service (JAAS) for Simple Authentication and Security Layer (SASL) configuration.";
     public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SASL_JAAS_CONFIG_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_TOPIC_IS_PATTERN_CONF = "camel.kamelet.kafka-ssl-source.topicIsPattern";
+    public static final String CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_TOPIC_IS_PATTERN_DOC = "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.";
+    public static final Boolean CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_TOPIC_IS_PATTERN_DEFAULT = false;
 
     public CamelKafkasslsourceSourceConnectorConfig(
             ConfigDef config,
@@ -111,6 +114,7 @@ public class CamelKafkasslsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_TRUSTSTORE_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_TRUSTSTORE_LOCATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_TRUSTSTORE_LOCATION_DOC);
         conf.define(CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SSL_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SASL_JAAS_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SASL_JAAS_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_SASL_JAAS_CONFIG_DOC);
+        conf.define(CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_TOPIC_IS_PATTERN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_TOPIC_IS_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASSLSOURCE_KAMELET_TOPIC_IS_PATTERN_DOC);
         return conf;
     }
 }

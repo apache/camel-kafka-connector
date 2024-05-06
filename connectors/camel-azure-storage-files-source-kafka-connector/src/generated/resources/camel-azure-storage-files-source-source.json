@@ -1,0 +1,66 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestoragefilessource.CamelAzurestoragefilessourceSourceConnector",
+		"artifactId": "camel-azure-storage-files-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-files-source-source",
+		"type": "source",
+		"version": "4.4.2-SNAPSHOT",
+		"description": "Consume files from Azure Storage File Shares."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-files-source.accountName": {
+			"name": "camel.kamelet.azure-storage-files-source.accountName",
+			"description": "The Azure Storage File Share account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-files-source.shareName": {
+			"name": "camel.kamelet.azure-storage-files-source.shareName",
+			"description": "The Azure Storage File Share share name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-files-source.sharedKey": {
+			"name": "camel.kamelet.azure-storage-files-source.sharedKey",
+			"description": "The Azure Storage Blob access key.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-files-source.delay": {
+			"name": "camel.kamelet.azure-storage-files-source.delay",
+			"description": "The number of milliseconds before the next poll of the selected blob.",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-files-source.deleteAfterRead": {
+			"name": "camel.kamelet.azure-storage-files-source.deleteAfterRead",
+			"description": "Specifies to delete blobs after consuming them",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-files-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-files-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-files-source.directoryName": {
+			"name": "camel.kamelet.azure-storage-files-source.directoryName",
+			"description": "The directory from where the consumer will start reading files.",
+			"defaultValue": "\".\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-files-source.recursive": {
+			"name": "camel.kamelet.azure-storage-files-source.recursive",
+			"description": "If a directory, the consumer will look for files in all the sub-directories as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

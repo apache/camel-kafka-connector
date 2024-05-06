@@ -34,6 +34,9 @@ public class CamelSlacksourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.slack-source.delay";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC = "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DEFAULT = "60000";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_CONF = "camel.kamelet.slack-source.naturalOrder";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_DOC = "Create exchanges in natural order (oldest to newest) or not.";
+    public static final Boolean CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_DEFAULT = false;
 
     public CamelSlacksourceSourceConnectorConfig(
             ConfigDef config,
@@ -51,6 +54,7 @@ public class CamelSlacksourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DOC);
         conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC);
+        conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_DOC);
         return conf;
     }
 }

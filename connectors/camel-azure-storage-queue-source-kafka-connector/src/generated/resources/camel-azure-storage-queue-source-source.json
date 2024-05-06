@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-queue-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Receive events from Azure Storage queues.\n\nOne header will be duplicated with different names for clarity at sink level, CamelAzureStorageQueueMessageId will be duplicated into azure.storage.queue.message.id"
 	},
 	"properties": {
@@ -31,6 +31,13 @@
 			"name": "camel.kamelet.azure-storage-queue-source.maxMessages",
 			"description": "The maximum number of messages to get. You can specify a value between 1 and 32. The default is 1 (one message). If there are fewer than the maximum number of messages in the queue, then all the messages are returned.",
 			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-queue-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-queue-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

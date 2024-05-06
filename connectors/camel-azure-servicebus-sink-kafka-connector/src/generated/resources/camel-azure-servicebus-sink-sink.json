@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-servicebus-sink-sink",
 		"type": "sink",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Send Messages to Azure Servicebus."
 	},
 	"properties": {
@@ -25,6 +25,13 @@
 			"name": "camel.kamelet.azure-servicebus-sink.serviceBusType",
 			"description": "The service bus type of connection to execute. Queue is for typical queue option and topic for subscription based model.",
 			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-servicebus-sink.credentialType": {
+			"name": "camel.kamelet.azure-servicebus-sink.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"CONNECTION_STRING\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

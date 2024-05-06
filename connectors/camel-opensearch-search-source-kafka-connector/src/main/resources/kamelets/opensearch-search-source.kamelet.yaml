@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "source"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.3.0"
+    camel.apache.org/catalog.version: "4.4.2"
     camel.apache.org/kamelet.group: "OpenSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"
@@ -32,7 +32,7 @@ spec:
     title: "OpenSearch Search Source"
     description: |-
       Search data on OpenSearch
-      
+
       The `query` parameter must be formatted in JSON.
 
       If you specify the `certificate` property, you must base64 encode it before you pass it as a parameter.
@@ -70,7 +70,6 @@ spec:
         description: Do we want to connect using SSL?
         type: boolean
         default: false
-        x-descriptors:
       hostAddresses:
         title: Host Addresses
         description: Comma separated list with ip:port formatted remote transport addresses to use.
@@ -84,7 +83,7 @@ spec:
         description: The name of the cluster.
         type: string
       certificate:
-        title: Certificate 
+        title: Certificate
         description: The Certificate for accessing the Opensearch cluster. You must encode this value in base64.
         type: string
   types:

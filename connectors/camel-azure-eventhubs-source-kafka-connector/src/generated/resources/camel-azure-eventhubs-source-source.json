@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-eventhubs-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
-		"description": "Receive events from Azure Event Hubs."
+		"version": "4.4.2-SNAPSHOT",
+		"description": "Receive events from Azure Event Hubs.\n\nThere are two different mechanism of authentication `CONNECTION_STRING` and `AZURE_IDENTITY`, you could specify with credentialType property. If you're using `CONNECTION_STRING` sharedAccessName and sharedAccessKey properties will be needed.\n\nIn case of `AZURE_IDENTITY` selection, the DefaultAzureCredential will attempt to authenticate via the following mechanisms in the following order enviroment, Workload Identity, Managed Identity, Azure Developer CLI, IntelliJ, Azure CLI and Azure Powershell. "
 	},
 	"properties": {
 		"camel.kamelet.azure-eventhubs-source.namespaceName": {
@@ -24,14 +24,14 @@
 		"camel.kamelet.azure-eventhubs-source.sharedAccessName": {
 			"name": "camel.kamelet.azure-eventhubs-source.sharedAccessName",
 			"description": "The Event Hubs SAS key name.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.azure-eventhubs-source.sharedAccessKey": {
 			"name": "camel.kamelet.azure-eventhubs-source.sharedAccessKey",
 			"description": "The key for the Event Hubs SAS key name.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.azure-eventhubs-source.blobAccountName": {
 			"name": "camel.kamelet.azure-eventhubs-source.blobAccountName",
@@ -50,6 +50,13 @@
 			"description": "The key for the Azure Storage Blob service that is associated with the Storage Blob account name.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.azure-eventhubs-source.credentialType": {
+			"name": "camel.kamelet.azure-eventhubs-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"CONNECTION_STRING\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-datalake-source-source",
 		"type": "source",
-		"version": "4.1.0-SNAPSHOT",
+		"version": "4.4.2-SNAPSHOT",
 		"description": "Consume files from Azure Storage Blob Data Lake."
 	},
 	"properties": {
@@ -43,6 +43,13 @@
 			"name": "camel.kamelet.azure-storage-datalake-source.delay",
 			"description": "The number of milliseconds before the next poll of the selected blob.",
 			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-datalake-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-datalake-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"CLIENT_SECRET\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

@@ -21,7 +21,7 @@ metadata:
   name: aws-ddb-streams-source
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.3.0"
+    camel.apache.org/catalog.version: "4.4.2"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjMkQ3MkI4IiBkPSJNNzQuMTc0IDMxLjgwN2w3LjQzNyA1LjM2N3YtNy42MDJsLTcuNDgtOC43NjV2MTAuOTU3bC4wNDMuMDE1eiIvPjxwYXRoIGZpbGw9IiM1Mjk0Q0YiIGQ9Ik01OS44MzggODUuNjY2bDE0LjI5My03LjE0NlYyMC43OTFsLTE0LjMwMy03LjEyNHoiLz48cGF0aCBmaWxsPSIjMjA1Qjk4IiBkPSJNMzkuNDk2IDg1LjY2NkwyNS4yMDMgNzguNTJWMjAuNzkxbDE0LjMwMy03LjEyNHoiLz48cGF0aCBmaWxsPSIjMkQ3MkI4IiBkPSJNMzkuNTA2IDEzLjY2N2gyMC4zMjF2NzEuOTk5SDM5LjUwNnpNNzQuMTMxIDY3LjU2NFY3OC41Mmw3LjQ4LTguNzY0di03LjYwMmwtNy40MzcgNS4zOTd6TTc0LjEzMSA2Mi45MzZsLjA0My0uMDEgNy40MzctNHYtNy42NDlsLTcuNDguNjg4ek03NC4xNzQgMzYuNDI5bC0uMDQzLS4wMVY0Ny4zNWw3LjQ4LjY5OXYtNy42NDV6Ii8+PHBhdGggZmlsbD0iIzFBNDc2RiIgZD0iTTgxLjYxMSA0OC4wNDlsLTcuNDgtLjY5OS0xNC4zMDMtLjU3MkgzOS41MDZsLTE0LjMwMy41NzJWMzYuNDQzbC0uMDE1LjAwOC4wMTUtLjAzMiAxNC4zMDMtMy4zMTRINTkuODI4bDE0LjMwMyAzLjMxNCA1LjI1OCAyLjc5NXYtMS43OTdsMi4yMjItLjI0My03LjQ4LTUuNDEtMTQuMzAzLTQuNDMySDM5LjUwNmwtMTQuMzAzIDQuNDMyVjIwLjgwN2wtNy40OCA4Ljc2M3Y3LjY1M2wuMDU4LS4wNDIgMi4xNjQuMjM2djEuODM0bC0yLjIyMiAxLjE4OXY3LjYxNWwuMDU4LS4wMDYgMi4xNjQuMDMydjMuMTk2bC0xLjg2Ny4wMjgtLjM1NS0uMDM0djcuNjE4bDIuMjIyIDEuMTk1djEuODU1bC0yLjEyOS4yMzUtLjA5My0uMDd2Ny42NTJsNy40OCA4Ljc2NFY2Ny41NjRsMTQuMzAzIDQuNDMySDU5LjgyOGwxNC4zNDUtNC40NDUgNy40MzgtNS4zNjctMi4yMjItLjI0NXYtMS44MThsLTUuMjE2IDIuODA1LTE0LjM0NSAzLjI5NXYuMDA0SDM5LjUwNnYtLjAwNGwtMTQuMzQ4LTMuMjk1LS4wMjUtLjA1MS4wNy4wMzdWNTEuOTY1bDE0LjMwMy41N3YuMDE0SDU5LjgyOHYtLjAxNGwxNC4zMDMtLjU3IDcuNDgtLjY1Ni0yLjIyMi0uMDMydi0zLjE5NnoiLz48L3N2Zz4="
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "AWS DynamoDB Streams"
@@ -67,14 +67,13 @@ spec:
         enum: ["ap-south-1", "eu-south-1", "us-gov-east-1", "me-central-1", "ca-central-1", "eu-central-1", "us-iso-west-1", "us-west-1", "us-west-2", "af-south-1", "eu-north-1", "eu-west-3", "eu-west-2", "eu-west-1", "ap-northeast-3", "ap-northeast-2", "ap-northeast-1", "me-south-1", "sa-east-1", "ap-east-1", "cn-north-1", "us-gov-west-1", "ap-southeast-1", "ap-southeast-2", "us-iso-east-1", "ap-southeast-3", "us-east-1", "us-east-2", "cn-northwest-1", "us-isob-east-1", "aws-global", "aws-cn-global", "aws-us-gov-global", "aws-iso-global", "aws-iso-b-global"]
       streamIteratorType:
         title: Stream Iterator Type
-        description: Defines where in the DynamoDB stream to start getting records. There are two enums and the value can be one of FROM_LATEST and FROM_START. Note that using FROM_START can cause a significant delay before the stream has caught up to real-time. 
+        description: Defines where in the DynamoDB stream to start getting records. There are two enums and the value can be one of FROM_LATEST and FROM_START. Note that using FROM_START can cause a significant delay before the stream has caught up to real-time.
         type: string
         default: FROM_LATEST
       useDefaultCredentialsProvider:
         title: Default Credentials Provider
         description: If true, the DynamoDB client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).
         type: boolean
-        x-descriptors:
         default: false
       uriEndpointOverride:
         title: Overwrite Endpoint URI
@@ -84,17 +83,58 @@ spec:
         title: Endpoint Overwrite
         description: Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.
         type: boolean
-        x-descriptors:
         default: false
       delay:
         title: Delay
         description: The number of milliseconds before the next poll from the database.
         type: integer
         default: 500
-  types:
+  dataTypes:
     out:
-      mediaType: application/json
+      default: json
+      headers:
+        CamelAwsDdbStreamEventSource:
+          title: The DDB Stream Event Source
+          description: The Amazon Web Services service from which the stream record originated. For DynamoDB Streams, this is aws:dynamodb.
+          type: string
+        CamelAwsDdbStreamEventId:
+          title: The DDB Stream Event Id
+          description: A globally unique identifier for the event that was recorded in this stream record.
+          type: string
+      types:
+        json:
+          format: "application-json"
+          description: Default Json representation of a DDB Stream Event.
+          mediaType: application/json
+        cloudevents:
+          format: "aws2-ddbstream:application-cloudevents"
+          description: |-
+            Data type transformer converts AWS Dynamo DB Streams get records response to CloudEvent v1_0 data format. The data
+            type sets Camel specific CloudEvent headers with values extracted from AWS Dynamo DB Streams get records.
+          headers:
+            CamelCloudEventID:
+              title: CloudEvent ID
+              description: The Camel exchange id set as event id
+              type: string
+            CamelCloudEventType:
+              title: CloudEvent Type
+              description: The event type
+              default: "org.apache.camel.event.aws.ddbstream.getRecords"
+              type: string
+            CamelCloudEventSource:
+              title: CloudEvent Source
+              description: The event source. By default, the DDB Stream Event source receipt handle with prefix "aws.ddbstream.".
+              type: string
+            CamelCloudEventSubject:
+              title: CloudEvent Subject
+              description: The event subject. The DDB Stream Event Id.
+              type: string
+            CamelCloudEventTime:
+              title: CloudEvent Time
+              description: The exchange creation timestamp as event time.
+              type: string
   dependencies:
+  - mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.4.2
   - "camel:gson"
   - "camel:aws2-ddb"
   - "camel:kamelet"
@@ -111,7 +151,6 @@ spec:
         overrideEndpoint: "{{overrideEndpoint}}"
         delay: "{{delay}}"
       steps:
-      - marshal:
-          json:
-            library: Gson
+      - transform:
+          toType: "aws2-ddb:application-x-struct"
       - to: "kamelet:sink"

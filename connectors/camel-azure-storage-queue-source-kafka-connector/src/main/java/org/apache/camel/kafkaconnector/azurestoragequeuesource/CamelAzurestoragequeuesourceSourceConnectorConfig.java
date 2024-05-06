@@ -37,6 +37,9 @@ public class CamelAzurestoragequeuesourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_CONF = "camel.kamelet.azure-storage-queue-source.maxMessages";
     public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_DOC = "The maximum number of messages to get. You can specify a value between 1 and 32. The default is 1 (one message). If there are fewer than the maximum number of messages in the queue, then all the messages are returned.";
     public static final Integer CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_DEFAULT = 1;
+    public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_CREDENTIAL_TYPE_CONF = "camel.kamelet.azure-storage-queue-source.credentialType";
+    public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt.";
+    public static final String CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT = "SHARED_ACCOUNT_KEY";
 
     public CamelAzurestoragequeuesourceSourceConnectorConfig(
             ConfigDef config,
@@ -55,6 +58,7 @@ public class CamelAzurestoragequeuesourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_QUEUE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_QUEUE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_QUEUE_NAME_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_ACCESS_KEY_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_MAX_MESSAGES_DOC);
+        conf.define(CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_CREDENTIAL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEQUEUESOURCE_KAMELET_CREDENTIAL_TYPE_DOC);
         return conf;
     }
 }
