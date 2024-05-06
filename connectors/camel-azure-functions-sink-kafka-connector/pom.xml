@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.1.0-SNAPSHOT</version>
+    <version>4.4.2-SNAPSHOT</version>
   </parent>
   <artifactId>camel-azure-functions-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: azure-functions-sink</name>
