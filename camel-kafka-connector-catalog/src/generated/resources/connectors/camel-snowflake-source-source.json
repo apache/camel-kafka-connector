@@ -1,0 +1,56 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.snowflakesource.CamelSnowflakesourceSourceConnector",
+		"artifactId": "camel-snowflake-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-snowflake-source-source",
+		"type": "source",
+		"version": "4.4.2-SNAPSHOT",
+		"description": "Query data from a Snowflake Database."
+	},
+	"properties": {
+		"camel.kamelet.snowflake-source.instanceUrl": {
+			"name": "camel.kamelet.snowflake-source.instanceUrl",
+			"description": "The Instance url Example: instance.snowflakecomputing.com",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.snowflake-source.username": {
+			"name": "camel.kamelet.snowflake-source.username",
+			"description": "The username to access a secured Snowflake Database.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.snowflake-source.password": {
+			"name": "camel.kamelet.snowflake-source.password",
+			"description": "The password to access a secured Snowflake Database.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.snowflake-source.query": {
+			"name": "camel.kamelet.snowflake-source.query",
+			"description": "The query to execute against the Snowflake Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.snowflake-source.databaseName": {
+			"name": "camel.kamelet.snowflake-source.databaseName",
+			"description": "The name of the Snowflake Database.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.snowflake-source.consumedQuery": {
+			"name": "camel.kamelet.snowflake-source.consumedQuery",
+			"description": "A query to run on a tuple consumed. Example: DELETE FROM accounts where user_id = :#user_id",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.snowflake-source.delay": {
+			"name": "camel.kamelet.snowflake-source.delay",
+			"description": "The number of milliseconds before the next poll",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
