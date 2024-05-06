@@ -34,18 +34,6 @@
     <name>Test Project</name>
 
     <repositories>
-        <!-- camel-jira -->
-        <repository>
-            <id>atlassian-public</id>
-            <url>https://packages.atlassian.com/maven-external</url>
-            <name>Atlassian Public Repo</name>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
         <repository>
             <id>apache.snapshots</id>
             <url>https://repository.apache.org/snapshots/</url>
@@ -60,18 +48,6 @@
     </repositories>
 
     <pluginRepositories>
-        <!-- camel-jira -->
-        <pluginRepository>
-            <id>atlassian-public</id>
-            <url>https://packages.atlassian.com/maven-external</url>
-            <name>Atlassian Public Repo</name>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
         <pluginRepository>
             <id>apache.snapshots</id>
             <url>https://repository.apache.org/snapshots/</url>
