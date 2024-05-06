@@ -61,6 +61,13 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.kafka-not-secured-source.topicIsPattern": {
+			"name": "camel.kamelet.kafka-not-secured-source.topicIsPattern",
+			"description": "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

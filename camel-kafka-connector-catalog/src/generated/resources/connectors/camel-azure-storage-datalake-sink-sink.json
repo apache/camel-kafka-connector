@@ -38,6 +38,13 @@
 			"description": "The Azure Storage Blob Data lake File system name.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.azure-storage-datalake-sink.credentialType": {
+			"name": "camel.kamelet.azure-storage-datalake-sink.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"CLIENT_SECRET\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

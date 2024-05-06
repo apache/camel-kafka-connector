@@ -6,7 +6,7 @@
 		"id": "camel-jms-ibm-mq-sink-sink",
 		"type": "sink",
 		"version": "4.4.2-SNAPSHOT",
-		"description": "A Kamelet that can produce events to an IBM MQ message queue using JMS.\n\nIn your Pipe file, you must explicitly declare the IBM MQ Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.ibm.mq:com.ibm.mq.allclient:<version>\""
+		"description": "A Kamelet that can produce events to an IBM MQ message queue using JMS.\n\nIn your Pipe file, you must explicitly declare the IBM MQ Server driver dependency in spec->integration->dependencies\n\n- \"mvn:com.ibm.mq:com.ibm.mq.jakarta.client:<version>\""
 	},
 	"properties": {
 		"camel.kamelet.jms-ibm-mq-sink.serverName": {

@@ -45,6 +45,13 @@
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.azure-storage-datalake-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-datalake-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"CLIENT_SECRET\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

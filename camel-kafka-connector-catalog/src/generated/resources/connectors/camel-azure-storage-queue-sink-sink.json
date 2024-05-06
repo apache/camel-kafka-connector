@@ -26,6 +26,13 @@
 			"description": "The Azure Storage Queue access key.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.azure-storage-queue-sink.credentialType": {
+			"name": "camel.kamelet.azure-storage-queue-sink.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

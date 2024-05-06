@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "source"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.3.0"
+    camel.apache.org/catalog.version: "4.4.2"
     camel.apache.org/kamelet.group: "ElasticSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"
@@ -70,7 +70,6 @@ spec:
         description: Do we want to connect using SSL?
         type: boolean
         default: true
-        x-descriptors:
       hostAddresses:
         title: Host Addresses
         description: Comma separated list with ip:port formatted remote transport addresses to use.

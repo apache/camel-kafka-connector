@@ -93,7 +93,7 @@
                     <!-- set to true to make build fail if an option has no description -->
                     <!--  <failOnMissingDescription>false</failOnMissingDescription> -->
                     <!-- Process just this, comma separated, components -->
-                    <filter>netty,https,netty-http,couchbase,cxf,cxfrs,file,hdfs,jdbc,sjms2,sql,aws2-iam,aws2-kms,cassandraql</filter>
+                    <filter>netty,https,netty-http,couchbase,cxf,cxfrs,file,jdbc,sjms2,sql,aws2-iam,aws2-kms,cassandraql</filter>
                     <!-- Regenerate connector pom file completely even if one already exists -->
                     <!-- WARNING: you may lose some changes done to the pom. -->
                     <!-- <overridePomFile>true</overridePomFile>-->
@@ -241,6 +241,8 @@
         <module>camel-azure-storage-blob-source-kafka-connector</module>
         <module>camel-azure-storage-datalake-sink-kafka-connector</module>
         <module>camel-azure-storage-datalake-source-kafka-connector</module>
+        <module>camel-azure-storage-files-sink-kafka-connector</module>
+        <module>camel-azure-storage-files-source-kafka-connector</module>
         <module>camel-azure-storage-queue-sink-kafka-connector</module>
         <module>camel-azure-storage-queue-source-kafka-connector</module>
         <module>camel-beer-source-kafka-connector</module>
@@ -286,7 +288,6 @@
         <module>camel-google-storage-sink-kafka-connector</module>
         <module>camel-google-storage-source-kafka-connector</module>
         <module>camel-graphql-sink-kafka-connector</module>
-        <module>camel-hdfs-kafka-connector</module>
         <module>camel-http-secured-sink-kafka-connector</module>
         <module>camel-http-secured-source-kafka-connector</module>
         <module>camel-http-sink-kafka-connector</module>
@@ -311,6 +312,12 @@
         <module>camel-kafka-apicurio-registry-not-secured-source-kafka-connector</module>
         <module>camel-kafka-azure-schema-registry-sink-kafka-connector</module>
         <module>camel-kafka-azure-schema-registry-source-kafka-connector</module>
+        <module>camel-kafka-batch-apicurio-registry-not-secured-source-kafka-connector</module>
+        <module>camel-kafka-batch-azure-schema-registry-source-kafka-connector</module>
+        <module>camel-kafka-batch-not-secured-source-kafka-connector</module>
+        <module>camel-kafka-batch-scram-source-kafka-connector</module>
+        <module>camel-kafka-batch-source-kafka-connector</module>
+        <module>camel-kafka-batch-ssl-source-kafka-connector</module>
         <module>camel-kafka-not-secured-sink-kafka-connector</module>
         <module>camel-kafka-not-secured-source-kafka-connector</module>
         <module>camel-kafka-scram-sink-kafka-connector</module>
@@ -364,9 +371,13 @@
         <module>camel-sjms2-kafka-connector</module>
         <module>camel-slack-sink-kafka-connector</module>
         <module>camel-slack-source-kafka-connector</module>
+        <module>camel-snowflake-sink-kafka-connector</module>
+        <module>camel-snowflake-source-kafka-connector</module>
         <module>camel-splunk-hec-sink-kafka-connector</module>
         <module>camel-splunk-sink-kafka-connector</module>
         <module>camel-splunk-source-kafka-connector</module>
+        <module>camel-spring-rabbitmq-sink-kafka-connector</module>
+        <module>camel-spring-rabbitmq-source-kafka-connector</module>
         <module>camel-sqlserver-sink-kafka-connector</module>
         <module>camel-sqlserver-source-kafka-connector</module>
         <module>camel-ssh-sink-kafka-connector</module>

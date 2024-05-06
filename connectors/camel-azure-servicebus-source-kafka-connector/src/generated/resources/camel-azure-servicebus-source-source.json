@@ -40,6 +40,13 @@
 			"defaultValue": "\"queue\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.azure-servicebus-source.credentialType": {
+			"name": "camel.kamelet.azure-servicebus-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"CONNECTION_STRING\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

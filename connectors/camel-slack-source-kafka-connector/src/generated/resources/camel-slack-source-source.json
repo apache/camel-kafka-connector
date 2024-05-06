@@ -27,6 +27,13 @@
 			"defaultValue": "\"60000\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.slack-source.naturalOrder": {
+			"name": "camel.kamelet.slack-source.naturalOrder",
+			"description": "Create exchanges in natural order (oldest to newest) or not.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

@@ -81,6 +81,13 @@
 			"defaultValue": "\"io.apicurio.registry.serde.avro.ReflectAvroDatumProvider\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.kafka-apicurio-registry-not-secured-source.topicIsPattern": {
+			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-source.topicIsPattern",
+			"description": "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

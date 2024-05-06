@@ -33,6 +33,13 @@
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.azure-storage-queue-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-queue-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

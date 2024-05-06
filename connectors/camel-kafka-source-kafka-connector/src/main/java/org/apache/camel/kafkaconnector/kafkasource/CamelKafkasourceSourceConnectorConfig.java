@@ -61,6 +61,9 @@ public class CamelKafkasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_CONF = "camel.kamelet.kafka-source.deserializeHeaders";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DOC = "When enabled the Kamelet source will deserialize all message headers to String representation.";
     public static final Boolean CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT = true;
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_IS_PATTERN_CONF = "camel.kamelet.kafka-source.topicIsPattern";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_IS_PATTERN_DOC = "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.";
+    public static final Boolean CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_IS_PATTERN_DEFAULT = false;
 
     public CamelKafkasourceSourceConnectorConfig(
             ConfigDef config,
@@ -87,6 +90,7 @@ public class CamelKafkasourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_CONSUMER_GROUP_DOC);
         conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_DESERIALIZE_HEADERS_DOC);
+        conf.define(CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_IS_PATTERN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_IS_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKASOURCE_KAMELET_TOPIC_IS_PATTERN_DOC);
         return conf;
     }
 }

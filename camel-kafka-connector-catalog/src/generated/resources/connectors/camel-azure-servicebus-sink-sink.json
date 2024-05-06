@@ -27,6 +27,13 @@
 			"defaultValue": "\"queue\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.azure-servicebus-sink.credentialType": {
+			"name": "camel.kamelet.azure-servicebus-sink.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"CONNECTION_STRING\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }
