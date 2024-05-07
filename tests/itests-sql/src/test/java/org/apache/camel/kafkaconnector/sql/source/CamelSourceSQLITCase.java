@@ -31,7 +31,6 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//@Disabled("Database connection fails with connection refused.")
 public class CamelSourceSQLITCase extends CamelSourceTestSupport {
     private static final String DATABASE_NAME = "camel";
     private static final String USERNAME = "ckc";
