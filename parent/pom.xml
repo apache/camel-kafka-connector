@@ -38,27 +38,27 @@
         <version.postgres>42.4.4</version.postgres>
         <version.jctools>3.3.0</version.jctools>
 
-        <version.maven.compiler>3.8.1</version.maven.compiler>
-        <version.maven.javadoc>3.1.1</version.maven.javadoc>
-        <version.maven.source>3.0.1</version.maven.source>
-        <version.maven.resources>3.2.0</version.maven.resources>
+        <version.maven.compiler>3.13.0</version.maven.compiler>
+        <version.maven.javadoc>3.6.3</version.maven.javadoc>
+        <version.maven.source>3.3.1</version.maven.source>
+        <version.maven.resources>3.3.1</version.maven.resources>
         <version.maven.antrun>1.8</version.maven.antrun>
         <version.maven.nexus-staging>1.6.7</version.maven.nexus-staging>
         <version.maven.buildhelper>1.12</version.maven.buildhelper>
         <version.maven.bundle>3.5.1</version.maven.bundle>
         <version.maven.jar>3.1.0</version.maven.jar>
         <version.maven.failsafe>2.22.2</version.maven.failsafe>
-        <version.maven.surefire>3.0.0-M4</version.maven.surefire>
+        <version.maven.surefire>3.2.5</version.maven.surefire>
         <version.scala.library>2.12.12</version.scala.library>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>
 
         <version.maven.checkstyle>8.29</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.1.0</version.maven.checkstyle.plugin>
-        <version.maven.surefire.plugin>3.0.0-M4</version.maven.surefire.plugin>
+        <version.maven.surefire.plugin>3.2.5</version.maven.surefire.plugin>
         <version.plexus.build.api>0.0.7</version.plexus.build.api>
 
         <mycila-license-version>3.0</mycila-license-version>
-        <groovy-version>3.0.20</groovy-version>
+        <groovy-version>3.0.21</groovy-version>
 
         <itest.zookeeper.container.image>quay.io/strimzi/kafka:0.32.0-kafka-3.2.1</itest.zookeeper.container.image>
         <itest.strimzi.container.image>quay.io/strimzi/kafka:0.32.0-kafka-3.2.1</itest.strimzi.container.image>
