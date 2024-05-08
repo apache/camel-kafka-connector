@@ -149,31 +149,5 @@
     </plugins>
   </build>
   <!--START OF GENERATED CODE-->
-  <repositories>
-    <!-- camel-jira -->
-    <repository>
-      <id>atlassian-public</id>
-      <url>https://packages.atlassian.com/maven-external</url>
-      <name>Atlassian Public Repo</name>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-    <!-- camel-ipfs and camel-weka -->
-    <repository>
-      <id>jboss.thirdparty</id>
-      <name>JBoss Thirdparty Repository</name>
-      <url>https://repository.jboss.org/nexus/service/local/repositories/thirdparty-releases/content/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-  </repositories>
   <!--END OF GENERATED CODE-->
 </project>
