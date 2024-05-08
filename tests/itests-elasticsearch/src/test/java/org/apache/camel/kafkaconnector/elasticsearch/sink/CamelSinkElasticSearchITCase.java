@@ -29,7 +29,7 @@ import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.elasticsearch.clients.ElasticSearchClient;
 import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
 import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchIndexMessageProducer;
-import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchLocalContainerServiceHack;
+import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchLocalContainerService;
 import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchService;
 import org.apache.camel.test.infra.elasticsearch.services.RemoteElasticSearchService;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,8 +56,7 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
                         ElasticsearchContainer container =
                                 new ElasticsearchContainer("docker.elastic.co/elasticsearch/elasticsearch:8.5.2");
                         container.addEnv("xpack.security.enabled", "true");
-                        //XXX: revert back to the normal lasticSearchLocalContainerService when https://issues.apache.org/jira/browse/CAMEL-19834 is fixed
-                        return new ElasticSearchLocalContainerServiceHack(container);
+                        return new ElasticSearchLocalContainerService(container);
                     }
                 }
             ).addRemoteMapping(RemoteElasticSearchService::new).build();
