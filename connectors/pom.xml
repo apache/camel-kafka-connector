@@ -83,6 +83,12 @@
                     <removeMissingComponents>true</removeMissingComponents>
                     <excludedKamelets>
                         <param>ms-exchange-online-imap-oauth-source</param>
+                        <param>jira-add-comment-sink</param>
+                        <param>jira-transition-issue-sink</param>
+                        <param>jira-add-issue-sink</param>
+                        <param>jira-oauth-source</param>
+                        <param>jira-update-issue-sink</param>
+                        <param>jira-source</param>
                     </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
@@ -96,6 +102,7 @@
                         <param>debezium-postgres</param>
                         <param>debezium-sqlserver</param>
                         <param>digitalocean</param>
+                        <param>jira</param>
                         <param>mock</param>
                         <param>ref</param>
                         <param>robotframework</param>
