@@ -17,6 +17,7 @@
 
 **Merged pull requests:**
 
+- fix\(CI\): bumped java version for snapshot release action. [\#1624](https://github.com/apache/camel-kafka-connector/pull/1624) ([valdar](https://github.com/valdar))
 - Rrf [\#1621](https://github.com/apache/camel-kafka-connector/pull/1621) ([davsclaus](https://github.com/davsclaus))
 - Upgrade to Camel 4.4.2 [\#1620](https://github.com/apache/camel-kafka-connector/pull/1620) ([davsclaus](https://github.com/davsclaus))
 - Bump org.postgresql:postgresql from 42.4.3 to 42.4.4 in /parent [\#1617](https://github.com/apache/camel-kafka-connector/pull/1617) ([dependabot[bot]](https://github.com/apps/dependabot))
