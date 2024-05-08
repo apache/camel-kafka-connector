@@ -217,18 +217,6 @@
 **** xref:reference/connectors/camel-infinispan-source-kafka-source-connector.adoc[Source Docs]
 *** camel-jdbc-kafka-connector
 **** xref:reference/connectors/camel-jdbc-kafka-sink-connector.adoc[Sink Docs]
-*** camel-jira-add-comment-sink-kafka-connector
-**** xref:reference/connectors/camel-jira-add-comment-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-jira-add-issue-sink-kafka-connector
-**** xref:reference/connectors/camel-jira-add-issue-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-jira-oauth-source-kafka-connector
-**** xref:reference/connectors/camel-jira-oauth-source-kafka-source-connector.adoc[Source Docs]
-*** camel-jira-source-kafka-connector
-**** xref:reference/connectors/camel-jira-source-kafka-source-connector.adoc[Source Docs]
-*** camel-jira-transition-issue-sink-kafka-connector
-**** xref:reference/connectors/camel-jira-transition-issue-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-jira-update-issue-sink-kafka-connector
-**** xref:reference/connectors/camel-jira-update-issue-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jms-amqp-10-sink-kafka-connector
 **** xref:reference/connectors/camel-jms-amqp-10-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jms-amqp-10-source-kafka-connector
