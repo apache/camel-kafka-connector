@@ -6,8 +6,10 @@
 
 **Closed issues:**
 
+- Remove jira connectors [\#1630](https://github.com/apache/camel-kafka-connector/issues/1630)
 - Upgrade maven wrapper to 3.9.x [\#1622](https://github.com/apache/camel-kafka-connector/issues/1622)
 - Upgrade to Camel 4.4.2 LTS [\#1619](https://github.com/apache/camel-kafka-connector/issues/1619)
+- Block atlassian maven repo so build is faster [\#1618](https://github.com/apache/camel-kafka-connector/issues/1618)
 - ERROR Exchange delivery has failed! Azure Gen2 Data Lake Sink Connector [\#1602](https://github.com/apache/camel-kafka-connector/issues/1602)
 - Release Camel Kafka Connector 4.0.3 [\#1589](https://github.com/apache/camel-kafka-connector/issues/1589)
 - Upgrade to Kamelets Catalog 4.0.3 [\#1588](https://github.com/apache/camel-kafka-connector/issues/1588)
@@ -17,7 +19,11 @@
 
 **Merged pull requests:**
 
+- Jira [\#1631](https://github.com/apache/camel-kafka-connector/pull/1631) ([davsclaus](https://github.com/davsclaus))
+- chore\(CI\): updated jdk install actions. [\#1629](https://github.com/apache/camel-kafka-connector/pull/1629) ([valdar](https://github.com/valdar))
+- Upgrade maven plugins [\#1627](https://github.com/apache/camel-kafka-connector/pull/1627) ([davsclaus](https://github.com/davsclaus))
 - fix\(CI\): bumped java version for snapshot release action. [\#1624](https://github.com/apache/camel-kafka-connector/pull/1624) ([valdar](https://github.com/valdar))
+- Fix tests todo [\#1623](https://github.com/apache/camel-kafka-connector/pull/1623) ([valdar](https://github.com/valdar))
 - Rrf [\#1621](https://github.com/apache/camel-kafka-connector/pull/1621) ([davsclaus](https://github.com/davsclaus))
 - Upgrade to Camel 4.4.2 [\#1620](https://github.com/apache/camel-kafka-connector/pull/1620) ([davsclaus](https://github.com/davsclaus))
 - Bump org.postgresql:postgresql from 42.4.3 to 42.4.4 in /parent [\#1617](https://github.com/apache/camel-kafka-connector/pull/1617) ([dependabot[bot]](https://github.com/apps/dependabot))
