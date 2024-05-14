@@ -19,6 +19,7 @@
 
 **Merged pull requests:**
 
+- Bump actions/checkout from 4.1.4 to 4.1.5 [\#1634](https://github.com/apache/camel-kafka-connector/pull/1634) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Jira [\#1631](https://github.com/apache/camel-kafka-connector/pull/1631) ([davsclaus](https://github.com/davsclaus))
 - chore\(CI\): updated jdk install actions. [\#1629](https://github.com/apache/camel-kafka-connector/pull/1629) ([valdar](https://github.com/valdar))
 - Upgrade maven plugins [\#1627](https://github.com/apache/camel-kafka-connector/pull/1627) ([davsclaus](https://github.com/davsclaus))
