@@ -207,7 +207,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${version.maven.surefire.plugin}</version>
                     <configuration>
-                        <failIfNoTests>false</failIfNoTests>
+                        <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
                     </configuration>
                 </plugin>
             <plugin>
