@@ -79,7 +79,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <attach>true</attach>
-                    <source>${version.java}</source>
+                    <release>${version.java}</release>
                     <quiet>true</quiet>
                     <bottom>Apache Camel</bottom>
                     <detectOfflineLinks>false</detectOfflineLinks>
