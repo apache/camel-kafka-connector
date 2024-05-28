@@ -26,6 +26,7 @@ import org.apache.camel.kafkaconnector.common.PluginPathHelper;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.apache.kafka.connect.runtime.WorkerConfig;
+import org.apache.kafka.connect.runtime.isolation.PluginDiscoveryMode;
 import org.apache.kafka.connect.runtime.rest.RestServerConfig;
 import org.apache.kafka.connect.util.clusters.EmbeddedConnectCluster;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -56,6 +57,8 @@ public class EmbeddedKafkaService implements KafkaService {
         String address = "http://localhost:" + NetworkUtils.getFreePort();
         LOG.info("Using the following address for  the listener configuration: {}", address);
         workerProps.put(RestServerConfig.LISTENERS_CONFIG, address);
+        LOG.info("Setting {} to: {}", WorkerConfig.PLUGIN_DISCOVERY_CONFIG, PluginDiscoveryMode.HYBRID_WARN);
+        workerProps.put(WorkerConfig.PLUGIN_DISCOVERY_CONFIG, String.valueOf(PluginDiscoveryMode.HYBRID_WARN));
 
         String pluginPaths = PluginPathHelper.getInstance().pluginPaths();
 
