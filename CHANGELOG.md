@@ -19,9 +19,12 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1643](https://github.com/apache/camel-kafka-connector/pull/1643) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Bump actions/checkout from 4.1.5 to 4.1.6 [\#1642](https://github.com/apache/camel-kafka-connector/pull/1642) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump com.amazon.redshift:redshift-jdbc42 from 2.1.0.26 to 2.1.0.28 in /connectors/camel-aws-redshift-source-kafka-connector [\#1637](https://github.com/apache/camel-kafka-connector/pull/1637) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump com.amazon.redshift:redshift-jdbc42 from 2.1.0.26 to 2.1.0.28 in /connectors/camel-aws-redshift-sink-kafka-connector [\#1636](https://github.com/apache/camel-kafka-connector/pull/1636) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 4.1.4 to 4.1.5 [\#1634](https://github.com/apache/camel-kafka-connector/pull/1634) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Upgrade to Kafka 3.6.1 used by Camel 4.4.x [\#1632](https://github.com/apache/camel-kafka-connector/pull/1632) ([davsclaus](https://github.com/davsclaus))
 - Jira [\#1631](https://github.com/apache/camel-kafka-connector/pull/1631) ([davsclaus](https://github.com/davsclaus))
 - chore\(CI\): updated jdk install actions. [\#1629](https://github.com/apache/camel-kafka-connector/pull/1629) ([valdar](https://github.com/valdar))
 - Upgrade maven plugins [\#1627](https://github.com/apache/camel-kafka-connector/pull/1627) ([davsclaus](https://github.com/davsclaus))
