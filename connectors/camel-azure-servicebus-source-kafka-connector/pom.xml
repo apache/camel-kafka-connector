@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.4.2</version>
+    <version>4.4.3-SNAPSHOT</version>
   </parent>
   <artifactId>camel-azure-servicebus-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: azure-servicebus-source</name>
