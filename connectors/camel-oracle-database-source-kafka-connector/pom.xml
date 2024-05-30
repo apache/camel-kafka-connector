@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.4.2-SNAPSHOT</version>
+    <version>4.4.2</version>
   </parent>
   <artifactId>camel-oracle-database-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: oracle-database-source</name>
