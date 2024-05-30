@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-storage-source-source",
 		"type": "source",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.2",
 		"description": "Consume objects from Google Cloud Storage.\n\nIf you specify the `serviceAccountKey` property, you must base64 encode it before you pass it as a parameter."
 	},
 	"properties": {

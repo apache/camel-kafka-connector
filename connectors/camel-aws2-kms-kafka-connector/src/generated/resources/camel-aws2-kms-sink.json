@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws2-kms-sink",
 		"type": "sink",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.2",
 		"description": "Manage keys stored in AWS KMS instances."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ceph-source-source",
 		"type": "source",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.2",
 		"description": "Receive data from an Ceph Bucket, managed by a Object Storage Gateway."
 	},
 	"properties": {

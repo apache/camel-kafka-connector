@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-earthquake-source-source",
 		"type": "source",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.2",
 		"description": "Get data about current earthquake events happening in the world using the USGS API"
 	},
 	"properties": {

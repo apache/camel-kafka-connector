@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-telegram-source-source",
 		"type": "source",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.2",
 		"description": "Receive all messages that people send to your Telegram bot.\n\nTo create a bot, contact the @botfather account by using the Telegram app.\n\nThe source attaches the following header to the messages:\n\n- `chat-id` \/ `ce-chatid`: The ID of the chat where the message comes from."
 	},
 	"properties": {
