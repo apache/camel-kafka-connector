@@ -2,23 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.0.3...HEAD)
-
-**Closed issues:**
-
-- Remove jira connectors [\#1630](https://github.com/apache/camel-kafka-connector/issues/1630)
-- Upgrade maven wrapper to 3.9.x [\#1622](https://github.com/apache/camel-kafka-connector/issues/1622)
-- Upgrade to Camel 4.4.2 LTS [\#1619](https://github.com/apache/camel-kafka-connector/issues/1619)
-- Block atlassian maven repo so build is faster [\#1618](https://github.com/apache/camel-kafka-connector/issues/1618)
-- ERROR Exchange delivery has failed! Azure Gen2 Data Lake Sink Connector [\#1602](https://github.com/apache/camel-kafka-connector/issues/1602)
-- Release Camel Kafka Connector 4.0.3 [\#1589](https://github.com/apache/camel-kafka-connector/issues/1589)
-- Upgrade to Kamelets Catalog 4.0.3 [\#1588](https://github.com/apache/camel-kafka-connector/issues/1588)
-- Remove HDFS connector [\#1581](https://github.com/apache/camel-kafka-connector/issues/1581)
-- \[0.11.5\] RabbitMQ Source Connector JSON config ends up converting kebab-case to camelCase [\#1577](https://github.com/apache/camel-kafka-connector/issues/1577)
-- 0.11.x CamelRabbitmqSourceConnector TrustManager Setting [\#1416](https://github.com/apache/camel-kafka-connector/issues/1416)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.4.2...HEAD)
 
 **Merged pull requests:**
 
+- Fixes plugins configuration after plugin version updates [\#1645](https://github.com/apache/camel-kafka-connector/pull/1645) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1643](https://github.com/apache/camel-kafka-connector/pull/1643) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Bump actions/checkout from 4.1.5 to 4.1.6 [\#1642](https://github.com/apache/camel-kafka-connector/pull/1642) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump com.amazon.redshift:redshift-jdbc42 from 2.1.0.26 to 2.1.0.28 in /connectors/camel-aws-redshift-source-kafka-connector [\#1637](https://github.com/apache/camel-kafka-connector/pull/1637) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -442,6 +430,23 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-4.4.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.4.2) (2024-05-29)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.0.3...camel-kafka-connector-4.4.2)
+
+**Closed issues:**
+
+- Remove jira connectors [\#1630](https://github.com/apache/camel-kafka-connector/issues/1630)
+- Upgrade maven wrapper to 3.9.x [\#1622](https://github.com/apache/camel-kafka-connector/issues/1622)
+- Upgrade to Camel 4.4.2 LTS [\#1619](https://github.com/apache/camel-kafka-connector/issues/1619)
+- Block atlassian maven repo so build is faster [\#1618](https://github.com/apache/camel-kafka-connector/issues/1618)
+- ERROR Exchange delivery has failed! Azure Gen2 Data Lake Sink Connector [\#1602](https://github.com/apache/camel-kafka-connector/issues/1602)
+- Release Camel Kafka Connector 4.0.3 [\#1589](https://github.com/apache/camel-kafka-connector/issues/1589)
+- Upgrade to Kamelets Catalog 4.0.3 [\#1588](https://github.com/apache/camel-kafka-connector/issues/1588)
+- Remove HDFS connector [\#1581](https://github.com/apache/camel-kafka-connector/issues/1581)
+- \[0.11.5\] RabbitMQ Source Connector JSON config ends up converting kebab-case to camelCase [\#1577](https://github.com/apache/camel-kafka-connector/issues/1577)
+- 0.11.x CamelRabbitmqSourceConnector TrustManager Setting [\#1416](https://github.com/apache/camel-kafka-connector/issues/1416)
 
 ## [camel-kafka-connector-4.0.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.0.3) (2024-02-06)
 
