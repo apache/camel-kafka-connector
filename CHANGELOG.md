@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Fix maven source plugin args after version upgrading. [\#1646](https://github.com/apache/camel-kafka-connector/pull/1646) ([valdar](https://github.com/valdar))
 - Fixes plugins configuration after plugin version updates [\#1645](https://github.com/apache/camel-kafka-connector/pull/1645) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1643](https://github.com/apache/camel-kafka-connector/pull/1643) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Bump actions/checkout from 4.1.5 to 4.1.6 [\#1642](https://github.com/apache/camel-kafka-connector/pull/1642) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -431,7 +432,7 @@
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
 
-## [camel-kafka-connector-4.4.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.4.2) (2024-05-29)
+## [camel-kafka-connector-4.4.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.4.2) (2024-05-30)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.0.3...camel-kafka-connector-4.4.2)
 
