@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-batch-apicurio-registry-not-secured-source-source",
 		"type": "source",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.3-SNAPSHOT",
 		"description": "Receive data from Kafka topics in batch on an insecure broker combined with Apicurio Registry and commit them manually through KafkaManualCommit or auto commit."
 	},
 	"properties": {
