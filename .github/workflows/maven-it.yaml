@@ -37,9 +37,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        java: [ '17' ]
+        java: ['17']
+        experimental: [ false ]
+        include:
+          - java: '21'
+            experimental: true
     steps:
       - uses: actions/checkout@v4.1.6
       - name: Set up JDK ${{ matrix.java }}
