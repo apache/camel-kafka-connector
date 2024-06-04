@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-sns-fifo-sink-sink",
 		"type": "sink",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.3-SNAPSHOT",
 		"description": "Send message to an AWS SNS FIFO Topic.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SNS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SNS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.\n\nThe Kamelet expects the following headers to be set:\n\n- `subject` \/ `ce-subject`: the subject of the message"
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-ses-sink-sink",
 		"type": "sink",
-		"version": "4.4.2-SNAPSHOT",
+		"version": "4.4.3-SNAPSHOT",
 		"description": "Send email through the Amazon Simple Email Service (SES).\n\nThe basic authentication method for the SES service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the SES client loads the credentials through this provider and doesn't use the basic authentication method.\n\nIn the header, you can optionally set the following properties:\n\n- `subject` \/ `ce-subject` property to specify the email subject. If you do not set this property in the header, the Kamelet uses the exchange ID for the email subject.\n\n- `to` \/ `ce-to` to provide a comma-separated list of email addresses.\n\n- `reply-to-addresses` \/ `ce-reply-to-addresses`to provider a comma-separated list of reply-to email addresses."
 	},
 	"properties": {
