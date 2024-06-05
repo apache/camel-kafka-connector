@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1648](https://github.com/apache/camel-kafka-connector/pull/1648) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix maven source plugin args after version upgrading. [\#1646](https://github.com/apache/camel-kafka-connector/pull/1646) ([valdar](https://github.com/valdar))
 - Fixes plugins configuration after plugin version updates [\#1645](https://github.com/apache/camel-kafka-connector/pull/1645) ([valdar](https://github.com/valdar))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1643](https://github.com/apache/camel-kafka-connector/pull/1643) ([github-actions[bot]](https://github.com/apps/github-actions))
