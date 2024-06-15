@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1651](https://github.com/apache/camel-kafka-connector/pull/1651) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Bump com.azure:azure-identity from 1.11.1 to 1.12.2 in /connectors/camel-kafka-azure-schema-registry-sink-kafka-connector [\#1649](https://github.com/apache/camel-kafka-connector/pull/1649) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1648](https://github.com/apache/camel-kafka-connector/pull/1648) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix maven source plugin args after version upgrading. [\#1646](https://github.com/apache/camel-kafka-connector/pull/1646) ([valdar](https://github.com/valdar))
