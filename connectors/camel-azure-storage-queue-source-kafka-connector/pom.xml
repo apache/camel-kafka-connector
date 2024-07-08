@@ -54,13 +54,13 @@
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-yaml-dsl</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel.kamelets</groupId>
       <artifactId>camel-kamelets-utils</artifactId>
-      <version>4.4.2</version>
+      <version>4.4.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-yaml-dsl</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

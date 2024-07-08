@@ -295,13 +295,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.hostnameVerification": {
-			"name": "camel.source.endpoint.hostnameVerification",
-			"description": "To enable\/disable hostname verification on SSLEngine",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.allowSerializedHeaders": {
 			"name": "camel.source.endpoint.allowSerializedHeaders",
 			"description": "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.",
@@ -428,6 +421,13 @@
 			"name": "camel.source.endpoint.enabledProtocols",
 			"description": "Which protocols to enable when using SSL",
 			"defaultValue": "\"TLSv1.2,TLSv1.3\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.hostnameVerification": {
+			"name": "camel.source.endpoint.hostnameVerification",
+			"description": "To enable\/disable hostname verification on SSLEngine",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -716,13 +716,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.netty-http.hostnameVerification": {
-			"name": "camel.component.netty-http.hostnameVerification",
-			"description": "To enable\/disable hostname verification on SSLEngine",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.netty-http.allowSerializedHeaders": {
 			"name": "camel.component.netty-http.allowSerializedHeaders",
 			"description": "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.",
@@ -881,6 +874,13 @@
 			"name": "camel.component.netty-http.enabledProtocols",
 			"description": "Which protocols to enable when using SSL",
 			"defaultValue": "\"TLSv1.2,TLSv1.3\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.netty-http.hostnameVerification": {
+			"name": "camel.component.netty-http.hostnameVerification",
+			"description": "To enable\/disable hostname verification on SSLEngine",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

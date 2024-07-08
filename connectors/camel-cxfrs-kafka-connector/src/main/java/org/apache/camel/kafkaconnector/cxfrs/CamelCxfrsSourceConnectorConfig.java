@@ -35,12 +35,6 @@ public class CamelCxfrsSourceConnectorConfig
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_FEATURES_CONF = "camel.source.endpoint.features";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_FEATURES_DOC = "Set the feature list to the CxfRs endpoint.";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_FEATURES_DEFAULT = null;
-    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF = "camel.source.endpoint.loggingFeatureEnabled";
-    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC = "This option enables CXF Logging Feature which writes inbound and outbound REST messages to log.";
-    public static final Boolean CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT = false;
-    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_CONF = "camel.source.endpoint.loggingSizeLimit";
-    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DOC = "To limit the total size of number of bytes the logger will output when logging feature has been enabled.";
-    public static final Integer CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT = null;
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_MODEL_REF_CONF = "camel.source.endpoint.modelRef";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_MODEL_REF_DOC = "This option is used to specify the model file which is useful for the resource class without annotation. When using this option, then the service class can be omitted, to emulate document-only endpoints";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_MODEL_REF_DEFAULT = null;
@@ -98,6 +92,12 @@ public class CamelCxfrsSourceConnectorConfig
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_CONF = "camel.source.endpoint.propagateContexts";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_DOC = "When the option is true, JAXRS UriInfo, HttpHeaders, Request and SecurityContext contexts will be available to custom CXFRS processors as typed Camel exchange properties. These contexts can be used to analyze the current requests using JAX-RS API.";
     public static final Boolean CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF = "camel.source.endpoint.loggingFeatureEnabled";
+    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC = "This option enables CXF Logging Feature which writes inbound and outbound REST messages to log.";
+    public static final Boolean CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_CONF = "camel.source.endpoint.loggingSizeLimit";
+    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DOC = "To limit the total size of number of bytes the logger will output when logging feature has been enabled and -1 for no limit.";
+    public static final Integer CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT = 49152;
     public static final String CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.cxfrs.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions (if possible) occurred while the Camel consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. Important: This is only possible if the 3rd party component allows Camel to be alerted if an exception was thrown. Some components handle this internally only, and therefore bridgeErrorHandler is not possible. In other situations we may improve the Camel component to hook into the 3rd party component and make this possible for future releases. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -126,8 +126,6 @@ public class CamelCxfrsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CXFRS_PATH_BEAN_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_PATH_BEAN_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_PATH_BEAN_ID_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_PATH_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_PATH_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_PATH_ADDRESS_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_FEATURES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_FEATURES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_FEATURES_DOC);
-        conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC);
-        conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_MODEL_REF_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_MODEL_REF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_MODEL_REF_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_PROVIDERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_PROVIDERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_PROVIDERS_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_RESOURCE_CLASSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_RESOURCE_CLASSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_RESOURCE_CLASSES_DOC);
@@ -147,6 +145,8 @@ public class CamelCxfrsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_PERFORM_INVOCATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_ENDPOINT_PERFORM_INVOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_PERFORM_INVOCATION_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_DOC);
+        conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_LOGGING_SIZE_LIMIT_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_DOC);

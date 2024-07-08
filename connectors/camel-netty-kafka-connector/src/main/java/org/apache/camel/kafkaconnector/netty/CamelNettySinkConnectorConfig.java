@@ -96,9 +96,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_CONF = "camel.sink.endpoint.useByteBuf";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_DOC = "If the useByteBuf is true, netty producer will turn the message body into ByteBuf before sending it out.";
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_DEFAULT = false;
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_CONF = "camel.sink.endpoint.hostnameVerification";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
-    public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT = false;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_CONF = "camel.sink.endpoint.allowSerializedHeaders";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DOC = "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.";
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DEFAULT = false;
@@ -165,6 +162,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_CONF = "camel.sink.endpoint.enabledProtocols";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DOC = "Which protocols to enable when using SSL";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.3";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_CONF = "camel.sink.endpoint.hostnameVerification";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
+    public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT = false;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_CONF = "camel.sink.endpoint.keyStoreFile";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DEFAULT = null;
@@ -264,9 +264,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_CONF = "camel.component.netty.useByteBuf";
     public static final String CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_DOC = "If the useByteBuf is true, netty producer will turn the message body into ByteBuf before sending it out.";
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_DEFAULT = false;
-    public static final String CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_CONF = "camel.component.netty.hostnameVerification";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
-    public static final Boolean CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT = false;
     public static final String CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_CONF = "camel.component.netty.allowSerializedHeaders";
     public static final String CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DOC = "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.";
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DEFAULT = false;
@@ -333,6 +330,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_CONF = "camel.component.netty.enabledProtocols";
     public static final String CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DOC = "Which protocols to enable when using SSL";
     public static final String CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.3";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_CONF = "camel.component.netty.hostnameVerification";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
+    public static final Boolean CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT = false;
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_CONF = "camel.component.netty.keyStoreFile";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DEFAULT = null;
@@ -406,7 +406,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_IDLE_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PRODUCER_POOL_MIN_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_DOC);
-        conf.define(CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_NATIVE_TRANSPORT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_NATIVE_TRANSPORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_NATIVE_TRANSPORT_DOC);
@@ -429,6 +428,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_ENCODING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_ENCODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_ENCODING_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_TEXTLINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_TEXTLINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_TEXTLINE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DOC);
+        conf.define(CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_DOC);
@@ -462,7 +462,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_IDLE_CONF, ConfigDef.Type.INT, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PRODUCER_POOL_MIN_IDLE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_DOC);
-        conf.define(CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_DOC);
@@ -485,6 +484,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_COMPONENT_ENCODING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_ENCODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_ENCODING_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_TEXTLINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_TEXTLINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_TEXTLINE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DOC);
+        conf.define(CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_DOC);
