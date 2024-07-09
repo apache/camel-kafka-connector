@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- Upgrade to Camel 4.4.3 and Kamelets 4.4.3 [\#1659](https://github.com/apache/camel-kafka-connector/pull/1659) ([davsclaus](https://github.com/davsclaus))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1658](https://github.com/apache/camel-kafka-connector/pull/1658) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Bump peter-evans/create-pull-request from 6.0.5 to 6.1.0 [\#1655](https://github.com/apache/camel-kafka-connector/pull/1655) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump io.github.classgraph:classgraph from 4.8.110 to 4.8.112 in /tooling/camel-kafka-connector-generator-maven-plugin [\#1654](https://github.com/apache/camel-kafka-connector/pull/1654) ([dependabot[bot]](https://github.com/apps/dependabot))
