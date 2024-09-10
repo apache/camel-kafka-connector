@@ -6,10 +6,32 @@
 
 **Closed issues:**
 
+- how to process data in kafka topic and write an xml file to the SFTP location using camel-kafka-sftp-sink-connector [\#1663](https://github.com/apache/camel-kafka-connector/issues/1663)
 - Upgrade to kafka 3.6.x [\#1626](https://github.com/apache/camel-kafka-connector/issues/1626)
+- Directory name for Azure Datalake Kafka sink Connector [\#1606](https://github.com/apache/camel-kafka-connector/issues/1606)
+- Kafka Events batching  [\#1605](https://github.com/apache/camel-kafka-connector/issues/1605)
+- File name format and File Format in Azure Data Lake Sink Connector [\#1604](https://github.com/apache/camel-kafka-connector/issues/1604)
+- \[4.0.0\] Missing RabbitMQ Source Connector [\#1576](https://github.com/apache/camel-kafka-connector/issues/1576)
+- SFTP Connector throwing Auth Fail error while connecting via PrivateKey [\#1573](https://github.com/apache/camel-kafka-connector/issues/1573)
+- Clarification Required: S3 Source Connector doesn't fetch new files [\#1570](https://github.com/apache/camel-kafka-connector/issues/1570)
+- issue in CAMEL-SALESFORCE-UPDATE-SINK-KAFKA-CONNECTOR  properties  [\#1558](https://github.com/apache/camel-kafka-connector/issues/1558)
+- CAMEL-AZURE-SERVICEBUS-SOURCE-KAFKA-CONNECTOR [\#1547](https://github.com/apache/camel-kafka-connector/issues/1547)
+- camel-cassandra-sink-kafka-connector - Codec not found for requested operation: \[TIMESTAMP \<-\> java.lang.Long\] [\#1506](https://github.com/apache/camel-kafka-connector/issues/1506)
+- CamelJiraSinkConnector error - A valid project key is required. [\#1467](https://github.com/apache/camel-kafka-connector/issues/1467)
+- azure datalake gen2 [\#1445](https://github.com/apache/camel-kafka-connector/issues/1445)
+- Missing configuration parameters because of Kamelet [\#1417](https://github.com/apache/camel-kafka-connector/issues/1417)
+- Support of PutEvents operation to CAMEL-AWS2-EVENTBRIDGE-KAFKA-CONNECTOR SINK [\#1384](https://github.com/apache/camel-kafka-connector/issues/1384)
+- Help Setting up Google Sheets Connector [\#1354](https://github.com/apache/camel-kafka-connector/issues/1354)
+- camel kafka connector - s3 source [\#1346](https://github.com/apache/camel-kafka-connector/issues/1346)
+- AWS Default Credential Provider is no longer available in 1.0? [\#1331](https://github.com/apache/camel-kafka-connector/issues/1331)
+- Camel AWS S3 source connector [\#1274](https://github.com/apache/camel-kafka-connector/issues/1274)
+- Release 1.0.0 [\#1227](https://github.com/apache/camel-kafka-connector/issues/1227)
+- Add a regen bot to gh action like Camel [\#1037](https://github.com/apache/camel-kafka-connector/issues/1037)
 
 **Merged pull requests:**
 
+- Bump actions/setup-java from 4.2.2 to 4.3.0 [\#1666](https://github.com/apache/camel-kafka-connector/pull/1666) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump peter-evans/create-pull-request from 6.1.0 to 7.0.1 [\#1665](https://github.com/apache/camel-kafka-connector/pull/1665) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/setup-java from 4.2.1 to 4.2.2 [\#1661](https://github.com/apache/camel-kafka-connector/pull/1661) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to Camel 4.4.3 and Kamelets 4.4.3 [\#1659](https://github.com/apache/camel-kafka-connector/pull/1659) ([davsclaus](https://github.com/davsclaus))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1658](https://github.com/apache/camel-kafka-connector/pull/1658) ([github-actions[bot]](https://github.com/apps/github-actions))
