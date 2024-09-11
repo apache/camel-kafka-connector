@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cxfrs-sink",
 		"type": "sink",
-		"version": "4.4.3-SNAPSHOT",
+		"version": "4.4.3",
 		"description": "Expose JAX-RS REST services using Apache CXF or connect to external REST services using CXF REST client."
 	},
 	"properties": {

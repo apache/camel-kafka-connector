@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-source-source",
 		"type": "source",
-		"version": "4.4.3-SNAPSHOT",
+		"version": "4.4.3",
 		"description": "Receive data from Kafka topics through Plain Login Module."
 	},
 	"properties": {
