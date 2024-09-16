@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.4.3...HEAD)
 
+**Closed issues:**
+
+- CKC 4.4.3 release [\#1656](https://github.com/apache/camel-kafka-connector/issues/1656)
+
 **Merged pull requests:**
 
 - Bump actions/setup-java from 4.2.2 to 4.3.0 [\#1666](https://github.com/apache/camel-kafka-connector/pull/1666) ([dependabot[bot]](https://github.com/apps/dependabot))
