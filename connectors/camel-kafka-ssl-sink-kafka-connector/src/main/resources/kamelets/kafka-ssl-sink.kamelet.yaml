@@ -45,6 +45,7 @@ spec:
       - sslKeystoreLocation
       - sslKeystorePassword
       - sslTruststoreLocation
+      - sslTruststorePassword
       - sslKeyPassword
     properties:
       bootstrapServers:
@@ -92,6 +93,13 @@ spec:
         description: The location of the trust store file.
         title: SSL Truststore Location
         type: string
+      sslTruststorePassword:
+        description: The store password for the trust store file.
+        title: SSL Truststore Password
+        type: string
+        format: password
+        x-descriptors:
+          - urn:camel:group:credentials
       sslKeyPassword:
         description: The password of the private key in the key store file.
         title: SSL Key Password
@@ -133,6 +141,7 @@ spec:
           sslKeyPassword: '{{sslKeyPassword}}'
           sslKeystorePassword: '{{sslKeystorePassword}}'
           sslTruststoreLocation: '{{sslTruststoreLocation}}'
+          sslTruststorePassword: '{{sslTruststorePassword}}'
           sslProtocol: '{{sslProtocol}}'
           sslEnabledProtocols: '{{sslEnabledProtocols}}'
           sslEndpointAlgorithm: '{{sslEndpointAlgorithm}}'
