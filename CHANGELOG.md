@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - CKC 4.4.3 release [\#1656](https://github.com/apache/camel-kafka-connector/issues/1656)
+- Security CVE-2022-3509 - com.google.protobuf:protobuf-java \> For camel-aws-ddb-sink-kafka-connector-3.21.0 [\#1612](https://github.com/apache/camel-kafka-connector/issues/1612)
 
 **Merged pull requests:**
 
