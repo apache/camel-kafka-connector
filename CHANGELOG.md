@@ -6,11 +6,13 @@
 
 **Closed issues:**
 
+- CAMEL ADLS Connector Aggregation Based on Timeout [\#1672](https://github.com/apache/camel-kafka-connector/issues/1672)
 - CKC 4.4.3 release [\#1656](https://github.com/apache/camel-kafka-connector/issues/1656)
 - Security CVE-2022-3509 - com.google.protobuf:protobuf-java \> For camel-aws-ddb-sink-kafka-connector-3.21.0 [\#1612](https://github.com/apache/camel-kafka-connector/issues/1612)
 
 **Merged pull requests:**
 
+- Bump peter-evans/create-pull-request from 7.0.3 to 7.0.5 [\#1673](https://github.com/apache/camel-kafka-connector/pull/1673) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 7.0.1 to 7.0.3 [\#1670](https://github.com/apache/camel-kafka-connector/pull/1670) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1668](https://github.com/apache/camel-kafka-connector/pull/1668) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Bump actions/setup-java from 4.2.2 to 4.3.0 [\#1666](https://github.com/apache/camel-kafka-connector/pull/1666) ([dependabot[bot]](https://github.com/apps/dependabot))
