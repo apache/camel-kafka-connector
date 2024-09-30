@@ -6,9 +6,11 @@
 
 **Closed issues:**
 
+- Is a Aggregator available for Avro? [\#1674](https://github.com/apache/camel-kafka-connector/issues/1674)
 - CAMEL ADLS Connector Aggregation Based on Timeout [\#1672](https://github.com/apache/camel-kafka-connector/issues/1672)
 - CKC 4.4.3 release [\#1656](https://github.com/apache/camel-kafka-connector/issues/1656)
 - Security CVE-2022-3509 - com.google.protobuf:protobuf-java \> For camel-aws-ddb-sink-kafka-connector-3.21.0 [\#1612](https://github.com/apache/camel-kafka-connector/issues/1612)
+- Camel KafkaConnect pods can't start to run [\#1594](https://github.com/apache/camel-kafka-connector/issues/1594)
 
 **Merged pull requests:**
 
