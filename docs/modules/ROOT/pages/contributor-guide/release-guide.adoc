@@ -12,18 +12,32 @@ xref:manual::release-guide.adoc[Camel Release guide]. In particular the section 
 
 * Close the GitHub release https://github.com/apache/camel-kafka-connector/milestones[milestone] and assign any remaining issues that aren't covered by the release to the next milestone
 
+== Export local variables for convenience
+If you are releasing version 4.8.0, these are typical variables values:
+[source,shell]
+----
+$ export RELEASE_BRANCH=camel-kafka-connector-4.8.x
+$ export RELEASE_TAG=amel-kafka-connector-4.8.0
+$ export RELEASE_VERSION=4.8.0
+$ export NEXT_VERSION=4.8.1-SNAPSHOT
+$ export APACHE_USER=
+$ export APACHE_PASS=
+----
+
+IMPORTANT: `RELEASE_BRANCH` must be different from the `RELEASE_TAG` you will choose later in the release process.
+
+NOTE: A good branch name is in the form `camel-kafka-connector-4.8.x` if you are performing `4.8.0` release.
+
+IMPORTANT: If you followed xref:manual::release-guide.adoc#ReleaseGuide-MavenSetup[Camel Release Maven Setup] you should have your gpg mave settings in a profile called `gpg` tha is used in some commands as `-Pgpg`. If that is not the case, change the commands accordingly to your setup.
+
 == Create a release branch
 
 Be sure you switch to a branch to perform the release, do not release from `main` branch unless you have a specific reason and you know what you are doing:
 
 [source,shell]
 ----
-$ git checkout -b <branch_name>
+$ git checkout -b $RELEASE_BRANCH
 ----
-
-IMPORTANT: `<branch_name>` must be different from the `<tag_name>` you will choose later in the release process.
-
-NOTE: A good branch name is in the form `camel-kafka-connector-0.10.x` if you are performing `0.10.0` release.
 
 == (Optional) release dry run
 
@@ -31,7 +45,7 @@ You can do a dry run to be sure all is ok:
 
 [source,shell]
 ----
-$ ./mvnw release:prepare -DdryRun -Prelease -DreleaseVersion=<the_version_you_want_to_release> -DdevelopmentVersion=<the_next_snapshot_version>
+$ ./mvnw release:prepare -DdryRun -Prelease -Pgpg -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$NEXT_VERSION
 ----
 
 if you performed a dray run please clean up the release before continuing:
@@ -47,36 +61,35 @@ Prepare the release:
 
 [source,shell]
 ----
-./mvnw -Prelease -DreleaseVersion=<the_version_you_want_to_release> -DdevelopmentVersion=<the_next_snapshot_version> -Dtag=<tag_name> -Dusername=<your_apache_username> -Dpassword=<your_apache_password> release:prepare
+./mvnw -Prelease -Pgpg -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$NEXT_VERSION -Dtag=$RELEASE_TAG -Dusername=$APACHE_USER -Dpassword=$APACHE_PASS release:prepare
 ----
 
-NOTE: `<tag_name>` is usual in the form of `camel-kafka-connector-<the_version_you_want_to_release>`
+NOTE: `$RELEASE_TAG` is usual in the form of `camel-kafka-connector-$RELEASE_VERSION`
 
-Add and commit all the updated json with a commit comment on the line of `"[after release perform chore]: regen catalog descriptors with new version"` then update the tag `<tag_name>` to point to the just created commit and push it upstream (you may need to delate the original tag `<tag_name>` created during the `release:prepare` step above):
+Add and commit all the updated json with a commit comment on the line of `"[after release perform chore]: regen catalog descriptors with new version"` then update the tag `$RELEASE_TAG` to point to the just created commit and push it upstream (you may need to delate the original tag `$RELEASE_TAG` created during the `release:prepare` step above):
 
 [source,shell]
 ----
 $ git add *.json
-$ git stash
-$ git checkout <tag_name>
-$ git stash pop
+$ git checkout $RELEASE_TAG
 $ git add *.json
 $ git commit -m"[after release perform chore]: regen catalog descriptors with new version"
-$ git tag -f <tag_name>
-$ git push -f upstream <tag_name>
-$ git checkout <branch_name>
+$ git tag -f $RELEASE_TAG
+$ git push -f upstream $RELEASE_TAG
+$ git checkout $RELEASE_BRANCH
 ----
 
 Upload your artifacts on apache nexus maven server:
 
 [source,shell]
 ----
-$ ./mvnw -Prelease -Dusername=<your_apache_username> -Dpassword=<your_apache_password> release:perform
+$ ./mvnw -Prelease -Pgpg -Dusername=$APACHE_USER -Dpassword=$APACHE_PASS release:perform
 ----
 
+If you feel brave, the above two steps could be performed together:
 [source,shell]
 ----
-$ mvn clean release:clean release:prepare -DreleaseVersion=$VERSION -DdevelopmentVersion=$NEXT_VERSION -B release:perform
+$ ./mvnw -Pgpg clean release:clean release:prepare -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$NEXT_VERSION -B release:perform
 ----
 
 In case an issue occurs during `release:perform`, it could be worth trying to resume from the failing artifact.
@@ -85,7 +98,7 @@ For instance, would an issue occurs while performing the release of `camel-splun
 [source,shell]
 ----
 $ cd target/checkout
-$ ./mvnw -Prelease -Dusername=<your_apache_username> -Dpassword=<your_apache_password> deploy -rf :camel-splunk-kafka-connector
+$ ./mvnw -Prelease -Pgpg -Dusername=$APACHE_USER -Dpassword=$APACHE_PASS deploy -rf :camel-splunk-kafka-connector
 ----
 
 == Close Apache Nexus staging repository
@@ -101,21 +114,21 @@ There will be some checks done by nexus, wiat tho see that they complete success
 
 Upload the files:
 
- * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip`
- * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip.asc`
- * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip.sha512`
+ * `distribution/target/camel-kafka-connector-$RELEASE_VERSION-src.zip`
+ * `distribution/target/camel-kafka-connector-$RELEASE_VERSION-src.zip.asc`
+ * `distribution/target/camel-kafka-connector-$RELEASE_VERSION-src.zip.sha512`
 
 to apache dist svn:
 
 [source,shell]
 ----
 $ cd release-utils/scripts
-$ ./upload-source.sh <the_version_you_released> <the_version_you_released>
+$ ./upload-source.sh $RELEASE_VERSION $RELEASE_VERSION
 ----
 
 == Open the vote
 
-Send an email to dev@camel.apache.org with object: `[VOTE] Release Camel-Kafka-connector <the_version_you_want_to_release>` you can select 48 or 72 hours for the vote. The message can be something like:
+Send an email to dev@camel.apache.org with object: `[VOTE] Release Camel-Kafka-connector $RELEASE_VERSION` you can select 48 or 72 hours for the vote. The message can be something like:
 
 [source,text]
 ----
@@ -147,7 +160,7 @@ where `X` is the release you are performing and `Y` is the staging repository nu
 This may require a rebase of `main` branch on the release branch if some commits have been added to `main` after you created the release branch (in that case you can perform a `push -f` on `main`)
 
 == Close the vote
-Once the  vote time has passed send another email with object: `[RESULT][VOTE] Release Camel-Kafka-connector <the_version_you_want_to_release>` with the count of binding and not binding votes. The message can be something like:
+Once the  vote time has passed send another email with object: `[RESULT][VOTE] Release Camel-Kafka-connector $RELEASE_VERSION` with the count of binding and not binding votes. The message can be something like:
 
 [source,text]
 ----
@@ -176,15 +189,15 @@ Regards.
 
 Upload the files:
 
- * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip`
- * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip.asc`
- * `distribution/target/camel-kafka-connector-<the_version_you_released>-src.zip.sha512`
+ * `distribution/target/camel-kafka-connector-$RELEASE_VERSION-src.zip`
+ * `distribution/target/camel-kafka-connector-$RELEASE_VERSION-src.zip.asc`
+ * `distribution/target/camel-kafka-connector-$RELEASE_VERSION-src.zip.sha512`
 
 to apache dist svn:
 
 [source,shell]
 ----
-$ ./release-utils/scripts/promote-release.sh <the_version_you_released>
+$ ./release-utils/scripts/promote-release.sh $RELEASE_VERSION
 ----
 
 == Create a release note
@@ -198,18 +211,8 @@ Update last released version:
 [source,xml]
 ----
 <configuration>
-    <lastReleasedVersion>0.7.0</lastReleasedVersion>
+    <lastReleasedVersion>$RELEASE_VERSION</lastReleasedVersion>
 </configuration>
 ----
 
 in `connectors/pom.xml` and regen.
-
-== Fixing possible sync issues with Apache gitbox
-
-Since we use github but behind the scene the git repository is kept in sync with the Apache gitbox mirror, but the `release:perform` maven goal checkout from gitbox server, there might be some sync issues. Those usually come in the form on error complaining about tags or branches already present. To delete the not in sync offending tag or branches from gitbox:
-
-[source,bas]
-----
-$ git push 'https://<your_apache_username>:<your_apache_password>@gitbox.apache.org/repos/asf/camel-kafka-connector.git' :refs/tags/<tag_name>
-$ git push -f 'https://<your_apache_username>:<your_apache_password>@gitbox.apache.org/repos/asf/camel-kafka-connector.git' <branch_name>
-----
