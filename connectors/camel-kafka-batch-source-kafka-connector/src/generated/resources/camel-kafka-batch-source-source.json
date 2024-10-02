@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-batch-source-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Receive data from Kafka topics in batch through Plain Login Module and commit them manually through KafkaManualCommit.."
 	},
 	"properties": {
@@ -105,6 +105,13 @@
 		"camel.kamelet.kafka-batch-source.maxPollIntervalMs": {
 			"name": "camel.kamelet.kafka-batch-source.maxPollIntervalMs",
 			"description": "The maximum delay between invocations of poll() when using consumer group management",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.topicIsPattern": {
+			"name": "camel.kamelet.kafka-batch-source.topicIsPattern",
+			"description": "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

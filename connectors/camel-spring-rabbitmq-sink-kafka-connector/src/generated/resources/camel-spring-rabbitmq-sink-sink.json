@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-spring-rabbitmq-sink-sink",
 		"type": "sink",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Send data to a RabbitMQ Broker."
 	},
 	"properties": {
@@ -48,6 +48,20 @@
 		"camel.kamelet.spring-rabbitmq-sink.queues": {
 			"name": "camel.kamelet.spring-rabbitmq-sink.queues",
 			"description": "The queue to receive messages from",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-sink.autoDeclareProducer": {
+			"name": "camel.kamelet.spring-rabbitmq-sink.autoDeclareProducer",
+			"description": "Specifies whether the producer should auto declare binding between exchange, queue and routing key when starting",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-sink.vhost": {
+			"name": "camel.kamelet.spring-rabbitmq-sink.vhost",
+			"description": "The virtual host",
+			"defaultValue": "\"\/\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

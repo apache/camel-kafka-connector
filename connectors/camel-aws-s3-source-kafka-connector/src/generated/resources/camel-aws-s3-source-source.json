@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-source-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Receive data from an Amazon S3 Bucket.\n\nThe basic authentication method for the S3 service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the S3 client loads the credentials through this provider and doesn't use the basic authentication method.\n\nTwo headers will be duplicated with different names for clarity at sink level, CamelAwsS3Key will be duplicated into aws.s3.key and CamelAwsS3BucketName will be duplicated in aws.s3.bucket.name"
 	},
 	"properties": {
@@ -19,6 +19,31 @@
 			"name": "camel.kamelet.aws-s3-source.deleteAfterRead",
 			"description": "Specifies to delete objects after consuming them.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.moveAfterRead": {
+			"name": "camel.kamelet.aws-s3-source.moveAfterRead",
+			"description": "Move objects from S3 bucket to a different bucket after they have been retrieved.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.destinationBucket": {
+			"name": "camel.kamelet.aws-s3-source.destinationBucket",
+			"description": "Define the destination bucket where an object must be moved when moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.destinationBucketPrefix": {
+			"name": "camel.kamelet.aws-s3-source.destinationBucketPrefix",
+			"description": "Define the destination bucket prefix to use when an object must be moved, and moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.destinationBucketSuffix": {
+			"name": "camel.kamelet.aws-s3-source.destinationBucketSuffix",
+			"description": "Define the destination bucket suffix to use when an object must be moved, and moveAfterRead is set to true.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -64,6 +89,32 @@
 			"name": "camel.kamelet.aws-s3-source.useDefaultCredentialsProvider",
 			"description": "If true, the S3 client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.useProfileCredentialsProvider": {
+			"name": "camel.kamelet.aws-s3-source.useProfileCredentialsProvider",
+			"description": "Set whether the S3 client should expect to load credentials through a profile credentials provider.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.useSessionCredentials": {
+			"name": "camel.kamelet.aws-s3-source.useSessionCredentials",
+			"description": "Set whether the S3 client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in S3.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.profileCredentialsName": {
+			"name": "camel.kamelet.aws-s3-source.profileCredentialsName",
+			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-source.sessionToken": {
+			"name": "camel.kamelet.aws-s3-source.sessionToken",
+			"description": "Amazon AWS Session Token used when the user needs to assume a IAM role.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

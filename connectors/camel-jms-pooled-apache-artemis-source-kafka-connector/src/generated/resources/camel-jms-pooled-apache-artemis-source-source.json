@@ -1,0 +1,65 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jmspooledapacheartemissource.CamelJmspooledapacheartemissourceSourceConnector",
+		"artifactId": "camel-jms-pooled-apache-artemis-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jms-pooled-apache-artemis-source-source",
+		"type": "source",
+		"version": "4.8.0-SNAPSHOT",
+		"description": "Receive data from an Apache Artemis message broker by using JMS Pooled Connection."
+	},
+	"properties": {
+		"camel.kamelet.jms-pooled-apache-artemis-source.destinationType": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.destinationType",
+			"description": "The JMS destination type (queue or topic).",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-pooled-apache-artemis-source.destinationName": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.destinationName",
+			"description": "The JMS destination name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-pooled-apache-artemis-source.brokerURL": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.brokerURL",
+			"description": "The JMS URL. Example: tcp:\/\/my-host:61616",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-pooled-apache-artemis-source.username": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.username",
+			"description": "The JMS Broker Username.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-pooled-apache-artemis-source.password": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.password",
+			"description": "The JMS Broker Password.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-pooled-apache-artemis-source.maxSessionsPerConnection": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.maxSessionsPerConnection",
+			"description": "The maximum number of pooled sessions per connection in the pool",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-pooled-apache-artemis-source.maxIdleSessionsPerConnection": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.maxIdleSessionsPerConnection",
+			"description": "The number of idle sessions allowed per connection before they are closed.",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-pooled-apache-artemis-source.connectionIdleTimeout": {
+			"name": "camel.kamelet.jms-pooled-apache-artemis-source.connectionIdleTimeout",
+			"description": "The maximum time a pooled Connection can sit unused before it is eligible for removal (in milliseconds)",
+			"defaultValue": "30000",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

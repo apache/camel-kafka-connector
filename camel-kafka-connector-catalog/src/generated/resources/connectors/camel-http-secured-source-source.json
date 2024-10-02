@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-http-secured-source-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
-		"description": "Periodically fetches a secured HTTP resource and provides the content as output."
+		"version": "4.8.0-SNAPSHOT",
+		"description": "Periodically fetches a secured HTTP resource and provides the content as output. Supports Oauth and Basic authentication."
 	},
 	"properties": {
 		"camel.kamelet.http-secured-source.period": {
@@ -32,7 +32,6 @@
 		"camel.kamelet.http-secured-source.authMethod": {
 			"name": "camel.kamelet.http-secured-source.authMethod",
 			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
-			"defaultValue": "\"Basic\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -52,6 +51,30 @@
 		"camel.kamelet.http-secured-source.authPassword": {
 			"name": "camel.kamelet.http-secured-source.authPassword",
 			"description": "Authentication password",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.oauth2ClientId": {
+			"name": "camel.kamelet.http-secured-source.oauth2ClientId",
+			"description": "Oauth2 Client Id",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.oauth2ClientSecret": {
+			"name": "camel.kamelet.http-secured-source.oauth2ClientSecret",
+			"description": "Oauth2 Client Secret",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.oauth2TokenEndpoint": {
+			"name": "camel.kamelet.http-secured-source.oauth2TokenEndpoint",
+			"description": "Oauth2 Token Endpoint",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-source.oauth2Scope": {
+			"name": "camel.kamelet.http-secured-source.oauth2Scope",
+			"description": "Oauth2 Scope",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

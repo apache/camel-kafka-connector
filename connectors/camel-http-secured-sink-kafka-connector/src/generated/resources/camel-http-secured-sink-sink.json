@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-http-secured-sink-sink",
 		"type": "sink",
-		"version": "4.4.4-SNAPSHOT",
-		"description": "Forwards an event to a secured HTTP endpoint"
+		"version": "4.8.0-SNAPSHOT",
+		"description": "Forwards an event to a secured HTTP endpoint. Supports Oauth and Basic authentication."
 	},
 	"properties": {
 		"camel.kamelet.http-secured-sink.url": {
@@ -25,7 +25,6 @@
 		"camel.kamelet.http-secured-sink.authMethod": {
 			"name": "camel.kamelet.http-secured-sink.authMethod",
 			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
-			"defaultValue": "\"Basic\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -45,6 +44,30 @@
 		"camel.kamelet.http-secured-sink.authPassword": {
 			"name": "camel.kamelet.http-secured-sink.authPassword",
 			"description": "Authentication password",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.oauth2ClientId": {
+			"name": "camel.kamelet.http-secured-sink.oauth2ClientId",
+			"description": "Oauth2 Client Id",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.oauth2ClientSecret": {
+			"name": "camel.kamelet.http-secured-sink.oauth2ClientSecret",
+			"description": "Oauth2 Client Secret",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.oauth2TokenEndpoint": {
+			"name": "camel.kamelet.http-secured-sink.oauth2TokenEndpoint",
+			"description": "Oauth2 Token Endpoint",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.http-secured-sink.oauth2Scope": {
+			"name": "camel.kamelet.http-secured-sink.oauth2Scope",
+			"description": "Oauth2 Scope",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

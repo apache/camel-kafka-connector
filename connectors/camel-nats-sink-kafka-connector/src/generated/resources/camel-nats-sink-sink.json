@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-nats-sink-sink",
 		"type": "sink",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Send data to NATS topics."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-spring-rabbitmq-source-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Receive data from a RabbitMQ Broker."
 	},
 	"properties": {
@@ -55,6 +55,13 @@
 			"name": "camel.kamelet.spring-rabbitmq-source.autoDeclare",
 			"description": "The routing key to use when binding a consumer queue to the exchange",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-source.vhost": {
+			"name": "camel.kamelet.spring-rabbitmq-source.vhost",
+			"description": "The virtual host",
+			"defaultValue": "\"\/\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-file-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Read and write files."
 	},
 	"properties": {
@@ -89,7 +89,7 @@
 		},
 		"camel.source.endpoint.directoryMustExist": {
 			"name": "camel.source.endpoint.directoryMustExist",
-			"description": "Similar to the startingDirectoryMustExist option but this applies during polling (after starting the consumer).",
+			"description": "Similar to the startingDirectoryMustExist option, but this applies during polling (after starting the consumer).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -118,7 +118,7 @@
 		},
 		"camel.source.endpoint.includeHiddenDirs": {
 			"name": "camel.source.endpoint.includeHiddenDirs",
-			"description": "Whether to accept hidden directories. Directories which names starts with dot is regarded as a hidden directory, and by default not included. Set this option to true to include hidden directories in the file consumer.",
+			"description": "Whether to accept hidden directories. Directories which names starts with dot are regarded as a hidden directory, and by default are not included. Set this option to true to include hidden directories in the file consumer.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -176,7 +176,7 @@
 		},
 		"camel.source.endpoint.startingDirectoryMustHaveAccess": {
 			"name": "camel.source.endpoint.startingDirectoryMustHaveAccess",
-			"description": "Whether the starting directory has access permissions. Mind that the startingDirectoryMustExist parameter must be set to true in order to verify that the directory exists. Will thrown an exception if the directory doesn't have read and write permissions.",
+			"description": "Whether the starting directory has access permissions. Mind that the startingDirectoryMustExist parameter must be set to true to verify that the directory exists. Will throw an exception if the directory doesn't have read and write permissions.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -197,14 +197,14 @@
 		},
 		"camel.source.endpoint.copyAndDeleteOnRenameFail": {
 			"name": "camel.source.endpoint.copyAndDeleteOnRenameFail",
-			"description": "Whether to fallback and do a copy and delete file, in case the file could not be renamed directly. This option is not available for the FTP component.",
+			"description": "Whether to fall back and do a copy and delete file, in case the file could not be renamed directly. This option is not available for the FTP component.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.source.endpoint.renameUsingCopy": {
 			"name": "camel.source.endpoint.renameUsingCopy",
-			"description": "Perform rename operations using a copy and delete strategy. This is primarily used in environments where the regular rename operation is unreliable (e.g. across different file systems or networks). This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy, but only after additional delays.",
+			"description": "Perform rename operations using a copy and delete strategy. This is primarily used in environments where the regular rename operation is unreliable (e.g., across different file systems or networks). This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy, but only after additional delays.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -274,6 +274,13 @@
 		},
 		"camel.source.endpoint.idempotent": {
 			"name": "camel.source.endpoint.idempotent",
+			"description": "Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files. Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled as well to avoid consuming the same files over and over again.",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.idempotentEager": {
+			"name": "camel.source.endpoint.idempotentEager",
 			"description": "Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files. Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled as well to avoid consuming the same files over and over again.",
 			"defaultValue": "\"false\"",
 			"priority": "MEDIUM",

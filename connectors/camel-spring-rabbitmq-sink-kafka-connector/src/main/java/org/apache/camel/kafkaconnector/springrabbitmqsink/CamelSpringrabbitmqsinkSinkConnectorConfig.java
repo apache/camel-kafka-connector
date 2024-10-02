@@ -47,6 +47,12 @@ public class CamelSpringrabbitmqsinkSinkConnectorConfig
     public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_QUEUES_CONF = "camel.kamelet.spring-rabbitmq-sink.queues";
     public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_QUEUES_DOC = "The queue to receive messages from";
     public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_QUEUES_DEFAULT = null;
+    public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_AUTO_DECLARE_PRODUCER_CONF = "camel.kamelet.spring-rabbitmq-sink.autoDeclareProducer";
+    public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_AUTO_DECLARE_PRODUCER_DOC = "Specifies whether the producer should auto declare binding between exchange, queue and routing key when starting";
+    public static final Boolean CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_AUTO_DECLARE_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_VHOST_CONF = "camel.kamelet.spring-rabbitmq-sink.vhost";
+    public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_VHOST_DOC = "The virtual host";
+    public static final String CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_VHOST_DEFAULT = "/";
 
     public CamelSpringrabbitmqsinkSinkConnectorConfig(
             ConfigDef config,
@@ -68,6 +74,8 @@ public class CamelSpringrabbitmqsinkSinkConnectorConfig
         conf.define(CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_EXCHANGE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_EXCHANGE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_EXCHANGE_NAME_DOC);
         conf.define(CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_QUEUES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_QUEUES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_QUEUES_DOC);
+        conf.define(CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_AUTO_DECLARE_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_AUTO_DECLARE_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_AUTO_DECLARE_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_VHOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_VHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQSINK_KAMELET_VHOST_DOC);
         return conf;
     }
 }

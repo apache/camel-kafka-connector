@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.sjms2.common;
 
-import org.apache.camel.test.infra.dispatch.router.services.DispatchRouterContainer;
 import org.apache.camel.test.infra.messaging.services.MessagingLocalContainerService;
 
 public final class SJMS2Common {
@@ -30,8 +29,8 @@ public final class SJMS2Common {
 
     }
 
-    public static MessagingLocalContainerService<DispatchRouterContainer> createLocalService() {
-        DispatchRouterContainer container = new DispatchRouterContainer();
+    public static MessagingLocalContainerService<FixedDispatchRouterContainer> createLocalService() {
+        FixedDispatchRouterContainer container = new FixedDispatchRouterContainer();
 
         return new MessagingLocalContainerService<>(container, c -> container.defaultEndpoint());
     }

@@ -68,6 +68,9 @@ public class CamelSalesforcesourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_RAW_PAYLOAD_CONF = "camel.kamelet.salesforce-source.rawPayload";
     public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default.";
     public static final Boolean CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_RAW_PAYLOAD_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_REPLAY_ID_CONF = "camel.kamelet.salesforce-source.replayId";
+    public static final String CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_REPLAY_ID_DOC = "The replayId value to use when subscribing to the Streaming API.";
+    public static final Long CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_REPLAY_ID_DEFAULT = null;
 
     public CamelSalesforcesourceSourceConnectorConfig(
             ConfigDef config,
@@ -96,6 +99,7 @@ public class CamelSalesforcesourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_OPERATION_UNDELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_OPERATION_UNDELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_NOTIFY_FOR_OPERATION_UNDELETE_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_OPERATION_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_RAW_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_RAW_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_RAW_PAYLOAD_DOC);
+        conf.define(CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_REPLAY_ID_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_REPLAY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCESOURCE_KAMELET_REPLAY_ID_DOC);
         return conf;
     }
 }

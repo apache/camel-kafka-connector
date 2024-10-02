@@ -21,7 +21,7 @@ metadata:
   name: aws-cloudwatch-sink
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.4.3"
+    camel.apache.org/catalog.version: "4.8.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIwNyIgaGVpZ2h0PSIyNTAwIiB2aWV3Qm94PSIwIDAgMjU2IDI5MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZD0iTTI1NiAxOTkuMzA1bC0xMjcuOTU3LTE4Ljc5N0wwIDE5OS4zMjlsMTI4LjAxIDQ3LjQzOUwyNTYgMTk5LjMwNSIgZmlsbD0iI0I3Q0E5RCIvPjxwYXRoIGQ9Ik0yNS42MjEgMTk3LjExM2wyMS42MyA2Ljc2MSAxLjk3MS0yLjIzOFY1MC4yODRsLTEuOTcxLTIuNTg1LTIxLjYzIDguMjc0djE0MS4xNCIgZmlsbD0iIzRCNjEyQyIvPjxwYXRoIGQ9Ik0xMjMuODMyIDE5MC40MjNsLTc2LjU4MSAxMy40NTFWNDcuNzAzbDc2LjU4MSAxNy4yMjJ2MTI1LjQ5OCIgZmlsbD0iIzc1OUMzRSIvPjxwYXRoIGQ9Ik04OS42ODYgMjE2Ljg4OWwtMjkuODQ4LTkuMjAxVjE0LjkyOEw4OS42ODYuMDA0bDIuNjEyIDIuODQ1djIxMC44NThsLTIuNjEyIDMuMTgyIiBmaWxsPSIjNEI2MTJDIi8+PHBhdGggZD0iTTE5MS45NjcgMTkyLjg5NEw4OS42ODYgMjE2Ljg4OVYwbDEwMi4yODEgMzkuODY2djE1My4wMjgiIGZpbGw9IiM3NTlDM0UiLz48cGF0aCBkPSJNMTI3Ljk2NSAyNDQuNzE0TDAgMTk5LjMyOXYyNi4zMjRsMTI3Ljk2NSA2My45ODN2LTQ0LjkyMiIgZmlsbD0iIzRCNjEyQyIvPjxwYXRoIGQ9Ik0yNTYgMjI1LjYyMmwtMTI4LjAzNSA2NC4wMTR2LTQ0LjkyMkwyNTYgMTk5LjMwNXYyNi4zMTciIGZpbGw9IiM3NTlDM0UiLz48cGF0aCBkPSJNMjIwLjAzOSAxNTUuNjkyaC0zMS4wMjZsLTg4LjQ0NSA2LjAyNkwxMjggMTY2Ljc3NWw5Mi4wMzktMTEuMDgzIiBmaWxsPSIjQjdDQTlEIi8+PHBhdGggZD0iTTEwMC41NjggMjE5LjkwNmwyNy40MiA4LjIyNi43ODktLjg0OS0uMDIzLTYxLjg0OS0uNzg5LS43NTgtMjcuMzk3LTIuOTU4djU4LjE4OCIgZmlsbD0iIzRCNjEyQyIvPjxwYXRoIGQ9Ik0yMjAuMDM5IDE1NS42OTJsLTkyLjA3NCA4Ljk4LjAyMyA2My40NiA5Mi4wNTEtMjcuNzExdi00NC43MjkiIGZpbGw9IiM3NTlDM0UiLz48L3N2Zz4K"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "AWS Cloudwatch"
@@ -76,9 +76,30 @@ spec:
         enum: ["ap-south-1", "eu-south-1", "us-gov-east-1", "me-central-1", "ca-central-1", "eu-central-1", "us-iso-west-1", "us-west-1", "us-west-2", "af-south-1", "eu-north-1", "eu-west-3", "eu-west-2", "eu-west-1", "ap-northeast-3", "ap-northeast-2", "ap-northeast-1", "me-south-1", "sa-east-1", "ap-east-1", "cn-north-1", "us-gov-west-1", "ap-southeast-1", "ap-southeast-2", "us-iso-east-1", "ap-southeast-3", "us-east-1", "us-east-2", "cn-northwest-1", "us-isob-east-1", "aws-global", "aws-cn-global", "aws-us-gov-global", "aws-iso-global", "aws-iso-b-global"]
       useDefaultCredentialsProvider:
         title: Default Credentials Provider
-        description: If true, the CloudWatch client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).
+        description: If true, the Cloudwatch client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).
         type: boolean
         default: false
+      useProfileCredentialsProvider:
+        title: Profile Credentials Provider
+        description: Set whether the Cloudwatch client should expect to load credentials through a profile credentials provider.
+        type: boolean
+        default: false
+      useSessionCredentials:
+        title: Session Credentials
+        description: Set whether the Cloudwatch client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in Cloudwatch.
+        type: boolean
+        default: false
+      profileCredentialsName:
+        title: Profile Credentials Name
+        description: If using a profile credentials provider this parameter will set the profile name.
+        type: string
+      sessionToken:
+        title: Session Token
+        description: Amazon AWS Session Token used when the user needs to assume a IAM role.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
       uriEndpointOverride:
         title: Overwrite Endpoint URI
         description: The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.
@@ -175,5 +196,9 @@ spec:
             accessKey: "{{?accessKey}}"
             region: "{{region}}"
             useDefaultCredentialsProvider: "{{useDefaultCredentialsProvider}}"
+            useProfileCredentialsProvider: "{{useProfileCredentialsProvider}}"
+            useSessionCredentials: "{{useSessionCredentials}}"
             uriEndpointOverride: "{{?uriEndpointOverride}}"
+            profileCredentialsName: "{{?profileCredentialsName}}"
+            sessionToken: "{{?sessionToken}}"
             overrideEndpoint: "{{overrideEndpoint}}"

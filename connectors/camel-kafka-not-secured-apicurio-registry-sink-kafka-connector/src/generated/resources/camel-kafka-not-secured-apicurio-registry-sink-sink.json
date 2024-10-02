@@ -1,0 +1,81 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.kafkanotsecuredapicurioregistrysink.CamelKafkanotsecuredapicurioregistrysinkSinkConnector",
+		"artifactId": "camel-kafka-not-secured-apicurio-registry-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-kafka-not-secured-apicurio-registry-sink-sink",
+		"type": "sink",
+		"version": "4.8.0-SNAPSHOT",
+		"description": "Send data to Kafka topics on an insecure broker with Apicurio Registry secured with Keycloak.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partitionkey`: as message partition key\n\nBoth the headers are optional."
+	},
+	"properties": {
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.topic": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.topic",
+			"description": "Comma separated list of Kafka topic names",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.bootstrapServers": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.bootstrapServers",
+			"description": "Comma separated list of Kafka Broker URLs",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.valueSerializer": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.valueSerializer",
+			"description": "Serliazer class for value that implements the Serializer interface.",
+			"defaultValue": "\"io.apicurio.registry.serde.avro.AvroKafkaSerializer\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioRegistryUrl": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioRegistryUrl",
+			"description": "The Apicurio Schema Registry URL",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.avroDatumProvider": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.avroDatumProvider",
+			"description": "How to write data with Avro",
+			"defaultValue": "\"io.apicurio.registry.serde.avro.ReflectAvroDatumProvider\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthServiceUrl": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthServiceUrl",
+			"description": "The URL for Keycloak instance securing the Apicurio Registry Example: http:\/\/my-keycloak.com:8080\/",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthRealm": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthRealm",
+			"description": "The Realm in Keycloak instance securing the Apicurio Registry",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthClientId": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthClientId",
+			"description": "The Client ID in Keycloak instance securing the Apicurio Registry",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthClientSecret": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthClientSecret",
+			"description": "The Client Secret in Keycloak instance securing the Apicurio Registry",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthUsername": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthUsername",
+			"description": "The Username in Keycloak instance securing the Apicurio Registry",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthPassword": {
+			"name": "camel.kamelet.kafka-not-secured-apicurio-registry-sink.apicurioAuthPassword",
+			"description": "The Password in Keycloak instance securing the Apicurio Registry",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}
