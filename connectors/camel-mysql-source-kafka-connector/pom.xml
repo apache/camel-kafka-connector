@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.8.0</version>
+    <version>4.8.1-SNAPSHOT</version>
   </parent>
   <artifactId>camel-mysql-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mysql-source</name>
