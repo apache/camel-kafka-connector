@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws2-iam-sink",
 		"type": "sink",
-		"version": "4.8.0-SNAPSHOT",
+		"version": "4.8.0",
 		"description": "Manage AWS IAM instances."
 	},
 	"properties": {

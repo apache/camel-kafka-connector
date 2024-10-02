@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-servicebus-source-source",
 		"type": "source",
-		"version": "4.8.0-SNAPSHOT",
+		"version": "4.8.0",
 		"description": "Consume Messages from Azure Servicebus.\n\nThe subscribtion name parameter needs to be populated in case of consuming from a Topic."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-files-sink-sink",
 		"type": "sink",
-		"version": "4.8.0-SNAPSHOT",
+		"version": "4.8.0",
 		"description": "Upload data to Azure Storage Files Share.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename."
 	},
 	"properties": {

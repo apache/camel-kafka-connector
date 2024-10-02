@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-queue-source-source",
 		"type": "source",
-		"version": "4.8.0-SNAPSHOT",
+		"version": "4.8.0",
 		"description": "Receive events from Azure Storage queues.\n\nOne header will be duplicated with different names for clarity at sink level, CamelAzureStorageQueueMessageId will be duplicated into azure.storage.queue.message.id"
 	},
 	"properties": {
