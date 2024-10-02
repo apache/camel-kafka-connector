@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-cosmosdb-source-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Consume Changes from a CosmosDB instance.\n\nThere are two different mechanism of authentication `SHARED_ACCOUNT_KEY` and `AZURE_IDENTITY`, you could specify with credentialType property. If you're using `SHARED_ACCOUNT_KEY` accountKey property will be needed.\n\nIn case of `AZURE_IDENTITY` selection, the DefaultAzureCredential will attempt to authenticate via the following mechanisms in the following order enviroment, Workload Identity, Managed Identity, Azure Developer CLI, IntelliJ, Azure CLI and Azure Powershell. "
 	},
 	"properties": {

@@ -1,0 +1,105 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awss3eventbasedsource.CamelAwss3eventbasedsourceSourceConnector",
+		"artifactId": "camel-aws-s3-event-based-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-s3-event-based-source-source",
+		"type": "source",
+		"version": "4.8.0-SNAPSHOT",
+		"description": "Receive data from AWS SQS subscribed to Eventbridge Bus reporting events related to an S3 bucket or multiple buckets.\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service.\nTo use this Kamelet you'll need to set up Eventbridge on your bucket and subscribe Eventbridge bus to an SQS Queue.\nFor doing this you'll need to enable Evenbridge notification on your bucket and creating a rule on Eventbridge console related to all the events on S3 bucket and pointing to the SQS Queue specified as parameter in this Kamelet."
+	},
+	"properties": {
+		"camel.kamelet.aws-s3-event-based-source.queueNameOrArn": {
+			"name": "camel.kamelet.aws-s3-event-based-source.queueNameOrArn",
+			"description": "The SQS Queue Name or ARN",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-event-based-source.deleteAfterRead": {
+			"name": "camel.kamelet.aws-s3-event-based-source.deleteAfterRead",
+			"description": "Delete messages after consuming them",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.accessKey": {
+			"name": "camel.kamelet.aws-s3-event-based-source.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-event-based-source.secretKey": {
+			"name": "camel.kamelet.aws-s3-event-based-source.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-event-based-source.region": {
+			"name": "camel.kamelet.aws-s3-event-based-source.region",
+			"description": "The AWS region to access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-s3-event-based-source.autoCreateQueue": {
+			"name": "camel.kamelet.aws-s3-event-based-source.autoCreateQueue",
+			"description": "Setting the autocreation of the SQS queue.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.amazonAWSHost": {
+			"name": "camel.kamelet.aws-s3-event-based-source.amazonAWSHost",
+			"description": "The hostname of the Amazon AWS cloud.",
+			"defaultValue": "\"amazonaws.com\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.protocol": {
+			"name": "camel.kamelet.aws-s3-event-based-source.protocol",
+			"description": "The underlying protocol used to communicate with SQS Example: http or https",
+			"defaultValue": "\"https\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.queueURL": {
+			"name": "camel.kamelet.aws-s3-event-based-source.queueURL",
+			"description": "The full SQS Queue URL (required if using KEDA)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-s3-event-based-source.uriEndpointOverride",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.overrideEndpoint": {
+			"name": "camel.kamelet.aws-s3-event-based-source.overrideEndpoint",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.delay": {
+			"name": "camel.kamelet.aws-s3-event-based-source.delay",
+			"description": "The number of milliseconds before the next poll of the selected stream",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.greedy": {
+			"name": "camel.kamelet.aws-s3-event-based-source.greedy",
+			"description": "If greedy is enabled, then the polling will happen immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-s3-event-based-source.getObject": {
+			"name": "camel.kamelet.aws-s3-event-based-source.getObject",
+			"description": "If getObject is enabled, then the file created in the bucket will be get and returned as body, if not only the event will returned as body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

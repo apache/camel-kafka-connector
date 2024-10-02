@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-sns-sink-sink",
 		"type": "sink",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Send message to an Amazon Simple Notification Service (SNS) topic.\n\nThe basic authentication method for the SNS service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the SNS client loads the credentials through this provider and doesn't use the basic authentication method.\n\nIn the header, you can optionally set the `subject` \/ `ce-subject` property to specify the subject of the message."
 	},
 	"properties": {
@@ -44,6 +44,32 @@
 			"name": "camel.kamelet.aws-sns-sink.useDefaultCredentialsProvider",
 			"description": "If true, the SNS client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sns-sink.useProfileCredentialsProvider": {
+			"name": "camel.kamelet.aws-sns-sink.useProfileCredentialsProvider",
+			"description": "Set whether the SNS client should expect to load credentials through a profile credentials provider.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sns-sink.useSessionCredentials": {
+			"name": "camel.kamelet.aws-sns-sink.useSessionCredentials",
+			"description": "Set whether the SNS client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in SNS.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sns-sink.profileCredentialsName": {
+			"name": "camel.kamelet.aws-sns-sink.profileCredentialsName",
+			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sns-sink.sessionToken": {
+			"name": "camel.kamelet.aws-sns-sink.sessionToken",
+			"description": "Amazon AWS Session Token used when the user needs to assume a IAM role.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

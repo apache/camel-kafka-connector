@@ -1,0 +1,70 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestorageblobeventbasedsource.CamelAzurestorageblobeventbasedsourceSourceConnector",
+		"artifactId": "camel-azure-storage-blob-event-based-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-blob-event-based-source-source",
+		"type": "source",
+		"version": "4.8.0-SNAPSHOT",
+		"description": "Receive data from Azure Service Bus subscribed to Azure Eventgrid reporting events related to a Azure Storage Blob account.\n\nConnection string is the basic method for authenticating to the Azure Servicebus Queue.\n\nTo use this Kamelet you'll need to set up Events on your Azure Storage Blob account and select as an endpoint an Azure Servicebus Queue."
+	},
+	"properties": {
+		"camel.kamelet.azure-storage-blob-event-based-source.topicOrQueueName": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.topicOrQueueName",
+			"description": "Topic Or Queue Name for the Azure Servicebus instance",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.connectionString": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.connectionString",
+			"description": "Connection String for Azure Servicebus instance",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.serviceBusReceiveMode": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.serviceBusReceiveMode",
+			"description": "Sets the receive mode for the receiver.",
+			"defaultValue": "\"RECEIVE_AND_DELETE\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.subscriptionName": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.subscriptionName",
+			"description": "Sets the name of the subscription in the topic to listen to. This parameter is mandatory in case of topic.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.accountName": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.accountName",
+			"description": "The Azure Storage Blob account name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.containerName": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.containerName",
+			"description": "The Azure Storage Blob container name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.accessKey": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.accessKey",
+			"description": "The Azure Storage Blob access key.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.getBlob": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.getBlob",
+			"description": "If getBlob is enabled, then the file created in the container will be get and returned as body, if not only the event will be returned as body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

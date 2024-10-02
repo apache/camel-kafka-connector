@@ -21,7 +21,7 @@ metadata:
   name: azure-storage-datalake-source
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.4.3"
+    camel.apache.org/catalog.version: "4.8.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNi4wLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4wIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMTU4LjIgODYwLjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDExNTguMiA4NjAuNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzA5NUNBMjt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZmlsbDojMzJCRUVEO30NCgkuc3Qze2ZpbGw6IzFCMUIyMDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTkyNy43LDE5Ny44SDYwOC44Yy0zLjQsMC4xLTYuOC0wLjktOS41LTNsLTkxLjItNjAuN2MtMi45LTEuNy02LjEtMi42LTkuNS0yLjZIMjMwLjVjLTkuMywwLTE3LDcuNC0xNy4yLDE2LjgNCgl2NTYzLjdjMC4yLDkuMyw3LjksMTYuOCwxNy4yLDE2LjhoNjk3LjFjOS4zLDAsMTctNy41LDE3LjItMTYuOHYtNDk3Qzk0NC45LDIwNS42LDkzNy4yLDE5Ny44LDkyNy43LDE5Ny44TDkyNy43LDE5Ny44eiIvPg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTQzOS4zLDE2NC4zSDI4Ni45Yy0zLjgsMC02LjksMy4xLTYuOSw2Ljl2MTkuNGMwLDMuOCwzLjEsNi45LDYuOSw2LjloMTUyLjNjMy44LDAsNi45LTMuMSw2LjktNi45DQoJYzAsMCwwLDAsMCwwdi0xOS40QzQ0Ni4xLDE2Ny4zLDQ0My4xLDE2NC4zLDQzOS4zLDE2NC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MiIgZD0iTTMwOC40LDE2NC4zaC0yMy43Yy0yLjYsMC00LjcsMi4xLTQuNyw0Ljd2MjMuN2MwLDIuNiwyLjEsNC43LDQuNyw0LjdoMjMuN2MyLjYsMCw0LjctMi4xLDQuNy00LjdWMTY5DQoJQzMxMy4yLDE2Ni40LDMxMS4xLDE2NC4zLDMwOC40LDE2NC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MyIgZD0iTTkyNy43LDE5N0g1NzkuMWMtNC42LTAuMS05LDEuOC0xMiw1LjJMNTA5LDI1OC4xYy0zLjMsMy03LjYsNC43LTEyLDQuN0gyMzAuNWMtOS41LDAtMTcuMiw3LjctMTcuMiwxNy4ybDAsMA0KCXY0MzAuM2MwLjIsOS4zLDcuOSwxNi44LDE3LjIsMTYuOGg2OTcuMWM5LjMsMCwxNy03LjQsMTcuMi0xNi44VjIxNWMwLjEtMi4zLTAuMy00LjctMS4xLTYuOUM5NDEuMywyMDEuNCw5MzQuOSwxOTcsOTI3LjcsMTk3eiIvPg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTYyOS45LDI4OC4yYy0xLjEtMC4zLTIuMy0wLjMtMy41LDBjMCwwLTMuOSwwLTUuNiwzbC0xMzYsMTk3LjVjLTEuMiwyLjEtMS4yLDQuOCwwLDYuOWMxLjMsMi40LDMuNyw0LDYuNSw0LjMNCgloODAuNWwtMzUuNiwxMTkuNmMtMC40LDAuNy0wLjYsMS41LTAuNiwyLjJjMCwwLjgsMC4xLDEuNiwwLjQsMi4zYzAuMywwLjcsMC43LDEuNCwxLjMsMS45YzAuNiwwLjYsMS4zLDEsMiwxLjNjMSwwLjQsMiwwLjQsMywwDQoJYzIuNiwwLDMuOSwwLDUuNi0zTDY4OCw0MjMuN3YtNC4zYy0wLjItMy45LTMuNC02LjktNy4zLTYuOWgtODYuMWwzNC45LTExNy41QzYzMS4yLDI5My4yLDYzMS4zLDI5MC4zLDYyOS45LDI4OC4yTDYyOS45LDI4OC4yeiIvPg0KPC9zdmc+DQo="
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Azure Storage Blob Data Lake"
@@ -85,12 +85,153 @@ spec:
         type: string
         enum: ["CLIENT_SECRET", "SHARED_KEY_CREDENTIAL", "AZURE_IDENTITY", "AZURE_SAS", "SERVICE_CLIENT_INSTANCE"]
         default: "CLIENT_SECRET"
+  dataTypes:
+    out:
+      default: binary
+      headers:
+        CamelAzureStorageDataLakeFileName:
+          title: Azure Storage Datalake File Name
+          description: The name of the file retrieved
+          type: string
+        CamelAzureStorageDataLakeRawHttpHeaders:
+          title: Azure Storage Data Lake Raw Http Headers
+          description: Non parsed http headers that can be used by the user.
+          type: object
+        CamelAzureStorageDataLakeAccessTier:
+          title: Azure Storage Data Lake File Access Tier
+          description: Access tier of file.
+          type: object
+        CamelAzureStorageDataLakeAccessTierChangeTime:
+          title: Azure Storage Data Lake Access Tier Change Time.
+          description: |-
+            Datetime when the access tier of the blob last changed.
+          type: object
+        CamelAzureStorageDataLakeArchiveStatus:
+          title: Azure Storage Data Lake Archive Status
+          description: Archive status of file
+          type: object
+        CamelAzureStorageDataLakeCacheControl:
+          title: Azure Storage Data Lake File Cache Control
+          description: Cache control specified for the file.
+          type: string
+        CamelAzureStorageDataLakeContentDisposition:
+          title: Azure Storage Data Lake File Content Disposition
+          description: Content disposition specified for the file.
+          type: string
+        CamelAzureStorageDataLakeContentEncoding:
+          title: Azure Storage Data Lake File Content Encoding
+          description: Content encoding specified for the file.
+          type: string
+        CamelAzureStorageDataLakeContentLanguage:
+          title: Azure Storage Data Lake File Content Language
+          description: Content language specified for the file.
+          type: string
+        CamelAzureStorageDataLakeContentType:
+          title: Azure Storage Data Lake File Content Type
+          description: Content Type specified for the file.
+          type: string
+        CamelAzureStorageDataLakeCopyCompletionTime:
+          title: Azure Storage Data Lake File Copy Completion time
+          description: Conclusion time of the last attempted Copy Blob operation where this file was the destination file.
+          type: object
+        CamelAzureStorageDataLakeCopyId:
+          title: Azure Storage Data Lake File Copy Id
+          description: String identifier for this copy operation.
+          type: string
+        amelAzureStorageDataLakeCopyProgress:
+          title: Azure Storage Data Lake File Copy Progress
+          description: Contains the number of bytes copied and the total bytes in the source in the last attempted Copy Blob operation where this file was the destination file.
+          type: string
+        CamelAzureStorageDataLakeCopySource:
+          title: Azure Storage Data Lake File Copy Source
+          description: URL up to 2 KB in length that specifies the source file or file used in the last attempted Copy Blob operation where this file was the destination file.
+          type: string
+        CamelAzureStorageDataLakeCopyStatus:
+          title: Azure Storage Data Lake File Copy Status
+          description: Status of the last copy operation performed on the file.
+          type: object
+        CamelAzureStorageDataLakeCopyStatusDescription:
+          title: Azure Storage Data Lake File Copy Status Description
+          description: The description of the copy’s status.
+          type: string
+        CamelAzureStorageDataLakeCreationTime:
+          title: Azure Storage Data Lake File Creation Time.
+          description: Creation time of the file.
+          type: object
+        CamelAzureStorageDataLakeEncryptionKeySha256:
+          title: Azure Storage Data Lake File SHA-256 Hash
+          description: The SHA-256 hash of the encryption key used to encrypt the file.
+          type: string
+        CamelAzureStorageDataLakeETag:
+          title: Azure Storage Data Lake File E Tag
+          description: The E Tag of the file.
+          type: string
+        CamelAzureStorageDataLakeFileSize:
+          title: Azure Storage Data Lake File Size
+          description: The File Size
+          type: long
+        CamelAzureStorageDataLakeLastModified:
+          title: Azure Storage Data Lake File Last Modified Date
+          description: Datetime when the file was last modified.
+          type: object
+        CamelAzureStorageDataLakeLeaseDuration:
+          title: Azure Storage Data Lake File Lease Duration
+          description: Type of lease on the file.
+          type: object
+        CamelAzureStorageDataLakeLeaseState:
+          title: Azure Storage Data Lake File Lease State
+          description: State of the lease on the file.
+          type: object
+        CamelAzureStorageDataLakeLeaseStatus:
+          title: Azure Storage Data Lake File Lease Status
+          description: Status of the lease on the file.
+          type: object
+        CamelAzureStorageDataLakeServerEncrypted:
+          title: Azure Storage Data Lake File Content Encrypted
+          description: Flag indicating if the file’s content is encrypted on the server.
+          type: boolean
+        CamelAzureStorageDataLakeDownloadLink:
+          title: Azure Storage Data Lake File Download Link
+          description: The link that can be used to download the file from data lake.
+          type: string
+      types:
+        binary:
+          format: "application-octet-stream"
+          description: Default binary representation of the object retrieved from the Azure Data Lake.
+          mediaType: application/octet-stream
+        cloudevents:
+          format: "azure-storage-datalake:application-cloudevents"
+          description: |-
+            Data type transformer converts Azure Data Lake consumer response to CloudEvent v1_0 data format. The data type sets
+            Camel specific CloudEvent headers with values extracted from Azure Data Lake consumer response.
+          headers:
+            CamelCloudEventID:
+              title: CloudEvent ID
+              description: The Camel exchange id set as event id
+              type: string
+            CamelCloudEventType:
+              title: CloudEvent Type
+              description: The event type
+              default: "org.apache.camel.event.azure.storage.datalake.consume"
+              type: string
+            CamelCloudEventSource:
+              title: CloudEvent Source
+              description: The event source. By default, the Archive Status of the file with prefix "azure.storage.datalake.".
+              type: string
+            CamelCloudEventSubject:
+              title: CloudEvent Subject
+              description: The event subject. Usually the Azure Storage Datalake E Tag of file.
+              type: string
+            CamelCloudEventTime:
+              title: CloudEvent Time
+              description: The exchange creation timestamp as event time.
+              type: string
   dependencies:
     - "camel:azure-storage-datalake"
     - "camel:kamelet"
     - "camel:core"
     - "camel:timer"
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.4.3"
+    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.8.0"
   template:
     from:
       uri: "azure-storage-datalake:{{accountName}}/{{fileSystemName}}"

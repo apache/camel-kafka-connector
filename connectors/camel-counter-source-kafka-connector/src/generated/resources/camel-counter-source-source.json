@@ -1,0 +1,33 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.countersource.CamelCountersourceSourceConnector",
+		"artifactId": "camel-counter-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-counter-source-source",
+		"type": "source",
+		"version": "4.8.0-SNAPSHOT",
+		"description": "Counts upwards such as 1,2,3,..."
+	},
+	"properties": {
+		"camel.kamelet.counter-source.period": {
+			"name": "camel.kamelet.counter-source.period",
+			"description": "The time interval between two numbers",
+			"defaultValue": "1000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.counter-source.start": {
+			"name": "camel.kamelet.counter-source.start",
+			"description": "The starting number",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.counter-source.numbers": {
+			"name": "camel.kamelet.counter-source.numbers",
+			"description": "How many numbers to generate",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

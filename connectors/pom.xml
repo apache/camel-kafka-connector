@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>parent</artifactId>
-        <version>4.4.4-SNAPSHOT</version>
+        <version>4.8.0-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -90,6 +90,8 @@
                         <param>jira-oauth-source</param>
                         <param>jira-update-issue-sink</param>
                         <param>jira-source</param>
+                        <!-- TODO: remove when https://github.com/apache/camel-kamelets/issues/2222 is releases  -->
+                        <param>kafka-apicurio-registry-not-secured-source</param>
                     </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
@@ -181,6 +183,8 @@
     </build>
 
     <modules>
+        <module>camel-aws-bedrock-agent-runtime-sink-kafka-connector</module>
+        <module>camel-aws-bedrock-text-sink-kafka-connector</module>
         <module>camel-aws-cloudtrail-source-kafka-connector</module>
         <module>camel-aws-cloudwatch-sink-kafka-connector</module>
         <module>camel-aws-ddb-sink-kafka-connector</module>
@@ -193,7 +197,7 @@
         <module>camel-aws-lambda-sink-kafka-connector</module>
         <module>camel-aws-redshift-sink-kafka-connector</module>
         <module>camel-aws-redshift-source-kafka-connector</module>
-        <module>camel-aws-s3-cdc-source-kafka-connector</module>
+        <module>camel-aws-s3-event-based-source-kafka-connector</module>
         <module>camel-aws-s3-sink-kafka-connector</module>
         <module>camel-aws-s3-source-kafka-connector</module>
         <module>camel-aws-s3-streaming-upload-sink-kafka-connector</module>
@@ -216,8 +220,8 @@
         <module>camel-azure-servicebus-sink-kafka-connector</module>
         <module>camel-azure-servicebus-source-kafka-connector</module>
         <module>camel-azure-storage-blob-append-sink-kafka-connector</module>
-        <module>camel-azure-storage-blob-cdc-source-kafka-connector</module>
         <module>camel-azure-storage-blob-changefeed-source-kafka-connector</module>
+        <module>camel-azure-storage-blob-event-based-source-kafka-connector</module>
         <module>camel-azure-storage-blob-sink-kafka-connector</module>
         <module>camel-azure-storage-blob-source-kafka-connector</module>
         <module>camel-azure-storage-datalake-sink-kafka-connector</module>
@@ -235,6 +239,7 @@
         <module>camel-chuck-norris-source-kafka-connector</module>
         <module>camel-coffee-source-kafka-connector</module>
         <module>camel-couchbase-sink-kafka-connector</module>
+        <module>camel-counter-source-kafka-connector</module>
         <module>camel-cron-source-kafka-connector</module>
         <module>camel-cxf-kafka-connector</module>
         <module>camel-cxfrs-kafka-connector</module>
@@ -265,7 +270,7 @@
         <module>camel-google-pubsub-source-kafka-connector</module>
         <module>camel-google-sheets-sink-kafka-connector</module>
         <module>camel-google-sheets-source-kafka-connector</module>
-        <module>camel-google-storage-cdc-source-kafka-connector</module>
+        <module>camel-google-storage-event-based-source-kafka-connector</module>
         <module>camel-google-storage-sink-kafka-connector</module>
         <module>camel-google-storage-source-kafka-connector</module>
         <module>camel-graphql-sink-kafka-connector</module>
@@ -283,16 +288,21 @@
         <module>camel-jms-apache-artemis-source-kafka-connector</module>
         <module>camel-jms-ibm-mq-sink-kafka-connector</module>
         <module>camel-jms-ibm-mq-source-kafka-connector</module>
+        <module>camel-jms-pooled-apache-artemis-sink-kafka-connector</module>
+        <module>camel-jms-pooled-apache-artemis-source-kafka-connector</module>
         <module>camel-kafka-apicurio-registry-not-secured-sink-kafka-connector</module>
-        <module>camel-kafka-apicurio-registry-not-secured-source-kafka-connector</module>
         <module>camel-kafka-azure-schema-registry-sink-kafka-connector</module>
         <module>camel-kafka-azure-schema-registry-source-kafka-connector</module>
         <module>camel-kafka-batch-apicurio-registry-not-secured-source-kafka-connector</module>
+        <module>camel-kafka-batch-apicurio-registry-source-kafka-connector</module>
         <module>camel-kafka-batch-azure-schema-registry-source-kafka-connector</module>
         <module>camel-kafka-batch-not-secured-source-kafka-connector</module>
         <module>camel-kafka-batch-scram-source-kafka-connector</module>
         <module>camel-kafka-batch-source-kafka-connector</module>
         <module>camel-kafka-batch-ssl-source-kafka-connector</module>
+        <module>camel-kafka-not-secured-apicurio-registry-json-source-kafka-connector</module>
+        <module>camel-kafka-not-secured-apicurio-registry-sink-kafka-connector</module>
+        <module>camel-kafka-not-secured-apicurio-registry-source-kafka-connector</module>
         <module>camel-kafka-not-secured-sink-kafka-connector</module>
         <module>camel-kafka-not-secured-source-kafka-connector</module>
         <module>camel-kafka-scram-sink-kafka-connector</module>

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-sqs-fifo-sink-sink",
 		"type": "sink",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Send message to an AWS SQS FIFO Queue.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SQS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
 	},
 	"properties": {
@@ -65,6 +65,32 @@
 			"name": "camel.kamelet.aws-sqs-fifo-sink.useDefaultCredentialsProvider",
 			"description": "Set whether the SQS client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.useProfileCredentialsProvider": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.useProfileCredentialsProvider",
+			"description": "Set whether the SQS client should expect to load credentials through a profile credentials provider.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.useSessionCredentials": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.useSessionCredentials",
+			"description": "Set whether the SQS client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in SQS.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.profileCredentialsName": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.profileCredentialsName",
+			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-sqs-fifo-sink.sessionToken": {
+			"name": "camel.kamelet.aws-sqs-fifo-sink.sessionToken",
+			"description": "Amazon AWS Session Token used when the user needs to assume a IAM role.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

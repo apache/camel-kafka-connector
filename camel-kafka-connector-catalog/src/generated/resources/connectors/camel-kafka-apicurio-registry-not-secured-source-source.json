@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-apicurio-registry-not-secured-source-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Receive data from Kafka topics on an insecure broker combined with Apicurio Registry."
 	},
 	"properties": {
@@ -65,7 +65,7 @@
 		"camel.kamelet.kafka-apicurio-registry-not-secured-source.valueDeserializer": {
 			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-source.valueDeserializer",
 			"description": "Deserializer class for value that implements the Deserializer interface.",
-			"defaultValue": "\"io.apicurio.registry.serde.avro.AvroKafkaDeserializer\"",
+			"defaultValue": "\"io.apicurio.registry.serde.jsonschema.JsonSchemaKafkaDeserializer\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -74,13 +74,6 @@
 			"description": "The Apicurio Schema Registry URL",
 			"priority": "HIGH",
 			"required": "true"
-		},
-		"camel.kamelet.kafka-apicurio-registry-not-secured-source.avroDatumProvider": {
-			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-source.avroDatumProvider",
-			"description": "How to read data with Avro",
-			"defaultValue": "\"io.apicurio.registry.serde.avro.ReflectAvroDatumProvider\"",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.kamelet.kafka-apicurio-registry-not-secured-source.topicIsPattern": {
 			"name": "camel.kamelet.kafka-apicurio-registry-not-secured-source.topicIsPattern",

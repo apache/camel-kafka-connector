@@ -56,6 +56,18 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-sqs-source.useDefaultCredentialsProvider";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the SQS client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";
     public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_PROFILE_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-sqs-source.useProfileCredentialsProvider";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_PROFILE_CREDENTIALS_PROVIDER_DOC = "Set whether the SQS client should expect to load credentials through a profile credentials provider.";
+    public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_PROFILE_CREDENTIALS_PROVIDER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_CONF = "camel.kamelet.aws-sqs-source.useSessionCredentials";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the SQS client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in SQS.";
+    public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-sqs-source.profileCredentialsName";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-sqs-source.sessionToken";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-sqs-source.uriEndpointOverride";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT = null;
@@ -68,6 +80,15 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_CONF = "camel.kamelet.aws-sqs-source.greedy";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DOC = "If greedy is enabled, then the polling will happen immediately again, if the previous run polled 1 or more messages.";
     public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_MAX_MESSAGES_PER_POLL_CONF = "camel.kamelet.aws-sqs-source.maxMessagesPerPoll";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DOC = "The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values 1 to 10. Default 1.";
+    public static final Integer CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DEFAULT = 1;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_WAIT_TIME_SECONDS_CONF = "camel.kamelet.aws-sqs-source.waitTimeSeconds";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_WAIT_TIME_SECONDS_DOC = "The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than WaitTimeSeconds. If no messages are available and the wait time expires, the call does not return a message list.";
+    public static final Integer CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_WAIT_TIME_SECONDS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_VISIBILITY_TIMEOUT_CONF = "camel.kamelet.aws-sqs-source.visibilityTimeout";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_VISIBILITY_TIMEOUT_DOC = "The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request.";
+    public static final Integer CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_VISIBILITY_TIMEOUT_DEFAULT = null;
 
     public CamelAwssqssourceSourceConnectorConfig(
             ConfigDef config,
@@ -92,10 +113,17 @@ public class CamelAwssqssourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLCONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_PROFILE_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_PROFILE_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_PROFILE_CREDENTIALS_PROVIDER_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DOC);
         conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_MAX_MESSAGES_PER_POLL_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_MAX_MESSAGES_PER_POLL_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_WAIT_TIME_SECONDS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_WAIT_TIME_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_WAIT_TIME_SECONDS_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_VISIBILITY_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_VISIBILITY_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_VISIBILITY_TIMEOUT_DOC);
         return conf;
     }
 }

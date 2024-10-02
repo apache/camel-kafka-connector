@@ -33,7 +33,7 @@ public class CamelJmsapacheartemissourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name.";
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLCONF = "camel.kamelet.jms-apache-artemis-source.brokerURL";
-    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLDOC = "The JMS URL. Example: tcp://k3s-node-master.usersys.redhat.com:31616";
+    public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLDOC = "The JMS URL. Example: tcp://my-host:61616";
     public static final String CAMEL_SOURCE_JMSAPACHEARTEMISSOURCE_KAMELET_BROKER_URLDEFAULT = null;
 
     public CamelJmsapacheartemissourceSourceConnectorConfig(

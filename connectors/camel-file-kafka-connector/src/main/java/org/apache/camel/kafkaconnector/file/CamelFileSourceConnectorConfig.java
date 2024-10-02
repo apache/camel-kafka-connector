@@ -63,7 +63,7 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions (if possible) occurred while the Camel consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. Important: This is only possible if the 3rd party component allows Camel to be alerted if an exception was thrown. Some components handle this internally only, and therefore bridgeErrorHandler is not possible. In other situations we may improve the Camel component to hook into the 3rd party component and make this possible for future releases. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_DIRECTORY_MUST_EXIST_CONF = "camel.source.endpoint.directoryMustExist";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_DIRECTORY_MUST_EXIST_DOC = "Similar to the startingDirectoryMustExist option but this applies during polling (after starting the consumer).";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_DIRECTORY_MUST_EXIST_DOC = "Similar to the startingDirectoryMustExist option, but this applies during polling (after starting the consumer).";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_DIRECTORY_MUST_EXIST_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
@@ -75,7 +75,7 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_DOC = "To define which file attributes of interest. Like posix:permissions,posix:owner,basic:lastAccessTime, it supports basic wildcard like posix:, basic:lastAccessTime";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_EXTENDED_ATTRIBUTES_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_DIRS_CONF = "camel.source.endpoint.includeHiddenDirs";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_DIRS_DOC = "Whether to accept hidden directories. Directories which names starts with dot is regarded as a hidden directory, and by default not included. Set this option to true to include hidden directories in the file consumer.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_DIRS_DOC = "Whether to accept hidden directories. Directories which names starts with dot are regarded as a hidden directory, and by default are not included. Set this option to true to include hidden directories in the file consumer.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_DIRS_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_CONF = "camel.source.endpoint.includeHiddenFiles";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_HIDDEN_FILES_DOC = "Whether to accept hidden files. Files which names starts with dot is regarded as a hidden file, and by default not included. Set this option to true to include hidden files in the file consumer.";
@@ -102,7 +102,7 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DOC = "Whether the starting directory must exist. Mind that the autoCreate option is default enabled, which means the starting directory is normally auto created if it doesn't exist. You can disable autoCreate and enable this to ensure the starting directory must exist. Will throw an exception if the directory doesn't exist.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_CONF = "camel.source.endpoint.startingDirectoryMustHaveAccess";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DOC = "Whether the starting directory has access permissions. Mind that the startingDirectoryMustExist parameter must be set to true in order to verify that the directory exists. Will thrown an exception if the directory doesn't have read and write permissions.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DOC = "Whether the starting directory has access permissions. Mind that the startingDirectoryMustExist parameter must be set to true to verify that the directory exists. Will throw an exception if the directory doesn't have read and write permissions.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_CONF = "camel.source.endpoint.autoCreate";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DOC = "Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to.";
@@ -111,10 +111,10 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DOC = "Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files).";
     public static final Integer CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DEFAULT = 131072;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_CONF = "camel.source.endpoint.copyAndDeleteOnRenameFail";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DOC = "Whether to fallback and do a copy and delete file, in case the file could not be renamed directly. This option is not available for the FTP component.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DOC = "Whether to fall back and do a copy and delete file, in case the file could not be renamed directly. This option is not available for the FTP component.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DEFAULT = true;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_CONF = "camel.source.endpoint.renameUsingCopy";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DOC = "Perform rename operations using a copy and delete strategy. This is primarily used in environments where the regular rename operation is unreliable (e.g. across different file systems or networks). This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy, but only after additional delays.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DOC = "Perform rename operations using a copy and delete strategy. This is primarily used in environments where the regular rename operation is unreliable (e.g., across different file systems or networks). This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy, but only after additional delays.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
@@ -149,6 +149,9 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_CONF = "camel.source.endpoint.idempotent";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_DOC = "Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files. Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled as well to avoid consuming the same files over and over again.";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_DEFAULT = "false";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_CONF = "camel.source.endpoint.idempotentEager";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DOC = "Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files. Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled as well to avoid consuming the same files over and over again.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DEFAULT = "false";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_CONF = "camel.source.endpoint.idempotentKey";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DOC = "To use a custom idempotent key. By default the absolute path of the file is used. You can use the File Language, for example to use the file name and file size, you can do: idempotentKey=${file:name}-${file:size}";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DEFAULT = null;
@@ -335,6 +338,7 @@ public class CamelFileSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_FILTER_DIRECTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_FILTER_DIRECTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_FILTER_DIRECTORY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_FILTER_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_FILTER_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_FILTER_FILE_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_DOC);
+        conf.define(CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_REPOSITORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_REPOSITORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_REPOSITORY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_INCLUDE_DOC);

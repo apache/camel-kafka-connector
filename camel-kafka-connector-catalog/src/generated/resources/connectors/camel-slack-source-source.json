@@ -5,10 +5,17 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-slack-source-source",
 		"type": "source",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Receive messages from a Slack channel."
 	},
 	"properties": {
+		"camel.kamelet.slack-source.serverUrl": {
+			"name": "camel.kamelet.slack-source.serverUrl",
+			"description": "The Slack API server endpoint URL. Example: https:\/\/slack.com",
+			"defaultValue": "\"https:\/\/slack.com\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.slack-source.channel": {
 			"name": "camel.kamelet.slack-source.channel",
 			"description": "The Slack channel to receive messages from. Example: #myroom",
@@ -23,7 +30,7 @@
 		},
 		"camel.kamelet.slack-source.delay": {
 			"name": "camel.kamelet.slack-source.delay",
-			"description": "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m",
+			"description": "The delay between polls. If no unit provided, milliseconds is the default. Example: 60s or 6000 or 1m",
 			"defaultValue": "\"60000\"",
 			"priority": "MEDIUM",
 			"required": "false"

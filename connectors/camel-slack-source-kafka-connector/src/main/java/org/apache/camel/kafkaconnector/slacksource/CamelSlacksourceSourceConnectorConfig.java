@@ -26,6 +26,9 @@ public class CamelSlacksourceSourceConnectorConfig
         extends
             CamelSourceConnectorConfig {
 
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_SERVER_URL_CONF = "camel.kamelet.slack-source.serverUrl";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_SERVER_URL_DOC = "The Slack API server endpoint URL. Example: https://slack.com";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_SERVER_URL_DEFAULT = "https://slack.com";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_CONF = "camel.kamelet.slack-source.channel";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DOC = "The Slack channel to receive messages from. Example: #myroom";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DEFAULT = null;
@@ -33,7 +36,7 @@ public class CamelSlacksourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DOC = "The Bot User OAuth Access Token to access Slack. A Slack app that has the following permissions is required: `channels:history`, `groups:history`, `im:history`, `mpim:history`, `channels:read`, `groups:read`, `im:read`, and `mpim:read`.";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.slack-source.delay";
-    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC = "The delay between polls. If no unit provided, miliseconds is the default. Example: 60s or 6000 or 1m";
+    public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC = "The delay between polls. If no unit provided, milliseconds is the default. Example: 60s or 6000 or 1m";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DEFAULT = "60000";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_CONF = "camel.kamelet.slack-source.naturalOrder";
     public static final String CAMEL_SOURCE_SLACKSOURCE_KAMELET_NATURAL_ORDER_DOC = "Create exchanges in natural order (oldest to newest) or not.";
@@ -52,6 +55,7 @@ public class CamelSlacksourceSourceConnectorConfig
 
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
+        conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_SERVER_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACKSOURCE_KAMELET_SERVER_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACKSOURCE_KAMELET_SERVER_URL_DOC);
         conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SLACKSOURCE_KAMELET_CHANNEL_DOC);
         conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SLACKSOURCE_KAMELET_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACKSOURCE_KAMELET_DELAY_DOC);

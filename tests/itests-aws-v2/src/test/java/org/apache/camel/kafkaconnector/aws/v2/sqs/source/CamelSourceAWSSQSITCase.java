@@ -99,7 +99,10 @@ public class CamelSourceAWSSQSITCase extends CamelSourceTestSupport {
                 .basic()
                 .withKafkaTopic(topicName)
                 .withQueueOrArn(queueName)
-                .withAmazonConfig(service.getConnectionProperties());
+                .withAmazonConfig(service.getConnectionProperties())
+                //TODO: remove after https://github.com/apache/camel-kamelets/commit/2e51d719eb336ce2aa79b881995396c613264dd0  is released
+                .setProperty("camel.kamelet.aws-sqs-source.waitTimeSeconds", String.valueOf(Integer.MAX_VALUE))
+                .setProperty("camel.kamelet.aws-sqs-source.visibilityTimeout", String.valueOf(Integer.MAX_VALUE));
 
         runTest(connectorPropertyFactory, topicName, expect);
     }

@@ -71,6 +71,9 @@ public class CamelKafkabatchsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_MAX_POLL_INTERVAL_MS_CONF = "camel.kamelet.kafka-batch-source.maxPollIntervalMs";
     public static final String CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_MAX_POLL_INTERVAL_MS_DOC = "The maximum delay between invocations of poll() when using consumer group management";
     public static final Integer CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_MAX_POLL_INTERVAL_MS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_TOPIC_IS_PATTERN_CONF = "camel.kamelet.kafka-batch-source.topicIsPattern";
+    public static final String CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_TOPIC_IS_PATTERN_DOC = "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.";
+    public static final Boolean CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_TOPIC_IS_PATTERN_DEFAULT = false;
 
     public CamelKafkabatchsourceSourceConnectorConfig(
             ConfigDef config,
@@ -100,6 +103,7 @@ public class CamelKafkabatchsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_BATCH_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_BATCH_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_BATCH_SIZE_DOC);
         conf.define(CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_POLL_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_POLL_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_POLL_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_MAX_POLL_INTERVAL_MS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_MAX_POLL_INTERVAL_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_MAX_POLL_INTERVAL_MS_DOC);
+        conf.define(CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_TOPIC_IS_PATTERN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_TOPIC_IS_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKABATCHSOURCE_KAMELET_TOPIC_IS_PATTERN_DOC);
         return conf;
     }
 }

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-https-sink",
 		"type": "sink",
-		"version": "4.4.4-SNAPSHOT",
+		"version": "4.8.0-SNAPSHOT",
 		"description": "Send requests to external HTTP servers using Apache HTTP Client 5.x."
 	},
 	"properties": {
@@ -17,7 +17,7 @@
 		},
 		"camel.sink.endpoint.disableStreamCache": {
 			"name": "camel.sink.endpoint.disableStreamCache",
-			"description": "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory\/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge\/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.",
+			"description": "Determines whether or not the raw input stream is cached or not. The Camel consumer (camel-servlet, camel-jetty etc.) will by default cache the input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge\/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The producer (camel-http) will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is (the stream can only be read once) as the message body.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -42,13 +42,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.followRedirects": {
-			"name": "camel.sink.endpoint.followRedirects",
-			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.httpMethod": {
 			"name": "camel.sink.endpoint.httpMethod",
 			"description": "Configure the HTTP method to use. The HttpMethod header cannot override this option if set. One of: [GET] [POST] [PUT] [DELETE] [HEAD] [OPTIONS] [TRACE] [PATCH]",
@@ -64,6 +57,20 @@
 				"TRACE",
 				"PATCH"
 			]
+		},
+		"camel.sink.endpoint.skipRequestHeaders": {
+			"name": "camel.sink.endpoint.skipRequestHeaders",
+			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.skipResponseHeaders": {
+			"name": "camel.sink.endpoint.skipResponseHeaders",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.throwExceptionOnFailure": {
 			"name": "camel.sink.endpoint.throwExceptionOnFailure",
@@ -111,6 +118,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.followRedirects": {
+			"name": "camel.sink.endpoint.followRedirects",
+			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.getWithBody": {
 			"name": "camel.sink.endpoint.getWithBody",
 			"description": "Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
@@ -142,20 +156,6 @@
 		"camel.sink.endpoint.preserveHostHeader": {
 			"name": "camel.sink.endpoint.preserveHostHeader",
 			"description": "If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.skipRequestHeaders": {
-			"name": "camel.sink.endpoint.skipRequestHeaders",
-			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.skipResponseHeaders": {
-			"name": "camel.sink.endpoint.skipResponseHeaders",
-			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -358,6 +358,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.oauth2Scope": {
+			"name": "camel.sink.endpoint.oauth2Scope",
+			"description": "OAuth2 scope",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.oauth2TokenEndpoint": {
 			"name": "camel.sink.endpoint.oauth2TokenEndpoint",
 			"description": "OAuth2 Token endpoint",
@@ -376,16 +382,23 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.https.followRedirects": {
-			"name": "camel.component.https.followRedirects",
-			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
+		"camel.component.https.lazyStartProducer": {
+			"name": "camel.component.https.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.https.lazyStartProducer": {
-			"name": "camel.component.https.lazyStartProducer",
-			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+		"camel.component.https.skipRequestHeaders": {
+			"name": "camel.component.https.skipRequestHeaders",
+			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.skipResponseHeaders": {
+			"name": "camel.component.https.skipResponseHeaders",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -403,24 +416,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.https.followRedirects": {
+			"name": "camel.component.https.followRedirects",
+			"description": "Whether to the HTTP request should follow redirects. By default the HTTP request does not follow redirects",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.https.responsePayloadStreamingThreshold": {
 			"name": "camel.component.https.responsePayloadStreamingThreshold",
 			"description": "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.",
 			"defaultValue": "8192",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.https.skipRequestHeaders": {
-			"name": "camel.component.https.skipRequestHeaders",
-			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.https.skipResponseHeaders": {
-			"name": "camel.component.https.skipResponseHeaders",
-			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -474,7 +480,7 @@
 		},
 		"camel.component.https.connectionTimeToLive": {
 			"name": "camel.component.https.connectionTimeToLive",
-			"description": "The time for connection to live, the time unit is millisecond, the default value is always keep alive.",
+			"description": "The time for connection to live, the time unit is millisecond, the default value is always keepAlive.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

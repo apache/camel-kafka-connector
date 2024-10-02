@@ -53,6 +53,9 @@ public class CamelCassandrasinkSinkConnectorConfig
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_CONF = "camel.kamelet.cassandra-sink.extraTypeCodecs";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DOC = "To use a specific comma separated list of Extra Type codecs.";
     public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DEFAULT = null;
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_JSON_PAYLOAD_CONF = "camel.kamelet.cassandra-sink.jsonPayload";
+    public static final String CAMEL_SINK_CASSANDRASINK_KAMELET_JSON_PAYLOAD_DOC = "If we want to transform the payload in json or not";
+    public static final Boolean CAMEL_SINK_CASSANDRASINK_KAMELET_JSON_PAYLOAD_DEFAULT = true;
 
     public CamelCassandrasinkSinkConnectorConfig(
             ConfigDef config,
@@ -76,6 +79,7 @@ public class CamelCassandrasinkSinkConnectorConfig
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CASSANDRASINK_KAMELET_PREPARE_STATEMENTS_DOC);
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CASSANDRASINK_KAMELET_QUERY_DOC);
         conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CASSANDRASINK_KAMELET_EXTRA_TYPE_CODECS_DOC);
+        conf.define(CAMEL_SINK_CASSANDRASINK_KAMELET_JSON_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CASSANDRASINK_KAMELET_JSON_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CASSANDRASINK_KAMELET_JSON_PAYLOAD_DOC);
         return conf;
     }
 }
