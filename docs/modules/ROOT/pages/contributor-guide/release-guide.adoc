@@ -70,7 +70,6 @@ Add and commit all the updated json with a commit comment on the line of `"[afte
 
 [source,shell]
 ----
-$ git add *.json
 $ git checkout $RELEASE_TAG
 $ git add *.json
 $ git commit -m"[after release perform chore]: regen catalog descriptors with new version"
@@ -91,6 +90,8 @@ If you feel brave, the above two steps could be performed together:
 ----
 $ ./mvnw -Pgpg clean release:clean release:prepare -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$NEXT_VERSION -B release:perform
 ----
+
+TIP: All the steps above have been automated in a script that you can run with `./release-utils/release.sh` . You should input the requested information that are used to fill in the exported variable describe in xref:_export_local_variables_for_convenience section.
 
 In case an issue occurs during `release:perform`, it could be worth trying to resume from the failing artifact.
 For instance, would an issue occurs while performing the release of `camel-splunk-kafka-connector`, a resume attempt could be triggered as below:
@@ -203,6 +204,18 @@ $ ./release-utils/scripts/promote-release.sh $RELEASE_VERSION
 == Create a release note
 
 Create a release note in https://github.com/apache/camel-website/tree/master/content/releases/ckc by coping and changing one of the already present.
+
+== Update Antora playbook
+
+Add the created release branch to https://github.com/apache/camel-website/blob/main/antora-playbook-snippets/antora-playbook.yml under:
+
+[source,yaml]
+----
+    - url: https://github.com/apache/camel-kafka-connector.git
+    branches:
+      - main
+      ...
+----
 
 == Update latest released version
 
