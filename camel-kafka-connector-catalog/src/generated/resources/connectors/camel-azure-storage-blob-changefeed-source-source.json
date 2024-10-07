@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-changefeed-source-source",
 		"type": "source",
-		"version": "4.8.0-SNAPSHOT",
+		"version": "4.8.1-SNAPSHOT",
 		"description": "Consume events from an Azure Storage Blob change feed."
 	},
 	"properties": {
