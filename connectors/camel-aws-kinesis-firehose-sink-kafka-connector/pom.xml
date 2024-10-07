@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.8.1-SNAPSHOT</version>
+    <version>4.9.0-SNAPSHOT</version>
   </parent>
   <artifactId>camel-aws-kinesis-firehose-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-kinesis-firehose-sink</name>

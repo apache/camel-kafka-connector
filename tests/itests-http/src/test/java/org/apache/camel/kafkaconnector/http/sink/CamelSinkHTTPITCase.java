@@ -69,7 +69,7 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
         localServer = ServerBootstrap.bootstrap()
                 .setLocalAddress(localhost)
                 .setListenerPort(NetworkUtils.getFreePort())
-                .register("/ckc", validationHandler)
+                .register(localhost.getHostName(), "/ckc", validationHandler)
                 .create();
 
         localServer.start();
@@ -83,7 +83,6 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
             localServer.close(CloseMode.IMMEDIATE, org.apache.hc.core5.util.Timeout.ofSeconds(2L));
         }
     }
-
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {
@@ -114,7 +113,6 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
             fail("Failed to receive the messages within the specified time");
         }
     }
-
 
     @Test
     @Timeout(90)
