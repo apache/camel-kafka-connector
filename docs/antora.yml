@@ -33,6 +33,6 @@ asciidoc:
     camel-version: 4.9.0-SNAPSHOT
     camel-docs-version: next
     camel-kamelets-version: 4.9.0-SNAPSHOT
-    camel-kamelets-docs-version: 4.9.x
+    camel-kamelets-docs-version: next
     kafka-version: 3.6.1
     kafka-docs-version: 28
