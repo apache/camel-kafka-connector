@@ -5,18 +5,19 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-http-sink",
 		"type": "sink",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.9.0-SNAPSHOT",
 		"description": "Netty HTTP server and client using the Netty 4.x."
 	},
 	"properties": {
 		"camel.sink.path.protocol": {
 			"name": "camel.sink.path.protocol",
-			"description": "The protocol to use which is either http, https or proxy - a consumer only option. One of: [http] [https]",
+			"description": "The protocol to use which is either http, https or proxy (consumer only). One of: [http] [https] [proxy]",
 			"priority": "HIGH",
 			"required": "true",
 			"enum": [
 				"http",
-				"https"
+				"https",
+				"proxy"
 			]
 		},
 		"camel.sink.path.host": {

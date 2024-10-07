@@ -87,6 +87,12 @@ public class CamelFileSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_CONF = "camel.sink.endpoint.autoCreate";
     public static final String CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_DOC = "Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to.";
     public static final Boolean CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_DEFAULT = true;
+    public static final String CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_CONF = "camel.sink.endpoint.autoCreateStepwise";
+    public static final String CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DOC = "When auto-creating directories should each subdirectory be created one at a time. This may be needed due to security issues on some file-shares.";
+    public static final Boolean CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DEFAULT = false;
+    public static final String CAMEL_SINK_FILE_ENDPOINT_BROWSE_LIMIT_CONF = "camel.sink.endpoint.browseLimit";
+    public static final String CAMEL_SINK_FILE_ENDPOINT_BROWSE_LIMIT_DOC = "Maximum number of messages to keep in memory available for browsing. Use 0 for unlimited.";
+    public static final Integer CAMEL_SINK_FILE_ENDPOINT_BROWSE_LIMIT_DEFAULT = 100;
     public static final String CAMEL_SINK_FILE_ENDPOINT_BUFFER_SIZE_CONF = "camel.sink.endpoint.bufferSize";
     public static final String CAMEL_SINK_FILE_ENDPOINT_BUFFER_SIZE_DOC = "Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files).";
     public static final Integer CAMEL_SINK_FILE_ENDPOINT_BUFFER_SIZE_DEFAULT = 131072;
@@ -145,6 +151,8 @@ public class CamelFileSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_FILE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FILE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_FILE_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FILE_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_DOC);
         conf.define(CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_DOC);
+        conf.define(CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DOC);
+        conf.define(CAMEL_SINK_FILE_ENDPOINT_BROWSE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SINK_FILE_ENDPOINT_BROWSE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_BROWSE_LIMIT_DOC);
         conf.define(CAMEL_SINK_FILE_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_FILE_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DOC);
         conf.define(CAMEL_SINK_FILE_ENDPOINT_RENAME_USING_COPY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FILE_ENDPOINT_RENAME_USING_COPY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FILE_ENDPOINT_RENAME_USING_COPY_DOC);

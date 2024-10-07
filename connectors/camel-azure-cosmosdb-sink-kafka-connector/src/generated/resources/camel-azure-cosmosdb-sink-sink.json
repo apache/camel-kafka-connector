@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-cosmosdb-sink-sink",
 		"type": "sink",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.9.0-SNAPSHOT",
 		"description": "Send Data to an Azure CosmosDB instance\n\nIn the headers, you can optionally set the `itemPartitionKey` \/ `ce-itemPartitionKey` property to specify the partition key for a specific item.\n\nIf you do not set the property in the header, you'll need to use the static property itemPartitonKey.\n\nThere are two different mechanism of authentication `SHARED_ACCOUNT_KEY` and `AZURE_IDENTITY`, you could specify with credentialType property. If you're using `SHARED_ACCOUNT_KEY` accountKey property will be needed.\n\nIn case of `AZURE_IDENTITY` selection, the DefaultAzureCredential will attempt to authenticate via the following mechanisms in the following order enviroment, Workload Identity, Managed Identity, Azure Developer CLI, IntelliJ, Azure CLI and Azure Powershell. "
 	},
 	"properties": {

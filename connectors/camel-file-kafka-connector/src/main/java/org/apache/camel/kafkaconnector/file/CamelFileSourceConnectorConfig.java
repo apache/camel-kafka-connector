@@ -107,6 +107,12 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_CONF = "camel.source.endpoint.autoCreate";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DOC = "Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_CONF = "camel.source.endpoint.autoCreateStepwise";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DOC = "When auto-creating directories should each subdirectory be created one at a time. This may be needed due to security issues on some file-shares.";
+    public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DEFAULT = false;
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_BROWSE_LIMIT_CONF = "camel.source.endpoint.browseLimit";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_BROWSE_LIMIT_DOC = "Maximum number of messages to keep in memory available for browsing. Use 0 for unlimited.";
+    public static final Integer CAMEL_SOURCE_FILE_ENDPOINT_BROWSE_LIMIT_DEFAULT = 100;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_CONF = "camel.source.endpoint.bufferSize";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DOC = "Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files).";
     public static final Integer CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DEFAULT = 131072;
@@ -324,6 +330,8 @@ public class CamelFileSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DOC);
+        conf.define(CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_STEPWISE_DOC);
+        conf.define(CAMEL_SOURCE_FILE_ENDPOINT_BROWSE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FILE_ENDPOINT_BROWSE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_BROWSE_LIMIT_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DOC);

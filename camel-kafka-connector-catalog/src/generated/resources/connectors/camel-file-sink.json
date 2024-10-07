@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-file-sink",
 		"type": "sink",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.9.0-SNAPSHOT",
 		"description": "Read and write files."
 	},
 	"properties": {
@@ -164,6 +164,20 @@
 			"name": "camel.sink.endpoint.autoCreate",
 			"description": "Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.autoCreateStepwise": {
+			"name": "camel.sink.endpoint.autoCreateStepwise",
+			"description": "When auto-creating directories should each subdirectory be created one at a time. This may be needed due to security issues on some file-shares.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.browseLimit": {
+			"name": "camel.sink.endpoint.browseLimit",
+			"description": "Maximum number of messages to keep in memory available for browsing. Use 0 for unlimited.",
+			"defaultValue": "100",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

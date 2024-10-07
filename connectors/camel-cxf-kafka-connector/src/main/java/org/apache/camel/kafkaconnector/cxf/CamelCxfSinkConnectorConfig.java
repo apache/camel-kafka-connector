@@ -132,6 +132,9 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.cxf.lazyStartProducer";
     public static final String CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_CXF_COMPONENT_SYNCHRONOUS_CONF = "camel.component.cxf.synchronous";
+    public static final String CAMEL_SINK_CXF_COMPONENT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
+    public static final Boolean CAMEL_SINK_CXF_COMPONENT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_CONF = "camel.component.cxf.allowStreaming";
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT = null;
@@ -193,6 +196,7 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CXF_ENDPOINT_SERVICE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_SERVICE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SERVICE_NAME_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_WSDL_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_WSDL_URLDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_WSDL_URLDOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_CXF_COMPONENT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_COMPONENT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_DOC);

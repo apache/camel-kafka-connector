@@ -27,7 +27,7 @@ public class CamelNettyhttpSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_NETTYHTTP_PATH_PROTOCOL_CONF = "camel.source.path.protocol";
-    public static final String CAMEL_SOURCE_NETTYHTTP_PATH_PROTOCOL_DOC = "The protocol to use which is either http, https or proxy - a consumer only option. One of: [http] [https]";
+    public static final String CAMEL_SOURCE_NETTYHTTP_PATH_PROTOCOL_DOC = "The protocol to use which is either http, https or proxy (consumer only). One of: [http] [https] [proxy]";
     public static final String CAMEL_SOURCE_NETTYHTTP_PATH_PROTOCOL_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_PATH_HOST_CONF = "camel.source.path.host";
     public static final String CAMEL_SOURCE_NETTYHTTP_PATH_HOST_DOC = "The local hostname such as localhost, or 0.0.0.0 when being a consumer. The remote HTTP server hostname when using producer.";

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-bedrock-text-sink-sink",
 		"type": "sink",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.9.0-SNAPSHOT",
 		"description": "Send data for invoking a text model of Amazon Bedrock.\n\nThe basic authentication method for the Bedrock service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the Bedrock client loads the credentials through this provider and doesn't use the basic authentication method."
 	},
 	"properties": {
