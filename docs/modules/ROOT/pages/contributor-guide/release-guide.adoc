@@ -109,7 +109,7 @@ $ ./mvnw -Prelease -Pgpg -Dusername=$APACHE_USER -Dpassword=$APACHE_PASS deploy 
  * select the open repository (the name usually contains a number)
  * close it
 
-There will be some checks done by nexus, wiat tho see that they complete successfully.
+There will be some checks done by nexus, wiat until they complete successfully.
 
 == Upload the staging sources to Apache dev server
 
@@ -159,6 +159,14 @@ where `X` is the release you are performing and `Y` is the staging repository nu
 == Merge the release branch back in main
 
 This may require a rebase of `main` branch on the release branch if some commits have been added to `main` after you created the release branch (in that case you can perform a `push -f` on `main`)
+
+== Update documentation versions
+
+In the `$RELEASE_BRANCH` update versions both in `docs/antora.yml` and `connectors/antora.yml`.
+
+NOTE: The version you would usually use is the branch one, i.e. 4.8.x if you are releasing 4.8.0 or subsequent patch versions.
+
+Push the changes upstream in `$RELEASE_BRANCH`
 
 == Close the vote
 Once the  vote time has passed send another email with object: `[RESULT][VOTE] Release Camel-Kafka-connector $RELEASE_VERSION` with the count of binding and not binding votes. The message can be something like:
