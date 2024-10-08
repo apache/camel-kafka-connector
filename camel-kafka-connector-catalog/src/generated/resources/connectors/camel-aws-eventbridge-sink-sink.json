@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-eventbridge-sink-sink",
 		"type": "sink",
-		"version": "4.8.0-SNAPSHOT",
+		"version": "4.8.1-SNAPSHOT",
 		"description": "Send events to an Amazon Eventbridge Eventbus.\n\nThe basic authentication method for the Eventbridge service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the Eventbridge client loads the credentials through this provider and doesn't use the basic authentication method.\n\nIn the headers, you need to set the `resources-arn` \/ `ce-resources-arn` property to specify the ARN of resources related to the event.\n\nIn the headers, you need to set the `detail-type` \/ `ce-detail-type` property to specify the detail type related to the event.\n\nIn the headers, you need to set the `event-source` \/ `ce-event-source` property to specify the event source related to the event.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the file name."
 	},
 	"properties": {
