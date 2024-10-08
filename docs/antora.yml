@@ -32,6 +32,6 @@ asciidoc:
     camel-version: 4.8.0
     camel-docs-version: 4.8.x
     camel-kamelets-version: 4.8.0
-    camel-kamelets-docs-version: 4.4.x
+    camel-kamelets-docs-version: 4.8.x
     kafka-version: 3.6.1
     kafka-docs-version: 28
