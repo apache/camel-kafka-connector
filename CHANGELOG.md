@@ -4,11 +4,13 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/amel-kafka-connector-4.8.0...HEAD)
 
+**Closed issues:**
+
+- Release CKC 4.8.0 [\#1669](https://github.com/apache/camel-kafka-connector/issues/1669)
+
 **Merged pull requests:**
 
 - Updated to camel 4.8.0 [\#1678](https://github.com/apache/camel-kafka-connector/pull/1678) ([valdar](https://github.com/valdar))
-- Bump actions/checkout from 4.1.7 to 4.2.0 [\#1677](https://github.com/apache/camel-kafka-connector/pull/1677) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump actions/setup-java from 4.3.0 to 4.4.0 [\#1676](https://github.com/apache/camel-kafka-connector/pull/1676) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 7.0.3 to 7.0.5 [\#1673](https://github.com/apache/camel-kafka-connector/pull/1673) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 7.0.1 to 7.0.3 [\#1670](https://github.com/apache/camel-kafka-connector/pull/1670) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1668](https://github.com/apache/camel-kafka-connector/pull/1668) ([github-actions[bot]](https://github.com/apps/github-actions))
