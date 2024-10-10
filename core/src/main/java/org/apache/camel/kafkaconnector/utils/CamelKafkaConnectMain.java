@@ -47,6 +47,8 @@ public class CamelKafkaConnectMain extends SimpleMain {
     public static final String KAMELET_IDEMPOTENT_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcIdempotent.";
     public static final String KAMELET_REMOVEHEADER_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcRemoveHeader.";
 
+    private static final String CAMEL_PROPERTY_PREFIX = "camel.";
+
     private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectMain.class);
 
     protected volatile ConsumerTemplate consumerTemplate;
@@ -227,7 +229,10 @@ public class CamelKafkaConnectMain extends SimpleMain {
             camelMain.configure().setDumpRoutes(Boolean.TRUE.toString());
 
             Properties camelProperties = new Properties();
-            camelProperties.putAll(props);
+            Map<String, String> camelProps = props.entrySet().stream()
+                .filter(entry -> entry.getKey().startsWith(CAMEL_PROPERTY_PREFIX))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            camelProperties.putAll(camelProps);
 
             //error handler
             camelMain.getCamelContext().getRegistry().bind("ckcErrorHandler", new DefaultErrorHandlerBuilder());
