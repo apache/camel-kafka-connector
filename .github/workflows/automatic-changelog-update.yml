@@ -30,7 +30,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.repository == 'apache/camel-kafka-connector'
     steps:
       - name: "Checkout camel-kafka-connector"
-        uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v4.2.1
         with:
           persist-credentials: false
           submodules: recursive
