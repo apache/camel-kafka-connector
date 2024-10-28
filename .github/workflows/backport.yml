@@ -28,7 +28,7 @@ jobs:
     name: Backport
     steps:
       - name: "Checkout camel-kafka-connector"
-        uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v4.2.2
         with:
           persist-credentials: false
           submodules: recursive
