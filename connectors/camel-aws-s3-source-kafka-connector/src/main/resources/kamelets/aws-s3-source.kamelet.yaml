@@ -212,7 +212,6 @@ spec:
   dependencies:
     - "camel:core"
     - "camel:aws2-s3"
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT"
     - "camel:kamelet"
   template:
     from:

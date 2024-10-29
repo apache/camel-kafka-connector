@@ -159,7 +159,6 @@ spec:
                 type: object
                 description: Attribute value map specifies all attributes to change with the given operation.
   dependencies:
-  - mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT
   - "camel:core"
   - "camel:jackson"
   - "camel:aws2-ddb"

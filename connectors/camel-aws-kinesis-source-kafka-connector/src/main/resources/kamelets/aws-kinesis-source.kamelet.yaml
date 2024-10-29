@@ -129,7 +129,6 @@ spec:
     - "camel:aws2-kinesis"
     - "camel:kamelet"
     - "camel:core"
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT"
   template:
     from:
       uri: aws2-kinesis:{{stream}}

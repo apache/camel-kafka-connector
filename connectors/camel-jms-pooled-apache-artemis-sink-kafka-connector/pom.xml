@@ -44,7 +44,7 @@
     <dependency>
       <groupId>org.messaginghub</groupId>
       <artifactId>pooled-jms</artifactId>
-      <version>3.1.6</version>
+      <version>3.1.7</version>
     </dependency>
     <dependency>
       <groupId>org.apache.activemq</groupId>
