@@ -253,13 +253,16 @@ public class CamelKafkaConnectorKameletUpdateMojo extends AbstractCamelKameletKa
 
     private Set<String> getKameletDependencies(KameletModel kamelet) throws XPathExpressionException {
         Set<String> deps = new HashSet<>(kamelet.getDependencies());
-        Set<String> gavDeps = deps.stream().map(stringDep -> {
+        Set<String> gavDeps = deps.stream()
+        .filter(stringDep -> stringDep != null && !stringDep.trim().isEmpty() && !"null".equals(stringDep.trim()))
+        .map(stringDep -> {
             if (stringDep.startsWith("mvn:")) {
                 return stringDep.replaceFirst("mvn:", "");
             } else if (stringDep.startsWith("camel:")) {
                 return getMainDepGroupId() + ":" + stringDep.replaceFirst(":", "-");
             } else {
-                getLog().warn("Dependency " + stringDep + "is used as is. Might not be the intended behaviour!");
+                String length = stringDep == null ?  "the string is null value" : Integer.toString(stringDep.length());
+                getLog().warn("Dependency string: " + stringDep + " (length of the string is: " + length + ") is used as is. Might not be the intended behaviour!");
                 return stringDep;
             }
         }).collect(Collectors.toSet());

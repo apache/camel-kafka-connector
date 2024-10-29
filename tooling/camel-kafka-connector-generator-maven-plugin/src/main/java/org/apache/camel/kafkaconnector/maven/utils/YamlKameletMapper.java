@@ -65,7 +65,11 @@ public final class YamlKameletMapper {
         km.setRequiredProperties(requiredProperties);
 
         Set<String> dependencies = new HashSet<>();
-        kameletYamlNode.at("/spec/dependencies").forEach(req -> dependencies.add(req.asText()));
+        kameletYamlNode.at("/spec/dependencies").forEach(req -> {
+            if (req != null && !req.isNull()) {
+                dependencies.add(req.asText());
+            }
+        });
         km.setDependencies(dependencies);
 
         List<KameletPropertyModel> kpms = new ArrayList<>();
