@@ -148,7 +148,6 @@ spec:
         type: boolean
         default: false
   dependencies:
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT"
     - "camel:core"
     - "camel:kafka"
     - "camel:kamelet"
@@ -177,7 +176,7 @@ spec:
           topicIsPattern: '{{topicIsPattern}}'
         type: '#class:org.apache.camel.component.kafka.KafkaConfiguration'
       - name: kafkaHeaderDeserializer
-        type: "#class:org.apache.camel.kamelets.utils.serialization.kafka.KafkaHeaderDeserializer"
+        type: "#class:org.apache.camel.component.kamelet.utils.serialization.kafka.KafkaHeaderDeserializer"
         properties:
           enabled: '{{deserializeHeaders}}'
     from:

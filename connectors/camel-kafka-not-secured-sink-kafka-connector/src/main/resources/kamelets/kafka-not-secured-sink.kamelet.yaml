@@ -56,7 +56,6 @@ spec:
   dependencies:
     - "camel:core"
     - "camel:kafka"
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT"
     - "camel:kamelet"
   template:
     from:

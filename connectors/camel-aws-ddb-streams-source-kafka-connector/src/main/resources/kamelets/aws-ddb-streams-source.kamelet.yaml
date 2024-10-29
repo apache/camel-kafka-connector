@@ -155,7 +155,7 @@ spec:
               description: The exchange creation timestamp as event time.
               type: string
   dependencies:
-  - mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT
+  - 
   - "camel:gson"
   - "camel:aws2-ddb"
   - "camel:kamelet"

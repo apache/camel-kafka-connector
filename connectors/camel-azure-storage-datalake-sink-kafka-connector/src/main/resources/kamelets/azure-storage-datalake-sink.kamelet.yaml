@@ -85,7 +85,6 @@ spec:
     - "camel:kamelet"
     - "camel:core"
     - "camel:timer"
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT"
   template:
     from:
       uri: "kamelet:source"

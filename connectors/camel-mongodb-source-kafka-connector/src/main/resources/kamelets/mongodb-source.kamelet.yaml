@@ -92,13 +92,12 @@ spec:
     - "camel:kamelet"
     - "camel:mongodb"
     - "camel:jackson"
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT"
   template:
     beans:
       - name: local-mongodb
         type: "#class:org.apache.camel.component.mongodb.MongoDbComponent"
       - name: mongo-client
-        type: "#class:org.apache.camel.kamelets.utils.mongodb.SslAwareMongoClient"
+        type: "#class:org.apache.camel.component.kamelet.utils.mongodb.SslAwareMongoClient"
         properties:
           password: "{{?password}}"
           username: "{{?username}}"

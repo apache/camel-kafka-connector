@@ -149,7 +149,6 @@ spec:
     - "camel:core"
     - "camel:jsonpath"
     - "camel:timer"
-    - "mvn:org.apache.camel.kamelets:camel-kamelets-utils:4.9.0-SNAPSHOT"
   template:
     from:
       uri: "azure-storage-blob:{{accountName}}/{{containerName}}"
