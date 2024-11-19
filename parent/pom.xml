@@ -27,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <kafka.version>3.6.1</kafka.version>
+        <kafka.version>3.7.1</kafka.version>
         <camel.version>4.9.0-SNAPSHOT</camel.version>
         <camel.kamelet.catalog.version>4.9.0-SNAPSHOT</camel.kamelet.catalog.version>
         <apicurio.registry.version>2.5.11.Final</apicurio.registry.version>
