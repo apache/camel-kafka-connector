@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - Upgrade avro to 1.11.4 [\#1681](https://github.com/apache/camel-kafka-connector/issues/1681)
+- Request CamelHttpsSinkConnector can expose property camel.sink.endpoint.okStatusCodeRange [\#1675](https://github.com/apache/camel-kafka-connector/issues/1675)
 - Release CKC 4.8.0 [\#1669](https://github.com/apache/camel-kafka-connector/issues/1669)
 
 **Merged pull requests:**
