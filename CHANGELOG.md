@@ -12,6 +12,7 @@
 
 **Merged pull requests:**
 
+- Bump org.apache.kafka:kafka-clients from 3.6.1 to 3.7.1 in /parent [\#1689](https://github.com/apache/camel-kafka-connector/pull/1689) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Added the handling of https://github.com/apache/camel-kamelets/issues… [\#1686](https://github.com/apache/camel-kafka-connector/pull/1686) ([valdar](https://github.com/valdar))
 - Bump actions/setup-java from 4.4.0 to 4.5.0 [\#1685](https://github.com/apache/camel-kafka-connector/pull/1685) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 4.2.0 to 4.2.2 [\#1684](https://github.com/apache/camel-kafka-connector/pull/1684) ([dependabot[bot]](https://github.com/apps/dependabot))
