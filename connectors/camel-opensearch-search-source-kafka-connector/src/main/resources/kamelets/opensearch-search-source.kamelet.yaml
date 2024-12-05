@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "source"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.9.0-SNAPSHOT"
+    camel.apache.org/catalog.version: "4.9.0"
     camel.apache.org/kamelet.group: "OpenSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"

@@ -46,6 +46,11 @@
       <artifactId>camel-jackson</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.13.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>
@@ -56,11 +61,6 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-yaml-dsl</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-dbcp2</artifactId>
-      <version>2.12.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
