@@ -171,6 +171,15 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_CONF = "camel.sink.endpoint.authUsername";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DOC = "Authentication username";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_CONF = "camel.sink.endpoint.oauth2CachedTokensDefaultExpirySeconds";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DOC = "Default expiration time for cached OAuth2 tokens, in seconds. Used if token response does not contain 'expires_in' field.";
+    public static final Long CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DEFAULT = 3600L;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_CONF = "camel.sink.endpoint.oauth2CachedTokensExpirationMarginSeconds";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_DOC = "Amount of time which is deducted from OAuth2 tokens expiry time to compensate for the time it takes OAuth2 Token Endpoint to send the token over http, in seconds. Set this parameter to high value if you OAuth2 Token Endpoint answers slowly or you tokens expire quickly. If you set this parameter to too small value, you can get 4xx http errors because camel will think that the received token is still valid, while in reality the token is expired for the Authentication server.";
+    public static final Long CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_DEFAULT = 5L;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_CONF = "camel.sink.endpoint.oauth2CacheTokens";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_DOC = "Whether to cache OAuth2 client tokens.";
+    public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_DEFAULT = false;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_ID_CONF = "camel.sink.endpoint.oauth2ClientId";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_ID_DOC = "OAuth2 client id";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_ID_DEFAULT = null;
@@ -371,6 +380,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_AUTH_METHOD_PRIORITY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_METHOD_PRIORITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_METHOD_PRIORITY_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_AUTH_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_PASSWORD_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_CONF, ConfigDef.Type.LONG, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_CONF, ConfigDef.Type.LONG, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_ID_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_ID_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_SECRET_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CLIENT_SECRET_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2SCOPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2SCOPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2SCOPE_DOC);
