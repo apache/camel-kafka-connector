@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-oracle-database-sink-sink",
 		"type": "sink",
-		"version": "4.9.0-SNAPSHOT",
+		"version": "4.10.0-SNAPSHOT",
 		"description": "Send data to an Oracle Database.\n\nIn your Pipe file, you must explicitly declare the Oracle Database driver dependency in spec->integration->dependencies.\n\n- \"mvn:com.oracle.database.jdbc:ojdbc11:<version>\"\n\nThis Kamelet expects a JSON-formatted body. Use key:value pairs to map the JSON fields and parameters. For example, here is a query:\n\n'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'\n\nHere is example input for the example query:\n\n'{ \"username\":\"oscerd\", \"city\":\"Rome\"}'"
 	},
 	"properties": {

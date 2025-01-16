@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mqtt5-sink-sink",
 		"type": "sink",
-		"version": "4.9.0-SNAPSHOT",
+		"version": "4.10.0-SNAPSHOT",
 		"description": "Allows sending messages to any endpoint that supports the MQTT v5 protocol, such as a message broker."
 	},
 	"properties": {

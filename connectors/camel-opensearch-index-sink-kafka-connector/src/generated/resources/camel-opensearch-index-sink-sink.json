@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-opensearch-index-sink-sink",
 		"type": "sink",
-		"version": "4.9.0-SNAPSHOT",
+		"version": "4.10.0-SNAPSHOT",
 		"description": "Stores JSON-formatted data into Opensearch.\n\nThe input data must be formatted in JSON according to the requirements of the index.\n\nIf you specify the `certificate` property, you must base64 encode it before you pass it as a parameter.\n\nIn the header, you can set the following properties:\n\n- `indexId` \/ `ce-indexid`: The index ID for OpenSearch.\n\n- `indexName` \/ `ce-indexname`: The index name for OpenSearch.\n\nIf you do not set a property in the header, the Kamelet uses the exchange ID for the index setting."
 	},
 	"properties": {
