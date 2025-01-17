@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Not able to create Uber jar/Fat jar with all modules dependencies  [\#1691](https://github.com/apache/camel-kafka-connector/issues/1691)
 - Camel FTPS Source Connector not working [\#1690](https://github.com/apache/camel-kafka-connector/issues/1690)
 - Upgrade avro to 1.11.4 [\#1681](https://github.com/apache/camel-kafka-connector/issues/1681)
 - Request CamelHttpsSinkConnector can expose property camel.sink.endpoint.okStatusCodeRange [\#1675](https://github.com/apache/camel-kafka-connector/issues/1675)
@@ -13,6 +14,7 @@
 
 **Merged pull requests:**
 
+- Bump peter-evans/create-pull-request from 7.0.5 to 7.0.6 [\#1694](https://github.com/apache/camel-kafka-connector/pull/1694) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/setup-java from 4.5.0 to 4.6.0 [\#1693](https://github.com/apache/camel-kafka-connector/pull/1693) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump org.apache.kafka:kafka-clients from 3.6.1 to 3.7.1 in /parent [\#1689](https://github.com/apache/camel-kafka-connector/pull/1689) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Added the handling of https://github.com/apache/camel-kamelets/issues… [\#1686](https://github.com/apache/camel-kafka-connector/pull/1686) ([valdar](https://github.com/valdar))
