@@ -54,6 +54,12 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.kamelet.kafka-ssl-sink.sslTruststorePassword": {
+			"name": "camel.kamelet.kafka-ssl-sink.sslTruststorePassword",
+			"description": "The store password for the trust store file.",
+			"priority": "HIGH",
+			"required": "true"
+		},
 		"camel.kamelet.kafka-ssl-sink.sslKeyPassword": {
 			"name": "camel.kamelet.kafka-ssl-sink.sslKeyPassword",
 			"description": "The password of the private key in the key store file.",

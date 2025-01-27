@@ -50,13 +50,13 @@
       <artifactId>camel-jackson</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.camel.kafkaconnector</groupId>
-      <artifactId>camel-kafka-connector</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel.kamelets</groupId>
       <artifactId>camel-kamelets-utils</artifactId>
-      <version>4.8.0</version>
+      <version>4.8.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.kafkaconnector</groupId>
+      <artifactId>camel-kafka-connector</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

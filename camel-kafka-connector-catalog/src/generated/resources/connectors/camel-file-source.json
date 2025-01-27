@@ -188,6 +188,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.autoCreateStepwise": {
+			"name": "camel.source.endpoint.autoCreateStepwise",
+			"description": "When auto-creating directories should each subdirectory be created one at a time. This may be needed due to security issues on some file-shares.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.bufferSize": {
 			"name": "camel.source.endpoint.bufferSize",
 			"description": "Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files).",

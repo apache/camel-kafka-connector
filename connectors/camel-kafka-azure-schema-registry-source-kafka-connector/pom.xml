@@ -50,6 +50,11 @@
       <artifactId>camel-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.camel.kamelets</groupId>
+      <artifactId>camel-kamelets-utils</artifactId>
+      <version>4.8.3</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>
@@ -57,11 +62,6 @@
       <groupId>com.azure</groupId>
       <artifactId>azure-data-schemaregistry-apacheavro</artifactId>
       <version>1.1.20</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel.kamelets</groupId>
-      <artifactId>camel-kamelets-utils</artifactId>
-      <version>4.8.0</version>
     </dependency>
     <dependency>
       <groupId>com.azure</groupId>
