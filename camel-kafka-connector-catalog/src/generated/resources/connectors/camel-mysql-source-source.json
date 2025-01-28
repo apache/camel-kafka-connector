@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mysql-source-source",
 		"type": "source",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.8.3",
 		"description": "Query data from a MySQL Database.\n\nIn your Pipe file, you must explicitly declare the SQL Server driver dependency in spec->integration->dependencies.\n\n- \"mvn:mysql:mysql-connector-java:<version>\""
 	},
 	"properties": {

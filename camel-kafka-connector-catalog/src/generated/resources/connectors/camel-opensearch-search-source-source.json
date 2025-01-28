@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-opensearch-search-source-source",
 		"type": "source",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.8.3",
 		"description": "Search data on OpenSearch\n\nThe `query` parameter must be formatted in JSON.\n\nIf you specify the `certificate` property, you must base64 encode it before you pass it as a parameter."
 	},
 	"properties": {
