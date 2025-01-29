@@ -2,15 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/amel-kafka-connector-4.8.0...HEAD)
-
-**Closed issues:**
-
-- Not able to create Uber jar/Fat jar with all modules dependencies  [\#1691](https://github.com/apache/camel-kafka-connector/issues/1691)
-- Camel FTPS Source Connector not working [\#1690](https://github.com/apache/camel-kafka-connector/issues/1690)
-- Upgrade avro to 1.11.4 [\#1681](https://github.com/apache/camel-kafka-connector/issues/1681)
-- Request CamelHttpsSinkConnector can expose property camel.sink.endpoint.okStatusCodeRange [\#1675](https://github.com/apache/camel-kafka-connector/issues/1675)
-- Release CKC 4.8.0 [\#1669](https://github.com/apache/camel-kafka-connector/issues/1669)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.8.3...HEAD)
 
 **Merged pull requests:**
 
@@ -462,6 +454,18 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-4.8.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.8.3) (2025-01-28)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/amel-kafka-connector-4.8.0...camel-kafka-connector-4.8.3)
+
+**Closed issues:**
+
+- Not able to create Uber jar/Fat jar with all modules dependencies  [\#1691](https://github.com/apache/camel-kafka-connector/issues/1691)
+- Camel FTPS Source Connector not working [\#1690](https://github.com/apache/camel-kafka-connector/issues/1690)
+- Upgrade avro to 1.11.4 [\#1681](https://github.com/apache/camel-kafka-connector/issues/1681)
+- Request CamelHttpsSinkConnector can expose property camel.sink.endpoint.okStatusCodeRange [\#1675](https://github.com/apache/camel-kafka-connector/issues/1675)
+- Release CKC 4.8.0 [\#1669](https://github.com/apache/camel-kafka-connector/issues/1669)
 
 ## [amel-kafka-connector-4.8.0](https://github.com/apache/camel-kafka-connector/tree/amel-kafka-connector-4.8.0) (2024-10-02)
 
