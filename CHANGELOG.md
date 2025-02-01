@@ -4,6 +4,11 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.8.3...HEAD)
 
+**Closed issues:**
+
+- build is not successful for version - 4.9.0-SNAPSHOT [\#1695](https://github.com/apache/camel-kafka-connector/issues/1695)
+- Getting error on camel splunk hec connector Failed to resolve endpoint: ... due to: Invalid URI [\#1692](https://github.com/apache/camel-kafka-connector/issues/1692)
+
 **Merged pull requests:**
 
 - Bump peter-evans/create-pull-request from 7.0.5 to 7.0.6 [\#1694](https://github.com/apache/camel-kafka-connector/pull/1694) ([dependabot[bot]](https://github.com/apps/dependabot))
