@@ -31,8 +31,7 @@ metadata:
 spec:
   definition:
     title: "Azure Storage Blob Changefeed Source"
-    description: |-
-      Consume events from an Azure Storage Blob change feed.
+    description: Consume events from an Azure Storage Blob change feed.
     required:
       - period
       - accountName

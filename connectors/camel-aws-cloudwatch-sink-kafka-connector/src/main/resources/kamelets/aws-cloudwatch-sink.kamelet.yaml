@@ -31,21 +31,7 @@ metadata:
 spec:
   definition:
     title: "AWS CloudWatch Metrics Sink"
-    description: |-
-      Send data to Amazon CloudWatch metrics.
-
-      The basic authentication method for the AWS CloudWatch metrics service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
-      
-      If you use the default credentials provider, the CloudWatch client loads the credentials through this provider and doesn't use the basic authentication method.
-      
-      You can set the following properties in the header:
-
-      `metric-name` / `ce-metricname` for the metric name.
-      `metric-value` / `ce-metricvalue` for the metric value.
-      `metric-unit` / `ce-metricunit` for the metric unit.
-      `metric-timestamp` / `ce-metrictimestamp` for the metric timestamp.
-      `metric-dimension-name` / `ce-metricdimensionname` for the dimension name.
-      `metric-dimension-value` / `ce-metricdimensionvalue` for the dimension value.
+    description: Send data to Amazon CloudWatch metrics.
     required:
       - cwNamespace
       - region

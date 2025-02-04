@@ -31,12 +31,7 @@ metadata:
 spec:
   definition:
     title: AWS Lambda Sink
-    description: |-
-      Send a payload to an AWS Lambda function.
-
-      The basic authentication method for the Lambda service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
-      
-      If you use the default credentials provider, the Lambda client loads the credentials through this provider and doesn't use the basic authentication method.
+    description: Send a payload to an AWS Lambda function.
     required:
       - function
       - region

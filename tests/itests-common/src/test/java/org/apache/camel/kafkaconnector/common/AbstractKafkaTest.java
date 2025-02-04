@@ -22,11 +22,11 @@ import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnect
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectService;
 import org.apache.camel.kafkaconnector.common.utils.PropertyUtils;
 import org.apache.camel.test.infra.common.TestUtils;
-import org.apache.camel.test.infra.kafka.services.ContainerLocalKafkaService;
 import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.apache.camel.test.infra.kafka.services.KafkaServiceFactory;
-import org.apache.camel.test.infra.kafka.services.RemoteKafkaService;
-import org.apache.camel.test.infra.kafka.services.StrimziService;
+import org.apache.camel.test.infra.kafka.services.KafkaServiceFactory.ContainerLocalKafkaService;
+import org.apache.camel.test.infra.kafka.services.KafkaServiceFactory.RemoteKafkaService;
+import org.apache.camel.test.infra.kafka.services.KafkaServiceFactory.StrimziService;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 public abstract class AbstractKafkaTest {
@@ -49,7 +49,7 @@ public abstract class AbstractKafkaTest {
                 .addRemoteMapping(RemoteKafkaService::new)
                 .addMapping("embedded", EmbeddedKafkaService::new)
                 .addMapping("local-strimzi-container", StrimziService::new)
-                .addMapping("local-cp-kafka-container", ContainerLocalKafkaService::new)
+                .addMapping("local-cp-kafka-container", ContainerLocalKafkaService::kafka3Container)
                 .build();
 
         kafkaService.initialize();

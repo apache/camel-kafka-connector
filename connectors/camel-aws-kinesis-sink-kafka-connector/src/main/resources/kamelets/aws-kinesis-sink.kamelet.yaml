@@ -31,19 +31,7 @@ metadata:
 spec:
   definition:
     title: "AWS Kinesis Sink"
-    description: |-
-      Send data to AWS Kinesis.
-
-      The basic authentication method for the Kinesis service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
-      
-      If you use the default credentials provider, the Kinesis client loads the credentials through this provider and doesn't use the basic authentication method.
-      
-      In the header, you can optionally set the `file` / `ce-partition` property to set the Kinesis partition key.
-
-      If you do not set the property in the header, the Kamelet uses the exchange ID for the partition key.
-
-      You can also set the `sequence-number` / `ce-sequencenumber` property in the header to specify the Sequence number.
-
+    description: Send data to AWS Kinesis.
     required:
       - stream
       - region

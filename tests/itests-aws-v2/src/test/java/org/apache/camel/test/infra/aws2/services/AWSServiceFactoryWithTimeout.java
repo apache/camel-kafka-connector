@@ -18,6 +18,7 @@ package org.apache.camel.test.infra.aws2.services;
 
 import java.util.function.Supplier;
 
+import org.apache.camel.test.infra.aws.common.services.AWSInfraService;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.common.services.SimpleTestServiceBuilder;
 
@@ -26,16 +27,16 @@ public final class AWSServiceFactoryWithTimeout {
     private AWSServiceFactoryWithTimeout() {
     }
 
-    public static <T extends AWSService> SimpleTestServiceBuilder<T> builder() {
+    public static <T extends AWSInfraService> SimpleTestServiceBuilder<T> builder() {
         return new SimpleTestServiceBuilder("aws");
     }
 
-    private static AWSService createService(Supplier<AWSService> supplier) {
-        return (AWSService)builder().addRemoteMapping(AWSRemoteService::new).addLocalMapping(supplier).withPropertyNameFormat("%s-service.instance.type").build();
+    private static AWSService createService(Supplier<AWSInfraService> supplier) {
+        return (AWSService)builder().addRemoteMapping(AWSRemoteInfraService::new).addLocalMapping(supplier).withPropertyNameFormat("%s-service.instance.type").build();
     }
 
     public static AWSService createKinesisService() {
-        return (AWSService)builder().addRemoteMapping(AWSRemoteService::new).addLocalMapping(AWSKinesisLocalContainerServiceWithTimeout::new).withPropertyNameFormat("%s-service.kinesis.instance.type").build();
+        return (AWSService)builder().addRemoteMapping(AWSRemoteInfraService::new).addLocalMapping(AWSKinesisLocalContainerServiceWithTimeout::new).withPropertyNameFormat("%s-service.kinesis.instance.type").build();
     }
 
     public static AWSService createSQSService() {

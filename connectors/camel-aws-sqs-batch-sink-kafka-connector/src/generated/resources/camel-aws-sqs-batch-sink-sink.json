@@ -6,7 +6,7 @@
 		"id": "camel-aws-sqs-batch-sink-sink",
 		"type": "sink",
 		"version": "4.10.0-SNAPSHOT",
-		"description": "Send Batch message to an AWS SQS Queue.\n\nAccess Key\/Secret Key are the basic method for authenticating to the AWS SQS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.\n\nWhen using a default Credentials Provider the SQS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet."
+		"description": "Send Batch message to an AWS SQS Queue."
 	},
 	"properties": {
 		"camel.kamelet.aws-sqs-batch-sink.queueNameOrArn": {

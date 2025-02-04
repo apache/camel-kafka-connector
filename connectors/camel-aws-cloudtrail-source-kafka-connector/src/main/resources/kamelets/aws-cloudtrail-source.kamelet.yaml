@@ -31,10 +31,7 @@ metadata:
 spec:
   definition:
     title: "AWS Cloudtrail Source"
-    description: |-
-      Receive data from an AWS Cloudtrail.
-
-      The basic authentication method for the Cloudtrail service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
+    description: Receive data from an AWS Cloudtrail.
     required:
       - region
     type: object

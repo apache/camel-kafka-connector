@@ -31,16 +31,7 @@ metadata:
 spec:
   definition:
     title: AWS Timestream Query Sink
-    description: |-
-      Query an AWS Timestream Database
-
-      Access Key/Secret Key are the basic method for authenticating to the AWS Timestream Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.
-      
-      When using a default Credentials Provider the Timestream client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.
-
-      The Kamelet expects the following headers to be set:
-
-      - `query` / `ce-query`: as a Timestream Query
+    description: Query an AWS Timestream Database
     required:
       - region
     type: object

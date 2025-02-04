@@ -87,10 +87,14 @@ spec:
   - "camel:jackson"
   - "camel:kamelet"
   - "camel:sql"
-  - "mvn:org.postgresql:postgresql:42.7.4"
-  - "mvn:org.apache.commons:commons-dbcp2:2.12.0"
+  - "mvn:org.postgresql:postgresql:42.7.5"
+  - "mvn:org.apache.commons:commons-dbcp2:2.13.0"
   template:
     beans:
+      - name: local-sql-postgres-sink
+        type: "#class:org.apache.camel.component.sql.SqlComponent"
+        properties:
+          autowiredEnabled: "false"
       - name: dsBean
         type: "#class:org.apache.commons.dbcp2.BasicDataSource"
         properties:
@@ -105,6 +109,6 @@ spec:
           json: 
             library: Jackson
       - to: 
-          uri: "sql:{{query}}"
+          uri: "{{local-sql-postgres-sink}}:{{query}}"
           parameters:
             dataSource: "#bean:{{dsBean}}"

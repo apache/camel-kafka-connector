@@ -32,14 +32,7 @@ metadata:
 spec:
   definition:
     title: "AWS SQS Source"
-    description: |-
-      Receive data from AWS SQS.
-
-      Access Key/Secret Key are the basic method for authenticating to the AWS SQS Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.
-      
-      When using a default Credentials Provider the SQS client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.
-
-      Two headers will be duplicated with different names for clarity at sink level, CamelAwsSqsMessageId will be duplicated into aws.sqs.message.id and CamelAwsSqsReceiptHandle will be duplicated in aws.sqs.receipt.handle
+    description: Receive data from AWS SQS.
     required:
       - queueNameOrArn
       - region
@@ -152,19 +145,19 @@ spec:
         title: Max Messages Per Poll
         description: The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values 1 to 10. Default 1.
         type: integer
-        minimum: 1
-        maximum: 10
+        minimum: "1"
+        maximum: "10"
         default: 1
       waitTimeSeconds:
         title: Wait Time Seconds
         description: The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than WaitTimeSeconds. If no messages are available and the wait time expires, the call does not return a message list.
         type: integer
-        minimum: 0
+        minimum: "0"
       visibilityTimeout:
         title: Visibility Timeout
         description: The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request.
         type: integer
-        minimum: 0
+        minimum: "0"
   dataTypes:
     out:
       default: text

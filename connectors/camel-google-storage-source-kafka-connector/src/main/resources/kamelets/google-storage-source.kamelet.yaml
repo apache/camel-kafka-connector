@@ -58,6 +58,14 @@ spec:
         description: Specifies to automatically create the Google Cloud Storage bucket.
         type: boolean
         default: false
+      prefix:
+        title: Prefix
+        description: The prefix which is used in the BlobListOptions to only consume objects we are interested in.
+        type: string
+      filter:
+        title: Filter
+        description: A regular expression to include only blobs with name matching it.
+        type: string
   dataTypes:
     out:
       default: binary
@@ -124,5 +132,7 @@ spec:
         autoCreateBucket: "{{autoCreateBucket}}"
         serviceAccountKey: "base64:{{?serviceAccountKey}}"
         deleteAfterRead: "{{deleteAfterRead}}"
+        filter: "{{?filter}}"
+        prefix: "{{?prefix}}"
       steps:
       - to: kamelet:sink

@@ -31,21 +31,7 @@ metadata:
 spec:
   definition:
     title: "AWS SES Sink"
-    description: |-
-      Send email through the Amazon Simple Email Service (SES).
-
-      The basic authentication method for the SES service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
-      
-      If you use the default credentials provider, the SES client loads the credentials through this provider and doesn't use the basic authentication method.
-      
-      In the header, you can optionally set the following properties:
-      
-      - `subject` / `ce-subject` property to specify the email subject. If you do not set this property in the header, the Kamelet uses the exchange ID for the email subject.
-
-      - `to` / `ce-to` to provide a comma-separated list of email addresses.
-
-      - `reply-to-addresses` / `ce-reply-to-addresses`to provider a comma-separated list of reply-to email addresses.
-
+    description: Send email through the Amazon Simple Email Service (SES).
     required:
       - from
       - region

@@ -29,9 +29,9 @@ import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.elasticsearch.clients.ElasticSearchClient;
 import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
 import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchIndexMessageProducer;
-import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchLocalContainerService;
+import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchLocalContainerTestService;
 import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchService;
-import org.apache.camel.test.infra.elasticsearch.services.RemoteElasticSearchService;
+import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -56,10 +56,10 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
                         ElasticsearchContainer container =
                                 new ElasticsearchContainer("docker.elastic.co/elasticsearch/elasticsearch:8.5.2");
                         container.addEnv("xpack.security.enabled", "true");
-                        return new ElasticSearchLocalContainerService(container);
+                        return new ElasticSearchLocalContainerTestService(container);
                     }
                 }
-            ).addRemoteMapping(RemoteElasticSearchService::new).build();
+            ).addRemoteMapping(ElasticSearchServiceFactory.RemoteElasticSearchTestService::new).build();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelElasticSearchPropertyFactory.class);
 

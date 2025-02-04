@@ -14,12 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.test.infra.aws2.services;
 
-import org.apache.camel.test.infra.aws.common.services.AWSService;
+package org.apache.camel.kafkaconnector.elasticsearch.common;
 
-public class AWSSQSLocalContainerServiceWithTimeout extends AWSLocalContainerInfraService implements AWSService {
-    public AWSSQSLocalContainerServiceWithTimeout() {
-        super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:3.0.2"), new Service[]{Service.SQS}));
+import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchLocalContainerInfraService;
+import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchService;
+import org.testcontainers.elasticsearch.ElasticsearchContainer;
+
+public class ElasticSearchLocalContainerTestService extends ElasticSearchLocalContainerInfraService implements ElasticSearchService {
+    public ElasticSearchLocalContainerTestService() {
+        super();
     }
+
+    public ElasticSearchLocalContainerTestService(String imageName) {
+        super(imageName);
+    }
+
+    public ElasticSearchLocalContainerTestService(ElasticsearchContainer container) {
+        super(container);
+    }
+
 }

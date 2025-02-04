@@ -102,9 +102,10 @@ spec:
       uri: "kamelet:source"
       steps:
       - to:
-          uri: "splunk-hec:{{splunkUrl}}/{{token}}"
+          uri: "splunk-hec:{{splunkUrl}}"
           parameters:
             host: "{{?hostPayload}}"
+            token: "{{token}}"
             bodyOnly: "{{?bodyOnly}}"
             headersOnly: "{{?headersOnly}}"
             index: "{{?index}}"

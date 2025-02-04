@@ -16,12 +16,13 @@
  */
 package org.apache.camel.test.infra.aws2.services;
 
+import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.SdkSystemSetting;
 
-public class AWSKinesisLocalContainerServiceWithTimeout extends AWSLocalContainerService {
-    private static final Logger LOG = LoggerFactory.getLogger(AWSKinesisLocalContainerService.class);
+public class AWSKinesisLocalContainerServiceWithTimeout extends AWSLocalContainerInfraService implements AWSService {
+    private static final Logger LOG = LoggerFactory.getLogger(AWSKinesisLocalContainerInfraService.class);
 
     public AWSKinesisLocalContainerServiceWithTimeout() {
         super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:3.0.2"), new Service[]{Service.KINESIS}));

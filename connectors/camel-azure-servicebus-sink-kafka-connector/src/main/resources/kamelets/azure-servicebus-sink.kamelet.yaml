@@ -31,8 +31,7 @@ metadata:
 spec:
   definition:
     title: "Azure Servicebus Sink"
-    description: |-
-      Send Messages to Azure Servicebus.
+    description: Send Messages to Azure Servicebus.
     required:
       - topicOrQueueName
       - connectionString

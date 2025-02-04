@@ -30,16 +30,7 @@ metadata:
 spec:
   definition:
     title: "AWS Redshift Sink"
-    description: |-
-      Send data to an AWS Redshift Database.
-
-      This Kamelet expects a JSON-formatted body. Use key:value pairs to map the JSON fields and parameters. For example, here is a query:
-
-      'INSERT INTO accounts (username,city) VALUES (:#username,:#city)'
-
-      Here is example input for the example query:
-
-      '{ "username":"oscerd", "city":"Rome"}'
+    description: Send data to an AWS Redshift Database.
     required:
       - serverName
       - username
@@ -87,10 +78,14 @@ spec:
   - "camel:jackson"
   - "camel:kamelet"
   - "camel:sql"
-  - "mvn:com.amazon.redshift:redshift-jdbc42:2.1.0.30"
-  - "mvn:org.apache.commons:commons-dbcp2:2.12.0"
+  - "mvn:com.amazon.redshift:redshift-jdbc42:2.1.0.32"
+  - "mvn:org.apache.commons:commons-dbcp2:2.13.0"
   template:
     beans:
+      - name: local-sql-redshift-sink
+        type: "#class:org.apache.camel.component.sql.SqlComponent"
+        properties:
+          autowiredEnabled: "false"
       - name: dsBean
         type: "#class:org.apache.commons.dbcp2.BasicDataSource"
         properties:
@@ -105,6 +100,6 @@ spec:
           json: 
             library: Jackson
       - to: 
-          uri: "sql:{{query}}"
+          uri: "{{local-sql-redshift-sink}}:{{query}}"
           parameters:
             dataSource: "#bean:{{dsBean}}"

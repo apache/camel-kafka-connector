@@ -31,12 +31,7 @@ metadata:
 spec:
   definition:
     title: AWS SQS Sink
-    description: |-
-      Send messages to an Amazon Simple Queue Service (SQS) queue.
-
-      The basic authentication method for the SQS service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
-      
-      If you use the default credentials provider, the SQS client loads the credentials through this provider and doesn't use the basic authentication method.
+    description: Send messages to an Amazon Simple Queue Service (SQS) queue.
     required:
       - queueNameOrArn
       - region

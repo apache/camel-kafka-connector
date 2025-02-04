@@ -114,12 +114,12 @@ public class EmbeddedKafkaService implements KafkaService {
     }
 
     @Override
-    public void beforeTestExecution(ExtensionContext extensionContext) {
+    public void beforeAll(ExtensionContext extensionContext) {
         initialize();
     }
 
     @Override
-    public void afterTestExecution(ExtensionContext context) {
+    public void afterAll(ExtensionContext context) {
         shutdown();
     }
 

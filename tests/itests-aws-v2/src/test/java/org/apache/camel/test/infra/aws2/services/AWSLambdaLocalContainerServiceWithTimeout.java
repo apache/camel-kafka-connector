@@ -16,7 +16,9 @@
  */
 package org.apache.camel.test.infra.aws2.services;
 
-public class AWSLambdaLocalContainerServiceWithTimeout extends AWSLocalContainerService {
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+
+public class AWSLambdaLocalContainerServiceWithTimeout extends AWSLocalContainerInfraService implements AWSService {
     public AWSLambdaLocalContainerServiceWithTimeout() {
         super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:1.4.0"), new Service[]{Service.LAMBDA}));
     }
