@@ -96,8 +96,13 @@ spec:
   - "camel:kamelet"
   - "camel:cassandraql"
   template:
+    beans:
+      - name: local-sql-cassandraql-source
+        type: "#class:org.apache.camel.component.cassandra.CassandraComponent"
+        properties:
+          autowiredEnabled: "false"
     from:
-      uri: "cql://{{connectionHost}}:{{connectionPort}}/{{keyspace}}"
+      uri: "{{local-sql-cassandraql-source}}://{{connectionHost}}:{{connectionPort}}/{{keyspace}}"
       parameters:
         username: "{{?username}}"
         password: "{{?password}}"

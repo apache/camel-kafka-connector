@@ -31,16 +31,7 @@ metadata:
 spec:
   definition:
     title: AWS EC2 Sink
-    description: |-
-      Check the status of EC2 instances
-
-      Access Key/Secret Key are the basic method for authenticating to the AWS EC2 Service. These parameters are optional because the Kamelet provides the 'useDefaultCredentialsProvider'.
-      
-      When using a default Credentials Provider the EC2 client will load the credentials through this provider and won't use the static credential. This is reason for not having the access key and secret key as mandatory parameter for this Kamelet.
-
-      The Kamelet expects the following headers to be set:
-
-      - `instanceIds` / `ce-instanceids`: as a comma separated list of EC2 instance ids.
+    description: Check the status of EC2 instances
     required:
       - region
     type: object

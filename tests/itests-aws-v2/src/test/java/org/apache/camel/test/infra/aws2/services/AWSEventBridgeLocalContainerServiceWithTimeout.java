@@ -16,7 +16,9 @@
  */
 package org.apache.camel.test.infra.aws2.services;
 
-public class AWSEventBridgeLocalContainerServiceWithTimeout extends AWSLocalContainerService {
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+
+public class AWSEventBridgeLocalContainerServiceWithTimeout extends AWSLocalContainerInfraService implements AWSService {
     public AWSEventBridgeLocalContainerServiceWithTimeout() {
         super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:3.0.2"), new Service[]{Service.EVENT_BRIDGE}));
     }

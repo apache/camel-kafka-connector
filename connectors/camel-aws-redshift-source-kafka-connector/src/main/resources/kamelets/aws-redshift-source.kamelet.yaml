@@ -30,8 +30,7 @@ metadata:
 spec:
   definition:
     title: "AWS Redshift Source"
-    description: |-
-      Query data from an AWS RedShift Database.
+    description: Query data from an AWS RedShift Database.
     required:
       - serverName
       - username
@@ -89,10 +88,14 @@ spec:
   - "camel:jackson"
   - "camel:kamelet"
   - "camel:sql"
-  - "mvn:com.amazon.redshift:redshift-jdbc42:2.1.0.30"
-  - "mvn:org.apache.commons:commons-dbcp2:2.12.0"
+  - "mvn:com.amazon.redshift:redshift-jdbc42:2.1.0.32"
+  - "mvn:org.apache.commons:commons-dbcp2:2.13.0"
   template:
     beans:
+      - name: local-sql-redshift-source
+        type: "#class:org.apache.camel.component.sql.SqlComponent"
+        properties:
+          autowiredEnabled: "false"
       - name: dsBean
         type: "#class:org.apache.commons.dbcp2.BasicDataSource"
         properties:
@@ -101,7 +104,7 @@ spec:
           url: 'jdbc:redshift://{{serverName}}:{{serverPort}}/{{databaseName}}'
           driverClassName: 'com.amazon.redshift.jdbc.Driver'
     from:
-      uri: "sql:{{query}}"
+      uri: "{{local-sql-redshift-source}}:{{query}}"
       parameters:
         dataSource: "#bean:{{dsBean}}"
         onConsume: "{{?consumedQuery}}"

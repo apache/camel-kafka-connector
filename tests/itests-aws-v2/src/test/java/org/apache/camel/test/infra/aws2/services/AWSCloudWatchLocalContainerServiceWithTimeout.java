@@ -16,7 +16,9 @@
  */
 package org.apache.camel.test.infra.aws2.services;
 
-public class AWSCloudWatchLocalContainerServiceWithTimeout extends AWSLocalContainerService {
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+
+public class AWSCloudWatchLocalContainerServiceWithTimeout extends AWSLocalContainerInfraService implements AWSService {
     public AWSCloudWatchLocalContainerServiceWithTimeout() {
         super(new AWSContainerWithTimeout(System.getProperty("aws.container", "localstack/localstack:3.0.2"), new Service[]{Service.CLOUD_WATCH}));
     }

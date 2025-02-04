@@ -6,7 +6,7 @@
 		"id": "camel-azure-storage-blob-append-sink-sink",
 		"type": "sink",
 		"version": "4.10.0-SNAPSHOT",
-		"description": "Upload data in append mode to Azure Storage Blob.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename."
+		"description": "Upload data in append mode to Azure Storage Blob."
 	},
 	"properties": {
 		"camel.kamelet.azure-storage-blob-append-sink.accountName": {

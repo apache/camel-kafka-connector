@@ -34,6 +34,18 @@
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.google-storage-source.prefix": {
+			"name": "camel.kamelet.google-storage-source.prefix",
+			"description": "The prefix which is used in the BlobListOptions to only consume objects we are interested in.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-storage-source.filter": {
+			"name": "camel.kamelet.google-storage-source.filter",
+			"description": "A regular expression to include only blobs with name matching it.",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

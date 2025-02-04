@@ -19,8 +19,8 @@ package org.apache.camel.kafkaconnector.mongodb.common;
 import java.util.function.Supplier;
 
 import org.apache.camel.test.infra.common.services.SimpleTestServiceBuilder;
-import org.apache.camel.test.infra.mongodb.services.MongoDBRemoteService;
 import org.apache.camel.test.infra.mongodb.services.MongoDBService;
+import org.apache.camel.test.infra.mongodb.services.MongoDBServiceFactory;
 
 public final class MongoDBEnvVarServiceFactory {
     private MongoDBEnvVarServiceFactory() {
@@ -35,7 +35,7 @@ public final class MongoDBEnvVarServiceFactory {
     }
 
     public static MongoDBService createService(Supplier<MongoDBService> localMapping) {
-        return builder().addLocalMapping(localMapping).addRemoteMapping(MongoDBRemoteService::new).build();
+        return builder().addLocalMapping(localMapping).addRemoteMapping(MongoDBServiceFactory.MongoDBRemoteService::new).build();
     }
 
     public static MongoDBService createService(String username, String password) {

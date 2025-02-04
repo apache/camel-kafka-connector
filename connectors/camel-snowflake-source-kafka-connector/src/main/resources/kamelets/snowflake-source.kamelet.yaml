@@ -84,9 +84,13 @@ spec:
   - "camel:kamelet"
   - "camel:sql"
   - "mvn:net.snowflake:snowflake-jdbc:3.19.0"
-  - "mvn:org.apache.commons:commons-dbcp2:2.12.0"
+  - "mvn:org.apache.commons:commons-dbcp2:2.13.0"
   template:
     beans:
+      - name: local-sql-snowflake-source
+        type: "#class:org.apache.camel.component.sql.SqlComponent"
+        properties:
+          autowiredEnabled: "false"
       - name: dsBean
         type: "#class:net.snowflake.client.jdbc.SnowflakeBasicDataSource"
         properties:
@@ -95,7 +99,7 @@ spec:
           url: 'jdbc:snowflake://{{instanceUrl}}'
           databaseName: '{{?databaseName}}'
     from:
-      uri: "sql:{{query}}"
+      uri: "{{local-sql-snowflake-source}}:{{query}}"
       parameters:
         dataSource: "#bean:{{dsBean}}"
         onConsume: "{{?consumedQuery}}"

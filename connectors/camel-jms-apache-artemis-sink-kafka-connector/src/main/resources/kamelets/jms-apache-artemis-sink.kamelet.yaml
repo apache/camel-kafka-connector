@@ -55,7 +55,7 @@ spec:
   dependencies:
   - "camel:jms"
   - "camel:kamelet"
-  - "mvn:org.apache.activemq:artemis-jakarta-client-all:2.37.0"
+  - "mvn:org.apache.activemq:artemis-jakarta-client-all:2.39.0"
   template:
     beans:
       - name: connectionFactoryBean

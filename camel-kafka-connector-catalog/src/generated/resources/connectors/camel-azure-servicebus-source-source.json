@@ -6,7 +6,7 @@
 		"id": "camel-azure-servicebus-source-source",
 		"type": "source",
 		"version": "4.10.0-SNAPSHOT",
-		"description": "Consume Messages from Azure Servicebus.\n\nThe subscribtion name parameter needs to be populated in case of consuming from a Topic."
+		"description": "Consume Messages from Azure Servicebus."
 	},
 	"properties": {
 		"camel.kamelet.azure-servicebus-source.topicOrQueueName": {

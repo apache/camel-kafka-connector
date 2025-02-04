@@ -58,6 +58,13 @@
 				"PATCH"
 			]
 		},
+		"camel.sink.endpoint.logHttpActivity": {
+			"name": "camel.sink.endpoint.logHttpActivity",
+			"description": "To enable logging HTTP request and response. You can use a custom LoggingHttpActivityListener as httpActivityListener to control logging options.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.skipRequestHeaders": {
 			"name": "camel.sink.endpoint.skipRequestHeaders",
 			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
@@ -129,6 +136,12 @@
 			"name": "camel.sink.endpoint.getWithBody",
 			"description": "Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.httpActivityListener": {
+			"name": "camel.sink.endpoint.httpActivityListener",
+			"description": "To use a custom activity listener",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -224,7 +237,7 @@
 		},
 		"camel.sink.endpoint.useSystemProperties": {
 			"name": "camel.sink.endpoint.useSystemProperties",
-			"description": "To use System Properties as fallback for configuration",
+			"description": "To use System Properties as fallback for configuration for configuring HTTP Client",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -346,6 +359,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.oauth2CachedTokensDefaultExpirySeconds": {
+			"name": "camel.sink.endpoint.oauth2CachedTokensDefaultExpirySeconds",
+			"description": "Default expiration time for cached OAuth2 tokens, in seconds. Used if token response does not contain 'expires_in' field.",
+			"defaultValue": "3600L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.oauth2CachedTokensExpirationMarginSeconds": {
+			"name": "camel.sink.endpoint.oauth2CachedTokensExpirationMarginSeconds",
+			"description": "Amount of time which is deducted from OAuth2 tokens expiry time to compensate for the time it takes OAuth2 Token Endpoint to send the token over http, in seconds. Set this parameter to high value if you OAuth2 Token Endpoint answers slowly or you tokens expire quickly. If you set this parameter to too small value, you can get 4xx http errors because camel will think that the received token is still valid, while in reality the token is expired for the Authentication server.",
+			"defaultValue": "5L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.oauth2CacheTokens": {
+			"name": "camel.sink.endpoint.oauth2CacheTokens",
+			"description": "Whether to cache OAuth2 client tokens.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.oauth2ClientId": {
 			"name": "camel.sink.endpoint.oauth2ClientId",
 			"description": "OAuth2 client id",
@@ -389,6 +423,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.https.logHttpActivity": {
+			"name": "camel.component.https.logHttpActivity",
+			"description": "To enable logging HTTP request and response. You can use a custom LoggingHttpActivityListener as httpActivityListener to control logging options.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.https.skipRequestHeaders": {
 			"name": "camel.component.https.skipRequestHeaders",
 			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
@@ -423,10 +464,22 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.https.httpActivityListener": {
+			"name": "camel.component.https.httpActivityListener",
+			"description": "To use a custom activity listener",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.https.responsePayloadStreamingThreshold": {
 			"name": "camel.component.https.responsePayloadStreamingThreshold",
 			"description": "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.",
 			"defaultValue": "8192",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.userAgent": {
+			"name": "camel.component.https.userAgent",
+			"description": "To set a custom HTTP User-Agent request header",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -539,6 +592,13 @@
 		"camel.component.https.redirectHandlingDisabled": {
 			"name": "camel.component.https.redirectHandlingDisabled",
 			"description": "Disables automatic redirect handling",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.useSystemProperties": {
+			"name": "camel.component.https.useSystemProperties",
+			"description": "To use System Properties as fallback for configuration for configuring HTTP Client",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

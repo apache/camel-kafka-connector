@@ -17,9 +17,6 @@
 
 package org.apache.camel.kafkaconnector.cxf.source;
 
-import java.util.concurrent.ExecutionException;
-
-import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
@@ -27,18 +24,14 @@ import org.apache.camel.kafkaconnector.cxf.client.CXFServiceUtil;
 import org.apache.camel.kafkaconnector.cxf.common.HelloService;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-/**
- * A simple test case that checks whether the CXF Consumer Endpoint produces the expected number of messages
- */
-public class CamelSourceCXFITCase extends CamelSourceTestSupport {
+
+public abstract class CamelSourceCXFITCase extends CamelSourceTestSupport {
 
     protected static final int PORT = NetworkUtils.getFreePort("localhost");
     protected static final String SIMPLE_ENDPOINT_ADDRESS = "http://localhost:" + PORT + "/CxfConsumerTest/test";
@@ -46,9 +39,9 @@ public class CamelSourceCXFITCase extends CamelSourceTestSupport {
             + "?serviceClass=org.apache.camel.kafkaconnector.cxf.common.HelloService"
             + "&publishedEndpointUrl=http://www.simple.com/services/test";
 
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceCXFITCase.class);
+    protected static final Logger LOG = LoggerFactory.getLogger(CamelSourceCXFITCase.class);
 
-    private final int expect = 10;
+    protected final int expect = 10;
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -87,50 +80,6 @@ public class CamelSourceCXFITCase extends CamelSourceTestSupport {
             String result = (String) receivedObject;
             assertTrue(result.contains("Test message"));
         }
-    }
-
-
-    @Test
-    @Timeout(30)
-    public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        String topicName = getTopicForTest(this);
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withAddress(SIMPLE_ENDPOINT_ADDRESS)
-                .withServiceClass("org.apache.camel.kafkaconnector.cxf.common.HelloService");
-
-        runTestBlocking(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(30)
-    public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
-        String topicName = getTopicForTest(this);
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withUrl(SIMPLE_ENDPOINT_URI)
-                .buildUrl();
-
-        runTestBlocking(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(30)
-    public void testBasicSendReceiveUsingDataFormat() throws ExecutionException, InterruptedException {
-        String topicName = getTopicForTest(this);
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFPropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withAddress(SIMPLE_ENDPOINT_ADDRESS)
-                .withServiceClass("org.apache.camel.kafkaconnector.cxf.common.HelloService")
-                .withDataFormat("POJO");
-
-        runTestBlocking(connectorPropertyFactory, topicName, expect);
     }
 
 }

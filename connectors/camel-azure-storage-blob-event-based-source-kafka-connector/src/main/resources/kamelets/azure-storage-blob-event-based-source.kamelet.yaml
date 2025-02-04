@@ -31,12 +31,7 @@ metadata:
 spec:
   definition:
     title: Azure Storage Blob Event-based Source
-    description: |-
-      Receive data from Azure Service Bus subscribed to Azure Eventgrid reporting events related to a Azure Storage Blob account.
-
-      Connection string is the basic method for authenticating to the Azure Servicebus Queue.
-
-      To use this Kamelet you'll need to set up Events on your Azure Storage Blob account and select as an endpoint an Azure Servicebus Queue.
+    description: Receive data from Azure Service Bus subscribed to Azure Eventgrid reporting events related to a Azure Storage Blob account.
     required:
       - topicOrQueueName
       - connectionString

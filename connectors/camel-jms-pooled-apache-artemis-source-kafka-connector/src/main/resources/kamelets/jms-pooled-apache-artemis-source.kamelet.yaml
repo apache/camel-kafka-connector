@@ -85,7 +85,7 @@ spec:
   dependencies:
   - "camel:jms"
   - "camel:kamelet"
-  - "mvn:org.apache.activemq:artemis-jakarta-client-all:2.37.0"
+  - "mvn:org.apache.activemq:artemis-jakarta-client-all:2.39.0"
   - "mvn:org.messaginghub:pooled-jms:3.1.7"
   template:
     beans:

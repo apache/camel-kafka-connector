@@ -103,6 +103,11 @@ spec:
   - "camel:cassandraql"
   - "camel:core"
   template:
+    beans:
+      - name: local-sql-cassandraql-sink
+        type: "#class:org.apache.camel.component.cassandra.CassandraComponent"
+        properties:
+          autowiredEnabled: "false"
     from:
       uri: "kamelet:source"
       steps:
@@ -116,7 +121,7 @@ spec:
                       library: Jackson
                       useList: true
       - to: 
-          uri: "cql://{{connectionHost}}:{{connectionPort}}/{{keyspace}}"
+          uri: "{{local-sql-cassandraql-sink}}://{{connectionHost}}:{{connectionPort}}/{{keyspace}}"
           parameters:
             username: "{{?username}}"
             password: "{{?password}}"

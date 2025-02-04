@@ -31,12 +31,7 @@ metadata:
 spec:
   definition:
     title: "AWS Bedrock Text Sink"
-    description: |-
-      Send data for invoking a text model of Amazon Bedrock.
-
-      The basic authentication method for the Bedrock service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
-
-      If you use the default credentials provider, the Bedrock client loads the credentials through this provider and doesn't use the basic authentication method.
+    description: Send data for invoking a text model of Amazon Bedrock.
     required:
       - modelId
       - region

@@ -31,10 +31,7 @@ metadata:
 spec:
   definition:
     title: "Azure Storage Blob Append Sink"
-    description: |-
-      Upload data in append mode to Azure Storage Blob.
-
-      In the header, you can set the `file` / `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename.
+    description: Upload data in append mode to Azure Storage Blob.
     required:
       - accountName
       - containerName

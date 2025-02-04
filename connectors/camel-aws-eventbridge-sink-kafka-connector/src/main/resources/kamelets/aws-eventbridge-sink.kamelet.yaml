@@ -31,12 +31,7 @@ metadata:
 spec:
   definition:
     title: "AWS Eventbridge Sink"
-    description: |-
-      Send events to an Amazon Eventbridge Eventbus.
-
-      The basic authentication method for the Eventbridge service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.
-      
-      If you use the default credentials provider, the Eventbridge client loads the credentials through this provider and doesn't use the basic authentication method.
+    description: Send events to an Amazon Eventbridge Eventbus.
 
       In the headers, you need to set the `resources-arn` / `ce-resources-arn` property to specify the ARN of resources related to the event.
 

@@ -114,6 +114,12 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.kamelet.kafka-ssl-source.sslTruststorePassword": {
+			"name": "camel.kamelet.kafka-ssl-source.sslTruststorePassword",
+			"description": "The store password for the trust store file.",
+			"priority": "HIGH",
+			"required": "true"
+		},
 		"camel.kamelet.kafka-ssl-source.sslEnabledProtocols": {
 			"name": "camel.kamelet.kafka-ssl-source.sslEnabledProtocols",
 			"description": "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.",
