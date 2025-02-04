@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-eventhubs-sink-sink",
 		"type": "sink",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.8.4-SNAPSHOT",
 		"description": "Send events to Azure Event Hubs.\n\nThe Kamelet checks for the `partition-id` \/ `ce-partition-id` header which is an identifier of the Event Hub partition that the event will be sent to. If the identifier is not specified, the Event Hubs service will be responsible for routing events that are sent to an available partition.\n   \nA header is optional. If the header is not set, the partition is assigned by Event Hubs.\n\nThere are two different mechanism of authentication `CONNECTION_STRING` and `AZURE_IDENTITY`, you could specify with credentialType property. If you're using `CONNECTION_STRING` sharedAccessName and sharedAccessKey properties will be needed.\n\nIn case of `AZURE_IDENTITY` selection, the DefaultAzureCredential will attempt to authenticate via the following mechanisms in the following order enviroment, Workload Identity, Managed Identity, Azure Developer CLI, IntelliJ, Azure CLI and Azure Powershell. "
 	},
 	"properties": {

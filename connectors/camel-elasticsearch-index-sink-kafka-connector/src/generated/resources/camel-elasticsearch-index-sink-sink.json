@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-elasticsearch-index-sink-sink",
 		"type": "sink",
-		"version": "4.8.1-SNAPSHOT",
+		"version": "4.8.4-SNAPSHOT",
 		"description": "Stores JSON-formatted data into ElasticSearch.\n\nThe input data must be formatted in JSON according to the requirements of the index. \n\nIf you specify the `certificate` property, you must base64 encode it before you pass it as a parameter.\n\nIn the header, you can set the following properties:\n\n- `indexId` \/ `ce-indexid`: The index ID for ElasticSearch.\n\n- `indexName` \/ `ce-indexname`: The index name for ElasticSearch.\n\nIf you do not set a property in the header, the Kamelet uses the exchange ID for the index setting."
 	},
 	"properties": {
