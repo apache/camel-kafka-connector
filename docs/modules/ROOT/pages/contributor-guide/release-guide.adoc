@@ -143,6 +143,9 @@ https://repository.apache.org/content/repositories/orgapachecamel-Y
 Tag:
 https://gitbox.apache.org/repos/asf?p=camel-kafka-connector.git;a=tag;h=refs/tags/camel-kafka-connector-X
 
+Source distribution:
+https://dist.apache.org/repos/dist/dev/camel/camel-kafka-connector/X/
+
 <some release comments here>
 
 Please test this release candidate and cast your vote.
