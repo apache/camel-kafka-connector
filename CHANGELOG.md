@@ -6,11 +6,14 @@
 
 **Closed issues:**
 
+- CKC - Download list is not up to date with latest release [\#1698](https://github.com/apache/camel-kafka-connector/issues/1698)
 - Getting error on camel splunk hec connector Failed to resolve endpoint: ... due to: Invalid URI [\#1692](https://github.com/apache/camel-kafka-connector/issues/1692)
+- CKC 4.8.3 release [\#1688](https://github.com/apache/camel-kafka-connector/issues/1688)
 
 **Merged pull requests:**
 
 - 4.10-SNAPSHOT dependency and test fixes [\#1700](https://github.com/apache/camel-kafka-connector/pull/1700) ([valdar](https://github.com/valdar))
+- Bump actions/setup-java from 4.6.0 to 4.7.0 [\#1699](https://github.com/apache/camel-kafka-connector/pull/1699) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 7.0.5 to 7.0.6 [\#1694](https://github.com/apache/camel-kafka-connector/pull/1694) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/setup-java from 4.5.0 to 4.6.0 [\#1693](https://github.com/apache/camel-kafka-connector/pull/1693) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump org.apache.kafka:kafka-clients from 3.6.1 to 3.7.1 in /parent [\#1689](https://github.com/apache/camel-kafka-connector/pull/1689) ([dependabot[bot]](https://github.com/apps/dependabot))
