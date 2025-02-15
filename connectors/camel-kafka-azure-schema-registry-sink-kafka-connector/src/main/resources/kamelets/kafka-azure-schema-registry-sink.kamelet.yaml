@@ -95,8 +95,8 @@ spec:
     - "camel:kamelet"
     - "camel:azure-schema-registry"
     - "mvn:com.microsoft.azure:azure-schemaregistry-kafka-avro:1.1.1"
-    - "mvn:com.azure:azure-data-schemaregistry-apacheavro:1.1.22"
-    - "mvn:com.azure:azure-identity:1.14.0"
+    - "mvn:com.azure:azure-data-schemaregistry-apacheavro:1.1.23"
+    - "mvn:com.azure:azure-identity:1.15.0"
   template:
     beans:
       - name: defaultAzureCredential
