@@ -155,7 +155,7 @@ spec:
     - "camel:kafka"
     - "camel:core"
     - "camel:kamelet"
-    - "mvn:io.quarkus:quarkus-apicurio-registry-avro:3.6.3"
+    - "mvn:io.quarkus:quarkus-apicurio-registry-avro:3.18.1"
   template:
     beans:
       - name: kafkaHeaderDeserializer
