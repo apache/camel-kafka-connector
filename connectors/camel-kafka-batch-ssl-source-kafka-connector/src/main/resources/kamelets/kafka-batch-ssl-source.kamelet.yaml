@@ -156,6 +156,10 @@ spec:
         title: Max Poll Interval
         description: The maximum delay between invocations of poll() when using consumer group management
         type: int
+      batchingIntervalMs:
+        title: Batching Interval
+        description: In consumer batching mode, then this option is specifying a time in millis, to trigger batch completion eager when the current batch size has not reached the maximum size defined by maxPollRecords. Notice the trigger is not exact at the given interval, as this can only happen between kafka polls (see pollTimeoutMs option).
+        type: int
       topicIsPattern:
         title: Topic Is Pattern
         description: Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.
@@ -192,6 +196,7 @@ spec:
           maxPollRecords: "{{batchSize}}"
           pollTimeoutMs: "{{pollTimeout}}"
           maxPollIntervalMs: "{{?maxPollIntervalMs}}"
+          batchingIntervalMs: "{{?batchingIntervalMs}}"
           batching: true
           kafkaManualCommitFactory: "#bean:{{manualCommitFactory}}"
           topicIsPattern: "{{topicIsPattern}}"

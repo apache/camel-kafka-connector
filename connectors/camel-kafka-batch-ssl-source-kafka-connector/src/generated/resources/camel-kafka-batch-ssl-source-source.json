@@ -147,6 +147,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.kafka-batch-ssl-source.batchingIntervalMs": {
+			"name": "camel.kamelet.kafka-batch-ssl-source.batchingIntervalMs",
+			"description": "In consumer batching mode, then this option is specifying a time in millis, to trigger batch completion eager when the current batch size has not reached the maximum size defined by maxPollRecords. Notice the trigger is not exact at the given interval, as this can only happen between kafka polls (see pollTimeoutMs option).",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.kafka-batch-ssl-source.topicIsPattern": {
 			"name": "camel.kamelet.kafka-batch-ssl-source.topicIsPattern",
 			"description": "Whether the topic is a pattern (regular expression). This can be used to subscribe to dynamic number of topics matching the pattern.",
