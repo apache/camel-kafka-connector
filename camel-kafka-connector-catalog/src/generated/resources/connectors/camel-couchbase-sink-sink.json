@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-couchbase-sink-sink",
 		"type": "sink",
-		"version": "4.8.4-SNAPSHOT",
+		"version": "4.8.5-SNAPSHOT",
 		"description": "Send documents to Couchbase."
 	},
 	"properties": {
