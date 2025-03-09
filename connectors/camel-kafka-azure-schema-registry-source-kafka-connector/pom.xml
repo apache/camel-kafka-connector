@@ -50,13 +50,18 @@
       <artifactId>camel-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-data-schemaregistry-apacheavro</artifactId>
-      <version>1.1.22</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-data-schemaregistry-apacheavro</artifactId>
+      <version>1.1.23</version>
+    </dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.15.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -70,11 +75,6 @@
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-schemaregistry-kafka-avro</artifactId>
       <version>1.1.1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-identity</artifactId>
-      <version>1.14.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

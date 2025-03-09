@@ -83,7 +83,7 @@ spec:
   - "camel:jackson"
   - "camel:kamelet"
   - "camel:sql"
-  - "mvn:net.snowflake:snowflake-jdbc:3.19.0"
+  - "mvn:net.snowflake:snowflake-jdbc:3.22.0"
   - "mvn:org.apache.commons:commons-dbcp2:2.13.0"
   template:
     beans:
