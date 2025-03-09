@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kubernetes-pods-source-source",
 		"type": "source",
-		"version": "4.8.4-SNAPSHOT",
+		"version": "4.8.5-SNAPSHOT",
 		"description": "Consume Events from Kubernetes Pods"
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-update-sink-sink",
 		"type": "sink",
-		"version": "4.8.4-SNAPSHOT",
+		"version": "4.8.5-SNAPSHOT",
 		"description": "Update an object in Salesforce.\n\nThe body received must contain a JSON key-value pair for each property to update inside the payload attribute, for example:\n\n`{ \"payload\": { \"Phone\": \"1234567890\", \"Name\": \"Antonia\" } }`\n\nThe body received must include the `sObjectName` and `sObjectId` properties, for example:\n\n`{ \"payload\": { \"Phone\": \"1234567890\", \"Name\": \"Antonia\" }, \"sObjectId\": \"sObjectId\", \"sObjectName\": \"sObjectName\" }`"
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-datalake-sink-sink",
 		"type": "sink",
-		"version": "4.8.4-SNAPSHOT",
+		"version": "4.8.5-SNAPSHOT",
 		"description": "Send data to Azure Storage Blob Data Lake."
 	},
 	"properties": {
