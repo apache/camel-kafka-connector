@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "source"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.8.3"
+    camel.apache.org/catalog.version: "4.8.5"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Infinispan"
     camel.apache.org/kamelet.namespace: "Cache"
