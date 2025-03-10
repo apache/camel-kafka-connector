@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kubernetes-namespaces-source-source",
 		"type": "source",
-		"version": "4.8.5-SNAPSHOT",
+		"version": "4.8.5",
 		"description": "Consume Events from Kubernetes Namespaces"
 	},
 	"properties": {

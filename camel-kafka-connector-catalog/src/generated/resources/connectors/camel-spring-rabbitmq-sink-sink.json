@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-spring-rabbitmq-sink-sink",
 		"type": "sink",
-		"version": "4.8.5-SNAPSHOT",
+		"version": "4.8.5",
 		"description": "Send data to a RabbitMQ Broker."
 	},
 	"properties": {

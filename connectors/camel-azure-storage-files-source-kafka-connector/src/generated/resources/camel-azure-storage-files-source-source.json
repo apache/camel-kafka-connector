@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-files-source-source",
 		"type": "source",
-		"version": "4.8.5-SNAPSHOT",
+		"version": "4.8.5",
 		"description": "Consume files from Azure Storage File Shares."
 	},
 	"properties": {
