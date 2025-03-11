@@ -295,8 +295,8 @@
 		},
 		"camel.source.endpoint.idempotentEager": {
 			"name": "camel.source.endpoint.idempotentEager",
-			"description": "Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files. Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled as well to avoid consuming the same files over and over again.",
-			"defaultValue": "\"false\"",
+			"description": "Sets whether to eagerly add the filename to the idempotent repository or wait until the exchange is complete.",
+			"defaultValue": "\"true\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

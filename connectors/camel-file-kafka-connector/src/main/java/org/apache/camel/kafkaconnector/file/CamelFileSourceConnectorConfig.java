@@ -156,8 +156,8 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_DOC = "Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files. Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled as well to avoid consuming the same files over and over again.";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_DEFAULT = "false";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_CONF = "camel.source.endpoint.idempotentEager";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DOC = "Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files. Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled as well to avoid consuming the same files over and over again.";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DEFAULT = "false";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DOC = "Sets whether to eagerly add the filename to the idempotent repository or wait until the exchange is complete.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_EAGER_DEFAULT = "true";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_CONF = "camel.source.endpoint.idempotentKey";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DOC = "To use a custom idempotent key. By default the absolute path of the file is used. You can use the File Language, for example to use the file name and file size, you can do: idempotentKey=${file:name}-${file:size}";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_IDEMPOTENT_KEY_DEFAULT = null;
