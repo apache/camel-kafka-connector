@@ -2,13 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.8.3...HEAD)
-
-**Closed issues:**
-
-- CKC - Download list is not up to date with latest release [\#1698](https://github.com/apache/camel-kafka-connector/issues/1698)
-- Getting error on camel splunk hec connector Failed to resolve endpoint: ... due to: Invalid URI [\#1692](https://github.com/apache/camel-kafka-connector/issues/1692)
-- CKC 4.8.3 release [\#1688](https://github.com/apache/camel-kafka-connector/issues/1688)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.8.5...HEAD)
 
 **Merged pull requests:**
 
@@ -464,6 +458,28 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-4.8.5](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.8.5) (2025-03-10)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.8.3...camel-kafka-connector-4.8.5)
+
+**Fixed bugs:**
+
+- Couchbase fails due to incorrect URI format [\#629](https://github.com/apache/camel-kafka-connector/issues/629)
+
+**Closed issues:**
+
+- CKC - Download list is not up to date with latest release [\#1698](https://github.com/apache/camel-kafka-connector/issues/1698)
+- Getting error on camel splunk hec connector Failed to resolve endpoint: ... due to: Invalid URI [\#1692](https://github.com/apache/camel-kafka-connector/issues/1692)
+- CKC 4.8.3 release [\#1688](https://github.com/apache/camel-kafka-connector/issues/1688)
+- "Illegal character in port number" errors in itests [\#1078](https://github.com/apache/camel-kafka-connector/issues/1078)
+- add itests for camel-cxfrs-kafka-connector [\#996](https://github.com/apache/camel-kafka-connector/issues/996)
+- Java 15 support [\#928](https://github.com/apache/camel-kafka-connector/issues/928)
+- is camel-smtp connector ready for production? [\#644](https://github.com/apache/camel-kafka-connector/issues/644)
+- Being able of generating only source or sink connector [\#440](https://github.com/apache/camel-kafka-connector/issues/440)
+- Investigate using Kamelet concepts in Camel-Kafka-connector [\#423](https://github.com/apache/camel-kafka-connector/issues/423)
+- Add a doc page related to camel vs camel-kafka-connector and when to use one or the other [\#360](https://github.com/apache/camel-kafka-connector/issues/360)
+- Use the deliverable artifact in the plugin.path during testing [\#191](https://github.com/apache/camel-kafka-connector/issues/191)
 
 ## [camel-kafka-connector-4.8.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.8.3) (2025-01-28)
 
