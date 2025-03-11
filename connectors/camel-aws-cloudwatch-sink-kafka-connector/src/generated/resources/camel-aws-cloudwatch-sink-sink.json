@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-cloudwatch-sink-sink",
 		"type": "sink",
-		"version": "4.10.0-SNAPSHOT",
+		"version": "4.10.2",
 		"description": "Send data to Amazon CloudWatch metrics."
 	},
 	"properties": {
