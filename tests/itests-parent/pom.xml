@@ -20,7 +20,7 @@
     <parent>
         <artifactId>tests</artifactId>
         <groupId>org.apache.camel.kafkaconnector</groupId>
-        <version>4.10.2</version>
+        <version>4.10.3-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
