@@ -14,6 +14,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+SOURCE=${BASH_SOURCE[0]}
+while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+  SOURCE=$(readlink "$SOURCE")
+  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 prefix=camel-kafka-connector-
 
@@ -35,9 +42,7 @@ export RELEASE_TAG=${releaseTag:-$defaultReleaseTag}
 read -r -p "Enter apache username: " user
 export APACHE_USER=$user
 
-read -r -s -p "Enter apache password: " pass
-export APACHE_PASS=$pass
-echo ""
+export APACHE_PASS=`$DIR/scripts/askpass_stars.sh Enter apache password: `
 
 defaultGpgProfile=gpg
 read -r -p "Enter the maven gpg profile: [$defaultGpgProfile]" gpgProfile
