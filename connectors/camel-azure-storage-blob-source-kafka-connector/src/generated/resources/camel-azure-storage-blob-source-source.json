@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-source-source",
 		"type": "source",
-		"version": "4.8.5-SNAPSHOT",
+		"version": "4.8.6-SNAPSHOT",
 		"description": "Consume files from Azure Storage Blob.\n\nTwo headers will be duplicated with different names for clarity at sink level, CamelAzureStorageBlobETag will be duplicated into azure.storage.blob.e.tag and CamelAzureStorageBlobBlobSize will be duplicated in azure.storage.blob.blob.size"
 	},
 	"properties": {

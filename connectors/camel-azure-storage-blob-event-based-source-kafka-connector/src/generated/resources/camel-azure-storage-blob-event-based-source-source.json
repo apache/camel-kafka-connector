@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-event-based-source-source",
 		"type": "source",
-		"version": "4.8.5-SNAPSHOT",
+		"version": "4.8.6-SNAPSHOT",
 		"description": "Receive data from Azure Service Bus subscribed to Azure Eventgrid reporting events related to a Azure Storage Blob account.\n\nConnection string is the basic method for authenticating to the Azure Servicebus Queue.\n\nTo use this Kamelet you'll need to set up Events on your Azure Storage Blob account and select as an endpoint an Azure Servicebus Queue."
 	},
 	"properties": {
