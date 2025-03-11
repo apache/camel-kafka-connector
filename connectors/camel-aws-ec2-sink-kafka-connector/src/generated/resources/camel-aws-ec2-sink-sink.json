@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-ec2-sink-sink",
 		"type": "sink",
-		"version": "4.10.0-SNAPSHOT",
+		"version": "4.11.0-SNAPSHOT",
 		"description": "Check the status of EC2 instances"
 	},
 	"properties": {

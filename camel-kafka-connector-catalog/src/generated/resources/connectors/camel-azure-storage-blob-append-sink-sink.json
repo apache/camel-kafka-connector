@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-append-sink-sink",
 		"type": "sink",
-		"version": "4.10.0-SNAPSHOT",
+		"version": "4.11.0-SNAPSHOT",
 		"description": "Upload data in append mode to Azure Storage Blob."
 	},
 	"properties": {
