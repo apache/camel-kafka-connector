@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.10.2...HEAD)
 
+**Closed issues:**
+
+- CKC 4.8.5 release [\#1703](https://github.com/apache/camel-kafka-connector/issues/1703)
+
 **Merged pull requests:**
 
 - Bump peter-evans/create-pull-request from 7.0.6 to 7.0.7 [\#1702](https://github.com/apache/camel-kafka-connector/pull/1702) ([dependabot[bot]](https://github.com/apps/dependabot))
