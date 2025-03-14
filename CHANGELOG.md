@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- Bump peter-evans/create-pull-request from 7.0.7 to 7.0.8 [\#1705](https://github.com/apache/camel-kafka-connector/pull/1705) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 7.0.6 to 7.0.7 [\#1702](https://github.com/apache/camel-kafka-connector/pull/1702) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1701](https://github.com/apache/camel-kafka-connector/pull/1701) ([github-actions[bot]](https://github.com/apps/github-actions))
 - 4.10-SNAPSHOT dependency and test fixes [\#1700](https://github.com/apache/camel-kafka-connector/pull/1700) ([valdar](https://github.com/valdar))
