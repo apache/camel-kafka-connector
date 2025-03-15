@@ -186,7 +186,7 @@ spec:
           topicIsPattern: '{{topicIsPattern}}'
         type: '#class:org.apache.camel.component.kafka.KafkaConfiguration'
       - name: kafkaHeaderDeserializer
-        type: "#class:org.apache.camel.component.kamelet.utils.serialization.kafka.KafkaHeaderDeserializer"
+        type: "#class:org.apache.camel.component.kafka.KafkaHeaderDeserializer"
         properties:
           enabled: '{{deserializeHeaders}}'
     from:

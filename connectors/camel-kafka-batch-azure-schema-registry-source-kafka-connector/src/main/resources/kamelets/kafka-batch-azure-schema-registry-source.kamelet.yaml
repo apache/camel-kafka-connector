@@ -161,7 +161,7 @@ spec:
       - name: defaultAzureCredential
         type: "#class:org.apache.camel.component.azure.schema.registry.DefaultAzureCredentialWrapper"
       - name: kafkaHeaderDeserializer
-        type: "#class:org.apache.camel.component.kamelet.utils.serialization.kafka.KafkaHeaderDeserializer"
+        type: "#class:org.apache.camel.component.kafka.KafkaHeaderDeserializer"
         properties:
           enabled: '{{deserializeHeaders}}'
       - name: manualCommitFactory
