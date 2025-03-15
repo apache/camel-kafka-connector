@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mariadb-source-source",
 		"type": "source",
-		"version": "4.10.0-SNAPSHOT",
+		"version": "4.10.3-SNAPSHOT",
 		"description": "Query data from a MariaDB Database.\n\nIn your Pipe file, you must explicitly declare the MariaDB Server driver dependency in spec->integration->dependencies\n\n- \"mvn:org.mariadb.jdbc:mariadb-java-client:<version>\""
 	},
 	"properties": {

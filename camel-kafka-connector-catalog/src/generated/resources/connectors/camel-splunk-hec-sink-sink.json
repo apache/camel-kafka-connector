@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-splunk-hec-sink-sink",
 		"type": "sink",
-		"version": "4.10.0-SNAPSHOT",
+		"version": "4.10.3-SNAPSHOT",
 		"description": "The Splunk HEC sink allows to send data to Splunk using the https:\/\/docs.splunk.com\/Documentation\/Splunk\/latest\/Data\/UsetheHTTPEventCollector[HTTP Event Collector]."
 	},
 	"properties": {
