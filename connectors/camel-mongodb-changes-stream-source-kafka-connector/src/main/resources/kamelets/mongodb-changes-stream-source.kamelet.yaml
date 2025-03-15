@@ -87,7 +87,7 @@ spec:
       - name: local-mongodb
         type: "#class:org.apache.camel.component.mongodb.MongoDbComponent"
       - name: mongo-client
-        type: "#class:org.apache.camel.component.kamelet.utils.mongodb.SslAwareMongoClient"
+        type: "#class:org.apache.camel.component.mongodb.SslAwareMongoClient"
         properties:
           password: "{{?password}}"
           username: "{{?username}}"
