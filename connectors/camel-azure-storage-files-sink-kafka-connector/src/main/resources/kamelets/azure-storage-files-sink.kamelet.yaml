@@ -31,10 +31,7 @@ metadata:
 spec:
   definition:
     title: "Azure Storage Files Sink"
-    description: |-
-      Upload data to Azure Storage Files Share.
-
-      In the header, you can set the `file` / `ce-file` property to specify the filename to upload. If you do set property in the header, the Kamelet uses the exchange ID as filename.
+    description: Upload data to Azure Storage Files Share.
     required:
       - accountName
       - shareName

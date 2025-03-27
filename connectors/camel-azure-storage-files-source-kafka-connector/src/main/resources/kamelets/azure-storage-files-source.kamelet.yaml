@@ -31,8 +31,7 @@ metadata:
 spec:
   definition:
     title: "Azure Storage File Source"
-    description: |-
-      Consume files from Azure Storage File Shares.
+    description: Consume files from Azure Storage File Shares.
     required:
       - accountName
       - shareName
