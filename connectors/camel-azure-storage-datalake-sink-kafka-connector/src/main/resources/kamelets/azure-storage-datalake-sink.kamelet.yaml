@@ -31,8 +31,7 @@ metadata:
 spec:
   definition:
     title: "Azure Storage Blob Data Lake Sink"
-    description: |-
-      Send data to Azure Storage Blob Data Lake.
+    description: Send data to Azure Storage Blob Data Lake.
     required:
       - accountName
       - clientId
