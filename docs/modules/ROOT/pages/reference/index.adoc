@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 193 
+Number of Camel Kafka connectors: 195 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -182,6 +182,8 @@ Number of Camel Kafka connectors: 193
 | *camel-slack-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-slack-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-slack-source-kafka-connector/4.10.2/camel-slack-source-kafka-connector-4.10.2-package.tar.gz[Download]
 | *camel-snowflake-sink-kafka-connector* | true | false | xref:reference/connectors/camel-snowflake-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-snowflake-sink-kafka-connector/4.10.2/camel-snowflake-sink-kafka-connector-4.10.2-package.tar.gz[Download]
 | *camel-snowflake-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-snowflake-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-snowflake-source-kafka-connector/4.10.2/camel-snowflake-source-kafka-connector-4.10.2-package.tar.gz[Download]
+| *camel-solr-sink-kafka-connector* | true | false | xref:reference/connectors/camel-solr-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-solr-sink-kafka-connector/4.10.2/camel-solr-sink-kafka-connector-4.10.2-package.tar.gz[Download]
+| *camel-solr-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-solr-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-solr-source-kafka-connector/4.10.2/camel-solr-source-kafka-connector-4.10.2-package.tar.gz[Download]
 | *camel-splunk-hec-sink-kafka-connector* | true | false | xref:reference/connectors/camel-splunk-hec-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-splunk-hec-sink-kafka-connector/4.10.2/camel-splunk-hec-sink-kafka-connector-4.10.2-package.tar.gz[Download]
 | *camel-splunk-sink-kafka-connector* | true | false | xref:reference/connectors/camel-splunk-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-splunk-sink-kafka-connector/4.10.2/camel-splunk-sink-kafka-connector-4.10.2-package.tar.gz[Download]
 | *camel-splunk-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-splunk-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-splunk-source-kafka-connector/4.10.2/camel-splunk-source-kafka-connector-4.10.2-package.tar.gz[Download]
