@@ -378,6 +378,10 @@
 **** xref:reference/connectors/camel-snowflake-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-snowflake-source-kafka-connector
 **** xref:reference/connectors/camel-snowflake-source-kafka-source-connector.adoc[Source Docs]
+*** camel-solr-sink-kafka-connector
+**** xref:reference/connectors/camel-solr-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-solr-source-kafka-connector
+**** xref:reference/connectors/camel-solr-source-kafka-source-connector.adoc[Source Docs]
 *** camel-splunk-hec-sink-kafka-connector
 **** xref:reference/connectors/camel-splunk-hec-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-splunk-sink-kafka-connector

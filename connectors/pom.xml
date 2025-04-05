@@ -358,6 +358,8 @@
         <module>camel-slack-source-kafka-connector</module>
         <module>camel-snowflake-sink-kafka-connector</module>
         <module>camel-snowflake-source-kafka-connector</module>
+        <module>camel-solr-sink-kafka-connector</module>
+        <module>camel-solr-source-kafka-connector</module>
         <module>camel-splunk-hec-sink-kafka-connector</module>
         <module>camel-splunk-sink-kafka-connector</module>
         <module>camel-splunk-source-kafka-connector</module>
