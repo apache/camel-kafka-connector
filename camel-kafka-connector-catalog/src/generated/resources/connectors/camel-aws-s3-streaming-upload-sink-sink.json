@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-streaming-upload-sink-sink",
 		"type": "sink",
-		"version": "4.10.3-SNAPSHOT",
+		"version": "4.10.3",
 		"description": "Upload data to AWS S3 in streaming upload mode."
 	},
 	"properties": {

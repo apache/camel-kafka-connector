@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mongodb-source-source",
 		"type": "source",
-		"version": "4.10.3-SNAPSHOT",
+		"version": "4.10.3",
 		"description": "Consume data from MongoDB.\n\nIf you enable the `persistentTailTracking` property, the consumer keeps track of the last consumed message and, on the next restart, the consumption restarts from that message. If you enable `persistentTailTracking`, you must provide a value for the `tailTrackIncreasingField` property (by default it is optional).\n\nIf you disable the `persistentTailTracking` property, the consumer consumes the whole collection and waits in idle for new data to consume.\n\nThe collection that provides the data must be a capped collection."
 	},
 	"properties": {

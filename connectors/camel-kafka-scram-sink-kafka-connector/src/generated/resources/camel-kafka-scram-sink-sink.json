@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-scram-sink-sink",
 		"type": "sink",
-		"version": "4.10.3-SNAPSHOT",
+		"version": "4.10.3",
 		"description": "Send data to Kafka topics through SCRAM login module.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partitionkey`: as message partition key\n\nBoth the headers are optional."
 	},
 	"properties": {

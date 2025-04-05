@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mail-sink-sink",
 		"type": "sink",
-		"version": "4.10.3-SNAPSHOT",
+		"version": "4.10.3",
 		"description": "Send mails to given SMTP server."
 	},
 	"properties": {

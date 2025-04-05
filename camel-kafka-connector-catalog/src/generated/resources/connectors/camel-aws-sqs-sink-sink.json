@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-sqs-sink-sink",
 		"type": "sink",
-		"version": "4.10.3-SNAPSHOT",
+		"version": "4.10.3",
 		"description": "Send messages to an Amazon Simple Queue Service (SQS) queue."
 	},
 	"properties": {
