@@ -2,11 +2,7 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.10.2...HEAD)
-
-**Closed issues:**
-
-- CKC 4.8.5 release [\#1703](https://github.com/apache/camel-kafka-connector/issues/1703)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.10.3...HEAD)
 
 **Merged pull requests:**
 
@@ -463,6 +459,14 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-4.10.3](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.10.3) (2025-04-05)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.10.2...camel-kafka-connector-4.10.3)
+
+**Closed issues:**
+
+- CKC 4.8.5 release [\#1703](https://github.com/apache/camel-kafka-connector/issues/1703)
 
 ## [camel-kafka-connector-4.10.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.10.2) (2025-03-11)
 
