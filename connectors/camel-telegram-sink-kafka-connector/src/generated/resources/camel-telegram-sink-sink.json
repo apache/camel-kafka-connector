@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-telegram-sink-sink",
 		"type": "sink",
-		"version": "4.10.3-SNAPSHOT",
+		"version": "4.10.4-SNAPSHOT",
 		"description": "Send a message to a Telegram chat by using your Telegram bot as sender.\n\nTo create a bot, use your Telegram app to contact the @botfather account.\n\nThis sink supports the following message types:\n\n- Standard text messages\n- PNG images (`Content-Type` must be set to `image\/png`)\n- JPEG images (`Content-Type` must be set to `image\/jpeg`)\n\nThis sink also supports the following message headers:\n\n- `text` \/ `ce-text`: when sending an image, the image caption\n- `chat-id` \/ `ce-chatid`: overrides the default chat where messages are sent to"
 	},
 	"properties": {
