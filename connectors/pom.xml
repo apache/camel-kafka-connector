@@ -90,8 +90,6 @@
                         <param>jira-oauth-source</param>
                         <param>jira-update-issue-sink</param>
                         <param>jira-source</param>
-                        <!-- TODO: remove when https://github.com/apache/camel-kamelets/issues/2222 is releases  -->
-                        <param>kafka-apicurio-registry-not-secured-source</param>
                     </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
@@ -168,7 +166,7 @@
                 <artifactId>camel-kafka-connector-docs-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <configuration>
-                    <lastReleasedVersion>4.10.2</lastReleasedVersion>
+                    <lastReleasedVersion>4.10.3</lastReleasedVersion>
                 </configuration>
                 <executions>
                     <execution>
@@ -291,6 +289,7 @@
         <module>camel-jms-pooled-apache-artemis-sink-kafka-connector</module>
         <module>camel-jms-pooled-apache-artemis-source-kafka-connector</module>
         <module>camel-kafka-apicurio-registry-not-secured-sink-kafka-connector</module>
+        <module>camel-kafka-apicurio-registry-not-secured-source-kafka-connector</module>
         <module>camel-kafka-azure-schema-registry-sink-kafka-connector</module>
         <module>camel-kafka-azure-schema-registry-source-kafka-connector</module>
         <module>camel-kafka-batch-apicurio-registry-not-secured-source-kafka-connector</module>
@@ -358,6 +357,8 @@
         <module>camel-slack-source-kafka-connector</module>
         <module>camel-snowflake-sink-kafka-connector</module>
         <module>camel-snowflake-source-kafka-connector</module>
+        <module>camel-solr-sink-kafka-connector</module>
+        <module>camel-solr-source-kafka-connector</module>
         <module>camel-splunk-hec-sink-kafka-connector</module>
         <module>camel-splunk-sink-kafka-connector</module>
         <module>camel-splunk-source-kafka-connector</module>

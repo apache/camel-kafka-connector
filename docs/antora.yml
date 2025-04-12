@@ -34,5 +34,5 @@ asciidoc:
     camel-docs-version: next
     camel-kamelets-version: 4.11.0-SNAPSHOT
     camel-kamelets-docs-version: next
-    kafka-version: 3.6.1
+    kafka-version: 3.8.1
     kafka-docs-version: 28

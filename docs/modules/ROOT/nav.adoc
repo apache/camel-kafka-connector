@@ -241,6 +241,8 @@
 **** xref:reference/connectors/camel-jms-pooled-apache-artemis-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-apicurio-registry-not-secured-sink-kafka-connector
 **** xref:reference/connectors/camel-kafka-apicurio-registry-not-secured-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-kafka-apicurio-registry-not-secured-source-kafka-connector
+**** xref:reference/connectors/camel-kafka-apicurio-registry-not-secured-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-azure-schema-registry-sink-kafka-connector
 **** xref:reference/connectors/camel-kafka-azure-schema-registry-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-kafka-azure-schema-registry-source-kafka-connector
@@ -378,6 +380,10 @@
 **** xref:reference/connectors/camel-snowflake-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-snowflake-source-kafka-connector
 **** xref:reference/connectors/camel-snowflake-source-kafka-source-connector.adoc[Source Docs]
+*** camel-solr-sink-kafka-connector
+**** xref:reference/connectors/camel-solr-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-solr-source-kafka-connector
+**** xref:reference/connectors/camel-solr-source-kafka-source-connector.adoc[Source Docs]
 *** camel-splunk-hec-sink-kafka-connector
 **** xref:reference/connectors/camel-splunk-hec-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-splunk-sink-kafka-connector
