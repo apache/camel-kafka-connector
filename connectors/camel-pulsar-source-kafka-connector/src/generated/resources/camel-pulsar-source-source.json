@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-pulsar-source-source",
 		"type": "source",
-		"version": "4.11.0-SNAPSHOT",
+		"version": "4.11.0",
 		"description": "Receive data from Pulsar topics."
 	},
 	"properties": {

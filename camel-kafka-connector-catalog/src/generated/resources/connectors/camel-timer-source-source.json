@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-timer-source-source",
 		"type": "source",
-		"version": "4.11.0-SNAPSHOT",
+		"version": "4.11.0",
 		"description": "Produces periodic messages with a custom payload."
 	},
 	"properties": {
