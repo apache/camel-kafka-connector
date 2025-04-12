@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.11.0-SNAPSHOT</version>
+    <version>4.11.0</version>
   </parent>
   <artifactId>camel-splunk-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: splunk-source</name>
