@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-log-sink-sink",
 		"type": "sink",
-		"version": "4.11.0-SNAPSHOT",
+		"version": "4.12.0-SNAPSHOT",
 		"description": "A sink that logs all data that it receives, useful for debugging purposes."
 	},
 	"properties": {

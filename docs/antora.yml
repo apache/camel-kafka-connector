@@ -29,10 +29,10 @@ nav:
 asciidoc:
   attributes:
     requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
-    prerelease: true
-    camel-version: 4.11.0-SNAPSHOT
-    camel-docs-version: next
-    camel-kamelets-version: 4.11.0-SNAPSHOT
-    camel-kamelets-docs-version: next
+    prerelease: false
+    camel-version: 4.11.0
+    camel-docs-version: 4.11.0
+    camel-kamelets-version: 4.11.0
+    camel-kamelets-docs-version: 4.11.0
     kafka-version: 3.8.1
     kafka-docs-version: 28
