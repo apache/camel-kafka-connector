@@ -45,7 +45,13 @@ public final class CamelStreamCacheConverterLoader implements TypeConverterLoade
 
     private void registerConverters(TypeConverterRegistry registry) {
         addTypeConverter(registry, io.netty.buffer.ByteBuf.class, org.apache.camel.StreamCache.class, false,
-            (type, exchange, value) -> org.apache.camel.kafkaconnector.syslog.converters.CamelStreamCacheConverter.toByteBuf((org.apache.camel.StreamCache) value));
+            (type, exchange, value) -> {
+                Object answer = org.apache.camel.kafkaconnector.syslog.converters.CamelStreamCacheConverter.toByteBuf((org.apache.camel.StreamCache) value);
+                if (false && answer == null) {
+                    answer = Void.class;
+                }
+                return answer;
+            });
     }
 
     private static void addTypeConverter(TypeConverterRegistry registry, Class<?> toType, Class<?> fromType, boolean allowNull, SimpleTypeConverter.ConversionMethod method) {

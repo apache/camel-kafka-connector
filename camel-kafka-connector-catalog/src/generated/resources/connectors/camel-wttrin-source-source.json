@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-wttrin-source-source",
 		"type": "source",
-		"version": "4.11.0-SNAPSHOT",
+		"version": "4.12.0-SNAPSHOT",
 		"description": "Get weather forecasts from the wttr.in weather forecast service"
 	},
 	"properties": {
