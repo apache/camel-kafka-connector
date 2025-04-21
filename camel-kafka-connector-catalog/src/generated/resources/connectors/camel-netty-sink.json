@@ -220,6 +220,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.shutdownTimeout": {
+			"name": "camel.sink.endpoint.shutdownTimeout",
+			"description": "Shutdown await timeout in milliseconds",
+			"defaultValue": "100",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used",
@@ -597,6 +604,13 @@
 			"name": "camel.component.netty.sendBufferSize",
 			"description": "The TCP\/UDP buffer sizes to be used during outbound communication. Size is bytes.",
 			"defaultValue": "65536",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.netty.shutdownTimeout": {
+			"name": "camel.component.netty.shutdownTimeout",
+			"description": "Shutdown await timeout in milliseconds",
+			"defaultValue": "100",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
