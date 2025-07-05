@@ -42,7 +42,7 @@
 		},
 		"camel.sink.endpoint.parameters": {
 			"name": "camel.sink.endpoint.parameters",
-			"description": "Optional parameters to the java.sql.Statement. For example to set maxRows, fetchSize etc.",
+			"description": "Optional parameters to the java.sql.Statement. For example to set maxRows, fetchSize etc. This is a multi-value option with prefix: statement.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
