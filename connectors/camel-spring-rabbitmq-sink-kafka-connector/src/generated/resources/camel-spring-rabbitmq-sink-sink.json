@@ -64,6 +64,13 @@
 			"defaultValue": "\"\/\"",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-sink.protocol": {
+			"name": "camel.kamelet.spring-rabbitmq-sink.protocol",
+			"description": "The AMQP protocol to use.",
+			"defaultValue": "\"amqp\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

@@ -37,7 +37,7 @@ public class CamelJdbcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JDBC_ENDPOINT_OUTPUT_TYPE_DOC = "Determines the output the producer should use. One of: [SelectOne] [SelectList] [StreamList]";
     public static final String CAMEL_SINK_JDBC_ENDPOINT_OUTPUT_TYPE_DEFAULT = "SelectList";
     public static final String CAMEL_SINK_JDBC_ENDPOINT_PARAMETERS_CONF = "camel.sink.endpoint.parameters";
-    public static final String CAMEL_SINK_JDBC_ENDPOINT_PARAMETERS_DOC = "Optional parameters to the java.sql.Statement. For example to set maxRows, fetchSize etc.";
+    public static final String CAMEL_SINK_JDBC_ENDPOINT_PARAMETERS_DOC = "Optional parameters to the java.sql.Statement. For example to set maxRows, fetchSize etc. This is a multi-value option with prefix: statement.";
     public static final String CAMEL_SINK_JDBC_ENDPOINT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_JDBC_ENDPOINT_READ_SIZE_CONF = "camel.sink.endpoint.readSize";
     public static final String CAMEL_SINK_JDBC_ENDPOINT_READ_SIZE_DOC = "The default maximum number of rows that can be read by a polling query. The default value is 0.";
