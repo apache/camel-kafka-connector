@@ -544,7 +544,7 @@
 		},
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
-			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. This is a multi-value option with prefix: scheduler.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
