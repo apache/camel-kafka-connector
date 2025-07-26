@@ -73,7 +73,7 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_DOC = "To enable MTOM (attachments). This requires to use POJO or PAYLOAD data format mode.";
     public static final Boolean CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_DEFAULT = false;
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_CONF = "camel.source.endpoint.properties";
-    public static final String CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DOC = "To set additional CXF options using the key/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true";
+    public static final String CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DOC = "To set additional CXF options using the key/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true. This is a multi-value option with prefix: properties.";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DEFAULT = null;
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_CONF = "camel.source.endpoint.schemaValidationEnabled";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_SCHEMA_VALIDATION_ENABLED_DOC = "Enable schema validation for request and response. Disabled by default for performance reason";
