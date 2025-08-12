@@ -65,6 +65,20 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.multipartUpload": {
+			"name": "camel.sink.endpoint.multipartUpload",
+			"description": "Whether to force using multipart\/form-data for easy file uploads. This is only to be used for uploading the message body as a single entity form-data. For uploading multiple entries then use org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder to build the form.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.multipartUploadName": {
+			"name": "camel.sink.endpoint.multipartUploadName",
+			"description": "The name of the multipart\/form-data when multipartUpload is enabled.",
+			"defaultValue": "\"data\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.skipRequestHeaders": {
 			"name": "camel.sink.endpoint.skipRequestHeaders",
 			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
@@ -212,13 +226,13 @@
 		},
 		"camel.sink.endpoint.httpClientOptions": {
 			"name": "camel.sink.endpoint.httpClientOptions",
-			"description": "To configure the HttpClient using the key\/values from the Map.",
+			"description": "To configure the HttpClient using the key\/values from the Map. This is a multi-value option with prefix: httpClient.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.httpConnectionOptions": {
 			"name": "camel.sink.endpoint.httpConnectionOptions",
-			"description": "To configure the connection and the socket using the key\/values from the Map.",
+			"description": "To configure the connection and the socket using the key\/values from the Map. This is a multi-value option with prefix: httpConnection.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -244,8 +258,8 @@
 		},
 		"camel.sink.endpoint.proxyAuthDomain": {
 			"name": "camel.sink.endpoint.proxyAuthDomain",
-			"description": "Proxy authentication domain to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Proxy authentication domain to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyAuthHost": {
@@ -256,19 +270,19 @@
 		},
 		"camel.sink.endpoint.proxyAuthMethod": {
 			"name": "camel.sink.endpoint.proxyAuthMethod",
-			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
+			"description": "Proxy authentication method to use One of: [Basic] [Bearer] [NTLM]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"Basic",
-				"Digest",
+				"Bearer",
 				"NTLM"
 			]
 		},
 		"camel.sink.endpoint.proxyAuthNtHost": {
 			"name": "camel.sink.endpoint.proxyAuthNtHost",
-			"description": "Proxy authentication domain (workstation name) to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Proxy authentication domain (workstation name) to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyAuthPassword": {
@@ -311,10 +325,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.authBearerToken": {
+			"name": "camel.sink.endpoint.authBearerToken",
+			"description": "Authentication bearer token",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.authDomain": {
 			"name": "camel.sink.endpoint.authDomain",
-			"description": "Authentication domain to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Authentication domain to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.authenticationPreemptive": {
@@ -326,24 +346,18 @@
 		},
 		"camel.sink.endpoint.authHost": {
 			"name": "camel.sink.endpoint.authHost",
-			"description": "Authentication host to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Authentication host to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.authMethod": {
 			"name": "camel.sink.endpoint.authMethod",
-			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.authMethodPriority": {
-			"name": "camel.sink.endpoint.authMethodPriority",
-			"description": "Which authentication method to prioritize to use, either as Basic, Digest or NTLM. One of: [Basic] [Digest] [NTLM]",
+			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Bearer, or NTLM. (NTLM is deprecated) One of: [Basic] [Bearer] [NTLM]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"Basic",
-				"Digest",
+				"Bearer",
 				"NTLM"
 			]
 		},
@@ -392,6 +406,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.oauth2ResourceIndicator": {
+			"name": "camel.sink.endpoint.oauth2ResourceIndicator",
+			"description": "OAuth2 Token endpoint",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.oauth2Scope": {
 			"name": "camel.sink.endpoint.oauth2Scope",
 			"description": "OAuth2 scope",
@@ -400,7 +420,7 @@
 		},
 		"camel.sink.endpoint.oauth2TokenEndpoint": {
 			"name": "camel.sink.endpoint.oauth2TokenEndpoint",
-			"description": "OAuth2 Token endpoint",
+			"description": "OAuth2 Resource Indicator",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -623,7 +643,7 @@
 		},
 		"camel.component.https.proxyAuthMethod": {
 			"name": "camel.component.https.proxyAuthMethod",
-			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
+			"description": "Proxy authentication method to use (NTLM is deprecated) One of: [Basic] [Digest] [NTLM]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
