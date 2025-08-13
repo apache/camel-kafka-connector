@@ -4,8 +4,13 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.11.0...HEAD)
 
+**Closed issues:**
+
+- build is not successful for version - 4.9.0-SNAPSHOT [\#1695](https://github.com/apache/camel-kafka-connector/issues/1695)
+
 **Merged pull requests:**
 
+- Bump actions/checkout from 4.2.2 to 5.0.0 [\#1725](https://github.com/apache/camel-kafka-connector/pull/1725) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1716](https://github.com/apache/camel-kafka-connector/pull/1716) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Bump actions/setup-java from 4.7.0 to 4.7.1 [\#1714](https://github.com/apache/camel-kafka-connector/pull/1714) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump peter-evans/create-pull-request from 7.0.7 to 7.0.8 [\#1705](https://github.com/apache/camel-kafka-connector/pull/1705) ([dependabot[bot]](https://github.com/apps/dependabot))
