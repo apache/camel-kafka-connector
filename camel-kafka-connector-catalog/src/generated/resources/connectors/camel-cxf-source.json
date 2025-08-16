@@ -124,7 +124,7 @@
 		},
 		"camel.source.endpoint.properties": {
 			"name": "camel.source.endpoint.properties",
-			"description": "To set additional CXF options using the key\/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true",
+			"description": "To set additional CXF options using the key\/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true. This is a multi-value option with prefix: properties.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
