@@ -258,7 +258,7 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. This is a multi-value option with prefix: scheduler.";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_SCHEDULER_PROPERTIES_DEFAULT = null;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_START_SCHEDULER_CONF = "camel.source.endpoint.startScheduler";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_START_SCHEDULER_DOC = "Whether the scheduler should be auto started.";
