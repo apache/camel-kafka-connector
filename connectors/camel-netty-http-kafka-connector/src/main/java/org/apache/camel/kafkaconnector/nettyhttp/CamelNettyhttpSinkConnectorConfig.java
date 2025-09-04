@@ -42,7 +42,7 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_BRIDGE_ENDPOINT_DOC = "If the option is true, the producer will ignore the NettyHttpConstants.HTTP_URI header, and use the endpoint's URI for request. You may also set the throwExceptionOnFailure to be false to let the producer send all the fault response back. The consumer working in the bridge mode will skip the gzip compression and WWW URL form encoding (by adding the Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED headers to the consumed exchange).";
     public static final Boolean CAMEL_SINK_NETTYHTTP_ENDPOINT_BRIDGE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_DISCONNECT_CONF = "camel.sink.endpoint.disconnect";
-    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_DISCONNECT_DOC = "Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.";
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_DISCONNECT_DOC = "Whether or not to disconnect(close) from Netty Channel right after use.";
     public static final Boolean CAMEL_SINK_NETTYHTTP_ENDPOINT_DISCONNECT_DEFAULT = false;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_KEEP_ALIVE_CONF = "camel.sink.endpoint.keepAlive";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_KEEP_ALIVE_DOC = "Setting to ensure socket is not closed due to inactivity";
@@ -51,10 +51,10 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_REUSE_ADDRESS_DOC = "Setting to facilitate socket multiplexing";
     public static final Boolean CAMEL_SINK_NETTYHTTP_ENDPOINT_REUSE_ADDRESS_DEFAULT = true;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_REUSE_CHANNEL_CONF = "camel.sink.endpoint.reuseChannel";
-    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_REUSE_CHANNEL_DOC = "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key NettyConstants#NETTY_CHANNEL which allows you to obtain the channel during routing and use it as well.";
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_REUSE_CHANNEL_DOC = "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key CamelNettyChannel which allows you to obtain the channel during routing and use it as well.";
     public static final Boolean CAMEL_SINK_NETTYHTTP_ENDPOINT_REUSE_CHANNEL_DEFAULT = false;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_SYNC_CONF = "camel.sink.endpoint.sync";
-    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_SYNC_DOC = "Setting to set endpoint as one-way or request-response";
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_SYNC_DOC = "Setting to set endpoint as one-way (false) or request-response (true)";
     public static final Boolean CAMEL_SINK_NETTYHTTP_ENDPOINT_SYNC_DEFAULT = true;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_CONF = "camel.sink.endpoint.tcpNoDelay";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_TCP_NO_DELAY_DOC = "Setting to improve TCP protocol performance";
@@ -111,7 +111,7 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DOC = "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.";
     public static final Boolean CAMEL_SINK_NETTYHTTP_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DEFAULT = false;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_CHANNEL_GROUP_CONF = "camel.sink.endpoint.channelGroup";
-    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_CHANNEL_GROUP_DOC = "To use a explicit ChannelGroup.";
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_CHANNEL_GROUP_DOC = "To use an explicit ChannelGroup.";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_CHANNEL_GROUP_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_CONFIGURATION_CONF = "camel.sink.endpoint.configuration";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_CONFIGURATION_DOC = "To use a custom configured NettyHttpConfiguration for configuring this endpoint.";
@@ -129,7 +129,7 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_NETTY_HTTP_BINDING_DOC = "To use a custom org.apache.camel.component.netty.http.NettyHttpBinding for binding to/from Netty and Camel Message API.";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_NETTY_HTTP_BINDING_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_OPTIONS_CONF = "camel.sink.endpoint.options";
-    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_OPTIONS_DOC = "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.";
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_OPTIONS_DOC = "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false. See the Netty documentation for possible options that can be used. This is a multi-value option with prefix: option.";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_OPTIONS_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_RECEIVE_BUFFER_SIZE_CONF = "camel.sink.endpoint.receiveBufferSize";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_RECEIVE_BUFFER_SIZE_DOC = "The TCP/UDP buffer sizes to be used during inbound communication. Size is bytes.";
@@ -207,10 +207,10 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DOC = "Server side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CONFIGURATION_CONF = "camel.component.netty-http.configuration";
-    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CONFIGURATION_DOC = "To use the NettyConfiguration as configuration when creating endpoints.";
+    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CONFIGURATION_DOC = "To use the NettyConfiguration as configuration when creating endpoints";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_DISCONNECT_CONF = "camel.component.netty-http.disconnect";
-    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_DISCONNECT_DOC = "Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.";
+    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_DISCONNECT_DOC = "Whether or not to disconnect(close) from Netty Channel right after use.";
     public static final Boolean CAMEL_SINK_NETTYHTTP_COMPONENT_DISCONNECT_DEFAULT = false;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_KEEP_ALIVE_CONF = "camel.component.netty-http.keepAlive";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_KEEP_ALIVE_DOC = "Setting to ensure socket is not closed due to inactivity";
@@ -219,10 +219,10 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_REUSE_ADDRESS_DOC = "Setting to facilitate socket multiplexing";
     public static final Boolean CAMEL_SINK_NETTYHTTP_COMPONENT_REUSE_ADDRESS_DEFAULT = true;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_REUSE_CHANNEL_CONF = "camel.component.netty-http.reuseChannel";
-    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_REUSE_CHANNEL_DOC = "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key NettyConstants#NETTY_CHANNEL which allows you to obtain the channel during routing and use it as well.";
+    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_REUSE_CHANNEL_DOC = "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key CamelNettyChannel which allows you to obtain the channel during routing and use it as well.";
     public static final Boolean CAMEL_SINK_NETTYHTTP_COMPONENT_REUSE_CHANNEL_DEFAULT = false;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_SYNC_CONF = "camel.component.netty-http.sync";
-    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_SYNC_DOC = "Setting to set endpoint as one-way or request-response";
+    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_SYNC_DOC = "Setting to set endpoint as one-way (false) or request-response (true)";
     public static final Boolean CAMEL_SINK_NETTYHTTP_COMPONENT_SYNC_DEFAULT = true;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_TCP_NO_DELAY_CONF = "camel.component.netty-http.tcpNoDelay";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_TCP_NO_DELAY_DOC = "Setting to improve TCP protocol performance";
@@ -279,7 +279,7 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_NETTYHTTP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CHANNEL_GROUP_CONF = "camel.component.netty-http.channelGroup";
-    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CHANNEL_GROUP_DOC = "To use a explicit ChannelGroup.";
+    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CHANNEL_GROUP_DOC = "To use an explicit ChannelGroup.";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_CHANNEL_GROUP_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.netty-http.headerFilterStrategy";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers.";
@@ -291,7 +291,7 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_NETTY_HTTP_BINDING_DOC = "To use a custom org.apache.camel.component.netty.http.NettyHttpBinding for binding to/from Netty and Camel Message API.";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_NETTY_HTTP_BINDING_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_OPTIONS_CONF = "camel.component.netty-http.options";
-    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_OPTIONS_DOC = "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.";
+    public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_OPTIONS_DOC = "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false. See the Netty documentation for possible options that can be used. This is a multi-value option with prefix: option.";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_OPTIONS_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_RECEIVE_BUFFER_SIZE_CONF = "camel.component.netty-http.receiveBufferSize";
     public static final String CAMEL_SINK_NETTYHTTP_COMPONENT_RECEIVE_BUFFER_SIZE_DOC = "The TCP/UDP buffer sizes to be used during inbound communication. Size is bytes.";
@@ -451,7 +451,7 @@ public class CamelNettyhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DOC);
-        conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DOC);
+        conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_PASSPHRASE_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_NETTYHTTP_ENDPOINT_PASSPHRASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_PASSPHRASE_DOC);
@@ -460,7 +460,7 @@ public class CamelNettyhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_CLIENT_CERT_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_CLIENT_CERT_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_CLIENT_CERT_HEADERS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_SSL_HANDLER_DOC);
-        conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DOC);
+        conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_DISCONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_COMPONENT_DISCONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_DISCONNECT_DOC);
@@ -510,7 +510,7 @@ public class CamelNettyhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_TEXTLINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_COMPONENT_TEXTLINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_TEXTLINE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_DOC);
-        conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DOC);
+        conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_KEY_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_PASSPHRASE_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_NETTYHTTP_COMPONENT_PASSPHRASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_PASSPHRASE_DOC);
@@ -520,7 +520,7 @@ public class CamelNettyhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_CLIENT_CERT_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_CLIENT_CERT_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_CLIENT_CERT_HEADERS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_SSL_HANDLER_DOC);
-        conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DOC);
+        conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         return conf;
