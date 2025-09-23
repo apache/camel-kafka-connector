@@ -28,11 +28,17 @@ public class AWSContainerWithTimeout extends AWSContainer {
     }
 
     public AWSContainerWithTimeout(String imageName, Service... services) {
-        super(imageName, services);
+        super(imageName, false, services);
     }
 
     @Override
-    protected void setupContainer() {
+    protected void setupContainer(boolean fixedPort) {
+        if (fixedPort) {
+            this.addFixedExposedPort(4566, 4566);
+        } else {
+            this.withExposedPorts(new Integer[]{4566});
+        }
+
         int startupTimeout = Integer.parseInt(System.getProperty("aws.container.startup.timeout", DEFAULT_STARTUP_TIMEOUT));
         this.withExposedPorts(new Integer[]{4566});
         this.waitingFor(Wait.forLogMessage(".*Ready\\.\n", 1)

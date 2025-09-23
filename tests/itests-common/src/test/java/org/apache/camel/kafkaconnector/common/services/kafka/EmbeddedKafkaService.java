@@ -88,6 +88,11 @@ public class EmbeddedKafkaService implements KafkaService {
     }
 
     @Override
+    public String brokers() {
+        return this.cluster.kafka().bootstrapServers();
+    }
+
+    @Override
     public void registerProperties() {
         // NO-OP
     }
