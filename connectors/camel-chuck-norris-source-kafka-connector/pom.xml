@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.14.0</version>
+    <version>4.15.0-SNAPSHOT</version>
   </parent>
   <artifactId>camel-chuck-norris-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: chuck-norris-source</name>
