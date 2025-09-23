@@ -54,10 +54,10 @@ public class CamelPulsarsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_CONSUMER_QUEUE_SIZE_DOC = "Size of the consumer queue";
     public static final Integer CAMEL_SOURCE_PULSARSOURCE_KAMELET_CONSUMER_QUEUE_SIZE_DEFAULT = 10;
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_DEAD_LETTER_TOPIC_CONF = "camel.kamelet.pulsar-source.deadLetterTopic";
-    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_DEAD_LETTER_TOPIC_DOC = "Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ.";
+    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_DEAD_LETTER_TOPIC_DOC = "Name of the topic where the messages which fail `maxRedeliverCount` times are sent. Note: if not set, default topic name is topicName-subscriptionName-DLQ.";
     public static final Integer CAMEL_SOURCE_PULSARSOURCE_KAMELET_DEAD_LETTER_TOPIC_DEFAULT = null;
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_MAX_REDELIVER_COUNT_CONF = "camel.kamelet.pulsar-source.maxRedeliverCount";
-    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_MAX_REDELIVER_COUNT_DOC = "Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created.";
+    public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_MAX_REDELIVER_COUNT_DOC = "Maximum number of times that a message is redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy is created.";
     public static final Integer CAMEL_SOURCE_PULSARSOURCE_KAMELET_MAX_REDELIVER_COUNT_DEFAULT = null;
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_NEGATIVE_ACK_REDELIVERY_DELAY_MICROS_CONF = "camel.kamelet.pulsar-source.negativeAckRedeliveryDelayMicros";
     public static final String CAMEL_SOURCE_PULSARSOURCE_KAMELET_NEGATIVE_ACK_REDELIVERY_DELAY_MICROS_DOC = "Set the negative acknowledgement delay.";

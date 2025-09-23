@@ -42,7 +42,7 @@ public class CamelSpringrabbitmqsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PASSWORD_DOC = "The password to access the RabbitMQ server";
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_EXCHANGE_NAME_CONF = "camel.kamelet.spring-rabbitmq-source.exchangeName";
-    public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DOC = "The exchange name determines the exchange the queue will be bound to";
+    public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DOC = "The exchange name determines the exchange the queue is bound to.";
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_EXCHANGE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_QUEUES_CONF = "camel.kamelet.spring-rabbitmq-source.queues";
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_QUEUES_DOC = "The queue to receive messages from";
@@ -53,6 +53,9 @@ public class CamelSpringrabbitmqsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_VHOST_CONF = "camel.kamelet.spring-rabbitmq-source.vhost";
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_VHOST_DOC = "The virtual host";
     public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_VHOST_DEFAULT = "/";
+    public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PROTOCOL_CONF = "camel.kamelet.spring-rabbitmq-source.protocol";
+    public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PROTOCOL_DOC = "The AMQP protocol to use.";
+    public static final String CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PROTOCOL_DEFAULT = "amqp";
 
     public CamelSpringrabbitmqsourceSourceConnectorConfig(
             ConfigDef config,
@@ -76,6 +79,7 @@ public class CamelSpringrabbitmqsourceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_QUEUES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_QUEUES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_QUEUES_DOC);
         conf.define(CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_AUTO_DECLARE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_AUTO_DECLARE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_AUTO_DECLARE_DOC);
         conf.define(CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_VHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_VHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_VHOST_DOC);
+        conf.define(CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGRABBITMQSOURCE_KAMELET_PROTOCOL_DOC);
         return conf;
     }
 }

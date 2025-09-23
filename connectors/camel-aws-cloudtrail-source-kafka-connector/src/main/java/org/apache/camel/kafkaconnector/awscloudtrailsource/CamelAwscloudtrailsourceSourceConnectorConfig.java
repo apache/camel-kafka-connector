@@ -45,7 +45,7 @@ public class CamelAwscloudtrailsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the CloudTrail client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in CloudTrail.";
     public static final Boolean CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-cloudtrail-source.profileCredentialsName";
-    public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter sets the profile name.";
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-cloudtrail-source.sessionToken";
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";
@@ -57,7 +57,7 @@ public class CamelAwscloudtrailsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC = "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.";
     public static final Boolean CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_MAX_RESULTS_CONF = "camel.kamelet.aws-cloudtrail-source.maxResults";
-    public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_MAX_RESULTS_DOC = "Maximum number of records that will be fetched in each poll.";
+    public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_MAX_RESULTS_DOC = "Maximum number of records that are fetched in each poll.";
     public static final Integer CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_MAX_RESULTS_DEFAULT = 1;
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_EVENT_SOURCE_CONF = "camel.kamelet.aws-cloudtrail-source.eventSource";
     public static final String CAMEL_SOURCE_AWSCLOUDTRAILSOURCE_KAMELET_EVENT_SOURCE_DOC = "Specify an event source to select events. Example: secretsmanager.amazonaws.com";

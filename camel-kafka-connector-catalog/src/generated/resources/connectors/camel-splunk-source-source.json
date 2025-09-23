@@ -6,7 +6,7 @@
 		"id": "camel-splunk-source-source",
 		"type": "source",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Retrieve data from Splunk and outputs in json format.\n\nFor the fields accepting time specifiers like `earliestTime`, it accepts a wide variety of formats, please check https:\/\/docs.splunk.com\/Documentation\/Splunk\/9.0.0\/Search\/Specifytimemodifiersinyoursearch[Splunk documentation] for more information."
+		"description": "Retrieve data from Splunk and outputs in json format.\n\nFor the fields accepting time specifiers like `earliestTime`, Splunk accepts a wide variety of formats, please check https:\/\/docs.splunk.com\/Documentation\/Splunk\/9.0.0\/Search\/Specifytimemodifiersinyoursearch[Splunk documentation] for more information."
 	},
 	"properties": {
 		"camel.kamelet.splunk-source.serverHostname": {

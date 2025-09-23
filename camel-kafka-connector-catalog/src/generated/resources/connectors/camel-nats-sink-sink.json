@@ -20,6 +20,26 @@
 			"description": "Comma separated list of NATS Servers",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.nats-sink.jetstreamEnabled": {
+			"name": "camel.kamelet.nats-sink.jetstreamEnabled",
+			"description": "Sets whether to enable JetStream support for this endpoint.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.nats-sink.jetstreamName": {
+			"name": "camel.kamelet.nats-sink.jetstreamName",
+			"description": "Sets the name of the JetStream stream to use.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.nats-sink.jetstreamAsync": {
+			"name": "camel.kamelet.nats-sink.jetstreamAsync",
+			"description": "Sets whether to operate JetStream requests asynchronously.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

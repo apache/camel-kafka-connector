@@ -36,7 +36,7 @@ public class CamelDropboxsinkSinkConnectorConfig
     public static final String CAMEL_SINK_DROPBOXSINK_KAMELET_REMOTE_PATH_DOC = "Original file or folder to work with";
     public static final String CAMEL_SINK_DROPBOXSINK_KAMELET_REMOTE_PATH_DEFAULT = null;
     public static final String CAMEL_SINK_DROPBOXSINK_KAMELET_UPLOAD_MODE_CONF = "camel.kamelet.dropbox-sink.uploadMode";
-    public static final String CAMEL_SINK_DROPBOXSINK_KAMELET_UPLOAD_MODE_DOC = "Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. The value can be one of add, force.";
+    public static final String CAMEL_SINK_DROPBOXSINK_KAMELET_UPLOAD_MODE_DOC = "The uploading mode in case a file with the same name exists on Dropbox. Choose `add` or `force`. With `add`, the new file is renamed. With `force`, the existing file is overwritten.";
     public static final String CAMEL_SINK_DROPBOXSINK_KAMELET_UPLOAD_MODE_DEFAULT = "add";
 
     public CamelDropboxsinkSinkConnectorConfig(

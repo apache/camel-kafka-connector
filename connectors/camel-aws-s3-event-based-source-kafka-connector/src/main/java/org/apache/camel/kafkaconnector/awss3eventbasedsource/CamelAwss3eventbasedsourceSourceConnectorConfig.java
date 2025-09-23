@@ -66,7 +66,7 @@ public class CamelAwss3eventbasedsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_GREEDY_DOC = "If greedy is enabled, then the polling will happen immediately again, if the previous run polled 1 or more messages.";
     public static final Boolean CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_GREEDY_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_GET_OBJECT_CONF = "camel.kamelet.aws-s3-event-based-source.getObject";
-    public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_GET_OBJECT_DOC = "If getObject is enabled, then the file created in the bucket will be get and returned as body, if not only the event will returned as body.";
+    public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_GET_OBJECT_DOC = "If `getObject` is enabled, then the file created in the bucket is retrieved and returned as body. If not, only the event will returned as body.";
     public static final Boolean CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_GET_OBJECT_DEFAULT = false;
 
     public CamelAwss3eventbasedsourceSourceConnectorConfig(

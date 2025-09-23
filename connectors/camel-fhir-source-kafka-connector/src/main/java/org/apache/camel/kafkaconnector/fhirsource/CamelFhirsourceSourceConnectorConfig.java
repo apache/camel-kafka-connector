@@ -27,10 +27,10 @@ public class CamelFhirsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_SERVER_URL_CONF = "camel.kamelet.fhir-source.serverUrl";
-    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_SERVER_URL_DOC = "The Fhir server url";
+    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_SERVER_URL_DOC = "The FHIR server url.";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_SERVER_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_URL_CONF = "camel.kamelet.fhir-source.url";
-    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_URL_DOC = "The Fhir resource type url";
+    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_URL_DOC = "The FHIR resource type url.";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_URL_DEFAULT = "/Patient";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_ENCODING_CONF = "camel.kamelet.fhir-source.encoding";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_ENCODING_DOC = "Encoding to use for all request.";
@@ -39,13 +39,13 @@ public class CamelFhirsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_FHIR_VERSION_DOC = "The FHIR Version to use.";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_FHIR_VERSION_DEFAULT = "R4";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.fhir-source.username";
-    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_USERNAME_DOC = "The username to access the Fhir server";
+    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_USERNAME_DOC = "The username to access the FHIR server.";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.fhir-source.password";
-    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_PASSWORD_DOC = "The password to access the Fhir server";
+    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_PASSWORD_DOC = "The password to access the FHIR server.";
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_PRETTY_PRINT_CONF = "camel.kamelet.fhir-source.prettyPrint";
-    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_PRETTY_PRINT_DOC = "Define if the Json must be pretty print or not";
+    public static final String CAMEL_SOURCE_FHIRSOURCE_KAMELET_PRETTY_PRINT_DOC = "Define if the Json must be pretty print or not.";
     public static final Boolean CAMEL_SOURCE_FHIRSOURCE_KAMELET_PRETTY_PRINT_DEFAULT = true;
 
     public CamelFhirsourceSourceConnectorConfig(

@@ -6,7 +6,7 @@
 		"id": "camel-jms-pooled-apache-artemis-sink-sink",
 		"type": "sink",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Send data to an Apache Artemis message broker by using JMS Pooled"
+		"description": "Send data to an Apache Artemis message broker by using JMS Pooled."
 	},
 	"properties": {
 		"camel.kamelet.jms-pooled-apache-artemis-sink.destinationType": {
@@ -42,7 +42,7 @@
 		},
 		"camel.kamelet.jms-pooled-apache-artemis-sink.maxSessionsPerConnection": {
 			"name": "camel.kamelet.jms-pooled-apache-artemis-sink.maxSessionsPerConnection",
-			"description": "The maximum number of pooled sessions per connection in the pool",
+			"description": "The maximum number of pooled sessions per connection in the pool.",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -56,7 +56,7 @@
 		},
 		"camel.kamelet.jms-pooled-apache-artemis-sink.connectionIdleTimeout": {
 			"name": "camel.kamelet.jms-pooled-apache-artemis-sink.connectionIdleTimeout",
-			"description": "The maximum time a pooled Connection can sit unused before it is eligible for removal (in milliseconds)",
+			"description": "The maximum time a pooled Connection can sit unused before it is eligible for removal (in milliseconds).",
 			"defaultValue": "30000",
 			"priority": "MEDIUM",
 			"required": "false"

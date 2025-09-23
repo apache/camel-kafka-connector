@@ -27,10 +27,10 @@ public class CamelSftpsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.sftp-sink.connectionHost";
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DOC = "The hostname of the FTP server";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DOC = "The hostname of the FTP server.";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_HOST_DEFAULT = null;
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.sftp-sink.connectionPort";
-    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DOC = "The port of the FTP server";
+    public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DOC = "The port of the FTP server.";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_CONNECTION_PORT_DEFAULT = "22";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_CONF = "camel.kamelet.sftp-sink.username";
     public static final String CAMEL_SINK_SFTPSINK_KAMELET_USERNAME_DOC = "The username to access the FTP server.";

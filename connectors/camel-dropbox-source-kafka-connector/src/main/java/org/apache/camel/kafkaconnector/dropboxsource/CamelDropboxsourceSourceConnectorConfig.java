@@ -39,7 +39,7 @@ public class CamelDropboxsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_DROPBOXSOURCE_KAMELET_REMOTE_PATH_DOC = "Original file or folder to work with";
     public static final String CAMEL_SOURCE_DROPBOXSOURCE_KAMELET_REMOTE_PATH_DEFAULT = null;
     public static final String CAMEL_SOURCE_DROPBOXSOURCE_KAMELET_QUERY_CONF = "camel.kamelet.dropbox-source.query";
-    public static final String CAMEL_SOURCE_DROPBOXSOURCE_KAMELET_QUERY_DOC = "A space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings. If this option is not set, all files will be matched.";
+    public static final String CAMEL_SOURCE_DROPBOXSOURCE_KAMELET_QUERY_DOC = "A space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings. If this option is not set, all files is matched.";
     public static final String CAMEL_SOURCE_DROPBOXSOURCE_KAMELET_QUERY_DEFAULT = null;
 
     public CamelDropboxsourceSourceConnectorConfig(

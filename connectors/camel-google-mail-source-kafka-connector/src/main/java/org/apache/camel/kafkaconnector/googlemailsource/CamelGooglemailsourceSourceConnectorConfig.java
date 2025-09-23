@@ -27,13 +27,13 @@ public class CamelGooglemailsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_INDEX_CONF = "camel.kamelet.google-mail-source.index";
-    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_INDEX_DOC = "An index for the google mail endpoint";
+    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_INDEX_DOC = "An index for the google mail endpoint.";
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_INDEX_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_ID_CONF = "camel.kamelet.google-mail-source.clientId";
-    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_ID_DOC = "Client ID of the gmail application";
+    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_ID_DOC = "Client ID of the gmail application.";
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_SECRET_CONF = "camel.kamelet.google-mail-source.clientSecret";
-    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_SECRET_DOC = "Client Secret of the gmail application";
+    public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_SECRET_DOC = "Client Secret of the gmail application.";
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_CLIENT_SECRET_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_ACCESS_TOKEN_CONF = "camel.kamelet.google-mail-source.accessToken";
     public static final String CAMEL_SOURCE_GOOGLEMAILSOURCE_KAMELET_ACCESS_TOKEN_DOC = "OAuth 2 access token for google mail application. This typically expires after an hour so refreshToken is recommended for long term usage.";

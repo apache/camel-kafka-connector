@@ -27,7 +27,7 @@ public class CamelCronsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_CRONSOURCE_KAMELET_SCHEDULE_CONF = "camel.kamelet.cron-source.schedule";
-    public static final String CAMEL_SOURCE_CRONSOURCE_KAMELET_SCHEDULE_DOC = "A cron expression that will be used to trigger events generation. Example: 0/3 10 * * * ?";
+    public static final String CAMEL_SOURCE_CRONSOURCE_KAMELET_SCHEDULE_DOC = "A cron expression that is used to trigger events generation. Example: 0/3 10 * * * ?";
     public static final String CAMEL_SOURCE_CRONSOURCE_KAMELET_SCHEDULE_DEFAULT = null;
     public static final String CAMEL_SOURCE_CRONSOURCE_KAMELET_MESSAGE_CONF = "camel.kamelet.cron-source.message";
     public static final String CAMEL_SOURCE_CRONSOURCE_KAMELET_MESSAGE_DOC = "The message to generate Example: hello world";

@@ -6,18 +6,18 @@
 		"id": "camel-fhir-source-source",
 		"type": "source",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Receive data from Fhir server."
+		"description": "Receive data from FHIR server."
 	},
 	"properties": {
 		"camel.kamelet.fhir-source.serverUrl": {
 			"name": "camel.kamelet.fhir-source.serverUrl",
-			"description": "The Fhir server url",
+			"description": "The FHIR server url.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.fhir-source.url": {
 			"name": "camel.kamelet.fhir-source.url",
-			"description": "The Fhir resource type url",
+			"description": "The FHIR resource type url.",
 			"defaultValue": "\"\/Patient\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -38,19 +38,19 @@
 		},
 		"camel.kamelet.fhir-source.username": {
 			"name": "camel.kamelet.fhir-source.username",
-			"description": "The username to access the Fhir server",
+			"description": "The username to access the FHIR server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.fhir-source.password": {
 			"name": "camel.kamelet.fhir-source.password",
-			"description": "The password to access the Fhir server",
+			"description": "The password to access the FHIR server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.fhir-source.prettyPrint": {
 			"name": "camel.kamelet.fhir-source.prettyPrint",
-			"description": "Define if the Json must be pretty print or not",
+			"description": "Define if the Json must be pretty print or not.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

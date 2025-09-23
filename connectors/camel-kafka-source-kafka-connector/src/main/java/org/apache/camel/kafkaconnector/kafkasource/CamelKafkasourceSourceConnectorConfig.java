@@ -51,7 +51,7 @@ public class CamelKafkasourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_ALLOW_MANUAL_COMMIT_DOC = "Whether to allow doing manual commits";
     public static final Boolean CAMEL_SOURCE_KAFKASOURCE_KAMELET_ALLOW_MANUAL_COMMIT_DEFAULT = false;
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_CONF = "camel.kamelet.kafka-source.pollOnError";
-    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_DOC = "What to do if kafka threw an exception while polling for new messages. There are 5 enums and the value can be one of DISCARD, ERROR_HANDLER, RECONNECT, RETRY, STOP";
+    public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_DOC = "What to do if kafka threw an exception while polling for new messages. There are 5 enums and the value can be one of `DISCARD`, `ERROR_HANDLER`, `RECONNECT`, `RETRY`, `STOP`";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_POLL_ON_ERROR_DEFAULT = "ERROR_HANDLER";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_CONF = "camel.kamelet.kafka-source.autoOffsetReset";
     public static final String CAMEL_SOURCE_KAFKASOURCE_KAMELET_AUTO_OFFSET_RESET_DOC = "What to do when there is no initial offset. There are 3 enums and the value can be one of latest, earliest, none";

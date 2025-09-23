@@ -48,7 +48,7 @@ public class CamelAwskinesissourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the Kinesis client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in Kinesis.";
     public static final Boolean CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-kinesis-source.profileCredentialsName";
-    public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter sets the profile name.";
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-kinesis-source.sessionToken";
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";
@@ -63,7 +63,7 @@ public class CamelAwskinesissourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll of the selected stream.";
     public static final Integer CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_DELAY_DEFAULT = 500;
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_ASYNC_CLIENT_CONF = "camel.kamelet.aws-kinesis-source.asyncClient";
-    public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_ASYNC_CLIENT_DOC = "If we want to a KinesisAsyncClient instance set it to true.";
+    public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_ASYNC_CLIENT_DOC = "If we want a KinesisAsyncClient instance set it to true.";
     public static final Boolean CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_ASYNC_CLIENT_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_USE_KCL_CONSUMERS_CONF = "camel.kamelet.aws-kinesis-source.useKclConsumers";
     public static final String CAMEL_SOURCE_AWSKINESISSOURCE_KAMELET_USE_KCL_CONSUMERS_DOC = "If we want to a KCL Consumer set it to true";

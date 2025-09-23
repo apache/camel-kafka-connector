@@ -35,7 +35,7 @@
 		},
 		"camel.kamelet.azure-cosmosdb-source.leaseContainerName": {
 			"name": "camel.kamelet.azure-cosmosdb-source.leaseContainerName",
-			"description": "Sets the lease database where the leaseContainerName will be stored.",
+			"description": "Sets the lease database where the `leaseContainerName` is stored.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

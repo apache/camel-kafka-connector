@@ -27,22 +27,22 @@ public class CamelKafkascramsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_TOPIC_CONF = "camel.kamelet.kafka-scram-sink.topic";
-    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_TOPIC_DOC = "Comma separated list of Kafka topic names";
+    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_TOPIC_DOC = "Comma separated list of Kafka topic names.";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_TOPIC_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_BOOTSTRAP_SERVERS_CONF = "camel.kamelet.kafka-scram-sink.bootstrapServers";
-    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs";
+    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs.";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_SECURITY_PROTOCOL_CONF = "camel.kamelet.kafka-scram-sink.securityProtocol";
-    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_SECURITY_PROTOCOL_DOC = "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported";
+    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_SECURITY_PROTOCOL_DOC = "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported.";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_SECURITY_PROTOCOL_DEFAULT = "SASL_SSL";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_SASL_MECHANISM_CONF = "camel.kamelet.kafka-scram-sink.saslMechanism";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_SASL_MECHANISM_DOC = "The Simple Authentication and Security Layer (SASL) Mechanism used.";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_SASL_MECHANISM_DEFAULT = "SCRAM-SHA-512";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_USER_CONF = "camel.kamelet.kafka-scram-sink.user";
-    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_USER_DOC = "Username to authenticate to Kafka";
+    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_USER_DOC = "Username to authenticate to Kafka .";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_USER_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_PASSWORD_CONF = "camel.kamelet.kafka-scram-sink.password";
-    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_PASSWORD_DOC = "Password to authenticate to kafka";
+    public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_PASSWORD_DOC = "Password to authenticate to kafka.";
     public static final String CAMEL_SINK_KAFKASCRAMSINK_KAMELET_PASSWORD_DEFAULT = null;
 
     public CamelKafkascramsinkSinkConnectorConfig(

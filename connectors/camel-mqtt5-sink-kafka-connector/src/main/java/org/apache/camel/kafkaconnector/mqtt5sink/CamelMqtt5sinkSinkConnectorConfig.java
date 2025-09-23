@@ -27,16 +27,16 @@ public class CamelMqtt5sinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_TOPIC_CONF = "camel.kamelet.mqtt5-sink.topic";
-    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_TOPIC_DOC = "The topic to send messages to Example: mytopic";
+    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_TOPIC_DOC = "The topic to send messages to. Example: mytopic";
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_TOPIC_DEFAULT = null;
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_BROKER_URL_CONF = "camel.kamelet.mqtt5-sink.brokerUrl";
-    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_BROKER_URL_DOC = "The URL of the broker where to establish the connection Example: tcp://mosquitto:1883";
+    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_BROKER_URL_DOC = "The URL of the broker where to establish the connection. Example: tcp://mosquitto:1883";
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_BROKER_URL_DEFAULT = null;
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_USERNAME_CONF = "camel.kamelet.mqtt5-sink.username";
-    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_USERNAME_DOC = "Username to use when connecting to the MQTT v5 compliant broker";
+    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_USERNAME_DOC = "Username to use when connecting to the MQTT v5 compliant broker.";
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_PASSWORD_CONF = "camel.kamelet.mqtt5-sink.password";
-    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_PASSWORD_DOC = "Password to use when connecting to the MQTT v5 compliant broker";
+    public static final String CAMEL_SINK_MQTT5SINK_KAMELET_PASSWORD_DOC = "Password to use when connecting to the MQTT v5 compliant broker.";
     public static final String CAMEL_SINK_MQTT5SINK_KAMELET_PASSWORD_DEFAULT = null;
 
     public CamelMqtt5sinkSinkConnectorConfig(

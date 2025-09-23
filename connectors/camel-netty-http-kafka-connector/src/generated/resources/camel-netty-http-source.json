@@ -47,7 +47,7 @@
 		},
 		"camel.source.endpoint.disconnect": {
 			"name": "camel.source.endpoint.disconnect",
-			"description": "Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.",
+			"description": "Whether or not to disconnect(close) from Netty Channel right after use.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -68,14 +68,14 @@
 		},
 		"camel.source.endpoint.reuseChannel": {
 			"name": "camel.source.endpoint.reuseChannel",
-			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key NettyConstants#NETTY_CHANNEL which allows you to obtain the channel during routing and use it as well.",
+			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key CamelNettyChannel which allows you to obtain the channel during routing and use it as well.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.source.endpoint.sync": {
 			"name": "camel.source.endpoint.sync",
-			"description": "Setting to set endpoint as one-way or request-response",
+			"description": "Setting to set endpoint as one-way (false) or request-response (true)",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -305,7 +305,7 @@
 		},
 		"camel.source.endpoint.channelGroup": {
 			"name": "camel.source.endpoint.channelGroup",
-			"description": "To use a explicit ChannelGroup.",
+			"description": "To use an explicit ChannelGroup.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -343,7 +343,7 @@
 		},
 		"camel.source.endpoint.options": {
 			"name": "camel.source.endpoint.options",
-			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.",
+			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false. See the Netty documentation for possible options that can be used. This is a multi-value option with prefix: option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -442,7 +442,7 @@
 		"camel.source.endpoint.keyStoreFile": {
 			"name": "camel.source.endpoint.keyStoreFile",
 			"description": "Client side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.source.endpoint.keyStoreFormat": {
@@ -478,7 +478,7 @@
 		},
 		"camel.source.endpoint.securityOptions": {
 			"name": "camel.source.endpoint.securityOptions",
-			"description": "To configure NettyHttpSecurityConfiguration using key\/value pairs from the map",
+			"description": "To configure NettyHttpSecurityConfiguration using key\/value pairs from the map. This is a multi-value option with prefix: securityConfiguration.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -517,7 +517,7 @@
 		"camel.source.endpoint.trustStoreFile": {
 			"name": "camel.source.endpoint.trustStoreFile",
 			"description": "Server side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.source.endpoint.trustStoreResource": {
@@ -528,13 +528,13 @@
 		},
 		"camel.component.netty-http.configuration": {
 			"name": "camel.component.netty-http.configuration",
-			"description": "To use the NettyConfiguration as configuration when creating endpoints.",
+			"description": "To use the NettyConfiguration as configuration when creating endpoints",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.netty-http.disconnect": {
 			"name": "camel.component.netty-http.disconnect",
-			"description": "Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.",
+			"description": "Whether or not to disconnect(close) from Netty Channel right after use.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -555,14 +555,14 @@
 		},
 		"camel.component.netty-http.reuseChannel": {
 			"name": "camel.component.netty-http.reuseChannel",
-			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key NettyConstants#NETTY_CHANNEL which allows you to obtain the channel during routing and use it as well.",
+			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key CamelNettyChannel which allows you to obtain the channel during routing and use it as well.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.netty-http.sync": {
 			"name": "camel.component.netty-http.sync",
-			"description": "Setting to set endpoint as one-way or request-response",
+			"description": "Setting to set endpoint as one-way (false) or request-response (true)",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -574,16 +574,15 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.netty-http.bridgeErrorHandler": {
-			"name": "camel.component.netty-http.bridgeErrorHandler",
-			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions (if possible) occurred while the Camel consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. Important: This is only possible if the 3rd party component allows Camel to be alerted if an exception was thrown. Some components handle this internally only, and therefore bridgeErrorHandler is not possible. In other situations we may improve the Camel component to hook into the 3rd party component and make this possible for future releases. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "false",
+		"camel.component.netty-http.networkInterface": {
+			"name": "camel.component.netty-http.networkInterface",
+			"description": "When using UDP then this option can be used to specify a network interface by its name, such as eth0 to join a multicast group.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.netty-http.broadcast": {
-			"name": "camel.component.netty-http.broadcast",
-			"description": "Setting to choose Multicast over UDP",
+		"camel.component.netty-http.bridgeErrorHandler": {
+			"name": "camel.component.netty-http.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions (if possible) occurred while the Camel consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. Important: This is only possible if the 3rd party component allows Camel to be alerted if an exception was thrown. Some components handle this internally only, and therefore bridgeErrorHandler is not possible. In other situations we may improve the Camel component to hook into the 3rd party component and make this possible for future releases. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -635,6 +634,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.netty-http.broadcast": {
+			"name": "camel.component.netty-http.broadcast",
+			"description": "Setting to choose Multicast over UDP",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.netty-http.disconnectOnNoReply": {
 			"name": "camel.component.netty-http.disconnectOnNoReply",
 			"description": "If sync is enabled then this option dictates NettyConsumer if it should disconnect where there is no reply to send back.",
@@ -644,7 +650,7 @@
 		},
 		"camel.component.netty-http.executorService": {
 			"name": "camel.component.netty-http.executorService",
-			"description": "To use the given EventExecutorGroup.",
+			"description": "To use the given custom EventExecutorGroup.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -657,12 +663,6 @@
 		"camel.component.netty-http.nettyServerBootstrapFactory": {
 			"name": "camel.component.netty-http.nettyServerBootstrapFactory",
 			"description": "To use a custom NettyServerBootstrapFactory",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.netty-http.networkInterface": {
-			"name": "camel.component.netty-http.networkInterface",
-			"description": "When using UDP then this option can be used to specify a network interface by its name, such as eth0 to join a multicast group.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -740,7 +740,7 @@
 		},
 		"camel.component.netty-http.channelGroup": {
 			"name": "camel.component.netty-http.channelGroup",
-			"description": "To use a explicit ChannelGroup.",
+			"description": "To use an explicit ChannelGroup.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -765,7 +765,7 @@
 		},
 		"camel.component.netty-http.options": {
 			"name": "camel.component.netty-http.options",
-			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.",
+			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false. See the Netty documentation for possible options that can be used. This is a multi-value option with prefix: option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -902,7 +902,7 @@
 		"camel.component.netty-http.keyStoreFile": {
 			"name": "camel.component.netty-http.keyStoreFile",
 			"description": "Client side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.netty-http.keyStoreFormat": {
@@ -971,7 +971,7 @@
 		"camel.component.netty-http.trustStoreFile": {
 			"name": "camel.component.netty-http.trustStoreFile",
 			"description": "Server side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.netty-http.trustStoreResource": {

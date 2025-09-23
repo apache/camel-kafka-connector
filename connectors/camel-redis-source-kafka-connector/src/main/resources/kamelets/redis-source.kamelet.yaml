@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "source"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.12.0-SNAPSHOT"
+    camel.apache.org/catalog.version: "4.14.0"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Redis"
     camel.apache.org/kamelet.namespace: "Cache"
@@ -30,7 +30,7 @@ metadata:
 spec:
   definition:
     title: "Redis Source"
-    description: "Get Events from a Redis cache"
+    description: "Get Events from a Redis cache."
     required:
       - redisHost
       - redisPort

@@ -61,7 +61,7 @@
 		},
 		"camel.kamelet.azure-storage-blob-event-based-source.getBlob": {
 			"name": "camel.kamelet.azure-storage-blob-event-based-source.getBlob",
-			"description": "If getBlob is enabled, then the file created in the container will be get and returned as body, if not only the event will be returned as body.",
+			"description": "If `getBlob` is enabled, then the file created in the container is retrieved and returned as body. If not only the event is returned as body.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

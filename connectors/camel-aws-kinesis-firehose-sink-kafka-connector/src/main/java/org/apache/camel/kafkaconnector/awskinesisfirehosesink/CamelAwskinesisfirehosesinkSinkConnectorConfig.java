@@ -27,7 +27,7 @@ public class CamelAwskinesisfirehosesinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_STREAM_NAME_CONF = "camel.kamelet.aws-kinesis-firehose-sink.streamName";
-    public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_STREAM_NAME_DOC = "The name of the stream we want to send to data to";
+    public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_STREAM_NAME_DOC = "The name of the stream we want to send to data to.";
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_STREAM_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-kinesis-firehose-sink.accessKey";
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
@@ -48,7 +48,7 @@ public class CamelAwskinesisfirehosesinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the Kinesis Firehose client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in Kinesis Firehose.";
     public static final Boolean CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-kinesis-firehose-sink.profileCredentialsName";
-    public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter sets the profile name.";
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-kinesis-firehose-sink.sessionToken";
     public static final String CAMEL_SINK_AWSKINESISFIREHOSESINK_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";

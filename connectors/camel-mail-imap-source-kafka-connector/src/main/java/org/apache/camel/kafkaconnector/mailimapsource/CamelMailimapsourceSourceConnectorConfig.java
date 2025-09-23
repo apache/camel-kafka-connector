@@ -27,22 +27,22 @@ public class CamelMailimapsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_HOST_CONF = "camel.kamelet.mail-imap-source.connectionHost";
-    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_HOST_DOC = "The IMAP server host Example: imap.gmail.com";
+    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_HOST_DOC = "The IMAP server host. Example: imap.gmail.com";
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_HOST_DEFAULT = null;
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_PORT_CONF = "camel.kamelet.mail-imap-source.connectionPort";
-    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_PORT_DOC = "The IMAP server port";
+    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_PORT_DOC = "The IMAP server port.";
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_CONNECTION_PORT_DEFAULT = "993";
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.mail-imap-source.username";
-    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_USERNAME_DOC = "The username to access the mail box";
+    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_USERNAME_DOC = "The username to access the mail box.";
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.mail-imap-source.password";
-    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_PASSWORD_DOC = "The password to access the mail box";
+    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_PASSWORD_DOC = "The password to access the mail box.";
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_FETCH_SIZE_CONF = "camel.kamelet.mail-imap-source.fetchSize";
-    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_FETCH_SIZE_DOC = "The number of messages fetched for each poll (-1 for no limits)";
+    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_FETCH_SIZE_DOC = "The number of messages fetched for each poll (-1 for no limits).";
     public static final Integer CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_FETCH_SIZE_DEFAULT = 10;
     public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.mail-imap-source.delay";
-    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_DELAY_DOC = "The delay between fetches in milliseconds";
+    public static final String CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_DELAY_DOC = "The delay between fetches in milliseconds.";
     public static final Integer CAMEL_SOURCE_MAILIMAPSOURCE_KAMELET_DELAY_DEFAULT = 60000;
 
     public CamelMailimapsourceSourceConnectorConfig(

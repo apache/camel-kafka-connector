@@ -11,13 +11,13 @@
 	"properties": {
 		"camel.kamelet.pulsar-sink.topic": {
 			"name": "camel.kamelet.pulsar-sink.topic",
-			"description": "The topic name or regexp",
+			"description": "The topic name or regexp.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.pulsar-sink.tenant": {
 			"name": "camel.kamelet.pulsar-sink.tenant",
-			"description": "The Tenant Name",
+			"description": "The Tenant Name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -29,7 +29,7 @@
 		},
 		"camel.kamelet.pulsar-sink.namespaceName": {
 			"name": "camel.kamelet.pulsar-sink.namespaceName",
-			"description": "The Pulsar Namespace Name",
+			"description": "The Pulsar Namespace Name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -67,7 +67,7 @@
 		},
 		"camel.kamelet.pulsar-sink.batchingMaxPublishDelayMicros": {
 			"name": "camel.kamelet.pulsar-sink.batchingMaxPublishDelayMicros",
-			"description": "The maximum time period within which the messages sent will be batched if batchingEnabled is true.",
+			"description": "Used if `batchingEnabled` is `true`. Sets the maximum time period within which the messages sent are batched.",
 			"defaultValue": "1000",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -109,7 +109,7 @@
 		},
 		"camel.kamelet.pulsar-sink.maxPendingMessagesAcrossPartitions": {
 			"name": "camel.kamelet.pulsar-sink.maxPendingMessagesAcrossPartitions",
-			"description": "The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition.",
+			"description": "The maximum number of pending messages for partitioned topics. The `maxPendingMessages` value is reduced if (number of partitions `maxPendingMessages`) exceeds this value. Partitioned topics have a pending message queue for each partition.",
 			"defaultValue": "50000",
 			"priority": "MEDIUM",
 			"required": "false"

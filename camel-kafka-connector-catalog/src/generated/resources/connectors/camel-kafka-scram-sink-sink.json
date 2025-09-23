@@ -11,19 +11,19 @@
 	"properties": {
 		"camel.kamelet.kafka-scram-sink.topic": {
 			"name": "camel.kamelet.kafka-scram-sink.topic",
-			"description": "Comma separated list of Kafka topic names",
+			"description": "Comma separated list of Kafka topic names.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.kafka-scram-sink.bootstrapServers": {
 			"name": "camel.kamelet.kafka-scram-sink.bootstrapServers",
-			"description": "Comma separated list of Kafka Broker URLs",
+			"description": "Comma separated list of Kafka Broker URLs.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.kafka-scram-sink.securityProtocol": {
 			"name": "camel.kamelet.kafka-scram-sink.securityProtocol",
-			"description": "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported",
+			"description": "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported.",
 			"defaultValue": "\"SASL_SSL\"",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -37,13 +37,13 @@
 		},
 		"camel.kamelet.kafka-scram-sink.user": {
 			"name": "camel.kamelet.kafka-scram-sink.user",
-			"description": "Username to authenticate to Kafka",
+			"description": "Username to authenticate to Kafka .",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.kafka-scram-sink.password": {
 			"name": "camel.kamelet.kafka-scram-sink.password",
-			"description": "Password to authenticate to kafka",
+			"description": "Password to authenticate to kafka.",
 			"priority": "HIGH",
 			"required": "true"
 		}

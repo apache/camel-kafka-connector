@@ -11,7 +11,7 @@
 	"properties": {
 		"camel.kamelet.aws-sns-fifo-sink.topicNameOrArn": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.topicNameOrArn",
-			"description": "The SNS Topic name or ARN",
+			"description": "The SNS Topic name or ARN.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -35,7 +35,7 @@
 		},
 		"camel.kamelet.aws-sns-fifo-sink.contentBasedDeduplication": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.contentBasedDeduplication",
-			"description": "Use content-based deduplication (should be enabled in the SQS FIFO queue first)",
+			"description": "Use content-based deduplication (should be enabled in the SQS FIFO queue first).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -70,7 +70,7 @@
 		},
 		"camel.kamelet.aws-sns-fifo-sink.profileCredentialsName": {
 			"name": "camel.kamelet.aws-sns-fifo-sink.profileCredentialsName",
-			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

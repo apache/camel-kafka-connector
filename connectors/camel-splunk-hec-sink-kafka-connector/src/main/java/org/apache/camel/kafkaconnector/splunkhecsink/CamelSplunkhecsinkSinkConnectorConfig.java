@@ -57,7 +57,7 @@ public class CamelSplunkhecsinkSinkConnectorConfig
     public static final String CAMEL_SINK_SPLUNKHECSINK_KAMELET_HTTPS_DOC = "Use a secure HTTPS connection.";
     public static final Boolean CAMEL_SINK_SPLUNKHECSINK_KAMELET_HTTPS_DEFAULT = true;
     public static final String CAMEL_SINK_SPLUNKHECSINK_KAMELET_TIME_CONF = "camel.kamelet.splunk-hec-sink.time";
-    public static final String CAMEL_SINK_SPLUNKHECSINK_KAMELET_TIME_DOC = "Time this even occurred. By default, the time will be when this event hits the splunk server.";
+    public static final String CAMEL_SINK_SPLUNKHECSINK_KAMELET_TIME_DOC = "Time this event occurred. By default, the time is when this event hits the Splunk server.";
     public static final String CAMEL_SINK_SPLUNKHECSINK_KAMELET_TIME_DEFAULT = null;
 
     public CamelSplunkhecsinkSinkConnectorConfig(

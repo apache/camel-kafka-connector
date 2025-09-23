@@ -41,7 +41,7 @@
 		},
 		"camel.kamelet.spring-rabbitmq-sink.exchangeName": {
 			"name": "camel.kamelet.spring-rabbitmq-sink.exchangeName",
-			"description": "The exchange name determines the exchange the queue will be bound to",
+			"description": "The exchange name determines the exchange the queue is bound to.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -62,6 +62,13 @@
 			"name": "camel.kamelet.spring-rabbitmq-sink.vhost",
 			"description": "The virtual host",
 			"defaultValue": "\"\/\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.spring-rabbitmq-sink.protocol": {
+			"name": "camel.kamelet.spring-rabbitmq-sink.protocol",
+			"description": "The AMQP protocol to use.",
+			"defaultValue": "\"amqp\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

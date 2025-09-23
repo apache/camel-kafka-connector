@@ -56,7 +56,7 @@
 		},
 		"camel.kamelet.aws-kinesis-source.profileCredentialsName": {
 			"name": "camel.kamelet.aws-kinesis-source.profileCredentialsName",
-			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -88,7 +88,7 @@
 		},
 		"camel.kamelet.aws-kinesis-source.asyncClient": {
 			"name": "camel.kamelet.aws-kinesis-source.asyncClient",
-			"description": "If we want to a KinesisAsyncClient instance set it to true.",
+			"description": "If we want a KinesisAsyncClient instance set it to true.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

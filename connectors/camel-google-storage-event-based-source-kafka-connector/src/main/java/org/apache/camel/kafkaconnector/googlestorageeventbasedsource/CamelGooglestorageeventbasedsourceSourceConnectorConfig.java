@@ -48,7 +48,7 @@ public class CamelGooglestorageeventbasedsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESTORAGEEVENTBASEDSOURCE_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The Google Cloud Storage bucket name or Bucket Amazon Resource Name (ARN).";
     public static final String CAMEL_SOURCE_GOOGLESTORAGEEVENTBASEDSOURCE_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESTORAGEEVENTBASEDSOURCE_KAMELET_GET_OBJECT_CONF = "camel.kamelet.google-storage-event-based-source.getObject";
-    public static final String CAMEL_SOURCE_GOOGLESTORAGEEVENTBASEDSOURCE_KAMELET_GET_OBJECT_DOC = "If getObject is enabled, then the file created in the Bucket will be get and returned as body, if not only the event will be returned as body.";
+    public static final String CAMEL_SOURCE_GOOGLESTORAGEEVENTBASEDSOURCE_KAMELET_GET_OBJECT_DOC = "If `getObject` is enabled, then the file created in the Bucket is retreived and returned as body, if not only the event is returned as body.";
     public static final Boolean CAMEL_SOURCE_GOOGLESTORAGEEVENTBASEDSOURCE_KAMELET_GET_OBJECT_DEFAULT = false;
 
     public CamelGooglestorageeventbasedsourceSourceConnectorConfig(

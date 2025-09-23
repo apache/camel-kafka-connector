@@ -116,7 +116,7 @@
 		},
 		"camel.kamelet.sftp-source.delete": {
 			"name": "camel.kamelet.sftp-source.delete",
-			"description": "If true, the file will be deleted after it is processed successfully.",
+			"description": "If true, the file is deleted after it is processed successfully.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

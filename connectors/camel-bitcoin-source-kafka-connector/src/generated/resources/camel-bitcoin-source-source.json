@@ -11,7 +11,7 @@
 	"properties": {
 		"camel.kamelet.bitcoin-source.period": {
 			"name": "camel.kamelet.bitcoin-source.period",
-			"description": "The interval between updates in milliseconds",
+			"description": "The interval between updates in milliseconds.",
 			"defaultValue": "10000",
 			"priority": "MEDIUM",
 			"required": "false"

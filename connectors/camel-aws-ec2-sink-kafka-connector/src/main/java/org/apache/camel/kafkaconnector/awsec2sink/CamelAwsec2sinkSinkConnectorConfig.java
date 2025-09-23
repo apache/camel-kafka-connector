@@ -45,7 +45,7 @@ public class CamelAwsec2sinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSEC2SINK_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the EC2 client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in EC2.";
     public static final Boolean CAMEL_SINK_AWSEC2SINK_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSEC2SINK_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-ec2-sink.profileCredentialsName";
-    public static final String CAMEL_SINK_AWSEC2SINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SINK_AWSEC2SINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter sets the profile name.";
     public static final String CAMEL_SINK_AWSEC2SINK_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AWSEC2SINK_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-ec2-sink.sessionToken";
     public static final String CAMEL_SINK_AWSEC2SINK_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";

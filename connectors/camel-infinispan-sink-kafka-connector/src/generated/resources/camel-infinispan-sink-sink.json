@@ -6,7 +6,7 @@
 		"id": "camel-infinispan-sink-sink",
 		"type": "sink",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Write object to an Infinispan cache.\n\nThe Kamelet expects the following headers to be set:\n\n- `key` \/ `ce-key`: as the key to use when put an object in the Infinispan cache.\n\nIf the header won't be set the exchange ID will be used as key."
+		"description": "Write object to an Infinispan cache.\n\nThe Kamelet expects the following headers to be set:\n\n- `key` \/ `ce-key`: as the key to use when put an object in the Infinispan cache.\n\nIf the header is not set, the exchange ID is used as key."
 	},
 	"properties": {
 		"camel.kamelet.infinispan-sink.cacheName": {

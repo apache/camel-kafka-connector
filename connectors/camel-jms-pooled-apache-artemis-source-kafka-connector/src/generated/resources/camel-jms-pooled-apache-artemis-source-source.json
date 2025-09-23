@@ -42,7 +42,7 @@
 		},
 		"camel.kamelet.jms-pooled-apache-artemis-source.maxSessionsPerConnection": {
 			"name": "camel.kamelet.jms-pooled-apache-artemis-source.maxSessionsPerConnection",
-			"description": "The maximum number of pooled sessions per connection in the pool",
+			"description": "The maximum number of pooled sessions per connection in the pool.",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -56,7 +56,7 @@
 		},
 		"camel.kamelet.jms-pooled-apache-artemis-source.connectionIdleTimeout": {
 			"name": "camel.kamelet.jms-pooled-apache-artemis-source.connectionIdleTimeout",
-			"description": "The maximum time a pooled Connection can sit unused before it is eligible for removal (in milliseconds)",
+			"description": "The maximum time a pooled Connection can sit unused before it is eligible for removal (in milliseconds).",
 			"defaultValue": "30000",
 			"priority": "MEDIUM",
 			"required": "false"

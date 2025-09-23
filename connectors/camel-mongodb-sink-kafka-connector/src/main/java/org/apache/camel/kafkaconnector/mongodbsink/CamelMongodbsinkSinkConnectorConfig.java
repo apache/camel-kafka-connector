@@ -39,7 +39,7 @@ public class CamelMongodbsinkSinkConnectorConfig
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DOC = "A username for accessing MongoDB.";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_CONF = "camel.kamelet.mongodb-sink.ssl";
-    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_DOC = "whether to enable ssl connection to mongodb";
+    public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_DOC = "whether to enable ssl connection to mongodb.";
     public static final Boolean CAMEL_SINK_MONGODBSINK_KAMELET_SSL_DEFAULT = true;
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_CONF = "camel.kamelet.mongodb-sink.sslValidationEnabled";
     public static final String CAMEL_SINK_MONGODBSINK_KAMELET_SSL_VALIDATION_ENABLED_DOC = "IMPORTANT this should be disabled only in test environment since can pose security issues.";

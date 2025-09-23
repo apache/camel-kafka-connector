@@ -21,7 +21,7 @@ metadata:
   name: azure-storage-queue-source
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.12.0-SNAPSHOT"
+    camel.apache.org/catalog.version: "4.14.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgOTEgODEiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjx1c2UgeGxpbms6aHJlZj0iI0EiIHg9Ii41IiB5PSIuNSIvPjxzeW1ib2wgaWQ9IkEiIG92ZXJmbG93PSJ2aXNpYmxlIj48cGF0aCBkPSJNNzAuMDUzIDM0LjYzNEg1MC41OGw5LjczNiA3LjgwNXptLTM5LjQyIDEwLjQ4OGMtLjIzOCAwLS40NzUgMC0uNzEzLS4yNDRsLTkuMDI0LTcuMzE3djExLjk1MWgyMC42NlYzNy4zMTdsLTkuNzM2IDcuNTYxYy0uNDc1LjI0NC0uOTUuMjQ0LTEuMTg3LjI0NHptMjkuNjgzIDBjLS4yMzggMC0uNzEzIDAtLjcxMy0uMjQ0bC05LjI2MS03LjMxN3YxMS45NTFoMjAuNjZWMzcuMzE3bC05LjczNiA3LjU2MWMtLjQ3NS4yNDQtLjcxMy4yNDQtLjk1LjI0NHpNNjcuNjc4IDBIMjIuNTU5TDAgNDBsMjIuNTU5IDQwSDY3LjQ0TDkwIDQwIDY3LjY3OCAwem03LjgzNiA1Ny4wNzNIMTQuMDExYy0xLjkgMC0zLjMyNS0xLjcwNy0zLjMyNS0zLjY1OVYyOS4yNjhjMC0xLjk1MSAxLjQyNS0zLjY1OCAzLjMyNS0zLjY1OGg2MS41MDRjLjcxMyAwIDEuOSAwIDkuOTc0IDE1LjYxbC4yMzcuNzMyLS4yMzcuNzMyYy04LjA3NCAxNC4zOS05LjI2MSAxNC4zOS05Ljk3NCAxNC4zOXpNNDAuMzcgMzQuNjM0SDIwLjY2bDkuNzM2IDcuODA1em0tMjYuMzU5LTYuMzQxYy0uNDc1IDAtLjk1LjQ4OC0uOTUuOTc2djI0LjE0NmMwIC40ODguNDc1IDEuMjIuOTUgMS4yMkg3NS4wNGMxLjE4OC0xLjIyIDQuNzQ5LTcuMDczIDcuODM3LTEyLjY4My0zLjA4Ny02LjA5OC02Ljg4Ni0xMi40MzktNy44MzctMTMuNjU5SDE0LjAxMXptMjkuOTIxIDIyLjQzOWMwIC43MzItLjcxMyAxLjQ2My0xLjY2MyAxLjQ2M0gxOC45OThjLS43MTMgMC0uOTUtLjczMi0uOTUtMS40NjNWMzIuOTI3YzAtLjczMi4yMzgtLjk3Ni45NS0uOTc2SDQyLjI3Yy43MTIgMCAxLjY2My4yNDQgMS42NjMuOTc2djE3LjgwNXptMjkuMjA5IDBjMCAuNzMyLS40NzUgMS40NjMtMS4xODggMS40NjNINDguOTE5Yy0uNzEyIDAtMS4xODctLjczMi0xLjE4Ny0xLjQ2M1YzMi45MjdjMC0uNzMyLjQ3NS0uOTc2IDEuMTg3LS45NzZoMjMuMDM0Yy43MTMgMCAxLjE4OC4yNDQgMS4xODguOTc2djE3LjgwNXoiIGZpbGw9IiMwMDc4ZDciIHN0cm9rZT0ibm9uZSIvPjwvc3ltYm9sPjwvc3ZnPg=="
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Azure Storage Queue"
@@ -31,10 +31,7 @@ metadata:
 spec:
   definition:
     title: "Azure Storage Queue Source"
-    description: |-
-      Receive events from Azure Storage queues.
-
-      One header will be duplicated with different names for clarity at sink level, CamelAzureStorageQueueMessageId will be duplicated into azure.storage.queue.message.id
+    description: Receive events from Azure Storage queues.
     required:
       - accountName
       - queueName
@@ -75,7 +72,7 @@ spec:
       headers:
         CamelAzureStorageQueueMessageId:
           title: Azure Storage Queue Message Id
-          description: The id of the message
+          description: The id of the message.
           type: string
         CamelAzureStorageQueueInsertionTime:
           title: Azure Storage Queue Message Insertion Time
@@ -96,7 +93,7 @@ spec:
           type: OffsetDateTime
         CamelAzureStorageQueueDequeueCount:
           title: Dequeue Count
-          description: The number of times the message has been dequeued
+          description: The number of times the message has been dequeued.
           type: long
       types:
         text:
@@ -111,11 +108,11 @@ spec:
           headers:
             CamelCloudEventID:
               title: CloudEvent ID
-              description: The Camel exchange id set as event id
+              description: The Camel exchange id set as event id.
               type: string
             CamelCloudEventType:
               title: CloudEvent Type
-              description: The event type
+              description: The event type.
               default: "org.apache.camel.event.azure.storage.queue.receiveMessages"
               type: string
             CamelCloudEventSource:

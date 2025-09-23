@@ -27,7 +27,7 @@ public class CamelBitcoinsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_BITCOINSOURCE_KAMELET_PERIOD_CONF = "camel.kamelet.bitcoin-source.period";
-    public static final String CAMEL_SOURCE_BITCOINSOURCE_KAMELET_PERIOD_DOC = "The interval between updates in milliseconds";
+    public static final String CAMEL_SOURCE_BITCOINSOURCE_KAMELET_PERIOD_DOC = "The interval between updates in milliseconds.";
     public static final Integer CAMEL_SOURCE_BITCOINSOURCE_KAMELET_PERIOD_DEFAULT = 10000;
 
     public CamelBitcoinsourceSourceConnectorConfig(

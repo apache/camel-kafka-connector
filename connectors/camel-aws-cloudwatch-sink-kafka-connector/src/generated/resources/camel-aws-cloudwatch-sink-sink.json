@@ -56,7 +56,7 @@
 		},
 		"camel.kamelet.aws-cloudwatch-sink.profileCredentialsName": {
 			"name": "camel.kamelet.aws-cloudwatch-sink.profileCredentialsName",
-			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -11,19 +11,19 @@
 	"properties": {
 		"camel.kamelet.github-event-source.repoName": {
 			"name": "camel.kamelet.github-event-source.repoName",
-			"description": "The GitHub Repository name",
+			"description": "The GitHub Repository name.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.github-event-source.repoOwner": {
 			"name": "camel.kamelet.github-event-source.repoOwner",
-			"description": "The repository owner",
+			"description": "The repository owner.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.github-event-source.oauthToken": {
 			"name": "camel.kamelet.github-event-source.oauthToken",
-			"description": "OAuth token",
+			"description": "OAuth token.",
 			"priority": "HIGH",
 			"required": "true"
 		}

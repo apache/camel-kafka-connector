@@ -32,6 +32,15 @@ public class CamelNatssinkSinkConnectorConfig
     public static final String CAMEL_SINK_NATSSINK_KAMELET_SERVERS_CONF = "camel.kamelet.nats-sink.servers";
     public static final String CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DOC = "Comma separated list of NATS Servers";
     public static final String CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DEFAULT = null;
+    public static final String CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ENABLED_CONF = "camel.kamelet.nats-sink.jetstreamEnabled";
+    public static final String CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ENABLED_DOC = "Sets whether to enable JetStream support for this endpoint.";
+    public static final Boolean CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ENABLED_DEFAULT = false;
+    public static final String CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_NAME_CONF = "camel.kamelet.nats-sink.jetstreamName";
+    public static final String CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_NAME_DOC = "Sets the name of the JetStream stream to use.";
+    public static final String CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_NAME_DEFAULT = null;
+    public static final String CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ASYNC_CONF = "camel.kamelet.nats-sink.jetstreamAsync";
+    public static final String CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ASYNC_DOC = "Sets whether to operate JetStream requests asynchronously.";
+    public static final Boolean CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ASYNC_DEFAULT = true;
 
     public CamelNatssinkSinkConnectorConfig(
             ConfigDef config,
@@ -47,6 +56,9 @@ public class CamelNatssinkSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_NATSSINK_KAMELET_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATSSINK_KAMELET_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_NATSSINK_KAMELET_TOPIC_DOC);
         conf.define(CAMEL_SINK_NATSSINK_KAMELET_SERVERS_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_NATSSINK_KAMELET_SERVERS_DOC);
+        conf.define(CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ENABLED_DOC);
+        conf.define(CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_NAME_DOC);
+        conf.define(CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ASYNC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ASYNC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATSSINK_KAMELET_JETSTREAM_ASYNC_DOC);
         return conf;
     }
 }

@@ -11,13 +11,13 @@
 	"properties": {
 		"camel.kamelet.sftp-sink.connectionHost": {
 			"name": "camel.kamelet.sftp-sink.connectionHost",
-			"description": "The hostname of the FTP server",
+			"description": "The hostname of the FTP server.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.sftp-sink.connectionPort": {
 			"name": "camel.kamelet.sftp-sink.connectionPort",
-			"description": "The port of the FTP server",
+			"description": "The port of the FTP server.",
 			"defaultValue": "\"22\"",
 			"priority": "HIGH",
 			"required": "true"

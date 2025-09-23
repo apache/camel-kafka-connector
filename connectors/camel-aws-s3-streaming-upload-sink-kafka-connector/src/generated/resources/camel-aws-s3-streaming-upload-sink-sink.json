@@ -42,41 +42,41 @@
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.restartingPolicy": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.restartingPolicy",
-			"description": "The restarting policy to use in streaming upload mode. There are 2 enums and the value can be one of override, lastPart",
+			"description": "The restarting policy to use in streaming upload mode. There are 2 enums and the value can be one of `override`, `lastPart`.",
 			"defaultValue": "\"lastPart\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.batchMessageNumber": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.batchMessageNumber",
-			"description": "The number of messages composing a batch in streaming upload mode",
+			"description": "The number of messages composing a batch in streaming upload mode.",
 			"defaultValue": "10",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.batchSize": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.batchSize",
-			"description": "The batch size (in bytes) in streaming upload mode",
+			"description": "The batch size (in bytes) in streaming upload mode.",
 			"defaultValue": "1000000",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadTimeout": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.streamingUploadTimeout",
-			"description": "While streaming upload mode is true, this option set the timeout to complete upload",
+			"description": "While streaming upload mode is true, this option set the timeout to complete upload.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.namingStrategy": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.namingStrategy",
-			"description": "The naming strategy to use in streaming upload mode. There are 2 enums and the value can be one of progressive, random",
+			"description": "The naming strategy to use in streaming upload mode. There are 2 enums and the value can be one of progressive, random.",
 			"defaultValue": "\"progressive\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.keyName": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.keyName",
-			"description": "Setting the key name for an element in the bucket through endpoint parameter. In Streaming Upload, with the default configuration, this will be the base for the progressive creation of files.",
+			"description": "Setting the key name for an element in the bucket through endpoint parameter. In Streaming Upload, with the default configuration, this is the base for the progressive creation of files.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -103,7 +103,7 @@
 		},
 		"camel.kamelet.aws-s3-streaming-upload-sink.profileCredentialsName": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.profileCredentialsName",
-			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

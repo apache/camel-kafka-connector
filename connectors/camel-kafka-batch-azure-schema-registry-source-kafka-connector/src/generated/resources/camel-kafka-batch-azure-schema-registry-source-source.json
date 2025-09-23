@@ -57,7 +57,7 @@
 		},
 		"camel.kamelet.kafka-batch-azure-schema-registry-source.pollOnError": {
 			"name": "camel.kamelet.kafka-batch-azure-schema-registry-source.pollOnError",
-			"description": "What to do if kafka threw an exception while polling for new messages. There are 5 enums and the value can be one of DISCARD, ERROR_HANDLER, RECONNECT, RETRY, STOP",
+			"description": "What to do if kafka threw an exception while polling for new messages. There are 5 enums and the value can be one of `DISCARD`, `ERROR_HANDLER`, `RECONNECT`, `RETRY`, `STOP`",
 			"defaultValue": "\"ERROR_HANDLER\"",
 			"priority": "MEDIUM",
 			"required": "false"

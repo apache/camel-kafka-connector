@@ -42,13 +42,13 @@ public class CamelJmspooledapacheartemissourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_PASSWORD_DOC = "The JMS Broker Password.";
     public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_MAX_SESSIONS_PER_CONNECTION_CONF = "camel.kamelet.jms-pooled-apache-artemis-source.maxSessionsPerConnection";
-    public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_MAX_SESSIONS_PER_CONNECTION_DOC = "The maximum number of pooled sessions per connection in the pool";
+    public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_MAX_SESSIONS_PER_CONNECTION_DOC = "The maximum number of pooled sessions per connection in the pool.";
     public static final Integer CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_MAX_SESSIONS_PER_CONNECTION_DEFAULT = 500;
     public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_MAX_IDLE_SESSIONS_PER_CONNECTION_CONF = "camel.kamelet.jms-pooled-apache-artemis-source.maxIdleSessionsPerConnection";
     public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_MAX_IDLE_SESSIONS_PER_CONNECTION_DOC = "The number of idle sessions allowed per connection before they are closed.";
     public static final Integer CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_MAX_IDLE_SESSIONS_PER_CONNECTION_DEFAULT = 500;
     public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_CONNECTION_IDLE_TIMEOUT_CONF = "camel.kamelet.jms-pooled-apache-artemis-source.connectionIdleTimeout";
-    public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_CONNECTION_IDLE_TIMEOUT_DOC = "The maximum time a pooled Connection can sit unused before it is eligible for removal (in milliseconds)";
+    public static final String CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_CONNECTION_IDLE_TIMEOUT_DOC = "The maximum time a pooled Connection can sit unused before it is eligible for removal (in milliseconds).";
     public static final Integer CAMEL_SOURCE_JMSPOOLEDAPACHEARTEMISSOURCE_KAMELET_CONNECTION_IDLE_TIMEOUT_DEFAULT = 30000;
 
     public CamelJmspooledapacheartemissourceSourceConnectorConfig(

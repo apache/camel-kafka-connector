@@ -116,8 +116,6 @@
 **** xref:reference/connectors/camel-azure-storage-queue-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-azure-storage-queue-source-kafka-connector
 **** xref:reference/connectors/camel-azure-storage-queue-source-kafka-source-connector.adoc[Source Docs]
-*** camel-beer-source-kafka-connector
-**** xref:reference/connectors/camel-beer-source-kafka-source-connector.adoc[Source Docs]
 *** camel-bitcoin-source-kafka-connector
 **** xref:reference/connectors/camel-bitcoin-source-kafka-source-connector.adoc[Source Docs]
 *** camel-cassandra-sink-kafka-connector
@@ -130,8 +128,6 @@
 **** xref:reference/connectors/camel-ceph-source-kafka-source-connector.adoc[Source Docs]
 *** camel-chuck-norris-source-kafka-connector
 **** xref:reference/connectors/camel-chuck-norris-source-kafka-source-connector.adoc[Source Docs]
-*** camel-coffee-source-kafka-connector
-**** xref:reference/connectors/camel-coffee-source-kafka-source-connector.adoc[Source Docs]
 *** camel-couchbase-sink-kafka-connector
 **** xref:reference/connectors/camel-couchbase-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-counter-source-kafka-connector

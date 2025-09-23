@@ -6,7 +6,7 @@
 		"id": "camel-dropbox-sink-sink",
 		"type": "sink",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Upload Files to Dropbox.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header won't be set the exchange ID will be used as file name."
+		"description": "Upload Files to Dropbox.\n\nThe Kamelet expects the following headers to be set:\n\n- `file` \/ `ce-file`: as the file name to upload\n\nIf the header is not set, the exchange ID is used as file name."
 	},
 	"properties": {
 		"camel.kamelet.dropbox-sink.accessToken": {
@@ -29,7 +29,7 @@
 		},
 		"camel.kamelet.dropbox-sink.uploadMode": {
 			"name": "camel.kamelet.dropbox-sink.uploadMode",
-			"description": "Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. The value can be one of add, force.",
+			"description": "The uploading mode in case a file with the same name exists on Dropbox. Choose `add` or `force`. With `add`, the new file is renamed. With `force`, the existing file is overwritten.",
 			"defaultValue": "\"add\"",
 			"priority": "HIGH",
 			"required": "true"

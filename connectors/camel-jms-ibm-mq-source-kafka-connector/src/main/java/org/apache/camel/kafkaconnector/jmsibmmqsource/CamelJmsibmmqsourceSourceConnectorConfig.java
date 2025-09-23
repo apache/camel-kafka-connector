@@ -27,34 +27,34 @@ public class CamelJmsibmmqsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_NAME_CONF = "camel.kamelet.jms-ibm-mq-source.serverName";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_NAME_DOC = "IBM MQ Server name or address";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_NAME_DOC = "IBM MQ Server name or address.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_PORT_CONF = "camel.kamelet.jms-ibm-mq-source.serverPort";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_PORT_DOC = "IBM MQ Server port";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_PORT_DOC = "IBM MQ Server port.";
     public static final Integer CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SERVER_PORT_DEFAULT = 1414;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_TYPE_CONF = "camel.kamelet.jms-ibm-mq-source.destinationType";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (queue or topic)";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_TYPE_DOC = "The JMS destination type (queue or topic).";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_TYPE_DEFAULT = "queue";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_NAME_CONF = "camel.kamelet.jms-ibm-mq-source.destinationName";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_NAME_DOC = "The destination name";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_NAME_DOC = "The destination name.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_QUEUE_MANAGER_CONF = "camel.kamelet.jms-ibm-mq-source.queueManager";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_QUEUE_MANAGER_DOC = "Name of the IBM MQ Queue Manager";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_QUEUE_MANAGER_DOC = "Name of the IBM MQ Queue Manager.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_QUEUE_MANAGER_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CHANNEL_CONF = "camel.kamelet.jms-ibm-mq-source.channel";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CHANNEL_DOC = "Name of the IBM MQ Channel";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CHANNEL_DOC = "Name of the IBM MQ Channel.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CHANNEL_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CLIENT_ID_CONF = "camel.kamelet.jms-ibm-mq-source.clientId";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CLIENT_ID_DOC = "Name of the IBM MQ Client ID";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CLIENT_ID_DOC = "Name of the IBM MQ Client ID.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_CLIENT_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.jms-ibm-mq-source.username";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_USERNAME_DOC = "Username to authenticate to IBM MQ server";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_USERNAME_DOC = "Username to authenticate to IBM MQ server.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.jms-ibm-mq-source.password";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_DOC = "Password to authenticate to IBM MQ server";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_DOC = "Password to authenticate to IBM MQ server.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_CONF = "camel.kamelet.jms-ibm-mq-source.sslCipherSuite";
-    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_DOC = "CipherSuite to use for enabling TLS";
+    public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_DOC = "CipherSuite to use for enabling TLS.";
     public static final String CAMEL_SOURCE_JMSIBMMQSOURCE_KAMELET_SSL_CIPHER_SUITE_DEFAULT = null;
 
     public CamelJmsibmmqsourceSourceConnectorConfig(

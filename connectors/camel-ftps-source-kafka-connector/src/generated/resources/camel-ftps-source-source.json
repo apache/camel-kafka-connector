@@ -77,7 +77,7 @@
 		},
 		"camel.kamelet.ftps-source.delete": {
 			"name": "camel.kamelet.ftps-source.delete",
-			"description": "If true, the file will be deleted after it is processed successfully.",
+			"description": "If true, the file is deleted after it is processed successfully.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

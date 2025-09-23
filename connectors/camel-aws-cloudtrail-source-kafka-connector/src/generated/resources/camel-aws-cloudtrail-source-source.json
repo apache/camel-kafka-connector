@@ -50,7 +50,7 @@
 		},
 		"camel.kamelet.aws-cloudtrail-source.profileCredentialsName": {
 			"name": "camel.kamelet.aws-cloudtrail-source.profileCredentialsName",
-			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -75,7 +75,7 @@
 		},
 		"camel.kamelet.aws-cloudtrail-source.maxResults": {
 			"name": "camel.kamelet.aws-cloudtrail-source.maxResults",
-			"description": "Maximum number of records that will be fetched in each poll.",
+			"description": "Maximum number of records that are fetched in each poll.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"

@@ -11,13 +11,13 @@
 	"properties": {
 		"camel.kamelet.aws-sqs-source.queueNameOrArn": {
 			"name": "camel.kamelet.aws-sqs-source.queueNameOrArn",
-			"description": "The SQS Queue Name or ARN",
+			"description": "The SQS Queue Name or ARN.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-sqs-source.deleteAfterRead": {
 			"name": "camel.kamelet.aws-sqs-source.deleteAfterRead",
-			"description": "Delete messages after consuming them",
+			"description": "Delete messages after consuming them.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -56,14 +56,14 @@
 		},
 		"camel.kamelet.aws-sqs-source.protocol": {
 			"name": "camel.kamelet.aws-sqs-source.protocol",
-			"description": "The underlying protocol used to communicate with SQS Example: http or https",
+			"description": "The underlying protocol used to communicate with SQS. Example: http or https",
 			"defaultValue": "\"https\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.aws-sqs-source.queueURL": {
 			"name": "camel.kamelet.aws-sqs-source.queueURL",
-			"description": "The full SQS Queue URL (required if using KEDA)",
+			"description": "The full SQS Queue URL (required if using KEDA).",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -90,7 +90,7 @@
 		},
 		"camel.kamelet.aws-sqs-source.profileCredentialsName": {
 			"name": "camel.kamelet.aws-sqs-source.profileCredentialsName",
-			"description": "If using a profile credentials provider this parameter will set the profile name.",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -115,7 +115,7 @@
 		},
 		"camel.kamelet.aws-sqs-source.delay": {
 			"name": "camel.kamelet.aws-sqs-source.delay",
-			"description": "The number of milliseconds before the next poll of the selected stream",
+			"description": "The number of milliseconds before the next poll of the selected stream.",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"

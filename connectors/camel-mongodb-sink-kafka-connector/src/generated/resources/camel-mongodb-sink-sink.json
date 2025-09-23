@@ -35,7 +35,7 @@
 		},
 		"camel.kamelet.mongodb-sink.ssl": {
 			"name": "camel.kamelet.mongodb-sink.ssl",
-			"description": "whether to enable ssl connection to mongodb",
+			"description": "whether to enable ssl connection to mongodb.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"

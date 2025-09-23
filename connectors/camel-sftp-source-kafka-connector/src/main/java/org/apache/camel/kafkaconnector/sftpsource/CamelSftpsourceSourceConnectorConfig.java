@@ -75,7 +75,7 @@ public class CamelSftpsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DOC = "Automatically create starting directory.";
     public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_AUTO_CREATE_DEFAULT = true;
     public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_CONF = "camel.kamelet.sftp-source.delete";
-    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_DOC = "If true, the file will be deleted after it is processed successfully.";
+    public static final String CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_DOC = "If true, the file is deleted after it is processed successfully.";
     public static final Boolean CAMEL_SOURCE_SFTPSOURCE_KAMELET_DELETE_DEFAULT = false;
 
     public CamelSftpsourceSourceConnectorConfig(

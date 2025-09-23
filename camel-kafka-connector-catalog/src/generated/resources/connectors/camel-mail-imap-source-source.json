@@ -11,39 +11,39 @@
 	"properties": {
 		"camel.kamelet.mail-imap-source.connectionHost": {
 			"name": "camel.kamelet.mail-imap-source.connectionHost",
-			"description": "The IMAP server host Example: imap.gmail.com",
+			"description": "The IMAP server host. Example: imap.gmail.com",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mail-imap-source.connectionPort": {
 			"name": "camel.kamelet.mail-imap-source.connectionPort",
-			"description": "The IMAP server port",
+			"description": "The IMAP server port.",
 			"defaultValue": "\"993\"",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mail-imap-source.username": {
 			"name": "camel.kamelet.mail-imap-source.username",
-			"description": "The username to access the mail box",
+			"description": "The username to access the mail box.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mail-imap-source.password": {
 			"name": "camel.kamelet.mail-imap-source.password",
-			"description": "The password to access the mail box",
+			"description": "The password to access the mail box.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.mail-imap-source.fetchSize": {
 			"name": "camel.kamelet.mail-imap-source.fetchSize",
-			"description": "The number of messages fetched for each poll (-1 for no limits)",
+			"description": "The number of messages fetched for each poll (-1 for no limits).",
 			"defaultValue": "10",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.mail-imap-source.delay": {
 			"name": "camel.kamelet.mail-imap-source.delay",
-			"description": "The delay between fetches in milliseconds",
+			"description": "The delay between fetches in milliseconds.",
 			"defaultValue": "60000",
 			"priority": "MEDIUM",
 			"required": "false"

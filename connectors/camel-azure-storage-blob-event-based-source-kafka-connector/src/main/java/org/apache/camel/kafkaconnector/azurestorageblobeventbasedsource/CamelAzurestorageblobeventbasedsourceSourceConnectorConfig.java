@@ -51,7 +51,7 @@ public class CamelAzurestorageblobeventbasedsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBEVENTBASEDSOURCE_KAMELET_CREDENTIAL_TYPE_DOC = "Determines the credential strategy to adopt.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBEVENTBASEDSOURCE_KAMELET_CREDENTIAL_TYPE_DEFAULT = "SHARED_ACCOUNT_KEY";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOBEVENTBASEDSOURCE_KAMELET_GET_BLOB_CONF = "camel.kamelet.azure-storage-blob-event-based-source.getBlob";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBEVENTBASEDSOURCE_KAMELET_GET_BLOB_DOC = "If getBlob is enabled, then the file created in the container will be get and returned as body, if not only the event will be returned as body.";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOBEVENTBASEDSOURCE_KAMELET_GET_BLOB_DOC = "If `getBlob` is enabled, then the file created in the container is retrieved and returned as body. If not only the event is returned as body.";
     public static final Boolean CAMEL_SOURCE_AZURESTORAGEBLOBEVENTBASEDSOURCE_KAMELET_GET_BLOB_DEFAULT = false;
 
     public CamelAzurestorageblobeventbasedsourceSourceConnectorConfig(

@@ -6,7 +6,7 @@
 		"id": "camel-azure-storage-queue-source-source",
 		"type": "source",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Receive events from Azure Storage queues.\n\nOne header will be duplicated with different names for clarity at sink level, CamelAzureStorageQueueMessageId will be duplicated into azure.storage.queue.message.id"
+		"description": "Receive events from Azure Storage queues."
 	},
 	"properties": {
 		"camel.kamelet.azure-storage-queue-source.accountName": {

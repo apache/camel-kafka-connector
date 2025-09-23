@@ -6,7 +6,7 @@
 		"id": "camel-google-storage-event-based-source-source",
 		"type": "source",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Receive data from Google Pubsub reporting events related to a Google Storage bucket.\n\nService account key is the basic method for authenticating to the Google Pubsub and Google Storage.\n\nTo use this Kamelet you'll need to set up Events notification for your Google Storage Bucket.\n\nYou must encode the `serviceAccountKey` property before you pass it as a parameter."
+		"description": "Receive data from Google Pubsub reporting events related to a Google Storage bucket.\n\nService account key is the basic method for authenticating to the Google Pubsub and Google Storage.\n\nTo use this Kamelet, you need to set up Events notification for your Google Storage Bucket.\n\nYou must encode the `serviceAccountKey` property before you pass it as a parameter."
 	},
 	"properties": {
 		"camel.kamelet.google-storage-event-based-source.projectId": {
@@ -56,7 +56,7 @@
 		},
 		"camel.kamelet.google-storage-event-based-source.getObject": {
 			"name": "camel.kamelet.google-storage-event-based-source.getObject",
-			"description": "If getObject is enabled, then the file created in the Bucket will be get and returned as body, if not only the event will be returned as body.",
+			"description": "If `getObject` is enabled, then the file created in the Bucket is retreived and returned as body, if not only the event is returned as body.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

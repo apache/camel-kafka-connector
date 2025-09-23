@@ -65,16 +65,37 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.multipartUpload": {
+			"name": "camel.sink.endpoint.multipartUpload",
+			"description": "Whether to force using multipart\/form-data for easy file uploads. This is only to be used for uploading the message body as a single entity form-data. For uploading multiple entries then use org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder to build the form.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.multipartUploadName": {
+			"name": "camel.sink.endpoint.multipartUploadName",
+			"description": "The name of the multipart\/form-data when multipartUpload is enabled.",
+			"defaultValue": "\"data\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.skipControlHeaders": {
+			"name": "camel.sink.endpoint.skipControlHeaders",
+			"description": "Whether to skip Camel control headers (CamelHttp... headers) to influence this endpoint. Control headers from previous HTTP components can influence how this Camel component behaves such as CamelHttpPath, CamelHttpQuery, etc.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.skipRequestHeaders": {
 			"name": "camel.sink.endpoint.skipRequestHeaders",
-			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"description": "Whether to skip mapping the Camel headers as HTTP request headers. This is useful when you know that calling the HTTP service should not include any custom headers.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.skipResponseHeaders": {
 			"name": "camel.sink.endpoint.skipResponseHeaders",
-			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -212,13 +233,13 @@
 		},
 		"camel.sink.endpoint.httpClientOptions": {
 			"name": "camel.sink.endpoint.httpClientOptions",
-			"description": "To configure the HttpClient using the key\/values from the Map.",
+			"description": "To configure the HttpClient using the key\/values from the Map. This is a multi-value option with prefix: httpClient.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.httpConnectionOptions": {
 			"name": "camel.sink.endpoint.httpConnectionOptions",
-			"description": "To configure the connection and the socket using the key\/values from the Map.",
+			"description": "To configure the connection and the socket using the key\/values from the Map. This is a multi-value option with prefix: httpConnection.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -244,48 +265,48 @@
 		},
 		"camel.sink.endpoint.proxyAuthDomain": {
 			"name": "camel.sink.endpoint.proxyAuthDomain",
-			"description": "Proxy authentication domain to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Proxy authentication domain to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyAuthHost": {
 			"name": "camel.sink.endpoint.proxyAuthHost",
-			"description": "Proxy authentication host",
-			"priority": "MEDIUM",
+			"description": "Proxy server host",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyAuthMethod": {
 			"name": "camel.sink.endpoint.proxyAuthMethod",
-			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
+			"description": "Proxy authentication method to use (NTLM is deprecated) One of: [Basic] [Bearer] [NTLM]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"Basic",
-				"Digest",
+				"Bearer",
 				"NTLM"
 			]
 		},
 		"camel.sink.endpoint.proxyAuthNtHost": {
 			"name": "camel.sink.endpoint.proxyAuthNtHost",
-			"description": "Proxy authentication domain (workstation name) to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Proxy authentication domain (workstation name) to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyAuthPassword": {
 			"name": "camel.sink.endpoint.proxyAuthPassword",
-			"description": "Proxy authentication password",
+			"description": "Proxy server password",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyAuthPort": {
 			"name": "camel.sink.endpoint.proxyAuthPort",
-			"description": "Proxy authentication port",
-			"priority": "MEDIUM",
+			"description": "Proxy server port",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyAuthScheme": {
 			"name": "camel.sink.endpoint.proxyAuthScheme",
-			"description": "Proxy authentication scheme to use One of: [http] [https]",
+			"description": "Proxy server authentication protocol scheme to use One of: [http] [https]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -295,26 +316,32 @@
 		},
 		"camel.sink.endpoint.proxyAuthUsername": {
 			"name": "camel.sink.endpoint.proxyAuthUsername",
-			"description": "Proxy authentication username",
+			"description": "Proxy server username",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
-			"description": "Proxy hostname to use",
+			"description": "Proxy server host",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
-			"description": "Proxy port to use",
+			"description": "Proxy server port",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.authBearerToken": {
+			"name": "camel.sink.endpoint.authBearerToken",
+			"description": "Authentication bearer token",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.authDomain": {
 			"name": "camel.sink.endpoint.authDomain",
-			"description": "Authentication domain to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Authentication domain to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.authenticationPreemptive": {
@@ -326,24 +353,18 @@
 		},
 		"camel.sink.endpoint.authHost": {
 			"name": "camel.sink.endpoint.authHost",
-			"description": "Authentication host to use with NTML",
-			"priority": "MEDIUM",
+			"description": "Authentication host to use with NTLM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.authMethod": {
 			"name": "camel.sink.endpoint.authMethod",
-			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.authMethodPriority": {
-			"name": "camel.sink.endpoint.authMethodPriority",
-			"description": "Which authentication method to prioritize to use, either as Basic, Digest or NTLM. One of: [Basic] [Digest] [NTLM]",
+			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Bearer, or NTLM. (NTLM is deprecated) One of: [Basic] [Bearer] [NTLM]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"Basic",
-				"Digest",
+				"Bearer",
 				"NTLM"
 			]
 		},
@@ -392,6 +413,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.oauth2ResourceIndicator": {
+			"name": "camel.sink.endpoint.oauth2ResourceIndicator",
+			"description": "OAuth2 Token endpoint",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.oauth2Scope": {
 			"name": "camel.sink.endpoint.oauth2Scope",
 			"description": "OAuth2 scope",
@@ -400,7 +427,7 @@
 		},
 		"camel.sink.endpoint.oauth2TokenEndpoint": {
 			"name": "camel.sink.endpoint.oauth2TokenEndpoint",
-			"description": "OAuth2 Token endpoint",
+			"description": "OAuth2 Resource Indicator",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -430,16 +457,23 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.https.skipControlHeaders": {
+			"name": "camel.component.https.skipControlHeaders",
+			"description": "Whether to skip Camel control headers (CamelHttp... headers) to influence this endpoint. Control headers from previous HTTP components can influence how this Camel component behaves such as CamelHttpPath, CamelHttpQuery, etc.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.https.skipRequestHeaders": {
 			"name": "camel.component.https.skipRequestHeaders",
-			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. If there are no data from Camel headers needed to be included in the HTTP request then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"description": "Whether to skip mapping all the Camel headers as HTTP request headers. This is useful when you know that calling the HTTP service should not include any custom headers.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.skipResponseHeaders": {
 			"name": "camel.component.https.skipResponseHeaders",
-			"description": "Whether to skip mapping all the HTTP response headers to Camel headers. If there are no data needed from HTTP headers then this can avoid parsing overhead with many object allocations for the JVM garbage collector.",
+			"description": "Whether to skip mapping all the HTTP response headers to Camel headers.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -611,19 +645,19 @@
 		},
 		"camel.component.https.proxyAuthDomain": {
 			"name": "camel.component.https.proxyAuthDomain",
-			"description": "Proxy authentication domain to use",
+			"description": "Proxy authentication domain to use with NTLM",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.proxyAuthHost": {
 			"name": "camel.component.https.proxyAuthHost",
-			"description": "Proxy authentication host",
-			"priority": "MEDIUM",
+			"description": "Proxy server host",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.https.proxyAuthMethod": {
 			"name": "camel.component.https.proxyAuthMethod",
-			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
+			"description": "Proxy authentication method to use (NTLM is deprecated) One of: [Basic] [Digest] [NTLM]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -634,25 +668,25 @@
 		},
 		"camel.component.https.proxyAuthNtHost": {
 			"name": "camel.component.https.proxyAuthNtHost",
-			"description": "Proxy authentication domain (workstation name) to use with NTML",
+			"description": "Proxy authentication domain (workstation name) to use with NTLM (NTLM is deprecated)",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.proxyAuthPassword": {
 			"name": "camel.component.https.proxyAuthPassword",
-			"description": "Proxy authentication password",
+			"description": "Proxy server password",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.proxyAuthPort": {
 			"name": "camel.component.https.proxyAuthPort",
-			"description": "Proxy authentication port",
-			"priority": "MEDIUM",
+			"description": "Proxy server port",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.https.proxyAuthScheme": {
 			"name": "camel.component.https.proxyAuthScheme",
-			"description": "Proxy authentication protocol scheme One of: [http] [https]",
+			"description": "Proxy server authentication protocol scheme to use One of: [http] [https]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -662,7 +696,19 @@
 		},
 		"camel.component.https.proxyAuthUsername": {
 			"name": "camel.component.https.proxyAuthUsername",
-			"description": "Proxy authentication username",
+			"description": "Proxy server username",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.proxyHost": {
+			"name": "camel.component.https.proxyHost",
+			"description": "Proxy server host",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.proxyPort": {
+			"name": "camel.component.https.proxyPort",
+			"description": "Proxy server port",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -687,29 +733,28 @@
 		},
 		"camel.component.https.connectionRequestTimeout": {
 			"name": "camel.component.https.connectionRequestTimeout",
-			"description": "Returns the connection lease request timeout used when requesting a connection from the connection manager. A timeout value of zero is interpreted as a disabled timeout.",
-			"defaultValue": "\"3 minutes\"",
+			"description": "Returns the connection lease request timeout (in millis) used when requesting a connection from the connection manager. A timeout value of zero is interpreted as a disabled timeout.",
+			"defaultValue": "180000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.connectTimeout": {
 			"name": "camel.component.https.connectTimeout",
-			"description": "Determines the timeout until a new connection is fully established. A timeout value of zero is interpreted as an infinite timeout.",
-			"defaultValue": "\"3 minutes\"",
+			"description": "Determines the timeout (in millis) until a new connection is fully established. A timeout value of zero is interpreted as an infinite timeout.",
+			"defaultValue": "180000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.responseTimeout": {
 			"name": "camel.component.https.responseTimeout",
-			"description": "Determines the timeout until arrival of a response from the opposite endpoint. A timeout value of zero is interpreted as an infinite timeout. Please note that response timeout may be unsupported by HTTP transports with message multiplexing.",
-			"defaultValue": "\"0\"",
+			"description": "Determines the timeout (in millis) until arrival of a response from the opposite endpoint. A timeout value of zero is interpreted as an infinite timeout. Please note that response timeout may be unsupported by HTTP transports with message multiplexing.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.https.soTimeout": {
 			"name": "camel.component.https.soTimeout",
-			"description": "Determines the default socket timeout value for blocking I\/O operations.",
-			"defaultValue": "\"3 minutes\"",
+			"description": "Determines the default socket timeout (in millis) value for blocking I\/O operations.",
+			"defaultValue": "180000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

@@ -42,6 +42,11 @@
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
     <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-schemaregistry-kafka-avro</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-azure-schema-registry</artifactId>
     </dependency>
@@ -55,13 +60,13 @@
     </dependency>
     <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-data-schemaregistry-apacheavro</artifactId>
-      <version>1.1.23</version>
+      <artifactId>azure-identity</artifactId>
+      <version>1.16.2</version>
     </dependency>
     <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-identity</artifactId>
-      <version>1.15.0</version>
+      <artifactId>azure-data-schemaregistry-apacheavro</artifactId>
+      <version>1.1.26</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -70,11 +75,6 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-yaml-dsl</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-schemaregistry-kafka-avro</artifactId>
-      <version>1.1.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>

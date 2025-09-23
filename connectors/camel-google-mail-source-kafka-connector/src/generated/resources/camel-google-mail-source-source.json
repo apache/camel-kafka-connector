@@ -11,19 +11,19 @@
 	"properties": {
 		"camel.kamelet.google-mail-source.index": {
 			"name": "camel.kamelet.google-mail-source.index",
-			"description": "An index for the google mail endpoint",
+			"description": "An index for the google mail endpoint.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-mail-source.clientId": {
 			"name": "camel.kamelet.google-mail-source.clientId",
-			"description": "Client ID of the gmail application",
+			"description": "Client ID of the gmail application.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.google-mail-source.clientSecret": {
 			"name": "camel.kamelet.google-mail-source.clientSecret",
-			"description": "Client Secret of the gmail application",
+			"description": "Client Secret of the gmail application.",
 			"priority": "HIGH",
 			"required": "true"
 		},

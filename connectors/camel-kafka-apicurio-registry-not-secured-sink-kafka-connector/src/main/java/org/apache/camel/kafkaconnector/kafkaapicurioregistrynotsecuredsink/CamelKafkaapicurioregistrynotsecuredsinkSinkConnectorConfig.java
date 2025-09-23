@@ -27,19 +27,19 @@ public class CamelKafkaapicurioregistrynotsecuredsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_TOPIC_CONF = "camel.kamelet.kafka-apicurio-registry-not-secured-sink.topic";
-    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_TOPIC_DOC = "Comma separated list of Kafka topic names";
+    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_TOPIC_DOC = "Comma separated list of Kafka topic names.";
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_TOPIC_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_CONF = "camel.kamelet.kafka-apicurio-registry-not-secured-sink.bootstrapServers";
-    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs";
+    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs.";
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_VALUE_SERIALIZER_CONF = "camel.kamelet.kafka-apicurio-registry-not-secured-sink.valueSerializer";
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_VALUE_SERIALIZER_DOC = "Serliazer class for value that implements the Serializer interface.";
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_VALUE_SERIALIZER_DEFAULT = "io.apicurio.registry.serde.avro.AvroKafkaSerializer";
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_APICURIO_REGISTRY_URL_CONF = "camel.kamelet.kafka-apicurio-registry-not-secured-sink.apicurioRegistryUrl";
-    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_APICURIO_REGISTRY_URL_DOC = "The Apicurio Schema Registry URL";
+    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_APICURIO_REGISTRY_URL_DOC = "The Apicurio Schema Registry URL.";
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_APICURIO_REGISTRY_URL_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_AVRO_DATUM_PROVIDER_CONF = "camel.kamelet.kafka-apicurio-registry-not-secured-sink.avroDatumProvider";
-    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_AVRO_DATUM_PROVIDER_DOC = "How to write data with Avro";
+    public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_AVRO_DATUM_PROVIDER_DOC = "How to write data with Avro.";
     public static final String CAMEL_SINK_KAFKAAPICURIOREGISTRYNOTSECUREDSINK_KAMELET_AVRO_DATUM_PROVIDER_DEFAULT = "io.apicurio.registry.serde.avro.ReflectAvroDatumProvider";
 
     public CamelKafkaapicurioregistrynotsecuredsinkSinkConnectorConfig(

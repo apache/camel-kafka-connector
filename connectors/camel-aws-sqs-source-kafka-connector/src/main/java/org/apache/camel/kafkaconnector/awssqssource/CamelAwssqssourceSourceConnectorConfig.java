@@ -27,10 +27,10 @@ public class CamelAwssqssourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_NAME_OR_ARN_CONF = "camel.kamelet.aws-sqs-source.queueNameOrArn";
-    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_NAME_OR_ARN_DOC = "The SQS Queue Name or ARN";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_NAME_OR_ARN_DOC = "The SQS Queue Name or ARN.";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELETE_AFTER_READ_CONF = "camel.kamelet.aws-sqs-source.deleteAfterRead";
-    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Delete messages after consuming them";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELETE_AFTER_READ_DOC = "Delete messages after consuming them.";
     public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELETE_AFTER_READ_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-sqs-source.accessKey";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
@@ -48,10 +48,10 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_DOC = "The hostname of the Amazon AWS cloud.";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_AMAZON_AWSHOST_DEFAULT = "amazonaws.com";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_CONF = "camel.kamelet.aws-sqs-source.protocol";
-    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS Example: http or https";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS. Example: http or https";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DEFAULT = "https";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLCONF = "camel.kamelet.aws-sqs-source.queueURL";
-    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDOC = "The full SQS Queue URL (required if using KEDA)";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDOC = "The full SQS Queue URL (required if using KEDA).";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDEFAULT = null;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-sqs-source.useDefaultCredentialsProvider";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the SQS client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";
@@ -63,7 +63,7 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the SQS client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in SQS.";
     public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-sqs-source.profileCredentialsName";
-    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter sets the profile name.";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-sqs-source.sessionToken";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";
@@ -75,7 +75,7 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DOC = "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.";
     public static final Boolean CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_OVERRIDE_ENDPOINT_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.aws-sqs-source.delay";
-    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll of the selected stream";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll of the selected stream.";
     public static final Integer CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_DELAY_DEFAULT = 500;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_CONF = "camel.kamelet.aws-sqs-source.greedy";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_GREEDY_DOC = "If greedy is enabled, then the polling will happen immediately again, if the previous run polled 1 or more messages.";

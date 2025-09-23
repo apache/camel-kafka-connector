@@ -27,13 +27,13 @@ public class CamelHttpsourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_PERIOD_CONF = "camel.kamelet.http-source.period";
-    public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_PERIOD_DOC = "The interval between fetches in milliseconds";
+    public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_PERIOD_DOC = "The interval between fetches in milliseconds.";
     public static final Integer CAMEL_SOURCE_HTTPSOURCE_KAMELET_PERIOD_DEFAULT = 10000;
     public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_CONTENT_TYPE_CONF = "camel.kamelet.http-source.contentType";
-    public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_CONTENT_TYPE_DOC = "The content type accepted for the resource";
+    public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_CONTENT_TYPE_DOC = "The content type accepted for the resource.";
     public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_CONTENT_TYPE_DEFAULT = "application/json";
     public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_URL_CONF = "camel.kamelet.http-source.url";
-    public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_URL_DOC = "The URL to fetch for data Example: https://gist.githubusercontent.com/nicolaferraro/e3c72ace3c751f9f88273896611ce5fe/raw/3b6f54060bacb56b6719b7386a4645cb59ad6cc1/quote.json";
+    public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_URL_DOC = "The URL to fetch for data. Example: https://gist.githubusercontent.com/nicolaferraro/e3c72ace3c751f9f88273896611ce5fe/raw/3b6f54060bacb56b6719b7386a4645cb59ad6cc1/quote.json";
     public static final String CAMEL_SOURCE_HTTPSOURCE_KAMELET_URL_DEFAULT = null;
 
     public CamelHttpsourceSourceConnectorConfig(

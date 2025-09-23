@@ -228,14 +228,12 @@
         <module>camel-azure-storage-files-source-kafka-connector</module>
         <module>camel-azure-storage-queue-sink-kafka-connector</module>
         <module>camel-azure-storage-queue-source-kafka-connector</module>
-        <module>camel-beer-source-kafka-connector</module>
         <module>camel-bitcoin-source-kafka-connector</module>
         <module>camel-cassandra-sink-kafka-connector</module>
         <module>camel-cassandra-source-kafka-connector</module>
         <module>camel-ceph-sink-kafka-connector</module>
         <module>camel-ceph-source-kafka-connector</module>
         <module>camel-chuck-norris-source-kafka-connector</module>
-        <module>camel-coffee-source-kafka-connector</module>
         <module>camel-couchbase-sink-kafka-connector</module>
         <module>camel-counter-source-kafka-connector</module>
         <module>camel-cron-source-kafka-connector</module>

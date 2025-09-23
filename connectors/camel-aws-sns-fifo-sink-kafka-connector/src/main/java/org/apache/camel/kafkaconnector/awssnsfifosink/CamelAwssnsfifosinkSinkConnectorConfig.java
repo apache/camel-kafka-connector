@@ -27,7 +27,7 @@ public class CamelAwssnsfifosinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_TOPIC_NAME_OR_ARN_CONF = "camel.kamelet.aws-sns-fifo-sink.topicNameOrArn";
-    public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_TOPIC_NAME_OR_ARN_DOC = "The SNS Topic name or ARN";
+    public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_TOPIC_NAME_OR_ARN_DOC = "The SNS Topic name or ARN.";
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_TOPIC_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-sns-fifo-sink.accessKey";
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";
@@ -39,7 +39,7 @@ public class CamelAwssnsfifosinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_REGION_DOC = "The AWS region to access.";
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_CONTENT_BASED_DEDUPLICATION_CONF = "camel.kamelet.aws-sns-fifo-sink.contentBasedDeduplication";
-    public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_CONTENT_BASED_DEDUPLICATION_DOC = "Use content-based deduplication (should be enabled in the SQS FIFO queue first)";
+    public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_CONTENT_BASED_DEDUPLICATION_DOC = "Use content-based deduplication (should be enabled in the SQS FIFO queue first).";
     public static final Boolean CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_CONTENT_BASED_DEDUPLICATION_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_AUTO_CREATE_TOPIC_CONF = "camel.kamelet.aws-sns-fifo-sink.autoCreateTopic";
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_AUTO_CREATE_TOPIC_DOC = "Setting the autocreation of the SNS topic.";
@@ -54,7 +54,7 @@ public class CamelAwssnsfifosinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the SNS client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in SNS.";
     public static final Boolean CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-sns-fifo-sink.profileCredentialsName";
-    public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter sets the profile name.";
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-sns-fifo-sink.sessionToken";
     public static final String CAMEL_SINK_AWSSNSFIFOSINK_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";

@@ -45,7 +45,7 @@ public class CamelAwssecretsmanagersinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_USE_SESSION_CREDENTIALS_DOC = "Set whether the Secrets Manager client should expect to use Session Credentials. This is useful in situation in which the user needs to assume a IAM role for doing operations in Secrets Manager.";
     public static final Boolean CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_USE_SESSION_CREDENTIALS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_PROFILE_CREDENTIALS_NAME_CONF = "camel.kamelet.aws-secrets-manager-sink.profileCredentialsName";
-    public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter will set the profile name.";
+    public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_PROFILE_CREDENTIALS_NAME_DOC = "If using a profile credentials provider this parameter sets the profile name.";
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_PROFILE_CREDENTIALS_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_SESSION_TOKEN_CONF = "camel.kamelet.aws-secrets-manager-sink.sessionToken";
     public static final String CAMEL_SINK_AWSSECRETSMANAGERSINK_KAMELET_SESSION_TOKEN_DOC = "Amazon AWS Session Token used when the user needs to assume a IAM role.";

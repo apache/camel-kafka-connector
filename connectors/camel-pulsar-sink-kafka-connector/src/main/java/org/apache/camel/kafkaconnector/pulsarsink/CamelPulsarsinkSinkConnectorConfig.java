@@ -27,16 +27,16 @@ public class CamelPulsarsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_CONF = "camel.kamelet.pulsar-sink.topic";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_DOC = "The topic name or regexp";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_DOC = "The topic name or regexp.";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_DEFAULT = null;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TENANT_CONF = "camel.kamelet.pulsar-sink.tenant";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_TENANT_DOC = "The Tenant Name";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_TENANT_DOC = "The Tenant Name.";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TENANT_DEFAULT = null;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_TYPE_CONF = "camel.kamelet.pulsar-sink.topicType";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_TYPE_DOC = "The topic type.";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_TOPIC_TYPE_DEFAULT = null;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_NAMESPACE_NAME_CONF = "camel.kamelet.pulsar-sink.namespaceName";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_NAMESPACE_NAME_DOC = "The Pulsar Namespace Name";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_NAMESPACE_NAME_DOC = "The Pulsar Namespace Name.";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_NAMESPACE_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_SERVICE_URL_CONF = "camel.kamelet.pulsar-sink.serviceUrl";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_SERVICE_URL_DOC = "The Pulsar Service URL to point while creating the client from URI.";
@@ -54,7 +54,7 @@ public class CamelPulsarsinkSinkConnectorConfig
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_BATCHING_MAX_MESSAGES_DOC = "The maximum size to batch messages.";
     public static final Integer CAMEL_SINK_PULSARSINK_KAMELET_BATCHING_MAX_MESSAGES_DEFAULT = 1000;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_BATCHING_MAX_PUBLISH_DELAY_MICROS_CONF = "camel.kamelet.pulsar-sink.batchingMaxPublishDelayMicros";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_BATCHING_MAX_PUBLISH_DELAY_MICROS_DOC = "The maximum time period within which the messages sent will be batched if batchingEnabled is true.";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_BATCHING_MAX_PUBLISH_DELAY_MICROS_DOC = "Used if `batchingEnabled` is `true`. Sets the maximum time period within which the messages sent are batched.";
     public static final Integer CAMEL_SINK_PULSARSINK_KAMELET_BATCHING_MAX_PUBLISH_DELAY_MICROS_DEFAULT = 1000;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_BLOCK_IF_QUEUE_FULL_CONF = "camel.kamelet.pulsar-sink.blockIfQueueFull";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_BLOCK_IF_QUEUE_FULL_DOC = "Whether to block the producing thread if pending messages queue is full or to throw a ProducerQueueIsFullError.";
@@ -72,7 +72,7 @@ public class CamelPulsarsinkSinkConnectorConfig
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_DOC = "Size of the pending massages queue. When the queue is full, by default, any further sends will fail unless blockIfQueueFull=true.";
     public static final Integer CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_DEFAULT = 1000;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_ACROSS_PARTITIONS_CONF = "camel.kamelet.pulsar-sink.maxPendingMessagesAcrossPartitions";
-    public static final String CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_ACROSS_PARTITIONS_DOC = "The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition.";
+    public static final String CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_ACROSS_PARTITIONS_DOC = "The maximum number of pending messages for partitioned topics. The `maxPendingMessages` value is reduced if (number of partitions `maxPendingMessages`) exceeds this value. Partitioned topics have a pending message queue for each partition.";
     public static final Integer CAMEL_SINK_PULSARSINK_KAMELET_MAX_PENDING_MESSAGES_ACROSS_PARTITIONS_DEFAULT = 50000;
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_MESSAGE_ROUTING_MODE_CONF = "camel.kamelet.pulsar-sink.messageRoutingMode";
     public static final String CAMEL_SINK_PULSARSINK_KAMELET_MESSAGE_ROUTING_MODE_DOC = "Message Routing Mode to use.";

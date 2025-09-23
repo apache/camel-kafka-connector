@@ -11,14 +11,14 @@
 	"properties": {
 		"camel.kamelet.earthquake-source.period": {
 			"name": "camel.kamelet.earthquake-source.period",
-			"description": "The interval between fetches to the earthquake API in milliseconds",
+			"description": "The interval between fetches to the earthquake API in milliseconds.",
 			"defaultValue": "60000",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.kamelet.earthquake-source.lookAhead": {
 			"name": "camel.kamelet.earthquake-source.lookAhead",
-			"description": "The amount of minutes to look ahead when starting the integration afresh",
+			"description": "The amount of minutes to look ahead when starting the integration afresh.",
 			"defaultValue": "120",
 			"priority": "MEDIUM",
 			"required": "false"

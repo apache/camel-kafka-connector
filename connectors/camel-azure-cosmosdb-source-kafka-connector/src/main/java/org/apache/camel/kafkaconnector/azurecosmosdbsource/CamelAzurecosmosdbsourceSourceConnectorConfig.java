@@ -39,7 +39,7 @@ public class CamelAzurecosmosdbsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_LEASE_DATABASE_NAME_DOC = "Sets the lease container which acts as a state storage and coordinates processing the change feed across multiple workers.";
     public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_LEASE_DATABASE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_LEASE_CONTAINER_NAME_CONF = "camel.kamelet.azure-cosmosdb-source.leaseContainerName";
-    public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_LEASE_CONTAINER_NAME_DOC = "Sets the lease database where the leaseContainerName will be stored.";
+    public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_LEASE_CONTAINER_NAME_DOC = "Sets the lease database where the `leaseContainerName` is stored.";
     public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_LEASE_CONTAINER_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_CREATE_LEASE_DATABASE_IF_NOT_EXISTS_CONF = "camel.kamelet.azure-cosmosdb-source.createLeaseDatabaseIfNotExists";
     public static final String CAMEL_SOURCE_AZURECOSMOSDBSOURCE_KAMELET_CREATE_LEASE_DATABASE_IF_NOT_EXISTS_DOC = "Sets if the component should create Cosmos lease database for the consumer automatically in case it doesn’t exist in Cosmos account.";

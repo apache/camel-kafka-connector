@@ -27,7 +27,7 @@ public class CamelFhirsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_FHIRSINK_KAMELET_API_NAME_CONF = "camel.kamelet.fhir-sink.apiName";
-    public static final String CAMEL_SINK_FHIRSINK_KAMELET_API_NAME_DOC = "What kind of operation to perform";
+    public static final String CAMEL_SINK_FHIRSINK_KAMELET_API_NAME_DOC = "What kind of operation to perform.";
     public static final String CAMEL_SINK_FHIRSINK_KAMELET_API_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_FHIRSINK_KAMELET_METHOD_NAME_CONF = "camel.kamelet.fhir-sink.methodName";
     public static final String CAMEL_SINK_FHIRSINK_KAMELET_METHOD_NAME_DOC = "What sub operation to use for the selected operation.";

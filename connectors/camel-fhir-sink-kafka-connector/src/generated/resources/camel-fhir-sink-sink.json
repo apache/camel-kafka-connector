@@ -6,12 +6,12 @@
 		"id": "camel-fhir-sink-sink",
 		"type": "sink",
 		"version": "4.12.0-SNAPSHOT",
-		"description": "Forward data to a Fhir endpoint."
+		"description": "Forward data to a FHIR endpoint."
 	},
 	"properties": {
 		"camel.kamelet.fhir-sink.apiName": {
 			"name": "camel.kamelet.fhir-sink.apiName",
-			"description": "What kind of operation to perform",
+			"description": "What kind of operation to perform.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

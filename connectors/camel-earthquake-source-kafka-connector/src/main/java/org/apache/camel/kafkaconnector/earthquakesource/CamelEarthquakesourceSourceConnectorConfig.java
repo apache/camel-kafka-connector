@@ -27,10 +27,10 @@ public class CamelEarthquakesourceSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_PERIOD_CONF = "camel.kamelet.earthquake-source.period";
-    public static final String CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_PERIOD_DOC = "The interval between fetches to the earthquake API in milliseconds";
+    public static final String CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_PERIOD_DOC = "The interval between fetches to the earthquake API in milliseconds.";
     public static final Integer CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_PERIOD_DEFAULT = 60000;
     public static final String CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_LOOK_AHEAD_CONF = "camel.kamelet.earthquake-source.lookAhead";
-    public static final String CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_LOOK_AHEAD_DOC = "The amount of minutes to look ahead when starting the integration afresh";
+    public static final String CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_LOOK_AHEAD_DOC = "The amount of minutes to look ahead when starting the integration afresh.";
     public static final Integer CAMEL_SOURCE_EARTHQUAKESOURCE_KAMELET_LOOK_AHEAD_DEFAULT = 120;
 
     public CamelEarthquakesourceSourceConnectorConfig(

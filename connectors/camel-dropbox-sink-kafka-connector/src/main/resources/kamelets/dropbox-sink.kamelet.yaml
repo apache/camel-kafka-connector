@@ -20,7 +20,7 @@ metadata:
   name: dropbox-sink
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.12.0-SNAPSHOT"
+    camel.apache.org/catalog.version: "4.14.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjQzcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDQzIDQwIiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iNDBweCI+CiA8cGF0aCBkPSJtMTIuNSAwbC0xMi41IDguMSA4LjcgNyAxMi41LTcuOC04LjctNy4zem0tMTIuNSAyMS45bDEyLjUgOC4yIDguNy03LjMtMTIuNS03LjctOC43IDYuOHptMjEuMiAwLjlsOC44IDcuMyAxMi40LTguMS04LjYtNi45LTEyLjYgNy43em0yMS4yLTE0LjdsLTEyLjQtOC4xLTguOCA3LjMgMTIuNiA3LjggOC42LTd6bS0yMS4xIDE2LjNsLTguOCA3LjMtMy43LTIuNXYyLjhsMTIuNSA3LjUgMTIuNS03LjV2LTIuOGwtMy44IDIuNS04LjctNy4zeiIgZmlsbD0iIzAwN0VFNSIvPgo8L3N2Zz4K"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Dropbox"
@@ -37,7 +37,7 @@ spec:
 
       - `file` / `ce-file`: as the file name to upload
 
-      If the header won't be set the exchange ID will be used as file name.
+      If the header is not set, the exchange ID is used as file name.
     required:
       - accessToken
       - clientIdentifier
@@ -64,7 +64,7 @@ spec:
         type: string
       uploadMode:
         title: Upload Mode
-        description: Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. The value can be one of add, force.
+        description: The uploading mode in case a file with the same name exists on Dropbox. Choose `add` or `force`. With `add`, the new file is renamed. With `force`, the existing file is overwritten.
         type: string
         default: add
   dependencies:

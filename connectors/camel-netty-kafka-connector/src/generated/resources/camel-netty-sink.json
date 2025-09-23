@@ -11,7 +11,7 @@
 	"properties": {
 		"camel.sink.path.protocol": {
 			"name": "camel.sink.path.protocol",
-			"description": "The protocol to use which can be tcp or udp. One of: [tcp] [udp]",
+			"description": "The protocol to use which can be tcp or udp One of: [tcp] [udp]",
 			"priority": "HIGH",
 			"required": "true",
 			"enum": [
@@ -21,7 +21,7 @@
 		},
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
-			"description": "The hostname. For the consumer the hostname is localhost or 0.0.0.0. For the producer the hostname is the remote host to connect to",
+			"description": "The hostname. For the consumer the hostname is localhost or 0.0.0.0. For the producer the hostname is the remote host to connect to.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -33,7 +33,7 @@
 		},
 		"camel.sink.endpoint.disconnect": {
 			"name": "camel.sink.endpoint.disconnect",
-			"description": "Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.",
+			"description": "Whether or not to disconnect(close) from Netty Channel right after use.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -54,14 +54,14 @@
 		},
 		"camel.sink.endpoint.reuseChannel": {
 			"name": "camel.sink.endpoint.reuseChannel",
-			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key NettyConstants#NETTY_CHANNEL which allows you to obtain the channel during routing and use it as well.",
+			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key CamelNettyChannel which allows you to obtain the channel during routing and use it as well.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.sync": {
 			"name": "camel.sink.endpoint.sync",
-			"description": "Setting to set endpoint as one-way or request-response",
+			"description": "Setting to set endpoint as one-way (false) or request-response (true)",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -70,6 +70,12 @@
 			"name": "camel.sink.endpoint.tcpNoDelay",
 			"description": "Setting to improve TCP protocol performance",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.networkInterface": {
+			"name": "camel.sink.endpoint.networkInterface",
+			"description": "When using UDP then this option can be used to specify a network interface by its name, such as eth0 to join a multicast group.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -183,7 +189,7 @@
 		},
 		"camel.sink.endpoint.channelGroup": {
 			"name": "camel.sink.endpoint.channelGroup",
-			"description": "To use a explicit ChannelGroup.",
+			"description": "To use an explicit ChannelGroup.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -196,7 +202,7 @@
 		},
 		"camel.sink.endpoint.options": {
 			"name": "camel.sink.endpoint.options",
-			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.",
+			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false. See the Netty documentation for possible options that can be used. This is a multi-value option with prefix: option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -340,7 +346,7 @@
 		"camel.sink.endpoint.keyStoreFile": {
 			"name": "camel.sink.endpoint.keyStoreFile",
 			"description": "Client side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.keyStoreFormat": {
@@ -396,7 +402,7 @@
 		"camel.sink.endpoint.trustStoreFile": {
 			"name": "camel.sink.endpoint.trustStoreFile",
 			"description": "Server side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.sink.endpoint.trustStoreResource": {
@@ -407,13 +413,13 @@
 		},
 		"camel.component.netty.configuration": {
 			"name": "camel.component.netty.configuration",
-			"description": "To use the NettyConfiguration as configuration when creating endpoints.",
+			"description": "To use the NettyConfiguration as configuration when creating endpoints",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.netty.disconnect": {
 			"name": "camel.component.netty.disconnect",
-			"description": "Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.",
+			"description": "Whether or not to disconnect(close) from Netty Channel right after use.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -434,14 +440,14 @@
 		},
 		"camel.component.netty.reuseChannel": {
 			"name": "camel.component.netty.reuseChannel",
-			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key NettyConstants#NETTY_CHANNEL which allows you to obtain the channel during routing and use it as well.",
+			"description": "This option allows producers and consumers (in client mode) to reuse the same Netty Channel for the lifecycle of processing the Exchange. This is useful if you need to call a server multiple times in a Camel route and want to use the same network connection. When using this, the channel is not returned to the connection pool until the Exchange is done; or disconnected if the disconnect option is set to true. The reused Channel is stored on the Exchange as an exchange property with the key CamelNettyChannel which allows you to obtain the channel during routing and use it as well.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.netty.sync": {
 			"name": "camel.component.netty.sync",
-			"description": "Setting to set endpoint as one-way or request-response",
+			"description": "Setting to set endpoint as one-way (false) or request-response (true)",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -450,6 +456,12 @@
 			"name": "camel.component.netty.tcpNoDelay",
 			"description": "Setting to improve TCP protocol performance",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.netty.networkInterface": {
+			"name": "camel.component.netty.networkInterface",
+			"description": "When using UDP then this option can be used to specify a network interface by its name, such as eth0 to join a multicast group.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -570,7 +582,7 @@
 		},
 		"camel.component.netty.channelGroup": {
 			"name": "camel.component.netty.channelGroup",
-			"description": "To use a explicit ChannelGroup.",
+			"description": "To use an explicit ChannelGroup.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -583,7 +595,7 @@
 		},
 		"camel.component.netty.options": {
 			"name": "camel.component.netty.options",
-			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.",
+			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false. See the Netty documentation for possible options that can be used. This is a multi-value option with prefix: option.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -720,7 +732,7 @@
 		"camel.component.netty.keyStoreFile": {
 			"name": "camel.component.netty.keyStoreFile",
 			"description": "Client side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.netty.keyStoreFormat": {
@@ -776,7 +788,7 @@
 		"camel.component.netty.trustStoreFile": {
 			"name": "camel.component.netty.trustStoreFile",
 			"description": "Server side certificate keystore to be used for encryption",
-			"priority": "MEDIUM",
+			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.netty.trustStoreResource": {
