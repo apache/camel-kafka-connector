@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-slack-source-source",
 		"type": "source",
-		"version": "4.12.0-SNAPSHOT",
+		"version": "4.14.0",
 		"description": "Receive messages from a Slack channel."
 	},
 	"properties": {

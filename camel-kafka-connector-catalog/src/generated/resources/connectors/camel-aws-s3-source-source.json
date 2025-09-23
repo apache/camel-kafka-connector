@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-source-source",
 		"type": "source",
-		"version": "4.12.0-SNAPSHOT",
+		"version": "4.14.0",
 		"description": "Receive data from an Amazon S3 Bucket.\n\nThe basic authentication method for the S3 service is to specify an access key and a secret key. These parameters are optional because the Kamelet provides a default credentials provider.\n\nIf you use the default credentials provider, the S3 client loads the credentials through this provider and doesn't use the basic authentication method.\n\nTwo headers are duplicated with different names for clarity at sink level. `CamelAwsS3Key` is duplicated into `aws.s3.key` and `CamelAwsS3BucketName` is duplicated in `aws.s3.bucket.name`."
 	},
 	"properties": {

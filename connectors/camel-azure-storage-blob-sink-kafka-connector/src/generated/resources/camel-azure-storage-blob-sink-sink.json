@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-sink-sink",
 		"type": "sink",
-		"version": "4.12.0-SNAPSHOT",
+		"version": "4.14.0",
 		"description": "Upload data to Azure Storage Blob."
 	},
 	"properties": {

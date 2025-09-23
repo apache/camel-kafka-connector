@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-event-based-source-source",
 		"type": "source",
-		"version": "4.12.0-SNAPSHOT",
+		"version": "4.14.0",
 		"description": "Receive data from AWS SQS subscribed to Eventbridge Bus reporting events related to an S3 bucket or multiple buckets."
 	},
 	"properties": {
