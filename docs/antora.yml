@@ -19,9 +19,9 @@
 
 name: camel-kafka-connector
 title: Camel Kafka Connector
-version: next
-prerelease: true
-display-version: Next (Pre-release)
+version: 4.14.x
+prerelease: false
+display-version: 4.14.x (LTS)
 
 nav:
 - modules/ROOT/nav.adoc
@@ -29,10 +29,10 @@ nav:
 asciidoc:
   attributes:
     requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
-    prerelease: true
-    camel-version: 4.11.0-SNAPSHOT
-    camel-docs-version: next
-    camel-kamelets-version: 4.11.0-SNAPSHOT
-    camel-kamelets-docs-version: next
-    kafka-version: 3.8.1
+    prerelease: false
+    camel-version: 4.14.0
+    camel-docs-version: 4.14.x
+    camel-kamelets-version: 4.14.0
+    camel-kamelets-docs-version: 4.14.x
+    kafka-version: 3.9.1
     kafka-docs-version: 28
