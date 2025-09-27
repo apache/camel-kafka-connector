@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.0...HEAD)
 
+**Closed issues:**
+
+- CamelNettyhttpSinkConnector with client keystore \(mtls\) [\#1728](https://github.com/apache/camel-kafka-connector/issues/1728)
+
 **Merged pull requests:**
 
 - Bump actions/checkout from 4.2.2 to 5.0.0 [\#1725](https://github.com/apache/camel-kafka-connector/pull/1725) ([dependabot[bot]](https://github.com/apps/dependabot))
