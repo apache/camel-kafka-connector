@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- SQS Source deletes messages before producing to Kafka [\#1731](https://github.com/apache/camel-kafka-connector/issues/1731)
 - CamelNettyhttpSinkConnector with client keystore \(mtls\) [\#1728](https://github.com/apache/camel-kafka-connector/issues/1728)
 
 **Merged pull requests:**
