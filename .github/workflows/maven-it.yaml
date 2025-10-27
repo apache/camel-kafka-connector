@@ -74,7 +74,7 @@ jobs:
             -pl :camel-kafka-connector-generator-maven-plugin \
             clean verify
       - name: Archive test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ failure() }}
         with:
           name: maven-it-java-${{ matrix.java }}
