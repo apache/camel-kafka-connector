@@ -11,6 +11,12 @@
 
 **Merged pull requests:**
 
+- build\(deps\): bump org.apache.avro:avro from 1.11.4 to 1.11.5 in /core [\#1744](https://github.com/apache/camel-kafka-connector/pull/1744) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/upload-artifact from 4 to 6 [\#1743](https://github.com/apache/camel-kafka-connector/pull/1743) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump peter-evans/create-pull-request from 7.0.8 to 8.0.0 [\#1742](https://github.com/apache/camel-kafka-connector/pull/1742) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/cache from 4 to 5 [\#1741](https://github.com/apache/camel-kafka-connector/pull/1741) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/checkout from 5.0.0 to 6.0.1 [\#1739](https://github.com/apache/camel-kafka-connector/pull/1739) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/setup-java from 4.7.1 to 5.1.0 [\#1738](https://github.com/apache/camel-kafka-connector/pull/1738) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 4.2.2 to 5.0.0 [\#1725](https://github.com/apache/camel-kafka-connector/pull/1725) ([dependabot[bot]](https://github.com/apps/dependabot))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1716](https://github.com/apache/camel-kafka-connector/pull/1716) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Bump actions/setup-java from 4.7.0 to 4.7.1 [\#1714](https://github.com/apache/camel-kafka-connector/pull/1714) ([dependabot[bot]](https://github.com/apps/dependabot))
