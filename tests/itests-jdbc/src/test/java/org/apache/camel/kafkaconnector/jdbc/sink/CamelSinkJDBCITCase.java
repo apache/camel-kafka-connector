@@ -40,7 +40,7 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.JdbcDatabaseContainer;
-import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.postgresql.PostgreSQLContainer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -61,7 +61,7 @@ public class CamelSinkJDBCITCase extends CamelSinkTestSupport {
     static {
         final String postgresImage = "postgres:13.0";
 
-        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>(postgresImage)
+        JdbcDatabaseContainer<?> container = new PostgreSQLContainer(postgresImage)
                 .withDatabaseName("camel")
                 .withUsername("ckc")
                 .withPassword("ckcDevel123")

@@ -1,0 +1,51 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.databrickssink.CamelDatabrickssinkSinkConnector",
+		"artifactId": "camel-databricks-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-databricks-sink-sink",
+		"type": "sink",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to a Databricks Database. This Kamelet expects a JSON-formatted body. Use key:value pairs to map the JSON fields and parameters. For Unity Catalog workspaces, specify catalog and schema parameters."
+	},
+	"properties": {
+		"camel.kamelet.databricks-sink.serverHostname": {
+			"name": "camel.kamelet.databricks-sink.serverHostname",
+			"description": "The Databricks server hostname. Example: adb-1234567890123456.7.azuredatabricks.net",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-sink.serverPort": {
+			"name": "camel.kamelet.databricks-sink.serverPort",
+			"description": "The server port for the Databricks data source.",
+			"defaultValue": "\"443\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.databricks-sink.httpPath": {
+			"name": "camel.kamelet.databricks-sink.httpPath",
+			"description": "The HTTP path to the Databricks SQL Warehouse or cluster. Example: \/sql\/1.0\/warehouses\/abc123def456",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-sink.accessToken": {
+			"name": "camel.kamelet.databricks-sink.accessToken",
+			"description": "The personal access token to access Databricks.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-sink.query": {
+			"name": "camel.kamelet.databricks-sink.query",
+			"description": "The query to execute against the Databricks Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-sink.extraOptions": {
+			"name": "camel.kamelet.databricks-sink.extraOptions",
+			"description": "Additional JDBC connection options (e.g., ConnCatalog=main;ConnSchema=default).",
+			"defaultValue": "\"\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

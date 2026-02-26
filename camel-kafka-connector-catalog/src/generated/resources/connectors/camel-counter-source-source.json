@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-counter-source-source",
 		"type": "source",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Counts upwards such as 1,2,3,..."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Generates sequential number events starting from a configurable value, incrementing by a specified step. Useful for testing, scheduled tasks, or creating ordered event sequences."
 	},
 	"properties": {
 		"camel.kamelet.counter-source.period": {

@@ -1,0 +1,115 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awspollysink.CamelAwspollysinkSinkConnector",
+		"artifactId": "camel-aws-polly-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-polly-sink-sink",
+		"type": "sink",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Synthesize speech from text using AWS Polly."
+	},
+	"properties": {
+		"camel.kamelet.aws-polly-sink.voiceId": {
+			"name": "camel.kamelet.aws-polly-sink.voiceId",
+			"description": "The voice ID to use for speech synthesis (e.g., Joanna, Matthew, Amy, Brian).",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.outputFormat": {
+			"name": "camel.kamelet.aws-polly-sink.outputFormat",
+			"description": "The audio format in which the resulting stream will be encoded.",
+			"defaultValue": "\"MP3\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.textType": {
+			"name": "camel.kamelet.aws-polly-sink.textType",
+			"description": "Specifies whether the input text is plain text or SSML.",
+			"defaultValue": "\"TEXT\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.engine": {
+			"name": "camel.kamelet.aws-polly-sink.engine",
+			"description": "Specifies the engine (standard, neural, long-form, generative) for Amazon Polly to use when processing input text for speech synthesis.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.sampleRate": {
+			"name": "camel.kamelet.aws-polly-sink.sampleRate",
+			"description": "The audio frequency in Hz.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.languageCode": {
+			"name": "camel.kamelet.aws-polly-sink.languageCode",
+			"description": "Optional language code for voice synthesis. This is only necessary if using a bilingual voice.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.accessKey": {
+			"name": "camel.kamelet.aws-polly-sink.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.secretKey": {
+			"name": "camel.kamelet.aws-polly-sink.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.region": {
+			"name": "camel.kamelet.aws-polly-sink.region",
+			"description": "The AWS region to access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-polly-sink.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-polly-sink.useDefaultCredentialsProvider",
+			"description": "If true, the Polly client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.useProfileCredentialsProvider": {
+			"name": "camel.kamelet.aws-polly-sink.useProfileCredentialsProvider",
+			"description": "Set whether the Polly client should expect to load credentials through a profile credentials provider.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.useSessionCredentials": {
+			"name": "camel.kamelet.aws-polly-sink.useSessionCredentials",
+			"description": "Set whether the Polly client should expect to use Session Credentials. This is useful in a situation in which the user needs to assume an IAM role for doing operations in Polly.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.profileCredentialsName": {
+			"name": "camel.kamelet.aws-polly-sink.profileCredentialsName",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.sessionToken": {
+			"name": "camel.kamelet.aws-polly-sink.sessionToken",
+			"description": "Amazon AWS Session Token used when the user needs to assume an IAM role.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-polly-sink.uriEndpointOverride",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-polly-sink.overrideEndpoint": {
+			"name": "camel.kamelet.aws-polly-sink.overrideEndpoint",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

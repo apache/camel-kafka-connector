@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-source",
 		"type": "source",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Socket level networking using TCP or UDP with Netty 4.x."
 	},
 	"properties": {
@@ -383,12 +383,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.keyStoreFile": {
-			"name": "camel.source.endpoint.keyStoreFile",
-			"description": "Client side certificate keystore to be used for encryption",
-			"priority": "LOW",
-			"required": "false"
-		},
 		"camel.source.endpoint.keyStoreFormat": {
 			"name": "camel.source.endpoint.keyStoreFormat",
 			"description": "Keystore format to be used for payload encryption. Defaults to JKS if not set",
@@ -410,7 +404,7 @@
 		},
 		"camel.source.endpoint.passphrase": {
 			"name": "camel.source.endpoint.passphrase",
-			"description": "Password setting to use in order to encrypt\/decrypt payloads sent using SSH",
+			"description": "Password to use for the keyStore and trustStore. The same password must be configured for both resources.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -444,12 +438,6 @@
 			"name": "camel.source.endpoint.sslHandler",
 			"description": "Reference to a class that could be used to return an SSL Handler",
 			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.trustStoreFile": {
-			"name": "camel.source.endpoint.trustStoreFile",
-			"description": "Server side certificate keystore to be used for encryption",
-			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.source.endpoint.trustStoreResource": {
@@ -812,12 +800,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.netty.keyStoreFile": {
-			"name": "camel.component.netty.keyStoreFile",
-			"description": "Client side certificate keystore to be used for encryption",
-			"priority": "LOW",
-			"required": "false"
-		},
 		"camel.component.netty.keyStoreFormat": {
 			"name": "camel.component.netty.keyStoreFormat",
 			"description": "Keystore format to be used for payload encryption. Defaults to JKS if not set",
@@ -839,7 +821,7 @@
 		},
 		"camel.component.netty.passphrase": {
 			"name": "camel.component.netty.passphrase",
-			"description": "Password setting to use in order to encrypt\/decrypt payloads sent using SSH",
+			"description": "Password to use for the keyStore and trustStore. The same password must be configured for both resources.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -873,12 +855,6 @@
 			"name": "camel.component.netty.sslHandler",
 			"description": "Reference to a class that could be used to return an SSL Handler",
 			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.netty.trustStoreFile": {
-			"name": "camel.component.netty.trustStoreFile",
-			"description": "Server side certificate keystore to be used for encryption",
-			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.netty.trustStoreResource": {

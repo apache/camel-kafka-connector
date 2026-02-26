@@ -54,7 +54,7 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
                     @Override
                     public ElasticSearchService get() {
                         ElasticsearchContainer container =
-                                new ElasticsearchContainer("docker.elastic.co/elasticsearch/elasticsearch:8.5.2");
+                                new ElasticsearchContainer("docker.elastic.co/elasticsearch/elasticsearch:9.1.0");
                         container.addEnv("xpack.security.enabled", "true");
                         return new ElasticSearchLocalContainerTestService(container);
                     }

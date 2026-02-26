@@ -1,0 +1,149 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: aws-polly-sink
+  annotations:
+    camel.apache.org/kamelet.support.level: "Preview"
+    camel.apache.org/catalog.version: "4.18.0"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZGF0YS1uYW1lPSJMYXllciAxIiBpZD0iTGF5ZXJfMSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTQzMC40MiwxOTYuMzJjOC0xMS4zOSwyMS4xNS0zOC4zMywwLTcyLjEzYTUyLjc5LDUyLjc5LDAsMCwwLTE3LjA2LTE3LjMxYy0xLjUzLTgtNy41NC0yNy4yNi0zMS40Mi00My45MUMzNTksNDcsMzI1LjUyLDQ5LjUzLDMxOS40NCw1MC4xNmE2NC4yNyw2NC4yNywwLDAsMC0xNi4wNy0yLjk0Yy0xNy4xNy0uODEtMzAuMzcsMy44OS0zOS43OCwxNC4wNUE0Ni4zLDQ2LjMsMCwwLDAsMjU2LDcyLjg5YTQ2LjA2LDQ2LjA2LDAsMCwwLTcuNi0xMS42MmMtOS40LTEwLjE2LTIyLjg2LTE0Ljg2LTM5Ljc2LTE0LjA1YTY0LjczLDY0LjczLDAsMCwwLTE2LjA3LDIuOTRDMTg2LjUyLDQ5LjUzLDE1Myw0NywxMzAsNjNjLTIzLjksMTYuNjYtMjkuOTEsMzYtMzEuNDMsNDMuOTJhNTIuOSw1Mi45LDAsMCwwLTE3LDE3LjNjLTIxLjEzLDMzLjgtNy45NCw2MC43NCwwLDcyLjE0LTkuNzUsOC4zNC0yNy44OCwyNy44OC0yMy4wNiw1NC42NiwzLjI4LDE4LjIsMTMuODQsMzIuMTksMjguNjgsMzguNjIsNS4yNiw0LjI3LDMzLjczLDI0LjYxLDk2LjM4LDI1LjIzdjUwLjM3SDE2MS4zN2EzMy4yMiwzMy4yMiwwLDEsMCwwLDEzLjM3aDI4LjkxQTYuNjgsNi42OCwwLDAsMCwxOTcsMzcxLjlWMzE0LjcyaC4yOGMuMjQsMCwuNDQtLjEzLjY3LS4xNmE1MSw1MSwwLDAsMCw2LjM0LjcyYzIyLjU0LDAsMzYuMjYtNi44Miw0NC43LTE2Ljg2VjM5OS4yM2EzMy4yMiwzMy4yMiwwLDEsMCwxMy4zOC0uMTVWMjk3LjQ3YzguMzYsMTAuNTUsMjIuMTksMTcuODEsNDUuNDEsMTcuODFhNTEuMyw1MS4zLDAsMCwwLDYuMzYtLjcyYy4yMywwLC40My4xNS42Ny4xNkgzMTVWMzcxLjlhNi42OCw2LjY4LDAsMCwwLDYuNjksNi42OGgyOC45YTMzLjIyLDMzLjIyLDAsMSwwLDAtMTMuMzdIMzI4LjQxVjMxNC44NGM2Mi42MS0uNjIsOTEuMDgtMjAuOTQsOTYuMzctMjUuMjIsMTQuODUtNi40MiwyNS40LTIwLjQzLDI4LjY4LTM4LjYzQzQ1OC4zLDIyNC4yMSw0NDAuMTcsMjA0LjY3LDQzMC40MiwxOTYuMzJaTTEyOC44MywzOTEuNzRhMTkuODUsMTkuODUsMCwxLDEsMTkuODQtMTkuODRBMTkuODcsMTkuODcsMCwwLDEsMTI4LjgzLDM5MS43NFptMjU0LjMzLTM5LjY5YTE5Ljg1LDE5Ljg1LDAsMSwxLTE5Ljg0LDE5Ljg1QTE5Ljg2LDE5Ljg2LDAsMCwxLDM4My4xNiwzNTIuMDVabTE0LjE4LTI1MS41OWMtMTUuMzItMy40Mi0zMS41OC0uNS00NC4wOSw0LC4yOS0xMC43OS0xLjI5LTI2Ljc5LTExLTM5LjI4LS41Mi0uNjctMS4yMS0xLjE1LTEuNzYtMS43OCwxMC43Ny44OCwyMy44LDMuNTIsMzMuODQsMTAuNTJDMzg3LjYxLDgzLjIxLDM5NC4wOCw5My4xMSwzOTcuMzQsMTAwLjQ2Wk0xMzcuNjksNzMuOTRjMTAtNywyMy05LjYsMzMuODItMTAuNDktLjU1LjYyLTEuMjMsMS4wOS0xLjc0LDEuNzYtOS43MiwxMi40OS0xMS4zLDI4LjQ4LTExLDM5LjI3LTEyLjUtNC41Mi0yOC43Ny03LjQzLTQ0LjExLTRDMTE3LjkxLDkzLjEyLDEyNC4zOCw4My4yMiwxMzcuNjksNzMuOTRabTY2LjU2LDIyOGMtMTEuOTIsMC0yMC4yNC00LjQ1LTIzLjQyLTEyLjUzLTMuMDgtNy44My0uNzktMTgsNS4zMy0yMy43MSw1LjQxLTUsMTIuNjEtNS42MSwyMC44LTEuNjhhNi42OSw2LjY5LDAsMCwwLDUuOC0xMi4wNiwzNy4zNSwzNy4zNSwwLDAsMC0xMy40Mi0zLjQ2LDM2LjUxLDM2LjUxLDAsMCwwLDQuMTItMTEuNDEsNi42OCw2LjY4LDAsMSwwLTEzLjIyLTJjLTEuMDksNy4xOS05LDE2LjcyLTExLjkyLDE5Ljc5LS4wNi4wNy0uMDguMTYtLjE1LjI0LS4zNS4zLS43OC40NC0xLjEzLjc2LTEwLjA4LDkuMzctMTMuNzEsMjUuNTItOC42NiwzOC40YTMxLDMxLDAsMCwwLDQuMTIsNi44N2MtMjMuNjUtMS4yOC00MS4yOS01LjU5LTUzLjY5LTEwLjFhNDMsNDMsMCwwLDAsMTguNzEtMTIuMzgsNi42OCw2LjY4LDAsMCwwLTEwLTguODQsMjkuOTQsMjkuOTQsMCwwLDEtMzAuODMsOWMtMTIuODctMy41OC0yMi4xOS0xNC44OS0yNS0zMC4yNC0zLjY2LTIwLjMsMTEuMzgtMzUuOTQsMTguOTItNDIuMzYsMy45MywzLjQyLDEwLDguMDcsMTYuNzUsMTAuNjZhNi44NSw2Ljg1LDAsMCwwLDIuNDEuNDUsNi42OSw2LjY5LDAsMCwwLDIuNC0xMi45M0MxMDMuODMsMjAxLjIyLDk2LDE5Myw5NS45LDE5Mi44OHMtLjA4LDAtLjExLS4wOGEuNDcuNDcsMCwwLDAtLjA2LS4wOWMtMS0xLTI1LjEtMjUuNzktMi44My02MS40MywyMS45Mi0zNS4wOCw2OC41Mi0xMS4yMyw3MC41MS0xMC4yYTYuNjksNi42OSwwLDAsMCw5LjY2LTcuMjVjMC0uMjUtNC44Ni0yNC44NSw3LjI1LTQwLjQyLDYuMTMtNy44NywxNS44Ny0xMi4xOCwyOS0xMi44MywxMi42NC0uNywyMi42NSwyLjY0LDI5LjI4LDkuNzRDMjQ3LDc5LjM4LDI0OSw5MywyNDkuMjUsMTAyLjE3YTYuODgsNi44OCwwLDAsMC0uMywxLjVjMCwxMi4xMi0zLjM4LDIwLjQ3LTkuNzcsMjQuMTUtNS43MiwzLjMyLTEzLjMxLDIuNDktMTcuNTQsMC02LjU3LTMuOC0xMC4zMi03Ljg0LTEwLjg0LTExLjY3LS41NS00LjExLDIuNzEtNy41OSwyLjg4LTcuNzZhNi42OSw2LjY5LDAsMCwwLTkuMzYtOS41NmMtLjg0LjgyLTguMTEsOC4yMy02LjgxLDE4Ljg3LDEsOC4yOSw2Ljg5LDE1LjU5LDE3LjQzLDIxLjY5YTMyLDMyLDAsMCwwLDE1LjY1LDMuOTQsMzAuNDYsMzAuNDYsMCwwLDAsMTUuMjgtNCwyNy44MiwyNy44MiwwLDAsMCwzLjA4LTIuMDh2NjMuMWE1My43NCw1My43NCwwLDAsMC00LjcxLTQuNzJjLTE0LjItMTIuMjUtMzQuNjYtMTcuNDQtNjEtMTUuNGE1Mi40OSw1Mi40OSwwLDAsMC0yMy41OCw3LjI5LDYuNzEsNi43MSwwLDAsMC0xLjEtLjIzYy0uMTcsMC0xNi41Ni0uNDEtMjYuOC0xNy40My01LjQyLTksLjMtMjIsLjM1LTIyLjE0QTYuNjksNi42OSwwLDAsMCwxMjAsMTQyLjI2Yy0uMzUuNzktOC43MywxOS41MS4zNSwzNC41OGE0OC4zNyw0OC4zNywwLDAsMCwyNywyMS43MWMtMTEuMTEsMTQtMTQsMzIuNzctMTMuMzUsNDQuODlhNi42OSw2LjY5LDAsMCwwLDYuNjcsNi4zMUgxNDFhNi42OCw2LjY4LDAsMCwwLDYuMzEtNy4wNWMtLjExLTEuODctMi4xLTQ2LDM3LTQ5LjA1QzI0NC4yMiwxODksMjQ4Ljc0LDIyNy45MiwyNDksMjMwLjN2MTAuMTVDMjQ5LDI3Ny41NywyNDUuODQsMzAxLjkxLDIwNC4yNSwzMDEuOTFabTcxLjYsMTI5Ljc0QTE5Ljg1LDE5Ljg1LDAsMSwxLDI1Niw0MTEuODEsMTkuODcsMTkuODcsMCwwLDEsMjc1Ljg1LDQzMS42NVptMTY0LjQ1LTE4M2MtMi43NiwxNS4zNC0xMi4wOSwyNi42NC0yNC45NSwzMC4yM2EzMCwzMCwwLDAsMS0zMC44NC05LDYuNjgsNi42OCwwLDAsMC0xMCw4Ljg0QTQzLjE3LDQzLjE3LDAsMCwwLDM5My4xNiwyOTFjLTEyLjQxLDQuNS0zMC4wNSw4LjgxLTUzLjY2LDEwLjA5YTMwLjY3LDMwLjY3LDAsMCwwLDQuMTEtNi44NmM1LjA2LTEyLjg4LDEuNDMtMjktOC42Ni0zOC40LS4zNC0uMzItLjc3LS40Ni0xLjEyLS43Ni0uMDctLjA4LS4wOS0uMTctLjE2LS4yNC0yLjk1LTMuMDctMTAuODMtMTIuNi0xMS45MS0xOS43OWE2Ljc5LDYuNzksMCwwLDAtNy42LTUuNjMsNi42OSw2LjY5LDAsMCwwLTUuNjIsNy42MSwzNi40OSwzNi40OSwwLDAsMCw0LjExLDExLjQxLDM3LjEsMzcuMSwwLDAsMC0xMy40MSwzLjQ2QTYuNjksNi42OSwwLDAsMCwzMDUsMjY0YzguMTgtMy45MywxNS4zOS0zLjM2LDIwLjc5LDEuNjgsNi4xMyw1LjY4LDguNDIsMTUuODgsNS4zMywyMy43MS0zLjE3LDguMDgtMTEuNDksMTIuNTMtMjMuNDIsMTIuNTMtNDEuNTcsMC00NC42OC0yNC4zNC00NC42OC02MS40NnYtMTAuMWE0MC4xLDQwLjEsMCwwLDEsMTMuNDctMjQuNTJjMTEuNC05Ljg0LDI4LjU3LTEzLjkzLDUxLjE0LTEyLjE5LDM4LjkzLDMsMzcuMSw0Ny4xOSwzNyw0OS4wN2E2LjY4LDYuNjgsMCwwLDAsNi4zMiw3bC4zNywwYTYuNjgsNi42OCwwLDAsMCw2LjY2LTYuMzFjLjY3LTEyLjEyLTIuMjQtMzAuOTEtMTMuMzYtNDQuODlhNDguMzUsNDguMzUsMCwwLDAsMjctMjEuNzFjOS4wOC0xNS4wNy43LTMzLjc5LjM1LTM0LjU4YTYuNjksNi42OSwwLDAsMC0xMi4xNyw1LjU2Yy4wNi4xMyw1Ljc2LDEzLjE3LjM2LDIyLjEyLTEwLjEyLDE2Ljc3LTI2LjE3LDE3LjQxLTI2LjgxLDE3LjQzYTUuNzYsNS43NiwwLDAsMC0xLjExLjI0LDUyLjM2LDUyLjM2LDAsMCwwLTIzLjU4LTcuM2MtMjYuMjgtMi4wNS00Ni43NCwzLjE1LTYwLjk0LDE1LjRhNTIuNzYsNTIuNzYsMCwwLDAtNC43Myw0LjczbDAtNjMuMTRhMzAuMSwzMC4xLDAsMCwwLDMuMTIsMi4xMSwzMC40NiwzMC40NiwwLDAsMCwxNS4yOCw0LDMyLjA4LDMyLjA4LDAsMCwwLDE1LjY2LTMuOTRjMTAuNTMtNi4xLDE2LjM4LTEzLjQsMTcuNDItMjEuNjksMS4zLTEwLjY0LTYtMTgtNi44MS0xOC44N0E2LjY5LDYuNjksMCwwLDAtOS4zMyw5LjZzMy4zNiwzLjU0LDIuODUsNy42M2MtLjQ3LDMuODYtNC4yMiw3LjkyLTEwLjgzLDExLjc2LTQuMjUsMi40NS0xMS44MywzLjI3LTE3LjU1LDAtNi4zOS0zLjY4LTkuNzctMTItOS43Ny0yNC4xNWE2LjQ0LDYuNDQsMCwwLDAtLjMyLTEuNTdjLjI4LTksMi4yMy0yMi42NywxMC43LTMxLjc3LDYuNi03LjExLDE2LjYtMTAuNDUsMjkuMjctOS43NSwxMy4wOC42NCwyMi44MSw1LDI4LjkyLDEyLjc4LDEyLjA5LDE1LjQ3LDcuMzYsNDAuMjMsNy4zMSw0MC40OGE2LjcsNi43LDAsMCwwLDkuNjYsNy4yNGMyLTEsNDguNTctMjQuOTIsNzAuNTEsMTAuMiwyMi4yNiwzNS42NC0xLjgsNjAuMzktMi44Miw2MS40LDAsMCwwLC4wOS0uMDguMTJzLS4wNywwLS4xLjA4Yy0yLjE3LDIuMzEtOS4zLDguODYtMTYuMjgsMTEuNTVhNi42OSw2LjY5LDAsMCwwLDIuNCwxMi45Myw2Ljg1LDYuODUsMCwwLDAsMi40MS0uNDVjNi43Mi0yLjU5LDEyLjgyLTcuMjQsMTYuNzQtMTAuNjZDNDI4LjkyLDIxMi42Nyw0NDQsMjI4LjMxLDQ0MC4zLDI0OC42MloiLz48L3N2Zz4="
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.group: "AWS Polly"
+    camel.apache.org/kamelet.namespace: "AWS"
+  labels:
+    camel.apache.org/kamelet.type: "sink"
+spec:
+  definition:
+    title: "AWS Polly Sink"
+    description: Synthesize speech from text using AWS Polly.
+    required:
+      - region
+    type: object
+    properties:
+      voiceId:
+        title: Voice Id
+        description: The voice ID to use for speech synthesis (e.g., Joanna, Matthew, Amy, Brian).
+        type: string
+      outputFormat:
+        title: Output Format
+        description: The audio format in which the resulting stream will be encoded.
+        type: string
+        default: MP3
+        enum: ["MP3", "OggVorbis", "Pcm", "Json"]
+      textType:
+        title: Text Type
+        description: Specifies whether the input text is plain text or SSML.
+        type: string
+        default: TEXT
+        enum: ["TEXT", "SSML"]
+      engine:
+        title: Engine
+        description: Specifies the engine (standard, neural, long-form, generative) for Amazon Polly to use when processing input text for speech synthesis.
+        type: string
+        enum: ["standard", "neural", "long-form", "generative"]
+      sampleRate:
+        title: Sample Rate
+        description: The audio frequency in Hz.
+        type: string
+      languageCode:
+        title: Language Code
+        description: Optional language code for voice synthesis. This is only necessary if using a bilingual voice.
+        type: string
+      accessKey:
+        title: Access Key
+        description: The access key obtained from AWS.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      secretKey:
+        title: Secret Key
+        description: The secret key obtained from AWS.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      region:
+        title: AWS Region
+        description: The AWS region to access.
+        type: string
+        enum: ["ap-south-1", "eu-south-1", "us-gov-east-1", "me-central-1", "ca-central-1", "eu-central-1", "us-iso-west-1", "us-west-1", "us-west-2", "af-south-1", "eu-north-1", "eu-west-3", "eu-west-2", "eu-west-1", "ap-northeast-3", "ap-northeast-2", "ap-northeast-1", "me-south-1", "sa-east-1", "ap-east-1", "cn-north-1", "us-gov-west-1", "ap-southeast-1", "ap-southeast-2", "us-iso-east-1", "ap-southeast-3", "us-east-1", "us-east-2", "cn-northwest-1", "us-isob-east-1", "aws-global", "aws-cn-global", "aws-us-gov-global", "aws-iso-global", "aws-iso-b-global"]
+      useDefaultCredentialsProvider:
+        title: Default Credentials Provider
+        description: If true, the Polly client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).
+        type: boolean
+        default: false
+      useProfileCredentialsProvider:
+        title: Profile Credentials Provider
+        description: Set whether the Polly client should expect to load credentials through a profile credentials provider.
+        type: boolean
+        default: false
+      useSessionCredentials:
+        title: Session Credentials
+        description: Set whether the Polly client should expect to use Session Credentials. This is useful in a situation in which the user needs to assume an IAM role for doing operations in Polly.
+        type: boolean
+        default: false
+      profileCredentialsName:
+        title: Profile Credentials Name
+        description: If using a profile credentials provider this parameter sets the profile name.
+        type: string
+      sessionToken:
+        title: Session Token
+        description: Amazon AWS Session Token used when the user needs to assume an IAM role.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      uriEndpointOverride:
+        title: Overwrite Endpoint URI
+        description: The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.
+        type: string
+      overrideEndpoint:
+        title: Endpoint Overwrite
+        description: Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.
+        type: boolean
+        default: false
+  dependencies:
+    - "camel:core"
+    - "camel:aws2-polly"
+    - "camel:kamelet"
+  template:
+    from:
+      uri: "kamelet:source"
+      steps:
+      - to:
+          uri: "aws2-polly:polly"
+          parameters:
+            secretKey: "{{?secretKey}}"
+            accessKey: "{{?accessKey}}"
+            region: "{{region}}"
+            operation: synthesizeSpeech
+            voiceId: "{{?voiceId}}"
+            outputFormat: "{{outputFormat}}"
+            textType: "{{textType}}"
+            engine: "{{?engine}}"
+            sampleRate: "{{?sampleRate}}"
+            languageCode: "{{?languageCode}}"
+            useDefaultCredentialsProvider: "{{useDefaultCredentialsProvider}}"
+            useProfileCredentialsProvider: "{{useProfileCredentialsProvider}}"
+            useSessionCredentials: "{{useSessionCredentials}}"
+            uriEndpointOverride: "{{?uriEndpointOverride}}"
+            profileCredentialsName: "{{?profileCredentialsName}}"
+            sessionToken: "{{?sessionToken}}"
+            overrideEndpoint: "{{overrideEndpoint}}"

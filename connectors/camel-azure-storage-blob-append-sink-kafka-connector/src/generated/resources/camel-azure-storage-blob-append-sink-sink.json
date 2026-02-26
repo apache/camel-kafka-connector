@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-append-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Upload data in append mode to Azure Storage Blob."
 	},
 	"properties": {
@@ -24,6 +24,24 @@
 		"camel.kamelet.azure-storage-blob-append-sink.accessKey": {
 			"name": "camel.kamelet.azure-storage-blob-append-sink.accessKey",
 			"description": "The Azure Storage Blob access key.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-append-sink.clientId": {
+			"name": "camel.kamelet.azure-storage-blob-append-sink.clientId",
+			"description": "The Azure Storage Blob client Id.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-append-sink.clientSecret": {
+			"name": "camel.kamelet.azure-storage-blob-append-sink.clientSecret",
+			"description": "The Azure Storage Blob client secret.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-append-sink.tenantId": {
+			"name": "camel.kamelet.azure-storage-blob-append-sink.tenantId",
+			"description": "The Azure Storage Blob tenant id.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

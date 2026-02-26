@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-azure-schema-registry-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Send data to Kafka topics on Azure Eventhubs combined with Azure Schema Registry.\n\nThe Kamelet is able to understand the following headers to be set:\n\n- `key` \/ `ce-key`: as message key\n\n- `partition-key` \/ `ce-partitionkey`: as message partition key\n\nBoth the headers are optional."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to Kafka topics on Azure Eventhubs combined with Azure Schema Registry."
 	},
 	"properties": {
 		"camel.kamelet.kafka-azure-schema-registry-sink.topic": {

@@ -51,7 +51,7 @@ public class CamelAwss3eventbasedsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS Example: http or https";
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_PROTOCOL_DEFAULT = "https";
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_QUEUE_URLCONF = "camel.kamelet.aws-s3-event-based-source.queueURL";
-    public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_QUEUE_URLDOC = "The full SQS Queue URL (required if using KEDA)";
+    public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_QUEUE_URLDOC = "The full SQS Queue URL";
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_QUEUE_URLDEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_CONF = "camel.kamelet.aws-s3-event-based-source.uriEndpointOverride";
     public static final String CAMEL_SOURCE_AWSS3EVENTBASEDSOURCE_KAMELET_URI_ENDPOINT_OVERRIDE_DOC = "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.";

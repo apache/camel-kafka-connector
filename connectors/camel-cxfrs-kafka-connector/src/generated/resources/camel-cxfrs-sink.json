@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cxfrs-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Expose JAX-RS REST services using Apache CXF or connect to external REST services using CXF REST client."
 	},
 	"properties": {
@@ -106,7 +106,7 @@
 		},
 		"camel.sink.endpoint.maxClientCacheSize": {
 			"name": "camel.sink.endpoint.maxClientCacheSize",
-			"description": "This option allows you to configure the maximum size of the cache. The implementation caches CXF clients or ClientFactoryBean in CxfProvider and CxfRsProvider.",
+			"description": "This option allows you to configure the maximum size of the cache. The implementation caches CXF clients or ClientFactoryBean in CxfProvider and CxfRsProvider. The value must be greater than 0.",
 			"defaultValue": "10",
 			"priority": "MEDIUM",
 			"required": "false"

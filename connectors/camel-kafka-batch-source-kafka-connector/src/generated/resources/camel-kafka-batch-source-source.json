@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-batch-source-source",
 		"type": "source",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Receive data from Kafka topics in batch through Plain Login Module and commit them manually through KafkaManualCommit.."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Receive data from Kafka topics in batch and commit them manually through KafkaManualCommit. This provides complete control over when messages are committed, allowing for custom processing logic before acknowledgment."
 	},
 	"properties": {
 		"camel.kamelet.kafka-batch-source.topic": {
@@ -21,31 +21,78 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.kamelet.kafka-batch-source.securityProtocol": {
-			"name": "camel.kamelet.kafka-batch-source.securityProtocol",
-			"description": "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported",
-			"defaultValue": "\"SASL_SSL\"",
+		"camel.kamelet.kafka-batch-source.saslAuthType": {
+			"name": "camel.kamelet.kafka-batch-source.saslAuthType",
+			"description": "Authentication type to use. Use NONE for no authentication, PLAIN or SCRAM_SHA_256\/SCRAM_SHA_512 for username\/password, SSL for certificate-based, OAUTH for OAuth 2.0, AWS_MSK_IAM for MSK, or KERBEROS for Kerberos.",
+			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.kamelet.kafka-batch-source.saslMechanism": {
-			"name": "camel.kamelet.kafka-batch-source.saslMechanism",
-			"description": "The Simple Authentication and Security Layer (SASL) Mechanism used.",
-			"defaultValue": "\"PLAIN\"",
+		"camel.kamelet.kafka-batch-source.saslUsername": {
+			"name": "camel.kamelet.kafka-batch-source.saslUsername",
+			"description": "Username for SASL authentication. Required when saslAuthType is PLAIN, SCRAM_SHA_256, or SCRAM_SHA_512.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.kamelet.kafka-batch-source.user": {
-			"name": "camel.kamelet.kafka-batch-source.user",
-			"description": "Username to authenticate to Kafka",
-			"priority": "HIGH",
-			"required": "true"
+		"camel.kamelet.kafka-batch-source.saslPassword": {
+			"name": "camel.kamelet.kafka-batch-source.saslPassword",
+			"description": "Password for SASL authentication. Required when saslAuthType is PLAIN, SCRAM_SHA_256, or SCRAM_SHA_512.",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
-		"camel.kamelet.kafka-batch-source.password": {
-			"name": "camel.kamelet.kafka-batch-source.password",
-			"description": "Password to authenticate to kafka",
-			"priority": "HIGH",
-			"required": "true"
+		"camel.kamelet.kafka-batch-source.oauthClientId": {
+			"name": "camel.kamelet.kafka-batch-source.oauthClientId",
+			"description": "OAuth client ID. Required when saslAuthType is OAUTH.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.oauthClientSecret": {
+			"name": "camel.kamelet.kafka-batch-source.oauthClientSecret",
+			"description": "OAuth client secret. Required when saslAuthType is OAUTH.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.oauthTokenEndpointUri": {
+			"name": "camel.kamelet.kafka-batch-source.oauthTokenEndpointUri",
+			"description": "OAuth token endpoint URI. Required when saslAuthType is OAUTH.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.oauthScope": {
+			"name": "camel.kamelet.kafka-batch-source.oauthScope",
+			"description": "OAuth scope. Optional when saslAuthType is OAUTH.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.sslTruststoreLocation": {
+			"name": "camel.kamelet.kafka-batch-source.sslTruststoreLocation",
+			"description": "The location of the trust store file.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.sslTruststorePassword": {
+			"name": "camel.kamelet.kafka-batch-source.sslTruststorePassword",
+			"description": "The password for the trust store file.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.sslKeystoreLocation": {
+			"name": "camel.kamelet.kafka-batch-source.sslKeystoreLocation",
+			"description": "The location of the key store file. Used for mTLS authentication.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.sslKeystorePassword": {
+			"name": "camel.kamelet.kafka-batch-source.sslKeystorePassword",
+			"description": "The password for the key store file.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.kafka-batch-source.sslKeyPassword": {
+			"name": "camel.kamelet.kafka-batch-source.sslKeyPassword",
+			"description": "The password of the private key in the key store file.",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.kafka-batch-source.autoCommitEnable": {
 			"name": "camel.kamelet.kafka-batch-source.autoCommitEnable",
@@ -63,7 +110,7 @@
 		},
 		"camel.kamelet.kafka-batch-source.pollOnError": {
 			"name": "camel.kamelet.kafka-batch-source.pollOnError",
-			"description": "What to do if kafka threw an exception while polling for new messages. There are 5 enums and the value can be one of `DISCARD`, `ERROR_HANDLER`, `RECONNECT`, `RETRY`, `STOP`",
+			"description": "What to do if kafka threw an exception while polling for new messages. There are 5 enums and the value can be one of DISCARD, ERROR_HANDLER, RECONNECT, RETRY, STOP",
 			"defaultValue": "\"ERROR_HANDLER\"",
 			"priority": "MEDIUM",
 			"required": "false"

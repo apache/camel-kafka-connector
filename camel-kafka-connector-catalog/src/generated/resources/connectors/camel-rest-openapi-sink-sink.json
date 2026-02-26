@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-rest-openapi-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Load an OpenAPI specification from a URI and call an operation on a HTTP service. The request that is generated respects the rules given in the OpenAPI specification (for example, path parameters and Content-Type)."
 	},
 	"properties": {
@@ -20,6 +20,25 @@
 			"description": "The operation to call.",
 			"priority": "HIGH",
 			"required": "true"
+		},
+		"camel.kamelet.rest-openapi-sink.host": {
+			"name": "camel.kamelet.rest-openapi-sink.host",
+			"description": "The host to use for calling the REST service. Overrides the value found in the OpenAPI specification. The format is https:\/\/hostname:port. Example: https:\/\/api.example.com:443",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.rest-openapi-sink.basePath": {
+			"name": "camel.kamelet.rest-openapi-sink.basePath",
+			"description": "The API base path. Overrides the value present in the OpenAPI specification. Example: \/v3",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.rest-openapi-sink.clientRequestValidation": {
+			"name": "camel.kamelet.rest-openapi-sink.clientRequestValidation",
+			"description": "Whether to enable validation of the client request to check if the incoming request is valid according to the OpenAPI specification.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

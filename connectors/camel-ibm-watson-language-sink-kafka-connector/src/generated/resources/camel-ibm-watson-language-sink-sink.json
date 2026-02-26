@@ -1,0 +1,74 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ibmwatsonlanguagesink.CamelIbmwatsonlanguagesinkSinkConnector",
+		"artifactId": "camel-ibm-watson-language-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ibm-watson-language-sink-sink",
+		"type": "sink",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Analyze text using IBM Watson Natural Language Understanding to extract sentiment, entities, keywords, concepts, categories, and emotions."
+	},
+	"properties": {
+		"camel.kamelet.ibm-watson-language-sink.apiKey": {
+			"name": "camel.kamelet.ibm-watson-language-sink.apiKey",
+			"description": "The IBM Cloud API key for Watson Natural Language Understanding.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-watson-language-sink.serviceUrl": {
+			"name": "camel.kamelet.ibm-watson-language-sink.serviceUrl",
+			"description": "The Watson Natural Language Understanding service endpoint URL. If not specified, the default URL will be used. Example: https:\/\/api.us-south.natural-language-understanding.watson.cloud.ibm.com",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-watson-language-sink.operation": {
+			"name": "camel.kamelet.ibm-watson-language-sink.operation",
+			"description": "The operation to perform.",
+			"defaultValue": "\"analyzeText\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-watson-language-sink.analyzeSentiment": {
+			"name": "camel.kamelet.ibm-watson-language-sink.analyzeSentiment",
+			"description": "Enable sentiment analysis to detect positive, negative, or neutral sentiment.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-watson-language-sink.analyzeEmotion": {
+			"name": "camel.kamelet.ibm-watson-language-sink.analyzeEmotion",
+			"description": "Enable emotion analysis to detect emotions like joy, anger, sadness, fear, and disgust.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-watson-language-sink.analyzeEntities": {
+			"name": "camel.kamelet.ibm-watson-language-sink.analyzeEntities",
+			"description": "Enable entity extraction to identify people, companies, organizations, cities, and more.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-watson-language-sink.analyzeKeywords": {
+			"name": "camel.kamelet.ibm-watson-language-sink.analyzeKeywords",
+			"description": "Enable keyword extraction to identify important keywords and phrases.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-watson-language-sink.analyzeConcepts": {
+			"name": "camel.kamelet.ibm-watson-language-sink.analyzeConcepts",
+			"description": "Enable concept extraction to identify high-level concepts that aren't necessarily mentioned in the text.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-watson-language-sink.analyzeCategories": {
+			"name": "camel.kamelet.ibm-watson-language-sink.analyzeCategories",
+			"description": "Enable category classification to classify content into a hierarchy of categories.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -4,13 +4,13 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>camel-kafka-connector-aggregator</artifactId>
-        <version>4.15.0-SNAPSHOT</version>
+        <version>4.18.0-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>parent</artifactId>
-    <version>4.15.0-SNAPSHOT</version>
+    <version>4.18.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Camel-Kafka-Connector :: Parent</name>
@@ -28,8 +28,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <kafka.version>3.9.1</kafka.version>
-        <camel.version>4.14.0</camel.version>
-        <camel.kamelet.catalog.version>4.14.0</camel.kamelet.catalog.version>
+        <camel.version>4.18.0</camel.version>
+        <camel.kamelet.catalog.version>4.18.0</camel.kamelet.catalog.version>
         <apicurio.registry.version>2.5.11.Final</apicurio.registry.version>
         <resteasy.version>4.5.6.Final</resteasy.version>
         <version.java>17</version.java>
@@ -47,7 +47,7 @@
         <version.maven.buildhelper>1.12</version.maven.buildhelper>
         <version.maven.bundle>3.5.1</version.maven.bundle>
         <version.maven.jar>3.1.0</version.maven.jar>
-        <version.maven.failsafe>2.22.2</version.maven.failsafe>
+        <version.maven.failsafe>3.2.5</version.maven.failsafe>
         <version.maven.surefire>3.2.5</version.maven.surefire>
         <version.scala.library>2.12.12</version.scala.library>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>

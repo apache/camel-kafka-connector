@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-composite-upsert-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Upsert Composite List of sObjects in Salesforce. \n\nThe body received must contain List of JSON SObjects to insert\/update inside the records attribute, for example: \n\n`{\"records\" : [\"attributes\" : {\"type\" : \"KameletSinkSObject__c\"},\"ExtId__c\" : \"1\",\"Name__c\": \"Ziauddin\", \"City__c\": \"Bhopal\"], [\"attributes\" : {\"type\" : \"KameletSinkSObject__c\"},\"ExtId__c\" : \"2\",\"Name__c\": \"Shaikh\", \"City__c\": \"Bhopal\"] }`      "
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Upsert Composite List of sObjects in Salesforce."
 	},
 	"properties": {
 		"camel.kamelet.salesforce-composite-upsert-sink.sObjectName": {

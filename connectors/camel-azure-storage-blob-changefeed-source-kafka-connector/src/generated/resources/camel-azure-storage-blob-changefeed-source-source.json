@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-changefeed-source-source",
 		"type": "source",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Consume events from an Azure Storage Blob change feed."
 	},
 	"properties": {
@@ -25,8 +25,33 @@
 		"camel.kamelet.azure-storage-blob-changefeed-source.accessKey": {
 			"name": "camel.kamelet.azure-storage-blob-changefeed-source.accessKey",
 			"description": "The Azure Storage Blob access Key.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-changefeed-source.clientId": {
+			"name": "camel.kamelet.azure-storage-blob-changefeed-source.clientId",
+			"description": "The Azure Storage Blob client Id.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-changefeed-source.clientSecret": {
+			"name": "camel.kamelet.azure-storage-blob-changefeed-source.clientSecret",
+			"description": "The Azure Storage Blob client secret.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-changefeed-source.tenantId": {
+			"name": "camel.kamelet.azure-storage-blob-changefeed-source.tenantId",
+			"description": "The Azure Storage Blob tenant id.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-changefeed-source.credentialType": {
+			"name": "camel.kamelet.azure-storage-blob-changefeed-source.credentialType",
+			"description": "Determines the credential strategy to adopt.",
+			"defaultValue": "\"SHARED_ACCOUNT_KEY\"",
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

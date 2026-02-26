@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-storage-event-based-source-source",
 		"type": "source",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Receive data from Google Pubsub reporting events related to a Google Storage bucket.\n\nService account key is the basic method for authenticating to the Google Pubsub and Google Storage.\n\nTo use this Kamelet, you need to set up Events notification for your Google Storage Bucket.\n\nYou must encode the `serviceAccountKey` property before you pass it as a parameter."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Receive data from Google Pubsub reporting events related to a Google Storage bucket."
 	},
 	"properties": {
 		"camel.kamelet.google-storage-event-based-source.projectId": {

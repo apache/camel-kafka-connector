@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-redshift-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Send data to an AWS Redshift Database."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to an AWS Redshift Database. This Kamelet expects a JSON-formatted body. Use key:value pairs to map the JSON fields and parameters."
 	},
 	"properties": {
 		"camel.kamelet.aws-redshift-sink.serverName": {

@@ -206,9 +206,6 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_CONF = "camel.source.endpoint.hostnameVerification";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT = false;
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_CONF = "camel.source.endpoint.keyStoreFile";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_CONF = "camel.source.endpoint.keyStoreFormat";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DOC = "Keystore format to be used for payload encryption. Defaults to JKS if not set";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DEFAULT = null;
@@ -219,7 +216,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DOC = "Configures whether the server needs client authentication when using SSL.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_CONF = "camel.source.endpoint.passphrase";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_DOC = "Password setting to use in order to encrypt/decrypt payloads sent using SSH";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_DOC = "Password to use for the keyStore and trustStore. The same password must be configured for both resources.";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_CONFIGURATION_CONF = "camel.source.endpoint.securityConfiguration";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_CONFIGURATION_DOC = "Refers to a org.apache.camel.component.netty.http.NettyHttpSecurityConfiguration for configuring secure web resources.";
@@ -242,9 +239,6 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_HANDLER_CONF = "camel.source.endpoint.sslHandler";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_HANDLER_DOC = "Reference to a class that could be used to return an SSL Handler";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_HANDLER_DEFAULT = null;
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_CONF = "camel.source.endpoint.trustStoreFile";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DOC = "Server side certificate keystore to be used for encryption";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_CONF = "camel.source.endpoint.trustStoreResource";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DOC = "Server side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DEFAULT = null;
@@ -404,9 +398,6 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_CONF = "camel.component.netty-http.hostnameVerification";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT = false;
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_CONF = "camel.component.netty-http.keyStoreFile";
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_CONF = "camel.component.netty-http.keyStoreFormat";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_DOC = "Keystore format to be used for payload encryption. Defaults to JKS if not set";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_DEFAULT = null;
@@ -417,7 +408,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_NEED_CLIENT_AUTH_DOC = "Configures whether the server needs client authentication when using SSL.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_NEED_CLIENT_AUTH_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_PASSPHRASE_CONF = "camel.component.netty-http.passphrase";
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_PASSPHRASE_DOC = "Password setting to use in order to encrypt/decrypt payloads sent using SSH";
+    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_PASSPHRASE_DOC = "Password to use for the keyStore and trustStore. The same password must be configured for both resources.";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_PASSPHRASE_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_SECURITY_CONFIGURATION_CONF = "camel.component.netty-http.securityConfiguration";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_SECURITY_CONFIGURATION_DOC = "Refers to a org.apache.camel.component.netty.http.NettyHttpSecurityConfiguration for configuring secure web resources.";
@@ -437,9 +428,6 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_HANDLER_CONF = "camel.component.netty-http.sslHandler";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_HANDLER_DOC = "Reference to a class that could be used to return an SSL Handler";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_HANDLER_DEFAULT = null;
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_CONF = "camel.component.netty-http.trustStoreFile";
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DOC = "Server side certificate keystore to be used for encryption";
-    public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_CONF = "camel.component.netty-http.trustStoreResource";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_DOC = "Server side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_DEFAULT = null;
@@ -519,7 +507,6 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENCODERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENCODERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENCODERS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DOC);
-        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DOC);
@@ -531,7 +518,6 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_CLIENT_CERT_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_CLIENT_CERT_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_CLIENT_CERT_HEADERS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SSL_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_FILE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRUST_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_DISCONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_DISCONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_DISCONNECT_DOC);
@@ -585,7 +571,6 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_TEXTLINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TEXTLINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TEXTLINE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_HOSTNAME_VERIFICATION_DOC);
-        conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_KEY_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_NEED_CLIENT_AUTH_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_NEED_CLIENT_AUTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_NEED_CLIENT_AUTH_DOC);
@@ -596,7 +581,6 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_CLIENT_CERT_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_CLIENT_CERT_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_CLIENT_CERT_HEADERS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_SSL_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_FILE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_TRUST_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         return conf;

@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.testcontainers.containers.JdbcDatabaseContainer;
-import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.postgresql.PostgreSQLContainer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -45,7 +45,7 @@ public class CamelSourceSQLITCase extends CamelSourceTestSupport {
     private String port;
 
     public CamelSourceSQLITCase() {
-        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:13.0")
+        JdbcDatabaseContainer<?> container = new PostgreSQLContainer("postgres:13.0")
                 .withDatabaseName(DATABASE_NAME)
                 .withUsername(USERNAME)
                 .withPassword(PASSWORD)

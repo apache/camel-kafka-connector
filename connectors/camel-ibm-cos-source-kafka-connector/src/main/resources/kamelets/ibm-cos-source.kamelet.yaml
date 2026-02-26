@@ -1,0 +1,177 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: ibm-cos-source
+  annotations:
+    camel.apache.org/kamelet.support.level: "Preview"
+    camel.apache.org/catalog.version: "4.18.0"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwMCIgaGVpZ2h0PSIyNTAwIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZD0iTTAgMGgyNTZ2MjU2SDB6IiBmaWxsPSIjMDUzMzYyIi8+PHBhdGggZD0iTTE4Ny43MzIgMTI1LjkxOGMtLjAzNi0xLjM1Ny0uMDktMi43MTQtLjE4LTQuMDcyLS4wMzYtLjUyMi0uMDkxLTEuMDQ1LS4xMjgtMS41NjctLjA1NC0uNjEzLS4xMDgtMS4yMjYtLjE4LTEuODM5LS4wNzItLjc3LS4xOC0xLjU0LS4yODgtMi4zMWEzOS43NjYgMzkuNzY2IDAgMCAwLS40MTYtMi4zNjRjLS4xNDQtLjc3LS4zMDYtMS41NC0uNDctMi4yOTJhNDAuODEzIDQwLjgxMyAwIDAgMC0uNjMtMi4zMS40MDkuNDA5IDAgMCAxLS4wNTUtLjEyNiA0MC40OTIgNDAuNDkyIDAgMCAwLS43MjItMi4yMThjLS4yNTItLjcwNC0uNTIyLTEuMzc1LS43OTMtMi4wNjYtLjMwNi0uNzIyLS42My0xLjQyNi0uOTczLTIuMTMtLjMyNS0uNjY3LS42ODYtMS4zMzQtMS4wNDUtMS45ODItLjM2LS42MzEtLjczOS0xLjI2My0xLjExNy0xLjg3Ni0uNDctLjc1OC0uOTU1LTEuNDk4LTEuNDc2LTIuMjE4LS4yNTItLjM2LS41MDQtLjcwNC0uNzc2LTEuMDQ1LS4yNTItLjM0My0uNTA0LS42ODYtLjc3NS0xLjAyN2E0MC43NzQgNDAuNzc0IDAgMCAwLTEuMzM0LTEuNjg0Yy0uNTA0LS42MTMtMS4wMjctMS4yMDgtMS41NjctMS43ODUtLjU5My0uNjMxLTEuMjA4LTEuMjQ0LTEuODM5LTEuODM5LS42MzEtLjYxMy0xLjI4MS0xLjE5LTEuOTQ2LTEuNzY3LS41MjItLjQ1Mi0xLjA2My0uODg2LTEuNjAzLTEuMzE2LS4yNzAtLjIxNi0uNTQtLjQzNC0uODEyLS42NDktLjM0Mi0uMjcxLS42ODYtLjU0LTEuMDQ1LS43OTNhNDAuNjg2IDQwLjY4NiAwIDAgMC0yLjI5Mi0xLjQ5OGMtLjY2Ny0uNDE1LTEuMzM0LS44MTMtMi4wMTktMS4xOTgtLjY4Ni0uMzc5LTEuMzktLjc1OC0yLjExMS0xLjA5OS0uNzItLjM0My0xLjQ2Mi0uNjY3LTIuMjE4LS45NzMtLjc1OC0uMzA2LTEuNTMtLjU5My0yLjMxLS44NTRhNDEuMTkyIDQxLjE5MiAwIDAgMC0yLjM4Mi0uNjg1Yy0uNzc1LS4xOTgtMS41NjctLjM3OC0yLjM2NC0uNTRhNDAuNjI2IDQwLjYyNiAwIDAgMC0yLjM4Mi0uMzk3Yy0uNzc1LS4xMDgtMS41NjctLjE5OC0yLjM0Ny0uMjctLjc5My0uMDcyLTEuNTg1LS4xMjYtMi4zODItLjE2Mi0uNTQtLjAxOC0xLjA4Mi0uMDcyLTEuNjIyLS4wOTEtMS4zNzUtLjA3Mi0yLjc1LS4xMDgtNC4xMjUtLjEwOC0xLjM1NyAwLTIuNzMyLjAzNi00LjA4OS4xMDgtLjU0LjAxOC0xLjA4Mi4wNzItMS42MjIuMDkxLS43OTcuMDM2LTEuNTg1LjA5LTIuMzgyLjE2Mi0uNzc2LjA3Mi0xLjU1LjE2Mi0yLjMyOS4yNy0uNzk0LjEwOC0xLjU4NS4yMzQtMi4zNjQuMzk3LS43OTMuMTYyLTEuNTg1LjM0Mi0yLjM2NC41NC0uNzkzLjE5OC0xLjU4NS40MTYtMi4zODIuNjg1LS43NzYuMjU0LTEuNTUuNTQtMi4zMS44NTQtLjc1Ny4zMDYtMS40OTguNjMtMi4yMTguOTczLS43Mi4zNDEtMS40MjUuNzItMi4xMTEgMS4wOTktLjY4NS4zODUtMS4zNTIuNzgzLTIuMDE5IDEuMTk4LS42NjcuNDE1LTEuMzE2Ljg1LTEuOTY0IDEuMzE2YTQwLjY4NiA0MC42ODYgMCAwIDAtMi4yOTIgMS40OThjLS4zNi4yNTMtLjcwNC41MjItMS4wNDUuNzkzLS4yNzIuMjE1LS41NDIuNDMzLS44MTIuNjQ5LS41NC40My0xLjA4MS44NjQtMS42MDMgMS4zMTYtLjY2Ny41NzctMS4zMTYgMS4xNTQtMS45NDYgMS43NjctLjYzMS41OTUtMS4yNDQgMS4yMDgtMS44MzkgMS44MzktLjU0LjU3Ny0xLjA2MyAxLjE3Mi0xLjU2NyAxLjc4NWE0MC43NzQgNDAuNzc0IDAgMCAwLTEuMzM0IDEuNjg0Yy0uMjcxLjM0MS0uNTIzLjY4NC0uNzc1IDEuMDI3LS4yNzIuMzQxLS41MjQuNjg1LS43NzYgMS4wNDUtLjUyMS43Mi0xLjAwOCAxLjQ2LTEuNDc2IDIuMjE4LS4zNzguNjEzLS43NTcgMS4yNDUtMS4xMTcgMS44NzYtLjM1OS42NDgtLjcyIDEuMzE1LTEuMDQ1IDEuOTgyLS4zNDMuNzA0LS42NjcgMS40MDgtLjk3MyAyLjEzLS4yNzEuNjkxLS41NCAxLjM2Mi0uNzkzIDIuMDY2YTQwLjQ5MiA0MC40OTIgMCAwIDAtLjcyMiAyLjIxOC40MDkuNDA5IDAgMCAxLS4wNTQuMTI2Yy0uMTk4Ljc1OC0uNDE2IDEuNTMtLjYzIDIuMzEtLjE2My43NTItLjMyNSAxLjUyMi0uNDcgMi4yOTItLjE0NC43OTMtLjI3IDEuNTg1LS40MTYgMi4zNjQtLjEwOC43Ny0uMjE2IDEuNTQtLjI4OCAyLjMxLS4wNzIuNjEzLS4xMjYgMS4yMjYtLjE4IDEuODM5LS4wMzcuNTIyLS4wOTEgMS4wNDUtLjEyOCAxLjU2Ny0uMDkgMS4zNTgtLjE0NCAyLjcxNS0uMTggNC4wNzJhODEuMjQxIDgxLjI0MSAwIDAgMCAwIDguMTQ0Yy4wMzYgMS4zNTcuMDkgMi43MTQuMTggNC4wNzIuMDM3LjUyMi4wOTEgMS4wNDUuMTI4IDEuNTY3LjA1NC42MTMuMTA4IDEuMjI2LjE4IDEuODM5LjA3Mi43Ny4xOCAxLjU0LjI4OCAyLjMxLjE0Ni43NzkuMjcyIDEuNTcxLjQxNiAyLjM2NC4xNDUuNzcuMzA3IDEuNTQuNDcgMi4yOTIuMTk4Ljc3Ni40MTYgMS41NTIuNjMgMi4zMWEuNDA5LjQwOSAwIDAgMSAuMDU0LjEyNmMuMjM0Ljc1OC40NyAxLjQ5OC43MjIgMi4yMTguMjUzLjcwNC41MjIgMS4zNzUuNzkzIDIuMDY2LjMwNi43MjIuNjMgMS40MjYuOTczIDIuMTMuMzI1LjY2Ny42ODYgMS4zMzQgMS4wNDUgMS45ODIuMzYuNjMxLjczOSAxLjI2MyAxLjExNyAxLjg3Ni40NjguNzU4Ljk1NSAxLjQ5OCAxLjQ3NiAyLjIxOC4yNTIuMzYuNTA0LjcwNC43NzYgMS4wNDUuMjUyLjM0My41MDQuNjg2Ljc3NSAxLjAyNy40MzMuNTc3Ljg4NiAxLjEzNSAxLjMzNCAxLjY4NC41MDQuNjEzIDEuMDI3IDEuMjA4IDEuNTY3IDEuNzg1LjU5NS42MzEgMS4yMDggMS4yNDQgMS44MzkgMS44MzkuNjMuNjEzIDEuMjc5IDEuMTkgMS45NDYgMS43NjcuNTIyLjQ1MiAxLjA2My44ODYgMS42MDMgMS4zMTYuMjcuMjE2LjU0LjQzNC44MTIuNjQ5LjM0MS4yNzEuNjg1LjU0IDEuMDQ1Ljc5M2E0MC42ODYgNDAuNjg2IDAgMCAwIDIuMjkyIDEuNDk4Yy42NjcuNDE1IDEuMzM0LjgxMyAyLjAxOSAxLjE5OC42ODYuMzc5IDEuMzkuNzU4IDIuMTExIDEuMDk5LjcyLjM0MyAxLjQ2MS42NjcgMi4yMTguOTczLjc2LjMwNiAxLjUzNC41OTMgMi4zMS44NTQuNzc5LjI1MyAxLjU4OS40ODcgMi4zODIuNjg1Ljc5My4xOTggMS41NzEuMzc4IDIuMzY0LjU0Ljc5My4xNjMgMS41ODguMjg5IDIuMzY0LjM5Ny43NzkuMTA4IDEuNTUzLjE5OCAyLjMyOS4yNy43OTcuMDcyIDEuNTg1LjEyNiAyLjM4Mi4xNjIuNTQuMDE4IDEuMDgyLjA3MiAxLjYyMi4wOTEgMS4zNTcuMDcyIDIuNzMyLjEwOCA0LjA4OS4xMDggMS4zNzUgMCAyLjc1LS4wMzYgNC4xMjUtLjEwOC41NC0uMDE5IDEuMDgyLS4wNzMgMS42MjItLjA5MS43OTctLjAzNiAxLjU4OS0uMDkgMi4zODItLjE2Mi43OC0uMDcyIDEuNTY4LS4xNjIgMi4zNDctLjI3Ljc5My0uMTA4IDEuNTg5LS4yMzQgMi4zODItLjM5Ny43OTMtLjE2MiAxLjU3MS0uMzQyIDIuMzY0LS41NC43OTMtLjE5OCAxLjYwNy0uNDMyIDIuMzgyLS42ODUuNzc2LS4yNjEgMS41OS0uNTQ4IDIuMzEtLjg1NC43NTYtLjMwNiAxLjQ5OC0uNjMgMi4yMTgtLjk3My43Mi0uMzQxIDEuNDI1LS43MiAyLjExMS0xLjA5OS42ODUtLjM4NSAxLjM1Mi0uNzgzIDIuMDE5LTEuMTk4YTQwLjY4NiA0MC42ODYgMCAwIDAgMi4yOTItMS40OThjLjM1OS0uMjUzLjcwMy0uNTIyIDEuMDQ1LS43OTMuMjcyLS4yMTUuNTQyLS40MzMuODEyLS42NDkuNTQtLjQzIDEuMDgxLS44NjQgMS42MDMtMS4zMTYuNjY3LS41NzcgMS4zMTUtMS4xNTQgMS45NDYtMS43NjcuNjMxLS41OTUgMS4yMDgtMS4yMDggMS44MzktMS44MzkuNTQtLjU3NyAxLjA2My0xLjE3MiAxLjU2Ny0xLjc4NS40NDgtLjU0OS45MDEtMS4xMDcgMS4zMzQtMS42ODQuMjcxLS4zNDEuNTIzLS42ODQuNzc1LTEuMDI3LjI3Mi0uMzQxLjUyNC0uNjg1Ljc3Ni0xLjA0NS41MjEtLjcyIDEuMDA4LTEuNDYgMS40NzYtMi4yMTguMzc4LS42MTMuNzU3LTEuMjQ1IDEuMTE3LTEuODc2LjM1OS0uNjQ4LjcyLTEuMzE1IDEuMDQ1LTEuOTgyLjM0My0uNzA0LjY2Ny0xLjQyNi45NzMtMi4xMy4yNzEtLjY5MS41NC0xLjM2Mi43OTMtMi4wNjYuMjUyLS43Mi40ODgtMS40NiA3MjItMi4yMThhLjQwOS40MDkgMCAwIDEgLjA1NS0uMTI2Yy4xOTgtLjc1OC40MTYtMS41MzQuNjMtMi4zMS4xNjMtLjc1Mi4zMjUtMS41MjIuNDctMi4yOTIuMTQ0LS43OTMuMjcyLTEuNTg1LjQxNi0yLjM2NC4xMDgtLjc3LjIxNi0xLjU0LjI4OC0yLjMxLjA3Mi0uNjEzLjEyNi0xLjIyNi4xOC0xLjgzOS4wMzctLjUyMi4wOTItMS4wNDUuMTI4LTEuNTY3LjA5LTEuMzU4LjE0NC0yLjcxNS4xOC00LjA3Mi4wMzctMS4zNTcuMDU0LTIuNzE0LjA1NC00LjA3MiAwLTEuMzU3LS4wMTctMi43MTQtLjA1NC00LjA3MnptLTI0LjE5MSAxNy41ODVjLTcuNTA3IDAtMTMuNTk4LTYuMDkxLTEzLjU5OC0xMy41OTggMC03LjUwNyA2LjA5MS0xMy41OTggMTMuNTk4LTEzLjU5OCA3LjUwNyAwIDEzLjU5OCA2LjA5MSAxMy41OTggMTMuNTk4IDAgNy41MDctNi4wOTEgMTMuNTk4LTEzLjU5OCAxMy41OTh6bS02Ni41MDYtNTUuNjY1YzAtNy41MDcgNi4wOTEtMTMuNTk4IDEzLjU5OC0xMy41OTggNy41MDcgMCAxMy41OTggNi4wOTEgMTMuNTk4IDEzLjU5OCAwIDcuNTA3LTYuMDkxIDEzLjU5OC0xMy41OTggMTMuNTk4LTcuNTA3IDAtMTMuNTk4LTYuMDkxLTEzLjU5OC0xMy41OTh6bTAgNTUuNjY1YzAtNy41MDcgNi4wOTEtMTMuNTk4IDEzLjU5OC0xMy41OTggNy41MDcgMCAxMy41OTggNi4wOTEgMTMuNTk4IDEzLjU5OCAwIDcuNTA3LTYuMDkxIDEzLjU5OC0xMy41OTggMTMuNTk4LTcuNTA3IDAtMTMuNTk4LTYuMDkxLTEzLjU5OC0xMy41OTh6IiBmaWxsPSIjRkZGIi8+PC9zdmc+"
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.group: "IBM Cloud Object Storage"
+    camel.apache.org/kamelet.namespace: "IBM"
+  labels:
+    camel.apache.org/kamelet.type: "source"
+spec:
+  definition:
+    title: "IBM Cloud Object Storage Source"
+    description: Receive data from an IBM Cloud Object Storage Bucket.
+    required:
+      - bucketName
+      - apiKey
+      - serviceInstanceId
+      - endpointUrl
+    type: object
+    properties:
+      bucketName:
+        title: Bucket Name
+        description: The IBM COS Bucket name.
+        type: string
+      apiKey:
+        title: API Key
+        description: IBM Cloud API Key for authentication.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      serviceInstanceId:
+        title: Service Instance ID
+        description: IBM COS Service Instance ID (CRN).
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      endpointUrl:
+        title: Endpoint URL
+        description: IBM COS Endpoint URL (e.g., https://s3.us-south.cloud-object-storage.appdomain.cloud).
+        type: string
+        example: "https://s3.us-south.cloud-object-storage.appdomain.cloud"
+      location:
+        title: Location
+        description: IBM COS Location/Region (e.g., us-south, eu-gb).
+        type: string
+        example: "us-south"
+      deleteAfterRead:
+        title: Auto-delete Objects
+        description: Specifies to delete objects after consuming them.
+        type: boolean
+        default: true
+      moveAfterRead:
+        title: Move Objects After Read
+        description: Move objects from IBM COS bucket to a different bucket after they have been retrieved.
+        type: boolean
+        default: false
+      destinationBucket:
+        title: Destination Bucket
+        description: Define the destination bucket where an object must be moved when moveAfterRead is set to true.
+        type: string
+      destinationBucketPrefix:
+        title: Destination Bucket Prefix
+        description: Define the destination bucket prefix to use when an object must be moved, and moveAfterRead is set to true.
+        type: string
+      destinationBucketSuffix:
+        title: Destination Bucket Suffix
+        description: Define the destination bucket suffix to use when an object must be moved, and moveAfterRead is set to true.
+        type: string
+      autoCreateBucket:
+        title: Autocreate Bucket
+        description: Specifies to automatically create the IBM COS bucket.
+        type: boolean
+        default: false
+      prefix:
+        title: Prefix
+        description: The IBM COS bucket prefix to consider while searching.
+        type: string
+        example: 'folder/'
+      delimiter:
+        title: Delimiter
+        description: The delimiter to use for listing objects.
+        type: string
+      includeBody:
+        title: Include Body
+        description: If true, the object body is included in the exchange. If false, only headers are set.
+        type: boolean
+        default: true
+      includeFolders:
+        title: Include Folders
+        description: Include folders/directories when listing objects.
+        type: boolean
+        default: true
+      delay:
+        title: Delay
+        description: The number of milliseconds before the next poll of the selected bucket.
+        type: integer
+        default: 500
+      maxMessagesPerPoll:
+        title: Max Messages Per Poll
+        description: Gets the maximum number of messages as a limit to poll at each polling. The default value is 10. Use 0 or a negative number to set it as unlimited.
+        type: integer
+        default: 10
+  dataTypes:
+    out:
+      default: binary
+      headers:
+        CamelIbmCosBucketName:
+          title: IBM COS Bucket Name
+          description: The bucket name which has been used to retrieve objects
+          type: string
+        CamelIbmCosKey:
+          title: IBM COS Key
+          description: The key under which the retrieved object is stored.
+          type: string
+        CamelIbmCosContentType:
+          title: Content Type
+          description: The content type of the retrieved object.
+          default: application/octet-stream
+          type: string
+        CamelIbmCosETag:
+          title: ETag Value
+          description: The hex encoded 128-bit MD5 digest of the associated object according to RFC 1864.
+          type: string
+      types:
+        binary:
+          format: "application-octet-stream"
+          description: Default binary representation of the IBM COS object retrieved from the bucket.
+          mediaType: application/octet-stream
+  dependencies:
+    - "camel:core"
+    - "camel:ibm-cos"
+    - "camel:kamelet"
+  template:
+    from:
+      uri: "ibm-cos:{{bucketName}}"
+      parameters:
+        apiKey: "{{apiKey}}"
+        serviceInstanceId: "{{serviceInstanceId}}"
+        endpointUrl: "{{endpointUrl}}"
+        location: "{{?location}}"
+        deleteAfterRead: "{{deleteAfterRead}}"
+        moveAfterRead: "{{moveAfterRead}}"
+        destinationBucket: "{{?destinationBucket}}"
+        destinationBucketPrefix: "{{?destinationBucketPrefix}}"
+        destinationBucketSuffix: "{{?destinationBucketSuffix}}"
+        autoCreateBucket: "{{autoCreateBucket}}"
+        prefix: "{{?prefix}}"
+        delimiter: "{{?delimiter}}"
+        includeBody: "{{includeBody}}"
+        includeFolders: "{{includeFolders}}"
+        delay: "{{delay}}"
+        maxMessagesPerPoll: "{{maxMessagesPerPoll}}"
+      steps:
+      - to: "kamelet:sink"

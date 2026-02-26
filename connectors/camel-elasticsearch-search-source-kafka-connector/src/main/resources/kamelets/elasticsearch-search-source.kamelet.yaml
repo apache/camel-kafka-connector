@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "source"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.14.0"
+    camel.apache.org/catalog.version: "4.18.0"
     camel.apache.org/kamelet.group: "ElasticSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"
@@ -30,12 +30,7 @@ metadata:
 spec:
   definition:
     title: "ElasticSearch Search Source"
-    description: |-
-      Search data on ElasticSearch
-      
-      The `query` parameter must be formatted in JSON.
-
-      If you specify the `certificate` property, you must base64 encode it before you pass it as a parameter.
+    description: Search data on ElasticSearch
     required:
       - query
       - clusterName

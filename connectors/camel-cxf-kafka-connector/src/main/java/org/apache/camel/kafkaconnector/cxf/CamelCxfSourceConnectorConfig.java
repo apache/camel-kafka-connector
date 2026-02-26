@@ -35,7 +35,7 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_DATA_FORMAT_DEFAULT = "POJO";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_WRAPPED_STYLE_CONF = "camel.source.endpoint.wrappedStyle";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_WRAPPED_STYLE_DOC = "The WSDL style that describes how parameters are represented in the SOAP body. If the value is false, CXF will chose the document-literal unwrapped style, If the value is true, CXF will chose the document-literal wrapped style";
-    public static final String CAMEL_SOURCE_CXF_ENDPOINT_WRAPPED_STYLE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CXF_ENDPOINT_WRAPPED_STYLE_DEFAULT = "false";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions (if possible) occurred while the Camel consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. Important: This is only possible if the 3rd party component allows Camel to be alerted if an exception was thrown. Some components handle this internally only, and therefore bridgeErrorHandler is not possible. In other situations we may improve the Camel component to hook into the 3rd party component and make this possible for future releases. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_CXF_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -47,7 +47,7 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_ALLOW_STREAMING_CONF = "camel.source.endpoint.allowStreaming";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
-    public static final String CAMEL_SOURCE_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT = "false";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_BUS_CONF = "camel.source.endpoint.bus";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_BUS_DOC = "To use a custom configured CXF Bus.";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_BUS_DEFAULT = null;
@@ -119,7 +119,7 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final Boolean CAMEL_SOURCE_CXF_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_CXF_COMPONENT_ALLOW_STREAMING_CONF = "camel.component.cxf.allowStreaming";
     public static final String CAMEL_SOURCE_CXF_COMPONENT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
-    public static final String CAMEL_SOURCE_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT = "false";
     public static final String CAMEL_SOURCE_CXF_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.cxf.autowiredEnabled";
     public static final String CAMEL_SOURCE_CXF_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_CXF_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;

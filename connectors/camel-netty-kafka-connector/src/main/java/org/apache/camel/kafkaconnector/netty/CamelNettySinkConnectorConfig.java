@@ -171,9 +171,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_CONF = "camel.sink.endpoint.hostnameVerification";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT = false;
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_CONF = "camel.sink.endpoint.keyStoreFile";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_CONF = "camel.sink.endpoint.keyStoreFormat";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_DOC = "Keystore format to be used for payload encryption. Defaults to JKS if not set";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_DEFAULT = null;
@@ -181,7 +178,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_DOC = "Client side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PASSPHRASE_CONF = "camel.sink.endpoint.passphrase";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_PASSPHRASE_DOC = "Password setting to use in order to encrypt/decrypt payloads sent using SSH";
+    public static final String CAMEL_SINK_NETTY_ENDPOINT_PASSPHRASE_DOC = "Password to use for the keyStore and trustStore. The same password must be configured for both resources.";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_PASSPHRASE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_SECURITY_PROVIDER_CONF = "camel.sink.endpoint.securityProvider";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_SECURITY_PROVIDER_DOC = "Security provider to be used for payload encryption. Defaults to SunX509 if not set.";
@@ -198,9 +195,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_SSL_HANDLER_CONF = "camel.sink.endpoint.sslHandler";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_SSL_HANDLER_DOC = "Reference to a class that could be used to return an SSL Handler";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_SSL_HANDLER_DEFAULT = null;
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_FILE_CONF = "camel.sink.endpoint.trustStoreFile";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_FILE_DOC = "Server side certificate keystore to be used for encryption";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_RESOURCE_CONF = "camel.sink.endpoint.trustStoreResource";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_RESOURCE_DOC = "Server side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_RESOURCE_DEFAULT = null;
@@ -345,9 +339,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_CONF = "camel.component.netty.hostnameVerification";
     public static final String CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DOC = "To enable/disable hostname verification on SSLEngine";
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT = false;
-    public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_CONF = "camel.component.netty.keyStoreFile";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DOC = "Client side certificate keystore to be used for encryption";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_CONF = "camel.component.netty.keyStoreFormat";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_DOC = "Keystore format to be used for payload encryption. Defaults to JKS if not set";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_DEFAULT = null;
@@ -355,7 +346,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_DOC = "Client side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_COMPONENT_PASSPHRASE_CONF = "camel.component.netty.passphrase";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_PASSPHRASE_DOC = "Password setting to use in order to encrypt/decrypt payloads sent using SSH";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_PASSPHRASE_DOC = "Password to use for the keyStore and trustStore. The same password must be configured for both resources.";
     public static final String CAMEL_SINK_NETTY_COMPONENT_PASSPHRASE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_COMPONENT_SECURITY_PROVIDER_CONF = "camel.component.netty.securityProvider";
     public static final String CAMEL_SINK_NETTY_COMPONENT_SECURITY_PROVIDER_DOC = "Security provider to be used for payload encryption. Defaults to SunX509 if not set.";
@@ -372,9 +363,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_SSL_HANDLER_CONF = "camel.component.netty.sslHandler";
     public static final String CAMEL_SINK_NETTY_COMPONENT_SSL_HANDLER_DOC = "Reference to a class that could be used to return an SSL Handler";
     public static final String CAMEL_SINK_NETTY_COMPONENT_SSL_HANDLER_DEFAULT = null;
-    public static final String CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_FILE_CONF = "camel.component.netty.trustStoreFile";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_FILE_DOC = "Server side certificate keystore to be used for encryption";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_FILE_DEFAULT = null;
     public static final String CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_RESOURCE_CONF = "camel.component.netty.trustStoreResource";
     public static final String CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_RESOURCE_DOC = "Server side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_RESOURCE_DEFAULT = null;
@@ -443,7 +431,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_TEXTLINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_TEXTLINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_TEXTLINE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_HOSTNAME_VERIFICATION_DOC);
-        conf.define(CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_KEY_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_PASSPHRASE_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_NETTY_ENDPOINT_PASSPHRASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_PASSPHRASE_DOC);
@@ -452,7 +439,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_SSL_CLIENT_CERT_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_SSL_CLIENT_CERT_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_SSL_CLIENT_CERT_HEADERS_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_SSL_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_SSL_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_SSL_HANDLER_DOC);
-        conf.define(CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_TRUST_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_DISCONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_DISCONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_DISCONNECT_DOC);
@@ -501,7 +487,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_COMPONENT_TEXTLINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_TEXTLINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_TEXTLINE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_HOSTNAME_VERIFICATION_DOC);
-        conf.define(CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_KEY_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_PASSPHRASE_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_NETTY_COMPONENT_PASSPHRASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_PASSPHRASE_DOC);
@@ -510,7 +495,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_COMPONENT_SSL_CLIENT_CERT_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_SSL_CLIENT_CERT_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_SSL_CLIENT_CERT_HEADERS_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_SSL_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_SSL_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_SSL_HANDLER_DOC);
-        conf.define(CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_FILE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_FILE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_TRUST_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         return conf;

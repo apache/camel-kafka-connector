@@ -1,0 +1,64 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.databrickssource.CamelDatabrickssourceSourceConnector",
+		"artifactId": "camel-databricks-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-databricks-source-source",
+		"type": "source",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Query data from a Databricks Database. For Unity Catalog workspaces, specify catalog and schema parameters."
+	},
+	"properties": {
+		"camel.kamelet.databricks-source.serverHostname": {
+			"name": "camel.kamelet.databricks-source.serverHostname",
+			"description": "The Databricks server hostname. Example: adb-1234567890123456.7.azuredatabricks.net",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-source.serverPort": {
+			"name": "camel.kamelet.databricks-source.serverPort",
+			"description": "The server port for the Databricks data source.",
+			"defaultValue": "\"443\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.databricks-source.httpPath": {
+			"name": "camel.kamelet.databricks-source.httpPath",
+			"description": "The HTTP path to the Databricks SQL Warehouse or cluster. Example: \/sql\/1.0\/warehouses\/abc123def456",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-source.accessToken": {
+			"name": "camel.kamelet.databricks-source.accessToken",
+			"description": "The personal access token to access Databricks.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-source.query": {
+			"name": "camel.kamelet.databricks-source.query",
+			"description": "The query to execute against the Databricks Database. Example: SELECT * FROM accounts",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.databricks-source.extraOptions": {
+			"name": "camel.kamelet.databricks-source.extraOptions",
+			"description": "Additional JDBC connection options (e.g., ConnCatalog=main;ConnSchema=default).",
+			"defaultValue": "\"\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.databricks-source.consumedQuery": {
+			"name": "camel.kamelet.databricks-source.consumedQuery",
+			"description": "A query to run on a tuple consumed. Example: DELETE FROM accounts where user_id = :#user_id",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.databricks-source.delay": {
+			"name": "camel.kamelet.databricks-source.delay",
+			"description": "The number of milliseconds before the next poll from the Databricks database.",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

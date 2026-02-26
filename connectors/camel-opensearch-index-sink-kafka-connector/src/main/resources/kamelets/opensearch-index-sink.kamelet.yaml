@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "sink"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.14.0"
+    camel.apache.org/catalog.version: "4.18.0"
     camel.apache.org/kamelet.group: "OpenSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"
@@ -30,20 +30,7 @@ metadata:
 spec:
   definition:
     title: "OpenSearch Index Sink"
-    description: |-
-      Stores JSON-formatted data into Opensearch.
-
-      The input data must be formatted in JSON according to the requirements of the index.
-
-      If you specify the `certificate` property, you must base64 encode it before you pass it as a parameter.
-
-      In the header, you can set the following properties:
-
-      - `indexId` / `ce-indexid`: The index ID for OpenSearch.
-
-      - `indexName` / `ce-indexname`: The index name for OpenSearch.
-
-      If you do not set a property in the header, the Kamelet uses the exchange ID for the index setting.
+    description: Stores JSON-formatted data into Opensearch.
     required:
       - clusterName
       - hostAddresses
