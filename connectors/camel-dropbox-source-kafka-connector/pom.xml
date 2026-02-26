@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.15.0-SNAPSHOT</version>
+    <version>4.18.0-SNAPSHOT</version>
   </parent>
   <artifactId>camel-dropbox-source-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: dropbox-source</name>

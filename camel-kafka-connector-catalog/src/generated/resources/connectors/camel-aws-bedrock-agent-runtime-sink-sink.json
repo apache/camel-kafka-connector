@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-bedrock-agent-runtime-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Send data for invoking a knowledge base from AWS Bedrock."
 	},
 	"properties": {

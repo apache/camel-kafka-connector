@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-splunk-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Send data to Splunk either by using \"submit\" or \"stream\" mode.\n\nThe payload MUST be in json format."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to Splunk either by using \"submit\" or \"stream\" mode."
 	},
 	"properties": {
 		"camel.kamelet.splunk-sink.serverHostname": {

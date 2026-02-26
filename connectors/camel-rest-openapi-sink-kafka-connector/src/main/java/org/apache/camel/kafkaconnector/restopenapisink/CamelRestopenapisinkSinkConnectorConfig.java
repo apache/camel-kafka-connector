@@ -32,6 +32,15 @@ public class CamelRestopenapisinkSinkConnectorConfig
     public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_CONF = "camel.kamelet.rest-openapi-sink.operation";
     public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_DOC = "The operation to call.";
     public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_DEFAULT = null;
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_HOST_CONF = "camel.kamelet.rest-openapi-sink.host";
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_HOST_DOC = "The host to use for calling the REST service. Overrides the value found in the OpenAPI specification. The format is https://hostname:port. Example: https://api.example.com:443";
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_HOST_DEFAULT = null;
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_BASE_PATH_CONF = "camel.kamelet.rest-openapi-sink.basePath";
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_BASE_PATH_DOC = "The API base path. Overrides the value present in the OpenAPI specification. Example: /v3";
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_BASE_PATH_DEFAULT = null;
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_CLIENT_REQUEST_VALIDATION_CONF = "camel.kamelet.rest-openapi-sink.clientRequestValidation";
+    public static final String CAMEL_SINK_RESTOPENAPISINK_KAMELET_CLIENT_REQUEST_VALIDATION_DOC = "Whether to enable validation of the client request to check if the incoming request is valid according to the OpenAPI specification.";
+    public static final Boolean CAMEL_SINK_RESTOPENAPISINK_KAMELET_CLIENT_REQUEST_VALIDATION_DEFAULT = false;
 
     public CamelRestopenapisinkSinkConnectorConfig(
             ConfigDef config,
@@ -48,6 +57,9 @@ public class CamelRestopenapisinkSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_RESTOPENAPISINK_KAMELET_SPECIFICATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPISINK_KAMELET_SPECIFICATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_RESTOPENAPISINK_KAMELET_SPECIFICATION_DOC);
         conf.define(CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_RESTOPENAPISINK_KAMELET_OPERATION_DOC);
+        conf.define(CAMEL_SINK_RESTOPENAPISINK_KAMELET_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPISINK_KAMELET_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPISINK_KAMELET_HOST_DOC);
+        conf.define(CAMEL_SINK_RESTOPENAPISINK_KAMELET_BASE_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPISINK_KAMELET_BASE_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPISINK_KAMELET_BASE_PATH_DOC);
+        conf.define(CAMEL_SINK_RESTOPENAPISINK_KAMELET_CLIENT_REQUEST_VALIDATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTOPENAPISINK_KAMELET_CLIENT_REQUEST_VALIDATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPISINK_KAMELET_CLIENT_REQUEST_VALIDATION_DOC);
         return conf;
     }
 }

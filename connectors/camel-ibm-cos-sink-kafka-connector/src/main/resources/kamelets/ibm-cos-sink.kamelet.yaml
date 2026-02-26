@@ -1,0 +1,134 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: ibm-cos-sink
+  annotations:
+    camel.apache.org/kamelet.support.level: "Preview"
+    camel.apache.org/catalog.version: "4.18.0"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwMCIgaGVpZ2h0PSIyNTAwIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+PHBhdGggZD0iTTAgMGgyNTZ2MjU2SDB6IiBmaWxsPSIjMDUzMzYyIi8+PHBhdGggZD0iTTE4Ny43MzIgMTI1LjkxOGMtLjAzNi0xLjM1Ny0uMDktMi43MTQtLjE4LTQuMDcyLS4wMzYtLjUyMi0uMDkxLTEuMDQ1LS4xMjgtMS41NjctLjA1NC0uNjEzLS4xMDgtMS4yMjYtLjE4LTEuODM5LS4wNzItLjc3LS4xOC0xLjU0LS4yODgtMi4zMWEzOS43NjYgMzkuNzY2IDAgMCAwLS40MTYtMi4zNjRjLS4xNDQtLjc3LS4zMDYtMS41NC0uNDctMi4yOTJhNDAuODEzIDQwLjgxMyAwIDAgMC0uNjMtMi4zMS40MDkuNDA5IDAgMCAxLS4wNTUtLjEyNiA0MC40OTIgNDAuNDkyIDAgMCAwLS43MjItMi4yMThjLS4yNTItLjcwNC0uNTIyLTEuMzc1LS43OTMtMi4wNjYtLjMwNi0uNzIyLS42My0xLjQyNi0uOTczLTIuMTMtLjMyNS0uNjY3LS42ODYtMS4zMzQtMS4wNDUtMS45ODItLjM2LS42MzEtLjczOS0xLjI2My0xLjExNy0xLjg3Ni0uNDctLjc1OC0uOTU1LTEuNDk4LTEuNDc2LTIuMjE4LS4yNTItLjM2LS41MDQtLjcwNC0uNzc2LTEuMDQ1LS4yNTItLjM0My0uNTA0LS42ODYtLjc3NS0xLjAyN2E0MC43NzQgNDAuNzc0IDAgMCAwLTEuMzM0LTEuNjg0Yy0uNTA0LS42MTMtMS4wMjctMS4yMDgtMS41NjctMS43ODUtLjU5My0uNjMxLTEuMjA4LTEuMjQ0LTEuODM5LTEuODM5LS42MzEtLjYxMy0xLjI4MS0xLjE5LTEuOTQ2LTEuNzY3LS41MjItLjQ1Mi0xLjA2My0uODg2LTEuNjAzLTEuMzE2LS4yNy0uMjE2LS41NC0uNDM0LS44MTItLjY0OS0uMzQyLS4yNzEtLjY4Ni0uNTQtMS4wNDUtLjc5M2E0MC42ODYgNDAuNjg2IDAgMCAwLTIuMjkyLTEuNDk4Yy0uNjY3LS40MTUtMS4zMzQtLjgxMy0yLjAxOS0xLjE5OC0uNjg2LS4zNzktMS4zOS0uNzU4LTIuMTExLTEuMDk5LS43Mi0uMzQzLTEuNDYyLS42NjctMi4yMTgtLjk3My0uNzU4LS4zMDYtMS41My0uNTkzLTIuMzEtLjg1NGE0MS4xOTIgNDEuMTkyIDAgMCAwLTIuMzgyLS42ODVjLS43NzUtLjE5OC0xLjU2Ny0uMzc4LTIuMzY0LS41NGE0MC42MjYgNDAuNjI2IDAgMCAwLTIuMzgyLS4zOTdjLS43NzUtLjEwOC0xLjU2Ny0uMTk4LTIuMzQ3LS4yNy0uNzkzLS4wNzItMS41ODUtLjEyNi0yLjM4Mi0uMTYyLS41NC0uMDE4LTEuMDgyLS4wNzItMS42MjItLjA5MS0xLjM3NS0uMDcyLTIuNzUtLjEwOC00LjEyNS0uMTA4LTEuMzU3IDAtMi43MzIuMDM2LTQuMDg5LjEwOC0uNTQuMDE4LTEuMDgyLjA3Mi0xLjYyMi4wOTEtLjc5Ny4wMzYtMS41ODUuMDktMi4zODIuMTYyLS43NzYuMDcyLTEuNTUuMTYyLTIuMzI5LjI3LS43OTQuMTA4LTEuNTg1LjIzNC0yLjM2NC4zOTctLjc5My4xNjItMS41ODUuMzQyLTIuMzY0LjU0LS43OTMuMTk4LTEuNTg1LjQxNi0yLjM4Mi42ODUtLjc3Ni4yNTQtMS41NS41NC0yLjMxLjg1NC0uNzU3LjMwNi0xLjQ5OC42My0yLjIxOC45NzMtLjcyLjM0MS0xLjQyNS43Mi0yLjExMSAxLjA5OS0uNjg1LjM4NS0xLjM1Mi43ODMtMi4wMTkgMS4xOTgtLjY2Ny40MTUtMS4zMTYuODUtMS45NjQgMS4zMTZhNDAuNjg2IDQwLjY4NiAwIDAgMC0yLjI5MiAxLjQ5OGMtLjM2LjI1My0uNzA0LjUyMi0xLjA0NS43OTMtLjI3Mi4yMTUtLjU0Mi40MzMtLjgxMi42NDktLjU0LjQzLTEuMDgxLjg2NC0xLjYwMyAxLjMxNi0uNjY3LjU3Ny0xLjMxNiAxLjE1NC0xLjk0NiAxLjc2Ny0uNjMxLjU5NS0xLjI0NCAxLjIwOC0xLjgzOSAxLjgzOS0uNTQuNTc3LTEuMDYzIDEuMTcyLTEuNTY3IDEuNzg1YTQwLjc3NCA0MC43NzQgMCAwIDAtMS4zMzQgMS42ODRjLS4yNzEuMzQxLS41MjMuNjg0LS43NzUgMS4wMjctLjI3Mi4zNDEtLjUyNC42ODUtLjc3NiAxLjA0NS0uNTIxLjcyLTEuMDA4IDEuNDYtMS40NzYgMi4yMTgtLjM3OC42MTMtLjc1NyAxLjI0NS0xLjExNyAxLjg3Ni0uMzU5LjY0OC0uNzIgMS4zMTUtMS4wNDUgMS45ODItLjM0My43MDQtLjY2NyAxLjQwOC0uOTczIDIuMTMtLjI3MS42OTEtLjU0IDEuMzYyLS43OTMgMi4wNjZhNDAuNDkyIDQwLjQ5MiAwIDAgMC0uNzIyIDIuMjE4LjQwOS40MDkgMCAwIDEtLjA1NC4xMjZjLS4xOTguNzU4LS40MTYgMS41My0uNjMgMi4zMS0uMTYzLjc1Mi0uMzI1IDEuNTIyLS40NyAyLjI5Mi0uMTQ0Ljc5My0uMjcgMS41ODUtLjQxNiAyLjM2NC0uMTA4Ljc3LS4yMTYgMS41NC0uMjg4IDIuMzEtLjA3Mi42MTMtLjEyNiAxLjIyNi0uMTggMS44MzktLjAzNy41MjItLjA5MSAxLjA0NS0uMTI4IDEuNTY3LS4wOSAxLjM1OC0uMTQ0IDIuNzE1LS4xOCA0LjA3MmE4MS4yNDEgODEuMjQxIDAgMCAwIDAgOC4xNDRjLjAzNiAxLjM1Ny4wOSAyLjcxNC4xOCA0LjA3Mi4wMzcuNTIyLjA5MSAxLjA0NS4xMjggMS41NjcuMDU0LjYxMy4xMDggMS4yMjYuMTggMS44MzkuMDcyLjc3LjE4IDEuNTQuMjg4IDIuMzEuMTQ2Ljc3OS4yNzIgMS41NzEuNDE2IDIuMzY0LjE0NS43Ny4zMDcgMS41NC40NyAyLjI5Mi4xOTguNzc2LjQxNiAxLjU1Mi42MyAyLjMxYS40MDkuNDA5IDAgMCAxIC4wNTQuMTI2Yy4yMzQuNzU4LjQ3IDEuNDk4LjcyMiAyLjIxOC4yNTMuNzA0LjUyMiAxLjM3NS43OTMgMi4wNjYuMzA2LjcyMi42MyAxLjQyNi45NzMgMi4xMy4zMjUuNjY3LjY4NiAxLjMzNCAxLjA0NSAxLjk4Mi4zNi42MzEuNzM5IDEuMjYzIDEuMTE3IDEuODc2LjQ2OC43NTguOTU1IDEuNDk4IDEuNDc2IDIuMjE4LjI1Mi4zNi41MDQuNzA0Ljc3NiAxLjA0NS4yNTIuMzQzLjUwNC42ODYuNzc1IDEuMDI3LjQzMy41NzcuODg2IDEuMTM1IDEuMzM0IDEuNjg0LjUwNC42MTMgMS4wMjcgMS4yMDggMS41NjcgMS43ODUuNTk1LjYzMSAxLjIwOCAxLjI0NCAxLjgzOSAxLjgzOS42My42MTMgMS4yNzkgMS4xOSAxLjk0NiAxLjc2Ny41MjIuNDUyIDEuMDYzLjg4NiAxLjYwMyAxLjMxNi4yNy4yMTYuNTQuNDM0LjgxMi42NDkuMzQxLjI3MS42ODUuNTQgMS4wNDUuNzkzYTQwLjY4NiA0MC42ODYgMCAwIDAgMi4yOTIgMS40OThjLjY2Ny40MTUgMS4zMzQuODEzIDIuMDE5IDEuMTk4LjY4Ni4zNzkgMS4zOS43NTggMi4xMTEgMS4wOTkuNzIuMzQzIDEuNDYxLjY2NyAyLjIxOC45NzMuNzYuMzA2IDEuNTM0LjU5MyAyLjMxLjg1NC43NzkuMjUzIDEuNTg5LjQ4NyAyLjM4Mi42ODUuNzkzLjE5OCAxLjU3MS4zNzggMi4zNjQuNTQuNzkzLjE2MyAxLjU4OC4yODkgMi4zNjQuMzk3Ljc3OS4xMDggMS41NTMuMTk4IDIuMzI5LjI3Ljc5Ny4wNzIgMS41ODUuMTI2IDIuMzgyLjE2Mi41NC4wMTggMS4wODIuMDcyIDEuNjIyLjA5MSAxLjM1Ny4wNzIgMi43MzIuMTA4IDQuMDg5LjEwOCAxLjM3NSAwIDIuNzUtLjAzNiA0LjEyNS0uMTA4LjU0LS4wMTkgMS4wODItLjA3MyAxLjYyMi0uMDkxLjc5Ny0uMDM2IDEuNTg5LS4wOSAyLjM4Mi0uMTYyLjc4LS4wNzIgMS41NjgtLjE2MiAyLjM0Ny0uMjcuNzkzLS4xMDggMS41ODktLjIzNCAyLjM4Mi0uMzk3Ljc5My0uMTYyIDEuNTcxLS4zNDIgMi4zNjQtLjU0Ljc5My0uMTk4IDEuNjA3LS40MzIgMi4zODItLjY4NS43NzYtLjI2MSAxLjU5LS41NDggMi4zMS0uODU0Ljc1Ni0uMzA2IDEuNDk4LS42MyAyLjIxOC0uOTczLjcyLS4zNDEgMS40MjUtLjcyIDIuMTExLTEuMDk5LjY4NS0uMzg1IDEuMzUyLS43ODMgMi4wMTktMS4xOThhNDAuNjg2IDQwLjY4NiAwIDAgMCAyLjI5Mi0xLjQ5OGMuMzU5LS4yNTMuNzAzLS41MjIgMS4wNDUtLjc5My4yNzItLjIxNS41NDItLjQzMy44MTItLjY0OS41NC0uNDMgMS4wODEtLjg2NCAxLjYwMy0xLjMxNi42NjctLjU3NyAxLjMxNS0xLjE1NCAxLjk0Ni0xLjc2Ny42MzEtLjU5NSAxLjIwOC0xLjIwOCAxLjgzOS0xLjgzOS41NC0uNTc3IDEuMDYzLTEuMTcyIDEuNTY3LTEuNzg1LjQ0OC0uNTQ5LjkwMS0xLjEwNyAxLjMzNC0xLjY4NC4yNzEtLjM0MS41MjMtLjY4NC43NzUtMS4wMjcuMjcyLS4zNDEuNTI0LS42ODUuNzc2LTEuMDQ1LjUyMS0uNzIgMS4wMDgtMS40NiAxLjQ3Ni0yLjIxOC4zNzgtLjYxMy43NTctMS4yNDUgMS4xMTctMS44NzYuMzU5LS42NDguNzItMS4zMTUgMS4wNDUtMS45ODIuMzQzLS43MDQuNjY3LTEuNDI2Ljk3My0yLjEzLjI3MS0uNjkxLjU0LTEuMzYyLjc5My0yLjA2Ni4yNTItLjcyLjQ4OC0xLjQ2IDcyMi0yLjIxOGEuNDA5LjQwOSAwIDAgMSAuMDU1LS4xMjZjLjE5OC0uNzU4LjQxNi0xLjUzNC42My0yLjMxLjE2My0uNzUyLjMyNS0xLjUyMi40Ny0yLjI5Mi4xNDQtLjc5My4yNzItMS41ODUuNDE2LTIuMzY0LjEwOC0uNzcuMjE2LTEuNTQuMjg4LTIuMzEuMDcyLS42MTMuMTI2LTEuMjI2LjE4LTEuODM5LjAzNy0uNTIyLjA5Mi0xLjA0NS4xMjgtMS41NjcuMDktMS4zNTguMTQ0LTIuNzE1LjE4LTQuMDcyLjAzNy0xLjM1Ny4wNTQtMi43MTQuMDU0LTQuMDcyIDAtMS4zNTctLjAxNy0yLjcxNC0uMDU0LTQuMDcyem0tMjQuMTkxIDE3LjU4NWMtNy41MDcgMC0xMy41OTgtNi4wOTEtMTMuNTk4LTEzLjU5OCAwLTcuNTA3IDYuMDkxLTEzLjU5OCAxMy41OTgtMTMuNTk4IDcuNTA3IDAgMTMuNTk4IDYuMDkxIDEzLjU5OCAxMy41OTggMCA3LjUwNy02LjA5MSAxMy41OTgtMTMuNTk4IDEzLjU5OHptLTY2LjUwNi01NS42NjVjMC03LjUwNyA2LjA5MS0xMy41OTggMTMuNTk4LTEzLjU5OCA3LjUwNyAwIDEzLjU5OCA2LjA5MSAxMy41OTggMTMuNTk4IDAgNy41MDctNi4wOTEgMTMuNTk4LTEzLjU5OCAxMy41OTgtNy41MDcgMC0xMy41OTgtNi4wOTEtMTMuNTk4LTEzLjU5OHptMCA1NS42NjVjMC03LjUwNyA2LjA5MS0xMy41OTggMTMuNTk4LTEzLjU5OCA3LjUwNyAwIDEzLjU5OCA2LjA5MSAxMy41OTggMTMuNTk4IDAgNy41MDctNi4wOTEgMTMuNTk4LTEzLjU5OCAxMy41OTgtNy41MDcgMC0xMy41OTgtNi4wOTEtMTMuNTk4LTEzLjU5OHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4="
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.group: "IBM Cloud Object Storage"
+    camel.apache.org/kamelet.namespace: "IBM"
+  labels:
+    camel.apache.org/kamelet.type: "sink"
+spec:
+  definition:
+    title: "IBM Cloud Object Storage Sink"
+    description: Upload data to an IBM Cloud Object Storage Bucket.
+    required:
+      - bucketName
+      - apiKey
+      - serviceInstanceId
+      - endpointUrl
+    type: object
+    properties:
+      bucketName:
+        title: Bucket Name
+        description: The IBM COS Bucket name.
+        type: string
+      apiKey:
+        title: API Key
+        description: IBM Cloud API Key for authentication.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      serviceInstanceId:
+        title: Service Instance ID
+        description: IBM COS Service Instance ID (CRN).
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      endpointUrl:
+        title: Endpoint URL
+        description: IBM COS Endpoint URL (e.g., https://s3.us-south.cloud-object-storage.appdomain.cloud).
+        type: string
+        example: "https://s3.us-south.cloud-object-storage.appdomain.cloud"
+      location:
+        title: Location
+        description: IBM COS Location/Region (e.g., us-south, eu-gb).
+        type: string
+        example: "us-south"
+      autoCreateBucket:
+        title: Autocreate Bucket
+        description: Specifies to automatically create the IBM COS bucket.
+        type: boolean
+        default: false
+      keyName:
+        title: Key Name
+        description: The key name for saving an element in the bucket.
+        type: string
+      multiPartUpload:
+        title: Multi-Part Upload
+        description: Use multi-part upload for large files.
+        type: boolean
+        default: false
+      partSize:
+        title: Part Size
+        description: Part size for multi-part uploads (default 25MB).
+        type: integer
+        default: 26214400
+      storageClass:
+        title: Storage Class
+        description: The storage class to use when storing objects (e.g., STANDARD, VAULT, COLD, FLEX).
+        type: string
+  dependencies:
+    - "camel:core"
+    - "camel:ibm-cos"
+    - "camel:kamelet"
+  template:
+    from:
+      uri: "kamelet:source"
+      steps:
+      - choice:
+          precondition: true
+          when:
+            - simple: '${propertiesExist:!keyName}'
+              steps:
+                - choice:
+                    when:
+                      - simple: "${header[file]}"
+                        steps:
+                          - setHeader:
+                              name: CamelIbmCosKey
+                              simple: "${header[file]}"
+                      - simple: "${header[ce-file]}"
+                        steps:
+                          - setHeader:
+                              name: CamelIbmCosKey
+                              simple: "${header[ce-file]}"
+                    otherwise:
+                      steps:
+                        - setHeader:
+                            name: CamelIbmCosKey
+                            simple: "${exchangeId}"
+      - to:
+          uri: "ibm-cos:{{bucketName}}"
+          parameters:
+            apiKey: "{{apiKey}}"
+            serviceInstanceId: "{{serviceInstanceId}}"
+            endpointUrl: "{{endpointUrl}}"
+            location: "{{?location}}"
+            autoCreateBucket: "{{autoCreateBucket}}"
+            keyName: "{{?keyName}}"
+            multiPartUpload: "{{multiPartUpload}}"
+            partSize: "{{partSize}}"
+            storageClass: "{{?storageClass}}"

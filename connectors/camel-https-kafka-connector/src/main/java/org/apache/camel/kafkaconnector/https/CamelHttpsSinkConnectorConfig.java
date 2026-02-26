@@ -66,6 +66,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_CONF = "camel.sink.endpoint.clearExpiredCookies";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DOC = "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too.";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DEFAULT = true;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_CONTENT_TYPE_CHARSET_ENABLED_CONF = "camel.sink.endpoint.contentTypeCharsetEnabled";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_CONTENT_TYPE_CHARSET_ENABLED_DOC = "Whether the Content-Type header should automatic include charset for string based content.";
+    public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_CONTENT_TYPE_CHARSET_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_CONF = "camel.sink.endpoint.cookieHandler";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_DOC = "Configure a cookie handler to maintain a HTTP session";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_DEFAULT = null;
@@ -135,6 +138,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_CONF = "camel.sink.endpoint.useSystemProperties";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_DOC = "To use System Properties as fallback for configuration for configuring HTTP Client";
     public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_DEFAULT = false;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_NON_PROXY_HOSTS_CONF = "camel.sink.endpoint.nonProxyHosts";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_NON_PROXY_HOSTS_DOC = "Comma-separated list of hosts that should bypass the proxy. Supports wildcards, e.g., localhost,.example.com,192.168..";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_NON_PROXY_HOSTS_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_DOMAIN_CONF = "camel.sink.endpoint.proxyAuthDomain";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_DOMAIN_DOC = "Proxy authentication domain to use with NTLM";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_DOMAIN_DEFAULT = null;
@@ -186,6 +192,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_CONF = "camel.sink.endpoint.authUsername";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DOC = "Authentication username";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2BODY_AUTHENTICATION_CONF = "camel.sink.endpoint.oauth2BodyAuthentication";
+    public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2BODY_AUTHENTICATION_DOC = "Whether to use OAuth2 body authentication.";
+    public static final Boolean CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2BODY_AUTHENTICATION_DEFAULT = false;
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_CONF = "camel.sink.endpoint.oauth2CachedTokensDefaultExpirySeconds";
     public static final String CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DOC = "Default expiration time for cached OAuth2 tokens, in seconds. Used if token response does not contain 'expires_in' field.";
     public static final Long CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DEFAULT = 3600L;
@@ -231,6 +240,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_CONF = "camel.component.https.skipResponseHeaders";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_DOC = "Whether to skip mapping all the HTTP response headers to Camel headers.";
     public static final Boolean CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_DEFAULT = false;
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONTENT_TYPE_CHARSET_ENABLED_CONF = "camel.component.https.contentTypeCharsetEnabled";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_CONTENT_TYPE_CHARSET_ENABLED_DOC = "Whether the Content-Type header should automatic include charset for string based content.";
+    public static final Boolean CAMEL_SINK_HTTPS_COMPONENT_CONTENT_TYPE_CHARSET_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_CONF = "camel.component.https.cookieStore";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_DOC = "To use a custom org.apache.hc.client5.http.cookie.CookieStore. By default the org.apache.hc.client5.http.cookie.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_DEFAULT = null;
@@ -306,6 +318,9 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.https.headerFilterStrategy";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT = null;
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_NON_PROXY_HOSTS_CONF = "camel.component.https.nonProxyHosts";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_NON_PROXY_HOSTS_DOC = "Comma-separated list of hosts that should bypass the proxy. Supports wildcards, e.g., localhost,.example.com,192.168..";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_NON_PROXY_HOSTS_DEFAULT = null;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_DOMAIN_CONF = "camel.component.https.proxyAuthDomain";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_DOMAIN_DOC = "Proxy authentication domain to use with NTLM";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_DOMAIN_DEFAULT = null;
@@ -384,6 +399,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_SKIP_RESPONSE_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CLEAR_EXPIRED_COOKIES_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_CONTENT_TYPE_CHARSET_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_CONTENT_TYPE_CHARSET_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_CONTENT_TYPE_CHARSET_ENABLED_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_HANDLER_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_STORE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_STORE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_COOKIE_STORE_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_COPY_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_COPY_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_COPY_HEADERS_DOC);
@@ -407,6 +423,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_HTTP_CONTEXT_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_MAX_TOTAL_CONNECTIONS_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTPS_ENDPOINT_MAX_TOTAL_CONNECTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_MAX_TOTAL_CONNECTIONS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_USE_SYSTEM_PROPERTIES_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_NON_PROXY_HOSTS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_NON_PROXY_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_NON_PROXY_HOSTS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_DOMAIN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_DOMAIN_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_DOMAIN_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_HOST_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_HOST_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_PROXY_AUTH_METHOD_DOC);
@@ -424,6 +441,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_AUTH_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_METHOD_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_AUTH_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_PASSWORD_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_AUTH_USERNAME_DOC);
+        conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2BODY_AUTHENTICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2BODY_AUTHENTICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2BODY_AUTHENTICATION_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_CONF, ConfigDef.Type.LONG, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_DEFAULT_EXPIRY_SECONDS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_CONF, ConfigDef.Type.LONG, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHED_TOKENS_EXPIRATION_MARGIN_SECONDS_DOC);
         conf.define(CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_ENDPOINT_OAUTH_2CACHE_TOKENS_DOC);
@@ -439,6 +457,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_SKIP_CONTROL_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_SKIP_CONTROL_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SKIP_CONTROL_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SKIP_REQUEST_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_SKIP_RESPONSE_HEADERS_DOC);
+        conf.define(CAMEL_SINK_HTTPS_COMPONENT_CONTENT_TYPE_CHARSET_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_CONTENT_TYPE_CHARSET_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_CONTENT_TYPE_CHARSET_ENABLED_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_COOKIE_STORE_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_COPY_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_FOLLOW_REDIRECTS_DOC);
@@ -464,6 +483,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_REDIRECT_HANDLING_DISABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_REDIRECT_HANDLING_DISABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_REDIRECT_HANDLING_DISABLED_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_USE_SYSTEM_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTPS_COMPONENT_USE_SYSTEM_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_USE_SYSTEM_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
+        conf.define(CAMEL_SINK_HTTPS_COMPONENT_NON_PROXY_HOSTS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_NON_PROXY_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_NON_PROXY_HOSTS_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_DOMAIN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_DOMAIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_DOMAIN_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_HOST_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_HOST_DOC);
         conf.define(CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTPS_COMPONENT_PROXY_AUTH_METHOD_DOC);

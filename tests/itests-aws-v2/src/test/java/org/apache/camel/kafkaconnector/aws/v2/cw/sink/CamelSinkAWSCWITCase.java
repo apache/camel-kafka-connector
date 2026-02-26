@@ -75,11 +75,10 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
             Map<String, String> headers = new HashMap<>();
 
             headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "metric-name", metricName);
-            //TODO: once this https://github.com/apache/camel-kamelets/pull/522 is published  the following headers
-            // must be changed to metric-dimension-name and metric-dimension-value
-            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionName",
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "metric-value", String.valueOf(current));
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "metric-dimension-name",
                     "test-dimension-" + current);
-            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionValue", String.valueOf(current));
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "metric-dimension-value", String.valueOf(current));
 
             return headers;
         }
@@ -109,19 +108,23 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
                     .build();
 
             while (true) {
-                ListMetricsResponse response = client.listMetrics(request);
+                try {
+                    ListMetricsResponse response = client.listMetrics(request);
 
-                for (Metric metric : response.metrics()) {
-                    LOG.info("Retrieved metric {}, dimensions {}", metric.metricName(), metric.dimensions());
+                    for (Metric metric : response.metrics()) {
+                        LOG.info("Retrieved metric {}, dimensions {}", metric.metricName(), metric.dimensions());
 
-                    for (Dimension dimension : metric.dimensions()) {
-                        LOG.info("Dimension {} value: {}", dimension.name(), dimension.value());
-                        received++;
+                        for (Dimension dimension : metric.dimensions()) {
+                            LOG.info("Dimension {} value: {}", dimension.name(), dimension.value());
+                            received++;
 
-                        if (received == expect) {
-                            return;
+                            if (received == expect) {
+                                return;
+                            }
                         }
                     }
+                } catch (Exception e) {
+                    LOG.warn("Failed to list metrics (will retry): {}", e.getMessage());
                 }
 
                 if (!waitForData()) {

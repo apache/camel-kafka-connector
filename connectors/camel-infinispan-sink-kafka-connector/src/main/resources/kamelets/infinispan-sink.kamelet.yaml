@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "sink"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.14.0"
+    camel.apache.org/catalog.version: "4.18.0"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Infinispan"
     camel.apache.org/kamelet.namespace: "Cache"
@@ -30,14 +30,7 @@ metadata:
 spec:
   definition:
     title: "Infinispan Sink"
-    description: |-
-      Write object to an Infinispan cache.
-
-      The Kamelet expects the following headers to be set:
-
-      - `key` / `ce-key`: as the key to use when put an object in the Infinispan cache.
-
-      If the header is not set, the exchange ID is used as key.
+    description: Write object to an Infinispan cache.
     required:
       - cacheName
       - hosts

@@ -27,7 +27,7 @@ public class CamelAwss3streaminguploadsinkSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.bucketNameOrArn";
-    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The S3 Bucket name or Amazon Resource Name (ARN)..";
+    public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_DOC = "The S3 Bucket name or Amazon Resource Name (ARN).";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_BUCKET_NAME_OR_ARN_DEFAULT = null;
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_ACCESS_KEY_CONF = "camel.kamelet.aws-s3-streaming-upload-sink.accessKey";
     public static final String CAMEL_SINK_AWSS3STREAMINGUPLOADSINK_KAMELET_ACCESS_KEY_DOC = "The access key obtained from AWS.";

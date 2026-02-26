@@ -5,13 +5,13 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-s3-streaming-upload-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Upload data to AWS S3 in streaming upload mode."
 	},
 	"properties": {
 		"camel.kamelet.aws-s3-streaming-upload-sink.bucketNameOrArn": {
 			"name": "camel.kamelet.aws-s3-streaming-upload-sink.bucketNameOrArn",
-			"description": "The S3 Bucket name or Amazon Resource Name (ARN)..",
+			"description": "The S3 Bucket name or Amazon Resource Name (ARN).",
 			"priority": "HIGH",
 			"required": "true"
 		},

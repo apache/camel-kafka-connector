@@ -1,0 +1,68 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googlevertexaisink.CamelGooglevertexaisinkSinkConnector",
+		"artifactId": "camel-google-vertexai-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-vertexai-sink-sink",
+		"type": "sink",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to Google Vertex AI for generating content with generative AI models."
+	},
+	"properties": {
+		"camel.kamelet.google-vertexai-sink.projectId": {
+			"name": "camel.kamelet.google-vertexai-sink.projectId",
+			"description": "The Google Cloud Project ID.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-vertexai-sink.location": {
+			"name": "camel.kamelet.google-vertexai-sink.location",
+			"description": "The Google Cloud region (e.g., us-central1).",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-vertexai-sink.modelId": {
+			"name": "camel.kamelet.google-vertexai-sink.modelId",
+			"description": "The Model ID to use for predictions (e.g., gemini-2.5-pro).",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.google-vertexai-sink.serviceAccountKey": {
+			"name": "camel.kamelet.google-vertexai-sink.serviceAccountKey",
+			"description": "The service account key to use as credentials for the Vertex AI client. You must encode this value in base64.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-vertexai-sink.operation": {
+			"name": "camel.kamelet.google-vertexai-sink.operation",
+			"description": "The operation to perform.",
+			"defaultValue": "\"generateText\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-vertexai-sink.temperature": {
+			"name": "camel.kamelet.google-vertexai-sink.temperature",
+			"description": "Controls randomness in generation. Lower values make output more deterministic. Range 0.0 to 1.0.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-vertexai-sink.maxOutputTokens": {
+			"name": "camel.kamelet.google-vertexai-sink.maxOutputTokens",
+			"description": "Maximum number of tokens to generate in the response.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-vertexai-sink.topP": {
+			"name": "camel.kamelet.google-vertexai-sink.topP",
+			"description": "Nucleus sampling parameter. Considers tokens with top_p probability mass. Range 0.0 to 1.0.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.google-vertexai-sink.topK": {
+			"name": "camel.kamelet.google-vertexai-sink.topK",
+			"description": "Only sample from the top K options for each subsequent token.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

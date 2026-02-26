@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-salesforce-delete-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Remove an object from Salesforce. \n\nThe data body must be JSON-formatted and it must\ncontain two keys: `sObjectId` and `sObjectName`. For example: `{ \"sObjectId\": \"XXXXX0\", \"sObjectName\": \"Contact\" }`"
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Remove an object from Salesforce."
 	},
 	"properties": {
 		"camel.kamelet.salesforce-delete-sink.loginUrl": {

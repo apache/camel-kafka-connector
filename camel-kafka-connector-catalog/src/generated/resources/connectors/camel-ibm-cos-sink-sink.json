@@ -1,0 +1,76 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ibmcossink.CamelIbmcossinkSinkConnector",
+		"artifactId": "camel-ibm-cos-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ibm-cos-sink-sink",
+		"type": "sink",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Upload data to an IBM Cloud Object Storage Bucket."
+	},
+	"properties": {
+		"camel.kamelet.ibm-cos-sink.bucketName": {
+			"name": "camel.kamelet.ibm-cos-sink.bucketName",
+			"description": "The IBM COS Bucket name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-sink.apiKey": {
+			"name": "camel.kamelet.ibm-cos-sink.apiKey",
+			"description": "IBM Cloud API Key for authentication.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-sink.serviceInstanceId": {
+			"name": "camel.kamelet.ibm-cos-sink.serviceInstanceId",
+			"description": "IBM COS Service Instance ID (CRN).",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-sink.endpointUrl": {
+			"name": "camel.kamelet.ibm-cos-sink.endpointUrl",
+			"description": "IBM COS Endpoint URL (e.g., https:\/\/s3.us-south.cloud-object-storage.appdomain.cloud). Example: https:\/\/s3.us-south.cloud-object-storage.appdomain.cloud",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-sink.location": {
+			"name": "camel.kamelet.ibm-cos-sink.location",
+			"description": "IBM COS Location\/Region (e.g., us-south, eu-gb). Example: us-south",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-sink.autoCreateBucket": {
+			"name": "camel.kamelet.ibm-cos-sink.autoCreateBucket",
+			"description": "Specifies to automatically create the IBM COS bucket.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-sink.keyName": {
+			"name": "camel.kamelet.ibm-cos-sink.keyName",
+			"description": "The key name for saving an element in the bucket.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-sink.multiPartUpload": {
+			"name": "camel.kamelet.ibm-cos-sink.multiPartUpload",
+			"description": "Use multi-part upload for large files.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-sink.partSize": {
+			"name": "camel.kamelet.ibm-cos-sink.partSize",
+			"description": "Part size for multi-part uploads (default 25MB).",
+			"defaultValue": "26214400",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-sink.storageClass": {
+			"name": "camel.kamelet.ibm-cos-sink.storageClass",
+			"description": "The storage class to use when storing objects (e.g., STANDARD, VAULT, COLD, FLEX).",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-blob-event-based-source-source",
 		"type": "source",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Receive data from Azure Service Bus subscribed to Azure Eventgrid reporting events related to a Azure Storage Blob account."
 	},
 	"properties": {
@@ -49,8 +49,26 @@
 		"camel.kamelet.azure-storage-blob-event-based-source.accessKey": {
 			"name": "camel.kamelet.azure-storage-blob-event-based-source.accessKey",
 			"description": "The Azure Storage Blob access key.",
-			"priority": "HIGH",
-			"required": "true"
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.clientId": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.clientId",
+			"description": "The Azure Storage Blob client Id.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.clientSecret": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.clientSecret",
+			"description": "The Azure Storage Blob client secret.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.azure-storage-blob-event-based-source.tenantId": {
+			"name": "camel.kamelet.azure-storage-blob-event-based-source.tenantId",
+			"description": "The Azure Storage Blob tenant id.",
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.kamelet.azure-storage-blob-event-based-source.credentialType": {
 			"name": "camel.kamelet.azure-storage-blob-event-based-source.credentialType",

@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-mongodb-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Send data to MongoDB.\n\nThis Kamelet expects a JSON-formatted body.\n\nIn the header, you can set the `db-upsert` \/ `ce-dbupsert` property, a boolean value that specifies whether the database should create an element if it does not exist."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to MongoDB."
 	},
 	"properties": {
 		"camel.kamelet.mongodb-sink.hosts": {

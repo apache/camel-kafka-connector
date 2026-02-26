@@ -30,6 +30,8 @@
 **** xref:reference/connectors/camel-aws-cloudtrail-source-kafka-source-connector.adoc[Source Docs]
 *** camel-aws-cloudwatch-sink-kafka-connector
 **** xref:reference/connectors/camel-aws-cloudwatch-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-comprehend-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-comprehend-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws-ddb-sink-kafka-connector
 **** xref:reference/connectors/camel-aws-ddb-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws-ddb-streams-source-kafka-connector
@@ -46,6 +48,8 @@
 **** xref:reference/connectors/camel-aws-kinesis-source-kafka-source-connector.adoc[Source Docs]
 *** camel-aws-lambda-sink-kafka-connector
 **** xref:reference/connectors/camel-aws-lambda-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-aws-polly-sink-kafka-connector
+**** xref:reference/connectors/camel-aws-polly-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws-redshift-sink-kafka-connector
 **** xref:reference/connectors/camel-aws-redshift-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-aws-redshift-source-kafka-connector
@@ -140,6 +144,10 @@
 *** camel-cxfrs-kafka-connector
 **** xref:reference/connectors/camel-cxfrs-kafka-source-connector.adoc[Source Docs]
 **** xref:reference/connectors/camel-cxfrs-kafka-sink-connector.adoc[Sink Docs]
+*** camel-databricks-sink-kafka-connector
+**** xref:reference/connectors/camel-databricks-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-databricks-source-kafka-connector
+**** xref:reference/connectors/camel-databricks-source-kafka-source-connector.adoc[Source Docs]
 *** camel-dropbox-sink-kafka-connector
 **** xref:reference/connectors/camel-dropbox-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-dropbox-source-kafka-connector
@@ -201,6 +209,8 @@
 **** xref:reference/connectors/camel-google-storage-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-google-storage-source-kafka-connector
 **** xref:reference/connectors/camel-google-storage-source-kafka-source-connector.adoc[Source Docs]
+*** camel-google-vertexai-sink-kafka-connector
+**** xref:reference/connectors/camel-google-vertexai-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-graphql-sink-kafka-connector
 **** xref:reference/connectors/camel-graphql-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-http-secured-sink-kafka-connector
@@ -213,6 +223,12 @@
 **** xref:reference/connectors/camel-http-source-kafka-source-connector.adoc[Source Docs]
 *** camel-https-kafka-connector
 **** xref:reference/connectors/camel-https-kafka-sink-connector.adoc[Sink Docs]
+*** camel-ibm-cos-sink-kafka-connector
+**** xref:reference/connectors/camel-ibm-cos-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-ibm-cos-source-kafka-connector
+**** xref:reference/connectors/camel-ibm-cos-source-kafka-source-connector.adoc[Source Docs]
+*** camel-ibm-watson-language-sink-kafka-connector
+**** xref:reference/connectors/camel-ibm-watson-language-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-infinispan-sink-kafka-connector
 **** xref:reference/connectors/camel-infinispan-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-infinispan-source-kafka-connector
@@ -249,36 +265,18 @@
 **** xref:reference/connectors/camel-kafka-batch-apicurio-registry-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-batch-azure-schema-registry-source-kafka-connector
 **** xref:reference/connectors/camel-kafka-batch-azure-schema-registry-source-kafka-source-connector.adoc[Source Docs]
-*** camel-kafka-batch-not-secured-source-kafka-connector
-**** xref:reference/connectors/camel-kafka-batch-not-secured-source-kafka-source-connector.adoc[Source Docs]
-*** camel-kafka-batch-scram-source-kafka-connector
-**** xref:reference/connectors/camel-kafka-batch-scram-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-batch-source-kafka-connector
 **** xref:reference/connectors/camel-kafka-batch-source-kafka-source-connector.adoc[Source Docs]
-*** camel-kafka-batch-ssl-source-kafka-connector
-**** xref:reference/connectors/camel-kafka-batch-ssl-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-not-secured-apicurio-registry-json-source-kafka-connector
 **** xref:reference/connectors/camel-kafka-not-secured-apicurio-registry-json-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-not-secured-apicurio-registry-sink-kafka-connector
 **** xref:reference/connectors/camel-kafka-not-secured-apicurio-registry-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-kafka-not-secured-apicurio-registry-source-kafka-connector
 **** xref:reference/connectors/camel-kafka-not-secured-apicurio-registry-source-kafka-source-connector.adoc[Source Docs]
-*** camel-kafka-not-secured-sink-kafka-connector
-**** xref:reference/connectors/camel-kafka-not-secured-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-kafka-not-secured-source-kafka-connector
-**** xref:reference/connectors/camel-kafka-not-secured-source-kafka-source-connector.adoc[Source Docs]
-*** camel-kafka-scram-sink-kafka-connector
-**** xref:reference/connectors/camel-kafka-scram-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-kafka-scram-source-kafka-connector
-**** xref:reference/connectors/camel-kafka-scram-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kafka-sink-kafka-connector
 **** xref:reference/connectors/camel-kafka-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-kafka-source-kafka-connector
 **** xref:reference/connectors/camel-kafka-source-kafka-source-connector.adoc[Source Docs]
-*** camel-kafka-ssl-sink-kafka-connector
-**** xref:reference/connectors/camel-kafka-ssl-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-kafka-ssl-source-kafka-connector
-**** xref:reference/connectors/camel-kafka-ssl-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kubernetes-namespaces-source-kafka-connector
 **** xref:reference/connectors/camel-kubernetes-namespaces-source-kafka-source-connector.adoc[Source Docs]
 *** camel-kubernetes-nodes-source-kafka-connector

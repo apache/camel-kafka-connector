@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cxf-source",
 		"type": "source",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Expose SOAP WebServices using Apache CXF or connect to external WebServices using CXF WS client."
 	},
 	"properties": {
@@ -38,6 +38,7 @@
 		"camel.source.endpoint.wrappedStyle": {
 			"name": "camel.source.endpoint.wrappedStyle",
 			"description": "The WSDL style that describes how parameters are represented in the SOAP body. If the value is false, CXF will chose the document-literal unwrapped style, If the value is true, CXF will chose the document-literal wrapped style",
+			"defaultValue": "\"false\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -67,6 +68,7 @@
 		"camel.source.endpoint.allowStreaming": {
 			"name": "camel.source.endpoint.allowStreaming",
 			"description": "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.",
+			"defaultValue": "\"false\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -221,6 +223,7 @@
 		"camel.component.cxf.allowStreaming": {
 			"name": "camel.component.cxf.allowStreaming",
 			"description": "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.",
+			"defaultValue": "\"false\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

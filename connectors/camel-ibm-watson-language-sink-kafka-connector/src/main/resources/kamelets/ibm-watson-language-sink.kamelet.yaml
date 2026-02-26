@@ -1,0 +1,129 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: ibm-watson-language-sink
+  annotations:
+    camel.apache.org/kamelet.support.level: "Preview"
+    camel.apache.org/catalog.version: "4.18.0"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPHBhdGggZD0iTTAgMGgyNTZ2MjU2SDB6Ii8+CiAgICA8cGF0aCBkPSJNMTI4IDIwYTEwOCAxMDggMCAxIDEgMCAyMTYgMTA4IDEwOCAwIDAgMSAwLTIxNnptMCAyNGE4NCA4NCAwIDEgMCAwIDE2OCA4NCA4NCAwIDAgMCAwLTE2OHoiIGZpbGw9IiMwNTNFRkYiLz4KICAgIDxwYXRoIGQ9Ik0xMjggNzJhNTYgNTYgMCAxIDEgMCAxMTIgNTYgNTYgMCAwIDEgMC0xMTJ6bTAgMjRhMzIgMzIgMCAxIDAgMCA2NCAzMiAzMiAwIDAgMCAwLTY0eiIgZmlsbD0iIzA1M0VGRiIvPgogIDwvZz4KPC9zdmc+"
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.group: "IBM Watson"
+    camel.apache.org/kamelet.namespace: "IBM"
+  labels:
+    camel.apache.org/kamelet.type: "sink"
+spec:
+  definition:
+    title: "IBM Watson Natural Language Understanding Sink"
+    description: Analyze text using IBM Watson Natural Language Understanding to extract sentiment, entities, keywords, concepts, categories, and emotions.
+    required:
+      - apiKey
+    type: object
+    properties:
+      apiKey:
+        title: API Key
+        description: The IBM Cloud API key for Watson Natural Language Understanding.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      serviceUrl:
+        title: Service URL
+        description: The Watson Natural Language Understanding service endpoint URL. If not specified, the default URL will be used.
+        type: string
+        example: "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com"
+      operation:
+        title: Operation
+        description: The operation to perform.
+        type: string
+        default: analyzeText
+        enum:
+          - analyzeText
+          - analyzeUrl
+      analyzeSentiment:
+        title: Analyze Sentiment
+        description: Enable sentiment analysis to detect positive, negative, or neutral sentiment.
+        type: boolean
+        default: true
+      analyzeEmotion:
+        title: Analyze Emotion
+        description: Enable emotion analysis to detect emotions like joy, anger, sadness, fear, and disgust.
+        type: boolean
+        default: false
+      analyzeEntities:
+        title: Analyze Entities
+        description: Enable entity extraction to identify people, companies, organizations, cities, and more.
+        type: boolean
+        default: true
+      analyzeKeywords:
+        title: Analyze Keywords
+        description: Enable keyword extraction to identify important keywords and phrases.
+        type: boolean
+        default: true
+      analyzeConcepts:
+        title: Analyze Concepts
+        description: Enable concept extraction to identify high-level concepts that aren't necessarily mentioned in the text.
+        type: boolean
+        default: false
+      analyzeCategories:
+        title: Analyze Categories
+        description: Enable category classification to classify content into a hierarchy of categories.
+        type: boolean
+        default: false
+  dataTypes:
+    out:
+      default: watson-analysis
+      headers:
+        CamelIBMWatsonLanguageSentimentLabel:
+          title: Sentiment Label
+          description: The sentiment label (positive, negative, or neutral).
+          type: string
+        CamelIBMWatsonLanguageSentimentScore:
+          title: Sentiment Score
+          description: The sentiment score (-1 to 1, where -1 is most negative and 1 is most positive).
+          type: number
+        CamelIBMWatsonLanguageLanguage:
+          title: Detected Language
+          description: The detected language of the analyzed text.
+          type: string
+      types:
+        watson-analysis:
+          format: "application-json"
+          description: Watson Natural Language Understanding analysis results containing sentiment, entities, keywords, concepts, categories, and emotions.
+          mediaType: application/json
+  dependencies:
+    - "camel:core"
+    - "camel:ibm-watson-language"
+    - "camel:kamelet"
+  template:
+    from:
+      uri: "kamelet:source"
+      steps:
+      - to:
+          uri: "ibm-watson-language:analyze"
+          parameters:
+            apiKey: "RAW({{apiKey}})"
+            serviceUrl: "{{?serviceUrl}}"
+            operation: "{{operation}}"
+            analyzeSentiment: "{{analyzeSentiment}}"
+            analyzeEmotion: "{{analyzeEmotion}}"
+            analyzeEntities: "{{analyzeEntities}}"
+            analyzeKeywords: "{{analyzeKeywords}}"
+            analyzeConcepts: "{{analyzeConcepts}}"
+            analyzeCategories: "{{analyzeCategories}}"

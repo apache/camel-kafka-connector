@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>parent</artifactId>
-        <version>4.15.0-SNAPSHOT</version>
+        <version>4.18.0-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
 
@@ -185,6 +185,7 @@
         <module>camel-aws-bedrock-text-sink-kafka-connector</module>
         <module>camel-aws-cloudtrail-source-kafka-connector</module>
         <module>camel-aws-cloudwatch-sink-kafka-connector</module>
+        <module>camel-aws-comprehend-sink-kafka-connector</module>
         <module>camel-aws-ddb-sink-kafka-connector</module>
         <module>camel-aws-ddb-streams-source-kafka-connector</module>
         <module>camel-aws-ec2-sink-kafka-connector</module>
@@ -193,6 +194,7 @@
         <module>camel-aws-kinesis-sink-kafka-connector</module>
         <module>camel-aws-kinesis-source-kafka-connector</module>
         <module>camel-aws-lambda-sink-kafka-connector</module>
+        <module>camel-aws-polly-sink-kafka-connector</module>
         <module>camel-aws-redshift-sink-kafka-connector</module>
         <module>camel-aws-redshift-source-kafka-connector</module>
         <module>camel-aws-s3-event-based-source-kafka-connector</module>
@@ -239,6 +241,8 @@
         <module>camel-cron-source-kafka-connector</module>
         <module>camel-cxf-kafka-connector</module>
         <module>camel-cxfrs-kafka-connector</module>
+        <module>camel-databricks-sink-kafka-connector</module>
+        <module>camel-databricks-source-kafka-connector</module>
         <module>camel-dropbox-sink-kafka-connector</module>
         <module>camel-dropbox-source-kafka-connector</module>
         <module>camel-earthquake-source-kafka-connector</module>
@@ -269,12 +273,16 @@
         <module>camel-google-storage-event-based-source-kafka-connector</module>
         <module>camel-google-storage-sink-kafka-connector</module>
         <module>camel-google-storage-source-kafka-connector</module>
+        <module>camel-google-vertexai-sink-kafka-connector</module>
         <module>camel-graphql-sink-kafka-connector</module>
         <module>camel-http-secured-sink-kafka-connector</module>
         <module>camel-http-secured-source-kafka-connector</module>
         <module>camel-http-sink-kafka-connector</module>
         <module>camel-http-source-kafka-connector</module>
         <module>camel-https-kafka-connector</module>
+        <module>camel-ibm-cos-sink-kafka-connector</module>
+        <module>camel-ibm-cos-source-kafka-connector</module>
+        <module>camel-ibm-watson-language-sink-kafka-connector</module>
         <module>camel-infinispan-sink-kafka-connector</module>
         <module>camel-infinispan-source-kafka-connector</module>
         <module>camel-jdbc-kafka-connector</module>
@@ -293,21 +301,12 @@
         <module>camel-kafka-batch-apicurio-registry-not-secured-source-kafka-connector</module>
         <module>camel-kafka-batch-apicurio-registry-source-kafka-connector</module>
         <module>camel-kafka-batch-azure-schema-registry-source-kafka-connector</module>
-        <module>camel-kafka-batch-not-secured-source-kafka-connector</module>
-        <module>camel-kafka-batch-scram-source-kafka-connector</module>
         <module>camel-kafka-batch-source-kafka-connector</module>
-        <module>camel-kafka-batch-ssl-source-kafka-connector</module>
         <module>camel-kafka-not-secured-apicurio-registry-json-source-kafka-connector</module>
         <module>camel-kafka-not-secured-apicurio-registry-sink-kafka-connector</module>
         <module>camel-kafka-not-secured-apicurio-registry-source-kafka-connector</module>
-        <module>camel-kafka-not-secured-sink-kafka-connector</module>
-        <module>camel-kafka-not-secured-source-kafka-connector</module>
-        <module>camel-kafka-scram-sink-kafka-connector</module>
-        <module>camel-kafka-scram-source-kafka-connector</module>
         <module>camel-kafka-sink-kafka-connector</module>
         <module>camel-kafka-source-kafka-connector</module>
-        <module>camel-kafka-ssl-sink-kafka-connector</module>
-        <module>camel-kafka-ssl-source-kafka-connector</module>
         <module>camel-kubernetes-namespaces-source-kafka-connector</module>
         <module>camel-kubernetes-nodes-source-kafka-connector</module>
         <module>camel-kubernetes-pods-source-kafka-connector</module>

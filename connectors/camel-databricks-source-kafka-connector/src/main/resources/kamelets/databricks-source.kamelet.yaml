@@ -1,0 +1,114 @@
+# ---------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ---------------------------------------------------------------------------
+apiVersion: camel.apache.org/v1
+kind: Kamelet
+metadata:
+  name: databricks-source
+  annotations:
+    camel.apache.org/kamelet.support.level: "Preview"
+    camel.apache.org/catalog.version: "4.18.0"
+    camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIj4KICA8cGF0aCBmaWxsPSIjRkYzNjIxIiBkPSJNMjAgMEw0MCA4LjI3VjEzLjFMMjAgMjAuNUwwIDEzLjFWOC4yN0wyMCAwWiIvPgogIDxwYXRoIGZpbGw9IiNGRjM2MjEiIGQ9Ik0wIDEzLjFMMjAgMjAuNVYyNi45TDAgMTkuNVYxMy4xWiIvPgogIDxwYXRoIGZpbGw9IiNGRjM2MjEiIGQ9Ik00MCAxMy4xTDIwIDIwLjVWMjYuOUw0MCAxOS41VjEzLjFaIi8+CiAgPHBhdGggZmlsbD0iI0ZGMzYyMSIgZD0iTTAgMTkuNUwyMCAyNi45VjMzLjNMMCAyNS45VjE5LjVaIi8+CiAgPHBhdGggZmlsbD0iI0ZGMzYyMSIgZD0iTTQwIDE5LjVMMjAgMjYuOVYzMy4zTDQwIDI1LjlWMTkuNVoiLz4KICA8cGF0aCBmaWxsPSIjRkYzNjIxIiBkPSJNMCAyNS45TDIwIDMzLjNWNDBMMCAzMi42VjI1LjlaIi8+CiAgPHBhdGggZmlsbD0iI0ZGMzYyMSIgZD0iTTQwIDI1LjlMMjAgMzMuM1Y0MEw0MCAzMi42VjI1LjlaIi8+Cjwvc3ZnPgo="
+    camel.apache.org/provider: "Apache Software Foundation"
+    camel.apache.org/kamelet.group: "SQL"
+    camel.apache.org/kamelet.namespace: "Database"
+  labels:
+    camel.apache.org/kamelet.type: "source"
+spec:
+  definition:
+    title: "Databricks Source"
+    description: Query data from a Databricks Database. For Unity Catalog workspaces, specify catalog and schema parameters.
+    required:
+      - serverHostname
+      - httpPath
+      - accessToken
+      - query
+    type: object
+    properties:
+      serverHostname:
+        title: Server Hostname
+        description: The Databricks server hostname.
+        type: string
+        example: adb-1234567890123456.7.azuredatabricks.net
+      serverPort:
+        title: Server Port
+        description: The server port for the Databricks data source.
+        type: string
+        default: 443
+      httpPath:
+        title: HTTP Path
+        description: The HTTP path to the Databricks SQL Warehouse or cluster.
+        type: string
+        example: /sql/1.0/warehouses/abc123def456
+      accessToken:
+        title: Access Token
+        description: The personal access token to access Databricks.
+        type: string
+        format: password
+        x-descriptors:
+        - urn:camel:group:credentials
+      query:
+        title: Query
+        description: The query to execute against the Databricks Database.
+        type: string
+        example: 'SELECT * FROM accounts'
+      extraOptions:
+        title: Extra Options
+        description: Additional JDBC connection options (e.g., ConnCatalog=main;ConnSchema=default).
+        type: string
+        default: ''
+      consumedQuery:
+        title: Consumed Query
+        description: A query to run on a tuple consumed.
+        type: string
+        example: 'DELETE FROM accounts where user_id = :#user_id'
+      delay:
+        title: Delay
+        description: The number of milliseconds before the next poll from the Databricks database.
+        type: integer
+        default: 500
+  types:
+    out:
+      mediaType: application/json
+  dependencies:
+  - "camel:jackson"
+  - "camel:kamelet"
+  - "camel:sql"
+  - "mvn:com.databricks:databricks-jdbc:3.0.7"
+  - "mvn:org.apache.commons:commons-dbcp2:2.14.0"
+  template:
+    beans:
+      - name: local-sql-databricks-source
+        type: "#class:org.apache.camel.component.sql.SqlComponent"
+        properties:
+          autowiredEnabled: "false"
+      - name: dsBean
+        type: "#class:org.apache.commons.dbcp2.BasicDataSource"
+        properties:
+          password: '{{accessToken}}'
+          url: 'jdbc:databricks://{{serverHostname}}:{{serverPort}};httpPath={{httpPath}};AuthMech=3;transportMode=http;ssl=1;UID=token;PWD={{accessToken}}{{extraOptions}}'
+          driverClassName: 'com.databricks.client.jdbc.Driver'
+    from:
+      uri: "{{local-sql-databricks-source}}:{{query}}"
+      parameters:
+        dataSource: "#bean:{{dsBean}}"
+        onConsume: "{{?consumedQuery}}"
+        delay: "{{delay}}"
+      steps:
+      - marshal:
+          json:
+            library: Jackson
+      - to: "kamelet:sink"

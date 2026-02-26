@@ -20,7 +20,7 @@ metadata:
   name: google-sheets-source
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.14.0"
+    camel.apache.org/catalog.version: "4.18.0"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA2NCA4OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNjQgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojMERDNTRDO30KCS5zdDF7ZmlsbDojMDg5NjJEO30KCS5zdDJ7ZmlsbDojRkRGRkZGO30KPC9zdHlsZT4KPGcgaWQ9IkxheWVyXzQiPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU4LDg4SDZjLTMuMywwLTYtMi43LTYtNlY2YzAtMy4zLDIuNy02LDYtNmgzNmwyMiwyMnY2MEM2NCw4NS4zLDYxLjMsODgsNTgsODh6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDIsMGwyMiwyMkg0MlYweiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTEyLDM0LjV2MjhoNDB2LTI4SDEyeiBNMTcsMzkuNWgxMi41VjQ2SDE3VjM5LjV6IE0xNyw1MWgxMi41djYuNUgxN1Y1MXogTTQ3LDU3LjVIMzQuNVY1MUg0N1Y1Ny41eiBNNDcsNDYKCQlIMzQuNXYtNi41SDQ3VjQ2eiIvPgo8L2c+Cjwvc3ZnPgo="
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "Google Sheets"
@@ -30,8 +30,7 @@ metadata:
 spec:
   definition:
     title: "Google Sheets Source"
-    description: |-
-      Receive data from Google Sheets.
+    description: Receive data from Google Sheets.
     required:
       - spreadsheetId
       - clientId
@@ -138,23 +137,15 @@ spec:
       types:
         json:
           format: "application-json"
-          description: |-
-            Json representation of a GoogleSheets ValueRange object that holds all values for the given cell range.
-            Or Json array of values for a single row/column in the range when 'splitResults' mode is enabled.
+          description: Json representation of a GoogleSheets ValueRange object that holds all values for the given cell range.
           mediaType: application/json
         json-struct:
           format: "google-sheets:application-x-struct"
-          description: |-
-            Special Json representation of Google Sheets ValueRange object with just row and column values as a generic JsonNode.
-            Each cell value is represented by a Json property named after the respective row (A-Z) or column (1-n) depending on the given majorDimension.
-            Custom column names are supported in order to use custom property names instead of generic row (A-Z) or column (1-n) coordinates.
-            The produced Json struct is ready to be transformed back into a proper Google Sheets ValueRange object that can be used in an update/append values operation.
+          description: Special Json representation of Google Sheets ValueRange object with just row and column values as a generic JsonNode.
           mediaType: application/json
         cloudevents:
           format: "google-sheets-stream:application-cloudevents"
-          description: |-
-            Output data type represents Google Sheets Stream response as CloudEvent V1. The data type sets Camel specific CloudEvent headers on the exchange with
-            respective data from the Spreasheet and its derived object.
+          description: Output data type represents Google Sheets Stream response as CloudEvent V1. The data type sets Camel specific CloudEvent headers on the exchange with respective data from the Spreadsheet and its derived object.
           headers:
             CamelCloudEventID:
               title: CloudEvent ID

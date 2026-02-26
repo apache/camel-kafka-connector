@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cassandra-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Send data to an Apache Cassandra cluster.\n\nThis Kamelet expects JSON Array formatted data. The content of the JSON Array is used as input for the CQL Prepared Statement set in the query parameter."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to an Apache Cassandra cluster."
 	},
 	"properties": {
 		"camel.kamelet.cassandra-sink.connectionHost": {

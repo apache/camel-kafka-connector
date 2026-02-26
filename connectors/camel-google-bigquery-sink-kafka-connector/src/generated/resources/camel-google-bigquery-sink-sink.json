@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-bigquery-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Send data to a Google Big Query table.\n\nThe data must be in JSON format to represent an object or an array of objects."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to a Google Big Query table."
 	},
 	"properties": {
 		"camel.kamelet.google-bigquery-sink.projectId": {

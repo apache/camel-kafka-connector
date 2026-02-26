@@ -1,0 +1,96 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awscomprehendsink.CamelAwscomprehendsinkSinkConnector",
+		"artifactId": "camel-aws-comprehend-sink-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-comprehend-sink-sink",
+		"type": "sink",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to AWS Comprehend for natural language processing."
+	},
+	"properties": {
+		"camel.kamelet.aws-comprehend-sink.operation": {
+			"name": "camel.kamelet.aws-comprehend-sink.operation",
+			"description": "The operation to perform on the input text.",
+			"defaultValue": "\"detectDominantLanguage\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.languageCode": {
+			"name": "camel.kamelet.aws-comprehend-sink.languageCode",
+			"description": "The language code of the input text. Required for all operations except detectDominantLanguage. Use a 2-letter ISO 639-1 code (e.g., 'en' for English, 'es' for Spanish).",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.endpointArn": {
+			"name": "camel.kamelet.aws-comprehend-sink.endpointArn",
+			"description": "The Amazon Resource Name (ARN) of the endpoint to use for document classification. Required for classifyDocument operation.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.accessKey": {
+			"name": "camel.kamelet.aws-comprehend-sink.accessKey",
+			"description": "The access key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.secretKey": {
+			"name": "camel.kamelet.aws-comprehend-sink.secretKey",
+			"description": "The secret key obtained from AWS.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.region": {
+			"name": "camel.kamelet.aws-comprehend-sink.region",
+			"description": "The AWS region to access.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.aws-comprehend-sink.useDefaultCredentialsProvider": {
+			"name": "camel.kamelet.aws-comprehend-sink.useDefaultCredentialsProvider",
+			"description": "If true, the Comprehend client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.useProfileCredentialsProvider": {
+			"name": "camel.kamelet.aws-comprehend-sink.useProfileCredentialsProvider",
+			"description": "Set whether the Comprehend client should expect to load credentials through a profile credentials provider.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.useSessionCredentials": {
+			"name": "camel.kamelet.aws-comprehend-sink.useSessionCredentials",
+			"description": "Set whether the Comprehend client should expect to use Session Credentials. This is useful in a situation in which the user needs to assume an IAM role for doing operations in Comprehend.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.profileCredentialsName": {
+			"name": "camel.kamelet.aws-comprehend-sink.profileCredentialsName",
+			"description": "If using a profile credentials provider this parameter sets the profile name.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.sessionToken": {
+			"name": "camel.kamelet.aws-comprehend-sink.sessionToken",
+			"description": "Amazon AWS Session Token used when the user needs to assume an IAM role.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.uriEndpointOverride": {
+			"name": "camel.kamelet.aws-comprehend-sink.uriEndpointOverride",
+			"description": "The overriding endpoint URI. To use this option, you must also select the `overrideEndpoint` option.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.aws-comprehend-sink.overrideEndpoint": {
+			"name": "camel.kamelet.aws-comprehend-sink.overrideEndpoint",
+			"description": "Select this option to override the endpoint URI. To use this option, you must also provide a URI for the `uriEndpointOverride` option.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

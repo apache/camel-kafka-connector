@@ -25,9 +25,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.io.DirectoryWalker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.shaded.org.apache.commons.io.DirectoryWalker;
 
 public final class PluginPathHelper {
     private static final Logger LOG = LoggerFactory.getLogger(PluginPathHelper.class);

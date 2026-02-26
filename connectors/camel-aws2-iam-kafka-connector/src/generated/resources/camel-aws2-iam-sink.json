@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws2-iam-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Manage AWS IAM instances."
 	},
 	"properties": {
@@ -23,7 +23,7 @@
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
-			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup] [createRole] [deleteRole] [getRole] [listRoles] [createPolicy] [deletePolicy] [getPolicy] [listPolicies] [attachUserPolicy] [detachUserPolicy] [attachGroupPolicy] [detachGroupPolicy] [attachRolePolicy] [detachRolePolicy] [createInstanceProfile] [deleteInstanceProfile] [getInstanceProfile] [listInstanceProfiles] [addRoleToInstanceProfile] [removeRoleFromInstanceProfile]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -39,7 +39,27 @@
 				"deleteGroup",
 				"listGroups",
 				"addUserToGroup",
-				"removeUserFromGroup"
+				"removeUserFromGroup",
+				"createRole",
+				"deleteRole",
+				"getRole",
+				"listRoles",
+				"createPolicy",
+				"deletePolicy",
+				"getPolicy",
+				"listPolicies",
+				"attachUserPolicy",
+				"detachUserPolicy",
+				"attachGroupPolicy",
+				"detachGroupPolicy",
+				"attachRolePolicy",
+				"detachRolePolicy",
+				"createInstanceProfile",
+				"deleteInstanceProfile",
+				"getInstanceProfile",
+				"listInstanceProfiles",
+				"addRoleToInstanceProfile",
+				"removeRoleFromInstanceProfile"
 			]
 		},
 		"camel.sink.endpoint.overrideEndpoint": {
@@ -214,7 +234,7 @@
 		},
 		"camel.component.aws2-iam.operation": {
 			"name": "camel.component.aws2-iam.operation",
-			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup] [createRole] [deleteRole] [getRole] [listRoles] [createPolicy] [deletePolicy] [getPolicy] [listPolicies] [attachUserPolicy] [detachUserPolicy] [attachGroupPolicy] [detachGroupPolicy] [attachRolePolicy] [detachRolePolicy] [createInstanceProfile] [deleteInstanceProfile] [getInstanceProfile] [listInstanceProfiles] [addRoleToInstanceProfile] [removeRoleFromInstanceProfile]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -230,7 +250,27 @@
 				"deleteGroup",
 				"listGroups",
 				"addUserToGroup",
-				"removeUserFromGroup"
+				"removeUserFromGroup",
+				"createRole",
+				"deleteRole",
+				"getRole",
+				"listRoles",
+				"createPolicy",
+				"deletePolicy",
+				"getPolicy",
+				"listPolicies",
+				"attachUserPolicy",
+				"detachUserPolicy",
+				"attachGroupPolicy",
+				"detachGroupPolicy",
+				"attachRolePolicy",
+				"detachRolePolicy",
+				"createInstanceProfile",
+				"deleteInstanceProfile",
+				"getInstanceProfile",
+				"listInstanceProfiles",
+				"addRoleToInstanceProfile",
+				"removeRoleFromInstanceProfile"
 			]
 		},
 		"camel.component.aws2-iam.overrideEndpoint": {

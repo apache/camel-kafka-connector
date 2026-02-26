@@ -30,9 +30,9 @@ asciidoc:
   attributes:
     requires: "'util=camel-website-util,ckc=xref:js/ckc.js'"
     prerelease: true
-    camel-version: 4.15.0-SNAPSHOT
+    camel-version: 4.18.0
     camel-docs-version: next
-    camel-kamelets-version: 4.15.0-SNAPSHOT
+    camel-kamelets-version: 4.18.0-SNAPSHOT
     camel-kamelets-docs-version: next
     kafka-version: 3.9.1
     kafka-docs-version: 28

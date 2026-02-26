@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ftp-sink-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
-		"description": "Send data to an FTP server.\n\nIn the header, you can set the `file` \/ `ce-file` property to specify the filename to upload.\n\nIf you do not set the property in the header, the Kamelet uses the exchange ID for the filename."
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Send data to an FTP server."
 	},
 	"properties": {
 		"camel.kamelet.ftp-sink.connectionHost": {

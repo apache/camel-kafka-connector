@@ -32,18 +32,42 @@ public class CamelKafkasinkSinkConnectorConfig
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_CONF = "camel.kamelet.kafka-sink.bootstrapServers";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DOC = "Comma separated list of Kafka Broker URLs";
     public static final String CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT = null;
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_CONF = "camel.kamelet.kafka-sink.securityProtocol";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DOC = "Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT, SASL_SSL and SSL are supported";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DEFAULT = "SASL_SSL";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_CONF = "camel.kamelet.kafka-sink.saslMechanism";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DOC = "The Simple Authentication and Security Layer (SASL) Mechanism used.";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DEFAULT = "PLAIN";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USER_CONF = "camel.kamelet.kafka-sink.user";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USER_DOC = "Username to authenticate to Kafka";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_USER_DEFAULT = null;
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_CONF = "camel.kamelet.kafka-sink.password";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DOC = "Password to authenticate to kafka";
-    public static final String CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_AUTH_TYPE_CONF = "camel.kamelet.kafka-sink.saslAuthType";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_AUTH_TYPE_DOC = "Authentication type to use. Use NONE for no authentication, PLAIN or SCRAM_SHA_256/SCRAM_SHA_512 for username/password, SSL for certificate-based, OAUTH for OAuth 2.0, AWS_MSK_IAM for MSK, or KERBEROS for Kerberos.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_AUTH_TYPE_DEFAULT = "NONE";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_USERNAME_CONF = "camel.kamelet.kafka-sink.saslUsername";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_USERNAME_DOC = "Username for SASL authentication. Required when saslAuthType is PLAIN, SCRAM_SHA_256, or SCRAM_SHA_512.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_USERNAME_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_PASSWORD_CONF = "camel.kamelet.kafka-sink.saslPassword";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_PASSWORD_DOC = "Password for SASL authentication. Required when saslAuthType is PLAIN, SCRAM_SHA_256, or SCRAM_SHA_512.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SASL_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_ID_CONF = "camel.kamelet.kafka-sink.oauthClientId";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_ID_DOC = "OAuth client ID. Required when saslAuthType is OAUTH.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_ID_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_SECRET_CONF = "camel.kamelet.kafka-sink.oauthClientSecret";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_SECRET_DOC = "OAuth client secret. Required when saslAuthType is OAUTH.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_SECRET_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_TOKEN_ENDPOINT_URI_CONF = "camel.kamelet.kafka-sink.oauthTokenEndpointUri";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_TOKEN_ENDPOINT_URI_DOC = "OAuth token endpoint URI. Required when saslAuthType is OAUTH.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_TOKEN_ENDPOINT_URI_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_SCOPE_CONF = "camel.kamelet.kafka-sink.oauthScope";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_SCOPE_DOC = "OAuth scope. Optional when saslAuthType is OAUTH.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_SCOPE_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_LOCATION_CONF = "camel.kamelet.kafka-sink.sslTruststoreLocation";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_LOCATION_DOC = "The location of the trust store file.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_LOCATION_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_PASSWORD_CONF = "camel.kamelet.kafka-sink.sslTruststorePassword";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_PASSWORD_DOC = "The password for the trust store file.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_LOCATION_CONF = "camel.kamelet.kafka-sink.sslKeystoreLocation";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_LOCATION_DOC = "The location of the key store file. Used for mTLS authentication.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_LOCATION_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_PASSWORD_CONF = "camel.kamelet.kafka-sink.sslKeystorePassword";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_PASSWORD_DOC = "The password for the key store file.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEY_PASSWORD_CONF = "camel.kamelet.kafka-sink.sslKeyPassword";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEY_PASSWORD_DOC = "The password of the private key in the key store file.";
+    public static final String CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEY_PASSWORD_DEFAULT = null;
 
     public CamelKafkasinkSinkConnectorConfig(
             ConfigDef config,
@@ -59,10 +83,18 @@ public class CamelKafkasinkSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_TOPIC_DOC);
         conf.define(CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_BOOTSTRAP_SERVERS_DOC);
-        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SECURITY_PROTOCOL_DOC);
-        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SASL_MECHANISM_DOC);
-        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_USER_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_USER_DOC);
-        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKASINK_KAMELET_PASSWORD_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SASL_AUTH_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SASL_AUTH_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SASL_AUTH_TYPE_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SASL_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SASL_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SASL_USERNAME_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SASL_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_KAFKASINK_KAMELET_SASL_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SASL_PASSWORD_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_ID_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_SECRET_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_CLIENT_SECRET_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_TOKEN_ENDPOINT_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_TOKEN_ENDPOINT_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_TOKEN_ENDPOINT_URI_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_SCOPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_SCOPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_OAUTH_SCOPE_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_LOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_LOCATION_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SSL_TRUSTSTORE_PASSWORD_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_LOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_LOCATION_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEYSTORE_PASSWORD_DOC);
+        conf.define(CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEY_PASSWORD_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEY_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKASINK_KAMELET_SSL_KEY_PASSWORD_DOC);
         return conf;
     }
 }

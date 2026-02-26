@@ -51,7 +51,7 @@ public class CamelAwssqssourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DOC = "The underlying protocol used to communicate with SQS. Example: http or https";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_PROTOCOL_DEFAULT = "https";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLCONF = "camel.kamelet.aws-sqs-source.queueURL";
-    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDOC = "The full SQS Queue URL (required if using KEDA).";
+    public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDOC = "The full SQS Queue URL.";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_QUEUE_URLDEFAULT = null;
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.kamelet.aws-sqs-source.useDefaultCredentialsProvider";
     public static final String CAMEL_SOURCE_AWSSQSSOURCE_KAMELET_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "If true, the SQS client loads credentials through a default credentials provider. If false, it uses the basic authentication method (access key and secret key).";

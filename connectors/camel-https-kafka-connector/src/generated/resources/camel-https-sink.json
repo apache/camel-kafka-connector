@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-https-sink",
 		"type": "sink",
-		"version": "4.15.0-SNAPSHOT",
+		"version": "4.18.0-SNAPSHOT",
 		"description": "Send requests to external HTTP servers using Apache HTTP Client 5.x."
 	},
 	"properties": {
@@ -110,6 +110,13 @@
 		"camel.sink.endpoint.clearExpiredCookies": {
 			"name": "camel.sink.endpoint.clearExpiredCookies",
 			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired. If the component has disabled cookie management then this option is disabled too.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.contentTypeCharsetEnabled": {
+			"name": "camel.sink.endpoint.contentTypeCharsetEnabled",
+			"description": "Whether the Content-Type header should automatic include charset for string based content.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -263,6 +270,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.nonProxyHosts": {
+			"name": "camel.sink.endpoint.nonProxyHosts",
+			"description": "Comma-separated list of hosts that should bypass the proxy. Supports wildcards, e.g., localhost,.example.com,192.168..",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.proxyAuthDomain": {
 			"name": "camel.sink.endpoint.proxyAuthDomain",
 			"description": "Proxy authentication domain to use with NTLM",
@@ -380,6 +393,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.oauth2BodyAuthentication": {
+			"name": "camel.sink.endpoint.oauth2BodyAuthentication",
+			"description": "Whether to use OAuth2 body authentication.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.oauth2CachedTokensDefaultExpirySeconds": {
 			"name": "camel.sink.endpoint.oauth2CachedTokensDefaultExpirySeconds",
 			"description": "Default expiration time for cached OAuth2 tokens, in seconds. Used if token response does not contain 'expires_in' field.",
@@ -475,6 +495,13 @@
 			"name": "camel.component.https.skipResponseHeaders",
 			"description": "Whether to skip mapping all the HTTP response headers to Camel headers.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.contentTypeCharsetEnabled": {
+			"name": "camel.component.https.contentTypeCharsetEnabled",
+			"description": "Whether the Content-Type header should automatic include charset for string based content.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -640,6 +667,12 @@
 		"camel.component.https.headerFilterStrategy": {
 			"name": "camel.component.https.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.nonProxyHosts": {
+			"name": "camel.component.https.nonProxyHosts",
+			"description": "Comma-separated list of hosts that should bypass the proxy. Supports wildcards, e.g., localhost,.example.com,192.168..",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

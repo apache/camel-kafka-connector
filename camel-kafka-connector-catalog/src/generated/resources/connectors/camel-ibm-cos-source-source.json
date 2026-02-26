@@ -1,0 +1,122 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ibmcossource.CamelIbmcossourceSourceConnector",
+		"artifactId": "camel-ibm-cos-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ibm-cos-source-source",
+		"type": "source",
+		"version": "4.18.0-SNAPSHOT",
+		"description": "Receive data from an IBM Cloud Object Storage Bucket."
+	},
+	"properties": {
+		"camel.kamelet.ibm-cos-source.bucketName": {
+			"name": "camel.kamelet.ibm-cos-source.bucketName",
+			"description": "The IBM COS Bucket name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-source.apiKey": {
+			"name": "camel.kamelet.ibm-cos-source.apiKey",
+			"description": "IBM Cloud API Key for authentication.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-source.serviceInstanceId": {
+			"name": "camel.kamelet.ibm-cos-source.serviceInstanceId",
+			"description": "IBM COS Service Instance ID (CRN).",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-source.endpointUrl": {
+			"name": "camel.kamelet.ibm-cos-source.endpointUrl",
+			"description": "IBM COS Endpoint URL (e.g., https:\/\/s3.us-south.cloud-object-storage.appdomain.cloud). Example: https:\/\/s3.us-south.cloud-object-storage.appdomain.cloud",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.ibm-cos-source.location": {
+			"name": "camel.kamelet.ibm-cos-source.location",
+			"description": "IBM COS Location\/Region (e.g., us-south, eu-gb). Example: us-south",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.deleteAfterRead": {
+			"name": "camel.kamelet.ibm-cos-source.deleteAfterRead",
+			"description": "Specifies to delete objects after consuming them.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.moveAfterRead": {
+			"name": "camel.kamelet.ibm-cos-source.moveAfterRead",
+			"description": "Move objects from IBM COS bucket to a different bucket after they have been retrieved.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.destinationBucket": {
+			"name": "camel.kamelet.ibm-cos-source.destinationBucket",
+			"description": "Define the destination bucket where an object must be moved when moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.destinationBucketPrefix": {
+			"name": "camel.kamelet.ibm-cos-source.destinationBucketPrefix",
+			"description": "Define the destination bucket prefix to use when an object must be moved, and moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.destinationBucketSuffix": {
+			"name": "camel.kamelet.ibm-cos-source.destinationBucketSuffix",
+			"description": "Define the destination bucket suffix to use when an object must be moved, and moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.autoCreateBucket": {
+			"name": "camel.kamelet.ibm-cos-source.autoCreateBucket",
+			"description": "Specifies to automatically create the IBM COS bucket.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.prefix": {
+			"name": "camel.kamelet.ibm-cos-source.prefix",
+			"description": "The IBM COS bucket prefix to consider while searching. Example: folder\/",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.delimiter": {
+			"name": "camel.kamelet.ibm-cos-source.delimiter",
+			"description": "The delimiter to use for listing objects.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.includeBody": {
+			"name": "camel.kamelet.ibm-cos-source.includeBody",
+			"description": "If true, the object body is included in the exchange. If false, only headers are set.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.includeFolders": {
+			"name": "camel.kamelet.ibm-cos-source.includeFolders",
+			"description": "Include folders\/directories when listing objects.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.delay": {
+			"name": "camel.kamelet.ibm-cos-source.delay",
+			"description": "The number of milliseconds before the next poll of the selected bucket.",
+			"defaultValue": "500",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.ibm-cos-source.maxMessagesPerPoll": {
+			"name": "camel.kamelet.ibm-cos-source.maxMessagesPerPoll",
+			"description": "Gets the maximum number of messages as a limit to poll at each polling. The default value is 10. Use 0 or a negative number to set it as unlimited.",
+			"defaultValue": "10",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

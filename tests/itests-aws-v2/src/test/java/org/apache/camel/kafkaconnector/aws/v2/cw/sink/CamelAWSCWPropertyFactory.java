@@ -42,12 +42,28 @@ public class CamelAWSCWPropertyFactory extends SinkConnectorPropertyFactory<Came
         return setProperty("camel.component.aws2-cw.configuration", classRef(value));
     }
 
+    public CamelAWSCWPropertyFactory withUriEndpointOverride(String value) {
+        return setProperty("camel.kamelet.aws-cloudwatch-sink.uriEndpointOverride", value);
+    }
+
+    public CamelAWSCWPropertyFactory withOverrideEndpoint(boolean value) {
+        return setProperty("camel.kamelet.aws-cloudwatch-sink.overrideEndpoint", value);
+    }
+
     public CamelAWSCWPropertyFactory withAmazonConfig(Properties amazonConfigs) {
         return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
     }
 
     public CamelAWSCWPropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
         AWSPropertiesUtils.setCommonProperties(amazonConfigs, style, this);
+
+        String protocol = amazonConfigs.getProperty(AWSConfigs.PROTOCOL, "");
+        String host = amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST, "");
+
+        if (!protocol.isEmpty() && !host.isEmpty()) {
+            withUriEndpointOverride(protocol + "://" + host);
+            withOverrideEndpoint(true);
+        }
 
         return this;
     }
