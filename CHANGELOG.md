@@ -6,11 +6,13 @@
 
 **Closed issues:**
 
+- Bump to Camel 4.18.0 [\#1745](https://github.com/apache/camel-kafka-connector/issues/1745)
 - SQS Source deletes messages before producing to Kafka [\#1731](https://github.com/apache/camel-kafka-connector/issues/1731)
 - CamelNettyhttpSinkConnector with client keystore \(mtls\) [\#1728](https://github.com/apache/camel-kafka-connector/issues/1728)
 
 **Merged pull requests:**
 
+- Upgrade to Camel 4.18.0 and Camel-Kamelets 4.18.0 [\#1749](https://github.com/apache/camel-kafka-connector/pull/1749) ([oscerd](https://github.com/oscerd))
 - build\(deps\): bump actions/setup-java from 5.1.0 to 5.2.0 [\#1748](https://github.com/apache/camel-kafka-connector/pull/1748) ([dependabot[bot]](https://github.com/apps/dependabot))
 - build\(deps\): bump org.apache.avro:avro from 1.11.4 to 1.11.5 in /core [\#1744](https://github.com/apache/camel-kafka-connector/pull/1744) ([dependabot[bot]](https://github.com/apps/dependabot))
 - build\(deps\): bump actions/upload-artifact from 4 to 6 [\#1743](https://github.com/apache/camel-kafka-connector/pull/1743) ([dependabot[bot]](https://github.com/apps/dependabot))
