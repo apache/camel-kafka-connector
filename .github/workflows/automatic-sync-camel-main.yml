@@ -34,7 +34,7 @@ jobs:
         java: [ '17' ]
     steps:
       - name: Checkout Camel project
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           repository: apache/camel
           ref: main
@@ -58,7 +58,7 @@ jobs:
             clean install
         working-directory: ${{ github.workspace }}/camel
       - name: Checkout camel-kafka-connector project
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           ref: main
           fetch-depth: 0
