@@ -12,6 +12,7 @@
 
 **Merged pull requests:**
 
+- build\(deps\): bump actions/upload-artifact from 6 to 7 [\#1750](https://github.com/apache/camel-kafka-connector/pull/1750) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to Camel 4.18.0 and Camel-Kamelets 4.18.0 [\#1749](https://github.com/apache/camel-kafka-connector/pull/1749) ([oscerd](https://github.com/oscerd))
 - build\(deps\): bump actions/setup-java from 5.1.0 to 5.2.0 [\#1748](https://github.com/apache/camel-kafka-connector/pull/1748) ([dependabot[bot]](https://github.com/apps/dependabot))
 - build\(deps\): bump org.apache.avro:avro from 1.11.4 to 1.11.5 in /core [\#1744](https://github.com/apache/camel-kafka-connector/pull/1744) ([dependabot[bot]](https://github.com/apps/dependabot))
