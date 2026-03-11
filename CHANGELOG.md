@@ -15,6 +15,8 @@
 - build\(deps\): bump actions/upload-artifact from 6 to 7 [\#1750](https://github.com/apache/camel-kafka-connector/pull/1750) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to Camel 4.18.0 and Camel-Kamelets 4.18.0 [\#1749](https://github.com/apache/camel-kafka-connector/pull/1749) ([oscerd](https://github.com/oscerd))
 - build\(deps\): bump actions/setup-java from 5.1.0 to 5.2.0 [\#1748](https://github.com/apache/camel-kafka-connector/pull/1748) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/checkout from 6.0.1 to 6.0.2 [\#1747](https://github.com/apache/camel-kafka-connector/pull/1747) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump peter-evans/create-pull-request from 8.0.0 to 8.1.0 [\#1746](https://github.com/apache/camel-kafka-connector/pull/1746) ([dependabot[bot]](https://github.com/apps/dependabot))
 - build\(deps\): bump org.apache.avro:avro from 1.11.4 to 1.11.5 in /core [\#1744](https://github.com/apache/camel-kafka-connector/pull/1744) ([dependabot[bot]](https://github.com/apps/dependabot))
 - build\(deps\): bump actions/upload-artifact from 4 to 6 [\#1743](https://github.com/apache/camel-kafka-connector/pull/1743) ([dependabot[bot]](https://github.com/apps/dependabot))
 - build\(deps\): bump peter-evans/create-pull-request from 7.0.8 to 8.0.0 [\#1742](https://github.com/apache/camel-kafka-connector/pull/1742) ([dependabot[bot]](https://github.com/apps/dependabot))
