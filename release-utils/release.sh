@@ -71,5 +71,5 @@ if [ "$CHECKOUT_RELEASE_TAG" == Y ]; then
     git checkout -b "$RELEASE_BRANCH"
 fi
 ./mvnw -Prelease -P"$GPG_PROFILE" -DreleaseVersion="$RELEASE_VERSION" -DdevelopmentVersion="$NEXT_VERSION" -Dtag="$RELEASE_TAG" -Dusername="$APACHE_USER" -Dpassword="$APACHE_PASS" release:prepare && \
-git checkout "$RELEASE_TAG" && git add ./*.json && git commit -m"[after release perform chore]: regen catalog descriptors with new version" && git tag -f "$RELEASE_TAG" && git push -f upstream "$RELEASE_TAG" && git checkout "$RELEASE_BRANCH" && \
+git checkout "$RELEASE_TAG" && git add ./*.json && git commit -m"[after release perform chore]: regen catalog descriptors with new version" && git tag -f "$RELEASE_TAG" && git push -f origin "$RELEASE_TAG" && git checkout "$RELEASE_BRANCH" && \
 ./mvnw -Prelease -Pgpg -Dusername="$APACHE_USER" -Dpassword="$APACHE_PASS" release:perform
