@@ -235,7 +235,26 @@ public class CamelKafkaConnectMain extends SimpleMain {
                         idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
                         break;
                     case "kafka":
-                        idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers, idempotentRepositoryKafkaMaxCacheSize, idempotentRepositoryKafkaPollDuration);
+                        // Check if extra Kafka properties (e.g. security.protocol, sasl.*) are provided
+                        Properties idempotentKafkaProps = new Properties();
+                        idempotentKafkaProps.put("bootstrap.servers", idempotentRepositoryKafkaServers);
+                        String idempotencyPrefix = "camel.idempotency.kafka.";
+                        for (Map.Entry<String, String> entry : props.entrySet()) {
+                            String key = entry.getKey();
+                            if (key.startsWith(idempotencyPrefix)
+                                && !key.equals(idempotencyPrefix + "topic")
+                                && !key.equals(idempotencyPrefix + "bootstrap.servers")
+                                && !key.equals(idempotencyPrefix + "max.cache.size")
+                                && !key.equals(idempotencyPrefix + "poll.duration.ms")) {
+                                idempotentKafkaProps.put(key.substring(idempotencyPrefix.length()), entry.getValue());
+                            }
+                        }
+                        if (idempotentKafkaProps.size() > 1) {
+                            LOG.info("Using KafkaIdempotentRepository with additional properties: {}", idempotentKafkaProps.keySet());
+                            idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentKafkaProps, idempotentKafkaProps, idempotentRepositoryKafkaMaxCacheSize, idempotentRepositoryKafkaPollDuration);
+                        } else {
+                            idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers, idempotentRepositoryKafkaMaxCacheSize, idempotentRepositoryKafkaPollDuration);
+                        }
                         break;
                     default:
                         break;
