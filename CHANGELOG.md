@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+## [camel-kafka-connector-4.18.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.18.0) (2026-03-24)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.0...HEAD)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.0...camel-kafka-connector-4.18.0)
 
 **Closed issues:**
 
