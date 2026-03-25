@@ -30,7 +30,7 @@ public class CamelTelegramsinkSinkConnectorConfig
     public static final String CAMEL_SINK_TELEGRAMSINK_KAMELET_AUTHORIZATION_TOKEN_DOC = "The token to access your bot on Telegram. You you can obtain it from the Telegram @botfather.";
     public static final String CAMEL_SINK_TELEGRAMSINK_KAMELET_AUTHORIZATION_TOKEN_DEFAULT = null;
     public static final String CAMEL_SINK_TELEGRAMSINK_KAMELET_CHAT_ID_CONF = "camel.kamelet.telegram-sink.chatId";
-    public static final String CAMEL_SINK_TELEGRAMSINK_KAMELET_CHAT_ID_DOC = "The Chat ID to where you want to send messages by default.   Whilst the Chat ID is not a required Configuration Option it must be provided for every message; either as a Configuration Option or a `chat-id` / `ce-chatid` header.";
+    public static final String CAMEL_SINK_TELEGRAMSINK_KAMELET_CHAT_ID_DOC = "The Chat ID to where you want to send messages by default.";
     public static final String CAMEL_SINK_TELEGRAMSINK_KAMELET_CHAT_ID_DEFAULT = null;
 
     public CamelTelegramsinkSinkConnectorConfig(

@@ -35,7 +35,7 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXF_ENDPOINT_DATA_FORMAT_DEFAULT = "POJO";
     public static final String CAMEL_SINK_CXF_ENDPOINT_WRAPPED_STYLE_CONF = "camel.sink.endpoint.wrappedStyle";
     public static final String CAMEL_SINK_CXF_ENDPOINT_WRAPPED_STYLE_DOC = "The WSDL style that describes how parameters are represented in the SOAP body. If the value is false, CXF will chose the document-literal unwrapped style, If the value is true, CXF will chose the document-literal wrapped style";
-    public static final String CAMEL_SINK_CXF_ENDPOINT_WRAPPED_STYLE_DEFAULT = null;
+    public static final String CAMEL_SINK_CXF_ENDPOINT_WRAPPED_STYLE_DEFAULT = "false";
     public static final String CAMEL_SINK_CXF_ENDPOINT_COOKIE_HANDLER_CONF = "camel.sink.endpoint.cookieHandler";
     public static final String CAMEL_SINK_CXF_ENDPOINT_COOKIE_HANDLER_DOC = "Configure a cookie handler to maintain a HTTP session";
     public static final String CAMEL_SINK_CXF_ENDPOINT_COOKIE_HANDLER_DEFAULT = null;
@@ -62,7 +62,7 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final Boolean CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_CONF = "camel.sink.endpoint.allowStreaming";
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
-    public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT = null;
+    public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT = "false";
     public static final String CAMEL_SINK_CXF_ENDPOINT_BUS_CONF = "camel.sink.endpoint.bus";
     public static final String CAMEL_SINK_CXF_ENDPOINT_BUS_DOC = "To use a custom configured CXF Bus.";
     public static final String CAMEL_SINK_CXF_ENDPOINT_BUS_DEFAULT = null;
@@ -137,7 +137,7 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final Boolean CAMEL_SINK_CXF_COMPONENT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_CONF = "camel.component.cxf.allowStreaming";
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
-    public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT = null;
+    public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT = "false";
     public static final String CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.cxf.autowiredEnabled";
     public static final String CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
