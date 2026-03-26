@@ -1,14 +1,8 @@
 # Changelog
 
-## [camel-kafka-connector-4.18.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.18.0) (2026-03-24)
+## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.0...camel-kafka-connector-4.18.0)
-
-**Closed issues:**
-
-- Bump to Camel 4.18.0 [\#1745](https://github.com/apache/camel-kafka-connector/issues/1745)
-- SQS Source deletes messages before producing to Kafka [\#1731](https://github.com/apache/camel-kafka-connector/issues/1731)
-- CamelNettyhttpSinkConnector with client keystore \(mtls\) [\#1728](https://github.com/apache/camel-kafka-connector/issues/1728)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.5...HEAD)
 
 **Merged pull requests:**
 
@@ -479,6 +473,20 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-4.14.5](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.14.5) (2026-03-25)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.18.0...camel-kafka-connector-4.14.5)
+
+## [camel-kafka-connector-4.18.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.18.0) (2026-03-25)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.0...camel-kafka-connector-4.18.0)
+
+**Closed issues:**
+
+- Bump to Camel 4.18.0 [\#1745](https://github.com/apache/camel-kafka-connector/issues/1745)
+- SQS Source deletes messages before producing to Kafka [\#1731](https://github.com/apache/camel-kafka-connector/issues/1731)
+- CamelNettyhttpSinkConnector with client keystore \(mtls\) [\#1728](https://github.com/apache/camel-kafka-connector/issues/1728)
 
 ## [camel-kafka-connector-4.14.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-4.14.0) (2025-09-23)
 
