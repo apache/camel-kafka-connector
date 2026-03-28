@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Pin CloudWatch LocalStack image to community-archive [\#1752](https://github.com/apache/camel-kafka-connector/pull/1752) ([Croway](https://github.com/Croway))
 - build\(deps\): bump actions/upload-artifact from 6 to 7 [\#1750](https://github.com/apache/camel-kafka-connector/pull/1750) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to Camel 4.18.0 and Camel-Kamelets 4.18.0 [\#1749](https://github.com/apache/camel-kafka-connector/pull/1749) ([oscerd](https://github.com/oscerd))
 - build\(deps\): bump actions/setup-java from 5.1.0 to 5.2.0 [\#1748](https://github.com/apache/camel-kafka-connector/pull/1748) ([dependabot[bot]](https://github.com/apps/dependabot))
