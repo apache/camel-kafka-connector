@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-counter-source-source",
 		"type": "source",
-		"version": "4.18.0-SNAPSHOT",
+		"version": "4.18.1-SNAPSHOT",
 		"description": "Generates sequential number events starting from a configurable value, incrementing by a specified step. Useful for testing, scheduled tasks, or creating ordered event sequences."
 	},
 	"properties": {
