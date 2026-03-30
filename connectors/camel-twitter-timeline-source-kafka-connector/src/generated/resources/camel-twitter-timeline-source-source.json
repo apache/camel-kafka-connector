@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-twitter-timeline-source-source",
 		"type": "source",
-		"version": "4.18.0-SNAPSHOT",
+		"version": "4.19.0-SNAPSHOT",
 		"description": "Allows to get tweets from the timeline of a specific user from Twitter."
 	},
 	"properties": {

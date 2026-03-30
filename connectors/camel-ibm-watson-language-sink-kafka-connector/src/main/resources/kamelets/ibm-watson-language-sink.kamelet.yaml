@@ -21,7 +21,7 @@ metadata:
   name: ibm-watson-language-sink
   annotations:
     camel.apache.org/kamelet.support.level: "Preview"
-    camel.apache.org/catalog.version: "4.18.0"
+    camel.apache.org/catalog.version: "4.19.0-SNAPSHOT"
     camel.apache.org/kamelet.icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPHBhdGggZD0iTTAgMGgyNTZ2MjU2SDB6Ii8+CiAgICA8cGF0aCBkPSJNMTI4IDIwYTEwOCAxMDggMCAxIDEgMCAyMTYgMTA4IDEwOCAwIDAgMSAwLTIxNnptMCAyNGE4NCA4NCAwIDEgMCAwIDE2OCA4NCA4NCAwIDAgMCAwLTE2OHoiIGZpbGw9IiMwNTNFRkYiLz4KICAgIDxwYXRoIGQ9Ik0xMjggNzJhNTYgNTYgMCAxIDEgMCAxMTIgNTYgNTYgMCAwIDEgMC0xMTJ6bTAgMjRhMzIgMzIgMCAxIDAgMCA2NCAzMiAzMiAwIDAgMCAwLTY0eiIgZmlsbD0iIzA1M0VGRiIvPgogIDwvZz4KPC9zdmc+"
     camel.apache.org/provider: "Apache Software Foundation"
     camel.apache.org/kamelet.group: "IBM Watson"

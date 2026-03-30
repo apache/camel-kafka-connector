@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>connectors</artifactId>
-    <version>4.18.0-SNAPSHOT</version>
+    <version>4.19.0-SNAPSHOT</version>
   </parent>
   <artifactId>camel-databricks-sink-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: databricks-sink</name>
@@ -59,17 +59,17 @@
       <artifactId>camel-sql</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.databricks</groupId>
+      <artifactId>databricks-jdbc</artifactId>
+      <version>3.3.1</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-yaml-dsl</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-kamelet</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.databricks</groupId>
-      <artifactId>databricks-jdbc</artifactId>
-      <version>3.0.7</version>
     </dependency>
     <!--END OF GENERATED CODE-->
   </dependencies>
