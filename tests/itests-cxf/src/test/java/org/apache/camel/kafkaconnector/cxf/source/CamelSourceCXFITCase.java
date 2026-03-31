@@ -17,6 +17,10 @@
 
 package org.apache.camel.kafkaconnector.cxf.source;
 
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.time.Duration;
+
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
@@ -24,6 +28,7 @@ import org.apache.camel.kafkaconnector.cxf.client.CXFServiceUtil;
 import org.apache.camel.kafkaconnector.cxf.common.HelloService;
 import org.apache.camel.test.infra.common.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.awaitility.Awaitility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,16 +58,32 @@ public abstract class CamelSourceCXFITCase extends CamelSourceTestSupport {
     protected void produceTestData() {
         TestUtils.waitFor(() -> NetworkUtils.portIsOpen("localhost", PORT));
 
+        // Wait for the CXF endpoint to be fully registered (WSDL available)
+        Awaitility.await()
+                .atMost(Duration.ofSeconds(30))
+                .pollInterval(Duration.ofSeconds(1))
+                .pollDelay(Duration.ZERO)
+                .until(() -> {
+                    try {
+                        HttpURLConnection conn = (HttpURLConnection) URI.create(SIMPLE_ENDPOINT_ADDRESS + "?wsdl").toURL().openConnection();
+                        conn.setRequestMethod("GET");
+                        conn.setConnectTimeout(1000);
+                        conn.setReadTimeout(1000);
+                        int code = conn.getResponseCode();
+                        conn.disconnect();
+                        return code == 200;
+                    } catch (Exception e) {
+                        return false;
+                    }
+                });
+
         try {
             HelloService client = CXFServiceUtil.getService(SIMPLE_ENDPOINT_ADDRESS, HelloService.class);
-
             for (int i = 0; i < expect; i++) {
                 client.echo("Test message " + i);
             }
-
-
         } catch (Exception e) {
-            LOG.info("Unable to invoke service: {}", e.getMessage(), e);
+            LOG.error("Unable to invoke service: {}", e.getMessage(), e);
             fail("Unable to invoke service");
         }
     }

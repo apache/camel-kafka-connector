@@ -20,7 +20,6 @@ package org.apache.camel.kafkaconnector.common.services.kafkaconnect;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.common.PluginPathHelper;
-import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.kafka.connect.runtime.rest.RestServerConfig;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 import org.slf4j.Logger;
