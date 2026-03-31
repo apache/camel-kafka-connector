@@ -49,7 +49,7 @@ public abstract class AbstractKafkaTest {
                 .addRemoteMapping(RemoteKafkaService::new)
                 .addMapping("embedded", EmbeddedKafkaService::new)
                 .addMapping("local-strimzi-container", StrimziService::new)
-                .addMapping("local-cp-kafka-container", ContainerLocalKafkaService::kafka3Container)
+                .addMapping("local-kafka-container", ContainerLocalKafkaService::kafkaContainer)
                 .build();
 
         kafkaService.initialize();
