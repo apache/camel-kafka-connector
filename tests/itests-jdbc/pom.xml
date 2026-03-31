@@ -47,7 +47,6 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-infra-common</artifactId>
             <version>${camel.version}</version>
-            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
 
@@ -55,7 +54,6 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-infra-jdbc</artifactId>
             <version>${camel.version}</version>
-            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
 

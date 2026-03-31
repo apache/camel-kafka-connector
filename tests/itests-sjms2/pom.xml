@@ -41,7 +41,6 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-infra-common</artifactId>
             <version>${camel.version}</version>
-            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
 
@@ -49,7 +48,6 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-infra-messaging-common</artifactId>
             <version>${camel.version}</version>
-            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
 
@@ -57,7 +55,6 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-infra-dispatch-router</artifactId>
             <version>${camel.version}</version>
-            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
 
