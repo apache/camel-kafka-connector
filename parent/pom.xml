@@ -47,14 +47,14 @@
         <version.maven.buildhelper>1.12</version.maven.buildhelper>
         <version.maven.bundle>3.5.1</version.maven.bundle>
         <version.maven.jar>3.1.0</version.maven.jar>
-        <version.maven.failsafe>3.2.5</version.maven.failsafe>
-        <version.maven.surefire>3.2.5</version.maven.surefire>
+        <version.maven.failsafe>3.5.4</version.maven.failsafe>
+        <version.maven.surefire>3.5.4</version.maven.surefire>
         <version.scala.library>2.12.12</version.scala.library>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>
 
         <version.maven.checkstyle>8.29</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.1.0</version.maven.checkstyle.plugin>
-        <version.maven.surefire.plugin>3.2.5</version.maven.surefire.plugin>
+        <version.maven.surefire.plugin>3.5.4</version.maven.surefire.plugin>
         <version.plexus.build.api>0.0.7</version.plexus.build.api>
 
         <mycila-license-version>3.0</mycila-license-version>
