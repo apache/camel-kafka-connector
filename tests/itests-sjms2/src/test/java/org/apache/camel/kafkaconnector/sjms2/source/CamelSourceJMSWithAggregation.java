@@ -28,8 +28,7 @@ import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.camel.test.infra.common.TestUtils;
-import org.apache.camel.test.infra.messaging.services.MessagingService;
-import org.apache.camel.test.infra.messaging.services.MessagingServiceFactory;
+import org.apache.camel.test.infra.artemis.services.ArtemisService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,10 +42,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceJMSWithAggregation extends CamelSourceTestSupport {
     @RegisterExtension
-    public static MessagingService jmsService = MessagingServiceFactory
-            .builder()
-            .addLocalMapping(SJMS2Common::createLocalService)
-            .build();
+    public static ArtemisService jmsService = SJMS2Common.createJMSService();
 
     private final int sentSize = 10;
     private final int expect = 1;
@@ -83,7 +79,7 @@ public class CamelSourceJMSWithAggregation extends CamelSourceTestSupport {
         Properties properties = new Properties();
 
         properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
-        properties.put("camel.component.sjms2.connection-factory.remoteURI", jmsService.defaultEndpoint());
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", jmsService.brokerUrl());
 
         return properties;
     }
@@ -95,7 +91,7 @@ public class CamelSourceJMSWithAggregation extends CamelSourceTestSupport {
 
     @BeforeAll
     public void setupClient() {
-        jmsClient = JMSClient.newClient(jmsService.defaultEndpoint());
+        jmsClient = JMSClient.newClient(jmsService.brokerUrl());
 
         for (int i = 0; i < sentSize - 1; i++) {
             expectedMessage += "hello;\n";

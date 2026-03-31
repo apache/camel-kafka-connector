@@ -17,8 +17,8 @@
 
 package org.apache.camel.kafkaconnector.sjms2.common;
 
-import org.apache.camel.test.infra.dispatch.router.services.DispatchRouterContainer;
-import org.apache.camel.test.infra.messaging.services.MessagingServiceFactory;
+import org.apache.camel.test.infra.artemis.services.ArtemisService;
+import org.apache.camel.test.infra.artemis.services.ArtemisServiceFactory;
 
 public final class SJMS2Common {
     /**
@@ -30,9 +30,7 @@ public final class SJMS2Common {
 
     }
 
-    public static MessagingServiceFactory.MessagingLocalContainerService<DispatchRouterContainer> createLocalService() {
-        DispatchRouterContainer container = new DispatchRouterContainer();
-
-        return new MessagingServiceFactory.MessagingLocalContainerService<>(container, c -> container.defaultEndpoint());
+    public static ArtemisService createJMSService() {
+        return ArtemisServiceFactory.createAMQPService();
     }
 }
