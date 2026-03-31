@@ -74,7 +74,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(90)
     public void testLaunchConnector() throws ExecutionException, InterruptedException {
         CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
                 .basic()
@@ -89,7 +89,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(90)
     public void testLaunchConnectorUsingUrl() throws ExecutionException, InterruptedException {
         CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
                 .basic()

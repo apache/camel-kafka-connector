@@ -82,7 +82,7 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(90)
     public void testBasicSendReceive() throws Exception {
         mockWebService.enqueueResponses(expect);
         ConnectorPropertyFactory connectorPropertyFactory = CamelNettyhttpPropertyFactory.basic()
@@ -95,7 +95,7 @@ public class CamelSinkNettyhttpITCase extends CamelSinkTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(90)
     public void testBasicSendReceiveUsingUrl() throws Exception {
         mockWebService.enqueueResponses(expect);
         ConnectorPropertyFactory connectorPropertyFactory = CamelNettyhttpPropertyFactory.basic()

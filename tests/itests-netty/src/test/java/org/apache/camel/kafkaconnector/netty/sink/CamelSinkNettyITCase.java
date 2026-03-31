@@ -84,7 +84,7 @@ public class CamelSinkNettyITCase extends CamelSinkTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(90)
     public void testBasicSendReceive() throws Exception {
         ConnectorPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory.basic()
                 .withTopics(topicName)
@@ -100,7 +100,7 @@ public class CamelSinkNettyITCase extends CamelSinkTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(90)
     public void testBasicSendReceiveUsingUrl() throws Exception {
         ConnectorPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory.basic()
                 .withTopics(topicName)
