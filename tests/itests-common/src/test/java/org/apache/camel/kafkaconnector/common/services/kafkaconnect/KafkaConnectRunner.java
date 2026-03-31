@@ -31,6 +31,8 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
 import org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy;
+import org.apache.kafka.connect.json.JsonConverter;
+import org.apache.kafka.connect.json.JsonConverterConfig;
 import org.apache.kafka.connect.runtime.Connect;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 import org.apache.kafka.connect.runtime.Herder;
@@ -44,7 +46,7 @@ import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 import org.apache.kafka.connect.runtime.standalone.StandaloneHerder;
 import org.apache.kafka.connect.storage.FileOffsetBackingStore;
-import org.apache.kafka.connect.storage.StringConverter;
+import org.apache.kafka.connect.storage.OffsetBackingStore;
 import org.apache.kafka.connect.util.FutureCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -116,36 +118,32 @@ class KafkaConnectRunner {
 
         Time time = Time.SYSTEM;
 
-        // Initializes the system runtime information and logs some of the information
         WorkerInfo initInfo = new WorkerInfo();
         initInfo.logAll();
 
         Properties props = kafkaConnectPropertyFactory.getProperties();
-
         Map<String, String> standAloneProperties = Utils.propsToStringMap(props);
 
-        // Not needed, but we need this one to initialize the worker
         Plugins plugins = new Plugins(standAloneProperties);
+        plugins.compareAndSwapWithDelegatingLoader();
 
         StandaloneConfig config = new StandaloneConfig(standAloneProperties);
-        String kafkaClusterId = config.kafkaClusterId();
         AllConnectorClientConfigOverridePolicy allConnectorClientConfigOverridePolicy = new AllConnectorClientConfigOverridePolicy();
 
         RestClient restClient = new RestClient(config);
-        ConnectRestServer rest = new ConnectRestServer(10, restClient, standAloneProperties);
+        ConnectRestServer rest = new ConnectRestServer(config.rebalanceTimeout(), restClient, config.originals());
         rest.initializeServer();
 
-        /*
-         According to the Kafka source code "... Worker runs a (dynamic) set of tasks
-         in a set of threads, doing the work of actually moving data to/from Kafka ..."
-         */
-        Worker worker = new Worker(bootstrapServer, time, plugins, config, new FileOffsetBackingStore(new StringConverter()), allConnectorClientConfigOverridePolicy);
+        String workerId = rest.advertisedUrl().getHost() + ":" + rest.advertisedUrl().getPort();
 
-        /*
-        From Kafka source code: " ... The herder interface tracks and manages workers
-        and connectors ..."
-         */
-        herder = new StandaloneHerder(worker, kafkaClusterId, allConnectorClientConfigOverridePolicy);
+        OffsetBackingStore offsetBackingStore = new FileOffsetBackingStore(plugins.newInternalConverter(
+                true, JsonConverter.class.getName(),
+                java.util.Collections.singletonMap(JsonConverterConfig.SCHEMAS_ENABLE_CONFIG, "false")));
+        offsetBackingStore.configure(config);
+
+        Worker worker = new Worker(workerId, time, plugins, config, offsetBackingStore, allConnectorClientConfigOverridePolicy);
+
+        herder = new StandaloneHerder(worker, config.kafkaClusterId(), allConnectorClientConfigOverridePolicy);
         connect = new Connect(herder, rest);
         LOG.info("Finished initializing the worker");
     }
