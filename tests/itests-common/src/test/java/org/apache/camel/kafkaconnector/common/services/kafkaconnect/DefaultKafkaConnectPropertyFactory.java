@@ -55,8 +55,8 @@ class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory 
         props.put(StandaloneConfig.OFFSET_STORAGE_FILE_FILENAME_CONFIG, this.getClass().getResource("/").getPath() + "connect.offsets");
         props.put(StandaloneConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, "10000");
 
-        String address = NetworkUtils.getAddress("http");
-        LOG.info("Using the following address for  the listener configuration: {}", address);
+        String address = "http://localhost:0";
+        LOG.info("Using the following address for the listener configuration: {}", address);
         props.put(RestServerConfig.LISTENERS_CONFIG, address);
 
         String pluginPaths = PluginPathHelper.getInstance().pluginPaths();

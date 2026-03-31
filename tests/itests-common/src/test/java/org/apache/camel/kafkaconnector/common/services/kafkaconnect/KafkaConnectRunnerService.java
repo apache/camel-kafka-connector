@@ -39,7 +39,7 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
     private static final Logger LOG = LoggerFactory.getLogger(KafkaConnectRunnerService.class);
 
     private final KafkaConnectRunner kafkaConnectRunner;
-    private final ExecutorService service = Executors.newCachedThreadPool();
+    private ExecutorService service;
 
 
     public KafkaConnectRunnerService(KafkaService kafkaService) {
@@ -97,16 +97,20 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
 
     public void stop() {
         kafkaConnectRunner.stop();
+        service.shutdown();
         try {
-            if (!service.awaitTermination(5, TimeUnit.SECONDS)) {
-                LOG.warn("Timed out while waiting for the embedded runner to stop");
+            if (!service.awaitTermination(10, TimeUnit.SECONDS)) {
+                LOG.warn("Timed out while waiting for the embedded runner to stop, forcing shutdown");
+                service.shutdownNow();
             }
         } catch (InterruptedException e) {
             LOG.warn("The test was interrupted while executing");
+            service.shutdownNow();
         }
     }
 
     public void start() {
+        service = Executors.newCachedThreadPool();
         CountDownLatch latch = new CountDownLatch(1);
         service.submit(() -> kafkaConnectRunner.run(latch));
 
