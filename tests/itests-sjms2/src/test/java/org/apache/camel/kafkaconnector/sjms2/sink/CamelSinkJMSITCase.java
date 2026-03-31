@@ -29,8 +29,7 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
-import org.apache.camel.test.infra.messaging.services.MessagingService;
-import org.apache.camel.test.infra.messaging.services.MessagingServiceFactory;
+import org.apache.camel.test.infra.artemis.services.ArtemisService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -48,10 +47,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkJMSITCase extends CamelSinkTestSupport {
     @RegisterExtension
-    public static MessagingService jmsService = MessagingServiceFactory
-            .builder()
-            .addLocalMapping(SJMS2Common::createLocalService)
-            .build();
+    public static ArtemisService jmsService = SJMS2Common.createJMSService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
 
@@ -63,7 +59,7 @@ public class CamelSinkJMSITCase extends CamelSinkTestSupport {
         Properties properties = new Properties();
 
         properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
-        properties.put("camel.component.sjms2.connection-factory.remoteURI", jmsService.defaultEndpoint());
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", jmsService.brokerUrl());
 
         return properties;
     }
@@ -75,7 +71,7 @@ public class CamelSinkJMSITCase extends CamelSinkTestSupport {
 
     @BeforeEach
     public void setUp() {
-        LOG.info("JMS service running at {}", jmsService.defaultEndpoint());
+        LOG.info("JMS service running at {}", jmsService.brokerUrl());
         received = 0;
 
         topicName = getTopicForTest(this);
@@ -117,7 +113,7 @@ public class CamelSinkJMSITCase extends CamelSinkTestSupport {
         JMSClient jmsClient = null;
 
         try {
-            jmsClient = JMSClient.newClient(jmsService.defaultEndpoint());
+            jmsClient = JMSClient.newClient(jmsService.brokerUrl());
 
             jmsClient.start();
             try (MessageConsumer consumer = jmsClient.createConsumer(SJMS2Common.DEFAULT_JMS_QUEUE)) {
