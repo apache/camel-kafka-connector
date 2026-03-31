@@ -47,14 +47,14 @@
         <version.maven.buildhelper>1.12</version.maven.buildhelper>
         <version.maven.bundle>3.5.1</version.maven.bundle>
         <version.maven.jar>3.1.0</version.maven.jar>
-        <version.maven.failsafe>3.5.4</version.maven.failsafe>
-        <version.maven.surefire>3.5.4</version.maven.surefire>
+        <version.maven.failsafe>3.5.5</version.maven.failsafe>
+        <version.maven.surefire>3.5.5</version.maven.surefire>
         <version.scala.library>2.12.12</version.scala.library>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>
 
         <version.maven.checkstyle>8.29</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.1.0</version.maven.checkstyle.plugin>
-        <version.maven.surefire.plugin>3.5.4</version.maven.surefire.plugin>
+        <version.maven.surefire.plugin>3.5.5</version.maven.surefire.plugin>
         <version.plexus.build.api>0.0.7</version.plexus.build.api>
 
         <mycila-license-version>3.0</mycila-license-version>
@@ -169,25 +169,7 @@
                 <type>test-jar</type>
             </dependency>
 
-            <!--  Test dependencies -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>${junit-jupiter-version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>${junit-jupiter-version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-params</artifactId>
-                <version>${junit-jupiter-version}</version>
-                <scope>test</scope>
-            </dependency>
+            <!--  Test dependencies (JUnit versions managed by junit-bom via camel-parent) -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-ext</artifactId>
@@ -343,6 +325,23 @@
                     <configuration>
                         <failIfNoTests>false</failIfNoTests>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.junit.platform</groupId>
+                            <artifactId>junit-platform-launcher</artifactId>
+                            <version>${junit6-jupiter-version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.junit.platform</groupId>
+                            <artifactId>junit-platform-engine</artifactId>
+                            <version>${junit6-jupiter-version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.junit.platform</groupId>
+                            <artifactId>junit-platform-commons</artifactId>
+                            <version>${junit6-jupiter-version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <plugin>
@@ -363,6 +362,23 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>${version.maven.failsafe}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.junit.platform</groupId>
+                            <artifactId>junit-platform-launcher</artifactId>
+                            <version>${junit6-jupiter-version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.junit.platform</groupId>
+                            <artifactId>junit-platform-engine</artifactId>
+                            <version>${junit6-jupiter-version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.junit.platform</groupId>
+                            <artifactId>junit-platform-commons</artifactId>
+                            <version>${junit6-jupiter-version}</version>
+                        </dependency>
+                    </dependencies>
                     <executions>
                         <execution>
                             <id>integration-test</id>
