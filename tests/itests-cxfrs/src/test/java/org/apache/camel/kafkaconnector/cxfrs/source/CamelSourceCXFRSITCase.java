@@ -17,6 +17,8 @@
 
 package org.apache.camel.kafkaconnector.cxfrs.source;
 
+import java.time.Duration;
+
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
@@ -31,6 +33,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.awaitility.Awaitility;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -72,20 +75,16 @@ public class CamelSourceCXFRSITCase extends CamelSourceTestSupport {
     @Override
     protected void produceTestData() {
         TestUtils.waitFor(() -> NetworkUtils.portIsOpen(LOCALHOST, PORT));
-        try {
-            Bus bus = BusFactory.newInstance().createBus();
 
-            bus.getInInterceptors().add(new LoggingInInterceptor());
-            bus.getOutInterceptors().add(new LoggingOutInterceptor());
-            try {
-                doTestGetCustomer("rest");
-            } catch (Exception e) {
-                LOG.info("Test Invocation Failure", e);
-            }
-        } catch (Exception e) {
-            LOG.info("Unable to invoke service: {}", e.getMessage(), e);
-            fail("Unable to invoke service");
-        }
+        Bus bus = BusFactory.newInstance().createBus();
+        bus.getInInterceptors().add(new LoggingInInterceptor());
+        bus.getOutInterceptors().add(new LoggingOutInterceptor());
+
+        Awaitility.await()
+                .atMost(Duration.ofSeconds(30))
+                .pollInterval(Duration.ofSeconds(1))
+                .pollDelay(Duration.ZERO)
+                .untilAsserted(() -> doTestGetCustomer("rest"));
     }
 
     @Override
@@ -103,7 +102,7 @@ public class CamelSourceCXFRSITCase extends CamelSourceTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(90)
     public void testBasicSendReceive() {
         try {
             String topicName = getTopicForTest(this);
