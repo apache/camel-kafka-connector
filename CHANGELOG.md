@@ -6,6 +6,8 @@
 
 **Merged pull requests:**
 
+- Fix integration tests for Kafka 3.9.1 and Camel 4.19.0 [\#1754](https://github.com/apache/camel-kafka-connector/pull/1754) ([Croway](https://github.com/Croway))
+- Upgrade maven-surefire/failsafe plugins to 3.5.4 [\#1753](https://github.com/apache/camel-kafka-connector/pull/1753) ([Croway](https://github.com/Croway))
 - Pin CloudWatch LocalStack image to community-archive [\#1752](https://github.com/apache/camel-kafka-connector/pull/1752) ([Croway](https://github.com/Croway))
 - build\(deps\): bump actions/upload-artifact from 6 to 7 [\#1750](https://github.com/apache/camel-kafka-connector/pull/1750) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to Camel 4.18.0 and Camel-Kamelets 4.18.0 [\#1749](https://github.com/apache/camel-kafka-connector/pull/1749) ([oscerd](https://github.com/oscerd))
