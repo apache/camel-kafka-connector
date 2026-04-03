@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
 public final class NetworkUtils {
     
     public static final int  DEFAULT_ENDING_PORT = 65535;
-    public static final int  DEFAULT_STARTING_PORT = 49152;
+    public static final int  DEFAULT_STARTING_PORT = System.getProperty("os.name", "").toLowerCase().contains("mac") ? 20000 : 49152;
     public static int freeStartingPort = DEFAULT_STARTING_PORT;
     private static final Logger LOG = LoggerFactory.getLogger(NetworkUtils.class);
 
