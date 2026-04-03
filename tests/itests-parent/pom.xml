@@ -231,6 +231,7 @@
                 <version>${version.maven.surefire.plugin}</version>
                 <configuration>
                     <failIfNoTests>false</failIfNoTests>
+                    <argLine>${common.failsafe.args}</argLine>
                 </configuration>
             </plugin>
 
