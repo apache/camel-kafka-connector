@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Fix integration test failures: surefire argLine and macOS port conflicts [\#1755](https://github.com/apache/camel-kafka-connector/pull/1755) ([Croway](https://github.com/Croway))
 - Fix integration tests for Kafka 3.9.1 and Camel 4.19.0 [\#1754](https://github.com/apache/camel-kafka-connector/pull/1754) ([Croway](https://github.com/Croway))
 - Upgrade maven-surefire/failsafe plugins to 3.5.4 [\#1753](https://github.com/apache/camel-kafka-connector/pull/1753) ([Croway](https://github.com/Croway))
 - Pin CloudWatch LocalStack image to community-archive [\#1752](https://github.com/apache/camel-kafka-connector/pull/1752) ([Croway](https://github.com/Croway))
