@@ -30,6 +30,7 @@ import com.couchbase.client.core.service.ServiceType;
 import com.couchbase.client.java.Cluster;
 import com.couchbase.client.java.json.JsonObject;
 import com.couchbase.client.java.manager.bucket.BucketSettings;
+import com.couchbase.client.java.manager.bucket.StorageBackend;
 import com.couchbase.client.java.query.QueryResult;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
@@ -109,7 +110,7 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
 
         LOG.debug("Creating a new bucket named {}", bucketName);
 
-        cluster.buckets().createBucket(BucketSettings.create(bucketName));
+        cluster.buckets().createBucket(BucketSettings.create(bucketName).storageBackend(StorageBackend.COUCHSTORE));
         PingResult pingResult = cluster.bucket(bucketName).ping();
         pingResult.endpoints().entrySet().forEach(this::checkEndpoints);
 
