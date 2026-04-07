@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.elasticsearch.sink;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -56,6 +57,7 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
                         ElasticsearchContainer container =
                                 new ElasticsearchContainer("docker.elastic.co/elasticsearch/elasticsearch:9.1.0");
                         container.addEnv("xpack.security.enabled", "true");
+                        container.withStartupTimeout(Duration.ofSeconds(180));
                         return new ElasticSearchLocalContainerTestService(container);
                     }
                 }
@@ -122,7 +124,7 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
     }
 
     @Test
-    @Timeout(90)
+    @Timeout(180)
     public void testIndexOperation() throws Exception {
         ConnectorPropertyFactory propertyFactory = CamelElasticSearchPropertyFactory
                 .basic()
