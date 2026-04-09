@@ -239,6 +239,10 @@
 **** xref:reference/connectors/camel-jms-amqp-10-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jms-amqp-10-source-kafka-connector
 **** xref:reference/connectors/camel-jms-amqp-10-source-kafka-source-connector.adoc[Source Docs]
+*** camel-jms-amqp-10-ssl-sink-kafka-connector
+**** xref:reference/connectors/camel-jms-amqp-10-ssl-sink-kafka-sink-connector.adoc[Sink Docs]
+*** camel-jms-amqp-10-ssl-source-kafka-connector
+**** xref:reference/connectors/camel-jms-amqp-10-ssl-source-kafka-source-connector.adoc[Source Docs]
 *** camel-jms-apache-artemis-sink-kafka-connector
 **** xref:reference/connectors/camel-jms-apache-artemis-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jms-apache-artemis-source-kafka-connector
