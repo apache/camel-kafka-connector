@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 193 
+Number of Camel Kafka connectors: 195 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -114,6 +114,8 @@ Number of Camel Kafka connectors: 193
 | *camel-jdbc-kafka-connector* | true | false | xref:reference/connectors/camel-jdbc-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jdbc-kafka-connector/4.14.0/camel-jdbc-kafka-connector-4.14.0-package.tar.gz[Download]
 | *camel-jms-amqp-10-sink-kafka-connector* | true | false | xref:reference/connectors/camel-jms-amqp-10-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jms-amqp-10-sink-kafka-connector/4.14.0/camel-jms-amqp-10-sink-kafka-connector-4.14.0-package.tar.gz[Download]
 | *camel-jms-amqp-10-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-jms-amqp-10-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jms-amqp-10-source-kafka-connector/4.14.0/camel-jms-amqp-10-source-kafka-connector-4.14.0-package.tar.gz[Download]
+| *camel-jms-amqp-10-ssl-sink-kafka-connector* | true | false | xref:reference/connectors/camel-jms-amqp-10-ssl-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jms-amqp-10-ssl-sink-kafka-connector/4.14.0/camel-jms-amqp-10-ssl-sink-kafka-connector-4.14.0-package.tar.gz[Download]
+| *camel-jms-amqp-10-ssl-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-jms-amqp-10-ssl-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jms-amqp-10-ssl-source-kafka-connector/4.14.0/camel-jms-amqp-10-ssl-source-kafka-connector-4.14.0-package.tar.gz[Download]
 | *camel-jms-apache-artemis-sink-kafka-connector* | true | false | xref:reference/connectors/camel-jms-apache-artemis-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jms-apache-artemis-sink-kafka-connector/4.14.0/camel-jms-apache-artemis-sink-kafka-connector-4.14.0-package.tar.gz[Download]
 | *camel-jms-apache-artemis-source-kafka-connector* | false | true |  | xref:reference/connectors/camel-jms-apache-artemis-source-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jms-apache-artemis-source-kafka-connector/4.14.0/camel-jms-apache-artemis-source-kafka-connector-4.14.0-package.tar.gz[Download]
 | *camel-jms-ibm-mq-sink-kafka-connector* | true | false | xref:reference/connectors/camel-jms-ibm-mq-sink-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-jms-ibm-mq-sink-kafka-connector/4.14.0/camel-jms-ibm-mq-sink-kafka-connector-4.14.0-package.tar.gz[Download]
