@@ -1,0 +1,32 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jmsamqp10sslsource.CamelJmsamqp10sslsourceSourceConnector",
+		"artifactId": "camel-jms-amqp-10-ssl-source-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jms-amqp-10-ssl-source-source",
+		"type": "source",
+		"version": "4.19.0-SNAPSHOT",
+		"description": "Consume data from any AMQP 1.0 compliant message broker over an SSL\/TLS connection by using the Apache Qpid JMS client. SSL transport options can be configured as query parameters on the remoteURI (e.g. transport.trustStoreLocation, transport.trustStorePassword, transport.keyStoreLocation, transport.keyStorePassword, transport.verifyHost, transport.trustAll)."
+	},
+	"properties": {
+		"camel.kamelet.jms-amqp-10-ssl-source.destinationType": {
+			"name": "camel.kamelet.jms-amqp-10-ssl-source.destinationType",
+			"description": "The JMS destination type (queue or topic).",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.kamelet.jms-amqp-10-ssl-source.destinationName": {
+			"name": "camel.kamelet.jms-amqp-10-ssl-source.destinationName",
+			"description": "The JMS destination name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.kamelet.jms-amqp-10-ssl-source.remoteURI": {
+			"name": "camel.kamelet.jms-amqp-10-ssl-source.remoteURI",
+			"description": "The JMS URL with amqps scheme and SSL transport options as query parameters. Example: amqps:\/\/my-host:5671?transport.trustStoreLocation=\/path\/to\/truststore.jks&transport.trustStorePassword=changeit",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}
