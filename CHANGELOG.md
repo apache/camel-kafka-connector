@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1758](https://github.com/apache/camel-kafka-connector/pull/1758) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix Couchbase sink test for Couchbase 8.0.0 [\#1757](https://github.com/apache/camel-kafka-connector/pull/1757) ([Croway](https://github.com/Croway))
 - ci: increase Elasticsearch container startup timeout to 180s [\#1756](https://github.com/apache/camel-kafka-connector/pull/1756) ([Croway](https://github.com/Croway))
 - Fix integration test failures: surefire argLine and macOS port conflicts [\#1755](https://github.com/apache/camel-kafka-connector/pull/1755) ([Croway](https://github.com/Croway))
