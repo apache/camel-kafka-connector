@@ -102,7 +102,7 @@
 		},
 		"camel.sink.endpoint.replyToConcurrentConsumers": {
 			"name": "camel.sink.endpoint.replyToConcurrentConsumers",
-			"description": "Specifies the default number of concurrent consumers when doing request\/reply over JMS. See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads.",
+			"description": "Specifies the default number of concurrent consumers when doing request\/reply over JMS.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
