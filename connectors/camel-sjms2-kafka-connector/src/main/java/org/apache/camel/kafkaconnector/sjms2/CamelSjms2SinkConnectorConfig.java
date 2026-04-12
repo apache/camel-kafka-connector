@@ -55,7 +55,7 @@ public class CamelSjms2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SJMS2_ENDPOINT_PRIORITY_DOC = "Values greater than 1 specify the message priority when sending (where 1 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]";
     public static final Integer CAMEL_SINK_SJMS2_ENDPOINT_PRIORITY_DEFAULT = 4;
     public static final String CAMEL_SINK_SJMS2_ENDPOINT_REPLY_TO_CONCURRENT_CONSUMERS_CONF = "camel.sink.endpoint.replyToConcurrentConsumers";
-    public static final String CAMEL_SINK_SJMS2_ENDPOINT_REPLY_TO_CONCURRENT_CONSUMERS_DOC = "Specifies the default number of concurrent consumers when doing request/reply over JMS. See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.";
+    public static final String CAMEL_SINK_SJMS2_ENDPOINT_REPLY_TO_CONCURRENT_CONSUMERS_DOC = "Specifies the default number of concurrent consumers when doing request/reply over JMS.";
     public static final Integer CAMEL_SINK_SJMS2_ENDPOINT_REPLY_TO_CONCURRENT_CONSUMERS_DEFAULT = 1;
     public static final String CAMEL_SINK_SJMS2_ENDPOINT_REPLY_TO_OVERRIDE_CONF = "camel.sink.endpoint.replyToOverride";
     public static final String CAMEL_SINK_SJMS2_ENDPOINT_REPLY_TO_OVERRIDE_DOC = "Provides an explicit ReplyTo destination in the JMS message, which overrides the setting of replyTo. It is useful if you want to forward the message to a remote Queue and receive the reply message from the ReplyTo destination.";
