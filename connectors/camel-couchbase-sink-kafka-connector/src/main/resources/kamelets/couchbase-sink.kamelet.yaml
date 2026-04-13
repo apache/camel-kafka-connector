@@ -72,6 +72,10 @@ spec:
         description: The starting id
         type: integer
         default: 1
+      connectionString:
+        title: Connection String
+        description: The full Couchbase SDK connection string (e.g. couchbase://host:port). When set, it takes precedence over hostname extraction for the KV service port.
+        type: string
       autoStartId:
         title: Auto Start Id
         description: Auto Start Id or not
@@ -92,3 +96,4 @@ spec:
             startingIdForInsertsFrom: "{{startingId}}"
             username: "{{username}}"
             password: "{{password}}"
+            connectionString: "{{?connectionString}}"

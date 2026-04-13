@@ -45,6 +45,10 @@ public class CamelCouchbasePropertyFactory extends SinkConnectorPropertyFactory<
         return setProperty("camel.kamelet.couchbase-sink.password", value);
     }
 
+    public CamelCouchbasePropertyFactory withConnectionString(String value) {
+        return setProperty("camel.kamelet.couchbase-sink.connectionString", value);
+    }
+
     public static CamelCouchbasePropertyFactory basic() {
         return new CamelCouchbasePropertyFactory()
                     .withTasksMax(1)

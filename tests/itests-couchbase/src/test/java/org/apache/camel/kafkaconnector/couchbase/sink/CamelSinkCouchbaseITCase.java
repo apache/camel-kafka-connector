@@ -221,7 +221,8 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
                 .withHostname(service.getHostname())
                 .withPort(service.getPort())
                 .withUsername(service.getUsername())
-                .withPassword(service.getPassword());
+                .withPassword(service.getPassword())
+                .withConnectionString(service.getConnectionString());
 
         runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
     }
