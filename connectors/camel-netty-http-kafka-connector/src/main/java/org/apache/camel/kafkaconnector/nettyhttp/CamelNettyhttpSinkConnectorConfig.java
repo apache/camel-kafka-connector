@@ -167,6 +167,9 @@ public class CamelNettyhttpSinkConnectorConfig
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_CONF = "camel.sink.endpoint.encoders";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_DOC = "A list of encoders to be used. You can use a String which have values separated by comma, and have the values be looked up in the Registry. Just remember to prefix the value with # so Camel knows it should lookup.";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_DEFAULT = null;
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_DESERIALIZATION_FILTER_CONF = "camel.sink.endpoint.deserializationFilter";
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_DESERIALIZATION_FILTER_DOC = "Sets an ObjectInputFilter pattern (jdk.serialFilter syntax) applied when deserializing Java objects from HTTP responses with Content-Type application/x-java-serialized-object. This is used when transferException is enabled and the remote side returns a serialized exception. When not set, the filter configured via the JVM system property jdk.serialFilter is used when present; otherwise a conservative default filter allowing java., javax. and org.apache.camel. packages is applied.";
+    public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_DESERIALIZATION_FILTER_DEFAULT = null;
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_CONF = "camel.sink.endpoint.enabledProtocols";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DOC = "Which protocols to enable when using SSL";
     public static final String CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.3";
@@ -440,6 +443,7 @@ public class CamelNettyhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_WORKER_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_WORKER_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_WORKER_GROUP_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_DECODERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_DECODERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_DECODERS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENCODERS_DOC);
+        conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_DESERIALIZATION_FILTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_DESERIALIZATION_FILTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_DESERIALIZATION_FILTER_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_ENABLED_PROTOCOLS_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_HOSTNAME_VERIFICATION_DOC);
         conf.define(CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DOC);
