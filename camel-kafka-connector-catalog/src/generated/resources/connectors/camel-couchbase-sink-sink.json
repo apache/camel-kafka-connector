@@ -53,6 +53,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.kamelet.couchbase-sink.connectionString": {
+			"name": "camel.kamelet.couchbase-sink.connectionString",
+			"description": "The full Couchbase SDK connection string (e.g. couchbase:\/\/host:port). When set, it takes precedence over hostname extraction for the KV service port.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.kamelet.couchbase-sink.autoStartId": {
 			"name": "camel.kamelet.couchbase-sink.autoStartId",
 			"description": "Auto Start Id or not",
