@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1764](https://github.com/apache/camel-kafka-connector/pull/1764) ([github-actions[bot]](https://github.com/apps/github-actions))
 - build\(deps\): bump peter-evans/create-pull-request from 8.1.0 to 8.1.1 [\#1762](https://github.com/apache/camel-kafka-connector/pull/1762) ([dependabot[bot]](https://github.com/apps/dependabot))
 - CAMEL-23300: pass connectionString to couchbase-sink connector [\#1761](https://github.com/apache/camel-kafka-connector/pull/1761) ([Croway](https://github.com/Croway))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector main Branch [\#1760](https://github.com/apache/camel-kafka-connector/pull/1760) ([github-actions[bot]](https://github.com/apps/github-actions))
