@@ -13,6 +13,7 @@
 *** xref:user-guide/extending-connector/archetype-connector.adoc[Extensible connector archetype]
 *** xref:user-guide/extending-connector/archetype-dataformat-connector.adoc[Extensible Dataformat connector archetype]
 *** xref:user-guide/extending-connector/archetype-apicurio-connector.adoc[Extensible Apicurio connector archetype]
+* xref:security-model.adoc[Security Model]
 * xref:contributor-guide/index.adoc[Contributor guide]
 ** xref:contributor-guide/testing.adoc[Testing]
 ** xref:contributor-guide/troubleshooting.adoc[Troubleshooting]
