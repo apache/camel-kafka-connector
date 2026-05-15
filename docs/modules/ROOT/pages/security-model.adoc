@@ -10,13 +10,13 @@ addressed by the deployment.
 
 Camel Kafka Connector is *not* a standalone runtime. It is a set of Kafka
 Connect source and sink connectors that package Apache Camel components - via
-the https://camel.apache.org/camel-kamelets/latest/[Camel Kamelets] catalog -
+the link:/camel-kamelets/latest/[Camel Kamelets] catalog -
 so they can run inside a Kafka Connect worker without writing code. Almost
 every security-relevant behaviour therefore belongs to one of two other
 layers, and this document's main job is to say which:
 
 * The *Apache Camel security model* -
-  https://camel.apache.org/manual/security-model.html[`security-model.adoc`]
+  link:/manual/security-model.html[`security-model.adoc`]
   in the `apache/camel` repository - governs every wrapped component, data
   format, expression language and Kamelet. CKC inherits it wholesale.
 * The *Apache Kafka Connect runtime* governs the REST API, connector-config
@@ -32,7 +32,7 @@ NOTE: This model is written against camel-kafka-connector 4.21.x (Apache Camel
 alongside the project: a report against CKC version _N_ is triaged against the
 model as it stood at _N_. It should be revised on the triggers listed in
 _Conditions that change this model_ below. For instructions on how to report a
-vulnerability, see https://camel.apache.org/security/[Apache Camel Security]
+vulnerability, see link:/security/[Apache Camel Security]
 and the repository `SECURITY.md` file.
 
 == Audience
@@ -255,7 +255,7 @@ document and, where applicable, redirected.
   *additionally* leak them (see in-scope above).
 * *A vulnerability in the wrapped Camel component, data format, expression
   language or Kamelet.* These are governed by the
-  https://camel.apache.org/manual/security-model.html[Apache Camel security
+  link:/manual/security-model.html[Apache Camel security
   model] and triaged by the Camel PMC against `apache/camel` or the Kamelets
   catalog. A CKC report must show that CKC glue, not the component, is the
   cause. "Connector X wraps component Y which had CVE-Z" is not, by itself, a
@@ -325,7 +325,7 @@ vulnerabilities if skipped; all materially reduce attack surface.
   them from untrusted input in whatever system generates connector configs.
 * *Pin and patch the Camel/Kamelets train.* CKC's component security comes
   from Apache Camel and the Kamelets catalog. Track Camel advisories at
-  https://camel.apache.org/security/[] and upgrade CKC to pick up fixed
+  link:/security/[] and upgrade CKC to pick up fixed
   component versions.
 * *Constrain resource use.* Apply Camel aggregation/idempotency sizing, Kafka
   Connect `max.poll.records` / converter limits, and JVM heap limits to bound
@@ -367,7 +367,7 @@ in line with this model.
 Camel Kafka Connector is an Apache Camel sub-project and uses the standard ASF
 vulnerability reporting process:
 
-* Read https://camel.apache.org/security/[Apache Camel Security].
+* Read link:/security/[Apache Camel Security].
 * Email mailto:security@apache.org[security@apache.org] with a
   description, the affected CKC version, the connector(s) involved, and a
   proof of concept that demonstrates the trust-boundary breach in CKC glue (as
@@ -401,10 +401,10 @@ This document should be revised when:
 
 == Related documents
 
-* https://camel.apache.org/manual/security-model.html[Apache Camel Security
+* link:/manual/security-model.html[Apache Camel Security
   Model] - governs every wrapped component, data format, expression language
   and Kamelet; CKC inherits it.
-* https://camel.apache.org/security/[Apache Camel Security] - the public
+* link:/security/[Apache Camel Security] - the public
   advisory index and reporting process (shared with CKC).
 * xref:user-guide/basic-configuration.adoc[Basic configuration] - the
   connector configuration surface this model treats as trusted.
