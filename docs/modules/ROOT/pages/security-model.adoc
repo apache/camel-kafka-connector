@@ -1,0 +1,415 @@
+= Security Model
+
+This page documents the Camel Kafka Connector (CKC) security model: who is
+trusted, where the trust boundaries sit, what counts as a CKC vulnerability,
+what is inherited from Apache Camel, and what is expected of the Kafka Connect
+operator. It is the reference used by the Apache Camel PMC when triaging
+security reports against this repository and by the project when deciding
+whether a behaviour should be hardened in CKC, fixed upstream in Camel, or
+addressed by the deployment.
+
+Camel Kafka Connector is *not* a standalone runtime. It is a set of Kafka
+Connect source and sink connectors that package Apache Camel components - via
+the https://camel.apache.org/camel-kamelets/latest/[Camel Kamelets] catalog -
+so they can run inside a Kafka Connect worker without writing code. Almost
+every security-relevant behaviour therefore belongs to one of two other
+layers, and this document's main job is to say which:
+
+* The *Apache Camel security model* -
+  https://camel.apache.org/manual/security-model.html[`security-model.adoc`]
+  in the `apache/camel` repository - governs every wrapped component, data
+  format, expression language and Kamelet. CKC inherits it wholesale.
+* The *Apache Kafka Connect runtime* governs the REST API, connector-config
+  storage, plugin classpath isolation, and worker-to-broker transport. CKC
+  runs inside it and does not re-implement it.
+
+What is left - the thin glue in the `core/` module that turns a connector
+configuration into a Camel route and shuttles records between Kafka and the
+Camel `Exchange` - is the subject of this document.
+
+NOTE: This model is written against camel-kafka-connector 4.21.x (Apache Camel
+4.21.x, Camel Kamelets 4.21.x, Kafka Connect 3.9.x, Java 17). It is versioned
+alongside the project: a report against CKC version _N_ is triaged against the
+model as it stood at _N_. It should be revised on the triggers listed in
+_Conditions that change this model_ below. For instructions on how to report a
+vulnerability, see https://camel.apache.org/security/[Apache Camel Security]
+and the repository `SECURITY.md` file.
+
+== Audience
+
+This document is written for four audiences:
+
+* *Security researchers and CVE reporters* who need to know what the Camel PMC
+  will accept as a CKC vulnerability - as opposed to a Camel-core issue, a
+  Kafka Connect issue, or an operator configuration choice - before submitting
+  a report.
+* *Automated triage tooling* (CVE scanners, AI-assisted security review) that
+  needs an authoritative scope statement to distinguish a real CKC
+  vulnerability from inherited Camel behaviour or an intentional, documented
+  design choice.
+* *Connector and SMT authors* contributing to this repository, who need to
+  know which defaults and patterns are acceptable in the glue layer.
+* *Kafka Connect operators* who deploy these connectors and need to know which
+  hardening responsibilities CKC, Camel and Kafka Connect each delegate to
+  them.
+
+== Trust model
+
+A Camel Kafka Connector runs as a plugin inside a Kafka Connect worker. A
+connector is created by submitting a configuration (a flat map of string
+properties) to the worker, either through the Kafka Connect REST API or
+through a worker properties file. Its trust model reflects that.
+
+=== Roles
+
+[cols="1,1,3"]
+|===
+| Role | Trust level | What this role can do
+
+| CKC contributors (the people writing the `core/` glue, the SMTs, the
+  archetypes and the generated connector modules)
+| Trusted
+| Define how a connector configuration is turned into a Camel route, choose
+  defaults, and publish releases. The project relies on these contributors to
+  ship secure defaults in the glue layer.
+
+| Connector configuration author (whoever submits or edits a connector
+  configuration through the Kafka Connect REST API or worker config)
+| Fully trusted
+| Set `camel.source.url` / `camel.sink.url` to *any* Camel endpoint URI;
+  reference arbitrary beans with `camel.beans.aggregate=#class:fqcn`; pass
+  `#class:` object properties through `camel.component.*` /
+  `camel.sink.endpoint.*` / `camel.source.endpoint.*`; choose any data format
+  for `marshal` / `unmarshal`; choose the error handler and idempotent
+  repository; and configure any Single Message Transform, including ones that
+  load a class named in the config. A connector configuration is route code.
+  Code execution by whoever can author one is *by design* and is not a CKC
+  vulnerability - it is the exact analogue of "a route author is fully
+  trusted" in the Camel security model.
+
+| Kafka Connect operator (whoever runs the worker, secures the REST API,
+  chooses the converters, and decides network exposure)
+| Fully trusted
+| Decide whether the Connect REST API is authenticated and where it listens,
+  pick the key/value/header converters, choose the `config.providers` for
+  secret externalisation, set JVM and OS user, and decide which connector
+  plugins are installed. Operator misconfiguration is not a CKC vulnerability
+  unless a CKC default exposed it.
+
+| Kafka topic producers (sink side) and external systems (source side)
+| Untrusted
+| Place records on the Kafka topics a sink connector consumes, or supply the
+  payloads an external system hands to a source connector's Camel consumer.
+  This is the primary attacker model. CKC's glue must not turn an untrusted
+  record or payload into code execution, endpoint redirection, or control of
+  the Camel route on its own.
+|===
+
+=== Trust boundaries
+
+The fundamental trust boundary in CKC is between *the connector configuration*
+(and the Camel/Kamelet route it deterministically builds) and *the data
+flowing through that route*. Everything in the configuration is authored by a
+trusted operator; everything in a Kafka record body, key or header on the sink
+side, and everything in an external payload on the source side, is untrusted
+data.
+
+CKC's job at this boundary is narrow and specific: the route topology
+(`from`, `toD`, beans, expressions, data formats) is derived *only* from the
+trusted configuration, never from the untrusted data; and untrusted data is
+moved across the Kafka/Camel boundary without being interpreted as a Camel
+control header, an endpoint, or code on CKC's own initiative. What the wrapped
+Camel component then does with that data is governed by the Camel security
+model, not this one.
+
+A second boundary, owned entirely by Kafka Connect, sits in front of CKC: the
+Connect REST API and the connector-config store. Anyone who can write a
+connector configuration is, by the table above, fully trusted - so protecting
+that write path is a precondition for this model, not part of it.
+
+== Vulnerability scope
+
+A report is in scope for CKC when it demonstrates that *the CKC glue layer*,
+in a default or reasonably-expected configuration, lets untrusted record or
+payload data cross the configuration/data trust boundary in a way the model
+says it should not - and the cause is CKC code, not the wrapped Camel
+component, not a Kamelet, and not the Kafka Connect runtime.
+
+=== Security properties and violation severity
+
+The trust-boundary statement commits the CKC glue to a small set of concrete
+properties. The wrapped component's properties (deserialization safety, XXE,
+path traversal, header-injection defence in the component itself, etc.) are
+*inherited from and scored by the Apache Camel security model* and are not
+restated here.
+
+[cols="3,3,1",options="header"]
+|===
+| Property the CKC glue upholds (default or reasonably-expected configuration)
+| What a violation looks like (symptom a reporter or scanner observes)
+| Indicative severity
+
+| Route topology is derived only from the connector configuration, never from
+  record or payload data
+| A crafted Kafka record body/key/header or source payload changes the
+  endpoint of `.toD()`, the bean selected for aggregation, the data format, or
+  the idempotency expression that the configuration did not specify
+| Critical (CVSS 9.0-9.8)
+
+| Untrusted record/exchange data is not promoted into a Camel-internal control
+  header by the CKC mapping itself
+| The Kafka<->Exchange header mapping in `CamelSinkTask` / `CamelSourceTask` /
+  `TaskHelper` injects a `Camel*` dispatch header (`CamelExecCommandExecutable`,
+  `CamelBeanMethodName`, ...) from untrusted data without the operator opting
+  into that mapping
+| High to Critical (CVSS 7.5-9.1), depending on the reachable component
+
+| Secrets in the connector configuration are not disclosed by CKC's own code
+| CKC's startup logging, an SMT, or the source/sink record path writes a
+  password/token/secret config value verbatim to the worker log or into a
+  produced record
+| Medium to High (CVSS 5.3-8.2), depending on what leaks and where
+
+| The glue adds no untrusted-data deserialization or parsing of its own
+| `CamelSinkTask` / `CamelSourceTask` / a bundled SMT runs `ObjectInputStream`
+  or an external-entity-resolving parser over record data that the operator
+  did not route through a component/data-format that documents it
+| High to Critical, mapped to the Camel deserialization/XXE tiers
+|===
+
+The tiers are *indicative*. The PMC assigns the definitive CVSS vector per
+report, considering the non-default configuration required, the reachable
+component, and the concrete impact. A finding whose only path requires the
+operator to have authored a dangerous configuration is out of scope (see
+below) regardless of tier.
+
+=== In-scope vulnerability classes
+
+==== Untrusted data steering the route topology
+
+Any CKC code path where the body, key, headers or properties of a Kafka
+record (sink) or an external payload (source) - rather than the connector
+configuration - determine where the exchange is sent, which bean or
+aggregation strategy runs, which data format is applied, or which expression
+is evaluated. The route built by `CamelKafkaConnectMain` must be a pure
+function of the configuration.
+
+==== CKC-mapped header injection
+
+The sink path maps Kafka record headers whose key starts with `CamelHeader.`
+into Camel `Exchange` headers (and `CamelProperty.` into exchange properties),
+stripping the prefix; the source path does the reverse. A report is in scope
+if untrusted record/exchange data crosses this mapping and CKC's own code -
+not the wrapped component's `HeaderFilterStrategy` - is what allows a
+Camel-internal dispatch header to be injected in a default configuration
+(`camel.map.headers` / `camel.map.properties` default to `true`). The
+operator-facing mitigation is `camel.remove.headers.pattern`; the question for
+in-scope triage is whether CKC's default mapping is itself the exposure.
+
+==== Information disclosure of configuration secrets by CKC code
+
+CKC code that writes connector-configuration secrets to a log, an event, or a
+produced Kafka record. CKC masks keys flagged sensitive by Camel's
+`SensitiveUtils` in its one startup "initial properties" log line; a path that
+bypasses that masking, or that leaks a secret value through a record or SMT,
+is in scope.
+
+==== Deserialization or external-resource parsing added by the glue
+
+Any `ObjectInputStream`, XML/XSLT/XSD/XPath, or equivalent external-entity- or
+remote-resource-resolving parse performed by `core/` glue or a bundled SMT on
+untrusted record data, where the operator did not select a component or data
+format that documents that behaviour. (Deserialization/XXE *inside a wrapped
+component or data format* is a Camel issue, governed by the Camel model.)
+
+==== Insecure CKC defaults
+
+A default in the glue layer that exposes one of the classes above with no
+configuration - for example, mapping untrusted headers into dispatch headers
+out of the box, or logging configuration verbatim at a default level - is in
+scope independently of the underlying mechanism.
+
+=== Out of scope
+
+The following are *not* CKC vulnerabilities. They are intentional design,
+operator responsibility, Kafka Connect responsibility, or upstream Camel
+matters. Reports in these categories will be closed with a reference to this
+document and, where applicable, redirected.
+
+* *A connector configuration that runs code or reaches any endpoint.* Setting
+  `camel.sink.url=exec:...`, `camel.source.url=file:/etc`, an arbitrary
+  endpoint URI, `camel.beans.aggregate=#class:com.example.Evil`, a `#class:`
+  object property, or an SMT that loads a configured class is configuration
+  authoring, and the configuration author is fully trusted. This is the direct
+  analogue of "a route author writing code that does whatever they want" in
+  the Camel model.
+* *Anything reachable only because the Kafka Connect REST API is unauthenticated
+  or exposed.* Authentication, authorization, TLS and network placement of the
+  Connect REST API and of the worker are Kafka Connect's responsibility. Whoever
+  can reach that API is, by definition, a trusted configuration author.
+* *Connector configuration stored or served in clear text.* Kafka Connect
+  persists connector configs (including passwords) in its config topic and
+  serves them through the REST API. Externalising secrets with a
+  `config.providers` / `ConfigProvider` and securing the config topic are
+  operator/Kafka-Connect responsibilities. CKC's only duty here is not to
+  *additionally* leak them (see in-scope above).
+* *A vulnerability in the wrapped Camel component, data format, expression
+  language or Kamelet.* These are governed by the
+  https://camel.apache.org/manual/security-model.html[Apache Camel security
+  model] and triaged by the Camel PMC against `apache/camel` or the Kamelets
+  catalog. A CKC report must show that CKC glue, not the component, is the
+  cause. "Connector X wraps component Y which had CVE-Z" is not, by itself, a
+  CKC finding.
+* *Denial of service via resource exhaustion.* Unbounded aggregation, an
+  oversized record, an unthrottled source, an idempotent repository sized too
+  small - operators apply Camel's aggregation/throttling options, Kafka
+  Connect's `max.poll.records` and converter limits, and JVM heap limits.
+* *Third-party transitive dependency CVEs not reachable through any
+  CKC-exposed code path.* Reported to the upstream project; see `SECURITY.md`.
+* *Self-XSS or issues in a UI built on top of Kafka Connect* (e.g. a connector
+  management console). Not shipped by this project.
+* *Scanner output with no demonstrated trust-boundary breach.* "The glue uses
+  reflection" or "a connector depends on a library with historic CVEs" is not
+  a finding without a PoC showing untrusted record/payload data crossing the
+  boundary through CKC code.
+
+=== Known limitations
+
+These are CKC characteristics that can look like vulnerabilities at first
+glance but are documented design points. They may be tightened over time
+through the normal release and upgrade-note channel.
+
+* *Authoring a connector configuration is equivalent to deploying code.* Kafka
+  Connect's plugin model means a connector *is* code running in the worker
+  JVM; CKC makes that code configuration-driven, but the trust level of
+  whoever submits the configuration is identical to a Camel route author. This
+  is intentional and is why securing the Connect REST API is a precondition,
+  not a CKC feature.
+* *Header mapping is prefix-gated, not `HeaderFilterStrategy`-based.* On the
+  sink side CKC maps only `CamelHeader.` / `CamelProperty.`-prefixed Kafka
+  headers; on the source side it prefixes Camel headers symmetrically. It does
+  not, by itself, apply a Camel `HeaderFilterStrategy`. Stripping unwanted or
+  internal headers from untrusted producers is delegated to the operator via
+  `camel.remove.headers.pattern` and to the wrapped component's own inbound
+  filter. See _Deployment hardening_.
+* *Connectors inherit the security posture and CVE exposure of the wrapped
+  component and Kamelet.* A connector built on a component that defaults to a
+  permissive setting carries that setting. The fix for such a case lands in
+  Apache Camel or the Kamelets catalog and is consumed by CKC on the next
+  dependency bump; it is not separately re-mediated in CKC.
+* *Secrets live in the connector configuration.* CKC masks sensitive keys only
+  in its own startup log line. Everything else about secret handling - the
+  config topic, the REST API, externalisation - is Kafka Connect's model.
+
+== Deployment hardening
+
+The Kafka Connect operator is responsible for the following. None are CKC
+vulnerabilities if skipped; all materially reduce attack surface.
+
+* *Authenticate and isolate the Kafka Connect REST API.* Treat write access to
+  it as equivalent to arbitrary code execution in the worker JVM. Put it
+  behind authentication and on a trusted network only.
+* *Externalise secrets.* Use a Kafka Connect `config.providers` /
+  `ConfigProvider` (file, Vault, environment, cloud secret managers) instead
+  of clear-text passwords in connector configs, and restrict access to the
+  config topic and the REST API.
+* *Strip Camel-internal headers from untrusted producers.* When a sink
+  connector consumes a topic fed by untrusted producers, set
+  `camel.remove.headers.pattern` so that attacker-supplied `CamelHeader.Camel*`
+  headers are not promoted into Camel dispatch headers, and/or set
+  `camel.map.headers=false` / `camel.map.properties=false` when header mapping
+  is not needed.
+* *Do not source dangerous endpoints, beans or expressions from variable
+  configuration.* Treat `camel.sink.url`, `camel.source.url`, `camel.beans.*`,
+  `#class:` properties and SMT class options as trusted code; do not template
+  them from untrusted input in whatever system generates connector configs.
+* *Pin and patch the Camel/Kamelets train.* CKC's component security comes
+  from Apache Camel and the Kamelets catalog. Track Camel advisories at
+  https://camel.apache.org/security/[] and upgrade CKC to pick up fixed
+  component versions.
+* *Constrain resource use.* Apply Camel aggregation/idempotency sizing, Kafka
+  Connect `max.poll.records` / converter limits, and JVM heap limits to bound
+  the effect of large or high-rate records.
+* *Run with least privilege.* Limit the worker OS user's filesystem, network
+  and process privileges; install only the connector plugins actually used -
+  every extra plugin enlarges the worker's attack surface and patch burden.
+
+== Guidance for connector and SMT authors
+
+When contributing to the `core/` glue, a bundled SMT, an archetype, or a
+generated connector module, the following questions decide whether a change is
+in line with this model.
+
+* *Does the change let record or payload data influence the route topology?*
+  The route built in `CamelKafkaConnectMain` must remain a pure function of
+  the connector configuration. Endpoint, bean, data format, aggregation
+  strategy and idempotency expression come from configuration only.
+* *Does the change touch the Kafka<->Exchange header mapping?* Preserve the
+  explicit `CamelHeader.` / `CamelProperty.` prefix gating; do not widen it so
+  that arbitrary untrusted headers become Camel headers by default, and keep
+  `camel.remove.headers.pattern` effective.
+* *Does a new SMT or glue path deserialize or parse record data?* Do not add
+  `ObjectInputStream`, external-entity-resolving XML/XSLT, or equivalent over
+  untrusted record data in the glue. Type conversion must go through Camel's
+  `TypeConverter` (as `CamelTypeConverterTransform` does), and class selection
+  must come from configuration, not from the record.
+* *Does the change log configuration or record content?* Route configuration
+  logging through the existing sensitive-key masking
+  (`SensitiveUtils`-based filtering); never log a raw config map or a record
+  body at a default level.
+* *Does the change rely on a component default?* If a connector's safety
+  depends on a Camel component or Kamelet default, the fix for an unsafe
+  default belongs upstream in Apache Camel or the Kamelets catalog - raise it
+  there, do not paper over it in the glue.
+
+== Reporting a vulnerability
+
+Camel Kafka Connector is an Apache Camel sub-project and uses the standard ASF
+vulnerability reporting process:
+
+* Read https://camel.apache.org/security/[Apache Camel Security].
+* Email mailto:security@apache.org[security@apache.org] with a
+  description, the affected CKC version, the connector(s) involved, and a
+  proof of concept that demonstrates the trust-boundary breach in CKC glue (as
+  opposed to a wrapped Camel component or the Kafka Connect runtime).
+* Do not open a public GitHub issue or pull request, post on a mailing list or
+  social media, or otherwise disclose anything about the potential issue until
+  a coordinated fix is released. Only contact the
+  https://apache.org/security/[Apache Software Foundation Security team] and
+  follow their instructions.
+
+Reports that match the in-scope classes are triaged on the private security
+list, fixed in a coordinated release, and published as a CVE advisory. Reports
+that match the out-of-scope categories are closed with a reference to this
+document; reports whose root cause is a wrapped Camel component or Kamelet are
+redirected to the Apache Camel security process.
+
+== Conditions that change this model
+
+This document should be revised when:
+
+* the connector configuration surface gains a new code-bearing or
+  topology-affecting property, or the header-mapping behaviour changes;
+* a bundled SMT or glue path starts deserializing or parsing record data;
+* CKC stops being a thin Kamelet/Camel packaging and takes on runtime
+  behaviour of its own;
+* the relationship to the Kafka Connect REST API or config store changes
+  (e.g. CKC begins handling secrets itself); or
+* a vulnerability report cannot be cleanly routed to either this model, the
+  Apache Camel security model, or Kafka Connect - which means the boundary
+  here has a gap and the model, not the report, needs the fix.
+
+== Related documents
+
+* https://camel.apache.org/manual/security-model.html[Apache Camel Security
+  Model] - governs every wrapped component, data format, expression language
+  and Kamelet; CKC inherits it.
+* https://camel.apache.org/security/[Apache Camel Security] - the public
+  advisory index and reporting process (shared with CKC).
+* xref:user-guide/basic-configuration.adoc[Basic configuration] - the
+  connector configuration surface this model treats as trusted.
+* xref:user-guide/remove-headers.adoc[Remove Headers] - the
+  `camel.remove.headers.pattern` mitigation referenced above.
+* https://kafka.apache.org/documentation/#connect[Apache Kafka Connect] - the
+  runtime that owns the REST API, config store and plugin isolation.
+* `SECURITY.md` (in the source tree) - the GitHub-rendered security pointer.
