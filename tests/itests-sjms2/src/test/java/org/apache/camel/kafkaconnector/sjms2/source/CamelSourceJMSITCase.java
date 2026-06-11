@@ -30,6 +30,7 @@ import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.camel.test.infra.artemis.services.ArtemisService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -114,6 +115,7 @@ public class CamelSourceJMSITCase extends CamelSourceTestSupport {
     }
 
 
+    @Disabled("Flaky timeout in CI - see https://github.com/apache/camel-kafka-connector/issues/1778")
     @Test
     @Timeout(90)
     public void testIntSendReceive() throws ExecutionException, InterruptedException {
