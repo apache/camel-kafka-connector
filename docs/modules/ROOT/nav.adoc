@@ -178,16 +178,6 @@
 **** xref:reference/connectors/camel-ftps-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-ftps-source-kafka-connector
 **** xref:reference/connectors/camel-ftps-source-kafka-source-connector.adoc[Source Docs]
-*** camel-github-commit-source-kafka-connector
-**** xref:reference/connectors/camel-github-commit-source-kafka-source-connector.adoc[Source Docs]
-*** camel-github-event-source-kafka-connector
-**** xref:reference/connectors/camel-github-event-source-kafka-source-connector.adoc[Source Docs]
-*** camel-github-pullrequest-comment-source-kafka-connector
-**** xref:reference/connectors/camel-github-pullrequest-comment-source-kafka-source-connector.adoc[Source Docs]
-*** camel-github-pullrequest-source-kafka-connector
-**** xref:reference/connectors/camel-github-pullrequest-source-kafka-source-connector.adoc[Source Docs]
-*** camel-github-tag-source-kafka-connector
-**** xref:reference/connectors/camel-github-tag-source-kafka-source-connector.adoc[Source Docs]
 *** camel-google-bigquery-sink-kafka-connector
 **** xref:reference/connectors/camel-google-bigquery-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-google-calendar-source-kafka-connector
@@ -240,10 +230,6 @@
 **** xref:reference/connectors/camel-jms-amqp-10-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jms-amqp-10-source-kafka-connector
 **** xref:reference/connectors/camel-jms-amqp-10-source-kafka-source-connector.adoc[Source Docs]
-*** camel-jms-amqp-10-ssl-sink-kafka-connector
-**** xref:reference/connectors/camel-jms-amqp-10-ssl-sink-kafka-sink-connector.adoc[Sink Docs]
-*** camel-jms-amqp-10-ssl-source-kafka-connector
-**** xref:reference/connectors/camel-jms-amqp-10-ssl-source-kafka-source-connector.adoc[Source Docs]
 *** camel-jms-apache-artemis-sink-kafka-connector
 **** xref:reference/connectors/camel-jms-apache-artemis-sink-kafka-sink-connector.adoc[Sink Docs]
 *** camel-jms-apache-artemis-source-kafka-connector

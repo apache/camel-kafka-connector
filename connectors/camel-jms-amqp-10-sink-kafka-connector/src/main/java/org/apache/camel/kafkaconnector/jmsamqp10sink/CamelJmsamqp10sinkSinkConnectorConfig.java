@@ -33,7 +33,7 @@ public class CamelJmsamqp10sinkSinkConnectorConfig
     public static final String CAMEL_SINK_JMSAMQP10SINK_KAMELET_DESTINATION_NAME_DOC = "The JMS destination name.";
     public static final String CAMEL_SINK_JMSAMQP10SINK_KAMELET_DESTINATION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_JMSAMQP10SINK_KAMELET_REMOTE_URICONF = "camel.kamelet.jms-amqp-10-sink.remoteURI";
-    public static final String CAMEL_SINK_JMSAMQP10SINK_KAMELET_REMOTE_URIDOC = "The JMS URL. Example: amqp://my-host:31616";
+    public static final String CAMEL_SINK_JMSAMQP10SINK_KAMELET_REMOTE_URIDOC = "The JMS URL. Use the amqps:// scheme for SSL/TLS connections. Example: amqp://my-host:31616";
     public static final String CAMEL_SINK_JMSAMQP10SINK_KAMELET_REMOTE_URIDEFAULT = null;
 
     public CamelJmsamqp10sinkSinkConnectorConfig(
