@@ -268,7 +268,7 @@ public class CamelHttpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTPS_COMPONENT_AUTH_CACHING_DISABLED_DOC = "Disables authentication scheme caching";
     public static final Boolean CAMEL_SINK_HTTPS_COMPONENT_AUTH_CACHING_DISABLED_DEFAULT = false;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_AUTOMATIC_RETRIES_DISABLED_CONF = "camel.component.https.automaticRetriesDisabled";
-    public static final String CAMEL_SINK_HTTPS_COMPONENT_AUTOMATIC_RETRIES_DISABLED_DOC = "Disables automatic request recovery and re-execution";
+    public static final String CAMEL_SINK_HTTPS_COMPONENT_AUTOMATIC_RETRIES_DISABLED_DOC = "Disables automatic request recovery and re-execution. This is useful when a server responds with HTTP 429 (Too Many Requests) and includes a long Retry-After header, which would otherwise cause the client to wait (and appear to hang) before retrying.";
     public static final Boolean CAMEL_SINK_HTTPS_COMPONENT_AUTOMATIC_RETRIES_DISABLED_DEFAULT = false;
     public static final String CAMEL_SINK_HTTPS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.https.autowiredEnabled";
     public static final String CAMEL_SINK_HTTPS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";

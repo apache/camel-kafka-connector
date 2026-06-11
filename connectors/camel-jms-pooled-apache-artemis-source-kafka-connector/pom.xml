@@ -42,11 +42,6 @@
     <!-- Camel -->
     <!--START OF GENERATED CODE-->
     <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>artemis-jakarta-client-all</artifactId>
-      <version>2.44.0</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>
@@ -66,6 +61,11 @@
       <groupId>org.messaginghub</groupId>
       <artifactId>pooled-jms</artifactId>
       <version>3.2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>artemis-jakarta-client-all</artifactId>
+      <version>2.54.0</version>
     </dependency>
     <!--END OF GENERATED CODE-->
   </dependencies>

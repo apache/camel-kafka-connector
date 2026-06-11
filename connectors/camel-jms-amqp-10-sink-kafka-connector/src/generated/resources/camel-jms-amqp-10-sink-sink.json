@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-amqp-10-sink-sink",
 		"type": "sink",
-		"version": "4.19.0-SNAPSHOT",
-		"description": "Send data to any AMQP 1.0 compliant message broker by using the Apache Qpid JMS client."
+		"version": "4.21.0-SNAPSHOT",
+		"description": "Send data to any AMQP 1.0 compliant message broker by using the Apache Qpid JMS client. For SSL\/TLS connections, use the amqps:\/\/ scheme in the remoteURI and configure SSL transport options as query parameters (e.g. transport.trustStoreLocation, transport.trustStorePassword, transport.keyStoreLocation, transport.keyStorePassword, transport.verifyHost, transport.trustAll)."
 	},
 	"properties": {
 		"camel.kamelet.jms-amqp-10-sink.destinationType": {
@@ -24,7 +24,7 @@
 		},
 		"camel.kamelet.jms-amqp-10-sink.remoteURI": {
 			"name": "camel.kamelet.jms-amqp-10-sink.remoteURI",
-			"description": "The JMS URL. Example: amqp:\/\/my-host:31616",
+			"description": "The JMS URL. Use the amqps:\/\/ scheme for SSL\/TLS connections. Example: amqp:\/\/my-host:31616",
 			"priority": "HIGH",
 			"required": "true"
 		}

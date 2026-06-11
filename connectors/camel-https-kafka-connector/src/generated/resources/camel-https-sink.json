@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-https-sink",
 		"type": "sink",
-		"version": "4.19.0-SNAPSHOT",
+		"version": "4.21.0-SNAPSHOT",
 		"description": "Send requests to external HTTP servers using Apache HTTP Client 5.x."
 	},
 	"properties": {
@@ -560,7 +560,7 @@
 		},
 		"camel.component.https.automaticRetriesDisabled": {
 			"name": "camel.component.https.automaticRetriesDisabled",
-			"description": "Disables automatic request recovery and re-execution",
+			"description": "Disables automatic request recovery and re-execution. This is useful when a server responds with HTTP 429 (Too Many Requests) and includes a long Retry-After header, which would otherwise cause the client to wait (and appear to hang) before retrying.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

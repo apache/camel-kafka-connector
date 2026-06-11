@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sjms2-source",
 		"type": "source",
-		"version": "4.19.0-SNAPSHOT",
+		"version": "4.21.0-SNAPSHOT",
 		"description": "Send and receive messages to\/from a JMS Queue or Topic using plain JMS 2.x API."
 	},
 	"properties": {
@@ -246,6 +246,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.objectMessageEnabled": {
+			"name": "camel.source.endpoint.objectMessageEnabled",
+			"description": "Whether to enable sending and receiving JMS ObjectMessage. By default this is disabled because Java object serialization is a known source of security vulnerabilities. Enable this option only if you trust the source of the messages and need to send or receive Java serialized objects via JMS. When disabled, Camel will refuse to create or read JMS ObjectMessage instances. Options that rely on ObjectMessage internally (such as transferException) require this option to be enabled.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.recoveryInterval": {
 			"name": "camel.source.endpoint.recoveryInterval",
 			"description": "Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds.",
@@ -269,7 +276,7 @@
 		},
 		"camel.source.endpoint.deserializationFilter": {
 			"name": "camel.source.endpoint.deserializationFilter",
-			"description": "Sets an ObjectInputFilter pattern (jdk.serialFilter syntax) applied as a defense-in-depth check on the class of the body returned by jakarta.jms.ObjectMessage.getObject(). The pattern is evaluated after the JMS provider has deserialized the payload, so this option alone does not prevent gadget-chain execution that happens inside the provider's ObjectInputStream; to block such attacks, also configure the JMS provider's own deserialization filter and\/or the JVM-wide -Djdk.serialFilter. When this option is not set and no JVM-wide filter is configured, a conservative default filter allowing java., javax. and org.apache.camel. is applied.",
+			"description": "Sets an ObjectInputFilter pattern (jdk.serialFilter syntax) applied as a defense-in-depth check on the class of the body returned by jakarta.jms.ObjectMessage.getObject(). The pattern is evaluated after the JMS provider has deserialized the payload, so this option alone does not prevent gadget-chain execution that happens inside the provider's ObjectInputStream; to block such attacks, also configure the JMS provider's own deserialization filter and\/or the JVM-wide -Djdk.serialFilter. When this option is not set and no JVM-wide filter is configured, a conservative default filter denying java.net. and otherwise allowing java., javax. and org.apache.camel. is applied.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -277,6 +284,12 @@
 			"name": "camel.source.endpoint.transacted",
 			"description": "Specifies whether to use transacted mode",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.sjms2.clientId": {
+			"name": "camel.component.sjms2.clientId",
+			"description": "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -324,6 +337,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.sjms2.objectMessageEnabled": {
+			"name": "camel.component.sjms2.objectMessageEnabled",
+			"description": "Whether to enable sending and receiving JMS ObjectMessage. By default this is disabled because Java object serialization is a known source of security vulnerabilities. Enable this option only if you trust the source of the messages and need to send or receive Java serialized objects via JMS. When disabled, Camel will refuse to create or read JMS ObjectMessage instances. Options that rely on ObjectMessage internally (such as transferException) require this option to be enabled.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.sjms2.recoveryInterval": {
 			"name": "camel.component.sjms2.recoveryInterval",
 			"description": "Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds.",
@@ -348,6 +368,12 @@
 		"camel.component.sjms2.headerFilterStrategy": {
 			"name": "camel.component.sjms2.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.sjms2.deserializationFilter": {
+			"name": "camel.component.sjms2.deserializationFilter",
+			"description": "Sets an ObjectInputFilter pattern (jdk.serialFilter syntax) applied as a defense-in-depth check on the class of the body returned by jakarta.jms.ObjectMessage.getObject(). The pattern is evaluated after the JMS provider has deserialized the payload, so this option alone does not prevent gadget-chain execution that happens inside the provider's ObjectInputStream; to block such attacks, also configure the JMS provider's own deserialization filter and\/or the JVM-wide -Djdk.serialFilter. When this option is not set and no JVM-wide filter is configured, a conservative default filter denying java.net. and otherwise allowing java., javax. and org.apache.camel. is applied.",
 			"priority": "MEDIUM",
 			"required": "false"
 		}
