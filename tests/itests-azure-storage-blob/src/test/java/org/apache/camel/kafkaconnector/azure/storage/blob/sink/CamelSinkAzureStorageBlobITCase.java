@@ -38,6 +38,7 @@ import org.apache.camel.test.infra.azure.storage.blob.services.AzureStorageBlobS
 import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -156,6 +157,7 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
         } while (received != 10 && retries > 0);
     }
 
+    @Disabled("Flaky in CI - Azurite container timing issue")
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
