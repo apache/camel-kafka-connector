@@ -83,13 +83,18 @@
                     <!-- WARNING: connectors not in catalog will be removed -->
                     <removeMissingComponents>true</removeMissingComponents>
                     <excludedKamelets>
-                        <param>ms-exchange-online-imap-oauth-source</param>
+                        <param>github-commit-source</param>
+                        <param>github-event-source</param>
+                        <param>github-pullrequest-comment-source</param>
+                        <param>github-pullrequest-source</param>
+                        <param>github-tag-source</param>
                         <param>jira-add-comment-sink</param>
-                        <param>jira-transition-issue-sink</param>
                         <param>jira-add-issue-sink</param>
                         <param>jira-oauth-source</param>
-                        <param>jira-update-issue-sink</param>
                         <param>jira-source</param>
+                        <param>jira-transition-issue-sink</param>
+                        <param>jira-update-issue-sink</param>
+                        <param>ms-exchange-online-imap-oauth-source</param>
                     </excludedKamelets>
                     <excludedComponents>
                         <param>bonita</param>
@@ -103,6 +108,7 @@
                         <param>debezium-postgres</param>
                         <param>debezium-sqlserver</param>
                         <param>digitalocean</param>
+                        <param>github</param>
                         <param>jira</param>
                         <param>mock</param>
                         <param>ref</param>
