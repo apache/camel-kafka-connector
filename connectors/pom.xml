@@ -257,11 +257,7 @@
         <module>camel-ftp-source-kafka-connector</module>
         <module>camel-ftps-sink-kafka-connector</module>
         <module>camel-ftps-source-kafka-connector</module>
-        <module>camel-github-commit-source-kafka-connector</module>
-        <module>camel-github-event-source-kafka-connector</module>
-        <module>camel-github-pullrequest-comment-source-kafka-connector</module>
-        <module>camel-github-pullrequest-source-kafka-connector</module>
-        <module>camel-github-tag-source-kafka-connector</module>
+
         <module>camel-google-bigquery-sink-kafka-connector</module>
         <module>camel-google-calendar-source-kafka-connector</module>
         <module>camel-google-functions-sink-kafka-connector</module>
@@ -288,8 +284,6 @@
         <module>camel-jdbc-kafka-connector</module>
         <module>camel-jms-amqp-10-sink-kafka-connector</module>
         <module>camel-jms-amqp-10-source-kafka-connector</module>
-        <module>camel-jms-amqp-10-ssl-sink-kafka-connector</module>
-        <module>camel-jms-amqp-10-ssl-source-kafka-connector</module>
         <module>camel-jms-apache-artemis-sink-kafka-connector</module>
         <module>camel-jms-apache-artemis-source-kafka-connector</module>
         <module>camel-jms-ibm-mq-sink-kafka-connector</module>

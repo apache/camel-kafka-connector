@@ -27,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <kafka.version>3.9.2</kafka.version>
+        <kafka.version>4.2.1</kafka.version>
         <camel.version>4.21.0-SNAPSHOT</camel.version>
         <camel.kamelet.catalog.version>4.21.0-SNAPSHOT</camel.kamelet.catalog.version>
         <apicurio.registry.version>2.5.11.Final</apicurio.registry.version>
@@ -52,7 +52,7 @@
         <version.maven.jar>3.1.0</version.maven.jar>
         <version.maven.failsafe>3.5.5</version.maven.failsafe>
         <version.maven.surefire>3.5.5</version.maven.surefire>
-        <version.scala.library>2.12.12</version.scala.library>
+        <version.scala.library>2.13.17</version.scala.library>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>
 
         <version.maven.checkstyle>8.29</version.maven.checkstyle>
@@ -63,8 +63,8 @@
         <mycila-license-version>3.0</mycila-license-version>
         <groovy-version>3.0.21</groovy-version>
 
-        <itest.zookeeper.container.image>quay.io/strimzi/kafka:0.32.0-kafka-3.2.1</itest.zookeeper.container.image>
-        <itest.strimzi.container.image>quay.io/strimzi/kafka:0.32.0-kafka-3.2.1</itest.strimzi.container.image>
+        <itest.zookeeper.container.image>quay.io/strimzi/kafka:0.51.0-kafka-4.2.0</itest.zookeeper.container.image>
+        <itest.strimzi.container.image>quay.io/strimzi/kafka:0.51.0-kafka-4.2.0</itest.strimzi.container.image>
 
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
     </properties>
@@ -140,7 +140,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka_2.12</artifactId>
+                <artifactId>kafka_2.13</artifactId>
                 <version>${kafka.version}</version>
                 <classifier>test</classifier>
                 <type>test-jar</type>
@@ -154,7 +154,12 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka_2.12</artifactId>
+                <artifactId>connect-json</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka_2.13</artifactId>
                 <version>${kafka.version}</version>
                 <scope>test</scope>
             </dependency>
