@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Upgrade to Apache Kafka 4.x [\#1778](https://github.com/apache/camel-kafka-connector/issues/1778)
 - RabbitMQ connector enabling TLS connection [\#1718](https://github.com/apache/camel-kafka-connector/issues/1718)
 - kafkaconnector.https.CamelHttpsSinkConnector oauth2 scope is missing [\#1647](https://github.com/apache/camel-kafka-connector/issues/1647)
 
