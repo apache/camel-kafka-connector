@@ -21,9 +21,8 @@ import java.util.Map;
 
 import org.apache.camel.kafkaconnector.CamelSinkConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
-import org.apache.camel.kafkaconnector.netty.CamelNettySinkTask;
 
-public class CamelSyslogSinkTask extends CamelNettySinkTask {
+public class CamelSyslogSinkTask extends CamelSinkTask {
 
     @Override
     protected CamelSinkConnectorConfig getCamelSinkConnectorConfig(
@@ -33,7 +32,7 @@ public class CamelSyslogSinkTask extends CamelNettySinkTask {
     @Override
     protected Map<String, String> getDefaultConfig() {
         Map<String, String> defaultConfig = new HashMap<>();
-        defaultConfig.putAll(super.getDefaultConfig());
+        defaultConfig.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "netty");
         defaultConfig.put(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF, "syslog");
         defaultConfig.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "encoders", "#syslogencoder");
         defaultConfig.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "sync", "false");

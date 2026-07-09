@@ -22,7 +22,7 @@ metadata:
     camel.apache.org/kamelet.type: "sink"
   annotations:
     camel.apache.org/kamelet.support.level: "Stable"
-    camel.apache.org/catalog.version: "4.21.0-SNAPSHOT"
+    camel.apache.org/catalog.version: "4.21.0"
     camel.apache.org/kamelet.group: "ElasticSearch"
     camel.apache.org/kamelet.namespace: "Search"
     camel.apache.org/provider: "Apache Software Foundation"
@@ -100,24 +100,24 @@ spec:
           - simple: "${header[indexId]}"
             steps:
             - setHeader:
-                name: "indexId"
+                name: "CamelElasticsearchIndexId"
                 simple: "${header[indexId]}"
           - simple: "${header[ce-indexid]}"
             steps:
             - setHeader:
-                name: "indexId"
+                name: "CamelElasticsearchIndexId"
                 simple: "${header[ce-indexid]}"
       - choice:
           when:
           - simple: "${header[indexName]}"
             steps:
             - setHeader:
-                name: "indexName"
+                name: "CamelElasticsearchIndexName"
                 simple: "${header[indexName]}"
           - simple: "${header[ce-indexname]}"
             steps:
             - setHeader:
-                name: "indexName"
+                name: "CamelElasticsearchIndexName"
                 simple: "${header[ce-indexname]}"
       - unmarshal:
           json: {}

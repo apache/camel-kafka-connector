@@ -128,7 +128,12 @@ public class CamelSinkTask extends SinkTask {
                 actualProps.put(KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "toUrl", remoteUrl);
             }
 
-            cms = CamelKafkaConnectMain.builder(LOCAL_URL, getSinkKamelet())
+            String sinkKamelet = getSinkKamelet();
+            if (DEFAULT_KAMELET_CKC_SINK.equals(sinkKamelet)) {
+                sinkKamelet = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_KAMELET_CONF);
+            }
+
+            cms = CamelKafkaConnectMain.builder(LOCAL_URL, sinkKamelet)
                 .withProperties(actualProps)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
@@ -160,6 +165,7 @@ public class CamelSinkTask extends SinkTask {
         }
     }
 
+    @Deprecated
     protected String getSinkKamelet() {
         return DEFAULT_KAMELET_CKC_SINK;
     }
