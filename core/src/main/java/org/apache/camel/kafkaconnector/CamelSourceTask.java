@@ -152,7 +152,12 @@ public class CamelSourceTask extends SourceTask {
                 actualProps.put(KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "fromUrl", remoteUrl);
             }
 
-            cms = CamelKafkaConnectMain.builder(getSourceKamelet(), localUrl)
+            String sourceKamelet = getSourceKamelet();
+            if (DEFAULT_KAMELET_CKC_SOURCE.equals(sourceKamelet)) {
+                sourceKamelet = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_KAMELET_CONF);
+            }
+
+            cms = CamelKafkaConnectMain.builder(sourceKamelet, localUrl)
                 .withProperties(actualProps)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
@@ -184,6 +189,7 @@ public class CamelSourceTask extends SourceTask {
         }
     }
 
+    @Deprecated
     protected String getSourceKamelet() {
         return DEFAULT_KAMELET_CKC_SOURCE;
     }

@@ -21,9 +21,8 @@ import java.util.Map;
 
 import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSourceTask;
-import org.apache.camel.kafkaconnector.netty.CamelNettySourceTask;
 
-public class CamelSyslogSourceTask extends CamelNettySourceTask {
+public class CamelSyslogSourceTask extends CamelSourceTask {
 
     @Override
     protected CamelSourceConnectorConfig getCamelSourceConnectorConfig(
@@ -33,7 +32,7 @@ public class CamelSyslogSourceTask extends CamelNettySourceTask {
     @Override
     protected Map<String, String> getDefaultConfig() {
         Map<String, String> defaultConfig = new HashMap<>();
-        defaultConfig.putAll(super.getDefaultConfig());
+        defaultConfig.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "netty");
         defaultConfig.put(CamelSourceConnectorConfig.CAMEL_SOURCE_UNMARSHAL_CONF, "syslog");
         defaultConfig.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "decoders", "#syslogdecoder");
         defaultConfig.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "sync", "false");

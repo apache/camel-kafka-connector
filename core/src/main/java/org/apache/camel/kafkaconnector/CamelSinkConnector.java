@@ -17,6 +17,8 @@
 package org.apache.camel.kafkaconnector;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,12 +49,23 @@ public class CamelSinkConnector extends SinkConnector {
         return CamelSinkTask.class;
     }
 
+    protected Map<String, String> getConnectorDefaults() {
+        return Collections.emptyMap();
+    }
+
     @Override
     public List<Map<String, String>> taskConfigs(int maxTasks) {
         LOG.info("Setting task configurations for {} workers.", maxTasks);
+        Map<String, String> defaults = getConnectorDefaults();
         final List<Map<String, String>> configs = new ArrayList<>(maxTasks);
         for (int i = 0; i < maxTasks; ++i) {
-            configs.add(configProps);
+            if (defaults.isEmpty()) {
+                configs.add(configProps);
+            } else {
+                Map<String, String> merged = new HashMap<>(defaults);
+                merged.putAll(configProps);
+                configs.add(merged);
+            }
         }
         return configs;
     }
