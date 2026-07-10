@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.5...HEAD)
 
+**Implemented enhancements:**
+
+- Reduce generated connector module boilerplate [\#1787](https://github.com/apache/camel-kafka-connector/issues/1787)
+
 **Closed issues:**
 
 - Upgrade to Apache Kafka 4.x [\#1778](https://github.com/apache/camel-kafka-connector/issues/1778)
