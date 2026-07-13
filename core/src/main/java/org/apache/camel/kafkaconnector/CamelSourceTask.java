@@ -120,6 +120,7 @@ public class CamelSourceTask extends SourceTask {
             final String headersRemovePattern = config.getString(CamelSourceConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
             mapProperties = config.getBoolean(CamelSourceConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
             mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
+            final boolean dumpRoutes = config.getBoolean(CamelSourceConnectorConfig.CAMEL_CONNECTOR_DUMP_ROUTES_CONF);
 
             topics = config.getString(CamelSourceConnectorConfig.TOPIC_CONF).split(",");
 
@@ -176,6 +177,7 @@ public class CamelSourceTask extends SourceTask {
                 .withIdempotentRepositoryKafkaMaxCacheSize(idempotentRepositoryKafkaMaxCacheSize)
                 .withIdempotentRepositoryKafkaPollDuration(idempotentRepositoryKafkaPollDuration)
                 .withHeadersExcludePattern(headersRemovePattern)
+                .withDumpRoutes(dumpRoutes)
                 .build(camelContext);
 
             consumer = cms.getCamelContext().getEndpoint(localUrl).createPollingConsumer();
@@ -217,9 +219,7 @@ public class CamelSourceTask extends SourceTask {
             LOG.debug("Received Exchange {} with Message {} from Endpoint {}", exchange.getExchangeId(),
                     exchange.getMessage().getMessageId(), exchange.getFromEndpoint());
 
-            // TODO: see if there is a better way to use sourcePartition
-            // an sourceOffset
-            Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
+            Map<String, String> sourcePartition = Collections.singletonMap("endpoint", exchange.getFromEndpoint().toString());
             Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
 
             final Object messageHeaderKey = camelMessageHeaderKey != null ? exchange.getMessage().getHeader(camelMessageHeaderKey) : null;
@@ -269,7 +269,9 @@ public class CamelSourceTask extends SourceTask {
     @Override
     public void commitRecord(SourceRecord record, RecordMetadata metadata) {
         LOG.debug("Committing record: {} with metadata: {}", record, metadata);
-        ///XXX: this should be a safe cast please see: https://issues.apache.org/jira/browse/KAFKA-12391
+        if (!(record instanceof CamelSourceRecord)) {
+            throw new IllegalArgumentException("Expected CamelSourceRecord but got " + record.getClass().getName());
+        }
         Integer claimCheck = ((CamelSourceRecord)record).getClaimCheck();
         LOG.debug("Committing record with claim check number: {}", claimCheck);
         Exchange correlatedExchange = exchangesWaitingForAck[claimCheck];
@@ -361,8 +363,6 @@ public class CamelSourceTask extends SourceTask {
             } else if (value instanceof Date) {
                 record.headers().addTimestamp(keyCamelHeader, (Date)value);
             } else if (value instanceof BigDecimal) {
-                //XXX: kafka connect configured header converter takes care of the encoding,
-                //default: org.apache.kafka.connect.storage.SimpleHeaderConverter
                 record.headers().addDecimal(keyCamelHeader, (BigDecimal)value);
             } else if (value instanceof Double) {
                 record.headers().addDouble(keyCamelHeader, (double)value);

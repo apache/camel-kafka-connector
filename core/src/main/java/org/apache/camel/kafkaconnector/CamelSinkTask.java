@@ -114,7 +114,8 @@ public class CamelSinkTask extends SinkTask {
             final String headersRemovePattern = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
             mapProperties = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
             mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
-            
+            final boolean dumpRoutes = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_DUMP_ROUTES_CONF);
+
             CamelContext camelContext = new DefaultCamelContext();
             // componentSchema can legitimately be null in case of kamelet connectors, in that case KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX + "toUrl" property is ignored
             if (remoteUrl == null && componentSchema != null) {
@@ -152,6 +153,7 @@ public class CamelSinkTask extends SinkTask {
                 .withIdempotentRepositoryKafkaMaxCacheSize(idempotentRepositoryKafkaMaxCacheSize)
                 .withIdempotentRepositoryKafkaPollDuration(idempotentRepositoryKafkaPollDuration)
                 .withHeadersExcludePattern(headersRemovePattern)
+                .withDumpRoutes(dumpRoutes)
                 .build(camelContext);
 
             cms.start();

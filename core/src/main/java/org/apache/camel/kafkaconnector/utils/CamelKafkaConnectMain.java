@@ -116,6 +116,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private int idempotentRepositoryKafkaMaxCacheSize;
         private int idempotentRepositoryKafkaPollDuration;
         private String headersExcludePattern;
+        private boolean dumpRoutes = true;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -212,6 +213,11 @@ public class CamelKafkaConnectMain extends SimpleMain {
             return this;
         }
 
+        public Builder withDumpRoutes(boolean dumpRoutes) {
+            this.dumpRoutes = dumpRoutes;
+            return this;
+        }
+
         private String filterSensitive(Map.Entry<Object, Object> entry) {
 
             if (SensitiveUtils.containsSensitive((String) entry.getKey())) {
@@ -223,8 +229,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
             camelMain.configure().setAutoConfigurationLogSummary(false);
-            //TODO: make it configurable
-            camelMain.configure().setDumpRoutes(Boolean.TRUE.toString());
+            camelMain.configure().setDumpRoutes(Boolean.toString(dumpRoutes));
 
             Properties camelProperties = new Properties();
             camelProperties.putAll(props);
@@ -316,7 +321,6 @@ public class CamelKafkaConnectMain extends SimpleMain {
 
                     //create aggregator template
                     routeTemplate("ckcAggregator")
-                            //TODO: change CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME to ckcAggregationStrategy?
                             .templateParameter("aggregationStrategy", CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME)
                             .templateParameter("aggregationSize", "1")
                             .templateParameter("aggregationTimeout", String.valueOf(Long.MAX_VALUE))

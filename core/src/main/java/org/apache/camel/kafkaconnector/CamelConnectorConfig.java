@@ -94,7 +94,11 @@ public abstract class CamelConnectorConfig extends AbstractConfig {
     public static final int CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_DEFAULT = 100;
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_CONF = "camel.idempotency.kafka.poll.duration.ms";
     public static final String  CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_DOC = "Sets the poll duration (in milliseconds) of the Kafka consumer";
-    
+
+    public static final Boolean CAMEL_CONNECTOR_DUMP_ROUTES_DEFAULT = true;
+    public static final String CAMEL_CONNECTOR_DUMP_ROUTES_CONF = "camel.connector.dumpRoutes";
+    public static final String CAMEL_CONNECTOR_DUMP_ROUTES_DOC = "Whether to dump Camel routes on startup";
+
     protected CamelConnectorConfig(ConfigDef definition, Map<?, ?> originals, Map<String, ?> configProviderProps, boolean doLog) {
         super(definition, originals, configProviderProps, doLog);
     }
