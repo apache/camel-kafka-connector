@@ -7,6 +7,7 @@
 **Implemented enhancements:**
 
 - Reduce generated connector module boilerplate [\#1787](https://github.com/apache/camel-kafka-connector/issues/1787)
+- Resolve open TODO/XXX comments in core module [\#1786](https://github.com/apache/camel-kafka-connector/issues/1786)
 
 **Closed issues:**
 
