@@ -23,9 +23,12 @@ import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.component.syslog.SyslogDataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.component.syslog.SyslogMessage;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -98,6 +101,33 @@ public class DataFormatTest {
         assertNotNull(hl7dfLoaded);
         SyslogDataFormat syslogDfLoaded = (SyslogDataFormat)dcc.resolveDataFormat("syslog");
         assertNotNull(syslogDfLoaded);
+        cms.stop();
+    }
+
+    @Test
+    public void testUnmarshalRouteActuallyUnmarshals() throws Exception {
+        // https://github.com/apache/camel-kafka-connector/issues/1795
+        // ckcUnMarshal previously called .marshal() instead of .unmarshal(),
+        // so the body never actually got converted to the target type.
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "direct://test");
+        props.put("topics", "mytopic");
+        props.put("camel.source.unmarshal", "syslog");
+
+        DefaultCamelContext dcc = new DefaultCamelContext();
+        CamelKafkaConnectMain cms = CamelKafkaConnectMain.builder("direct://start", "log://test")
+            .withProperties(props)
+            .withUnmarshallDataFormat("syslog")
+            .build(dcc);
+
+        SyslogDataFormat syslogDf = new SyslogDataFormat();
+        dcc.getRegistry().bind("syslog", syslogDf);
+
+        cms.start();
+        ProducerTemplate template = dcc.createProducerTemplate();
+        String rawSyslogLine = "<34>Oct 11 22:14:15 mymachine su: 'su root' failed for lonvick on /dev/pts/8";
+        Object result = template.requestBody("direct://start", rawSyslogLine);
+        assertInstanceOf(SyslogMessage.class, result);
         cms.stop();
     }
 
