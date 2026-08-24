@@ -37,6 +37,7 @@ import org.apache.camel.support.processor.idempotent.MemoryIdempotentRepository;
 import org.apache.camel.support.service.ServiceHelper;
 import org.apache.camel.util.ObjectHelper;
 import org.apache.camel.util.SensitiveUtils;
+import org.apache.camel.util.URISupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -213,11 +214,20 @@ public class CamelKafkaConnectMain extends SimpleMain {
         }
 
         private String filterSensitive(Map.Entry<Object, Object> entry) {
+            final String key = (String) entry.getKey();
 
-            if (SensitiveUtils.containsSensitive((String) entry.getKey())) {
-                return entry.getKey() + "=xxxxxxx";
+            if (SensitiveUtils.containsSensitive(key)) {
+                return key + "=xxxxxxx";
             }
-            return entry.getKey() + "=" + entry.getValue();
+            final Object value = entry.getValue();
+            if (value instanceof String) {
+                // The key alone is not enough: TaskHelper.buildUrl folds every endpoint option into a single
+                // composed URI stored under a key that carries no sensitive token (ckcSink.toUrl /
+                // ckcSource.fromUrl), and camel.sink.url / camel.source.url may embed credentials directly.
+                // Sanitize the value as well so userinfo and sensitive query parameters never reach the log.
+                return key + "=" + URISupport.sanitizeUri((String) value);
+            }
+            return key + "=" + value;
         }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
