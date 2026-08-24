@@ -39,10 +39,12 @@ defaultReleaseTag=$prefix$releaseV
 read -r -p "Enter release tag: [$defaultReleaseTag]" releaseTag
 export RELEASE_TAG=${releaseTag:-$defaultReleaseTag}
 
-read -r -p "Enter apache username: " user
-export APACHE_USER=$user
-
-export APACHE_PASS=`$DIR/scripts/askpass_stars.sh Enter apache password: `
+# SCM credentials are no longer passed to Maven. maven-release-plugin would receive them as
+# -Dusername/-Dpassword, which puts the password in the process table for the whole build and in the
+# shell history. git is left to authenticate on its own instead, so configure one of:
+#   - an SSH remote for gitbox, or
+#   - a git credential helper for https://gitbox.apache.org
+# before running this script.
 
 defaultGpgProfile=gpg
 read -r -p "Enter the maven gpg profile: [$defaultGpgProfile]" gpgProfile
@@ -70,6 +72,11 @@ done
 if [ "$CHECKOUT_RELEASE_TAG" == Y ]; then
     git checkout -b "$RELEASE_BRANCH"
 fi
-./mvnw -Prelease -P"$GPG_PROFILE" -DreleaseVersion="$RELEASE_VERSION" -DdevelopmentVersion="$NEXT_VERSION" -Dtag="$RELEASE_TAG" -Dusername="$APACHE_USER" -Dpassword="$APACHE_PASS" release:prepare && \
-git checkout "$RELEASE_TAG" && git add ./*.json && git commit -m"[after release perform chore]: regen catalog descriptors with new version" && git tag -f "$RELEASE_TAG" && git push -f origin "$RELEASE_TAG" && git checkout "$RELEASE_BRANCH" && \
-./mvnw -Prelease -Pgpg -Dusername="$APACHE_USER" -Dpassword="$APACHE_PASS" release:perform
+# Prepare the release locally. pushChanges=false keeps release:prepare from publishing the branch
+# and the tag, so the catalog descriptors below can be folded into the tagged commit before anything
+# reaches the remote. The tag is therefore pushed exactly once, in its final state, and never
+# re-pointed.
+./mvnw -Prelease -P"$GPG_PROFILE" -DreleaseVersion="$RELEASE_VERSION" -DdevelopmentVersion="$NEXT_VERSION" -Dtag="$RELEASE_TAG" -DpushChanges=false release:prepare && \
+git checkout "$RELEASE_TAG" && git add ./*.json && git commit -m"[after release perform chore]: regen catalog descriptors with new version" && git tag -f "$RELEASE_TAG" && git checkout "$RELEASE_BRANCH" && \
+git push origin "$RELEASE_BRANCH" && git push origin "$RELEASE_TAG" && \
+./mvnw -Prelease -Pgpg release:perform
