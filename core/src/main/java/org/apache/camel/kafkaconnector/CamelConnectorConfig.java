@@ -38,6 +38,7 @@ public abstract class CamelConnectorConfig extends AbstractConfig {
     public static final String CAMEL_CONNECTOR_ERROR_HANDLER_DEFAULT = "default";
     public static final String CAMEL_CONNECTOR_ERROR_HANDLER_CONF = "camel.error.handler";
     public static final String CAMEL_CONNECTOR_ERROR_HANDLER_DOC = "The error handler to use: possible value are 'no' or 'default'";
+    public static final ConfigDef.Validator CAMEL_CONNECTOR_ERROR_HANDLER_VALIDATOR = ConfigDef.ValidString.in("no", "default");
     
     public static final String CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_DEFAULT = "";
     public static final String CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF = "camel.remove.headers.pattern";
@@ -66,10 +67,12 @@ public abstract class CamelConnectorConfig extends AbstractConfig {
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_DEFAULT = "memory";
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_CONF = "camel.idempotency.repository.type";
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_DOC = "The idempotent repository type to use, possible values are memory and kafka";
+    public static final ConfigDef.Validator CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_VALIDATOR = ConfigDef.ValidString.in("memory", "kafka");
     
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_DEFAULT = "body";
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF = "camel.idempotency.expression.type";
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_DOC = "How the idempotency will be evaluated: possible values are body and header";
+    public static final ConfigDef.Validator CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_VALIDATOR = ConfigDef.ValidString.in("body", "header");
     
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_HEADER_DEFAULT = null;
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_HEADER_CONF = "camel.idempotency.expression.header";
