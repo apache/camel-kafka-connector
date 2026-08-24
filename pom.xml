@@ -94,7 +94,7 @@
     </mailingLists>
 
     <scm>
-        <connection>scm:git:http://gitbox.apache.org/repos/asf/camel-kafka-connector.git</connection>
+        <connection>scm:git:https://gitbox.apache.org/repos/asf/camel-kafka-connector.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/camel-kafka-connector.git</developerConnection>
         <url>https://gitbox.apache.org/repos/asf?p=camel-kafka-connector.git;a=summary</url>
         <tag>HEAD</tag>
