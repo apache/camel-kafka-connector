@@ -129,6 +129,7 @@ public class CamelSinkTask extends SinkTask {
             }
 
             cms = CamelKafkaConnectMain.builder(LOCAL_URL, getSinkKamelet())
+                .withRemoveHeadersFirst(true)
                 .withProperties(actualProps)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)

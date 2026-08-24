@@ -37,6 +37,7 @@ import org.apache.camel.support.processor.idempotent.MemoryIdempotentRepository;
 import org.apache.camel.support.service.ServiceHelper;
 import org.apache.camel.util.ObjectHelper;
 import org.apache.camel.util.SensitiveUtils;
+import org.apache.camel.util.URISupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,6 +117,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private int idempotentRepositoryKafkaMaxCacheSize;
         private int idempotentRepositoryKafkaPollDuration;
         private String headersExcludePattern;
+        private boolean removeHeadersFirst;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -212,12 +214,39 @@ public class CamelKafkaConnectMain extends SimpleMain {
             return this;
         }
 
-        private String filterSensitive(Map.Entry<Object, Object> entry) {
+        /**
+         * Controls where the header-removal stage sits in the route.
+         *
+         * On the sink path record headers are mapped onto the exchange by {@code CamelSinkTask.put} *before* the
+         * exchange enters the route, so the stage must run first for {@code camel.remove.headers.pattern} to keep
+         * those headers away from the marshalling, aggregation and idempotency stages.
+         *
+         * On the source path headers arrive from the Camel consumer and are mapped onto the produced record after
+         * the route has run, so the stage stays last and the intermediate stages keep seeing them.
+         *
+         * @param removeHeadersFirst true for the sink direction, false (the default) for the source direction.
+         */
+        public Builder withRemoveHeadersFirst(boolean removeHeadersFirst) {
+            this.removeHeadersFirst = removeHeadersFirst;
+            return this;
+        }
 
-            if (SensitiveUtils.containsSensitive((String) entry.getKey())) {
-                return entry.getKey() + "=xxxxxxx";
+
+        private String filterSensitive(Map.Entry<Object, Object> entry) {
+            final String key = (String) entry.getKey();
+
+            if (SensitiveUtils.containsSensitive(key)) {
+                return key + "=xxxxxxx";
             }
-            return entry.getKey() + "=" + entry.getValue();
+            final Object value = entry.getValue();
+            if (value instanceof String) {
+                // The key alone is not enough: TaskHelper.buildUrl folds every endpoint option into a single
+                // composed URI stored under a key that carries no sensitive token (ckcSink.toUrl /
+                // ckcSource.fromUrl), and camel.sink.url / camel.source.url may embed credentials directly.
+                // Sanitize the value as well so userinfo and sensitive query parameters never reach the log.
+                return key + "=" + URISupport.sanitizeUri((String) value);
+            }
+            return key + "=" + value;
         }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
@@ -361,6 +390,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
 
                     //creating the actual route
                     ProcessorDefinition<?> rd = from(from);
+                    if (removeHeadersFirst) {
+                        rd = rd.kamelet("ckcRemoveHeader");
+                    }
                     if (!ObjectHelper.isEmpty(marshallDataFormat)) {
                         rd = rd.kamelet("ckcMarshal");
                     }
@@ -373,7 +405,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     if (idempotencyEnabled) {
                         rd = rd.kamelet("ckcIdempotent");
                     }
-                    rd = rd.kamelet("ckcRemoveHeader");
+                    if (!removeHeadersFirst) {
+                        rd = rd.kamelet("ckcRemoveHeader");
+                    }
                     rd.toD(to);
                 }
             });

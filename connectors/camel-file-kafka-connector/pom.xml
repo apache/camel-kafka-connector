@@ -49,6 +49,13 @@
       <artifactId>commons-io</artifactId>
       <version>${commons-io-version}</version>
     </dependency>
+    <!-- Test scope; version managed by junit-bom via camel-parent. Kept outside the generated
+         block below so the connector generator does not overwrite it. -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
     <!--START OF GENERATED CODE-->
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>

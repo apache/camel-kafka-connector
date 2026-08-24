@@ -22,7 +22,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.netty.buffer.Unpooled;
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
 import org.apache.camel.component.netty.http.NettyChannelBufferStreamCache;
+import org.apache.camel.support.TypeConverterSupport;
 import org.apache.kafka.common.config.ConfigException;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
@@ -31,8 +34,12 @@ import org.apache.kafka.connect.source.SourceRecord;
 import org.apache.kafka.connect.transforms.Transformation;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -134,4 +141,84 @@ public class CamelTypeConverterTransformTest {
         assertThrows(ConfigException.class, () -> transformationKey.configure(Collections.emptyMap()));
     }
 
+    @Test
+    public void testEachInstanceKeepsItsOwnCamelContext() {
+        final CamelTypeConverterTransform.Value<SourceRecord> first = new CamelTypeConverterTransform.Value<>();
+        final CamelTypeConverterTransform.Value<SourceRecord> second = new CamelTypeConverterTransform.Value<>();
+
+        assertNotSame(first.getCamelContext(), second.getCamelContext());
+    }
+
+    @Test
+    public void testConverterIsScopedToTheInstanceThatConfiguredIt() {
+        final CamelTypeConverterTransform.Value<SourceRecord> first = new CamelTypeConverterTransform.Value<>();
+
+        // teach ONLY this instance's context how to produce a Marker
+        first.getCamelContext().getTypeConverterRegistry().addTypeConverter(Marker.class, String.class,
+                new TypeConverterSupport() {
+                    @Override
+                    public <T> T convertTo(Class<T> type, Exchange exchange, Object value) {
+                        return type.cast(new Marker(String.valueOf(value)));
+                    }
+                });
+
+        final Map<String, Object> toMarker = new HashMap<>();
+        toMarker.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, Marker.class.getName());
+        first.configure(toMarker);
+
+        // configuring a second instance afterwards must not repoint the converter the first one uses
+        final Map<String, Object> toString = new HashMap<>();
+        toString.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, String.class.getName());
+        new CamelTypeConverterTransform.Value<SourceRecord>().configure(toString);
+
+        final SourceRecord record = new SourceRecord(Collections.emptyMap(), Collections.emptyMap(), "topic",
+                Schema.STRING_SCHEMA, "1234", Schema.STRING_SCHEMA, "abc");
+
+        assertInstanceOf(Marker.class, first.apply(record).value());
+    }
+
+    /** Target type known only to the converter registered on one instance's context. */
+    public static final class Marker {
+        private final String value;
+
+        Marker(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Marker[" + value + "]";
+        }
+    }
+
+    @Test
+    public void testCloseStopsTheCamelContext() {
+        final CamelTypeConverterTransform.Value<SourceRecord> transform = new CamelTypeConverterTransform.Value<>();
+        final Map<String, Object> props = new HashMap<>();
+        props.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, String.class.getName());
+        transform.configure(props);
+
+        final CamelContext context = transform.getCamelContext();
+        assertDoesNotThrow(transform::close);
+        assertFalse(context.getStatus().isStarted());
+    }
+
+    @Test
+    public void testConversionFailureDoesNotEchoTheRecordValue() {
+        final Map<String, Object> props = new HashMap<>();
+        props.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, java.time.LocalDate.class.getName());
+
+        final Transformation<SourceRecord> transform = new CamelTypeConverterTransform.Value<>();
+        transform.configure(props);
+
+        final String secret = "s3cr3t-record-content";
+        final SourceRecord record = new SourceRecord(Collections.emptyMap(), Collections.emptyMap(), "topic",
+                Schema.STRING_SCHEMA, "1234", Schema.STRING_SCHEMA, secret);
+
+        final org.apache.kafka.connect.errors.DataException e =
+                assertThrows(org.apache.kafka.connect.errors.DataException.class, () -> transform.apply(record));
+
+        assertFalse(e.getMessage().contains(secret), "the record value must not be echoed into the exception message");
+        assertTrue(e.getMessage().contains(String.class.getName()), "the source type should be reported instead");
+    }
 }
