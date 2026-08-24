@@ -28,6 +28,8 @@ import java.util.Map;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
+import org.apache.kafka.clients.consumer.OffsetAndMetadata;
+import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;
@@ -42,6 +44,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -1094,5 +1097,73 @@ class CamelSinkTaskTest {
         ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertThat(exchange.getIn().getHeader(headerName)).isEqualTo(headerValue);
+    }
+
+    @Test
+    void testAggregatedRecordsOffsetsAreHeldBackUntilTheBatchIsDelivered() {
+        Map<String, String> props = new HashMap<>();
+        props.put(TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+        props.put(CamelSinkConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF, "#class:org.apache.camel.kafkaconnector.utils.SampleAggregator");
+        props.put(CamelSinkConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF, "5");
+        sinkTask.start(props);
+
+        TopicPartition partition = new TopicPartition(TOPIC_NAME, 1);
+
+        // four records: fewer than the aggregation size, so their data is still sitting in the buffer
+        List<SinkRecord> firstBatch = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            firstBatch.add(new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel" + i, 10 + i));
+        }
+        sinkTask.put(firstBatch);
+
+        Map<TopicPartition, OffsetAndMetadata> proposed = Collections.singletonMap(partition, new OffsetAndMetadata(14));
+        Map<TopicPartition, OffsetAndMetadata> safe = sinkTask.preCommit(proposed);
+        assertEquals(10, safe.get(partition).offset(),
+                "offsets must be held at the oldest record whose data is still in the aggregation buffer");
+
+        // the fifth record completes the batch, so the aggregated exchange is delivered
+        sinkTask.put(Collections.singletonList(new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel4", 14)));
+
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
+        Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
+        assertNotNull(exchange, "the aggregated exchange should have been delivered");
+
+        Map<TopicPartition, OffsetAndMetadata> afterDelivery = Collections.singletonMap(partition, new OffsetAndMetadata(15));
+        Map<TopicPartition, OffsetAndMetadata> safeAfter = awaitPreCommit(afterDelivery, 15);
+        assertEquals(15, safeAfter.get(partition).offset(),
+                "once the aggregated exchange has been delivered every offset in it can be committed");
+    }
+
+    @Test
+    void testOffsetsAreNotHeldBackWithoutAggregation() {
+        Map<String, String> props = new HashMap<>();
+        props.put(TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+        sinkTask.start(props);
+
+        TopicPartition partition = new TopicPartition(TOPIC_NAME, 1);
+        sinkTask.put(Collections.singletonList(new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 10)));
+
+        Map<TopicPartition, OffsetAndMetadata> proposed = Collections.singletonMap(partition, new OffsetAndMetadata(11));
+        assertEquals(11, sinkTask.preCommit(proposed).get(partition).offset(),
+                "without aggregation the route is synchronous, so nothing is held back");
+    }
+
+    private Map<TopicPartition, OffsetAndMetadata> awaitPreCommit(Map<TopicPartition, OffsetAndMetadata> proposed, long expected) {
+        Map<TopicPartition, OffsetAndMetadata> safe = null;
+        for (int attempt = 0; attempt < 50; attempt++) {
+            safe = sinkTask.preCommit(proposed);
+            if (safe.values().iterator().next().offset() == expected) {
+                return safe;
+            }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+        return safe;
     }
 }

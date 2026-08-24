@@ -20,8 +20,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
+import org.apache.camel.AggregationStrategy;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
@@ -47,6 +49,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
     public static final String KAMELET_AGGREGATORL_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcAggregator.";
     public static final String KAMELET_IDEMPOTENT_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcIdempotent.";
     public static final String KAMELET_REMOVEHEADER_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcRemoveHeader.";
+    public static final String CAMEL_CONNECTOR_TRACKED_AGGREGATE_NAME = "ckcTrackedAggregate";
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectMain.class);
 
@@ -118,6 +121,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private int idempotentRepositoryKafkaPollDuration;
         private String headersExcludePattern;
         private boolean removeHeadersFirst;
+        private UnaryOperator<AggregationStrategy> aggregationStrategyDecorator;
         private boolean dumpRoutes = true;
 
         public Builder(String from, String to) {
@@ -232,6 +236,16 @@ public class CamelKafkaConnectMain extends SimpleMain {
             return this;
         }
 
+        /**
+         * Wraps the aggregation strategy the configuration supplies, when aggregation is in use. The sink task uses
+         * this to keep track of which records a given aggregated exchange carries, since the aggregate EIP completes
+         * an incoming exchange before its data has been delivered.
+         */
+        public Builder withAggregationStrategyDecorator(UnaryOperator<AggregationStrategy> aggregationStrategyDecorator) {
+            this.aggregationStrategyDecorator = aggregationStrategyDecorator;
+            return this;
+        }
+
         public Builder withDumpRoutes(boolean dumpRoutes) {
             this.dumpRoutes = dumpRoutes;
             return this;
@@ -320,6 +334,13 @@ public class CamelKafkaConnectMain extends SimpleMain {
                 camelMain.getCamelContext().getRegistry().bind("ckcIdempotentRepository", idempotentRepo);
             }
 
+            // The bean named by camel.beans.aggregate is only bound once the context starts, so the strategy is
+            // decorated inside configure() below; the template just needs to be pointed at the decorated name here.
+            if (aggregationStrategyDecorator != null) {
+                camelProperties.put(KAMELET_AGGREGATORL_TEMPLATE_PARAMETERS_PREFIX + "aggregationStrategy",
+                        CAMEL_CONNECTOR_TRACKED_AGGREGATE_NAME);
+            }
+
             //remove headers
             if (!ObjectHelper.isEmpty(headersExcludePattern)) {
                 camelProperties.put(KAMELET_REMOVEHEADER_TEMPLATE_PARAMETERS_PREFIX + "headersExcludePattern", headersExcludePattern);
@@ -402,7 +423,13 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
                         rd = rd.kamelet("ckcUnMarshal");
                     }
-                    if (getContext().getRegistry().lookupByName("aggregate") != null) {
+                    Object configuredAggregationStrategy =
+                            getContext().getRegistry().lookupByName(CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME);
+                    if (configuredAggregationStrategy != null) {
+                        if (aggregationStrategyDecorator != null && configuredAggregationStrategy instanceof AggregationStrategy) {
+                            getContext().getRegistry().bind(CAMEL_CONNECTOR_TRACKED_AGGREGATE_NAME,
+                                    aggregationStrategyDecorator.apply((AggregationStrategy) configuredAggregationStrategy));
+                        }
                         rd = rd.kamelet("ckcAggregator");
                     }
                     if (idempotencyEnabled) {
