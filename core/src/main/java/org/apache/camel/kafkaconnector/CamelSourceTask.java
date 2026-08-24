@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -68,6 +69,9 @@ public class CamelSourceTask extends SourceTask {
     private String camelMessageHeaderKey;
     private LoggingLevel loggingLevel = LoggingLevel.OFF;
     private Exchange[] exchangesWaitingForAck;
+    // One entry per claim check, but all the claim checks derived from the same exchange share a single counter, so
+    // the exchange's unit of work is only completed once every record produced from it has been committed.
+    private AtomicInteger[] pendingCommitsWaitingForAck;
     //the assumption is that at most 1 thread is running poll() method and at most 1 thread is running commitRecord()
     private SpscArrayQueue<Integer> freeSlots;
     private boolean mapProperties;
@@ -139,6 +143,7 @@ public class CamelSourceTask extends SourceTask {
             });
             //needs to be done like this because freeSlots capacity is rounded to the next power of 2 of maxNotCommittedRecords
             exchangesWaitingForAck = new Exchange[freeSlots.capacity()];
+            pendingCommitsWaitingForAck = new AtomicInteger[freeSlots.capacity()];
 
             CamelContext camelContext = new DefaultCamelContext();
             // componentSchema can legitimately be null in case of kamelet connectors, in that case KAMELET_SOURCE_TEMPLATE_PARAMETERS_PREFIX + "fromUrl" property is ignored
@@ -236,6 +241,9 @@ public class CamelSourceTask extends SourceTask {
                 // reset to be sure that the cache is ready to be used before sending it in the record (could be useful for SMTs)
                 sc.reset();
             }
+            // every record below is produced from this one exchange; it may only be acknowledged towards the external
+            // system after the last of them has been committed
+            AtomicInteger pendingCommits = new AtomicInteger(topics.length);
             for (String singleTopic : topics) {
                 CamelSourceRecord camelRecord = new CamelSourceRecord(sourcePartition, sourceOffset, singleTopic, null, messageKeySchema,
                         messageHeaderKey, messageBodySchema, messageBodyValue, timestamp);
@@ -256,6 +264,7 @@ public class CamelSourceTask extends SourceTask {
                 Integer claimCheck = freeSlots.remove();
                 camelRecord.setClaimCheck(claimCheck);
                 exchangesWaitingForAck[claimCheck] = exchange;
+                pendingCommitsWaitingForAck[claimCheck] = pendingCommits;
                 LOG.debug("Record: {}, containing data from exchange: {}, is associated with claim check number: {}", camelRecord, exchange, claimCheck);
                 records.add(camelRecord);
             }
@@ -275,14 +284,23 @@ public class CamelSourceTask extends SourceTask {
         Integer claimCheck = ((CamelSourceRecord)record).getClaimCheck();
         LOG.debug("Committing record with claim check number: {}", claimCheck);
         Exchange correlatedExchange = exchangesWaitingForAck[claimCheck];
+        AtomicInteger pendingCommits = pendingCommitsWaitingForAck[claimCheck];
         try {
-            UnitOfWorkHelper.doneSynchronizations(correlatedExchange, correlatedExchange.getExchangeExtension().handoverCompletions());
-            LOG.debug("Record with claim check number: {} committed.", claimCheck);
+            // With more than one configured topic a single exchange produces one record per topic. Completing the unit
+            // of work acknowledges the message towards the external system, so it must wait for the last of them.
+            if (pendingCommits == null || pendingCommits.decrementAndGet() <= 0) {
+                UnitOfWorkHelper.doneSynchronizations(correlatedExchange, correlatedExchange.getExchangeExtension().handoverCompletions());
+                LOG.debug("Record with claim check number: {} committed, exchange acknowledged.", claimCheck);
+            } else {
+                LOG.debug("Record with claim check number: {} committed, {} record(s) from the same exchange still pending.",
+                        claimCheck, pendingCommits.get());
+            }
         } catch (Throwable t) {
             LOG.error("Exception during Unit Of Work completion: {} caused by: {}", t.getMessage(), t.getCause());
             throw new RuntimeException(t);
         } finally {
             exchangesWaitingForAck[claimCheck] = null;
+            pendingCommitsWaitingForAck[claimCheck] = null;
             freeSlots.add(claimCheck);
             LOG.debug("Claim check number: {} freed.", claimCheck);
         }
@@ -381,6 +399,13 @@ public class CamelSourceTask extends SourceTask {
     private String getLocalUrlWithPollingOptions(long pollingConsumerQueueSize, long pollingConsumerBlockTimeout, boolean pollingConsumerBlockWhenFull) {
         return LOCAL_URL + "?pollingConsumerQueueSize=" + pollingConsumerQueueSize + "&pollingConsumerBlockTimeout=" + pollingConsumerBlockTimeout
                + "&pollingConsumerBlockWhenFull=" + pollingConsumerBlockWhenFull;
+    }
+
+    /**
+     * The exchange a record's claim check refers to, while it is waiting to be committed. Visible for testing.
+     */
+    Exchange getExchangeWaitingForAck(int claimCheck) {
+        return exchangesWaitingForAck[claimCheck];
     }
 
     CamelKafkaConnectMain getCms() {

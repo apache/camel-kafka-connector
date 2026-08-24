@@ -24,12 +24,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.kafkaconnector.utils.StringJoinerAggregator;
+import org.apache.camel.support.SynchronizationAdapter;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
@@ -40,8 +43,10 @@ import static org.apache.camel.util.CollectionHelper.mapOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CamelSourceTaskTest {
@@ -663,5 +668,48 @@ public class CamelSourceTaskTest {
 
         sourceTask.stop();
         executor.shutdown();
+    }
+
+    @Test
+    public void testMultiTopicSourceAcknowledgesOnlyAfterTheLastTopicCommits() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME + ",second-topic");
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+
+        sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "test");
+
+        List<SourceRecord> poll = sourceTask.poll();
+        assertEquals(2, poll.size(), "one record per configured topic");
+
+        int firstClaimCheck = ((CamelSourceRecord) poll.get(0)).getClaimCheck();
+        int secondClaimCheck = ((CamelSourceRecord) poll.get(1)).getClaimCheck();
+        assertNotEquals(firstClaimCheck, secondClaimCheck, "each record gets its own claim check");
+
+        Exchange held = sourceTask.getExchangeWaitingForAck(firstClaimCheck);
+        assertSame(held, sourceTask.getExchangeWaitingForAck(secondClaimCheck),
+                "both records are derived from the same exchange");
+
+        // completing the unit of work is what acknowledges the message towards the external system, so observe it on
+        // the exchange the task is actually holding
+        final AtomicInteger acknowledged = new AtomicInteger();
+        held.getExchangeExtension().addOnCompletion(new SynchronizationAdapter() {
+            @Override
+            public void onDone(Exchange doneExchange) {
+                acknowledged.incrementAndGet();
+            }
+        });
+
+        sourceTask.commitRecord(poll.get(0), null);
+        assertEquals(0, acknowledged.get(),
+                "the exchange must not be acknowledged while a record derived from it is still uncommitted");
+
+        sourceTask.commitRecord(poll.get(1), null);
+        assertEquals(1, acknowledged.get(),
+                "the exchange must be acknowledged once the last record derived from it has been committed");
+
+        sourceTask.stop();
     }
 }
