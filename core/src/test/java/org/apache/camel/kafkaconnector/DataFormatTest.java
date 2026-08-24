@@ -16,19 +16,25 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.component.syslog.SyslogDataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
+import org.apache.camel.spi.DataFormat;
+import org.apache.camel.support.service.ServiceSupport;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataFormatTest {
 
@@ -143,5 +149,79 @@ public class DataFormatTest {
         HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
         assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
+    }
+
+    @Test
+    public void testUnmarshalDataFormatIsAppliedInTheUnmarshalDirection() throws Exception {
+        DirectionRecordingDataFormat dataFormat = new DirectionRecordingDataFormat();
+        DefaultCamelContext dcc = new DefaultCamelContext();
+        dcc.getRegistry().bind("directionRecording", dataFormat);
+
+        CamelKafkaConnectMain cms = CamelKafkaConnectMain.builder("direct://start", "log://test")
+            .withProperties(new HashMap<String, String>())
+            .withUnmarshallDataFormat("directionRecording")
+            .build(dcc);
+
+        cms.start();
+        cms.getProducerTemplate().sendBody("direct://start", "payload");
+        cms.stop();
+
+        assertTrue(dataFormat.isUnmarshalled(), "camel.*.unmarshal must apply the data format in the unmarshal direction");
+        assertFalse(dataFormat.isMarshalled(), "camel.*.unmarshal must not apply the data format in the marshal direction");
+    }
+
+    @Test
+    public void testMarshalDataFormatIsAppliedInTheMarshalDirection() throws Exception {
+        DirectionRecordingDataFormat dataFormat = new DirectionRecordingDataFormat();
+        DefaultCamelContext dcc = new DefaultCamelContext();
+        dcc.getRegistry().bind("directionRecording", dataFormat);
+
+        CamelKafkaConnectMain cms = CamelKafkaConnectMain.builder("direct://start", "log://test")
+            .withProperties(new HashMap<String, String>())
+            .withMarshallDataFormat("directionRecording")
+            .build(dcc);
+
+        cms.start();
+        cms.getProducerTemplate().sendBody("direct://start", "payload");
+        cms.stop();
+
+        assertTrue(dataFormat.isMarshalled(), "camel.*.marshal must apply the data format in the marshal direction");
+        assertFalse(dataFormat.isUnmarshalled(), "camel.*.marshal must not apply the data format in the unmarshal direction");
+    }
+
+    /**
+     * A data format that only records which direction it was invoked in, so that a test can assert that the route
+     * template applies the operation the configuration actually names.
+     */
+    private static final class DirectionRecordingDataFormat extends ServiceSupport implements DataFormat {
+
+        private boolean marshalled;
+        private boolean unmarshalled;
+
+        @Override
+        public void marshal(Exchange exchange, Object graph, OutputStream stream) throws Exception {
+            marshalled = true;
+            stream.write(exchange.getContext().getTypeConverter().mandatoryConvertTo(byte[].class, exchange, graph));
+        }
+
+        @Override
+        public Object unmarshal(Exchange exchange, InputStream stream) throws Exception {
+            unmarshalled = true;
+            return exchange.getContext().getTypeConverter().mandatoryConvertTo(String.class, exchange, stream);
+        }
+
+        @Override
+        public Object unmarshal(Exchange exchange, Object body) throws Exception {
+            unmarshalled = true;
+            return exchange.getContext().getTypeConverter().mandatoryConvertTo(String.class, exchange, body);
+        }
+
+        boolean isMarshalled() {
+            return marshalled;
+        }
+
+        boolean isUnmarshalled() {
+            return unmarshalled;
+        }
     }
 }
