@@ -26,6 +26,7 @@ import org.apache.camel.kafkaconnector.utils.SchemaHelper;
 import org.apache.commons.io.FileUtils;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.ConnectRecord;
+import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.transforms.Transformation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,21 +41,21 @@ public class FileTransforms<R extends ConnectRecord<R>> implements Transformatio
     public R apply(R r) {
         Object value = r.value();
 
-        if (r.value() instanceof GenericFile) {
+        if (value instanceof GenericFile) {
             LOG.debug("Converting record from RemoteFile to text");
-            GenericFile<File> message = (GenericFile<File>)r.value();
-            String c = null;
+            GenericFile<File> message = (GenericFile<File>)value;
+            File file = message.getFile();
+            String c;
             try {
-                c = FileUtils.readFileToString(message.getFile(), StandardCharsets.UTF_8);
+                c = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                throw new ConnectException("Failed to read file " + file.getAbsolutePath(), e);
             }
 
             return r.newRecord(r.topic(), r.kafkaPartition(), null, r.key(), SchemaHelper.buildSchemaBuilderForType(c), c, r.timestamp());
 
         } else {
-            LOG.debug("Unexpected message type: {}", r.value().getClass());
+            LOG.debug("Unexpected message type: {}", value == null ? null : value.getClass());
 
             return r;
         }
