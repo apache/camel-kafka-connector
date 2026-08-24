@@ -36,7 +36,7 @@ public abstract class CamelTypeConverterTransform<R extends ConnectRecord<R>> ex
             .define(FIELD_TARGET_TYPE_CONFIG, ConfigDef.Type.CLASS, null, ConfigDef.Importance.HIGH,
                     "The target field type to convert the value from, this is full qualified Java class, e.g: java.util.Map");
 
-    private static TypeConverter typeConverter;
+    private TypeConverter typeConverter;
     private Class<?> fieldTargetType;
 
     @Override
@@ -54,7 +54,8 @@ public abstract class CamelTypeConverterTransform<R extends ConnectRecord<R>> ex
         final Object convertedValue = typeConverter.tryConvertTo(fieldTargetType, originalValue);
 
         if (convertedValue == null) {
-            throw new DataException(String.format("CamelTypeConverter was not able to convert value `%s` to target type of `%s`", originalValue, fieldTargetType.getSimpleName()));
+            throw new DataException(String.format("CamelTypeConverter was not able to convert a value of type `%s` to target type of `%s`",
+                    originalValue == null ? "null" : originalValue.getClass().getName(), fieldTargetType.getSimpleName()));
         }
 
         return convertedValue;
@@ -80,6 +81,7 @@ public abstract class CamelTypeConverterTransform<R extends ConnectRecord<R>> ex
 
     @Override
     public void close() {
+        stopCamelContext();
     }
 
     @Override
