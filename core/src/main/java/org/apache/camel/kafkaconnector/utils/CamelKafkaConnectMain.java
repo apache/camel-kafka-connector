@@ -117,6 +117,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private int idempotentRepositoryKafkaMaxCacheSize;
         private int idempotentRepositoryKafkaPollDuration;
         private String headersExcludePattern;
+        private boolean removeHeadersFirst;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -212,6 +213,24 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.headersExcludePattern = headersExcludePattern;
             return this;
         }
+
+        /**
+         * Controls where the header-removal stage sits in the route.
+         *
+         * On the sink path record headers are mapped onto the exchange by {@code CamelSinkTask.put} *before* the
+         * exchange enters the route, so the stage must run first for {@code camel.remove.headers.pattern} to keep
+         * those headers away from the marshalling, aggregation and idempotency stages.
+         *
+         * On the source path headers arrive from the Camel consumer and are mapped onto the produced record after
+         * the route has run, so the stage stays last and the intermediate stages keep seeing them.
+         *
+         * @param removeHeadersFirst true for the sink direction, false (the default) for the source direction.
+         */
+        public Builder withRemoveHeadersFirst(boolean removeHeadersFirst) {
+            this.removeHeadersFirst = removeHeadersFirst;
+            return this;
+        }
+
 
         private String filterSensitive(Map.Entry<Object, Object> entry) {
             final String key = (String) entry.getKey();
@@ -371,6 +390,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
 
                     //creating the actual route
                     ProcessorDefinition<?> rd = from(from);
+                    if (removeHeadersFirst) {
+                        rd = rd.kamelet("ckcRemoveHeader");
+                    }
                     if (!ObjectHelper.isEmpty(marshallDataFormat)) {
                         rd = rd.kamelet("ckcMarshal");
                     }
@@ -383,7 +405,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     if (idempotencyEnabled) {
                         rd = rd.kamelet("ckcIdempotent");
                     }
-                    rd = rd.kamelet("ckcRemoveHeader");
+                    if (!removeHeadersFirst) {
+                        rd = rd.kamelet("ckcRemoveHeader");
+                    }
                     rd.toD(to);
                 }
             });
