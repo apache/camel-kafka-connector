@@ -316,7 +316,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     routeTemplate("ckcUnMarshal")
                             .templateParameter("unmarshal", "dummyDataformat")
                             .from("kamelet:source")
-                            .marshal("{{unmarshal}}")
+                            .unmarshal("{{unmarshal}}")
                             .to("kamelet:sink");
 
                     //create aggregator template
