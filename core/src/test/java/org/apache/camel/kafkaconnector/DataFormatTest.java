@@ -19,17 +19,17 @@ package org.apache.camel.kafkaconnector;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.component.syslog.SyslogDataFormat;
+import org.apache.camel.component.syslog.SyslogMessage;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
-import org.apache.camel.ProducerTemplate;
-import org.apache.camel.component.syslog.SyslogMessage;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
