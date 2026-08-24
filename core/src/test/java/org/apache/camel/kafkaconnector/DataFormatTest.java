@@ -174,4 +174,34 @@ public class DataFormatTest {
         assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
     }
+
+    @Test
+    public void testMarshalRouteActuallyMarshals() throws Exception {
+        // Symmetric guard for testUnmarshalRouteActuallyUnmarshals: nothing asserted that ckcMarshal still
+        // applies marshal, so the mistake fixed in #1795 could be reintroduced in the other template unnoticed.
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "direct://test");
+        props.put("topics", "mytopic");
+        props.put("camel.source.marshal", "syslog");
+
+        DefaultCamelContext dcc = new DefaultCamelContext();
+        CamelKafkaConnectMain cms = CamelKafkaConnectMain.builder("direct://start", "log://test")
+            .withProperties(props)
+            .withMarshallDataFormat("syslog")
+            .build(dcc);
+
+        dcc.getRegistry().bind("syslog", new SyslogDataFormat());
+
+        cms.start();
+        ProducerTemplate template = dcc.createProducerTemplate();
+        SyslogMessage message = new SyslogMessage();
+        message.setHostname("mymachine");
+        message.setLogMessage("su root failed for lonvick");
+        Object result = template.requestBody("direct://start", message);
+
+        // marshal turns the SyslogMessage into its wire form; unmarshal would have thrown instead
+        assertNotNull(result);
+        assertFalse(result instanceof SyslogMessage, "camel.*.marshal must encode, not decode: got " + result);
+        cms.stop();
+    }
 }
