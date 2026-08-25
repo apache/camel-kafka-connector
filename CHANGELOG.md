@@ -6,11 +6,21 @@
 
 **Implemented enhancements:**
 
+- Enum-like connector options silently fall back instead of being rejected [\#1801](https://github.com/apache/camel-kafka-connector/issues/1801)
 - Reduce generated connector module boilerplate [\#1787](https://github.com/apache/camel-kafka-connector/issues/1787)
 - Resolve open TODO/XXX comments in core module [\#1786](https://github.com/apache/camel-kafka-connector/issues/1786)
 
+**Fixed bugs:**
+
+- camel.remove.headers.pattern is applied after aggregation and idempotency on the sink path [\#1806](https://github.com/apache/camel-kafka-connector/issues/1806)
+- CamelTypeConverterTransform shares a static TypeConverter and never closes its CamelContext [\#1800](https://github.com/apache/camel-kafka-connector/issues/1800)
+- FileTransforms SMT swallows IOException and can emit a record with a null value [\#1799](https://github.com/apache/camel-kafka-connector/issues/1799)
+- Composed endpoint URI is logged unmasked in the initial properties log line [\#1797](https://github.com/apache/camel-kafka-connector/issues/1797)
+
 **Closed issues:**
 
+- Harden CI workflows: least-privilege permissions, SHA-pinned actions, wrapper checksum [\#1804](https://github.com/apache/camel-kafka-connector/issues/1804)
+- \[BUG\] CamelSyslogSourceConnector fails with NoTypeConversionAvailableException due to marshal/unmarshal typo in ckcUnMarshal route template [\#1795](https://github.com/apache/camel-kafka-connector/issues/1795)
 - Upgrade to Apache Kafka 4.x [\#1778](https://github.com/apache/camel-kafka-connector/issues/1778)
 - RabbitMQ connector enabling TLS connection [\#1718](https://github.com/apache/camel-kafka-connector/issues/1718)
 - kafkaconnector.https.CamelHttpsSinkConnector oauth2 scope is missing [\#1647](https://github.com/apache/camel-kafka-connector/issues/1647)
