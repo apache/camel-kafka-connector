@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -31,6 +32,8 @@ import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.DefaultExchange;
 import org.apache.camel.util.StringHelper;
+import org.apache.kafka.clients.consumer.OffsetAndMetadata;
+import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
@@ -48,6 +51,9 @@ public class CamelSinkTask extends SinkTask {
     public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
     public static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
 
+    /** Set on each exchange so an aggregated delivery can be traced back to the records it carries. */
+    static final String RECORD_REFERENCE_PROPERTY = "CamelKafkaConnectorSinkRecord";
+
     private static final String CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX = "camel.sink.endpoint.";
     private static final String CAMEL_SINK_PATH_PROPERTIES_PREFIX = "camel.sink.path.";
 
@@ -56,6 +62,9 @@ public class CamelSinkTask extends SinkTask {
     private static final String LOCAL_URL = "direct:start";
     private static final String DEFAULT_KAMELET_CKC_SINK = "kamelet:ckcSink";
     private ErrantRecordReporter reporter;
+    private final SinkRecordDeliveryTracker deliveryTracker = new SinkRecordDeliveryTracker();
+    private volatile Throwable aggregatedDeliveryFailure;
+    private boolean aggregationEnabled;
 
     private CamelKafkaConnectMain cms;
     private ProducerTemplate producer;
@@ -98,6 +107,7 @@ public class CamelSinkTask extends SinkTask {
             final String marshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF);
             final String unmarshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_UNMARSHAL_CONF);
             final int size = config.getInt(CamelSinkConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF);
+            aggregationEnabled = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF) != null;
             final long timeout = config.getLong(CamelSinkConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_TIMEOUT_CONF);
             final int maxRedeliveries = config.getInt(CamelSinkConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_MAXIMUM_REDELIVERIES_CONF);
             final long redeliveryDelay = config.getLong(CamelSinkConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_REDELIVERY_DELAY_CONF);
@@ -139,6 +149,7 @@ public class CamelSinkTask extends SinkTask {
                 .withProperties(actualProps)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
+                .withAggregationStrategyDecorator(configured -> new DeliveryTrackingAggregationStrategy(configured, this::onAggregatedExchangeDone))
                 .withAggregationSize(size)
                 .withAggregationTimeout(timeout)
                 .withErrorHandler(errorHandler)
@@ -191,10 +202,16 @@ public class CamelSinkTask extends SinkTask {
 
     @Override
     public void put(Collection<SinkRecord> sinkRecords) {
+        failIfAnAggregatedDeliveryFailed();
+
         for (SinkRecord record : sinkRecords) {
             TaskHelper.logRecordContent(LOG, loggingLevel, record);
 
+            SinkRecordReference reference = new SinkRecordReference(record);
+            deliveryTracker.inFlight(reference.topicPartition(), reference.offset());
+
             Exchange exchange = new DefaultExchange(producer.getCamelContext());
+            exchange.setProperty(RECORD_REFERENCE_PROPERTY, reference);
             exchange.getMessage().setBody(record.value());
             exchange.getMessage().setHeader(KAFKA_RECORD_KEY_HEADER, record.key());
 
@@ -214,6 +231,9 @@ public class CamelSinkTask extends SinkTask {
             producer.send(localEndpoint, exchange);
 
             if (exchange.isFailed()) {
+                // the record never reached the endpoint, so its offset must not be held back on its behalf
+                deliveryTracker.delivered(reference.topicPartition(), reference.offset());
+
                 if (reporter == null) {
                     LOG.warn("A delivery has failed and the error reporting is NOT enabled. Records may be lost or ignored");
                     throw new ConnectException("Exchange delivery has failed!", exchange.getException());
@@ -221,8 +241,56 @@ public class CamelSinkTask extends SinkTask {
 
                 LOG.warn("A delivery has failed and the error reporting is enabled. Sending record to the DLQ");
                 reporter.report(record, exchange.getException());
+            } else if (!aggregationEnabled) {
+                // without aggregation the route is synchronous, so returning here means the record was delivered
+                deliveryTracker.delivered(reference.topicPartition(), reference.offset());
             }
         }
+    }
+
+    /**
+     * Holds back the offsets of records whose delivery has not completed. Without aggregation every record is
+     * delivered by the time {@link #put} returns, so this is the set Kafka Connect proposed. With aggregation the
+     * data of a record sits in the aggregation buffer after put() returns, and its offset is only released once the
+     * aggregated exchange carrying it has completed.
+     */
+    @Override
+    public Map<TopicPartition, OffsetAndMetadata> preCommit(Map<TopicPartition, OffsetAndMetadata> currentOffsets) {
+        failIfAnAggregatedDeliveryFailed();
+        return deliveryTracker.safeOffsets(currentOffsets);
+    }
+
+    @Override
+    public void close(Collection<TopicPartition> partitions) {
+        deliveryTracker.forget(partitions);
+        super.close(partitions);
+    }
+
+    private void failIfAnAggregatedDeliveryFailed() {
+        Throwable failure = aggregatedDeliveryFailure;
+        if (failure != null) {
+            aggregatedDeliveryFailure = null;
+            throw new ConnectException("Delivery of an aggregated exchange has failed!", failure);
+        }
+    }
+
+    /**
+     * Called when an aggregated exchange has completed, for every record that went into it.
+     */
+    private void onAggregatedExchangeDone(List<SinkRecordReference> references, Exchange exchange) {
+        if (exchange.isFailed()) {
+            if (reporter != null) {
+                LOG.warn("Delivery of an aggregated exchange failed and error reporting is enabled. Sending {} record(s) to the DLQ",
+                        references.size());
+                references.forEach(reference -> reporter.report(reference.record(), exchange.getException()));
+            } else {
+                LOG.error("Delivery of an aggregated exchange carrying {} record(s) failed and error reporting is NOT enabled",
+                        references.size(), exchange.getException());
+                aggregatedDeliveryFailure = exchange.getException();
+            }
+        }
+
+        references.forEach(reference -> deliveryTracker.delivered(reference.topicPartition(), reference.offset()));
     }
 
     @Override
