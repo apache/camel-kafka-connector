@@ -13,6 +13,8 @@
 **Fixed bugs:**
 
 - camel.remove.headers.pattern is applied after aggregation and idempotency on the sink path [\#1806](https://github.com/apache/camel-kafka-connector/issues/1806)
+- Sink offsets are committed before delivery when aggregation is enabled [\#1803](https://github.com/apache/camel-kafka-connector/issues/1803)
+- Multi-topic source connector acknowledges the exchange on the first topic's commit [\#1802](https://github.com/apache/camel-kafka-connector/issues/1802)
 - CamelTypeConverterTransform shares a static TypeConverter and never closes its CamelContext [\#1800](https://github.com/apache/camel-kafka-connector/issues/1800)
 - FileTransforms SMT swallows IOException and can emit a record with a null value [\#1799](https://github.com/apache/camel-kafka-connector/issues/1799)
 - Composed endpoint URI is logged unmasked in the initial properties log line [\#1797](https://github.com/apache/camel-kafka-connector/issues/1797)
