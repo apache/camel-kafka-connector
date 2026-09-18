@@ -33,22 +33,22 @@ public class CamelAwsredshiftsourceSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_SERVER_PORT_DOC = "The server port for the data source.";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_SERVER_PORT_DEFAULT = "5439";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_USERNAME_CONF = "camel.kamelet.aws-redshift-source.username";
-    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_USERNAME_DOC = "The username to access a secured AWS RedShift Database.";
+    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_USERNAME_DOC = "The username to access a secured AWS Redshift Database.";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_USERNAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_PASSWORD_CONF = "camel.kamelet.aws-redshift-source.password";
-    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_PASSWORD_DOC = "The password to access a secured AWS RedShift Database.";
+    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_PASSWORD_DOC = "The password to access a secured AWS Redshift Database.";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_QUERY_CONF = "camel.kamelet.aws-redshift-source.query";
-    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_QUERY_DOC = "The query to execute against the AWS RedShift Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)";
+    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_QUERY_DOC = "The query to execute against the AWS Redshift Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_QUERY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DATABASE_NAME_CONF = "camel.kamelet.aws-redshift-source.databaseName";
-    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DATABASE_NAME_DOC = "The name of the AWS RedShift Database.";
+    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DATABASE_NAME_DOC = "The name of the AWS Redshift Database.";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DATABASE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_CONSUMED_QUERY_CONF = "camel.kamelet.aws-redshift-source.consumedQuery";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_CONSUMED_QUERY_DOC = "A query to run on a tuple consumed. Example: DELETE FROM accounts where user_id = :#user_id";
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_CONSUMED_QUERY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DELAY_CONF = "camel.kamelet.aws-redshift-source.delay";
-    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll from the AWS RedShift database.";
+    public static final String CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DELAY_DOC = "The number of milliseconds before the next poll from the AWS Redshift database.";
     public static final Integer CAMEL_SOURCE_AWSREDSHIFTSOURCE_KAMELET_DELAY_DEFAULT = 500;
 
     public CamelAwsredshiftsourceSourceConnectorConfig(

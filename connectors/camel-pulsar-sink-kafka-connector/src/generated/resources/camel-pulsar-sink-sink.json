@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-pulsar-sink-sink",
 		"type": "sink",
-		"version": "4.21.0-SNAPSHOT",
+		"version": "4.22.0-SNAPSHOT",
 		"description": "Send documents to Pulsar."
 	},
 	"properties": {
@@ -104,13 +104,6 @@
 			"name": "camel.kamelet.pulsar-sink.maxPendingMessages",
 			"description": "Size of the pending massages queue. When the queue is full, by default, any further sends will fail unless blockIfQueueFull=true.",
 			"defaultValue": "1000",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.kamelet.pulsar-sink.maxPendingMessagesAcrossPartitions": {
-			"name": "camel.kamelet.pulsar-sink.maxPendingMessagesAcrossPartitions",
-			"description": "The maximum number of pending messages for partitioned topics. The `maxPendingMessages` value is reduced if (number of partitions `maxPendingMessages`) exceeds this value. Partitioned topics have a pending message queue for each partition.",
-			"defaultValue": "50000",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

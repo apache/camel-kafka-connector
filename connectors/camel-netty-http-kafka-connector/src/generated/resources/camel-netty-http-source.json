@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-netty-http-source",
 		"type": "source",
-		"version": "4.21.0-SNAPSHOT",
+		"version": "4.22.0-SNAPSHOT",
 		"description": "Netty HTTP server and client using the Netty 4.x."
 	},
 	"properties": {
@@ -97,7 +97,7 @@
 		"camel.source.endpoint.muteException": {
 			"name": "camel.source.endpoint.muteException",
 			"description": "If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.",
-			"defaultValue": "false",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -464,6 +464,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.oauthProfile": {
+			"name": "camel.source.endpoint.oauthProfile",
+			"description": "OAuth profile name for validating incoming Authorization: Bearer tokens. When set, the request is authenticated before the route is processed. This requires an OAuthTokenValidationFactory; camel-oauth provides the default implementation. Requires usingExecutorService=true and sync=true (the defaults), and is not supported with nettySharedHttpServer.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.passphrase": {
 			"name": "camel.source.endpoint.passphrase",
 			"description": "Password to use for the keyStore and trustStore. The same password must be configured for both resources.",
@@ -591,7 +597,7 @@
 		"camel.component.netty-http.muteException": {
 			"name": "camel.component.netty-http.muteException",
 			"description": "If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.",
-			"defaultValue": "false",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

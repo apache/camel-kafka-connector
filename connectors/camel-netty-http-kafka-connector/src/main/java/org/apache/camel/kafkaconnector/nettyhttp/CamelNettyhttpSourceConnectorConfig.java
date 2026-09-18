@@ -64,7 +64,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MATCH_ON_URI_PREFIX_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MUTE_EXCEPTION_CONF = "camel.source.endpoint.muteException";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MUTE_EXCEPTION_DOC = "If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.";
-    public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MUTE_EXCEPTION_DEFAULT = false;
+    public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_MUTE_EXCEPTION_DEFAULT = true;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_503WHENSUSPENDED_CONF = "camel.source.endpoint.send503whenSuspended";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_503WHENSUSPENDED_DOC = "Whether to send back HTTP status code 503 when the consumer has been suspended. If the option is false then the Netty Acceptor is unbound when the consumer is suspended, so clients cannot connect anymore.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_503WHENSUSPENDED_DEFAULT = true;
@@ -218,6 +218,9 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_CONF = "camel.source.endpoint.needClientAuth";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DOC = "Configures whether the server needs client authentication when using SSL.";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DEFAULT = false;
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_OAUTH_PROFILE_CONF = "camel.source.endpoint.oauthProfile";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_OAUTH_PROFILE_DOC = "OAuth profile name for validating incoming Authorization: Bearer tokens. When set, the request is authenticated before the route is processed. This requires an OAuthTokenValidationFactory; camel-oauth provides the default implementation. Requires usingExecutorService=true and sync=true (the defaults), and is not supported with nettySharedHttpServer.";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_OAUTH_PROFILE_DEFAULT = null;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_CONF = "camel.source.endpoint.passphrase";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_DOC = "Password to use for the keyStore and trustStore. The same password must be configured for both resources.";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_DEFAULT = null;
@@ -277,7 +280,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_CLIENT_MODE_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_MUTE_EXCEPTION_CONF = "camel.component.netty-http.muteException";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_MUTE_EXCEPTION_DOC = "If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.";
-    public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_MUTE_EXCEPTION_DEFAULT = false;
+    public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_MUTE_EXCEPTION_DEFAULT = true;
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_RECONNECT_CONF = "camel.component.netty-http.reconnect";
     public static final String CAMEL_SOURCE_NETTYHTTP_COMPONENT_RECONNECT_DOC = "Used only in clientMode in consumer, the consumer will attempt to reconnect on disconnection if this is enabled";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_COMPONENT_RECONNECT_DEFAULT = true;
@@ -514,6 +517,7 @@ public class CamelNettyhttpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_FORMAT_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_KEY_STORE_RESOURCE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_NEED_CLIENT_AUTH_DOC);
+        conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_OAUTH_PROFILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_OAUTH_PROFILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_OAUTH_PROFILE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_CONF, ConfigDef.Type.PASSWORD, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_PASSPHRASE_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SECURITY_OPTIONS_DOC);

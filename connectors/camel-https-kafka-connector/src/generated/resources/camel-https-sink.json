@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-https-sink",
 		"type": "sink",
-		"version": "4.21.0-SNAPSHOT",
+		"version": "4.22.0-SNAPSHOT",
 		"description": "Send requests to external HTTP servers using Apache HTTP Client 5.x."
 	},
 	"properties": {
@@ -393,6 +393,18 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.hostnameVerificationPolicy": {
+			"name": "camel.sink.endpoint.hostnameVerificationPolicy",
+			"description": "Controls how hostname verification is performed during the TLS handshake. CLIENT (default) delegates entirely to the configured x509HostnameVerifier, preserving the behaviour of httpclient 5.5 and earlier a NoopHostnameVerifier will disable verification. BUILTIN uses the JDK SSLParameters hostname check only, ignoring the configured verifier. BOTH runs the JDK built-in check first and then the configured verifier; a NoopHostnameVerifier cannot bypass the built-in check under BUILTIN or BOTH. Prefer BOTH when no custom verifier semantics are needed for stronger out-of-the-box security. One of: [CLIENT] [BUILTIN] [BOTH]",
+			"defaultValue": "\"CLIENT\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"CLIENT",
+				"BUILTIN",
+				"BOTH"
+			]
+		},
 		"camel.sink.endpoint.oauth2BodyAuthentication": {
 			"name": "camel.sink.endpoint.oauth2BodyAuthentication",
 			"description": "Whether to use OAuth2 body authentication.",
@@ -744,6 +756,24 @@
 			"description": "Proxy server port",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.component.https.deserializationFilter": {
+			"name": "camel.component.https.deserializationFilter",
+			"description": "Sets an ObjectInputFilter pattern (jdk.serialFilter syntax) applied when deserializing Java objects from requests or responses with Content-Type application\/x-java-serialized-object (only used when allowJavaSerializedObject or transferException is enabled). When not set, the JVM-wide jdk.serialFilter is used if present; otherwise a conservative default filter denying java.net. and otherwise allowing java., javax. and org.apache.camel. packages is applied.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.https.hostnameVerificationPolicy": {
+			"name": "camel.component.https.hostnameVerificationPolicy",
+			"description": "Controls how hostname verification is performed during the TLS handshake. CLIENT (default) delegates entirely to the configured x509HostnameVerifier, preserving the behaviour of httpclient 5.5 and earlier a NoopHostnameVerifier will disable verification. BUILTIN uses the JDK SSLParameters hostname check only, ignoring the configured verifier. BOTH runs the JDK built-in check first and then the configured verifier; a NoopHostnameVerifier cannot bypass the built-in check under BUILTIN or BOTH. Prefer BOTH when no custom verifier semantics are needed for stronger out-of-the-box security. One of: [CLIENT] [BUILTIN] [BOTH]",
+			"defaultValue": "\"CLIENT\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"CLIENT",
+				"BUILTIN",
+				"BOTH"
+			]
 		},
 		"camel.component.https.sslContextParameters": {
 			"name": "camel.component.https.sslContextParameters",

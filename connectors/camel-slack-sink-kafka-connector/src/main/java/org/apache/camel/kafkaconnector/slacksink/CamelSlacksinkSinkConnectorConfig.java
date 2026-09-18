@@ -32,15 +32,6 @@ public class CamelSlacksinkSinkConnectorConfig
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_WEBHOOK_URL_CONF = "camel.kamelet.slack-sink.webhookUrl";
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_WEBHOOK_URL_DOC = "The webhook URL used by the Slack channel to handle incoming messages.";
     public static final String CAMEL_SINK_SLACKSINK_KAMELET_WEBHOOK_URL_DEFAULT = null;
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_CONF = "camel.kamelet.slack-sink.iconEmoji";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_DOC = "Use a Slack emoji as an avatar.";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_DEFAULT = null;
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_CONF = "camel.kamelet.slack-sink.iconUrl";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_DOC = "The avatar to use when sending a message to a channel or user.";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_DEFAULT = null;
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_CONF = "camel.kamelet.slack-sink.username";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_DOC = "The username for the bot when it sends messages to a channel or user.";
-    public static final String CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_DEFAULT = null;
 
     public CamelSlacksinkSinkConnectorConfig(
             ConfigDef config,
@@ -56,9 +47,6 @@ public class CamelSlacksinkSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SLACKSINK_KAMELET_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACKSINK_KAMELET_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SLACKSINK_KAMELET_CHANNEL_DOC);
         conf.define(CAMEL_SINK_SLACKSINK_KAMELET_WEBHOOK_URL_CONF, ConfigDef.Type.PASSWORD, CAMEL_SINK_SLACKSINK_KAMELET_WEBHOOK_URL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SLACKSINK_KAMELET_WEBHOOK_URL_DOC);
-        conf.define(CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACKSINK_KAMELET_ICON_EMOJI_DOC);
-        conf.define(CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACKSINK_KAMELET_ICON_URL_DOC);
-        conf.define(CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACKSINK_KAMELET_USERNAME_DOC);
         return conf;
     }
 }

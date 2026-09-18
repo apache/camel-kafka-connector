@@ -37,10 +37,10 @@ public class CamelScpsinkSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SCPSINK_KAMELET_PASSWORD_DOC = "Password for accessing FTP Server";
     public static final String CAMEL_SINK_SCPSINK_KAMELET_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_FILE_CONF = "camel.kamelet.scp-sink.privateKeyFile";
-    public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_FILE_DOC = "Set the private key file so that the SFTP endpoint can do private key verification.";
+    public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_FILE_DOC = "Set the private key file so that the SCP endpoint can do private key verification.";
     public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_FILE_DEFAULT = null;
     public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_CONF = "camel.kamelet.scp-sink.privateKeyPassphrase";
-    public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_DOC = "Set the private key file passphrase so that the SFTP endpoint can do private key verification.";
+    public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_DOC = "Set the private key file passphrase so that the SCP endpoint can do private key verification.";
     public static final String CAMEL_SINK_SCPSINK_KAMELET_PRIVATE_KEY_PASSPHRASE_DEFAULT = null;
     public static final String CAMEL_SINK_SCPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_CONF = "camel.kamelet.scp-sink.strictHostKeyChecking";
     public static final String CAMEL_SINK_SCPSINK_KAMELET_STRICT_HOST_KEY_CHECKING_DOC = "Sets whether to use strict host key checking.";
