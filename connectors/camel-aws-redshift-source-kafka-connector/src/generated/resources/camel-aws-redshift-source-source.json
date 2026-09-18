@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-redshift-source-source",
 		"type": "source",
-		"version": "4.21.0-SNAPSHOT",
-		"description": "Query data from an AWS RedShift Database."
+		"version": "4.22.0-SNAPSHOT",
+		"description": "Query data from an AWS Redshift Database."
 	},
 	"properties": {
 		"camel.kamelet.aws-redshift-source.serverName": {
@@ -24,25 +24,25 @@
 		},
 		"camel.kamelet.aws-redshift-source.username": {
 			"name": "camel.kamelet.aws-redshift-source.username",
-			"description": "The username to access a secured AWS RedShift Database.",
+			"description": "The username to access a secured AWS Redshift Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-redshift-source.password": {
 			"name": "camel.kamelet.aws-redshift-source.password",
-			"description": "The password to access a secured AWS RedShift Database.",
+			"description": "The password to access a secured AWS Redshift Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-redshift-source.query": {
 			"name": "camel.kamelet.aws-redshift-source.query",
-			"description": "The query to execute against the AWS RedShift Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
+			"description": "The query to execute against the AWS Redshift Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)",
 			"priority": "HIGH",
 			"required": "true"
 		},
 		"camel.kamelet.aws-redshift-source.databaseName": {
 			"name": "camel.kamelet.aws-redshift-source.databaseName",
-			"description": "The name of the AWS RedShift Database.",
+			"description": "The name of the AWS Redshift Database.",
 			"priority": "HIGH",
 			"required": "true"
 		},
@@ -54,7 +54,7 @@
 		},
 		"camel.kamelet.aws-redshift-source.delay": {
 			"name": "camel.kamelet.aws-redshift-source.delay",
-			"description": "The number of milliseconds before the next poll from the AWS RedShift database.",
+			"description": "The number of milliseconds before the next poll from the AWS Redshift database.",
 			"defaultValue": "500",
 			"priority": "MEDIUM",
 			"required": "false"

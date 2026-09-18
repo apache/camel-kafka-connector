@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-file-source",
 		"type": "source",
-		"version": "4.21.0-SNAPSHOT",
+		"version": "4.22.0-SNAPSHOT",
 		"description": "Read and write files."
 	},
 	"properties": {
@@ -30,6 +30,13 @@
 		"camel.source.endpoint.fileName": {
 			"name": "camel.source.endpoint.fileName",
 			"description": "Use Expression such as File Language to dynamically set the filename. For consumers, it's used as a filename filter. For producers, it's used to evaluate the filename to write. If an expression is set, it take precedence over the CamelFileName header. (Note: The header itself can also be an Expression). The expression options support both String and Expression types. If the expression is a String type, it is always evaluated using the File Language. If the expression is an Expression type, the specified Expression type is used - this allows you, for instance, to use OGNL expressions. For the consumer, you can use it to filter filenames, so you can for instance consume today's file using the File Language syntax: mydata-${date:now:yyyyMMdd}.txt. The producers support the CamelOverruleFileName header which takes precedence over any existing CamelFileName header; the CamelOverruleFileName is a header that is used only once, and makes it easier as this avoids to temporary store CamelFileName and have to restore it afterwards.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.jailStartingDirectory": {
+			"name": "camel.source.endpoint.jailStartingDirectory",
+			"description": "Used for jailing (restricting) writing files to the starting directory (and sub) only. This is enabled by default to not allow Camel to write files to outside directories (to be more secured out of the box). You can turn this off to allow writing files to directories outside the starting directory, such as parent or root folders. For consumers that use a localWorkDirectory, this also restricts the downloaded files to stay within the configured localWorkDirectory.",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -61,10 +68,19 @@
 		},
 		"camel.source.endpoint.preSort": {
 			"name": "camel.source.endpoint.preSort",
-			"description": "When pre-sort is enabled then the consumer will sort the file and directory names during polling, that was retrieved from the file system. You may want to do this in case you need to operate on the files in a sorted order. The pre-sort is executed before the consumer starts to filter, and accept files to process by Camel. This option is default=false meaning disabled.",
-			"defaultValue": "false",
+			"description": "When pre-sort is enabled then the consumer will sort the file and directory names during polling, that was retrieved from the file system. You may want to do this in case you need to operate on the files in a sorted order. The pre-sort is executed before the consumer starts to filter, and accept files to process by Camel. This option is default=false meaning disabled. The following values are supported: name (sort by file name), modified (sort by last-modified timestamp), size (sort by file size). To sort in descending (reverse) order, prefix the value with a minus sign (e.g., -modified to sort newest first). The value true is an alias for name (backward compatible). One of: [true] [false] [name] [-name] [modified] [-modified] [size] [-size]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"true",
+				"false",
+				"name",
+				"-name",
+				"modified",
+				"-modified",
+				"size",
+				"-size"
+			]
 		},
 		"camel.source.endpoint.recursive": {
 			"name": "camel.source.endpoint.recursive",

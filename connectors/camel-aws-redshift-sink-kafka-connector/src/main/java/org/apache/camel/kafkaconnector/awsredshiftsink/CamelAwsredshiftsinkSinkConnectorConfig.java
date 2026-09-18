@@ -42,7 +42,7 @@ public class CamelAwsredshiftsinkSinkConnectorConfig
     public static final String CAMEL_SINK_AWSREDSHIFTSINK_KAMELET_QUERY_DOC = "The query to execute against the AWS Redshift Database. Example: INSERT INTO accounts (username,city) VALUES (:#username,:#city)";
     public static final String CAMEL_SINK_AWSREDSHIFTSINK_KAMELET_QUERY_DEFAULT = null;
     public static final String CAMEL_SINK_AWSREDSHIFTSINK_KAMELET_DATABASE_NAME_CONF = "camel.kamelet.aws-redshift-sink.databaseName";
-    public static final String CAMEL_SINK_AWSREDSHIFTSINK_KAMELET_DATABASE_NAME_DOC = "The name of the AWS RedShift Database.";
+    public static final String CAMEL_SINK_AWSREDSHIFTSINK_KAMELET_DATABASE_NAME_DOC = "The name of the AWS Redshift Database.";
     public static final String CAMEL_SINK_AWSREDSHIFTSINK_KAMELET_DATABASE_NAME_DEFAULT = null;
 
     public CamelAwsredshiftsinkSinkConnectorConfig(
