@@ -8,6 +8,11 @@
 
 - Five connector configs declare password options as ConfigDef.Type.STRING [\#1798](https://github.com/apache/camel-kafka-connector/issues/1798)
 
+**Closed issues:**
+
+- Upgrade to Camel 4.18.2 and 4.14.6 [\#1765](https://github.com/apache/camel-kafka-connector/issues/1765)
+- Automation analysis [\#1712](https://github.com/apache/camel-kafka-connector/issues/1712)
+
 ## [camel-kafka-connector-aggregator-4.22.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-aggregator-4.22.0) (2026-09-18)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-4.14.5...camel-kafka-connector-aggregator-4.22.0)
