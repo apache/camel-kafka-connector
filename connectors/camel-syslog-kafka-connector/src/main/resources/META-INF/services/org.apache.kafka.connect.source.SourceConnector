@@ -1,0 +1,2 @@
+# Kafka Connect ServiceLoader manifest (KIP-898) for the Camel Syslog source connector
+org.apache.camel.kafkaconnector.syslog.CamelSyslogSourceConnector
