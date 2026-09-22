@@ -1,0 +1,2 @@
+# Kafka Connect ServiceLoader manifest (KIP-898) for the Camel Kafka Connector base sink connector
+org.apache.camel.kafkaconnector.CamelSinkConnector

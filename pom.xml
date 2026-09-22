@@ -227,6 +227,8 @@
                             <exclude>
                                 **/src/main/resources/META-INF/services/org.kie.server.services.api.KieServerExtension
                             </exclude>
+                            <!-- Kafka Connect ServiceLoader manifests (KIP-898 plugin discovery) -->
+                            <exclude>**/src/main/resources/META-INF/services/org.apache.kafka.connect.*</exclude>
                             <!-- Maven Wrapper -->
                             <exclude>.mvn/**/*</exclude>
                         </excludes>
