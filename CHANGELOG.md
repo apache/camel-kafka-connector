@@ -12,6 +12,7 @@
 
 - Upgrade to Camel 4.18.2 and 4.14.6 [\#1765](https://github.com/apache/camel-kafka-connector/issues/1765)
 - Automation analysis [\#1712](https://github.com/apache/camel-kafka-connector/issues/1712)
+- Implicit unmarshalling in Cassandra Sink Connector Kamelet descriptor [\#1579](https://github.com/apache/camel-kafka-connector/issues/1579)
 
 ## [camel-kafka-connector-aggregator-4.22.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-aggregator-4.22.0) (2026-09-18)
 
