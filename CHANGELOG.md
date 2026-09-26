@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-aggregator-4.22.0...HEAD)
 
+**Implemented enhancements:**
+
+- Document how to run camel-kafka-connector in a docker image [\#96](https://github.com/apache/camel-kafka-connector/issues/96)
+
 **Fixed bugs:**
 
 - Five connector configs declare password options as ConfigDef.Type.STRING [\#1798](https://github.com/apache/camel-kafka-connector/issues/1798)
