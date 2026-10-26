@@ -20,13 +20,15 @@ $ export RELEASE_BRANCH=camel-kafka-connector-4.8.x
 $ export RELEASE_TAG=amel-kafka-connector-4.8.0
 $ export RELEASE_VERSION=4.8.0
 $ export NEXT_VERSION=4.8.1-SNAPSHOT
-$ export APACHE_USER=
-$ export APACHE_PASS=
 ----
 
 IMPORTANT: `RELEASE_BRANCH` must be different from the `RELEASE_TAG` you will choose later in the release process.
 
 NOTE: A good branch name is in the form `camel-kafka-connector-4.8.x` if you are performing `4.8.0` release.
+
+Before starting, configure Git authentication for GitBox (for example, with an SSH remote
+or a Git credential helper). Configure Maven repository credentials in `settings.xml`;
+do not pass passwords as Maven command-line properties.
 
 IMPORTANT: If you followed xref:manual::release-guide.adoc#ReleaseGuide-MavenSetup[Camel Release Maven Setup] you should have your gpg mave settings in a profile called `gpg` tha is used in some commands as `-Pgpg`. If that is not the case, change the commands accordingly to your setup.
 
@@ -61,28 +63,34 @@ Prepare the release:
 
 [source,shell]
 ----
-./mvnw -Prelease -Pgpg -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$NEXT_VERSION -Dtag=$RELEASE_TAG -Dusername=$APACHE_USER -Dpassword=$APACHE_PASS release:prepare
+./mvnw -Prelease -Pgpg -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$NEXT_VERSION -Dtag=$RELEASE_TAG -DpushChanges=false release:prepare
 ----
 
 NOTE: `$RELEASE_TAG` is usual in the form of `camel-kafka-connector-$RELEASE_VERSION`
 
-Add and commit all the updated json with a commit comment on the line of `"[after release perform chore]: regen catalog descriptors with new version"` then update the tag `$RELEASE_TAG` to point to the just created commit and push it upstream (you may need to delate the original tag `$RELEASE_TAG` created during the `release:prepare` step above):
+Add and commit all the updated JSON descriptors with a commit message such as
+`"[after release perform chore]: regen catalog descriptors with new version"`. Because
+`release:prepare` was run with `pushChanges=false`, its branch and tag are still local.
+Recreate the local tag to include the descriptor commit, then publish the release branch
+and final tag once, without force-pushing:
 
 [source,shell]
 ----
 $ git checkout $RELEASE_TAG
 $ git add *.json
 $ git commit -m"[after release perform chore]: regen catalog descriptors with new version"
-$ git tag -f $RELEASE_TAG
-$ git push -f upstream $RELEASE_TAG
+$ git tag -d $RELEASE_TAG
+$ git tag $RELEASE_TAG
 $ git checkout $RELEASE_BRANCH
+$ git push upstream $RELEASE_BRANCH
+$ git push upstream $RELEASE_TAG
 ----
 
 Upload your artifacts on apache nexus maven server:
 
 [source,shell]
 ----
-$ ./mvnw -Prelease -Pgpg -Dusername=$APACHE_USER -Dpassword=$APACHE_PASS release:perform
+$ ./mvnw -Prelease -Pgpg release:perform
 ----
 
 If you feel brave, the above two steps could be performed together:
@@ -99,7 +107,7 @@ For instance, would an issue occurs while performing the release of `camel-splun
 [source,shell]
 ----
 $ cd target/checkout
-$ ./mvnw -Prelease -Pgpg -Dusername=$APACHE_USER -Dpassword=$APACHE_PASS deploy -rf :camel-splunk-kafka-connector
+$ ./mvnw -Prelease -Pgpg deploy -rf :camel-splunk-kafka-connector
 ----
 
 == Close Apache Nexus staging repository
