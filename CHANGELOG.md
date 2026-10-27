@@ -14,6 +14,7 @@
 
 **Closed issues:**
 
+- Release CKC 4.22.0 [\#1825](https://github.com/apache/camel-kafka-connector/issues/1825)
 - Upgrade to Camel 4.18.2 and 4.14.6 [\#1765](https://github.com/apache/camel-kafka-connector/issues/1765)
 - Automation analysis [\#1712](https://github.com/apache/camel-kafka-connector/issues/1712)
 - Make kafka connect connectors compatible with `ServiceLoad` mode of `plugin.discovery` [\#1644](https://github.com/apache/camel-kafka-connector/issues/1644)
