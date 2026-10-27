@@ -64,6 +64,45 @@ versions of Camel that cause conflict when trying to run the connector. You may 
 `java.lang.NoSuchMethodError: org.apache.camel.main.Main.configure()Lorg/apache/camel/main/MainConfigurationProperties`
 when trying to do so.
 
+[#aws-connectors-on-confluent-platform-images]
+=== AWS connectors on Confluent Platform images
+
+Since 4.22.0, an AWS connector (for example `camel-aws-s3-source-kafka-connector`) running on a Confluent Platform
+`cp-kafka-connect` image can fail when its task starts, while it creates the AWS SDK client:
+
+----
+java.util.ServiceConfigurationError: software.amazon.awssdk.http.SdkHttpService: software.amazon.awssdk.http.apache.ApacheSdkHttpService not a subtype
+----
+
+The image puts its own copy of the AWS SDK on the worker classpath (`/usr/share/java/kafka-serde-tools`), with the
+`apache-client` HTTP client. Kafka Connect lets the connector see the HTTP clients registered on the worker classpath,
+and the AWS SDK fails when one of them belongs to another copy of the SDK. Up to 4.18.x the connectors shipped
+`apache-client` themselves, which hid the problem. Since Camel 4.22.0 they ship `apache5-client` instead.
+
+Any of the following avoids the error:
+
+* Add `apache-client`, at the AWS SDK version of the connector, and its dependencies to the connector directory. The
+connector keeps using the Apache 5 client. For the 4.22.0 connectors, which use AWS SDK 2.50.2:
++
+[source,bash]
+----
+cd <plugin.path>/camel-aws-s3-source-kafka-connector
+for a in software/amazon/awssdk/apache-client/2.50.2/apache-client-2.50.2.jar \
+         org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar \
+         org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar \
+         commons-logging/commons-logging/1.2/commons-logging-1.2.jar; do
+  curl -sSfLO "https://repo1.maven.org/maven2/$a"
+done
+----
+* Name the HTTP client with the AWS SDK system property, for example
+`KAFKA_OPTS=-Dsoftware.amazon.awssdk.http.service.impl=software.amazon.awssdk.http.apache5.Apache5SdkHttpService`.
+The property applies to the whole worker JVM, including other plugins that use the AWS SDK.
+* Remove `apache-client-*.jar` from `/usr/share/java/kafka-serde-tools` in the image. Do this only if nothing else on
+the worker uses that copy of the AWS SDK, such as Schema Registry client-side field level encryption with AWS KMS.
+
+https://issues.apache.org/jira/browse/CAMEL-26343[CAMEL-26343] makes the Camel AWS components set their HTTP client
+themselves: connectors built on a Camel release that contains it do not need these workarounds.
+
 [#known-limitations]
 == Known Limitations
 
