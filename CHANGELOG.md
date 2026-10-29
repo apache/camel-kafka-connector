@@ -16,6 +16,7 @@
 
 - Release CKC 4.22.0 [\#1825](https://github.com/apache/camel-kafka-connector/issues/1825)
 - Upgrade to Camel 4.18.2 and 4.14.6 [\#1765](https://github.com/apache/camel-kafka-connector/issues/1765)
+- Kafka Connectors reference Utils.mkset when using kafka 4.0 [\#1734](https://github.com/apache/camel-kafka-connector/issues/1734)
 - Automation analysis [\#1712](https://github.com/apache/camel-kafka-connector/issues/1712)
 - Make kafka connect connectors compatible with `ServiceLoad` mode of `plugin.discovery` [\#1644](https://github.com/apache/camel-kafka-connector/issues/1644)
 - Implicit unmarshalling in Cassandra Sink Connector Kamelet descriptor [\#1579](https://github.com/apache/camel-kafka-connector/issues/1579)
