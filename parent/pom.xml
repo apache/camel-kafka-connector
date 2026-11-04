@@ -258,11 +258,11 @@
                 <scope>test</scope>
             </dependency>
 
+            <!-- no scope here: the PostgreSQL connectors bundle the driver, test modules declare the test scope themselves -->
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${version.postgres}</version>
-                <scope>test</scope>
             </dependency>
 
             <dependency>
