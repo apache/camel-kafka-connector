@@ -4,6 +4,10 @@ mappings:
     path:
       include:
         - '*/src/generated/resources/*.json'
+      # syslog is hand-maintained and documented by the pages mapped below: its json files
+      # only feed the catalog, a reference page generated from them would be a duplicate
+      exclude:
+        - 'camel-syslog-kafka-connector/src/generated/resources/*.json'
     relativemap:
       - match: '*/src/generated/resources/camel-(?<name>*)-(?<type>source|sink).json'
         format: 'json/camel-{name}-kafka-{type}-connector.json'
