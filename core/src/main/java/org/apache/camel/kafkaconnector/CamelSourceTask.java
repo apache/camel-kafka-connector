@@ -16,6 +16,7 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -28,8 +29,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.NoTypeConversionAvailableException;
 import org.apache.camel.PollingConsumer;
 import org.apache.camel.StreamCache;
+import org.apache.camel.TypeConversionException;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
 import org.apache.camel.kafkaconnector.utils.SchemaHelper;
@@ -228,19 +231,13 @@ public class CamelSourceTask extends SourceTask {
             Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
 
             final Object messageHeaderKey = camelMessageHeaderKey != null ? exchange.getMessage().getHeader(camelMessageHeaderKey) : null;
-            Object messageBodyValue = exchange.getMessage().getBody();
+            final Object messageBodyValue = toRecordValue(exchange);
 
             final Schema messageKeySchema = messageHeaderKey != null ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey) : null;
             final Schema messageBodySchema = messageBodyValue != null ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue) : null;
 
             final long timestamp = calculateTimestamp(exchange);
 
-            // take in account Cached camel streams
-            if (messageBodyValue instanceof StreamCache) {
-                StreamCache sc = (StreamCache) messageBodyValue;
-                // reset to be sure that the cache is ready to be used before sending it in the record (could be useful for SMTs)
-                sc.reset();
-            }
             // every record below is produced from this one exchange; it may only be acknowledged towards the external
             // system after the last of them has been committed
             AtomicInteger pendingCommits = new AtomicInteger(topics.length);
@@ -354,6 +351,31 @@ public class CamelSourceTask extends SourceTask {
 
     protected long calculateTimestamp(Exchange exchange) {
         return System.currentTimeMillis();
+    }
+
+    /**
+     * Returns the record value for the body of the given exchange.
+     * <p>
+     * Kafka Connect converters cannot handle a stream: it would end up in the record as an object reference. A
+     * stream body is common, since with stream caching (enabled by default) the output of a {@code marshal} step,
+     * such as the one many Kamelets end with, is a {@link StreamCache}. Such a body, like any other
+     * {@link InputStream}, is read into a {@code byte[]}, which is also what the {@code marshal} step produces when
+     * stream caching is disabled.
+     */
+    private static Object toRecordValue(Exchange exchange) {
+        final Object body = exchange.getMessage().getBody();
+        if (body instanceof StreamCache) {
+            // the cache may have been read already, so make sure it is converted from the beginning
+            ((StreamCache) body).reset();
+        } else if (!(body instanceof InputStream)) {
+            return body;
+        }
+
+        try {
+            return exchange.getContext().getTypeConverter().mandatoryConvertTo(byte[].class, exchange, body);
+        } catch (NoTypeConversionAvailableException | TypeConversionException e) {
+            throw new ConnectException("Unable to read the stream body of exchange " + exchange.getExchangeId(), e);
+        }
     }
 
     private void setAdditionalHeaders(SourceRecord record, Map<String, Object> map, String prefix) {

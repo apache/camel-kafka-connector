@@ -63,6 +63,27 @@ For a Source connector the basic options are:
 
 For more options related to single connector you can have a look at xref:reference/index.adoc[Connectors list].
 
+[[BasicConfiguration-SourceRecordValues]]
+== Source Record Values
+
+A source connector uses the body of each Camel message as the value of the Kafka record. Text, numbers and booleans keep their type. Binary content and stream bodies become a `byte[]` value with a `BYTES` schema. Stream bodies are common: with stream caching, which Camel enables by default, the output of a `marshal` step (many Kamelets end with one, for example to produce JSON) is a stream.
+
+To write these bytes to the topic unchanged, configure the connector with:
+
+[source,properties]
+----
+value.converter=org.apache.kafka.connect.converters.ByteArrayConverter
+----
+
+The `StringConverter` used in the generated example configurations writes a `byte[]` value as a Java object reference (`[B@...`). If you need the value as a string, for example for JSON produced by a Kamelet, convert it first with the `CamelTypeConverterTransform` SMT:
+
+[source,properties]
+----
+transforms=toString
+transforms.toString.type=org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Value
+transforms.toString.target.type=java.lang.String
+----
+
 [[BasicConfiguration-MessageLevelHeaders]]
 == Message Level Headers
 

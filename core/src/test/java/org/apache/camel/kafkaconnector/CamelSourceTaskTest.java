@@ -16,7 +16,9 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.io.ByteArrayInputStream;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,6 +33,7 @@ import java.util.stream.IntStream;
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.converter.stream.InputStreamCache;
 import org.apache.camel.kafkaconnector.utils.StringJoinerAggregator;
 import org.apache.camel.support.SynchronizationAdapter;
 import org.apache.kafka.connect.data.Decimal;
@@ -41,6 +44,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.apache.camel.util.CollectionHelper.mapOf;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -226,6 +230,61 @@ public class CamelSourceTaskTest {
         assertNull(poll4.get(0).valueSchema());
 
         sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingWithMarshalledBody() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        // like the marshal step at the end of many Kamelets: with stream caching (enabled by default) the
+        // data format output is a StreamCache
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_MARSHAL_CONF, "syslog");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+        try {
+            sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI,
+                    "<34>Oct 11 22:14:15 mymachine su: 'su root' failed for lonvick on /dev/pts/8");
+
+            List<SourceRecord> poll = sourceTask.poll();
+            assertEquals(1, poll.size());
+            SourceRecord record = poll.get(0);
+            assertThat(record.value()).isInstanceOf(byte[].class);
+            assertEquals(Schema.Type.BYTES, record.valueSchema().type());
+            assertThat(new String((byte[]) record.value(), StandardCharsets.UTF_8))
+                    .contains("mymachine")
+                    .contains("'su root' failed for lonvick on /dev/pts/8");
+        } finally {
+            sourceTask.stop();
+        }
+    }
+
+    @Test
+    public void testSourcePollingWithStreamBody() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+        try {
+            final ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
+            final byte[] payload = "{\"id\": 1, \"name\": \"camel\"}".getBytes(StandardCharsets.UTF_8);
+
+            template.sendBody(DIRECT_URI, new InputStreamCache(payload));
+            template.sendBody(DIRECT_URI, new ByteArrayInputStream(payload));
+
+            List<SourceRecord> poll = sourceTask.poll();
+            assertEquals(2, poll.size());
+            for (SourceRecord record : poll) {
+                assertThat(record.value()).isInstanceOf(byte[].class);
+                assertArrayEquals(payload, (byte[]) record.value());
+                assertEquals(Schema.Type.BYTES, record.valueSchema().type());
+            }
+        } finally {
+            sourceTask.stop();
+        }
     }
 
     @Test
