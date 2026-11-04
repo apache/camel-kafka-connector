@@ -1,0 +1,44 @@
+[[CamelTypeConverter-CamelTypeConverter]]
+= CamelTypeConverter
+The following provides usage information for the SMT `org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform`
+
+== Description
+
+CamelTypeConverter converts the key or the value of a record to another Java type using the
+https://camel.apache.org/manual/type-converter.html[Camel type converters], for example a `byte[]`
+or a Camel stream into a `String`, or a Kafka Connect `Struct` into a `Map`.
+
+The schema of the converted key or value is derived from the converted value. Records without a
+schema (for example records read with `value.converter.schemas.enable=false`) stay without a schema.
+
+A null key or value, for example the value of a tombstone record, is passed through unchanged.
+
+Use the concrete transformation type designed for the record key
+(`org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Key`) or value
+(`org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Value`).
+
+If a key or value cannot be converted to the target type, the transformation fails with a
+`DataException`.
+
+== Examples
+
+=== Given the following configuration:
+
+[source,java-properties]
+----
+transforms=toString
+transforms.toString.type=org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Value
+transforms.toString.target.type=java.lang.String
+----
+and a record whose value is the `byte[]` of the JSON document `{"id": 1}`, the value of the
+transformed record is the string `{"id": 1}` with a `STRING` schema.
+
+== Properties
+
+[cols="^,^ ", options="header"]
+|===
+|Name | Description
+
+|target.type
+|The fully qualified name of the Java class to convert the key or value to, for example `java.lang.String` or `java.util.Map`.
+|===

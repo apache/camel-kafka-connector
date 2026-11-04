@@ -21,6 +21,7 @@
 ** xref:contributor-guide/release-guide.adoc[Release Guide]
 * xref:reference/index.adoc[Reference]
 ** xref:reference/transformers/index.adoc[Single Message Transformers (SMT)]
+*** xref:reference/transformers/camelTypeConverter.adoc[Camel Type Converter]
 *** xref:reference/transformers/fieldsToHeaders.adoc[Fields To Headers]
 ** xref:reference/index.adoc[Connectors]
 // connectors: START
