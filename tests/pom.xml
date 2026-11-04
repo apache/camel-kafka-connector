@@ -65,6 +65,7 @@
         <module>itests-netty</module>
         <module>itests-netty-http</module>
         <module>itests-google-pubsub</module>
+        <module>itests-webhook</module>
     </modules>
 
     <build>

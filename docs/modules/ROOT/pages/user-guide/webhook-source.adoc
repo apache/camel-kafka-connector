@@ -1,0 +1,144 @@
+[[WebhookSource-WebhookSource]]
+= Webhook Source Connector
+
+The `camel-webhook-source-kafka-connector` receives HTTP requests and writes them to Kafka. It is generated from the
+https://camel.apache.org/camel-kamelets/latest/webhook-source.html[Webhook Source Kamelet], which consumes from the
+https://camel.apache.org/components/latest/platform-http-component.html[Platform HTTP] component, and it ships the
+embedded HTTP server of Camel Main,
+https://camel.apache.org/components/latest/others/platform-http-main.html[camel-platform-http-main], which is based on
+Vert.x. The server runs inside the Kafka Connect worker that runs the task of the connector.
+
+[#webhook-enabling-the-http-server]
+== Enabling the HTTP server
+
+The embedded HTTP server is disabled by default. The connector passes its configuration to Camel Main, so the server
+is enabled and configured with the `camel.server.*` options of
+https://camel.apache.org/components/latest/others/main.html[Camel Main], set in the connector configuration:
+
+[width="100%",cols="2,5,^1",options="header"]
+|===
+| Name | Description | Default
+| camel.server.enabled | Starts the embedded HTTP server. The connector does not start without it. | false
+| camel.server.host | The address the server binds to. | 0.0.0.0
+| camel.server.port | The port the server listens on. | 8080
+| camel.server.path | The context path, which prefixes the path of the connector. | /
+| camel.kamelet.webhook-source.subpath | The path where the connector receives requests. | webhook
+| camel.server.maxBodySize | The maximum size, in bytes, of a request body. |
+|===
+
+The value of a record is the request body, as a `byte[]`. The `ByteArrayConverter` writes it to the topic unchanged.
+To get a string value, convert it with the `CamelTypeConverterTransform` SMT, as in the configuration below: a
+`StringConverter` alone writes a Java object reference instead of the body. A complete configuration:
+
+[source,properties]
+----
+name=webhook-source
+connector.class=org.apache.camel.kafkaconnector.webhooksource.CamelWebhooksourceSourceConnector
+tasks.max=1
+topics=webhook-events
+
+key.converter=org.apache.kafka.connect.storage.StringConverter
+value.converter=org.apache.kafka.connect.storage.StringConverter
+
+transforms=tostring
+transforms.tostring.type=org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Value
+transforms.tostring.target.type=java.lang.String
+
+camel.server.enabled=true
+camel.server.port=8080
+camel.kamelet.webhook-source.subpath=webhook
+----
+
+The connector then receives requests on `http://<worker>:8080/webhook`:
+
+[source,bash]
+----
+curl -X POST -H 'Content-Type: application/json' -d '{"event":"push"}' http://<worker>:8080/webhook
+----
+
+Each request becomes one record. The request headers, and request details such as the method and the path
+(`CamelHttpMethod`, `CamelHttpPath`), become record headers with the `CamelHeader.` prefix, unless
+`camel.map.headers=false` is set.
+
+The response is sent once Kafka Connect has written the record to the topic, so a `200` response means that the
+record is in Kafka. If that takes more than 30 seconds, the client receives a `500` response. The record can still be
+written afterwards, so a client that retries can produce duplicates.
+
+[#webhook-deployment]
+== Deployment
+
+* *One task, one port.* Every task starts its own HTTP server on `camel.server.port`. Set `tasks.max=1`, and give each
+webhook connector of the Kafka Connect cluster its own port. Only the first server binds a port on a worker: another
+one logs `Failed to start Vert.x HttpServer on 0.0.0.0:8080, reason: Address already in use`, and its task keeps
+running without receiving any request.
+* *The listener moves with the task.* The server runs only on the worker that runs the task, and moves to another
+worker when Kafka Connect reassigns the task, for example when a worker restarts or fails, when workers are added, or
+when the connector is updated. The `worker_id` of the task, in the response of `GET /connectors/<name>/status` of the
+Kafka Connect REST API, tells which worker it is. Make the port reachable on every worker that can run the task (for
+example, as a container port) and send the requests to the worker that runs it. A load balancer, or a Kubernetes
+`Service`, in front of several workers also forwards requests to workers where nothing listens on the port, and those
+requests fail. Running the connector on a Kafka Connect cluster with a single worker avoids this.
+* *No clashes with other listeners.* The port must differ from the other ports of the worker, such as the one of the
+Kafka Connect REST API (8083 by default).
+
+[#webhook-security]
+== Security
+
+The HTTP server accepts requests from any client that can reach the port, and writes every accepted request to Kafka.
+With the defaults, it binds to every network interface, without authentication and without TLS. In the terms of the
+xref:security-model.adoc[security model], the clients are an external system: what they send is untrusted data.
+
+* *Restrict who can reach the port.* Bind `camel.server.host` to an internal address, and use firewall rules or
+network policies so that only the systems that call the webhook can reach it.
+* *Require authentication.* Set `camel.server.authenticationEnabled=true` together with one of the mechanisms below.
+With `camel.server.authenticationEnabled=true` alone, the server only logs a warning and starts *without*
+authentication. `camel.server.authenticationPath` selects the protected paths, all of them (`/*`) by default.
+** HTTP basic authentication: `camel.server.basicPropertiesFile`, the path of a Vert.x properties file on the worker,
+with entries such as `user.<name>=<password>,<role>` and `role.<role>=*`. The passwords are stored in clear text, so
+restrict the access to the file.
+** JWT bearer tokens: `camel.server.jwtKeystoreType`, `camel.server.jwtKeystorePath`,
+`camel.server.jwtKeystorePassword`, and `camel.server.jwtIssuer` and/or `camel.server.jwtAudience`.
+* *Use TLS.* Configure the global SSL options of Camel Main in the connector configuration, for example
+`camel.ssl.enabled=true`, `camel.ssl.keyStore=file:/path/to/keystore.p12` and `camel.ssl.keystorePassword`: the
+server then uses HTTPS.
+* *Keep secrets out of the connector configuration.* Resolve the passwords with a Kafka Connect config provider, for
+example `camel.ssl.keystorePassword=${file:/opt/kafka/secrets/webhook.properties:keystore.password}` with the
+`FileConfigProvider` configured on the workers.
+* *Limit the size of the requests* with `camel.server.maxBodySize`.
+* *Do not trust the record headers.* When a Camel sink connector consumes the topic, set `camel.remove.headers.pattern`
+on it, so that the request headers do not become Camel headers there, or set `camel.map.headers=false` on the webhook
+connector when the headers are not needed. See the deployment hardening section of the
+xref:security-model.adoc[security model].
+
+[#webhook-troubleshooting]
+== Troubleshooting
+
+`No platform-http-engine service could be found in the classpath. Add camel-platform-http-vertx to classpath.`::
+The connector package does not contain the HTTP server, as is the case for the packages up to 4.22.0. For 4.22.0, add
+the jars of `camel-platform-http-main` and of its dependencies to the connector directory:
++
+[source,bash]
+----
+cd <plugin.path>/camel-webhook-source-kafka-connector
+M=https://repo1.maven.org/maven2
+for a in camel-platform-http-main camel-platform-http-vertx camel-vertx-common camel-attachments; do
+  curl -sSfLO "$M/org/apache/camel/$a/4.22.0/$a-4.22.0.jar"
+done
+for a in vertx-core vertx-web vertx-web-common vertx-auth-common vertx-auth-jwt vertx-auth-properties \
+         vertx-bridge-common; do
+  curl -sSfLO "$M/io/vertx/$a/4.5.31/$a-4.5.31.jar"
+done
+for a in netty-buffer netty-codec-base netty-codec-compression netty-codec-dns netty-codec-http netty-codec-http2 \
+         netty-codec-socks netty-common netty-handler netty-handler-proxy netty-resolver netty-resolver-dns \
+         netty-transport netty-transport-native-unix-common; do
+  curl -sSfLO "$M/io/netty/$a/4.2.16.Final/$a-4.2.16.Final.jar"
+done
+curl -sSfLO "$M/io/netty/netty-tcnative-classes/2.0.78.Final/netty-tcnative-classes-2.0.78.Final.jar"
+----
+
+`No PlatformHttpEngine created and setup in registry with name: platform-http-router-8080`::
+The HTTP server is not enabled: set `camel.server.enabled=true`.
+
+`Failed to start Vert.x HttpServer on 0.0.0.0:8080, reason: Address already in use`::
+Another task, of this connector or of another one, or another process already listens on `camel.server.port` on that
+worker. See <<webhook-deployment,Deployment>>.
