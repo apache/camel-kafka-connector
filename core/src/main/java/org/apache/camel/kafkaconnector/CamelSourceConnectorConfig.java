@@ -30,7 +30,7 @@ public class CamelSourceConnectorConfig extends CamelConnectorConfig {
 
     public static final String CAMEL_SOURCE_MARSHAL_DEFAULT = null;
     public static final String CAMEL_SOURCE_MARSHAL_CONF = "camel.source.marshal";
-    public static final String CAMEL_SOURCE_MARSHAL_DOC = "The camel dataformat name to use to unmarshal data to the topic";
+    public static final String CAMEL_SOURCE_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the topic";
 
     public static final String CAMEL_SOURCE_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_URL_CONF = "camel.source.url";
