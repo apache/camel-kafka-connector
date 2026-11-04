@@ -19,16 +19,12 @@ package org.apache.camel.kafkaconnector.maven.docs;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import org.apache.camel.kafkaconnector.maven.docs.dto.CamelKafkaConnectorTableModel;
 import org.apache.camel.kafkaconnector.maven.docs.dto.CamelKafkaConnectorTableOptionModel;
 import org.apache.camel.maven.packaging.MvelHelper;
 import org.apache.camel.tooling.util.Strings;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.DirectoryFileFilter;
-import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -44,14 +40,17 @@ import static org.apache.camel.tooling.util.PackageHelper.loadText;
 import static org.apache.camel.tooling.util.PackageHelper.writeText;
 
 /**
- * Generates the table of connectors in: - docs/modules/ROOT/pages/reference/index.adoc
+ * Generates the table of connectors in the connectors index page (by default
+ * docs/modules/ROOT/pages/reference/index.adoc) and the list of connectors in the nav file (by default
+ * docs/modules/ROOT/nav.adoc).
  */
 @Mojo(name = "update-doc-connectors-list", threadSafe = true)
 public class UpdateDocComponentsListMojo extends AbstractMojo {
-    //TODO: make these configurable:
-    private static final String SINK_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-sink-connector.adoc[Sink Docs]";
-    private static final String SOURCE_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-source-connector.adoc[Source Docs]";
-    private static final String XREF_CONNECTOR_LINK_PREFIX = "xref:reference/connectors/";
+    // The Kafka Connect ServiceLoader manifests (KIP-898) that every connector module, generated or hand-maintained,
+    // ships for each type of connector it provides. They are only looked up in the module sources, so build output
+    // such as a stale target/ directory cannot change the list of connectors.
+    private static final String SINK_CONNECTOR_SERVICE_FILE = "src/main/resources/META-INF/services/org.apache.kafka.connect.sink.SinkConnector";
+    private static final String SOURCE_CONNECTOR_SERVICE_FILE = "src/main/resources/META-INF/services/org.apache.kafka.connect.source.SourceConnector";
 
     /**
      * The maven project.
@@ -83,7 +82,48 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Parameter
     protected String lastReleasedVersion;
-    
+
+    /**
+     * The prefix of the links to the connector reference pages.
+     */
+    @Parameter(defaultValue = "xref:reference/connectors/")
+    protected String xrefConnectorLinkPrefix;
+
+    /**
+     * The suffix of the links to the sink connector reference pages, appended to the connector module name without
+     * its "kafka-connector" suffix.
+     */
+    @Parameter(defaultValue = "kafka-sink-connector.adoc[Sink Docs]")
+    protected String sinkConnectorLinkSuffix;
+
+    /**
+     * The suffix of the links to the source connector reference pages, appended to the connector module name without
+     * its "kafka-connector" suffix.
+     */
+    @Parameter(defaultValue = "kafka-source-connector.adoc[Source Docs]")
+    protected String sourceConnectorLinkSuffix;
+
+    /**
+     * The docs module directory holding the connectors index page and the nav file, absolute or relative to
+     * projectBaseDir.
+     */
+    @Parameter(defaultValue = "docs/modules/ROOT/")
+    protected String docsModuleDir;
+
+    /**
+     * The page with the table of connectors between the "// kafka-connectors list: START" and
+     * "// kafka-connectors list: END" markers, absolute or relative to docsModuleDir.
+     */
+    @Parameter(defaultValue = "pages/reference/index.adoc")
+    protected String connectorsIndexFile;
+
+    /**
+     * The nav file with the list of connectors between the "// connectors: START" and "// connectors: END" markers,
+     * absolute or relative to docsModuleDir.
+     */
+    @Parameter(defaultValue = "nav.adoc")
+    protected String navFile;
+
     /**
      * The maven project.
      */
@@ -114,63 +154,12 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
 
     protected void executeComponentsReadme() throws MojoExecutionException, MojoFailureException {
         CamelKafkaConnectorTableModel tableModel = new CamelKafkaConnectorTableModel();
-        ArrayList<CamelKafkaConnectorTableOptionModel> options = new ArrayList<>();
 
         if (connectorsDir != null && connectorsDir.isDirectory()) {
-            File[] files = connectorsDir.listFiles();
-            if (files != null) {
-                for (int i = 0; i < files.length; i++) {
-                    File file = files[i];
-                    if (file.isDirectory()) {
-                        Collection sinkConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SinkTask.*"), DirectoryFileFilter.DIRECTORY);
-                        Collection sourceConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SourceTask.*"), DirectoryFileFilter.DIRECTORY);
-                        if (!sinkConnector.isEmpty() || !sourceConnector.isEmpty()) {
-                            CamelKafkaConnectorTableOptionModel singleConnector = new CamelKafkaConnectorTableOptionModel();
-                            singleConnector.setName(file.getName());
-                            if (!sinkConnector.isEmpty()) {
-                                singleConnector.setSink(true);
-                                String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
-                                if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-coap+tcp-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
-                                } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-coaps+tcp-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
-                                } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + "camel-solrCloud-" + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
-                                } else {
-                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
-                                }
-                            }
-                            if (!sourceConnector.isEmpty()) {
-                                singleConnector.setSource(true);
-                                String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
-                                if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-coap+tcp-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
-                                } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-coaps+tcp-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
-                                } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + "camel-solrCloud-" + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
-                                } else {
-                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
-                                }
-                            }
-                            String downloadLinkTar = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.tar.gz[Download]";
-                            singleConnector.setDownloadLinkTar(downloadLinkTar);
-                            options.add(singleConnector);
-                        }
-                    }
-                }
-                options.sort((model1, model2) -> {
-                    String name1 = model1.getName();
-                    String name2 = model2.getName();
-                    int res = String.CASE_INSENSITIVE_ORDER.compare(name1, name2);
-                    return (res != 0) ? res : name1.compareTo(name2);
-                });
-                tableModel.setOptions(options);
-            }
+            tableModel.setOptions(findConnectors());
         }
-        //TODO: make these configurable:
-        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/");
-        File docFileWebsite = new File(docFolderWebsite, "pages/reference/index.adoc");
+        File docFolderWebsite = resolve(projectBaseDir, docsModuleDir);
+        File docFileWebsite = resolve(docFolderWebsite, connectorsIndexFile);
         String changed = templateConnnectorsTable(tableModel);
         boolean updated = updateConnectorsTable(docFileWebsite, changed);
         if (updated) {
@@ -178,13 +167,72 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
         } else {
             getLog().debug("No changes to connectors table file: " + docFileWebsite);
         }
-        File navWebsite = new File(docFolderWebsite, "nav.adoc");
+        File navWebsite = resolve(docFolderWebsite, navFile);
         boolean navUpdated = updateNav(navWebsite, tableModel);
         if (navUpdated) {
             getLog().info("Updated nav file: " + navWebsite);
         } else {
             getLog().debug("No changes to nav file: " + navWebsite);
         }
+    }
+
+    /**
+     * Lists the connector modules of the connectors directory, sorted by name. A module provides a sink and/or a
+     * source connector when its sources contain the matching Kafka Connect ServiceLoader manifest.
+     */
+    ArrayList<CamelKafkaConnectorTableOptionModel> findConnectors() throws MojoExecutionException {
+        File[] modules = connectorsDir.listFiles(File::isDirectory);
+        if (modules == null) {
+            throw new MojoExecutionException("Cannot list the connector modules in " + connectorsDir);
+        }
+        ArrayList<CamelKafkaConnectorTableOptionModel> options = new ArrayList<>();
+        for (File module : modules) {
+            boolean sink = new File(module, SINK_CONNECTOR_SERVICE_FILE).isFile();
+            boolean source = new File(module, SOURCE_CONNECTOR_SERVICE_FILE).isFile();
+            if (!sink && !source) {
+                continue;
+            }
+            CamelKafkaConnectorTableOptionModel singleConnector = new CamelKafkaConnectorTableOptionModel();
+            singleConnector.setName(module.getName());
+            String docsName = connectorDocsName(module.getName());
+            if (sink) {
+                singleConnector.setSink(true);
+                singleConnector.setDocsSink(xrefConnectorLinkPrefix + docsName + sinkConnectorLinkSuffix);
+            }
+            if (source) {
+                singleConnector.setSource(true);
+                singleConnector.setDocsSource(xrefConnectorLinkPrefix + docsName + sourceConnectorLinkSuffix);
+            }
+            String downloadLinkTar = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.tar.gz[Download]";
+            singleConnector.setDownloadLinkTar(downloadLinkTar);
+            options.add(singleConnector);
+        }
+        options.sort((model1, model2) -> {
+            String name1 = model1.getName();
+            String name2 = model2.getName();
+            int res = String.CASE_INSENSITIVE_ORDER.compare(name1, name2);
+            return (res != 0) ? res : name1.compareTo(name2);
+        });
+        return options;
+    }
+
+    /**
+     * Returns the name of the reference pages of a connector module without their sink/source suffix. Connectors
+     * generated from a Camel component whose scheme is not a valid artifact id (e.g. coap+tcp) keep the scheme there.
+     */
+    private static String connectorDocsName(String moduleName) {
+        String connectorFinal = StringUtils.removeEnd(moduleName, "kafka-connector");
+        if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
+            return "camel-coap+tcp-";
+        } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
+            return "camel-coaps+tcp-";
+        }
+        return connectorFinal;
+    }
+
+    private static File resolve(File baseDir, String path) {
+        File file = new File(path);
+        return file.isAbsolute() ? file : new File(baseDir, path);
     }
 
     private String templateConnnectorsTable(CamelKafkaConnectorTableModel model) throws MojoExecutionException {
