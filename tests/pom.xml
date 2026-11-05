@@ -48,6 +48,7 @@
         <module>itests-elasticsearch</module>
         <module>itests-syslog</module>
         <module>itests-file</module>
+        <module>itests-ftp</module>
         <module>itests-http</module>
         <module>itests-https</module>
         <module>itests-timer</module>
