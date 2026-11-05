@@ -18,6 +18,7 @@ For a Sink connector the basic options are:
 | camel.error.handler.max.redeliveries | The maximum redeliveries to be use in case of Default Error Handler | 0 | MEDIUM
 | camel.error.handler.redelivery.delay | The initial redelivery delay in milliseconds in case of Default Error Handler | 1000L | MEDIUM
 | camel.remove.headers.pattern | The pattern of the headers we want to exclude from the exchange | null | MEDIUM
+| camel.connector.dumpRoutes | Whether to log the Camel routes of the task as XML when it starts. Camel resolves property placeholders in the dump, so it can contain configuration values: keep it disabled in production. | false | LOW
 | camel.idempotency.enabled | If idempotency must be enabled or not | false | LOW
 | camel.idempotency.repository.type | The idempotent repository type to use, possible values are memory and kafka | memory | LOW
 | camel.idempotency.expression.type | How the idempotency will be evaluated: possible values are body and header | body | LOW
@@ -50,6 +51,7 @@ For a Source connector the basic options are:
 | camel.error.handler.max.redeliveries | The maximum redeliveries to be use in case of Default Error Handler | 0 | MEDIUM
 | camel.error.handler.redelivery.delay | The initial redelivery delay in milliseconds in case of Default Error Handler | 1000L | MEDIUM
 | camel.remove.headers.pattern | The pattern of the headers we want to exclude from the exchange | null | MEDIUM
+| camel.connector.dumpRoutes | Whether to log the Camel routes of the task as XML when it starts. Camel resolves property placeholders in the dump, so it can contain configuration values: keep it disabled in production. | false | LOW
 | camel.idempotency.enabled | If idempotency must be enabled or not | false | LOW
 | camel.idempotency.repository.type | The idempotent repository type to use, possible values are memory and kafka | memory | LOW
 | camel.idempotency.expression.type | How the idempotency will be evaluated: possible values are body and header | body | LOW

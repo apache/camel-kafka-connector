@@ -44,6 +44,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CamelKafkaConnectMain extends SimpleMain {
+    public static final String DUMP_ROUTES_FORMAT = "xml";
     public static final String KAMELET_MARSHAL_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcMarshal.";
     public static final String KAMELET_UNMARSHAL_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcUnMarshal.";
     public static final String KAMELET_AGGREGATORL_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcAggregator.";
@@ -122,7 +123,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String headersExcludePattern;
         private boolean removeHeadersFirst;
         private UnaryOperator<AggregationStrategy> aggregationStrategyDecorator;
-        private boolean dumpRoutes = true;
+        private boolean dumpRoutes;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -271,7 +272,10 @@ public class CamelKafkaConnectMain extends SimpleMain {
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
             camelMain.configure().setAutoConfigurationLogSummary(false);
-            camelMain.configure().setDumpRoutes(Boolean.toString(dumpRoutes));
+            if (dumpRoutes) {
+                // Camel 4 takes the format of the dump, not a flag: XML is the format the jars of every connector can write
+                camelMain.configure().setDumpRoutes(DUMP_ROUTES_FORMAT);
+            }
 
             Properties camelProperties = new Properties();
             camelProperties.putAll(props);
