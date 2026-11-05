@@ -125,6 +125,7 @@ public class CamelSourceTask extends SourceTask {
             final String idempotentRepositoryBootstrapServers = config.getString(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_BOOTSTRAP_SERVERS_CONF);
             final int idempotentRepositoryKafkaMaxCacheSize = config.getInt(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_MAX_CACHE_SIZE_CONF);
             final int idempotentRepositoryKafkaPollDuration = config.getInt(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_CONF);
+            final Map<String, Object> idempotentRepositoryKafkaClientProperties = config.originalsWithPrefix(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX);
             final String headersRemovePattern = config.getString(CamelSourceConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
             mapProperties = config.getBoolean(CamelSourceConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
             mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
@@ -185,6 +186,7 @@ public class CamelSourceTask extends SourceTask {
                 .withIdempotentRepositoryKafkaServers(idempotentRepositoryBootstrapServers)
                 .withIdempotentRepositoryKafkaMaxCacheSize(idempotentRepositoryKafkaMaxCacheSize)
                 .withIdempotentRepositoryKafkaPollDuration(idempotentRepositoryKafkaPollDuration)
+                .withIdempotentRepositoryKafkaClientProperties(idempotentRepositoryKafkaClientProperties)
                 .withHeadersExcludePattern(headersRemovePattern)
                 .withDumpRoutes(dumpRoutes)
                 .build(camelContext);

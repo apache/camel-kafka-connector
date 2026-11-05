@@ -1018,6 +1018,26 @@ class CamelSinkTaskTest {
     }
     
     @Test
+    void testKafkaIdempotentRepositoryGetsTheClientProperties() {
+        final String clientPrefix = CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX;
+        final String truststore = "target/" + getClass().getSimpleName() + "-missing-truststore.jks";
+        Map<String, String> props = new HashMap<>();
+        props.put(TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+        props.put(CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, "true");
+        props.put(CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_CONF, "kafka");
+        props.put(clientPrefix + "security.protocol", "SSL");
+        props.put(clientPrefix + "ssl.truststore.location", truststore);
+        props.put(clientPrefix + "ssl.truststore.password", "changeit");
+
+        // No broker needed: the truststore does not exist, so the repository fails as soon as it creates its Kafka
+        // consumer ("Failed to load SSL keystore <path>"). That only happens if the consumer was given the SSL
+        // settings under their Kafka names.
+        ConnectException e = assertThrows(ConnectException.class, () -> sinkTask.start(props));
+        assertThat(e).hasStackTraceContaining(truststore);
+    }
+
+    @Test
     void testWithIdempotencyAndHeader() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put(TOPIC_CONF, TOPIC_NAME);

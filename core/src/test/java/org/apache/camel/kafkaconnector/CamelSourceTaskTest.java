@@ -41,6 +41,7 @@ import org.apache.camel.kafkaconnector.utils.StringJoinerAggregator;
 import org.apache.camel.support.SynchronizationAdapter;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.json.JsonConverter;
 import org.apache.kafka.connect.json.JsonConverterConfig;
@@ -56,6 +57,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CamelSourceTaskTest {
@@ -635,6 +637,31 @@ public class CamelSourceTaskTest {
             assertThat(records).element(0).hasFieldOrPropertyWithValue("value", "Test");
             assertThat(records).element(1).hasFieldOrPropertyWithValue("value", "Test1");
             assertThat(records).element(2).hasFieldOrPropertyWithValue("value", "Test2");
+        } finally {
+            sourceTask.stop();
+        }
+    }
+
+    @Test
+    public void testKafkaIdempotentRepositoryGetsTheClientProperties() {
+        final String clientPrefix = CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX;
+        final String truststore = "target/" + getClass().getSimpleName() + "-missing-truststore.jks";
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        props.put(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, "true");
+        props.put(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_CONF, "kafka");
+        props.put(clientPrefix + "security.protocol", "SSL");
+        props.put(clientPrefix + "ssl.truststore.location", truststore);
+        props.put(clientPrefix + "ssl.truststore.password", "changeit");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        try {
+            // No broker needed: the truststore does not exist, so the repository fails as soon as it creates its
+            // Kafka consumer ("Failed to load SSL keystore <path>"). That only happens if the consumer was given the
+            // SSL settings under their Kafka names.
+            ConnectException e = assertThrows(ConnectException.class, () -> sourceTask.start(props));
+            assertThat(e).hasStackTraceContaining(truststore);
         } finally {
             sourceTask.stop();
         }

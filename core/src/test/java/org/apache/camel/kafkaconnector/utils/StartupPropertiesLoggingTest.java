@@ -16,6 +16,9 @@
  */
 package org.apache.camel.kafkaconnector.utils;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -23,8 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.kafkaconnector.CamelConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
+import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSourceTask;
+import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LogEvent;
@@ -36,8 +42,10 @@ import org.apache.logging.log4j.core.config.Property;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -49,6 +57,11 @@ public class StartupPropertiesLoggingTest {
 
     private static final String SECRET_KEY_VALUE = "sUp3rS3cr3tAccessValue";
     private static final String USERINFO_PASSWORD = "hunter2PlainPassword";
+    private static final String IDEMPOTENCY_CLIENT_PREFIX = CamelConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX;
+    private static final String JAAS_PASSWORD = "jaasPl41nPassword";
+    private static final String TRUSTSTORE_PASSWORD = "trustSt0reSecret";
+    private static final String PRIVATE_KEY_BODY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7";
+    private static final String CUSTOM_OPTION_VALUE = "cust0mL0ginSecret";
 
     private CapturingAppender appender;
     private LoggerConfig loggerConfig;
@@ -131,6 +144,72 @@ public class StartupPropertiesLoggingTest {
     }
 
     @Test
+    public void testIdempotentRepositoryKafkaClientSecretsAreNotLoggedInClearText() {
+        // Kafka client property names: the secret is not always in the last segment of the key (sasl.jaas.config,
+        // ssl.keystore.key), and options of a custom login module or callback handler can use any name at all.
+        Map<String, String> props = new HashMap<>();
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "security.protocol", "SASL_SSL");
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "sasl.jaas.config",
+                "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"ckc\" password=\"" + JAAS_PASSWORD + "\";");
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "ssl.truststore.password", TRUSTSTORE_PASSWORD);
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "ssl.keystore.key",
+                "-----BEGIN PRIVATE KEY-----\n" + PRIVATE_KEY_BODY + "\n-----END PRIVATE KEY-----");
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "custom.login.option", CUSTOM_OPTION_VALUE);
+
+        String logged = startupLogLine(props);
+
+        assertFalse(logged.contains(JAAS_PASSWORD), "the JAAS configuration must not reach the log: " + logged);
+        assertFalse(logged.contains(TRUSTSTORE_PASSWORD), "the truststore password must not reach the log: " + logged);
+        assertFalse(logged.contains(PRIVATE_KEY_BODY), "the private key must not reach the log: " + logged);
+        assertFalse(logged.contains(CUSTOM_OPTION_VALUE),
+                "a client property is masked whatever its name, it may be a secret: " + logged);
+        assertTrue(logged.contains(IDEMPOTENCY_CLIENT_PREFIX + "sasl.jaas.config"),
+                "the key should stay visible, to show the property was picked up: " + logged);
+    }
+
+    @Test
+    public void testIdempotentRepositoryKafkaClientSecretsDoNotLeakThroughAnyLogLine(@TempDir Path tempDir) {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, "my-topic");
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, "direct:start");
+        props.put(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, "true");
+        props.put(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_CONF, "kafka");
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "security.protocol", "SASL_SSL");
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "sasl.mechanism", "PLAIN");
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "sasl.jaas.config",
+                "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"ckc\" password=\"" + JAAS_PASSWORD + "\";");
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "ssl.truststore.location", tempDir.resolve("missing-truststore.jks").toString());
+        props.put(IDEMPOTENCY_CLIENT_PREFIX + "ssl.truststore.password", TRUSTSTORE_PASSWORD);
+
+        CamelSourceTask task = new CamelSourceTask();
+        ConnectException failure;
+        try {
+            // the missing truststore stops the repository's Kafka consumer right after it has logged its configuration
+            failure = assertThrows(ConnectException.class, () -> task.start(props));
+        } finally {
+            task.stop();
+        }
+
+        List<String> logged = new ArrayList<>(appender.messages);
+        // the repository's Kafka consumer got the client properties, and Kafka hides the secrets in its own log line
+        String consumerConfig = logged.stream()
+            .filter(m -> m.startsWith("ConsumerConfig values"))
+            .findFirst()
+            .orElseThrow(() -> new AssertionError("the repository's Kafka consumer did not log its configuration: " + logged));
+        assertTrue(consumerConfig.contains("security.protocol = SASL_SSL"), consumerConfig);
+        assertTrue(consumerConfig.contains("sasl.jaas.config = [hidden]"), consumerConfig);
+        assertTrue(consumerConfig.contains("ssl.truststore.password = [hidden]"), consumerConfig);
+        // the Kafka Connect runtime logs the failure of a task with its stack trace
+        StringWriter failureTrace = new StringWriter();
+        failure.printStackTrace(new PrintWriter(failureTrace));
+        logged.add(failureTrace.toString());
+        for (String message : logged) {
+            assertFalse(message.contains(JAAS_PASSWORD), "the JAAS configuration must not reach the log: " + message);
+            assertFalse(message.contains(TRUSTSTORE_PASSWORD), "the truststore password must not reach the log: " + message);
+        }
+    }
+
+    @Test
     public void testNonSensitiveValuesAreStillLogged() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.endpoint.region", "eu-west-1");
@@ -151,6 +230,11 @@ public class StartupPropertiesLoggingTest {
         @Override
         public void append(LogEvent event) {
             messages.add(event.getMessage().getFormattedMessage());
+            if (event.getThrown() != null) {
+                StringWriter trace = new StringWriter();
+                event.getThrown().printStackTrace(new PrintWriter(trace));
+                messages.add(trace.toString());
+            }
         }
     }
 }
