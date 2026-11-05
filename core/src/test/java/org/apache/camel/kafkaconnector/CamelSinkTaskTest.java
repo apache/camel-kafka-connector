@@ -30,6 +30,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;
+import org.apache.kafka.common.record.TimestampType;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;
@@ -88,6 +89,45 @@ class CamelSinkTaskTest {
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
         assertEquals(LoggingLevel.OFF.toString(), sinkTask.getCamelSinkConnectorConfig(props)
             .getString(CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF));
+    }
+
+    @Test
+    void testRecordMetadataHeaders() {
+        Map<String, String> props = new HashMap<>();
+        props.put(TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+
+        sinkTask.start(props);
+
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        SinkRecord record = new SinkRecord(TOPIC_NAME, 3, null, "test", null, "camel", 42L, 1234567890L, TimestampType.CREATE_TIME);
+        // record headers must not be able to replace the coordinates of the record
+        record.headers().addString(CamelSinkTask.HEADER_CAMEL_PREFIX + CamelSinkTask.KAFKA_RECORD_TOPIC_HEADER, "spoofed");
+        record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + CamelSinkTask.KAFKA_RECORD_OFFSET_HEADER, 7L);
+        records.add(record);
+        // a record without a timestamp
+        records.add(new SinkRecord(TOPIC_NAME, 4, null, "test", null, "camel", 43));
+        sinkTask.put(records);
+
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
+        Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
+        Map<String, Object> headers = exchange.getMessage().getHeaders();
+        assertEquals("test", headers.get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
+        assertEquals(TOPIC_NAME, headers.get(CamelSinkTask.KAFKA_RECORD_TOPIC_HEADER));
+        assertEquals(3, headers.get(CamelSinkTask.KAFKA_RECORD_PARTITION_HEADER));
+        assertEquals(42L, headers.get(CamelSinkTask.KAFKA_RECORD_OFFSET_HEADER));
+        assertEquals(1234567890L, headers.get(CamelSinkTask.KAFKA_RECORD_TIMESTAMP_HEADER));
+        // the expression shown in the docs (basic-configuration.adoc)
+        assertEquals(TOPIC_NAME + "-3-42.txt", exchange.getContext().resolveLanguage("simple")
+                .createExpression("${header[camel.kafka.connector.record.topic]}-${header[camel.kafka.connector.record.partition]}"
+                                  + "-${header[camel.kafka.connector.record.offset]}.txt")
+                .evaluate(exchange, String.class));
+
+        Exchange exchange1 = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
+        Map<String, Object> headers1 = exchange1.getMessage().getHeaders();
+        assertEquals(4, headers1.get(CamelSinkTask.KAFKA_RECORD_PARTITION_HEADER));
+        assertEquals(43L, headers1.get(CamelSinkTask.KAFKA_RECORD_OFFSET_HEADER));
+        assertFalse(headers1.containsKey(CamelSinkTask.KAFKA_RECORD_TIMESTAMP_HEADER));
     }
 
     @Test

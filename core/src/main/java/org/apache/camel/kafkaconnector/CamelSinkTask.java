@@ -48,6 +48,10 @@ public class CamelSinkTask extends SinkTask {
     public static final String KAMELET_SINK_TEMPLATE_PARAMETERS_PREFIX = "camel.kamelet.ckcSink.";
 
     public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
+    public static final String KAFKA_RECORD_TOPIC_HEADER = "camel.kafka.connector.record.topic";
+    public static final String KAFKA_RECORD_PARTITION_HEADER = "camel.kafka.connector.record.partition";
+    public static final String KAFKA_RECORD_OFFSET_HEADER = "camel.kafka.connector.record.offset";
+    public static final String KAFKA_RECORD_TIMESTAMP_HEADER = "camel.kafka.connector.record.timestamp";
     public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
     public static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
 
@@ -226,6 +230,9 @@ public class CamelSinkTask extends SinkTask {
                     }
                 }
             }
+            // set after the record headers are mapped, so that a CamelHeader.* record header cannot replace the
+            // coordinates of the record in Kafka
+            setRecordMetadataHeaders(exchange, record);
 
             LOG.debug("Sending exchange {} to {}", exchange.getExchangeId(), LOCAL_URL);
             producer.send(localEndpoint, exchange);
@@ -310,6 +317,15 @@ public class CamelSinkTask extends SinkTask {
             throw new ConnectException("Failed to stop Camel context", e);
         } finally {
             LOG.info("CamelSinkTask connector task stopped");
+        }
+    }
+
+    private static void setRecordMetadataHeaders(Exchange exchange, SinkRecord record) {
+        exchange.getMessage().setHeader(KAFKA_RECORD_TOPIC_HEADER, record.topic());
+        exchange.getMessage().setHeader(KAFKA_RECORD_PARTITION_HEADER, record.kafkaPartition());
+        exchange.getMessage().setHeader(KAFKA_RECORD_OFFSET_HEADER, record.kafkaOffset());
+        if (record.timestamp() != null) {
+            exchange.getMessage().setHeader(KAFKA_RECORD_TIMESTAMP_HEADER, record.timestamp());
         }
     }
 
