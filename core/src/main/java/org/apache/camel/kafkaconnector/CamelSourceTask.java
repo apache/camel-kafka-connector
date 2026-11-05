@@ -439,7 +439,13 @@ public class CamelSourceTask extends SourceTask {
 
     private String getLocalUrlWithPollingOptions(long pollingConsumerQueueSize, long pollingConsumerBlockTimeout, boolean pollingConsumerBlockWhenFull) {
         return LOCAL_URL + "?pollingConsumerQueueSize=" + pollingConsumerQueueSize + "&pollingConsumerBlockTimeout=" + pollingConsumerBlockTimeout
-               + "&pollingConsumerBlockWhenFull=" + pollingConsumerBlockWhenFull;
+               + "&pollingConsumerBlockWhenFull=" + pollingConsumerBlockWhenFull
+               // SedaEndpoint polls its own queue and ignores the pollingConsumer* options above, so the hand-off queue
+               // only gets these values through SEDA's own options. A negative offerTimeout makes SEDA fall back to
+               // add(), which throws when the queue is full, so it is clamped to 0 (block with no timeout), matching
+               // the documented "0 or negative then no timeout is in use".
+               + "&size=" + pollingConsumerQueueSize + "&blockWhenFull=" + pollingConsumerBlockWhenFull
+               + "&offerTimeout=" + Math.max(0L, pollingConsumerBlockTimeout);
     }
 
     /**

@@ -88,6 +88,17 @@ transforms.toString.type=org.apache.camel.kafkaconnector.transforms.CamelTypeCon
 transforms.toString.target.type=java.lang.String
 ----
 
+[[BasicConfiguration-SourceHandOffQueue]]
+== Source Hand-off Queue
+
+A source task receives messages from the Camel route through an internal SEDA queue. The `camel.source.pollingConsumer*` options configure it:
+
+* `camel.source.pollingConsumerQueueSize` is the queue capacity. It takes precedence over `camel.component.seda.queueSize`. A value of `0` or less does not disable the queue: it falls back to `camel.component.seda.queueSize`, or to 1000.
+* With `camel.source.pollingConsumerBlockWhenFull=true` (the default), the Camel consumer thread waits while the queue is full, until the task has polled messages from it. With `false`, a message that arrives while the queue is full fails with `IllegalStateException: Queue full`.
+* `camel.source.pollingConsumerBlockTimeout` limits that wait, in milliseconds. When it expires, the message fails instead. `0` or a negative value waits with no limit.
+
+A consumer thread that is waiting on a full queue holds an in-flight exchange. When the task stops, Camel's graceful shutdown waits for it, up to `camel.main.shutdownTimeout` (45 seconds by default), then forces the routes to stop. Kafka Connect only waits `task.shutdown.graceful.timeout.ms` (5 seconds by default) for the task to stop and logs an error when that runs out, so consider setting `camel.main.shutdownTimeout` below it, or a non-zero `camel.source.pollingConsumerBlockTimeout`. A message that was waiting when the task stopped is not delivered to Kafka, like the messages still in the queue; sources that acknowledge only after the record is committed get it again.
+
 [[BasicConfiguration-MessageLevelHeaders]]
 == Message Level Headers
 
