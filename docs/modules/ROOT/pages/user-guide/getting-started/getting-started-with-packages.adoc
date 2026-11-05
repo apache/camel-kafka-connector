@@ -6,3 +6,27 @@ The Camel-Kafka-connector connectors can be used also as packages to unpack in y
 If you already set up Zookeeper, Kafka, and Kafka Connect, using camel-kafka-connector's connector is pretty fast: you can download one or more archives (we provide zip and tar.gz formats) and extract their content into the Kafka Connect environment, specifically in Kafka Connect’s plugin path. Doing this will require to specify the plugin path in your worker configuration (e.g. connect-distributed.properties or connect-standalone.properties) using the plugin.path configuration property. 
 
 You can download the connectors packages from the xref:reference/index.adoc[Connectors List]
+
+[[GettingStartedwithpackages-JDBCDrivers]]
+== Connectors that need a JDBC driver
+
+The database connectors connect through the JDBC driver of their database. The PostgreSQL connectors (`camel-postgresql-source-kafka-connector` and `camel-postgresql-sink-kafka-connector`) include their driver. The following connectors do not, because the Kamelets they are generated from do not declare it, so you have to add the driver yourself:
+
+[options="header"]
+|===
+| Connectors | Driver class | Driver artifact on Maven Central
+| `camel-sqlserver-source-kafka-connector`, `camel-sqlserver-sink-kafka-connector` | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | `com.microsoft.sqlserver:mssql-jdbc`
+| `camel-mysql-source-kafka-connector`, `camel-mysql-sink-kafka-connector` | `com.mysql.cj.jdbc.Driver` | `com.mysql:mysql-connector-j`
+| `camel-mariadb-source-kafka-connector`, `camel-mariadb-sink-kafka-connector` | `org.mariadb.jdbc.Driver` | `org.mariadb.jdbc:mariadb-java-client`
+| `camel-oracle-database-source-kafka-connector`, `camel-oracle-database-sink-kafka-connector` | `oracle.jdbc.driver.OracleDriver` | `com.oracle.database.jdbc:ojdbc11`
+|===
+
+Copy the driver jar into the directory of the unpacked connector in the Kafka Connect plugin path, next to the connector's own jars. Kafka Connect loads each plugin directory with its own class loader, so a driver in another plugin's directory is not visible to the connector. Without the driver, the task fails with `Cannot load JDBC driver class`. For example, for the SQL Server source connector:
+
+[source,bash]
+----
+cd <plugin.path>/camel-sqlserver-source-kafka-connector
+curl -LO https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/13.6.2.jre11/mssql-jdbc-13.6.2.jre11.jar
+----
+
+Then restart the Kafka Connect worker so that it loads the new jar.
