@@ -118,7 +118,7 @@ If they are available, to configure them directly from your Kafka producer, you 
 
 Some options take an object rather than a text value, for example an exception handler, a data source, the TLS
 settings of an endpoint or an aggregation strategy. For these options the value has to tell Camel how to get the
-object, with the reference syntax of the Camel https://camel.apache.org/manual/property-binding.html[property binding].
+object, with the reference syntax of the Camel xref:manual::property-binding.adoc[property binding].
 A plain class name is only a string: Camel cannot convert it to the type of the option, and the connector task fails
 to start.
 

@@ -5,7 +5,7 @@ The following provides usage information for the SMT `org.apache.camel.kafkaconn
 == Description
 
 CamelTypeConverter converts the key or the value of a record to another Java type using the
-https://camel.apache.org/manual/type-converter.html[Camel type converters], for example a `byte[]`
+xref:manual::type-converter.adoc[Camel type converters], for example a `byte[]`
 or a Camel stream into a `String`, or a Kafka Connect `Struct` into a `Map`.
 
 The schema of the converted key or value is derived from the converted value. Records without a
