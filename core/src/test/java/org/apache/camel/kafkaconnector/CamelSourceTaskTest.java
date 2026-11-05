@@ -17,9 +17,13 @@
 package org.apache.camel.kafkaconnector;
 
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -36,6 +40,8 @@ import org.apache.camel.support.SynchronizationAdapter;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
+import org.apache.kafka.connect.json.JsonConverter;
+import org.apache.kafka.connect.json.JsonConverterConfig;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
@@ -136,6 +142,47 @@ public class CamelSourceTaskTest {
 
         assertTrue(pollSize < size, "Batch size: " + pollSize + ", expected strictly less than " + size);
         sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingWithMapAndListBody() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+        try (JsonConverter converter = new JsonConverter()) {
+            converter.configure(Collections.singletonMap(JsonConverterConfig.SCHEMAS_ENABLE_CONFIG, false), false);
+            final ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
+
+            // a JSON object with values of different types, such as form fields or an unmarshalled document
+            Map<String, Object> map = new LinkedHashMap<>();
+            map.put("token", "abc");
+            map.put("count", 3);
+            template.sendBody(DIRECT_URI, map);
+            template.sendBody(DIRECT_URI, Arrays.asList("camel", 1, true));
+            // values whose types can be inferred keep a complete schema
+            template.sendBody(DIRECT_URI, Collections.singletonMap("name", "camel"));
+
+            List<SourceRecord> poll = sourceTask.poll();
+            assertEquals(3, poll.size());
+
+            assertNull(poll.get(0).valueSchema());
+            assertEquals("{\"token\":\"abc\",\"count\":3}", toJson(converter, poll.get(0)));
+            assertNull(poll.get(1).valueSchema());
+            assertEquals("[\"camel\",1,true]", toJson(converter, poll.get(1)));
+            assertEquals(Schema.Type.MAP, poll.get(2).valueSchema().type());
+            assertEquals(Schema.Type.STRING, poll.get(2).valueSchema().keySchema().type());
+            assertEquals(Schema.Type.STRING, poll.get(2).valueSchema().valueSchema().type());
+            assertEquals("{\"name\":\"camel\"}", toJson(converter, poll.get(2)));
+        } finally {
+            sourceTask.stop();
+        }
+    }
+
+    private static String toJson(JsonConverter converter, SourceRecord record) {
+        return new String(converter.fromConnectData(record.topic(), record.valueSchema(), record.value()), StandardCharsets.UTF_8);
     }
 
     @Test
