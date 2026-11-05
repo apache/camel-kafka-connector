@@ -89,3 +89,87 @@ transforms.toString.target.type=java.lang.String
 
 Certain sink components offer additional configuration and adjustment of behavior by setting specific headers on the message sent via Kafka. For example the file sink connector allows the user to set the file name either via the configuration property or via the header `CamelHeader.CamelFileName`. This is usually noted on the connector documentation, but as a rule of thumb, users are advised to also check the Camel components documentation to verify what message headers are available.
 If they are available, to configure them directly from your Kafka producer, you can append them with the string `CamelHeader.` (i.e.: `CamelHeader.CamelFileName`, `CamelHeader.CamelFilePath`, etc) and include them on the message headers from Kafka.
+
+[[BasicConfiguration-ReferencingObjects]]
+== Referencing classes and beans in option values
+
+Some options take an object rather than a text value, for example an exception handler, a data source, the TLS
+settings of an endpoint or an aggregation strategy. For these options the value has to tell Camel how to get the
+object, with the reference syntax of the Camel https://camel.apache.org/manual/property-binding.html[property binding].
+A plain class name is only a string: Camel cannot convert it to the type of the option, and the connector task fails
+to start.
+
+[width="100%",cols="2,5",options="header"]
+|===
+| Value | Meaning
+| `#class:com.example.MyHandler` | A new instance of the class, created with its public no-argument constructor. If the
+class implements `org.apache.camel.CamelContextAware`, the `CamelContext` is set on the new instance.
+| `#class:com.example.MyHandler('my-prefix', 5)` | A new instance of the class, created with the constructor that
+matches the arguments. Text arguments are quoted with single quotes.
+| `#class:com.example.MyHandler#create` | The object returned by the public static factory method `create` of the class.
+Arguments go in parentheses, as in `#class:com.example.MyHandler#create('my-prefix')`.
+| `#bean:myHandler` | The bean registered under the name `myHandler`, for example one declared with
+`camel.beans.myHandler`.
+| `#type:com.example.MyHandler` | The only bean of that type in the registry. The task fails to start when there is no
+such bean, or more than one.
+|===
+
+Camel supports a few more forms, such as `#property:` and `#autowired`, described in the property binding
+documentation. The classes you reference must be on the classpath of the connector: put their jar in the connector's
+directory under the Kafka Connect `plugin.path`.
+
+References can be used in:
+
+* the `+camel.source.endpoint.*+` and `+camel.sink.endpoint.*+` options of the component-based connectors, such as
+  `camel-file-kafka-connector`, `camel-https-kafka-connector` or `camel-jdbc-kafka-connector`, and in the query
+  parameters of `camel.source.url` and `camel.sink.url`;
+* the component options `camel.component.<scheme>.<option>`, for example
+  `camel.component.jdbc.dataSource=#class:org.postgresql.ds.PGSimpleDataSource`, where
+  `camel.component.jdbc.dataSource.url=...` then sets a property of the new data source;
+* the bean definitions: `camel.beans.<name>` creates an object and registers it under `<name>`, and
+  `camel.beans.<name>.<property>` sets one of its properties, with a plain value or with a reference. This is how
+  `camel.beans.aggregate` sets the aggregation strategy.
+
+The Kamelet-based connectors, the ones configured with `+camel.kamelet.<kamelet name>.*+` options, build their
+endpoint from the Kamelet and do not read `+camel.source.endpoint.*+` or `+camel.sink.endpoint.*+`. The
+`+camel.component.*+` and `+camel.beans.*+` properties still apply to them.
+
+For example, a custom exception handler for `camel-file-kafka-connector` needs the `#class:` prefix in front of the
+class name:
+
+[source,properties]
+----
+# wrong: the value is a plain string and the task fails to start
+camel.source.endpoint.onCompletionExceptionHandler=org.apache.camel.kafkaconnector.CustomLoggingExceptionHandler
+# right: Camel creates an instance of the class
+camel.source.endpoint.onCompletionExceptionHandler=#class:org.apache.camel.kafkaconnector.CustomLoggingExceptionHandler
+----
+
+With this form the class needs a public no-argument constructor. A handler that needs the `CamelContext` can
+implement `org.apache.camel.CamelContextAware`, and Camel sets the context on the new instance.
+
+To share an object between options, or to set its properties, declare it as a bean and reference it with `#bean:`.
+This `camel-https-kafka-connector` configuration builds the TLS settings of the endpoint out of three beans:
+
+[source,properties]
+----
+camel.beans.ksp=#class:org.apache.camel.support.jsse.KeyStoreParameters
+camel.beans.ksp.resource=file:/opt/kafka/ssl/truststore.jks
+camel.beans.ksp.password=<truststore password>
+camel.beans.tmp=#class:org.apache.camel.support.jsse.TrustManagersParameters
+camel.beans.tmp.keyStore=#bean:ksp
+camel.beans.scp=#class:org.apache.camel.support.jsse.SSLContextParameters
+camel.beans.scp.trustManagers=#bean:tmp
+camel.sink.endpoint.sslContextParameters=#bean:scp
+----
+
+In YAML, for example in the `config` of a Strimzi `KafkaConnector` resource, quote the values that start with `+#+`:
+YAML reads an unquoted hash sign that follows a space as the start of a comment.
+
+[source,yaml]
+----
+camel.source.endpoint.onCompletionExceptionHandler: '#class:org.apache.camel.kafkaconnector.CustomLoggingExceptionHandler'
+----
+
+These references create objects from classes named in the configuration, so whoever can write a connector
+configuration can run code in the Kafka Connect worker. See the xref:security-model.adoc[Security Model].
