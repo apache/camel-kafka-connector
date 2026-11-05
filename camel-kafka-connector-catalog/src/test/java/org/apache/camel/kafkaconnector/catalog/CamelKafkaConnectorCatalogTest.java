@@ -19,6 +19,7 @@ package org.apache.camel.kafkaconnector.catalog;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.camel.kafkaconnector.CamelSinkConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
@@ -63,6 +64,59 @@ class CamelKafkaConnectorCatalogTest {
         assertNull(model.getConverters());
         assertNull(model.getTransforms());
         assertNull(model.getAggregationStrategies());
+    }
+
+    @Test
+    void testSyslogConnectors() throws Exception {
+        assertSyslogConnector("camel-syslog-source", "source", "org.apache.camel.kafkaconnector.syslog.CamelSyslogSourceConnector");
+        assertSyslogConnector("camel-syslog-sink", "sink", "org.apache.camel.kafkaconnector.syslog.CamelSyslogSinkConnector");
+    }
+
+    private void assertSyslogConnector(String connectorName, String type, String connectorClass) {
+        assertTrue(catalog.getConnectorsName().contains(connectorName), connectorName + " is missing from the connector names.");
+        CamelKafkaConnectorModel model = catalog.getConnectorsModel().get(connectorName);
+        assertNotNull(model, connectorName + " is missing from the connector models.");
+        assertEquals("org.apache.camel.kafkaconnector", model.getGroupId());
+        assertEquals("camel-syslog-kafka-connector", model.getArtifactId());
+        assertEquals(type, model.getType());
+        assertEquals(connectorClass, model.getConnectorClass());
+        assertNotNull(model.getDescription());
+        assertNotNull(model.getVersion());
+        assertFalse(model.getVersion().contains("${"), "The " + connectorName + " version placeholder was not resolved: " + model.getVersion());
+        CamelKafkaConnectorOptionModel protocol = catalog.getOptionModel(connectorName, "camel." + type + ".path.protocol");
+        assertNotNull(protocol);
+        assertEquals("true", protocol.getRequired());
+        assertEquals(Arrays.asList("tcp", "udp"), protocol.getPossibleEnumValues());
+    }
+
+    @Test
+    void testSyslogOptionsMatchNetty() throws Exception {
+        // the syslog connectors reuse the netty connector configuration, but their catalog
+        // metadata is hand-maintained: catch it drifting from the generated netty metadata
+        assertSameOptions("camel-netty-source", "camel-syslog-source");
+        assertSameOptions("camel-netty-sink", "camel-syslog-sink");
+    }
+
+    private void assertSameOptions(String nettyConnectorName, String syslogConnectorName) {
+        Map<String, String> nettyOptions = describeOptions(nettyConnectorName);
+        Map<String, String> syslogOptions = describeOptions(syslogConnectorName);
+        String message = syslogConnectorName + " options are out of sync with " + nettyConnectorName
+                + ": update connectors/camel-syslog-kafka-connector/src/generated/resources/" + syslogConnectorName
+                + ".json with the properties of connectors/camel-netty-kafka-connector/src/generated/resources/" + nettyConnectorName + ".json";
+        assertFalse(nettyOptions.isEmpty());
+        assertEquals(nettyOptions.keySet(), syslogOptions.keySet(), message);
+        nettyOptions.forEach((name, option) -> assertEquals(option, syslogOptions.get(name), message + " (option " + name + ")"));
+    }
+
+    private Map<String, String> describeOptions(String connectorName) {
+        CamelKafkaConnectorModel model = catalog.getConnectorsModel().get(connectorName);
+        assertNotNull(model, connectorName + " is missing from the connector models.");
+        Map<String, String> options = new TreeMap<>();
+        for (CamelKafkaConnectorOptionModel option : model.getOptions()) {
+            options.put(option.getName(), Arrays.asList(option.getDescription(), option.getDefaultValue(), option.getPriority(),
+                    option.getRequired(), option.getPossibleEnumValues()).toString());
+        }
+        return options;
     }
 
     @Test
