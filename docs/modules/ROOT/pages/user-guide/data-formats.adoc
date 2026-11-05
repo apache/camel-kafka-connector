@@ -1,7 +1,7 @@
 [[DataFormats-DataFormats]]
 = Data Formats
 
-A Camel https://camel.apache.org/manual/data-format.html[data format] converts a message body between a serialized
+A Camel xref:manual::data-format.adoc[data format] converts a message body between a serialized
 form, such as JSON, CSV, HL7 or syslog text, and another representation, usually Java objects. To _marshal_ is to
 write the body in the serialized form, to _unmarshal_ is to parse the serialized form.
 
@@ -99,7 +99,7 @@ Older configurations can carry names that no longer exist: the JSON Jackson data
 while Camel 3.14 and earlier registered it as `json-jackson`. An unknown name makes the connector task fail to start
 with `Cannot find data format in registry with ref: <name>`.
 
-The https://camel.apache.org/components/next/dataformats/index.html[Camel data formats] page lists every data format
+The xref:components:dataformats:index.adoc[Camel data formats] page lists every data format
 with its options.
 
 [[DataFormats-Classpath]]
@@ -146,7 +146,7 @@ camel.sink.marshal=prettyJson
 ----
 
 `#class:` creates a new instance of the class, and the `camel.beans.<name>.<property>` entries set its properties;
-see the Camel https://camel.apache.org/manual/property-binding.html[property binding] documentation for the syntax.
+see the Camel xref:manual::property-binding.adoc[property binding] documentation for the syntax.
 
 Some data formats can let a message header choose the Java type to unmarshal to, for example Jackson with
 `allowUnmarshallType=true` (the `CamelJacksonUnmarshalType` header) or `allowJmsType=true` (the `JMSType` header).
