@@ -40,6 +40,7 @@ The idempotency feature can be enabled through a number of configuration options
 | camel.idempotency.kafka.bootstrap.servers | A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live | localhost:9092  
 | camel.idempotency.kafka.max.cache.size | Sets the maximum size of the local key cache | 1000 
 | camel.idempotency.kafka.poll.duration.ms | Sets the poll duration (in milliseconds) of the Kafka consumer | 100
+| camel.idempotency.kafka.client.<property> | A Kafka client property passed, with the prefix removed, to the consumer and the producer of the Kafka idempotent repository, for example `camel.idempotency.kafka.client.security.protocol`. See <<Idempotency-SecuredCluster,Using a secured Kafka cluster>> |
 |===
 
 The in-memory approach has been provided for short running connector workload, while the kafka one is for long running/interruptable connector.
@@ -59,3 +60,57 @@ camel.idempotency.kafka.poll.duration.ms=150
 ```
 
 Some of the options can be used with their default value, in this example we're just listing them for a Kafka idempotent repository configuration.
+
+[[Idempotency-SecuredCluster]]
+== Using a secured Kafka cluster for the Kafka idempotent repository
+
+The Kafka idempotent repository has its own Kafka consumer and producer. They don't use the security settings of the Kafka Connect worker, nor those of a Kafka component configured in the connector, so with only `camel.idempotency.kafka.bootstrap.servers` the repository can only reach an unsecured listener.
+
+To reach a cluster secured with SSL or SASL, give the repository the Kafka client properties it needs with the `camel.idempotency.kafka.client.` prefix. The prefix is removed and each property is applied to both the consumer and the producer of the repository, on top of `camel.idempotency.kafka.bootstrap.servers` (a `bootstrap.servers` given with the prefix takes precedence over it). Any Kafka consumer or producer property can be passed this way, except the ones the repository always sets itself: the key and value serializers and deserializers, and `enable.auto.commit`, which it disables.
+
+For a cluster that requires SSL, here with client authentication:
+
+[source,properties]
+----
+camel.idempotency.enabled=true
+camel.idempotency.repository.type=kafka
+camel.idempotency.kafka.topic=my.idempotency.topic
+camel.idempotency.kafka.bootstrap.servers=broker1:9093,broker2:9093
+camel.idempotency.kafka.client.security.protocol=SSL
+camel.idempotency.kafka.client.ssl.truststore.type=PKCS12
+camel.idempotency.kafka.client.ssl.truststore.location=/opt/kafka/secrets/truststore.p12
+camel.idempotency.kafka.client.ssl.truststore.password=${file:/opt/kafka/secrets/idempotency.properties:truststore.password}
+camel.idempotency.kafka.client.ssl.keystore.type=PKCS12
+camel.idempotency.kafka.client.ssl.keystore.location=/opt/kafka/secrets/keystore.p12
+camel.idempotency.kafka.client.ssl.keystore.password=${file:/opt/kafka/secrets/idempotency.properties:keystore.password}
+camel.idempotency.kafka.client.ssl.key.password=${file:/opt/kafka/secrets/idempotency.properties:key.password}
+----
+
+For a cluster that requires SASL, here SCRAM over SSL:
+
+[source,properties]
+----
+camel.idempotency.enabled=true
+camel.idempotency.repository.type=kafka
+camel.idempotency.kafka.topic=my.idempotency.topic
+camel.idempotency.kafka.bootstrap.servers=broker1:9094,broker2:9094
+camel.idempotency.kafka.client.security.protocol=SASL_SSL
+camel.idempotency.kafka.client.sasl.mechanism=SCRAM-SHA-512
+camel.idempotency.kafka.client.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ckc" password="${file:/opt/kafka/secrets/idempotency.properties:sasl.password}";
+camel.idempotency.kafka.client.ssl.truststore.type=PKCS12
+camel.idempotency.kafka.client.ssl.truststore.location=/opt/kafka/secrets/truststore.p12
+camel.idempotency.kafka.client.ssl.truststore.password=${file:/opt/kafka/secrets/idempotency.properties:truststore.password}
+----
+
+Rather than writing passwords and JAAS configurations in clear in the connector configuration, keep them in a secret store and reference them, as the `${file:...}` placeholders above do. Kafka Connect resolves these placeholders with a config provider, declared in the worker configuration, for example the file one:
+
+[source,properties]
+----
+config.providers=file
+config.providers.file.class=org.apache.kafka.common.config.provider.FileConfigProvider
+config.providers.file.param.allowed.paths=/opt/kafka/secrets
+----
+
+Kafka ships other config providers as well, see https://kafka.apache.org/42/configuration/configuration-providers/[Configuration Providers] in the Kafka documentation. The xref:security-model.adoc[security model] describes how secrets in the connector configuration are handled.
+
+When the connector starts, the values of all the `camel.idempotency.kafka.client.` properties are masked in the configuration it logs, whatever their name. The consumer and the producer of the repository log their own Kafka configuration when they are created, with the passwords and the JAAS configuration hidden by Kafka.

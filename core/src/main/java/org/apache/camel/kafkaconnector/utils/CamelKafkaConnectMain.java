@@ -16,6 +16,7 @@
  */
 package org.apache.camel.kafkaconnector.utils;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +41,7 @@ import org.apache.camel.support.service.ServiceHelper;
 import org.apache.camel.util.ObjectHelper;
 import org.apache.camel.util.SensitiveUtils;
 import org.apache.camel.util.URISupport;
+import org.apache.kafka.clients.CommonClientConfigs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -119,6 +121,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String idempotentRepositoryKafkaServers;
         private int idempotentRepositoryKafkaMaxCacheSize;
         private int idempotentRepositoryKafkaPollDuration;
+        private Map<String, Object> idempotentRepositoryKafkaClientProperties = Collections.emptyMap();
         private String headersExcludePattern;
         private boolean removeHeadersFirst;
         private UnaryOperator<AggregationStrategy> aggregationStrategyDecorator;
@@ -214,6 +217,19 @@ public class CamelKafkaConnectMain extends SimpleMain {
             return this;
         }
 
+        /**
+         * Kafka client properties (security.protocol, sasl.jaas.config, ssl.truststore.location, ...) for the consumer
+         * and the producer of the Kafka idempotent repository, for example to reach a cluster secured with SSL or
+         * SASL. They are applied on top of the bootstrap servers.
+         *
+         * @param idempotentRepositoryKafkaClientProperties the Kafka client properties, keyed by their Kafka name.
+         */
+        public Builder withIdempotentRepositoryKafkaClientProperties(Map<String, ?> idempotentRepositoryKafkaClientProperties) {
+            this.idempotentRepositoryKafkaClientProperties = idempotentRepositoryKafkaClientProperties == null
+                    ? Collections.emptyMap() : new HashMap<>(idempotentRepositoryKafkaClientProperties);
+            return this;
+        }
+
         public Builder withHeadersExcludePattern(String headersExcludePattern) {
             this.headersExcludePattern = headersExcludePattern;
             return this;
@@ -254,7 +270,12 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String filterSensitive(Map.Entry<Object, Object> entry) {
             final String key = (String) entry.getKey();
 
-            if (SensitiveUtils.containsSensitive(key)) {
+            // The Kafka client properties of the idempotent repository are masked whatever their name. SensitiveUtils
+            // only checks the last segment of a key, which misses secrets such as sasl.jaas.config or ssl.keystore.key,
+            // and the options of a custom login module or callback handler can be called anything. The Kafka clients
+            // log the configuration they use themselves, with their own password masking.
+            if (SensitiveUtils.containsSensitive(key)
+                    || key.startsWith(CamelConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX)) {
                 return key + "=xxxxxxx";
             }
             final Object value = entry.getValue();
@@ -266,6 +287,30 @@ public class CamelKafkaConnectMain extends SimpleMain {
                 return key + "=" + URISupport.sanitizeUri((String) value);
             }
             return key + "=" + value;
+        }
+
+        private KafkaIdempotentRepository createKafkaIdempotentRepository() {
+            if (idempotentRepositoryKafkaClientProperties.isEmpty()) {
+                return new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers,
+                        idempotentRepositoryKafkaMaxCacheSize, idempotentRepositoryKafkaPollDuration);
+            }
+            // Given a consumer and a producer configuration the repository no longer reads its bootstrap servers, so
+            // they go into both. It still sets its own String (de)serializers and disables auto commit when it starts.
+            return new KafkaIdempotentRepository(idempotentRepositoryTopicName,
+                    idempotentRepositoryKafkaClientConfig(), idempotentRepositoryKafkaClientConfig(),
+                    idempotentRepositoryKafkaMaxCacheSize, idempotentRepositoryKafkaPollDuration);
+        }
+
+        // A new instance on each call: when it starts, the repository adds consumer-only settings to its consumer
+        // configuration and producer-only settings to its producer configuration.
+        private Properties idempotentRepositoryKafkaClientConfig() {
+            Properties config = new Properties();
+            if (idempotentRepositoryKafkaServers != null) {
+                config.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, idempotentRepositoryKafkaServers);
+            }
+            // applied last, so a bootstrap.servers given as a client property wins
+            config.putAll(idempotentRepositoryKafkaClientProperties);
+            return config;
         }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
@@ -326,7 +371,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                         idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
                         break;
                     case "kafka":
-                        idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers, idempotentRepositoryKafkaMaxCacheSize, idempotentRepositoryKafkaPollDuration);
+                        idempotentRepo = createKafkaIdempotentRepository();
                         break;
                     default:
                         break;

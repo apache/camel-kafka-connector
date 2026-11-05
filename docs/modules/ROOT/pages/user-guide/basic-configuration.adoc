@@ -27,6 +27,7 @@ For a Sink connector the basic options are:
 | camel.idempotency.kafka.bootstrap.servers | A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live | localhost:9092 | LOW
 | camel.idempotency.kafka.max.cache.size | Sets the maximum size of the local key cache | 1000 | LOW
 | camel.idempotency.kafka.poll.duration.ms | Sets the poll duration (in milliseconds) of the Kafka consumer | 100 | LOW
+| camel.idempotency.kafka.client.<property> | A Kafka client property (for example security.protocol, sasl.jaas.config or ssl.truststore.location) passed, with the prefix removed, to the consumer and the producer of the Kafka idempotent repository, see xref:user-guide/idempotency.adoc[Idempotency] |  | LOW
 |===
 
 For a Source connector the basic options are:
@@ -59,6 +60,7 @@ For a Source connector the basic options are:
 | camel.idempotency.kafka.bootstrap.servers | A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live | localhost:9092 | LOW
 | camel.idempotency.kafka.max.cache.size | Sets the maximum size of the local key cache | 1000 | LOW
 | camel.idempotency.kafka.poll.duration.ms | Sets the poll duration (in milliseconds) of the Kafka consumer | 100 | LOW
+| camel.idempotency.kafka.client.<property> | A Kafka client property (for example security.protocol, sasl.jaas.config or ssl.truststore.location) passed, with the prefix removed, to the consumer and the producer of the Kafka idempotent repository, see xref:user-guide/idempotency.adoc[Idempotency] |  | LOW
 |===
 
 For more options related to single connector you can have a look at xref:reference/index.adoc[Connectors list].

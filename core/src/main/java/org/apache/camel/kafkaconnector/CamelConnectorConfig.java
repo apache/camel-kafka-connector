@@ -90,6 +90,13 @@ public abstract class CamelConnectorConfig extends AbstractConfig {
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_BOOTSTRAP_SERVERS_CONF = "camel.idempotency.kafka.bootstrap.servers";
     public static final String  CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_BOOTSTRAP_SERVERS_DOC = "A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live"; 
     
+    // A prefix rather than a single option, so like camel.source.endpoint. it has no ConfigDef entry and no default:
+    // every key that starts with it is a Kafka client property for the Kafka idempotent repository.
+    public static final String CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX = "camel.idempotency.kafka.client.";
+    public static final String CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX_DOC = "Prefix for Kafka client properties to pass, with the prefix removed, to the consumer"
+            + " and the producer of the Kafka idempotent repository, on top of " + CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_BOOTSTRAP_SERVERS_CONF
+            + ", for example " + CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX + "security.protocol=SSL. Use it for the SSL or SASL settings of a secured cluster";
+
     public static final int CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_MAX_CACHE_SIZE_DEFAULT = 1000;
     public static final String CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_MAX_CACHE_SIZE_CONF = "camel.idempotency.kafka.max.cache.size";
     public static final String  CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_MAX_CACHE_SIZE_DOC = "Sets the maximum size of the local key cache";
