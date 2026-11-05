@@ -40,6 +40,7 @@ import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.UnitOfWorkHelper;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.Values;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.apache.kafka.connect.source.SourceTask;
@@ -233,8 +234,8 @@ public class CamelSourceTask extends SourceTask {
             final Object messageHeaderKey = camelMessageHeaderKey != null ? exchange.getMessage().getHeader(camelMessageHeaderKey) : null;
             final Object messageBodyValue = toRecordValue(exchange);
 
-            final Schema messageKeySchema = messageHeaderKey != null ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey) : null;
-            final Schema messageBodySchema = messageBodyValue != null ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue) : null;
+            final Schema messageKeySchema = recordSchema(messageHeaderKey);
+            final Schema messageBodySchema = recordSchema(messageBodyValue);
 
             final long timestamp = calculateTimestamp(exchange);
 
@@ -416,6 +417,22 @@ public class CamelSourceTask extends SourceTask {
                 record.headers().addShort(keyCamelHeader, (short)value);
             }
         }
+    }
+
+    /**
+     * Returns the schema of a record key or value. {@link SchemaHelper} gives a {@link Map} or a {@link List} a MAP or
+     * ARRAY schema without key or value schema, which converters such as the JsonConverter cannot serialize. Such a
+     * value gets the schema Kafka Connect infers for it, which is complete, or no schema when its key and value types
+     * cannot be inferred, for example for a JSON object with values of different types.
+     */
+    private static Schema recordSchema(Object value) {
+        if (value == null) {
+            return null;
+        }
+        if (value instanceof Map || value instanceof List) {
+            return Values.inferSchema(value);
+        }
+        return SchemaHelper.buildSchemaBuilderForType(value);
     }
 
     private String getLocalUrlWithPollingOptions(long pollingConsumerQueueSize, long pollingConsumerBlockTimeout, boolean pollingConsumerBlockWhenFull) {
