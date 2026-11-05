@@ -27,22 +27,12 @@ final class CamelWebhookPropertyFactory extends SourceConnectorPropertyFactory<C
         return setProperty("camel.kamelet.webhook-source.subpath", subpath);
     }
 
-    public CamelWebhookPropertyFactory withServerEnabled(boolean enabled) {
-        return setProperty("camel.server.enabled", String.valueOf(enabled));
-    }
-
     public CamelWebhookPropertyFactory withServerHost(String host) {
         return setProperty("camel.server.host", host);
     }
 
     public CamelWebhookPropertyFactory withServerPort(int port) {
         return setProperty("camel.server.port", String.valueOf(port));
-    }
-
-    public CamelWebhookPropertyFactory withCamelTypeConverterTransformTo(String targetClass) {
-        setProperty("transforms", "cameltypeconverter");
-        setProperty("transforms.cameltypeconverter.type", "org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Value");
-        return setProperty("transforms.cameltypeconverter.target.type", targetClass);
     }
 
     public static CamelWebhookPropertyFactory basic() {

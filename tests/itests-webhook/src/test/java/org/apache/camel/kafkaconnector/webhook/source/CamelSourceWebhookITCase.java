@@ -41,14 +41,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * Starts the webhook source connector with the embedded HTTP server enabled, sends a request to the path the Kamelet
- * exposes and checks that its body lands on the Kafka topic.
+ * Starts the webhook source connector, whose embedded HTTP server is enabled by default, sends a request to the path
+ * the Kamelet exposes and checks that its body lands on the Kafka topic.
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceWebhookITCase extends CamelSourceTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceWebhookITCase.class);
     private static final String HTTP_HOST = "127.0.0.1";
-    private static final int HTTP_PORT = NetworkUtils.getFreePort(HTTP_HOST);
+    // An explicit range, as in the netty-http IT: it starts below the ephemeral ports of Linux (32768 and above by
+    // default) and the ports of the harness, so that nothing else takes the port before the task binds it.
+    private static final int HTTP_PORT = NetworkUtils.getFreePort(HTTP_HOST, 30000, 40000);
     private static final String SUBPATH = "ckc-webhook";
     private static final String TEST_MESSAGE = "{\"event\":\"ckc-webhook-test\"}";
 
@@ -66,16 +68,21 @@ public class CamelSourceWebhookITCase extends CamelSourceTestSupport {
         topicName = getTopicForTest(this);
     }
 
+    // above the waits inside the test (up to 30s for the connector to start, then up to 60s of Awaitility), so that
+    // they report a failure. It stays as a guard because the Kafka consumer of the test polls without a deadline.
     @Test
-    @Timeout(90)
+    @Timeout(180)
     public void testBasicSendReceive() throws Exception {
+        // no camel.server.enabled: the connector starts the HTTP server by default
         ConnectorPropertyFactory connectorPropertyFactory = CamelWebhookPropertyFactory.basic()
                 .withKafkaTopic(topicName)
-                .withServerEnabled(true)
                 .withServerHost(HTTP_HOST)
                 .withServerPort(HTTP_PORT)
                 .withSubpath(SUBPATH)
-                .withCamelTypeConverterTransformTo("java.lang.String");
+                .withTransformsConfig("tostring")
+                    .withEntry("type", "org.apache.camel.kafkaconnector.transforms.CamelTypeConverterTransform$Value")
+                    .withEntry("target.type", "java.lang.String")
+                .end();
 
         runTestBlocking(connectorPropertyFactory, topicName, expect);
     }
