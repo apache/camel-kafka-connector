@@ -41,11 +41,16 @@ public abstract class CamelTypeConverterTransform<R extends ConnectRecord<R>> ex
 
     @Override
     public R apply(R record) {
-        final Schema schema = operatingSchema(record);
         final Object value = operatingValue(record);
+        if (value == null) {
+            // nothing to convert, for example a tombstone: pass it through unchanged, like Kafka's Cast SMT does
+            return record;
+        }
 
+        final Schema schema = operatingSchema(record);
         final Object convertedValue = convertValueWithCamelTypeConverter(value);
-        final Schema updatedSchema = getOrBuildRecordSchema(schema, convertedValue);
+        // a schemaless record stays schemaless
+        final Schema updatedSchema = schema == null ? null : getOrBuildRecordSchema(schema, convertedValue);
 
         return newRecord(record, updatedSchema, convertedValue);
     }

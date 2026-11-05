@@ -41,6 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -70,6 +71,56 @@ public class CamelTypeConverterTransformTest {
 
         assertEquals(true, transformedValueSourceRecord.value());
         assertEquals(Schema.BOOLEAN_SCHEMA, transformedValueSourceRecord.valueSchema());
+    }
+
+    @Test
+    public void testIfItPassesNullValuesThrough() {
+        final Map<String, Object> props = new HashMap<>();
+        props.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, "java.lang.String");
+
+        final Transformation<SourceRecord> transformationKey = new CamelTypeConverterTransform.Key<>();
+        final Transformation<SourceRecord> transformationValue = new CamelTypeConverterTransform.Value<>();
+        transformationKey.configure(props);
+        transformationValue.configure(props);
+
+        // a tombstone, with and without a schema
+        final SourceRecord schemalessTombstone = new SourceRecord(Collections.emptyMap(), Collections.emptyMap(), "topic", Schema.STRING_SCHEMA, "1234", null, null);
+        final SourceRecord tombstoneWithSchema = new SourceRecord(Collections.emptyMap(), Collections.emptyMap(), "topic", Schema.STRING_SCHEMA, "1234", Schema.OPTIONAL_BYTES_SCHEMA, null);
+        assertSame(schemalessTombstone, transformationValue.apply(schemalessTombstone));
+        assertSame(tombstoneWithSchema, transformationValue.apply(tombstoneWithSchema));
+
+        // a record without a key
+        final SourceRecord noKey = new SourceRecord(Collections.emptyMap(), Collections.emptyMap(), "topic", null, null, Schema.STRING_SCHEMA, "value");
+        assertSame(noKey, transformationKey.apply(noKey));
+
+        transformationKey.close();
+        transformationValue.close();
+    }
+
+    @Test
+    public void testIfItConvertsSchemalessRecords() {
+        final SourceRecord connectRecord = new SourceRecord(Collections.emptyMap(), Collections.emptyMap(), "topic", null, "1234", null, "TRUE");
+
+        final Map<String, Object> propsForKeySmt = new HashMap<>();
+        propsForKeySmt.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, Integer.class.getName());
+        final Map<String, Object> propsForValueSmt = new HashMap<>();
+        propsForValueSmt.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, "java.lang.Boolean");
+
+        final Transformation<SourceRecord> transformationKey = new CamelTypeConverterTransform.Key<>();
+        final Transformation<SourceRecord> transformationValue = new CamelTypeConverterTransform.Value<>();
+        transformationKey.configure(propsForKeySmt);
+        transformationValue.configure(propsForValueSmt);
+
+        final SourceRecord transformedKeySourceRecord = transformationKey.apply(connectRecord);
+        final SourceRecord transformedValueSourceRecord = transformationValue.apply(connectRecord);
+
+        assertEquals(1234, transformedKeySourceRecord.key());
+        assertNull(transformedKeySourceRecord.keySchema());
+        assertEquals(true, transformedValueSourceRecord.value());
+        assertNull(transformedValueSourceRecord.valueSchema());
+
+        transformationKey.close();
+        transformationValue.close();
     }
 
     @Test

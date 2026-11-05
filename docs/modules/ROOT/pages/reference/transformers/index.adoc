@@ -17,6 +17,9 @@ Camel Kafka Connector provides additional SMTs:
 |===
 |Transform | Description
 
+|xref:reference/transformers/camelTypeConverter.adoc[CamelTypeConverter]
+|Convert a kafka connect record's key or value to another Java type with the Camel type converters
+
 |xref:reference/transformers/fieldsToHeaders.adoc[FieldsToHeaders]
 |Extract fields from a kafka connect record's value or key and copy the value in configured headers (struct + schema, map or copy the whole value/key are the supported options)
 
