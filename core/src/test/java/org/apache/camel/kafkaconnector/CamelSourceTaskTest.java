@@ -19,6 +19,7 @@ package org.apache.camel.kafkaconnector;
 import java.io.ByteArrayInputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,6 +30,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -36,6 +39,7 @@ import java.util.stream.IntStream;
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.component.seda.SedaEndpoint;
 import org.apache.camel.converter.stream.InputStreamCache;
 import org.apache.camel.kafkaconnector.utils.StringJoinerAggregator;
 import org.apache.camel.support.SynchronizationAdapter;
@@ -50,6 +54,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.apache.camel.util.CollectionHelper.mapOf;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -379,7 +384,154 @@ public class CamelSourceTaskTest {
                     assertTrue(e.getEndpointUri().contains("pollingConsumerBlockWhenFull=false"));
                 });
 
+        // SedaEndpoint ignores the generic pollingConsumer* options, the values must reach its own options
+        SedaEndpoint seda = sedaEndpoint(sourceTask);
+        assertEquals(10, seda.getSize());
+        assertFalse(seda.isBlockWhenFull());
+        assertEquals(10L, seda.getOfferTimeout());
+
         sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingConsumerDefaultOptions() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+
+        SedaEndpoint seda = sedaEndpoint(sourceTask);
+        assertEquals(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_DEFAULT.intValue(), seda.getSize());
+        assertTrue(seda.isBlockWhenFull());
+        assertEquals(0L, seda.getOfferTimeout());
+
+        sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingConsumerNegativeBlockTimeoutMeansNoTimeout() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_CONF, "-1");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+
+        // a negative offerTimeout would make SEDA use add(), which throws "Queue full" instead of blocking
+        assertEquals(0L, sedaEndpoint(sourceTask).getOfferTimeout());
+
+        sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingConsumerQueueSizeWinsOverComponentQueueSize() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        // camel.source.pollingConsumerQueueSize is left at its default of 1000
+        props.put("camel.component.seda.queueSize", "7");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+
+        sendBatchOfRecords(sourceTask, 1);
+        SedaEndpoint seda = sedaEndpoint(sourceTask);
+        assertEquals(1, seda.getQueue().size());
+        assertEquals(999, seda.getQueue().remainingCapacity());
+
+        sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingConsumerBlocksWhenFull() throws Exception {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_CONF, "2");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+        SedaEndpoint seda = sedaEndpoint(sourceTask);
+
+        ExecutorService sender = Executors.newSingleThreadExecutor();
+        try {
+            AtomicInteger sent = new AtomicInteger();
+            Future<?> sending = sender.submit(() -> {
+                ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
+                for (int i = 0; i < 5; i++) {
+                    template.sendBody(DIRECT_URI, "test" + i);
+                    sent.incrementAndGet();
+                }
+            });
+
+            // the queue fills up and the third send stays blocked instead of failing with "Queue full"
+            await().atMost(Duration.ofSeconds(10)).during(Duration.ofMillis(500))
+                    .until(() -> sent.get() == 2 && seda.getQueue().size() == 2 && !sending.isDone());
+
+            // draining the queue releases the producer
+            List<SourceRecord> records = new ArrayList<>();
+            await().atMost(Duration.ofSeconds(10)).until(() -> {
+                List<SourceRecord> polled = sourceTask.poll();
+                if (polled != null) {
+                    records.addAll(polled);
+                }
+                return records.size() == 5;
+            });
+            sending.get(10, TimeUnit.SECONDS);
+            assertEquals(5, sent.get());
+            assertEquals(Arrays.asList("test0", "test1", "test2", "test3", "test4"),
+                    records.stream().map(SourceRecord::value).collect(Collectors.toList()));
+        } finally {
+            sender.shutdownNow();
+            sourceTask.stop();
+        }
+    }
+
+    @Test
+    public void testSourceStopWithProducerBlockedOnFullQueue() throws Exception {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_CONF, "1");
+        props.put("camel.main.shutdownTimeout", "1");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+        SedaEndpoint seda = sedaEndpoint(sourceTask);
+
+        ExecutorService sender = Executors.newSingleThreadExecutor();
+        boolean stopped = false;
+        try {
+            Future<?> sending = sender.submit(() -> sendBatchOfRecords(sourceTask, 2));
+            await().atMost(Duration.ofSeconds(10)).during(Duration.ofMillis(300))
+                    .until(() -> seda.getQueue().remainingCapacity() == 0 && !sending.isDone());
+
+            // the blocked send keeps an exchange in flight, so stopping waits for camel.main.shutdownTimeout
+            long start = System.nanoTime();
+            stopped = true;
+            sourceTask.stop();
+            long stopMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - start);
+            assertThat(stopMillis).isGreaterThanOrEqualTo(900L).isLessThan(10_000L);
+            // the forced stop does not interrupt the blocked thread: the thread that owns it has to
+            assertFalse(sending.isDone());
+        } finally {
+            sender.shutdownNow();
+            if (!stopped) {
+                sourceTask.stop();
+            }
+        }
+    }
+
+    private static SedaEndpoint sedaEndpoint(CamelSourceTask sourceTask) {
+        return sourceTask.getCms().getCamelContext().getEndpoints().stream()
+                .filter(SedaEndpoint.class::isInstance)
+                .map(SedaEndpoint.class::cast)
+                .filter(e -> "end".equals(e.getName()))
+                .findFirst()
+                .orElseThrow();
     }
 
     @Test
