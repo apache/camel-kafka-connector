@@ -6,7 +6,10 @@
 
 **Implemented enhancements:**
 
+- Ensure Kafka metadata is avaiable in Sink task as in a standalone Kafka Camel source [\#1292](https://github.com/apache/camel-kafka-connector/issues/1292)
+- \[camel-kafka-connector-docs-maven-plugin\] : make some parameters configurable [\#1195](https://github.com/apache/camel-kafka-connector/issues/1195)
 - Add ServiceLoading to prepopulate PojoToSchemaAndStructTransform POJO type -\> Shema + struct cache [\#694](https://github.com/apache/camel-kafka-connector/issues/694)
+- Camel type converter is not able to handle null payload [\#269](https://github.com/apache/camel-kafka-connector/issues/269)
 - Explore the possibilty of autogenerating some tests for each connector [\#233](https://github.com/apache/camel-kafka-connector/issues/233)
 - Docs generation needs to be moved out of code autogeneration and run only once  [\#228](https://github.com/apache/camel-kafka-connector/issues/228)
 - Allow remote testing functionality w/ the embedded connect runtime [\#189](https://github.com/apache/camel-kafka-connector/issues/189)
@@ -21,12 +24,15 @@
 
 **Fixed bugs:**
 
+- Source records with a Map or List body get a schema the JsonConverter cannot serialize [\#1861](https://github.com/apache/camel-kafka-connector/issues/1861)
+- camel.connector.dumpRoutes has no effect: Camel 4 only dumps routes for a format name [\#1860](https://github.com/apache/camel-kafka-connector/issues/1860)
 - Five connector configs declare password options as ConfigDef.Type.STRING [\#1798](https://github.com/apache/camel-kafka-connector/issues/1798)
 - KC with Event Hubs Sink 1.0.0 [\#1324](https://github.com/apache/camel-kafka-connector/issues/1324)
 
 **Closed issues:**
 
 - Release CKC 4.22.0 [\#1825](https://github.com/apache/camel-kafka-connector/issues/1825)
+- Cannot load JDBC driver class 'com.microsoft.sqlserver.jdbc.SQLServerDriver' [\#1767](https://github.com/apache/camel-kafka-connector/issues/1767)
 - Upgrade to Camel 4.18.2 and 4.14.6 [\#1765](https://github.com/apache/camel-kafka-connector/issues/1765)
 - Kafka Connectors reference Utils.mkset when using kafka 4.0 [\#1734](https://github.com/apache/camel-kafka-connector/issues/1734)
 - How to extract rabbitmq exchange id and message id and add it to Kafka message headers [\#1733](https://github.com/apache/camel-kafka-connector/issues/1733)
@@ -55,6 +61,7 @@
 - camel kafka not secure sink connector not sending keys to the destination topic [\#1553](https://github.com/apache/camel-kafka-connector/issues/1553)
 - Problems with CamelDDBStreamSourceConnector 3.20.3  [\#1545](https://github.com/apache/camel-kafka-connector/issues/1545)
 - Add grpc pub sub support [\#1544](https://github.com/apache/camel-kafka-connector/issues/1544)
+- CamelPostgresqlsourceSourceConnector publishes InputStreamCache object reference to topic [\#1543](https://github.com/apache/camel-kafka-connector/issues/1543)
 - CamelKafkasslsinkSinkConnector not handling binary payloads well [\#1542](https://github.com/apache/camel-kafka-connector/issues/1542)
 - ERROR Content is not allowed in prolog [\#1527](https://github.com/apache/camel-kafka-connector/issues/1527)
 - Camel sjms2 source connector doesn't stop properly [\#1522](https://github.com/apache/camel-kafka-connector/issues/1522)
@@ -66,6 +73,7 @@
 - camel-https-kafka-connector sink Dynamic Url Construction [\#1507](https://github.com/apache/camel-kafka-connector/issues/1507)
 - camel-salesforce-create-sink-kafka-connector not creating record [\#1505](https://github.com/apache/camel-kafka-connector/issues/1505)
 - JMS Header Properties with Camel ActiveMQ Sink Connector [\#1501](https://github.com/apache/camel-kafka-connector/issues/1501)
+- Kafka Consumer with idempotency and security.protocol: SSL [\#1497](https://github.com/apache/camel-kafka-connector/issues/1497)
 - General question regarding if http sink connector can compress the message or add custom headers [\#1490](https://github.com/apache/camel-kafka-connector/issues/1490)
 - Invalid URI exception with camel-couchdb-kafka-connector v0.11.5 [\#1463](https://github.com/apache/camel-kafka-connector/issues/1463)
 - Kafka Connectors / question on general use of k8s connectors [\#1458](https://github.com/apache/camel-kafka-connector/issues/1458)
@@ -86,6 +94,7 @@
 - Consistency of Property Naming [\#1325](https://github.com/apache/camel-kafka-connector/issues/1325)
 - Using Kubernetes secrets to update AWS credentials in connector YAML [\#1311](https://github.com/apache/camel-kafka-connector/issues/1311)
 - Custom kafkaconnetor class as CamelAws2s3SourceConnector [\#1285](https://github.com/apache/camel-kafka-connector/issues/1285)
+- camel.source.endpoint.exceptionHandler for the sftp connector not working as expected [\#1282](https://github.com/apache/camel-kafka-connector/issues/1282)
 - UseDefaultCredentials Provider doesn't recognize web identity token file [\#1263](https://github.com/apache/camel-kafka-connector/issues/1263)
 - Fallback mechanism in case Kafka message doesn’t contain headers [\#1261](https://github.com/apache/camel-kafka-connector/issues/1261)
 - websocketjsr356.CamelWebsocketjsr356SourceConnector query paramater  [\#1250](https://github.com/apache/camel-kafka-connector/issues/1250)
@@ -102,6 +111,11 @@
 - Investigate Splitting support [\#822](https://github.com/apache/camel-kafka-connector/issues/822)
 - gRPC response [\#793](https://github.com/apache/camel-kafka-connector/issues/793)
 - Support Transactions [\#782](https://github.com/apache/camel-kafka-connector/issues/782)
+- Add Integration test for Camel-SFTP Kafka Connector  [\#745](https://github.com/apache/camel-kafka-connector/issues/745)
+- Add integration test for Camel-FTPS kafka connector [\#744](https://github.com/apache/camel-kafka-connector/issues/744)
+- Add Integration test for Camel-FTP kafka connector [\#743](https://github.com/apache/camel-kafka-connector/issues/743)
+- Syslog connector is missing from the catalog [\#677](https://github.com/apache/camel-kafka-connector/issues/677)
+- Add Dataformat documentation [\#651](https://github.com/apache/camel-kafka-connector/issues/651)
 - Feature discussion: if and how to handle detaformat inclusion in generated connectors [\#150](https://github.com/apache/camel-kafka-connector/issues/150)
 - camel-kafka-connector-generator-maven-plugin: write plugin documentation [\#147](https://github.com/apache/camel-kafka-connector/issues/147)
 - Kafka/Strimzi Connect - Camel example, where to put it? [\#117](https://github.com/apache/camel-kafka-connector/issues/117)
