@@ -36,6 +36,7 @@
 - Upgrade to Camel 4.18.2 and 4.14.6 [\#1765](https://github.com/apache/camel-kafka-connector/issues/1765)
 - Kafka Connectors reference Utils.mkset when using kafka 4.0 [\#1734](https://github.com/apache/camel-kafka-connector/issues/1734)
 - How to extract rabbitmq exchange id and message id and add it to Kafka message headers [\#1733](https://github.com/apache/camel-kafka-connector/issues/1733)
+- RabbitMQ -\> Kafka Source Connector SEDA full error [\#1730](https://github.com/apache/camel-kafka-connector/issues/1730)
 - CamelSalesforcesourceSourceConnector issue [\#1722](https://github.com/apache/camel-kafka-connector/issues/1722)
 - Does CamelAwsddbsinkSinkConnector work with AVRO data? [\#1720](https://github.com/apache/camel-kafka-connector/issues/1720)
 - Automation analysis [\#1712](https://github.com/apache/camel-kafka-connector/issues/1712)
