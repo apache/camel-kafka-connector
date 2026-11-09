@@ -11,6 +11,7 @@
 ** xref:user-guide/aggregation.adoc[Aggregation]
 ** xref:user-guide/idempotency.adoc[Idempotency]
 ** xref:user-guide/remove-headers.adoc[Remove Headers]
+** xref:user-guide/webhook-source.adoc[Webhook Source Connector]
 ** xref:user-guide/extending-connector/index.adoc[Extending a Connector]
 *** xref:user-guide/extending-connector/archetype-connector.adoc[Extensible connector archetype]
 *** xref:user-guide/extending-connector/archetype-dataformat-connector.adoc[Extensible Dataformat connector archetype]
