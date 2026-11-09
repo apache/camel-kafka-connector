@@ -39,10 +39,8 @@ defaultReleaseTag=$prefix$releaseV
 read -r -p "Enter release tag: [$defaultReleaseTag]" releaseTag
 export RELEASE_TAG=${releaseTag:-$defaultReleaseTag}
 
-read -r -p "Enter apache username: " user
-export APACHE_USER=$user
-
-export APACHE_PASS=`$DIR/scripts/askpass_stars.sh Enter apache password: `
+# Configure Git authentication for Apache GitBox before continuing. SCM
+# credentials are never passed to Maven as command-line properties.
 
 defaultGpgProfile=gpg
 read -r -p "Enter the maven gpg profile: [$defaultGpgProfile]" gpgProfile
@@ -70,6 +68,7 @@ done
 if [ "$CHECKOUT_RELEASE_TAG" == Y ]; then
     git checkout -b "$RELEASE_BRANCH"
 fi
-./mvnw -Prelease -P"$GPG_PROFILE" -DreleaseVersion="$RELEASE_VERSION" -DdevelopmentVersion="$NEXT_VERSION" -Dtag="$RELEASE_TAG" -Dusername="$APACHE_USER" -Dpassword="$APACHE_PASS" release:prepare && \
-git checkout "$RELEASE_TAG" && git add ./*.json && git commit -m"[after release perform chore]: regen catalog descriptors with new version" && git tag -f "$RELEASE_TAG" && git push -f origin "$RELEASE_TAG" && git checkout "$RELEASE_BRANCH" && \
-./mvnw -Prelease -Pgpg -Dusername="$APACHE_USER" -Dpassword="$APACHE_PASS" release:perform
+./mvnw -Prelease -P"$GPG_PROFILE" -DreleaseVersion="$RELEASE_VERSION" -DdevelopmentVersion="$NEXT_VERSION" -Dtag="$RELEASE_TAG" -DpushChanges=false release:prepare && \
+git checkout "$RELEASE_TAG" && git add ./*.json && git commit -m"[after release perform chore]: regen catalog descriptors with new version" && git tag -d "$RELEASE_TAG" && git tag "$RELEASE_TAG" && git checkout "$RELEASE_BRANCH" && \
+git push origin "$RELEASE_BRANCH" && git push origin "$RELEASE_TAG" && \
+./mvnw -Prelease -Pgpg release:perform
