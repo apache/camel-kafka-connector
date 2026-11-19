@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.Task;
 import org.apache.kafka.connect.source.SourceConnector;
@@ -56,16 +57,16 @@ public class CamelSourceConnector extends SourceConnector {
     @Override
     public List<Map<String, String>> taskConfigs(int maxTasks) {
         LOG.info("Setting task configurations for {} workers.", maxTasks);
-        Map<String, String> defaults = getConnectorDefaults();
+        Map<String, String> taskProps = new HashMap<>(getConnectorDefaults());
+        taskProps.putAll(configProps);
+        // the task only knows the options of the base configuration, so it is told which options are passwords
+        String passwordProperties = TaskHelper.passwordPropertyNames(config(), taskProps);
+        if (!passwordProperties.isEmpty()) {
+            taskProps.put(CamelConnectorConfig.CAMEL_CONNECTOR_PASSWORD_PROPERTIES_CONF, passwordProperties);
+        }
         final List<Map<String, String>> configs = new ArrayList<>(maxTasks);
         for (int i = 0; i < maxTasks; ++i) {
-            if (defaults.isEmpty()) {
-                configs.add(configProps);
-            } else {
-                Map<String, String> merged = new HashMap<>(defaults);
-                merged.putAll(configProps);
-                configs.add(merged);
-            }
+            configs.add(taskProps);
         }
         return configs;
     }

@@ -27,9 +27,13 @@ import java.util.Map;
 
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
+import org.apache.camel.kafkaconnector.CamelSinkConnector;
+import org.apache.camel.kafkaconnector.CamelSinkConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
+import org.apache.camel.kafkaconnector.CamelSourceConnector;
 import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSourceTask;
+import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -44,6 +48,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -62,6 +67,12 @@ public class StartupPropertiesLoggingTest {
     private static final String TRUSTSTORE_PASSWORD = "trustSt0reSecret";
     private static final String PRIVATE_KEY_BODY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7";
     private static final String CUSTOM_OPTION_VALUE = "cust0mL0ginSecret";
+    // options a connector defines with the type PASSWORD, under names that are not sensitive keys for Camel
+    private static final String PASSPHRASE_OPTION = "camel.kamelet.sftp-source.privateKeyPassphrase";
+    private static final String PASSPHRASE_VALUE = "pr1vateKeyPassphr4se";
+    private static final String CLIENT_SECRET_OPTION = "camel.kamelet.http-secured-sink.oauth2ClientSecret";
+    private static final String CLIENT_SECRET_VALUE = "oauth2Cl1entS3cretValue";
+    private static final String HOST_OPTION = "camel.kamelet.sftp-source.connectionHost";
 
     private CapturingAppender appender;
     private LoggerConfig loggerConfig;
@@ -91,6 +102,10 @@ public class StartupPropertiesLoggingTest {
             .withProperties(props)
             .build(new DefaultCamelContext());
 
+        return startupLogLine();
+    }
+
+    private String startupLogLine() {
         return appender.messages.stream()
             .filter(m -> m.startsWith("Setting initial properties"))
             .findFirst()
@@ -207,6 +222,110 @@ public class StartupPropertiesLoggingTest {
             assertFalse(message.contains(JAAS_PASSWORD), "the JAAS configuration must not reach the log: " + message);
             assertFalse(message.contains(TRUSTSTORE_PASSWORD), "the truststore password must not reach the log: " + message);
         }
+    }
+
+    @Test
+    public void testPasswordPropertiesAreNotLoggedInClearText() {
+        Map<String, String> props = new HashMap<>();
+        props.put(PASSPHRASE_OPTION, PASSPHRASE_VALUE);
+        props.put(HOST_OPTION, "sftp.example.com");
+
+        CamelKafkaConnectMain.builder("direct://start", "log://test")
+            .withProperties(props)
+            .withPasswordProperties(List.of(PASSPHRASE_OPTION))
+            .build(new DefaultCamelContext());
+        String logged = startupLogLine();
+
+        assertFalse(logged.contains(PASSPHRASE_VALUE), "a password property must not reach the log: " + logged);
+        assertTrue(logged.contains(PASSPHRASE_OPTION + "=xxxxxxx"),
+                "the key should stay visible, to show the property was picked up: " + logged);
+        assertTrue(logged.contains("sftp.example.com"), "ordinary configuration should remain visible: " + logged);
+    }
+
+    @Test
+    public void testPasswordOptionsOfTheSourceConnectorAreNotLoggedInClearText() {
+        CamelSourceConnector connector = new CamelSourceConnector() {
+            @Override
+            public ConfigDef config() {
+                return new ConfigDef(CamelSourceConnectorConfig.conf())
+                    .define(PASSPHRASE_OPTION, ConfigDef.Type.PASSWORD, null, ConfigDef.Importance.MEDIUM, "passphrase")
+                    .define(HOST_OPTION, ConfigDef.Type.STRING, null, ConfigDef.Importance.HIGH, "host");
+            }
+        };
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, "my-topic");
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, "direct:start");
+        props.put(PASSPHRASE_OPTION, PASSPHRASE_VALUE);
+        props.put(HOST_OPTION, "sftp.example.com");
+        connector.start(props);
+        Map<String, String> taskProps = connector.taskConfigs(1).get(0);
+        assertEquals(PASSPHRASE_OPTION, taskProps.get(CamelConnectorConfig.CAMEL_CONNECTOR_PASSWORD_PROPERTIES_CONF),
+                "the connector tells its tasks which of its options are passwords");
+
+        CamelSourceTask task = new CamelSourceTask();
+        try {
+            task.start(taskProps);
+        } finally {
+            task.stop();
+        }
+        String logged = startupLogLine();
+
+        assertFalse(logged.contains(PASSPHRASE_VALUE), "a password option must not reach the log: " + logged);
+        assertTrue(logged.contains(PASSPHRASE_OPTION + "=xxxxxxx"), logged);
+        assertTrue(logged.contains("sftp.example.com"), "ordinary configuration should remain visible: " + logged);
+        assertFalse(logged.contains(CamelConnectorConfig.CAMEL_CONNECTOR_PASSWORD_PROPERTIES_CONF),
+                "the list of the password options is not a Camel property: " + logged);
+    }
+
+    @Test
+    public void testPasswordOptionsOfTheSinkConnectorAreNotLoggedInClearText() {
+        CamelSinkConnector connector = new CamelSinkConnector() {
+            @Override
+            public ConfigDef config() {
+                return new ConfigDef(CamelSinkConnectorConfig.conf())
+                    .define(CLIENT_SECRET_OPTION, ConfigDef.Type.PASSWORD, null, ConfigDef.Importance.MEDIUM, "client secret");
+            }
+        };
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, "log:test");
+        props.put(CLIENT_SECRET_OPTION, CLIENT_SECRET_VALUE);
+        connector.start(props);
+        Map<String, String> taskProps = connector.taskConfigs(1).get(0);
+
+        CamelSinkTask task = new CamelSinkTask();
+        try {
+            task.start(taskProps);
+        } finally {
+            task.stop();
+        }
+        String logged = startupLogLine();
+
+        assertFalse(logged.contains(CLIENT_SECRET_VALUE), "a password option must not reach the log: " + logged);
+        assertTrue(logged.contains(CLIENT_SECRET_OPTION + "=xxxxxxx"), logged);
+    }
+
+    @Test
+    public void testPasswordOptionsOfTheTaskConfigurationAreNotLoggedInClearText() {
+        // a task with its own configuration class, as the syslog connector has
+        CamelSinkTask task = new CamelSinkTask() {
+            @Override
+            protected CamelSinkConnectorConfig getCamelSinkConnectorConfig(Map<String, String> props) {
+                return new CamelSinkConnectorConfig(new ConfigDef(CamelSinkConnectorConfig.conf())
+                    .define(CLIENT_SECRET_OPTION, ConfigDef.Type.PASSWORD, null, ConfigDef.Importance.MEDIUM, "client secret"),
+                        props);
+            }
+        };
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, "log:test");
+        props.put(CLIENT_SECRET_OPTION, CLIENT_SECRET_VALUE);
+        try {
+            task.start(props);
+        } finally {
+            task.stop();
+        }
+        String logged = startupLogLine();
+
+        assertFalse(logged.contains(CLIENT_SECRET_VALUE), "a password option must not reach the log: " + logged);
     }
 
     @Test

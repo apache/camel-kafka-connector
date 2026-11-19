@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
@@ -89,6 +90,8 @@ public class CamelSinkTask extends SinkTask {
             LOG.info("Starting CamelSinkTask connector task");
             Map<String, String> actualProps = TaskHelper.combineDefaultAndLoadedProperties(getDefaultConfig(), props);
             CamelSinkConnectorConfig config = getCamelSinkConnectorConfig(actualProps);
+            // the values of these options are masked when the properties of the task are logged
+            final Set<String> passwordProperties = TaskHelper.takePasswordPropertyNames(config, actualProps);
 
             if (context != null) {
                 try {
@@ -152,6 +155,7 @@ public class CamelSinkTask extends SinkTask {
             cms = CamelKafkaConnectMain.builder(LOCAL_URL, sinkKamelet)
                 .withRemoveHeadersFirst(true)
                 .withProperties(actualProps)
+                .withPasswordProperties(passwordProperties)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
                 .withAggregationStrategyDecorator(configured -> new DeliveryTrackingAggregationStrategy(configured, this::onAggregatedExchangeDone))
