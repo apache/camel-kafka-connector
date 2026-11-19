@@ -110,6 +110,13 @@ public abstract class CamelConnectorConfig extends AbstractConfig {
     public static final String CAMEL_CONNECTOR_DUMP_ROUTES_DOC = "Whether to log the Camel routes of the task as XML when it starts."
         + " Camel resolves property placeholders in the dump, so it can contain configuration values";
 
+    /**
+     * Not an option for users: the connector sets it in the configuration of its tasks, to the comma separated names of
+     * the options it defines with the type {@link ConfigDef.Type#PASSWORD}. A task masks the values of these options
+     * when it logs the properties it starts with, whatever their names.
+     */
+    public static final String CAMEL_CONNECTOR_PASSWORD_PROPERTIES_CONF = "camel.connector.passwordProperties";
+
     protected CamelConnectorConfig(ConfigDef definition, Map<?, ?> originals, Map<String, ?> configProviderProps, boolean doLog) {
         super(definition, originals, configProviderProps, doLog);
     }

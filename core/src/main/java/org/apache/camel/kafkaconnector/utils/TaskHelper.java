@@ -19,13 +19,17 @@ package org.apache.camel.kafkaconnector.utils;
 import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.kafkaconnector.CamelConnectorConfig;
 import org.apache.camel.spi.EndpointUriFactory;
+import org.apache.kafka.common.config.AbstractConfig;
+import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.slf4j.Logger;
 
@@ -114,6 +118,51 @@ public final class TaskHelper {
                     .forEach(k -> result.put(k, defaultProps.get(k)));
             return result;
         }
+    }
+
+    /**
+     * The names of the given properties that the definition declares with the type {@link ConfigDef.Type#PASSWORD},
+     * as the comma separated list a connector passes to its tasks under
+     * {@link CamelConnectorConfig#CAMEL_CONNECTOR_PASSWORD_PROPERTIES_CONF}.
+     *
+     * @param definition the configuration definition of the connector.
+     * @param props the properties of the connector.
+     * @return the comma separated names, empty when there is none.
+     */
+    public static String passwordPropertyNames(ConfigDef definition, Map<String, String> props) {
+        Map<String, ConfigDef.ConfigKey> keys = definition.configKeys();
+        return props.keySet().stream()
+            .filter(k -> keys.containsKey(k) && keys.get(k).type == ConfigDef.Type.PASSWORD)
+            .sorted()
+            .collect(Collectors.joining(","));
+    }
+
+    /**
+     * The names of the task properties whose values are passwords: the ones the connector listed under
+     * {@link CamelConnectorConfig#CAMEL_CONNECTOR_PASSWORD_PROPERTIES_CONF}, and the ones the configuration of the task
+     * declares with the type {@link ConfigDef.Type#PASSWORD}. The list of the connector is removed from the properties,
+     * as it is not a Camel property.
+     *
+     * @param config the configuration of the task.
+     * @param props the properties of the task, the list of the connector is removed from them.
+     * @return the names of the password properties.
+     */
+    public static Set<String> takePasswordPropertyNames(AbstractConfig config, Map<String, String> props) {
+        Set<String> names = new HashSet<>();
+        String listed = props.remove(CamelConnectorConfig.CAMEL_CONNECTOR_PASSWORD_PROPERTIES_CONF);
+        if (listed != null) {
+            for (String name : listed.split(",")) {
+                if (!name.isBlank()) {
+                    names.add(name.trim());
+                }
+            }
+        }
+        for (String name : props.keySet()) {
+            if (config.typeOf(name) == ConfigDef.Type.PASSWORD) {
+                names.add(name);
+            }
+        }
+        return names;
     }
 
     private static Boolean stringStartWithOneOfPrefixes(String s, Set<String> prefixes) {

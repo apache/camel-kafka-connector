@@ -16,11 +16,14 @@
  */
 package org.apache.camel.kafkaconnector.utils;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
@@ -106,6 +109,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private final String from;
         private final String to;
         private Map<String, String> props;
+        private Set<String> passwordProperties = Collections.emptySet();
         private String marshallDataFormat;
         private String unmarshallDataFormat;
         private int aggregationSize;
@@ -135,6 +139,17 @@ public class CamelKafkaConnectMain extends SimpleMain {
 
         public Builder withProperties(Map<String, String> props) {
             this.props = new HashMap<>(props);
+            return this;
+        }
+
+        /**
+         * The names of the properties whose values are passwords, such as the options a connector defines with the
+         * type PASSWORD. Their values are masked when the properties are logged, whatever their names.
+         *
+         * @param passwordProperties the names of the password properties.
+         */
+        public Builder withPasswordProperties(Collection<String> passwordProperties) {
+            this.passwordProperties = passwordProperties == null ? Collections.emptySet() : new HashSet<>(passwordProperties);
             return this;
         }
 
@@ -275,7 +290,11 @@ public class CamelKafkaConnectMain extends SimpleMain {
             // only checks the last segment of a key, which misses secrets such as sasl.jaas.config or ssl.keystore.key,
             // and the options of a custom login module or callback handler can be called anything. The Kafka clients
             // log the configuration they use themselves, with their own password masking.
+            // The options a connector defines with the type PASSWORD are masked whatever their name as well: Kafka
+            // Connect hides them in its own logs, and many of them (passphrases, client secrets, webhook URLs) are not
+            // names SensitiveUtils knows.
             if (SensitiveUtils.containsSensitive(key)
+                    || passwordProperties.contains(key)
                     || key.startsWith(CamelConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_CLIENT_PREFIX)) {
                 return key + "=xxxxxxx";
             }

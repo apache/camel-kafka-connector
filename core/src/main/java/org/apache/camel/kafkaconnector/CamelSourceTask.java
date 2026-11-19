@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.camel.CamelContext;
@@ -93,6 +94,8 @@ public class CamelSourceTask extends SourceTask {
             LOG.info("Starting CamelSourceTask connector task");
             Map<String, String> actualProps = TaskHelper.combineDefaultAndLoadedProperties(getDefaultConfig(), props);
             CamelSourceConnectorConfig config = getCamelSourceConnectorConfig(actualProps);
+            // the values of these options are masked when the properties of the task are logged
+            final Set<String> passwordProperties = TaskHelper.takePasswordPropertyNames(config, actualProps);
 
             String levelStr = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF);
             try {
@@ -170,6 +173,7 @@ public class CamelSourceTask extends SourceTask {
 
             cms = CamelKafkaConnectMain.builder(sourceKamelet, localUrl)
                 .withProperties(actualProps)
+                .withPasswordProperties(passwordProperties)
                 .withUnmarshallDataFormat(unmarshaller)
                 .withMarshallDataFormat(marshaller)
                 .withAggregationSize(size)
