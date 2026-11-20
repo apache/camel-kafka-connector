@@ -31,6 +31,7 @@
 
 **Closed issues:**
 
+- Mask the options of type PASSWORD in the task startup properties log [\#1874](https://github.com/apache/camel-kafka-connector/issues/1874)
 - Release CKC 4.22.0 [\#1825](https://github.com/apache/camel-kafka-connector/issues/1825)
 - Cannot load JDBC driver class 'com.microsoft.sqlserver.jdbc.SQLServerDriver' [\#1767](https://github.com/apache/camel-kafka-connector/issues/1767)
 - Upgrade to Camel 4.18.2 and 4.14.6 [\#1765](https://github.com/apache/camel-kafka-connector/issues/1765)
