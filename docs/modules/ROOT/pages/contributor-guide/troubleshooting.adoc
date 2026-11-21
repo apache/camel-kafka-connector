@@ -106,6 +106,18 @@ themselves: connectors built on a Camel release that contains it do not need the
 [#known-limitations]
 == Known Limitations
 
+[#camel-webhook-source-kafka-connector]
+=== Camel Webhook Source Kafka Connector
+
+The connector receives HTTP requests through an embedded HTTP server, which the connector starts by default, and which
+runs on the worker that runs the task. Up to 4.22.0, the connector package does not contain the HTTP server, and the
+task fails with
+`No platform-http-engine service could be found in the classpath. Add camel-platform-http-vertx to classpath.`, or,
+with `camel.server.enabled=true` in the connector configuration, with
+`No platform-http-server service could be found in the classpath. Add camel-platform-http-main to classpath.`
+See xref:user-guide/webhook-source.adoc[Webhook Source Connector] for the configuration, the deployment, the security
+and a workaround for 4.22.0, which needs a restart of the workers.
+
 [#camel-file-kafka-connector]
 === Camel File Kafka Connector
 

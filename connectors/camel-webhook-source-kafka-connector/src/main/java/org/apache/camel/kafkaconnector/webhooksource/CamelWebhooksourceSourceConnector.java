@@ -16,7 +16,7 @@
  */
 package org.apache.camel.kafkaconnector.webhooksource;
 
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
 import org.apache.camel.kafkaconnector.CamelSourceConnector;
@@ -32,6 +32,10 @@ public class CamelWebhooksourceSourceConnector extends CamelSourceConnector {
     }
     @Override
     protected Map<String, String> getConnectorDefaults() {
-        return Collections.singletonMap(CamelSourceConnectorConfig.CAMEL_SOURCE_KAMELET_CONF, "kamelet:webhook-source");
+        Map<String, String> defaults = new HashMap<>();
+        defaults.put(CamelSourceConnectorConfig.CAMEL_SOURCE_KAMELET_CONF, "kamelet:webhook-source");
+        defaults.put("camel.server.enabled", "true");
+        defaults.put("camel.server.fileUploadEnabled", "false");
+        return defaults;
     }
 }
