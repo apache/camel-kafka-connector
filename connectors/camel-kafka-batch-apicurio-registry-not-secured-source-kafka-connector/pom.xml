@@ -50,6 +50,11 @@
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.apicurio</groupId>
+      <artifactId>apicurio-common-rest-client-jdk</artifactId>
+      <version>0.1.18.Final</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-kafka</artifactId>
     </dependency>
